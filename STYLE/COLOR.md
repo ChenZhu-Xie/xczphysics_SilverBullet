@@ -3,6 +3,8 @@ _D_
 ?{blue}
 
 ```space-style
+   /* https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058 */
+ 
 @import {
   /* 给 data-tag-name="blue" 的 hashtag 上色 */
   .sb-hashtag[data-tag-name="blue"] {
