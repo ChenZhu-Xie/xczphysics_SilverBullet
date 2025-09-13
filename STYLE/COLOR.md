@@ -1,6 +1,6 @@
 
 
-#blue This text should turn blue
+This text should turn blue #blue
 
 ```space-style
    /* https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9 */
