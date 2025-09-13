@@ -1,9 +1,3 @@
----
-pageDecoration:
-    cssClasses:
-        - wine-table
----
-
 
 # Hello 👋
 Welcome to the wondrous world of SilverBullet. A world that once you discover and appreciate, you’ll never want to leave.
