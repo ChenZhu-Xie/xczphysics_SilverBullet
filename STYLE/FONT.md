@@ -38,7 +38,6 @@ html {
 html[data-theme="dark"], html[data-theme="dark"] {
     --top-background-color: rgba(30,33,38,255);
 }
-
 ```
 
 测试
