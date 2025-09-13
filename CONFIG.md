@@ -1,24 +1,6 @@
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua
-   ---- https://github.com/joekrill/silverbullet-treeview
- 
-config.set {
-  plugs = {
-    "github:joekrill/silverbullet-treeview/treeview.plug.js",
-  },
-}
-
-actionButton.define {
-  icon = "sidebar",
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand("Tree View: Toggle")
-  end
-}
-```
-
-```space-lua
    ---- https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
  
 config.set {
