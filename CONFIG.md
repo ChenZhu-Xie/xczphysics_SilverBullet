@@ -1,7 +1,8 @@
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua
- --https://github.com/joekrill/silverbullet-treeview
+ ---- https://github.com/joekrill/silverbullet-treeview
+ 
 config.set {
   plugs = {
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
@@ -18,7 +19,8 @@ actionButton.define {
 ```
 
 ```space-lua
- --https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+ ---- https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+ 
 config.set {
   git = {
     autoSync = 60 * 24, -- 只在启动的时候同步一次（设置超大间隔）
@@ -27,8 +29,9 @@ config.set {
 ```
 
 ```space-lua
- --https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
- --https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
+ ---- https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
+ ---- https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
+ 
 command.update {
   name = "Page: Delete",
   key = "Ctrl-Alt-d",
@@ -62,7 +65,7 @@ command.define {
 ```
 
 ```space-lua
-  --https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
+  ---- https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
   
 -- Escape regular expression special characters in keywords
 local function escapeKeyword(keyword)

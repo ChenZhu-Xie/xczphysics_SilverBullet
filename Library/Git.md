@@ -1,5 +1,5 @@
 ---
-githubUrl: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
+githubUrl: "https://gist.github.com/ChenZhu-Xie/1eb4b764474a2b0cd94a351969d2e5bb"
 ---
 #meta
 
