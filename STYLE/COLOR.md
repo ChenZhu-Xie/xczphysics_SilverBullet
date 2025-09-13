@@ -27,6 +27,8 @@ This text should turn blue #blue
 Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.
 
 ```space-lua
+   ---- https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9
+
 function Red(text)
   return widget.html(dom.span {
     style="color:red; font-weight: bold;",

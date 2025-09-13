@@ -1,7 +1,7 @@
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua
- ---- https://github.com/joekrill/silverbullet-treeview
+   ---- https://github.com/joekrill/silverbullet-treeview
  
 config.set {
   plugs = {
@@ -19,7 +19,7 @@ actionButton.define {
 ```
 
 ```space-lua
- ---- https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+   ---- https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
  
 config.set {
   git = {
@@ -29,8 +29,8 @@ config.set {
 ```
 
 ```space-lua
- ---- https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
- ---- https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
+   ---- https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
+   ---- https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
  
 command.update {
   name = "Page: Delete",
@@ -65,7 +65,7 @@ command.define {
 ```
 
 ```space-lua
-  ---- https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
+   ---- https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
   
 -- Escape regular expression special characters in keywords
 local function escapeKeyword(keyword)
