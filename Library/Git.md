@@ -351,8 +351,9 @@ command.define {
       releaseGitLock()
       return
     end
-    
-    editor.flashNotification("Force push initial commit successful on " .. detectedOS .. "!", "info")
+
+    editor.flashNotification("Force push initial commit successful!", "info")
+    --editor.flashNotification("Force push initial commit successful on " .. detectedOS .. "!", "info")
     releaseGitLock()
   end
 }
