@@ -1,6 +1,7 @@
 ---
 pageDecoration:
-    cssClasses:  sea-table
+    cssClasses:
+        - wine-table
 ---
 
 
