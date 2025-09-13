@@ -1,7 +1,7 @@
 ---
 pageDecoration:
     cssClasses:
-        - wine-table
+        - sea-table
 ---
 
 | 左 | 中 | 右 |
