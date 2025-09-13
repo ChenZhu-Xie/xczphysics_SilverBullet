@@ -1,20 +1,25 @@
-*D*
-_D_
-?{blue}
+
+
+
 
 ```space-style
-   /* https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058 */
+   /* https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9 */
  
 @import {
-  /* 给 data-tag-name="blue" 的 hashtag 上色 */
-  .sb-hashtag[data-tag-name="blue"] {
-    color: blue;
-    font-weight: bold;
+  .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight) + .sb-highlight,
+  .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight, + .sb-highlight) > .sb-highlight,
+  .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight) + .sb-highlight + .sb-meta.sb-highlight,
+  .sb-meta.sb-highlight:has(+ .sb-hashtag[data-tag-name="blue"]) {
+    background-color: blue !important;
   }
-
-  /* 可选：紧跟的 highlight 背景变浅蓝 */
-  .sb-hashtag[data-tag-name="blue"] + .sb-highlight {
-    background-color: #ccf;
+  
+  .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight) + .sb-highlight {
+    display:inline-block;
+    text-indent: -1ch;
+  }
+  
+  .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight, + .sb-highlight):not(:has( + .sb-highlight + .sb-highlight.sb-meta)) {
+    display: none;
   }
 }
 ```
