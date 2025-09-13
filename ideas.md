@@ -1,0 +1,2 @@
+
+SilverBullet 这种 online 版 自带 lua 运行环境的 可编程 LogSeq 很符合我对 [双链笔记软件式的 IDE 的幻想](https://youtu.be/eSe6aFzK-uo)。 
