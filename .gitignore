@@ -1,0 +1,4 @@
+.silverbullet.db*
+# _plug/
+.bat
+.sublime-workspace
