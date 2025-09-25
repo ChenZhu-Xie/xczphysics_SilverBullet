@@ -947,4 +947,46 @@ event.listen {
     end
   end
 }
+
+-- 添加关闭时同步监听器
+event.listen {
+  name = "system:shutdown",
+  run = function()
+    print("System shutdown detected. Performing final git sync...")
+    editor.flashNotification("System shutdown: performing final git sync...", "warning")
+    
+    -- 执行同步，但不显示步骤信息以加快速度
+    local syncOk, syncMessage = git.sync(false, false) -- 不显示步骤，非冷启动
+    
+    if syncOk == true then
+      print("Shutdown sync completed successfully")
+      editor.flashNotification("Final git sync complete. Safe to close.", "warning")
+    elseif syncOk == "nothing" then
+      print("Shutdown sync: nothing to commit")
+      editor.flashNotification("Nothing to sync. Safe to close.", "warning")  
+    elseif syncOk == false then
+      print("Shutdown sync failed:", syncMessage)
+      editor.flashNotification("Shutdown sync failed: " .. syncMessage, "error")
+    end
+  end
+}
+
+-- 也可以监听窗口关闭事件作为备选
+event.listen {
+  name = "window:beforeUnload", 
+  run = function()
+    print("Window closing detected. Attempting quick git sync...")
+    
+    -- 快速同步，不显示详细步骤
+    local syncOk, syncMessage = git.sync(false, false)
+    
+    if syncOk == true then
+      print("Window close sync completed")
+    else
+      print("Window close sync result:", syncOk, syncMessage)
+    end
+  end
+}
+
+print("Shutdown git sync listeners enabled.")
 ```
