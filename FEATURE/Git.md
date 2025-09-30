@@ -1,4 +1,6 @@
 
+1. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+
 ```space-lua
 config.set {
   git = {
@@ -6,4 +8,3 @@ config.set {
   },
 }
 ```
-1. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md

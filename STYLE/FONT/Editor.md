@@ -9,7 +9,7 @@ aaii
 好像现在宽度完全一致了？6
 iiaahhddnnmmkkaaoozzxc660
 
-[how do i change the editors default font size](https://community.silverbullet.md/t/how-do-i-change-the-editors-default-font-size/1205/2?u=chenzhu-xie) #SB_Community
+1. [how do i change the editors default font size](https://community.silverbullet.md/t/how-do-i-change-the-editors-default-font-size/1205/2?u=chenzhu-xie) #SB_Community
 
 ```space-style
 #sb-root {

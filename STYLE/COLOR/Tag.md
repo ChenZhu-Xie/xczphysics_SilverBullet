@@ -1,10 +1,10 @@
 
 This text should turn blued #blue
 
+1. https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9
+2. https://chatgpt.com/share/68c5a24b-db7c-8010-8178-43e725691479
+
 ```space-style
-   /* https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9 */
-   /* https://chatgpt.com/share/68c5a24b-db7c-8010-8178-43e725691479 */
-   
 @import {
   .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight) + .sb-highlight,
   .sb-hashtag[data-tag-name="blue"]:has(.sb-highlight, + .sb-highlight) > .sb-highlight,
