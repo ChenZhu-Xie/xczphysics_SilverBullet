@@ -1,4 +1,3 @@
-
 # Hello 👋
 Welcome to the wondrous world of SilverBullet. A world that once you discover and appreciate, you’ll never want to leave.
 
@@ -15,7 +14,7 @@ _Ah, so that explains the name!_
   * Folders are implicitly created by putting slashes (`/`) in the name (even on Windows), e.g. `My Folder/My Page`. Don’t worry about folders existing, SilverBullet will automatically create them if they don’t.
 * Click on the terminal icon (top right), or hit `Cmd-/` (Mac) or `Ctrl-/` (Linux and Windows) to open the **command palette**. From here you can run various useful and perhaps less useful commands.
 * Select some text and hit `Cmd-b` (Mac) or `Ctrl-b` (Windows/Linux) to make it **bold**, or `Cmd-i` (Mac) or `Ctrl-i` (Windows/Linux) to make it _italic_.
-* You can create links to pages using the `[[other page]]` syntax, for instance: [[Notes/aspiring page]]. When you link to a non-existent page it will initially show up in orange (to indicate it does not yet exist), but once you click it — you will create the page automatically (only for real when you actually enter some text).
+* You can create links to pages using the `[[other page]]` syntax, for instance: `[[aspiring page]]`. When you link to a non-existent page it will initially show up in orange (to indicate it does not yet exist), but once you click it — you will create the page automatically (only for real when you actually enter some text).
 * Start typing `:party` to trigger the emoji picker 🎉
 * Type `/` somewhere in the text to invoke a **slash command**.
 * If this matches your personality type, there is also an `Editor: Toggle Vim Mode` command to switch to Vim mode. If you cannot figure out how to exit it (classic vim issue), just run that same command again. _Phew!_
