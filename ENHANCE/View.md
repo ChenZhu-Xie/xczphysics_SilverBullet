@@ -1,7 +1,5 @@
 
 ```space-lua
-   ---- https://github.com/joekrill/silverbullet-treeview
- 
 config.set {
   plugs = {
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
@@ -16,3 +14,4 @@ actionButton.define {
   end
 }
 ```
+1. https://github.com/joekrill/silverbullet-treeview

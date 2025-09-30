@@ -1,7 +1,5 @@
 
 ```space-lua
-   ---- https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
-  
 -- Escape regular expression special characters in keywords
 local function escapeKeyword(keyword)
     -- List of regular expression special characters: . ^ $ * + ? ( ) [ ] { } | \
@@ -80,3 +78,4 @@ command.define {
   end
 }
 ```
+1. https://community.silverbullet.md/t/fixing-silver-bullets-chinese-search-gap-a-space-lua-global-search-implementation/3157
