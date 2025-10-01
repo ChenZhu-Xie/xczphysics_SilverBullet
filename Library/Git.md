@@ -915,8 +915,8 @@ end
 event.listen {
   name = "page:saved",
   run = function(event)
-    -- ✅ 移除锁检查，让核心函数处理互斥
-    print("Page '" .. event.name .. "' saved. Scheduling git sync in " .. AutoSyncManager.eventSyncDelaySeconds/60 .. " minutes.")
+    local pageName = event.data and event.data.name or "?"
+    print("Page '" .. pageName .. "' saved. Scheduling git sync in " .. AutoSyncManager.eventSyncDelaySeconds/60 .. " minutes.")
     AutoSyncManager.eventSyncScheduledAt = os.time()
   end
 }
@@ -925,11 +925,10 @@ print("Event-driven git sync enabled (on page save).")
 event.listen {
   name = "cron:secondPassed",
   run = function()
-    -- ✅ 简化逻辑，让核心函数处理锁
     local syncType = AutoSyncManager:shouldTriggerSync()
 
     if syncType then
-      print("=== " .. syncType .. " sync trigger detected ===") -- 添加调试信息
+      print("=== " .. syncType .. " sync trigger detected ===")
 
       -- Update sync state
       AutoSyncManager:updateSyncState(syncType)
