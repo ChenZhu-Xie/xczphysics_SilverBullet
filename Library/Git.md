@@ -831,7 +831,7 @@ local AutoSyncManager = {
   coldStartSyncTriggered = false,
   startupTime = os.time(),
   eventSyncScheduledAt = 0,
-  eventSyncDelaySeconds = 60
+  eventSyncDelaySeconds = 10
 }
 
 function AutoSyncManager:shouldTriggerSync()
