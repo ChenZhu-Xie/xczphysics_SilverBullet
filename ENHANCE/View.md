@@ -2,12 +2,6 @@
 1. https://github.com/joekrill/silverbullet-treeview
 
 ```space-lua
-config.set {
-  plugs = {
-    "github:joekrill/silverbullet-treeview/treeview.plug.js",
-  },
-}
-
 actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
