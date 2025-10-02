@@ -2,7 +2,6 @@ This is where you configure SilverBullet to your liking. See [[^Library/Std/Conf
 
 ```space-lua
 config.set("plugs", {
-    -- Add your plugs here (https://silverbullet.md/Plugs)
-    -- Then run the `Plugs: Update` command to update them
+    "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 ```
