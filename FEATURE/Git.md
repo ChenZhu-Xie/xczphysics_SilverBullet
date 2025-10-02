@@ -2,5 +2,5 @@
 1. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
 
 ```space-lua
-config.set("git", {autoSync = 1})
+config.set("git", {autoSync = 5})
 ```
