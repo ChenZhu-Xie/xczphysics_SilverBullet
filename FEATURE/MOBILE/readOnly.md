@@ -10,7 +10,8 @@ config.set("readOnly", {
     persistent = true,
     enabledIcon = 'edit',
     disabledIcon = 'eye'
-  })
+  }
+)
 
 actionButton.define {
   mobile = config.get('readOnly').mobileOnlyActionButton,
