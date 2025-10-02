@@ -31,7 +31,7 @@ config.set("git.autoSync", 5)
 
 Real configuration:
 ```space-lua
-config.set("git", {autoSync = 0.1})
+config.set("git", {autoSync = 1})
 ```
 
 # Implementation
