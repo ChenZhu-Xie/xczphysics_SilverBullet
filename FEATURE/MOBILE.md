@@ -1,13 +1,7 @@
 
 d
 d
-actionButton.define {
-  icon = "sidebar",
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand("Tree View: Toggle")
-  end
-}
+
 ```space-lua
 -- Must be set before actionButtons
 config.set( "readOnly", {
@@ -20,21 +14,15 @@ config.set( "readOnly", {
   }
 )
 
-config.set {
-  actionButtons = {
-    -- Your other action buttons here...
-    {
-      mobile = config.get('readOnly').mobileOnlyActionButton,
-      icon = editor.getUiOption("forcedROMode") and config.get('readOnly').enabledIcon or config.get('readOnly').disabledIcon,
-      description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
-      run = function()
-        editor.invokeCommand("Toggle Read-Only Mode")
-      end
-    }
-  }
+actionButton.define {
+  mobile = config.get('readOnly').mobileOnlyActionButton,
+  icon = editor.getUiOption("forcedROMode") and config.get('readOnly').enabledIcon or config.get('readOnly').disabledIcon,
+  description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
+  run = function()
+    editor.invokeCommand("Toggle Read-Only Mode")
+  end
 }
 
---
 -- Read-only mode implementation
 
 function toggleReadOnlyMode()
