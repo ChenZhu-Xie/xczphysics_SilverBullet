@@ -2,7 +2,7 @@
 1. https://github.com/joekrill/silverbullet-treeview
 
 ```space-lua
-config.set("plugs", {
+config.update("plugs", {
     "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 
