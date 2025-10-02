@@ -1,6 +1,5 @@
 
-d
-d
+Modified from https://community.silverbullet.md/t/togglable-and-configurable-read-only-mode/3147
 
 ```space-lua
 -- Must be set before actionButtons
