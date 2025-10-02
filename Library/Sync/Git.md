@@ -22,9 +22,16 @@ ${widgets.commandButton("Git: Commit")}
 # Configuration
 There is currently only a single configuration option: `git.autoSync`. When set, the `Git: Sync` command will be run every _x_ minutes.
 
+1. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+
 Example configuration:
 ```lua
 config.set("git.autoSync", 5)
+```
+
+Real configuration:
+```space-lua
+config.set("git", {autoSync = 0.1})
 ```
 
 # Implementation
