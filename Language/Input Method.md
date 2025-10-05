@@ -1,6 +1,8 @@
 
 https://dieken.gitlab.io/posts/chinese-input-methods/
 https://zhuanlan.zhihu.com/p/682623014
+  小鹤
+       https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
   简单鹤
        https://flauver.github.io/jdh/
        https://www.zhihu.com/question/549135035
