@@ -13,5 +13,6 @@ https://zhuanlan.zhihu.com/p/682623014
   星空键道 https://xkinput.github.io/
        https://www.zhihu.com/question/517260176/answer/2426589323
   墨奇
+       https://github.com/gaboolic/moqima-tables
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
        https://moqiyinxing.chunqiujinjing.com/index/jin-jie-ji-shu-xi-jie/zhi-zuo-mo-qi-yin-xing-ren-yi-shuang-pin-fu-zhu-ma
