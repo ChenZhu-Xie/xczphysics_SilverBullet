@@ -12,3 +12,5 @@ https://zhuanlan.zhihu.com/p/682623014
        https://zhuanlan.zhihu.com/p/1941970013050349228
   星空键道 https://xkinput.github.io/
        https://www.zhihu.com/question/517260176/answer/2426589323
+  墨奇
+       https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
