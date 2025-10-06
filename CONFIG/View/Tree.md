@@ -13,6 +13,13 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
 ```
 
 ```space-lua
+config.set(
+  "plugs", {
+    -- 第一个 config.set() 覆盖 第二个 config.set() 覆盖 config.set{}
+    "github:joekrill/silverbullet-treeview/treeview.plug.js",
+    "ghr:MrMugame/silversearch"
+  })
+  
 actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
