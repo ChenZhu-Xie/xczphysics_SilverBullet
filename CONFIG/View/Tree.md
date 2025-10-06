@@ -10,7 +10,9 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
     -- "github:joekrill/silverbullet-treeview/treeview.plug.js",
     -- "ghr:MrMugame/silversearch" -- 由于会相互覆盖，多插件须写在同一个 config.set 下
   })
+```
 
+```space-lua
 actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
