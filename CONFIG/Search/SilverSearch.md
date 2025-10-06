@@ -3,7 +3,8 @@
 
 ```lua
 config.set("plugs", {
-  "_plug/silversearch.plug.js"
+  "silversearch.plug.js"
+  -- "_plug/silversearch.plug.js"
   -- "file:/_plug/silversearch.plug.js"
   -- "file://.space/_plug/silversearch.plug.js"
   -- "ghr:MrMugame/silversearch"
