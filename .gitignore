@@ -3,3 +3,4 @@
 *.bat
 *.sublime-workspace
 CONTAINER_BOOT.md
+*.silverbullet.auth.json
