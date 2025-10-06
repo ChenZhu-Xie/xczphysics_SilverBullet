@@ -3,7 +3,7 @@
 
 ```space-lua
 config.set("plugs", {
-    "file://.SB_space/_plug/treeview.plug.js"
+    "file://./_plug/treeview.plug.js"
     -- "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 
