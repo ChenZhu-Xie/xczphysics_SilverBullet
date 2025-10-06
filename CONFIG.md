@@ -6,7 +6,7 @@ config.set {
     -- Add your plugs here (https://silverbullet.md/Plugs)
     -- Then run the `Plugs: Update` command to update them
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
-    "ghr:MrMugame/silversearch",
+    "ghr:MrMugame/silversearch"
   }
 }
 ```
