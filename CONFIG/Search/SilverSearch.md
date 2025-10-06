@@ -1,8 +1,8 @@
 
-1. https://github.com/MrMugame/silversearch?tab=readme-ov-file#silversearch
+1. https://github.com/MrMugame/silversearch#silversearch
 
 ```space-lua
 config.set("plugs", {
-  "github:MrMugame/silversearch/releases/latest/silversearch.plug.js"
+  "github:MrMugame/silversearch/releases/latest"
   })
 ```
