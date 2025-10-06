@@ -6,7 +6,7 @@
 
 ```
 
-```
+```lua
 command.define {
   name = "Navigate: CONFIG",
   run = function()
