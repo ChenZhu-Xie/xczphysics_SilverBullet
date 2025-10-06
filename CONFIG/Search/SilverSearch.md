@@ -3,6 +3,6 @@
 
 ```space-lua
 config.set("plugs", {
-    "ghr:MrMugame/silversearch"
+    "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 ```
