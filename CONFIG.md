@@ -6,7 +6,7 @@ config.set{
     -- Add your plugs here (https://silverbullet.md/Plugs)
     -- Then run the `Plugs: Update` command to update them
   }
-}
+P}
 
 config.set( -- 第一个 config.set() 覆盖 第二个 config.set() 覆盖 config.set{}
   "plugs", {
