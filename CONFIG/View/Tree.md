@@ -2,9 +2,10 @@
 1. https://github.com/joekrill/silverbullet-treeview
 
 ```space-lua
+-- priority: 100
 config.set("plugs", {
-    "file://.space/_plug/treeview.plug.js"
-    -- "github:joekrill/silverbullet-treeview/treeview.plug.js"
+    -- "file://.space/_plug/treeview.plug.js"
+    "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 
 actionButton.define {
