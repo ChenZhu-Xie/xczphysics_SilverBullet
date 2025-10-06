@@ -8,6 +8,6 @@ config.set("plugs", {
   -- "ghr:MrMugame/silversearch"
   -- "github:MrMugame/silversearch/silversearch.plug.js"
   -- "github:MrMugame/silversearch/releases/latest/download/silversearch.plug.js"
-  "github:MrMugame/silversearch/dist/silversearch.plug.js@main"
+"github:MrMugame/silversearch/releases/download/1.1.3/silversearch.plug.js"
   })
 ```
