@@ -3,8 +3,8 @@
 
 ```space-lua
 config.set("plugs", {
-    "file://.space/_plug/treeview.plug.js"
-    -- "github:joekrill/silverbullet-treeview/treeview.plug.js"
+    -- "file://.space/_plug/treeview.plug.js"
+    "github:joekrill/silverbullet-treeview/treeview.plug.js"
   })
 
 actionButton.define {
