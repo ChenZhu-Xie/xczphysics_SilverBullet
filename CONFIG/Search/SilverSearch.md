@@ -3,6 +3,6 @@
 
 ```space-lua
 config.set("plugs", {
-  "ghr:MrMugame/silversearch"
+    "ghr:MrMugame/silversearch"
   })
 ```
