@@ -2,6 +2,7 @@
 1. https://github.com/MrMugame/silversearch#silversearch
 
 ```space-lua
+-- priority: 100
 config.set("plugs", {
   "file://.space/_plug/silversearch.plug.js"
   -- "ghr:MrMugame/silversearch"
