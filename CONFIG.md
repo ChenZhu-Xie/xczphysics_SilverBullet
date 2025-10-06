@@ -14,12 +14,4 @@ config.set(
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
     "ghr:MrMugame/silversearch",
   })
-
-actionButton.define {
-  icon = "sidebar",
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand("Tree View: Toggle")
-  end
-}
 ```
