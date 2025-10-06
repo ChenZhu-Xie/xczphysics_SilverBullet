@@ -12,3 +12,7 @@ config.set("plugs", { -- 注意，第一个 config.set() 覆盖 第二个 config
   -- "github:MrMugame/silversearch/releases/latest/download/silversearch.plug.js"
   })
 ```
+
+```space-lua
+
+```
