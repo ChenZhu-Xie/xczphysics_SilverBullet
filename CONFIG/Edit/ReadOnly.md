@@ -4,7 +4,7 @@
 ```space-lua
 -- Must be set before actionButtons
 config.set("readOnly", {
-    mobileOnlyActionButton = false,
+    mobileOnlyActionButton = true,
     disableCheckboxes = true,
     shortcut = 'Ctrl-alt-t',
     persistent = true,
