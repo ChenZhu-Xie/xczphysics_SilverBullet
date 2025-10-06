@@ -1,7 +1,7 @@
 
 1. https://github.com/MrMugame/silversearch#silversearch
 
-```lua
+```space-lua
 config.set("plugs", {
   "silversearch.plug.js"
   -- "_plug/silversearch.plug.js"
