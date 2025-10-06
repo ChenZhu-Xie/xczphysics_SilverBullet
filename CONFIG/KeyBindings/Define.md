@@ -3,6 +3,10 @@
 2. https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
 
 ```space-lua
+
+```
+
+```
 command.define {
   name = "Navigate: CONFIG",
   run = function()

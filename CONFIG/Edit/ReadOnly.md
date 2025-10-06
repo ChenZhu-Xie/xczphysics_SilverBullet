@@ -4,7 +4,7 @@ Modified from https://community.silverbullet.md/t/togglable-and-configurable-rea
 ```space-lua
 -- Must be set before actionButtons
 config.set("readOnly", {
-    mobileOnlyActionButton = false,
+    mobileOnlyActionButton = true,
     disableCheckboxes = true,
     shortcut = 'Ctrl-alt-t',
     persistent = true,
