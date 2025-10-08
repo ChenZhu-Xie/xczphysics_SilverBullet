@@ -11,6 +11,8 @@ pageDecoration:
 | Line: | Move down | | | Alt | ↓ |
 | Widgets: | Refresh All | | | Alt | q |
 
+[[CONFIG/KeyBindings@12]]
+
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Navigate: | Home | Ctrl | | | h |
