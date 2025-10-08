@@ -5,8 +5,8 @@
 ```space-lua
 command.update {
   name = "Page: Delete",
-  key = "Ctrl-Alt-d",
-  mac = "Cmd-Alt-d",
+  key = "Ctrl-d",
+  mac = "Cmd-d",
   priority = 0
 }
 
@@ -19,8 +19,8 @@ command.update {
 
 command.update {
   name = "Navigate: Home",
-  key = "Ctrl-Alt-h",
-  mac = "Cmd-Alt-h",
+  key = "Ctrl-h",
+  mac = "Cmd-h",
   priority = 0
 }
 ```
