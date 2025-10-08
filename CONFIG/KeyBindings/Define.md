@@ -12,8 +12,8 @@ command.define {
   run = function()
     editor.navigate "CONFIG"
   end,
-  key = "Ctrl-c",
-  mac = "Cmd-c",
+  key = "Ctrl-Alt-c",
+  mac = "Cmd-Alt-c",
   priority = 0
 }
 ```
