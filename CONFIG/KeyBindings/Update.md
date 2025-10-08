@@ -9,14 +9,18 @@ command.update {
   mac = "Cmd-Alt-d",
   priority = 0
 }
+```  
 
+```space-lua
 command.update {
   name = "Navigate: Page Picker",
   key = "Ctrl-l",
   mac = "Cmd-l",
   priority = 0
 }
+```
 
+```space-lua
 command.update {
   name = "Navigate: Home",
   key = "Ctrl-h",

@@ -1,3 +1,8 @@
+---
+pageDecoration:
+    cssClasses:
+        - wine-table
+---
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
