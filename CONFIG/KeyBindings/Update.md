@@ -12,8 +12,8 @@ command.update {
 
 command.update {
   name = "Navigate: Page Picker",
-  key = "Ctrl-Alt-p",
-  mac = "Cmd-Alt-p",
+  key = "Ctrl-p",
+  mac = "Cmd-p",
   priority = 0
 }
 
