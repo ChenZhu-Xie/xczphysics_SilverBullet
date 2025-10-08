@@ -5,8 +5,8 @@
 ```space-lua
 command.update {
   name = "Page: Delete",
-  key = "Ctrl-d",
-  mac = "Cmd-d",
+  key = "Ctrl-Alt-d",
+  mac = "Cmd-Alt-d",
   priority = 0
 }
 
