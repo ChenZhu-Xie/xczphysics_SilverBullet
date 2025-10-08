@@ -1,4 +1,5 @@
-| Target: | Operation | Ctrl | Shift | Alt | Letter |
+
+| Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Page: | Delete | Ctrl | | Alt | d |
 | Navigate: | Home | Ctrl | | | h |
