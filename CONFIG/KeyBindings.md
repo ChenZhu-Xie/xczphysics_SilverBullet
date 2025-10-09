@@ -10,6 +10,7 @@ pageDecoration:
 | Line: | Move Up | | | Alt | ↑ |
 | Line: | Move down | | | Alt | ↓ |
 | Widgets: | Refresh All | | | Alt | q |
+| Header: | Toggle Level | Ctrl | | | 1 |
 
 [[CONFIG/KeyBindings@12]]
 
