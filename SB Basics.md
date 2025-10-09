@@ -13,7 +13,7 @@
 ## Slash Commands
 ### Task
   * [ ] [Turn a Line into a Task](https://youtu.be/bb1USz_cEBY?t=455): ${Red("/task")}
-  * [ ] [SB Feature: linked task](https://youtu.be/7hyLvEfw34w?t=827): Remember to Link [[CONFIG]] & [[STYLE]] to [[SB_Basics]]
+  * [ ] [SB Feature: linked task](https://youtu.be/7hyLvEfw34w?t=827): Remember to Link [[CONFIG]] & [[STYLE]] to [[SB Basics]]
 ### Table
   - [Generate a markdown Table](https://youtu.be/bb1USz_cEBY?t=468): ${Red("/table")}
     | Header A | Header B |
@@ -36,7 +36,7 @@
   4. ${Green("Shift + Enter")} - [Create (aspiring) Page](https://youtu.be/7hyLvEfw34w?t=240)
 ### Create Page inside Current Folder
 #### if this_file.dir_level == top_1
-  - follow [[SB_Basics#Create Page alongside Current Folder]]
+  - follow [[SB Basics#Create Page alongside Current Folder]]
 #### else
   1. ${Green("Ctrl + /")} - Navigate: Command Picker
   2. Input: “Page Copy” then ${Green("Enter")}
