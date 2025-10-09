@@ -6,12 +6,13 @@ pageDecoration:
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Page: | Delete | Ctrl | | Alt | d |
-| Line: | Move Up | | | Alt | ↑ |
-| Line: | Move down | | | Alt | ↓ |
-| Widgets: | Refresh All | | | Alt | q |
+| Outine: | Move Up | | | Alt | ↑ |
+| Outine: | Move down | | | Alt | ↓ |
+| Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | Toggle Level | Ctrl | | | 1 |
-| Header/Outline: | Toggle fold | | Shift | Alt | f |
+| Widget: | Refresh All | | | Alt | q |
+| Page: | Delete | Ctrl | | Alt | d |
+| Tree View: | Toggle on/off | Ctrl | | Alt | b |
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
