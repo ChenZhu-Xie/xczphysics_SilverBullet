@@ -1,5 +1,5 @@
 
-# This ‘Website’: SilverBullet itself
+# This ‘Website’: SilverBullet README
 - This page focuses on the basic operations in SB
 - ← this is also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
 
@@ -8,26 +8,25 @@
   - Custum ∪ Core [[CONFIG/KeyBindings]]
 
 # Format Syntax
-### Embedding
-  - [transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
-     - example: `![[SB page path]]`, `![[local file path.png]]`
-  - image: `![image name](url)`
-
-# Slash Commands
-## Task
-  * [ ] [Turn a Line into a Task](https://youtu.be/bb1USz_cEBY?t=455): `/task`
-  * [ ] [SB Feature: linked task](https://youtu.be/7hyLvEfw34w?t=827): Remember to link [[CONFIG]] & [[STYLE]] to [[SB_Basics]]
-## Table
-  - [Generate a markdown Table](https://youtu.be/bb1USz_cEBY?t=468): `/table`
+## Embed Objects
+  - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
+     - Example: `![[SB page path]]`, `![[local file path.png]]`
+  - Image: `![image name](url)`
+## Slash Commands
+### Task
+  * [ ] [Turn a Line into a Task](https://youtu.be/bb1USz_cEBY?t=455): ${Red("/task")}
+  * [ ] [SB Feature: linked task](https://youtu.be/7hyLvEfw34w?t=827): Remember to Link [[CONFIG]] & [[STYLE]] to [[SB_Basics]]
+### Table
+  - [Generate a markdown Table](https://youtu.be/bb1USz_cEBY?t=468): ${Red("/table")}
     | Header A | Header B |
 |----------|----------|
 | Cell A | Cell B |
+### Date
+  - [Generate a date](https://youtu.be/bb1USz_cEBY?t=573): ${Red("/today")} 2025-10-08
 ## Emoji
   - [Generate a emoji](https://youtu.be/bb1USz_cEBY?t=492): `:laugh` 🤣
-## Date
-  - [Generate a date](https://youtu.be/bb1USz_cEBY?t=573): `/today` 2025-10-08
 
-# Workflows
+# Orgnizing Workflows
 
 ## Dir Tree
 ### Create Page alongside Current Folder
@@ -51,17 +50,29 @@
 
 ## Tag Query
 ### Aggregation for future
-  1. [ ] assign a #todo tag for every todo
-  2. then [enter this ↑ page to filter all todos](https://youtu.be/bZ79-RbyNoU?t=423)
+  1. [ ] assign a #todo tag for every todo,
+  2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
 
-## IndexDB
-### Terminology
-| Database Term | SilverBullet |
+## IndexDB Query
+### Terminology Mapping
+  - [Database Term of SilverBullet](https://youtu.be/Of7zE0AVApc?t=222)
+    | Database Term | SilverBullet |
 |----------|----------|
 | table | tag |
 | row | object |
 | primary key | ref |
+### Query with `${.lua}`
+- [Example: `${.space-lua}` on the ==index== (i.e. in the database)](https://youtu.be/Of7zE0AVApc?t=510)
+  - return a list as table
+  -
+  - ${query[[
+      from index.tag "page"
+      where name:startsWith("Inbox/")
+      order by lastModified desc
+      select {ref=ref, lastModified=lastModified}
+    ]]}
 
+https://youtu.be/Of7zE0AVApc?t=510
 
 # Configuration
 [[CONFIG]]
