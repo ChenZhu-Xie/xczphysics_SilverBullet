@@ -11,8 +11,7 @@ pageDecoration:
 | Line: | Move down | | | Alt | ↓ |
 | Widgets: | Refresh All | | | Alt | q |
 | Header: | Toggle Level | Ctrl | | | 1 |
-
-[[CONFIG/KeyBindings@12]]
+| Header/Outline: | Toggle fold | | Shift | Alt | f |
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
