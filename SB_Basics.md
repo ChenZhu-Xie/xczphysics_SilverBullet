@@ -1,17 +1,15 @@
 
 # This ‘Website’: SilverBullet README
-- This page focuses on the basic operations in SB
-- ← this is also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
+  - This page focuses on the basic operations in SB
+  - ← this is also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
 
 # Key Bindings
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
   - Custum ∪ Core [[CONFIG/KeyBindings]]
 
 # Format Syntax
-## Embed Objects
-  - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
-     - Example: `![[SB page path]]`, `![[local file path.png]]`
-  - Image: `![image name](url)`
+## Emoji
+  - [Generate a emoji](https://youtu.be/bb1USz_cEBY?t=492): `:laugh` 🤣
 ## Slash Commands
 ### Task
   * [ ] [Turn a Line into a Task](https://youtu.be/bb1USz_cEBY?t=455): ${Red("/task")}
@@ -23,8 +21,10 @@
 | Cell A | Cell B |
 ### Date
   - [Generate a date](https://youtu.be/bb1USz_cEBY?t=573): ${Red("/today")} 2025-10-08
-## Emoji
-  - [Generate a emoji](https://youtu.be/bb1USz_cEBY?t=492): `:laugh` 🤣
+## Embed Objects
+  - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
+     - Example: `![[SB page path]]`, `![[local file path.png]]`
+  - Image: `![image name](url)`
 
 # Orgnizing Workflows
 
@@ -48,31 +48,35 @@
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
 
-## Tag Query
+## Tag Attribute
 ### Aggregation for future
   1. [ ] assign a #todo tag for every todo,
   2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
 
 ## IndexDB Query
 ### Terminology Mapping
-  - [Database Term of SilverBullet](https://youtu.be/Of7zE0AVApc?t=222)
+- [Database Term of SilverBullet](https://youtu.be/Of7zE0AVApc?t=222)
     | Database Term | SilverBullet |
 |----------|----------|
 | table | tag |
 | row | object |
 | primary key | ref |
 ### Query with `${.lua}`
-- [Example: `${.space-lua}` on the ==index== (i.e. in the database)](https://youtu.be/Of7zE0AVApc?t=510)
-  - return a list as table
-  -
-  - ${query[[
+- Example: `${.space-lua}` on the ==index== (i.e. in the database)
+  1. ${Red("/query")} [returns a table](https://youtu.be/Of7zE0AVApc?t=509)
+     ${query[[
       from index.tag "page"
       where name:startsWith("Inbox/")
       order by lastModified desc
       select {ref=ref, lastModified=lastModified}
     ]]}
+  2. modified ${Red("/query")} [returns a list](https://youtu.be/Of7zE0AVApc?t=701)
+     ${template.each(query[[
+      from index.tag "page"
+      where name:startsWith("Inbox/")
+      order by lastModified desc
+    ]], templates.fullPageItem)}
 
-https://youtu.be/Of7zE0AVApc?t=510
 
 # Configuration
 [[CONFIG]]
