@@ -42,7 +42,8 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
        就可以在每个子方案接下一个任意子方案，都可以顶功：S 充当分隔 _
   
 ### 双拼 (SY..) +
-https://www.zhihu.com/question/1941614246552133827
+最强双拼：乱序飞猫 https://macroxue.github.io/shuangpin/eval.html
+https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
   - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
     - 比如 mwyi 就是 “每一” 等等。
@@ -51,8 +52,6 @@ https://www.zhihu.com/question/1941614246552133827
   - 但实际上，mwy<?> 的填充率并不高，所以如声笔输入法类似的顶功方案
     - 就直接丢弃最后一两码，3 码自动上屏。
     - 所以，声笔飞单的 21×21×5×5 本身是牺牲了编码范围来换取上屏速度
-https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
-       https://macroxue.github.io/shuangpin/eval.html
 #### 部首 (PP)
   官鹤
        https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
