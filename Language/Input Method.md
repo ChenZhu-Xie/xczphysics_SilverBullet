@@ -9,6 +9,8 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
 
 ## 纯形 (PPPP)
 https://www.zhihu.com/question/1941614246552133827 纯形的劣势
+https://input.tansongchen.com/philosophy.html 纯形的劣势
+
   奕码
        https://yb6b.github.io/yima/
        https://yb6b.github.io/yima/easy-code/ime.html
@@ -25,6 +27,8 @@ https://www.zhihu.com/question/1941614246552133827 纯形的劣势
        https://chaifen.app/501VZ6lBH/statistics2
 ## 音形 (包括 S... SY..)
 https://www.zhihu.com/question/1941614246552133827 音形的好处
+https://input.tansongchen.com/philosophy.html 音形的好处
+
 ### 声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
   顶功
