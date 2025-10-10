@@ -7,7 +7,7 @@ https://emacs-china.org/t/topic/17068/7?page=9
 https://aituyaa.com/rime_jk-%E6%8C%87%E5%B0%96%E4%B8%8A%E7%9A%84%E6%97%8B%E5%BE%8B/
 https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E6%89%93%E5%8D%95%E7%9A%84%E8%B7%AF%E4%B8%8A%E4%B8%80%E8%B7%AF%E7%8B%82%E5%A5%94/
 
-## 纯形码
+## 纯形
   奕码
        https://yb6b.github.io/yima/
        https://yb6b.github.io/yima/easy-code/ime.html
@@ -22,6 +22,9 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   性能
        https://chaifen.app/501VZ6lBH/assembly
        https://chaifen.app/501VZ6lBH/statistics2
+## 音形
+  声笔
+       用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
 ## 双拼 +
 ### 部首
   官鹤
@@ -35,11 +38,11 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   星空键道
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
-       https://github.com/wzxmer/xkjd6-rime 但竟然用笔画！没部首！
+       https://github.com/wzxmer/xkjd6-rime#%E4%BA%8C%E4%BA%86%E8%A7%A3%E9%94%AE%E9%81%93 但竟然用笔画！没部首！
        https://github.com/hugh7007/xmjd6-rere 有点像声笔的 aeuio
        https://www.zhihu.com/question/517260176/answer/2426589323
        https://book.xuesong.io/jiandao-primer/
-  性能（非常好看，高于虎码和简单鹤）
+  性能（非常好看，高于 虎码 ≈ 简单鹤）
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 ### 任意
