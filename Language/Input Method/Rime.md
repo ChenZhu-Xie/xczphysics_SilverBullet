@@ -24,5 +24,5 @@ https://ihsiao.com/apps/hamster/docs/guides/sync/
 3. PC 删除 Rime 文件夹
 4. PC 上传 Rime_data 进：原 Rime 所在 dir
    - 2 个 User.db 上传失败，不用关心。
-6. PC 改名 Rime_data 为 Rime
+6. IOS 改名 Rime_data 为 Rime
 7. IOS 重新部署
