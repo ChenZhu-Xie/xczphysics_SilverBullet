@@ -10,6 +10,7 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
 ## 纯形 (PPPP)
 https://www.zhihu.com/question/1941614246552133827 纯形的劣势
 https://input.tansongchen.com/philosophy.html 纯形的劣势
+https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 纯形的劣势
 
   奕码
        https://yb6b.github.io/yima/
@@ -28,7 +29,7 @@ https://input.tansongchen.com/philosophy.html 纯形的劣势
 ## 音形 (包括 S... SY..)
 https://www.zhihu.com/question/1941614246552133827 音形的好处
 https://input.tansongchen.com/philosophy.html 音形的好处
-
+https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音形的好处
 ### 声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
   顶功
@@ -80,7 +81,7 @@ https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%8
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
 ### 冰雪 (..)
-   奇缘（4）
+   奇缘（4+）
        https://github.com/rimeinn/rime-snow-pinyin 音码缺点
        https://input.tansongchen.com/snow
 
