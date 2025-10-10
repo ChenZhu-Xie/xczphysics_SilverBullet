@@ -65,6 +65,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
        https://github.com/wzxmer/xkjd6-rime#%E4%BA%8C%E4%BA%86%E8%A7%A3%E9%94%AE%E9%81%93 但竟用笔画！没部首！
+       https://ding.tansongchen.com/tutorial/collection/mixed/sbfx#%E7%A6%BB%E6%95%A3%E8%83%BD%E5%8A%9B 两个笔画弱于一个部首！@飞单
        https://github.com/hugh7007/xmjd6-rere 有点像声笔的 aeuio
        https://www.zhihu.com/question/517260176/answer/2426589323
        https://book.xuesong.io/jiandao-primer/
