@@ -26,6 +26,7 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   声笔
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
 ## 双拼 +
+https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
 ### 部首
   官鹤
        https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
