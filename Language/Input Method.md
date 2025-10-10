@@ -22,15 +22,15 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   性能
        https://chaifen.app/501VZ6lBH/assembly
        https://chaifen.app/501VZ6lBH/statistics2
-## 音形 (包括 S,SY)
+## 音形 (包括 S...,SY..)
 https://www.zhihu.com/question/1941614246552133827 音形的好处
-  声笔 (S)
+  声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
   顶功
        似乎编码子方案，如 SPBB SBBB 不同
        就可以在同一个系列中，省略掉一些后续的码来顶屏：SPB SBB
   声笔有超多的方案，因此每个子方案中都可以顶功
-## 双拼 (SY) +
+## 双拼 (SY..) +
 https://www.zhihu.com/question/1941614246552133827
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
   - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
@@ -68,11 +68,13 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-gao-ji-gong-neng/u-zhi-jie-shu-ru-unicode-zi-fu
        https://github.com/gaboolic/rime-shuangpin-fuzhuma/wiki/%E5%A2%A8%E5%A5%87%E7%A0%81%E6%8B%86%E5%88%86%E8%A7%84%E5%88%99
-## 音码 (SỲ) +
+## 音码 (SỲ..) +
 https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%88%9D%E8%A1%B7 音码劣势
-  龙码
+  龙码 (PP)
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
   冰雪
        https://github.com/rimeinn/rime-snow-pinyin 音码劣势
-  
+
+## 形音 (...)
+
