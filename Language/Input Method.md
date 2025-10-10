@@ -27,9 +27,10 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 纯形的劣势
        https://chaifen.app/501VZ6lBH/assembly
        https://chaifen.app/501VZ6lBH/statistics2
 ## 音形 (包括 S... SY..)
-https://www.zhihu.com/question/1941614246552133827 音形的好处
-https://input.tansongchen.com/philosophy.html 音形的好处
-https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音形的好处
+约定：==音码== 包含 ==音形== 和 ==音调== 
+https://www.zhihu.com/question/1941614246552133827 音码的好处
+https://input.tansongchen.com/philosophy.html 音码的好处
+https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
 ### 声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
   顶功
@@ -61,11 +62,11 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
   星空键道
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
-       https://github.com/wzxmer/xkjd6-rime#%E4%BA%8C%E4%BA%86%E8%A7%A3%E9%94%AE%E9%81%93 但竟然用笔画！没部首！
+       https://github.com/wzxmer/xkjd6-rime#%E4%BA%8C%E4%BA%86%E8%A7%A3%E9%94%AE%E9%81%93 但竟用笔画！没部首！
        https://github.com/hugh7007/xmjd6-rere 有点像声笔的 aeuio
        https://www.zhihu.com/question/517260176/answer/2426589323
        https://book.xuesong.io/jiandao-primer/
-  性能（非常好看，高于 虎码 ≈ 简单鹤，whose 作者本人也曾入过虎码教）
+  性能（非常好看 > 声笔 > 虎码 ≈ 简单鹤，whose 作者也曾入过虎码教）
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 #### 任意 (BP)
@@ -74,7 +75,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-gao-ji-gong-neng/u-zhi-jie-shu-ru-unicode-zi-fu
        https://github.com/gaboolic/rime-shuangpin-fuzhuma/wiki/%E5%A2%A8%E5%A5%87%E7%A0%81%E6%8B%86%E5%88%86%E8%A7%84%E5%88%99
-## 音码 (SỲ..) +
+## 音调 (SỲ..) +
 https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%88%9D%E8%A1%B7 音码劣势
 ### 龙码 (PP)
    汉心（3）
