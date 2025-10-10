@@ -32,7 +32,8 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   - 实际上，只要 4 码内的有效填充率足够，是否 2,3 码就顶功，没区别。
     - 比如 qw 顶功后，就意味着后面没编码了：26^2^的排列组合就丢失了。
   - 但实际上，mwy<?> 的填充率并不高，所以如声笔输入法类似的顶功方案
-    - 就直接丢弃最后一码，3 码自动上屏。
+    - 就直接丢弃最后一两码，3 码自动上屏。
+    - 所以，声笔飞单的 21×21×5×5 本身是牺牲了
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
        https://macroxue.github.io/shuangpin/eval.html
 ### 部首
