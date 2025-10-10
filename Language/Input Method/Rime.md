@@ -17,6 +17,7 @@ F4 或 ctrl + ~ 单选方案
 # IOS 端
 
 https://ihsiao.com/apps/hamster/docs/guides/sync/
+  我没有选择
 
 1. PC 与 IOS 在同一 wifi 下
 2. PC 登陆 http://192.168.1.5/

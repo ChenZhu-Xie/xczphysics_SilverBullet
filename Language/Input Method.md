@@ -26,6 +26,13 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   声笔
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
 ## 双拼 +
+> 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
+  - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
+    - 比如 mwyi 就是 “每一” 等等。
+  - 实际上，只要 4 码内的有效填充率足够，是否 2,3 码就顶功，没区别。
+    - 比如 qw 顶功后，就意味着后面没编码了：26^2^的排列组合就丢失了。
+  - 但实际上，mwy<?> 的填充率并不高，所以如声笔输入法类似的顶功方案
+    - 就直接丢弃最后一码，3 码自动上屏。
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
        https://macroxue.github.io/shuangpin/eval.html
 ### 部首
@@ -36,6 +43,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://flauver.github.io/jdh/
        https://github.com/rimeinn/rime-JDhe
        https://www.zhihu.com/question/549135035
+
 ### 笔画
   星空键道
        https://xkinput.github.io/
@@ -44,7 +52,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://github.com/hugh7007/xmjd6-rere 有点像声笔的 aeuio
        https://www.zhihu.com/question/517260176/answer/2426589323
        https://book.xuesong.io/jiandao-primer/
-  性能（非常好看，高于 虎码 ≈ 简单鹤）
+  性能（非常好看，高于 虎码 ≈ 简单鹤，whose 作者本人也曾入过虎码教）
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 ### 任意
