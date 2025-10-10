@@ -24,7 +24,7 @@ https://ihsiao.com/apps/hamster/docs/guides/sync/
    因为...需要 MStore 安装，且强制安装到 C 盘。
 
 ## Rime 自带同步
-   似乎只能同步码表也就是 .db，不能同步
+   似乎只能同步码表/词库也就是 .db，不能同步输入方案/配置文件
    见 https://ihsiao.com/apps/hamster/docs/guides/sync/
 
 ## Wifi 或者 有线

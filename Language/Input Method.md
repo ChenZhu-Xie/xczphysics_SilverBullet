@@ -51,7 +51,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://github.com/rimeinn/rime-JDhe
        https://www.zhihu.com/question/549135035
 
-#### 笔画 (BB)
+#### 笔画 (BB..)
   星空键道
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
@@ -70,11 +70,13 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://github.com/gaboolic/rime-shuangpin-fuzhuma/wiki/%E5%A2%A8%E5%A5%87%E7%A0%81%E6%8B%86%E5%88%86%E8%A7%84%E5%88%99
 ## 音码 (SỲ..) +
 https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%88%9D%E8%A1%B7 音码劣势
-  龙码 (PP)
+### 龙码 (PP)
+   汉心（3）
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
-  冰雪 (..)
-       https://github.com/rimeinn/rime-snow-pinyin 音码劣势
+### 冰雪 (..)
+   奇缘（4）
+       https://github.com/rimeinn/rime-snow-pinyin 音码缺点
        https://input.tansongchen.com/snow
 
 ## 形音 (...S)
