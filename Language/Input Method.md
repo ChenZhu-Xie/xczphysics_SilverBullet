@@ -34,11 +34,13 @@ https://www.zhihu.com/question/1941614246552133827 音码的好处
 https://input.tansongchen.com/philosophy.html 音码的好处
 https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
 ### 声笔 (S...)
+  优劣
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
        但 S 紧跟的不是 Y 而是 P，则编码空间利用效率更高
   顶功
        似乎编码子方案，如 SPBB,SPB,SP,S、SBBB,SBB,SB 不同
-       就可以在每个子方案接下一个任意子方案，都可以顶功
+       就可以在每个子方案接下一个任意子方案，都可以顶功：S 充当分隔 _
+  
 ### 双拼 (SY..) +
 https://www.zhihu.com/question/1941614246552133827
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
