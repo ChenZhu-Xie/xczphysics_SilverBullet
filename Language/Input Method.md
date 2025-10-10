@@ -8,6 +8,7 @@ https://aituyaa.com/rime_jk-%E6%8C%87%E5%B0%96%E4%B8%8A%E7%9A%84%E6%97%8B%E5%BE%
 https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E6%89%93%E5%8D%95%E7%9A%84%E8%B7%AF%E4%B8%8A%E4%B8%80%E8%B7%AF%E7%8B%82%E5%A5%94/
 
 ## 纯形 (PPPP)
+https://www.zhihu.com/question/1941614246552133827 纯形的劣势
   奕码
        https://yb6b.github.io/yima/
        https://yb6b.github.io/yima/easy-code/ime.html
