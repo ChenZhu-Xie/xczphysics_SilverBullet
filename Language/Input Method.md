@@ -26,6 +26,7 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   声笔
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
 ## 双拼 +
+https://www.zhihu.com/question/1941614246552133827
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
   - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
     - 比如 mwyi 就是 “每一” 等等。
@@ -33,7 +34,7 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
     - 比如 qw 顶功后，就意味着后面没编码了：26^2^的排列组合就丢失了。
   - 但实际上，mwy<?> 的填充率并不高，所以如声笔输入法类似的顶功方案
     - 就直接丢弃最后一两码，3 码自动上屏。
-    - 所以，声笔飞单的 21×21×5×5 本身是牺牲了
+    - 所以，声笔飞单的 21×21×5×5 本身是牺牲了编码范围来换取上屏速度
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
        https://macroxue.github.io/shuangpin/eval.html
 ### 部首
