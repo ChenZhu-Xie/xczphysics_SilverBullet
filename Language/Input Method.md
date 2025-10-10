@@ -7,7 +7,7 @@ https://emacs-china.org/t/topic/17068/7?page=9
 https://aituyaa.com/rime_jk-%E6%8C%87%E5%B0%96%E4%B8%8A%E7%9A%84%E6%97%8B%E5%BE%8B/
 https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E6%89%93%E5%8D%95%E7%9A%84%E8%B7%AF%E4%B8%8A%E4%B8%80%E8%B7%AF%E7%8B%82%E5%A5%94/
 
-## 纯形 (PP)
+## 纯形 (PPPP)
   奕码
        https://yb6b.github.io/yima/
        https://yb6b.github.io/yima/easy-code/ime.html
@@ -22,7 +22,7 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
   性能
        https://chaifen.app/501VZ6lBH/assembly
        https://chaifen.app/501VZ6lBH/statistics2
-## 音形 (包括 S...,SY..)
+## 音形 (包括 S... SY..)
 https://www.zhihu.com/question/1941614246552133827 音形的好处
   声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
@@ -75,6 +75,7 @@ https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%8
        https://github.com/rimeinn/rime-zrlong
   冰雪
        https://github.com/rimeinn/rime-snow-pinyin 音码劣势
+       https://input.tansongchen.com/snow
 
 ## 形音 (...)
 
