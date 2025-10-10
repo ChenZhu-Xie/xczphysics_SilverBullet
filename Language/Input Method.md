@@ -24,13 +24,13 @@ https://aituyaa.com/%E8%BE%93%E5%85%A5%E6%B3%95%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9
        https://chaifen.app/501VZ6lBH/statistics2
 ## 音形 (包括 S... SY..)
 https://www.zhihu.com/question/1941614246552133827 音形的好处
-  声笔 (S...)
+### 声笔 (S...)
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
   顶功
        似乎编码子方案，如 SPBB SBBB 不同
        就可以在同一个系列中，省略掉一些后续的码来顶屏：SPB SBB
   声笔有超多的方案，因此每个子方案中都可以顶功
-## 双拼 (SY..) +
+### 双拼 (SY..) +
 https://www.zhihu.com/question/1941614246552133827
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
   - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
@@ -42,7 +42,7 @@ https://www.zhihu.com/question/1941614246552133827
     - 所以，声笔飞单的 21×21×5×5 本身是牺牲了编码范围来换取上屏速度
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
        https://macroxue.github.io/shuangpin/eval.html
-### 部首 (PP)
+#### 部首 (PP)
   官鹤
        https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
        https://aituyaa.com/%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC%E5%8F%8A%E9%9F%B3%E5%BD%A2/
@@ -51,7 +51,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://github.com/rimeinn/rime-JDhe
        https://www.zhihu.com/question/549135035
 
-### 笔画 (BB)
+#### 笔画 (BB)
   星空键道
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
@@ -62,7 +62,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
   性能（非常好看，高于 虎码 ≈ 简单鹤，whose 作者本人也曾入过虎码教）
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
-### 任意 (BP)
+#### 任意 (BP)
   墨奇 双拼+辅码 混搭 + 大词库
        https://github.com/gaboolic/rime-shuangpin-fuzhuma
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
@@ -73,9 +73,10 @@ https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%8
   龙码 (PP)
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
-  冰雪
+  冰雪 (..)
        https://github.com/rimeinn/rime-snow-pinyin 音码劣势
        https://input.tansongchen.com/snow
 
-## 形音 (...)
-
+## 形音 (...S)
+https://chaifen.app/
+https://www.zhihu.com/question/376022178/answer/3165035735
