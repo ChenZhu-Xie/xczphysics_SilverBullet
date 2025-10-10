@@ -20,5 +20,6 @@ F4 或 ctrl + ~ 单选方案
 2. PC 登陆 http://192.168.1.5/
 3. PC 删除 Rime 文件夹
 4. PC 上传 Rime_data 进：原 Rime 所在 dir
-5. PC 改名 Rime_data 为 Rime
-6. IOS 重新部署
+   - 2 个 User.db 上传失败，不用关心。
+6. PC 改名 Rime_data 为 Rime
+7. IOS 重新部署
