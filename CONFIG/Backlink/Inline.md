@@ -34,7 +34,7 @@ command.define {
 }
 ```
 
-1. backup test version
+# backup test version
 
 ```lua
 command.define {
