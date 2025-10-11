@@ -60,11 +60,11 @@ function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
 
   -- Parameterized query to avoid DSL scope issues
-  local refs = query([[
+  local refs = query[[
     from index.tag "anchor"
-    where _.page == ?
+    where _.page == pageName
     order by pos
-  ]], pageName)
+  ]]
 
   if not refs or #refs == 0 then return end
 
@@ -96,11 +96,11 @@ event.listen {
     if not pageName or not anchorId then return end
 
     -- Parameterized query for the anchor
-    local results = query([[
+    local results = query[[
       from index.tag "anchor"
-      where _.page == ? and _.id == ?
+      where _.page == pageName and _.id == anchorId
       order by pos
-    ]], pageName, anchorId)
+    ]]
 
     if not results or #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
