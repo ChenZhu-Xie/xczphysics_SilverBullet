@@ -70,10 +70,10 @@ event.listen {
     if not pageName or not anchorId then return end
 
     -- Query index for this anchor
-    local results = query([[
+    local results = query[[
       from index.tag "anchor"
       where _.page == "]] .. pageName .. [[" and _.id == "]] .. anchorId .. [["
-    ]])
+    ]]
 
     if #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
