@@ -18,7 +18,7 @@ F4 或 ctrl + ~ 单选方案
 
 https://ihsiao.com/apps/hamster/docs/guides/sync/
 ## 
-## Icloud
+## icloud
    本来这是对 IOS 端最好的。
    但我没有选择 icloud 方案。
    因为...需要 MStore 安装，且强制安装到 C 盘。
@@ -35,5 +35,6 @@ https://ihsiao.com/apps/hamster/docs/guides/sync/
 3. PC 删除 Rime 文件夹
 4. PC 上传 Rime_data 进：原 Rime 所在 dir
    - 2 个 User.db 上传失败，不用关心。
+   - 见 https://ihsiao.com/apps/hamster/docs/guides/sync/
 6. IOS 改名 Rime_data 为 Rime
 7. IOS 重新部署

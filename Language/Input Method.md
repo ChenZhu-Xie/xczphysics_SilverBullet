@@ -90,6 +90,7 @@ https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%8
        https://github.com/rimeinn/rime-snow-pinyin 音码缺点
        https://input.tansongchen.com/snow
        https://input.tansongchen.com
+       https://beta.input.tansongchen.com/snow-qingyun/basic
    性能
        https://input.tansongchen.com/snow4/evaluation
        https://chaifen.app/lVoqxYB3D/statistics2
