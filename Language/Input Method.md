@@ -82,7 +82,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
 ## 音调 (SỲ..) +
 https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%88%9D%E8%A1%B7 音码劣势
 ### 龙码 (PP)
-   汉心（3）
+   汉心（3）- 像「飞猫」一样，「声、韵」都乱外，还加了乱「调」
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
 ### 冰雪 (..)
