@@ -106,5 +106,3 @@ event.listen {
   end
 }
 ```
-
-
