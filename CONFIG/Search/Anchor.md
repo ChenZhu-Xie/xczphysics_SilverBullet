@@ -1,9 +1,9 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin v3
+-- Stable Cursor Reference Plugin v4
 -- 1. Copy a stable reference at the cursor
--- 2. Render clickable widget in document for navigation
+-- 2. Render clickable references in the document for navigation
 
 anchors = anchors or {}
 
@@ -55,11 +55,11 @@ command.define {
 widgets = widgets or {}
 function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
-  local refs = query[[
+  local refs = query([[
     from index.tag "anchor"
-    where _.page == "]] .. pageName .. [["
+    where _.page == $page
     order by pos
-  ]]
+  ]], { page = pageName })
 
   if #refs == 0 then return end
 
@@ -87,10 +87,11 @@ event.listen {
     local pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
     if not pageName or not anchorId then return end
 
-    local results = query[[
+    -- Parameterized query to safely get anchor
+    local results = query([[
       from index.tag "anchor"
-      where _.page == "]] .. pageName .. [[" and _.id == "]] .. anchorId .. [["
-    ]]
+      where _.page == $page and _.id == $id
+    ]], { page = pageName, id = anchorId })
 
     if #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
@@ -105,6 +106,7 @@ event.listen {
     })
   end
 }
+
 ```
 
 
