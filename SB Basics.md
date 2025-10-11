@@ -77,7 +77,8 @@
       order by lastModified desc
     ]], templates.fullPageItem)}
 
-### Tag Alternative: 
+## Tag Alternative: Fields/Metadata
+
 
 # Configuration
 [[CONFIG]]
