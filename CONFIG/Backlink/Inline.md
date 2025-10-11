@@ -3,83 +3,63 @@
 
 ```space-lua
 command.define {
-  name = "Cursor: Copy Reference (robust)",
+  name = "Cursor: Copy Reference (debug)",
   run = function()
+    -- 第一步：获取当前页面名
     local pageName = space.getCurrentPage()
+    editor.flashNotification("pageName = " .. tostring(pageName), "info")
+
     if not pageName then
       editor.flashNotification("无法获取页面名", "error")
       return
     end
 
-    local cursor = editor.getCursor()
-    local fullText = editor.getText() or ""
-
-    -- 将各种可能的 cursor 形式转换为 1-based 字符偏移（number）
-    local function cursorToOffset(cur, text)
-      if type(cur) == "number" then
-        return cur
+    -- 第二步：获取光标位置
+    local pos = editor.getCursor()
+    editor.flashNotification("getCursor() type = " .. type(pos), "info")
+    if type(pos) == "table" then
+      local info = ""
+      for k, v in pairs(pos) do
+        info = info .. k .. "=" .. tostring(v) .. " "
       end
-      if type(cur) ~= "table" then
-        return nil
-      end
-
-      -- 尝试提取 line / row / 索引 与 ch / col / 第二元素
-      local lineIdx = cur.line or cur.row or cur[1]
-      local ch = cur.ch or cur.col or cur[2] or 0
-      if not lineIdx then
-        return nil
-      end
-
-      -- 把全文分成行（可靠处理末尾没有换行的情况）
-      local lines = {}
-      for line in (text .. "\n"):gmatch("(.-)\n") do
-        table.insert(lines, line)
-      end
-
-      -- 有些 API 返回 0-based line，有些返回 1-based。尝试两种并取合理的 one.
-      local chosenLine = nil
-      if lineIdx >= 1 and lineIdx <= #lines then
-        chosenLine = lineIdx -- 很可能是 1-based
-      elseif (lineIdx + 1) >= 1 and (lineIdx + 1) <= #lines then
-        chosenLine = lineIdx + 1 -- 可能是 0-based，转换为 1-based
-      else
-        -- 超出范围时做一个保守的裁剪
-        chosenLine = math.min(math.max(1, tonumber(lineIdx) or 1), #lines)
-      end
-
-      local charInLine = tonumber(ch) or 0
-      -- 不同实现 ch 可能 0-based 或 1-based：若看起来是 1-based（>=1）则转为 0-based
-      if charInLine >= 1 then charInLine = charInLine - 1 end
-
-      local offset = 0
-      for i = 1, chosenLine - 1 do
-        offset = offset + #lines[i] + 1 -- 加上每行内容长度和换行符
-      end
-      offset = offset + charInLine
-      return offset + 1 -- 转为 1-based 字符偏移供 string.sub 使用
+      editor.flashNotification("cursor table: " .. info, "info")
+    else
+      editor.flashNotification("cursor raw value: " .. tostring(pos), "info")
     end
 
-    local pos = cursorToOffset(cursor, fullText)
-    if not pos then
-      editor.flashNotification("无法解析光标位置（格式未知）", "error")
+    -- 第三步：尝试取全文
+    local fullText = editor.getText()
+    editor.flashNotification("editor.getText() length = " .. tostring(#(fullText or "")), "info")
+    if not fullText or #fullText == 0 then
+      editor.flashNotification("无法获取全文文本", "error")
       return
     end
-    if pos < 1 then pos = 1 end
 
-    -- 取光标前文本并计算行号
-    local textBefore = fullText:sub(1, pos)
+    -- 第四步：尝试截取光标前文本（如果 pos 为数字）
+    local textBefore = ""
+    if type(pos) == "number" then
+      textBefore = fullText:sub(1, pos)
+      editor.flashNotification("sub() success, len=" .. tostring(#textBefore), "info")
+    else
+      editor.flashNotification("pos 不是数字，无法直接截取文本", "error")
+      return
+    end
+
+    -- 第五步：计算行号
     local _, newlineCount = textBefore:gsub("\n", "")
     local lineNum = newlineCount + 1
+    editor.flashNotification("lineNum = " .. tostring(lineNum), "info")
 
+    -- 第六步：构造引用
     local ref = string.format("[[%s@%d]]", pageName, lineNum)
+    editor.flashNotification("ref = " .. ref, "info")
 
-    -- 先尝试复制到剪贴板；若没有 clipboard API，则回退为在光标处插入并提示
-    if system and system.clipboardWrite then
-      system.clipboardWrite(ref)
-      editor.flashNotification("Copied reference: " .. ref, "info")
+    -- 第七步：复制到剪贴板
+    local ok, err = pcall(function() system.clipboardWrite(ref) end)
+    if ok then
+      editor.flashNotification("Copied reference OK", "info")
     else
-      editor.insertText(ref)
-      editor.flashNotification("clipboardWrite 不可用，已插入引用: " .. ref, "warn")
+      editor.flashNotification("clipboardWrite failed: " .. tostring(err), "error")
     end
   end
 }
