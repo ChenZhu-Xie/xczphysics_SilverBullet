@@ -1,14 +1,15 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin (clipboard only, cursor position)
--- 1. Copy reference at cursor
--- 2. Clickable navigation in document
+-- Stable Cursor Reference Plugin v6
+-- Clipboard-only, dynamic cursor position reference
 -- No bottom widget
+
+anchors = anchors or {}
 
 -- Command: Copy reference using cursor position
 command.define {
-  name = "Cursor: Copy Reference (pos only)",
+  name = "Cursor: Copy Stable Reference",
   run = function()
     local pageName = editor.getCurrentPage()
     if not pageName then
@@ -22,13 +23,19 @@ command.define {
       return
     end
 
-    -- Register anchor using pos directly
+    -- Register anchor in SB index using cursor position
     index.tag("anchor", { page = pageName, pos = pos })
+    anchors[pageName] = anchors[pageName] or {}
+    anchors[pageName][pos] = true
 
     -- Build reference string
     local refString = string.format("[[%s@%d]]", pageName, pos)
-    editor.copyToClipboard(refString)
-    editor.flashNotification("Copied reference: " .. refString, "info")
+    local ok, err = pcall(function() editor.copyToClipboard(refString) end)
+    if ok then
+      editor.flashNotification("Copied reference: " .. refString, "info")
+    else
+      editor.flashNotification("Clipboard copy failed: " .. tostring(err), "error")
+    end
   end
 }
 
@@ -39,11 +46,13 @@ event.listen {
     local word = editor.getWordAtPos(e.data.pos)
     if not word then return end
 
+    -- Parse [[PageName@pos]]
     local pageName, posStr = word:match("%[%[([^@]+)@([^%]]+)%]%]")
     if not pageName or not posStr then return end
     local pos = tonumber(posStr)
+    if not pos then return end
 
-    -- Parameterized query to safely get anchor
+    -- Parameterized query to find the anchor
     local results = query[[
       from index.tag "anchor"
       where _.page == pageName and _.pos == pos
@@ -54,7 +63,8 @@ event.listen {
       return
     end
 
-    editor.navigate({ kind="page", page=pageName, pos=pos })
+    local anchor = results[1]
+    editor.navigate({ kind = "page", page = anchor.page, pos = anchor.pos })
   end
 }
 
