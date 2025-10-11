@@ -5,25 +5,29 @@
 command.define {
   name = "Cursor: Copy Reference",
   run = function()
+    -- Step 1: Get the current page name
     local pageName = editor.getCurrentPage()
     if not pageName then
-      editor.flashNotification("无法获取页面名", "error")
+      editor.flashNotification("Failed to get current page name", "error")
       return
     end
 
+    -- Step 2: Get the cursor position (character offset)
     local pos = editor.getCursor()
     if type(pos) ~= "number" then
-      editor.flashNotification("光标位置不是数字", "error")
+      editor.flashNotification("Cursor position is not a number", "error")
       return
     end
 
+    -- Step 3: Build the reference string
     local ref = string.format("[[%s@%d]]", pageName, pos)
 
+    -- Step 4: Copy the reference to clipboard
     local ok, err = pcall(function() editor.copyToClipboard(ref) end)
     if ok then
       editor.flashNotification("Copied reference: " .. ref, "info")
     else
-      editor.flashNotification("复制失败: " .. tostring(err), "error")
+      editor.flashNotification("Clipboard copy failed: " .. tostring(err), "error")
     end
   end
 }
