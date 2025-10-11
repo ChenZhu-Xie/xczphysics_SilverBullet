@@ -55,11 +55,11 @@ command.define {
 widgets = widgets or {}
 function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
-  local refs = query([[
+  local refs = query[[
     from index.tag "anchor"
-    where _.page == $page
+    where _.page == pageName
     order by pos
-  ]], { page = pageName })
+  ]]
 
   if #refs == 0 then return end
 
@@ -88,10 +88,10 @@ event.listen {
     if not pageName or not anchorId then return end
 
     -- Parameterized query to safely get anchor
-    local results = query([[
+    local results = query[[
       from index.tag "anchor"
-      where _.page == $page and _.id == $id
-    ]], { page = pageName, id = anchorId })
+      where _.page == pageName and _.id == anchorId
+    ]]
 
     if #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
