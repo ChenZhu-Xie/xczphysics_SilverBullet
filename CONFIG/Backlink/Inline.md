@@ -50,7 +50,7 @@ command.define {
 }
 ```
 
-# backup test version
+# Backup Test Version
 
 ```lua
 command.define {
