@@ -21,8 +21,8 @@ command.define {
     local ref = string.format("[[%s@%d]]", pageName, lineNum)
 
     -- 复制到剪贴板并通知用户
-    system.clipboardWrite(ref)
     editor.flashNotification("Copied reference: " .. ref, "info")
+    system.clipboardWrite(ref)
   end
 }
 ```
