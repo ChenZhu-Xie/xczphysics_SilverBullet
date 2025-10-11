@@ -4,7 +4,7 @@ pageDecoration:
         - wine-table
 ---
 
-# Inside Page
+# In Page
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
@@ -14,7 +14,7 @@ pageDecoration:
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | Toggle Level | Ctrl | | | 1 |
 
-# Across Pages
+# On Page
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
@@ -23,7 +23,7 @@ pageDecoration:
 | Page: | Delete | | Shift | Alt | d |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 
-
+# Across Pages
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
