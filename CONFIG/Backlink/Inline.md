@@ -5,6 +5,8 @@
 command.define {
   name = "Cursor: Copy Reference (debug)",
   run = function()
+    editor.flashNotification("pageName = ?", "info")
+    
     -- 第一步：获取当前页面名
     local pageName = space.getCurrentPage()
     editor.flashNotification("pageName = " .. tostring(pageName), "info")
@@ -65,4 +67,3 @@ command.define {
 }
 
 ```
-
