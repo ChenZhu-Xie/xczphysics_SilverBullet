@@ -85,11 +85,9 @@
 
 ## Tag Alternative: Fields/Metadata
 > - a Page itself is an Object as well, like #tag.
-> - it too could have some attributes
-  > - that is, __key-value pairs__ as __front matter__ 
+> - it too could have some attributes,
+  > - that is, __key-value pairs__ as __front matter__.
 > - 
-> - #tag itself is an object as the ==index.tag== to be indexed
-> - its name “==tag==” looks like a “key without value”
 
 # Configuration
 [[CONFIG]]
