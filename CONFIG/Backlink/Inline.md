@@ -8,7 +8,7 @@ command.define {
     editor.flashNotification("pageName = ?", "info")
     
     -- 第一步：获取当前页面名
-    local pageName = space.getCurrentPage()
+    local pageName = editor.getCurrentPage()
     editor.flashNotification("pageName = " .. tostring(pageName), "info")
 
     if not pageName then
