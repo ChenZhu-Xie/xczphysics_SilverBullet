@@ -49,8 +49,8 @@
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
 
 ## Tag Attribute
->  #tag itself is an object as the index.tag to be indexed
->  its name is a key without value
+> - #tag itself is an object as the ==index.tag== to be indexed
+> - its name “==tag==” looks like a “key without value”
 ### Aggregation for future
   1. [ ] assign a #todo tag for every todo,
   2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
@@ -81,7 +81,11 @@
     ]], templates.fullPageItem)}
 
 ## Tag Alternative: Fields/Metadata
-
+> - a page is an object, too.
+> - it has some attributes.
+> - 
+> - #tag itself is an object as the ==index.tag== to be indexed
+> - its name “==tag==” looks like a “key without value”
 
 # Configuration
 [[CONFIG]]
