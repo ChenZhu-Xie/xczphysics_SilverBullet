@@ -39,7 +39,7 @@ command.define {
 ```lua
 command.define {
   name = "Cursor: Copy Reference (debug)",
-  key = "Shift-Alt-C",
+  key = "Shift-Alt-c",
   run = function()
     -- Step 1: Get the current page name
     local pageName = editor.getCurrentPage()
