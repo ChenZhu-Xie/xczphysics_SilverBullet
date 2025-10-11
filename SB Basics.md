@@ -91,10 +91,10 @@
   > - that is, __key-value pairs__ as __front matter__.
 > - 
 
+
 # Configuration
 
 [[CONFIG]]
 [[STYLE]]
-
 
 #SB_itself
