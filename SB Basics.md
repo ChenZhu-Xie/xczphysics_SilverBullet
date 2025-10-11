@@ -77,7 +77,7 @@
       order by lastModified desc
     ]], templates.fullPageItem)}
 
-collect
+### Tag Alternative: 
 
 # Configuration
 [[CONFIG]]
