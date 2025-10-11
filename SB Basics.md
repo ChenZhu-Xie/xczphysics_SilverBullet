@@ -64,9 +64,9 @@
 - [Database Term of SilverBullet](https://youtu.be/Of7zE0AVApc?t=222)
     | Database Term | SilverBullet |
 |----------|----------|
-| table | tag |
-| row | object |
-| primary key | ref |
+| Table | Tag |
+| Row | Object |
+| Primary Key | Ref |
 ### Query with `${.lua}`
 - Example: `${.space-lua}` on the ==index== (i.e. in the database)
   1. ${Red("/query")} [returns a table](https://youtu.be/Of7zE0AVApc?t=509)
@@ -85,6 +85,7 @@
 
 ## Tag Alternative: Fields/Metadata
 > - a Page itself is an Object as well, like #tag.
+  > - it exists in the Table as Row
 > - it too could have some Attributes/Properties,
   > - that is, __key-value pairs__ as __front matter__.
 > - 
