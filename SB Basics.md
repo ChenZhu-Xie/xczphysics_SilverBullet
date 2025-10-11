@@ -52,7 +52,7 @@
 > - #Tag itself is an Object as the __index.tag__ to be indexed.
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
-  > - it is one of the Object’s Attributes (if obj has many tags).
+  > - it is one of the Object’s Attributes (if obj has many Tags).
 >   - a Tag is also a CLASS with many Instances as its Objects.
 ### Aggregation for future
   1. [ ] assign a #todo tag for every todo,
