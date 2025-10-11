@@ -1,14 +1,18 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin v4 (no-WikiLink variant)
+-- Stable Cursor Reference Plugin v4
+-- 1. Copy a stable reference at the cursor
+-- 2. Render clickable references in the document for navigation
+
 anchors = anchors or {}
 
--- 用自定义括号，避免触发内置 WikiLink
+-- Template for rendering clickable references
 local refTemplate = template.new [==[
-**⟦${_.page}@${_.id}⟧**
+**[[${_.page}@${_.id}]]**
 ]==]
 
+-- Command: Copy stable reference
 command.define {
   name = "Cursor: Copy Stable Reference",
   run = function()
@@ -24,18 +28,20 @@ command.define {
       return
     end
 
+    -- Generate unique anchor ID
     local anchorId = string.format("anchor_%d_%d", os.time(), pos)
 
-    -- 将锚点注册到索引
+    -- Register anchor in SB index
     index.tag("anchor", {
       page = pageName,
       pos = pos,
       id = anchorId
     })
+
     anchors[anchorId] = { page = pageName, pos = pos }
 
-    -- 生成自定义记号（非 WikiLink）
-    local refString = string.format("⟦%s@%s⟧", pageName, anchorId)
+    -- Build reference string and copy
+    local refString = string.format("[[%s@%s]]", pageName, anchorId)
     local ok, err = pcall(function() editor.copyToClipboard(refString) end)
     if ok then
       editor.flashNotification("Copied stable reference: " .. refString, "info")
@@ -45,22 +51,24 @@ command.define {
   end
 }
 
+-- Widget: Render clickable references at bottom of page
 widgets = widgets or {}
 function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
-  local refs = query([[
+  local refs = query[[
     from index.tag "anchor"
-    where _.page == ?
+    where _.page == pageName
     order by pos
-  ]], pageName)
+  ]]
 
-  if not refs or #refs == 0 then return end
+  if #refs == 0 then return end
 
   return widget.new {
     markdown = "# Stable References\n" .. template.each(refs, refTemplate)
   }
 end
 
+-- Bottom widget: clickable stable references
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function()
@@ -68,27 +76,24 @@ event.listen {
   end
 }
 
+-- Event: Click on reference text to navigate
 event.listen {
   name = "page:click",
   run = function(e)
-    local pos = e.data and e.data.pos or e.pos
-    if not pos then return end
-
+    local pos = e.data.pos
     local word = editor.getWordAtPos(pos)
     if not word then return end
 
-    -- 匹配 ⟦Page@anchor⟧
-    local pageName, anchorId = word:match("⟦([^@]+)@([^⟧]+)⟧")
+    local pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
     if not pageName or not anchorId then return end
 
-    -- 参数化查询，避免作用域问题
-    local results = query([[
+    -- Parameterized query to safely get anchor
+    local results = query[[
       from index.tag "anchor"
-      where _.page == ? and _.id == ?
-      order by pos
-    ]], pageName, anchorId)
+      where _.page == pageName and _.id == anchorId
+    ]]
 
-    if not results or #results == 0 then
+    if #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
       return
     end
@@ -101,6 +106,7 @@ event.listen {
     })
   end
 }
+
 ```
 
 
