@@ -4,7 +4,7 @@
 ```space-lua
 command.define {
   name = "Cursor: Copy Reference",
-  key = "Shift-Alt-C",
+  key = "Shift-Alt-c",
   run = function()
     -- Step 1: Get the current page name
     local pageName = editor.getCurrentPage()
