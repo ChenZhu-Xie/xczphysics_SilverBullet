@@ -1,7 +1,7 @@
 
 1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
 
-```lua
+```space-lua
 command.define {
   name = "Cursor: Copy Reference",
   key = "Shift-Alt-C",
@@ -36,7 +36,7 @@ command.define {
 
 1. backup test version
 
-```space-lua
+```lua
 command.define {
   name = "Cursor: Copy Reference (debug)",
   key = "Shift-Alt-C",
@@ -99,5 +99,4 @@ command.define {
     end
   end
 }
-
 ```
