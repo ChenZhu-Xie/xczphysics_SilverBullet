@@ -92,6 +92,7 @@
 > - 
 
 # Configuration
+
 [[CONFIG]]
 [[STYLE]]
 
