@@ -77,6 +77,7 @@
       order by lastModified desc
     ]], templates.fullPageItem)}
 
+collect
 
 # Configuration
 [[CONFIG]]
