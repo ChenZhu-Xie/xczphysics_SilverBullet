@@ -55,7 +55,7 @@ command.define {
     editor.flashNotification("ref = " .. ref, "info")
 
     -- 第七步：复制到剪贴板
-    local ok, err = pcall(function() system.clipboardWrite(ref) end)
+    local ok, err = pcall(function() editor.copyToClipboard(ref) end)
     if ok then
       editor.flashNotification("Copied reference OK", "info")
     else
