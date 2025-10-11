@@ -1,11 +1,16 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin v2
+-- Stable Cursor Reference Plugin v3
 -- 1. Copy a stable reference at the cursor
--- 2. Clickable references in documents jump to stable position
+-- 2. Render clickable widget in document for navigation
 
 anchors = anchors or {}
+
+-- Template for rendering clickable references
+local refTemplate = template.new [==[
+**[[${_.page}@${_.id}]]**
+]==]
 
 -- Command: Copy stable reference
 command.define {
@@ -23,6 +28,7 @@ command.define {
       return
     end
 
+    -- Generate unique anchor ID
     local anchorId = string.format("anchor_%d_%d", os.time(), pos)
 
     -- Register anchor in SB index
@@ -34,6 +40,7 @@ command.define {
 
     anchors[anchorId] = { page = pageName, pos = pos }
 
+    -- Build reference string and copy
     local refString = string.format("[[%s@%s]]", pageName, anchorId)
     local ok, err = pcall(function() editor.copyToClipboard(refString) end)
     if ok then
@@ -44,7 +51,32 @@ command.define {
   end
 }
 
--- Event: Clickable stable reference jump
+-- Widget: Render clickable references at bottom of page
+widgets = widgets or {}
+function widgets.stableReferences(pageName)
+  pageName = pageName or editor.getCurrentPage()
+  local refs = query[[
+    from index.tag "anchor"
+    where _.page == "]] .. pageName .. [["
+    order by pos
+  ]]
+
+  if #refs == 0 then return end
+
+  return widget.new {
+    markdown = "# Stable References\n" .. template.each(refs, refTemplate)
+  }
+end
+
+-- Bottom widget: clickable stable references
+event.listen {
+  name = "hooks:renderBottomWidgets",
+  run = function()
+    return widgets.stableReferences()
+  end
+}
+
+-- Event: Click on reference text to navigate
 event.listen {
   name = "page:click",
   run = function(e)
@@ -55,7 +87,6 @@ event.listen {
     local pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
     if not pageName or not anchorId then return end
 
-    -- Query SB index for this anchor
     local results = query[[
       from index.tag "anchor"
       where _.page == "]] .. pageName .. [[" and _.id == "]] .. anchorId .. [["
@@ -66,7 +97,6 @@ event.listen {
       return
     end
 
-    -- Navigate to latest anchor position
     local anchor = results[1]
     editor.navigate({
       kind = "page",
