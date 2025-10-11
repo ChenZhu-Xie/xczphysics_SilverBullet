@@ -15,13 +15,14 @@ pageDecoration:
 | Page: | Delete | | Shift | Alt | d |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 
+| Target: | Operation | Ctrl | Shift | Alt | letter |
+|----------|----------|------|-------|-----|--------|
+| Cursor: | Copy reference | | Shift | Alt | c |
+
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Navigate: | Home | Ctrl | | | h |
 | Navigate: | Page Picker | Ctrl | | | l |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
-
-
-
 
