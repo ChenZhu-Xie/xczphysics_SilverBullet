@@ -49,8 +49,11 @@
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
 
 ## Tag Attribute
-> - #tag itself is an object as the ==index.tag== to be indexed
-> - its name “==tag==” looks like a “key without value”
+> - #Tag itself is an Object as the __index.tag__ to be indexed.
+  > - its name “__Tag__” looks like a “__Key without Value__”.
+> - #Tag defines what the Object, e.g. Page/Line, is (about).
+  > - it is one of the Object’s Attributes (if obj has many tags).
+>   - a Tag is also a CLASS with many Instances as its Objects.
 ### Aggregation for future
   1. [ ] assign a #todo tag for every todo,
   2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
@@ -81,8 +84,9 @@
     ]], templates.fullPageItem)}
 
 ## Tag Alternative: Fields/Metadata
-> - a page is an object, too.
-> - it has some attributes.
+> - a Page itself is an Object as well, like #tag.
+> - it too could have some attributes
+  > - that is, __key-value pairs__ as __front matter__ 
 > - 
 > - #tag itself is an object as the ==index.tag== to be indexed
 > - its name “==tag==” looks like a “key without value”
