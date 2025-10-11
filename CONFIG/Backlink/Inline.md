@@ -1,7 +1,7 @@
 
 1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
 
-```space-lua
+```lua
 command.define {
   name = "Cursor: Copy Reference",
   key = "Shift-Alt-C",
@@ -36,21 +36,21 @@ command.define {
 
 1. backup test version
 
-```lua
+```space-lua
 command.define {
   name = "Cursor: Copy Reference (debug)",
   key = "Shift-Alt-C",
   run = function()
-    -- 第一步：获取当前页面名
+    -- Step 1: Get the current page name
     local pageName = editor.getCurrentPage()
     editor.flashNotification("pageName = " .. tostring(pageName), "info")
 
     if not pageName then
-      editor.flashNotification("无法获取页面名", "error")
+      editor.flashNotification("Failed to get current page name", "error")
       return
     end
 
-    -- 第二步：获取光标位置
+    -- Step 2: Get cursor position
     local pos = editor.getCursor()
     editor.flashNotification("getCursor() type = " .. type(pos), "info")
     if type(pos) == "table" then
@@ -63,40 +63,41 @@ command.define {
       editor.flashNotification("cursor raw value: " .. tostring(pos), "info")
     end
 
-    -- 第三步：尝试取全文
+    -- Step 3: Get full text
     local fullText = editor.getText()
     editor.flashNotification("editor.getText() length = " .. tostring(#(fullText or "")), "info")
     if not fullText or #fullText == 0 then
-      editor.flashNotification("无法获取全文文本", "error")
+      editor.flashNotification("Failed to get full text", "error")
       return
     end
 
-    -- 第四步：尝试截取光标前文本（如果 pos 为数字）
+    -- Step 4: Get text before cursor (if pos is a number)
     local textBefore = ""
     if type(pos) == "number" then
       textBefore = fullText:sub(1, pos)
-      editor.flashNotification("sub() success, len=" .. tostring(#textBefore), "info")
+      editor.flashNotification("sub() success, len = " .. tostring(#textBefore), "info")
     else
-      editor.flashNotification("pos 不是数字，无法直接截取文本", "error")
+      editor.flashNotification("pos is not a number, cannot substring", "error")
       return
     end
 
-    -- 第五步：计算行号
+    -- Step 5: Count line number
     local _, newlineCount = textBefore:gsub("\n", "")
     local lineNum = newlineCount + 1
     editor.flashNotification("lineNum = " .. tostring(lineNum), "info")
 
-    -- 第六步：构造引用
+    -- Step 6: Build reference string
     local ref = string.format("[[%s@%d]]", pageName, lineNum)
     editor.flashNotification("ref = " .. ref, "info")
 
-    -- 第七步：复制到剪贴板
+    -- Step 7: Copy reference to clipboard
     local ok, err = pcall(function() editor.copyToClipboard(ref) end)
     if ok then
-      editor.flashNotification("Copied reference OK", "info")
+      editor.flashNotification("Copied reference successfully", "info")
     else
-      editor.flashNotification("clipboardWrite failed: " .. tostring(err), "error")
+      editor.flashNotification("Clipboard copy failed: " .. tostring(err), "error")
     end
   end
 }
+
 ```
