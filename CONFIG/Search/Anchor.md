@@ -9,7 +9,7 @@ anchors = anchors or {}
 
 -- Use custom full-width brackets to avoid built-in WikiLink
 local refTemplate = template.new [==[
-**⟦${.page}@${.id}⟧**
+**⟦${_.page}@${_.id}⟧**
 ]==]
 
 -- Command: Copy stable reference
@@ -81,18 +81,67 @@ event.listen {
   end
 }
 
+-- Helper: robustly extract ⟦Page@anchor⟧ (fallback to [[Page@anchor]])
+local function extractCustomAnchorAtPos(pos)
+  -- Prefer line-based extraction to avoid word boundary issues
+  local lineStart, lineEnd
+  if editor.getLineRangeAtPos then
+    local ok, a, b = pcall(editor.getLineRangeAtPos, pos)
+    if ok then lineStart, lineEnd = a, b end
+  end
+
+  if lineStart and lineEnd and editor.getText then
+    local ok, line = pcall(editor.getText, lineStart, lineEnd)
+    if ok and line and #line > 0 then
+      local rel = math.max(1, (pos - lineStart) + 1)
+      -- find nearest ⟦ ... ⟧ around cursor
+      local leftIdx
+      do
+        local prefix = line:sub(1, rel)
+        local i = 0
+        while true do
+          local j = prefix:find("⟦", i + 1, true)
+          if not j then break end
+          leftIdx = j
+          i = j
+        end
+      end
+      if leftIdx then
+        local rightIdx = line:find("⟧", rel, true)
+        if rightIdx then
+          local token = line:sub(leftIdx, rightIdx)
+          local pageName, anchorId = token:match("⟦([^@]+)@([^⟧]+)⟧")
+          if pageName and anchorId then
+            pageName = pageName:gsub("^%s+", ""):gsub("%s+$", "")
+            anchorId = anchorId:gsub("^%s+", ""):gsub("%s+$", "")
+            return pageName, anchorId
+          end
+        end
+      end
+    end
+  end
+
+  -- Fallback: word-based extraction
+  if editor.getWordAtPos then
+    local word = editor.getWordAtPos(pos)
+    if word and #word > 0 then
+      local pageName, anchorId = word:match("⟦([^@]+)@([^⟧]+)⟧")
+      if pageName and anchorId then return pageName, anchorId end
+      pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
+      if pageName and anchorId then return pageName, anchorId end
+    end
+  end
+end
+
 -- Event: click on reference text to navigate
 event.listen {
   name = "page:click",
   run = function(e)
-    local pos = e.data and e.data.pos or e.pos
+    local pos = (e and e.data and e.data.pos) or (e and e.pos)
     if not pos then return end
 
-    local word = editor.getWordAtPos(pos)
-    if not word then return end
-
-    -- Parse ⟦Page@anchorId⟧
-    local pageName, anchorId = word:match("⟦([^@]+)@([^⟧]+)⟧")
+    -- Prefer ⟦Page@anchor⟧; fallback to [[Page@anchor]]
+    local pageName, anchorId = extractCustomAnchorAtPos(pos)
     if not pageName or not anchorId then return end
 
     -- Parameterized query for the anchor
@@ -116,6 +165,5 @@ event.listen {
   end
 }
 ```
-
 
 
