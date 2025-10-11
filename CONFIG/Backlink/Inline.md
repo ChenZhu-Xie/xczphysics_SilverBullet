@@ -1,7 +1,38 @@
 
-
+1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
 
 ```space-lua
+command.define {
+  name = "Cursor: Copy Reference",
+  run = function()
+    local pageName = editor.getCurrentPage()
+    if not pageName then
+      editor.flashNotification("无法获取页面名", "error")
+      return
+    end
+
+    local pos = editor.getCursor()
+    if type(pos) ~= "number" then
+      editor.flashNotification("光标位置不是数字", "error")
+      return
+    end
+
+    local ref = string.format("[[%s@%d]]", pageName, pos)
+
+    local ok, err = pcall(function() editor.copyToClipboard(ref) end)
+    if ok then
+      editor.flashNotification("Copied reference: " .. ref, "info")
+    else
+      editor.flashNotification("复制失败: " .. tostring(err), "error")
+    end
+  end
+}
+
+```
+
+1. backup test version
+
+```lua
 command.define {
   name = "Cursor: Copy Reference (debug)",
   run = function()
