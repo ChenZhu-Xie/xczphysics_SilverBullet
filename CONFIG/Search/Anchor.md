@@ -1,15 +1,15 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin
+-- Stable Cursor Reference Plugin v4 (Custom Brackets Variant)
 -- 1. Copy a stable reference at the cursor
 -- 2. Render clickable references in the document for navigation
 
 anchors = anchors or {}
 
--- Template for rendering clickable references (keeps WikiLink-like look)
+-- Use custom full-width brackets to avoid built-in WikiLink
 local refTemplate = template.new [==[
-**[[${_.page}@${_.id}]]**
+**⟦${.page}@${.id}⟧**
 ]==]
 
 -- Command: Copy stable reference
@@ -33,7 +33,7 @@ command.define {
     -- Generate unique anchor ID
     local anchorId = string.format("anchor_%d_%d", os.time(), pos)
 
-    -- Register anchor in index
+    -- Register anchor in SB index
     index.tag("anchor", {
       page = pageName,
       pos = pos,
@@ -43,8 +43,8 @@ command.define {
     -- Optional in-memory map
     anchors[anchorId] = { page = pageName, pos = pos }
 
-    -- Copy reference text
-    local refString = string.format("[[%s@%s]]", pageName, anchorId)
+    -- Build and copy reference text using custom brackets
+    local refString = string.format("⟦%s@%s⟧", pageName, anchorId)
     local ok, err = pcall(function() editor.copyToClipboard(refString) end)
     if ok then
       editor.flashNotification("Copied stable reference: " .. refString, "info")
@@ -59,14 +59,14 @@ widgets = widgets or {}
 function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
 
-  -- Query anchors for current page
-  local refs = query[[
+  -- Parameterized query to avoid DSL scope issues
+  local refs = query([[
     from index.tag "anchor"
-    where _.page == pageName
+    where _.page == ?
     order by pos
-  ]]
+  ]], pageName)
 
-  if #refs == 0 then return end
+  if not refs or #refs == 0 then return end
 
   return widget.new {
     markdown = "# Stable References\n" .. template.each(refs, refTemplate)
@@ -85,28 +85,28 @@ event.listen {
 event.listen {
   name = "page:click",
   run = function(e)
-    -- Word under clicked position
     local pos = e.data and e.data.pos or e.pos
     if not pos then return end
+
     local word = editor.getWordAtPos(pos)
     if not word then return end
 
-    -- Parse [[Page@anchorId]]
-    local pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
+    -- Parse ⟦Page@anchorId⟧
+    local pageName, anchorId = word:match("⟦([^@]+)@([^⟧]+)⟧")
     if not pageName or not anchorId then return end
 
-    -- Query anchor by page and id (formatted exactly as requested)
-    local results = query[[
+    -- Parameterized query for the anchor
+    local results = query([[
       from index.tag "anchor"
-      where _.page == pageName and _.id == anchorId
-    ]]
+      where _.page == ? and _.id == ?
+      order by pos
+    ]], pageName, anchorId)
 
-    if #results == 0 then
+    if not results or #results == 0 then
       editor.flashNotification("Anchor not found or removed", "error")
       return
     end
 
-    -- Navigate to stored position
     local anchor = results[1]
     editor.navigate({
       kind = "page",
