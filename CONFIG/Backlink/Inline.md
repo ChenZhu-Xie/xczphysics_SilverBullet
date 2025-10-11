@@ -17,6 +17,8 @@ command.define {
     local textBefore = editor.getText():sub(1, pos)
     local lineNum = select(2, textBefore:gsub("\n", "")) + 1
 
+    editor.flashNotification("Copied reference: " .. pos, "info")
+    
     -- 构造引用
     local ref = string.format("[[%s@%d]]", pageName, lineNum)
 
