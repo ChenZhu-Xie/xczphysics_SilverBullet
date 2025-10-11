@@ -85,7 +85,7 @@
 
 ## Tag Alternative: Fields/Metadata
 > - a Page itself is an Object as well, like #tag.
-> - it too could have some attributes,
+> - it too could have some Attributes/Properties,
   > - that is, __key-value pairs__ as __front matter__.
 > - 
 
