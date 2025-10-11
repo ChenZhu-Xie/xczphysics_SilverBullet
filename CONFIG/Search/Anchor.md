@@ -1,13 +1,13 @@
 
 
 ```space-lua
--- Stable Cursor Reference Plugin v4
+-- Stable Cursor Reference Plugin
 -- 1. Copy a stable reference at the cursor
 -- 2. Render clickable references in the document for navigation
 
 anchors = anchors or {}
 
--- Template for rendering clickable references
+-- Template for rendering clickable references (keeps WikiLink-like look)
 local refTemplate = template.new [==[
 **[[${_.page}@${_.id}]]**
 ]==]
@@ -16,12 +16,14 @@ local refTemplate = template.new [==[
 command.define {
   name = "Cursor: Copy Stable Reference",
   run = function()
+    -- Get current page
     local pageName = editor.getCurrentPage()
     if not pageName then
       editor.flashNotification("Failed to get current page name", "error")
       return
     end
 
+    -- Get cursor position (number)
     local pos = editor.getCursor()
     if type(pos) ~= "number" then
       editor.flashNotification("Cursor position is not a number", "error")
@@ -31,16 +33,17 @@ command.define {
     -- Generate unique anchor ID
     local anchorId = string.format("anchor_%d_%d", os.time(), pos)
 
-    -- Register anchor in SB index
+    -- Register anchor in index
     index.tag("anchor", {
       page = pageName,
       pos = pos,
       id = anchorId
     })
 
+    -- Optional in-memory map
     anchors[anchorId] = { page = pageName, pos = pos }
 
-    -- Build reference string and copy
+    -- Copy reference text
     local refString = string.format("[[%s@%s]]", pageName, anchorId)
     local ok, err = pcall(function() editor.copyToClipboard(refString) end)
     if ok then
@@ -55,6 +58,8 @@ command.define {
 widgets = widgets or {}
 function widgets.stableReferences(pageName)
   pageName = pageName or editor.getCurrentPage()
+
+  -- Query anchors for current page
   local refs = query[[
     from index.tag "anchor"
     where _.page == pageName
@@ -68,7 +73,7 @@ function widgets.stableReferences(pageName)
   }
 end
 
--- Bottom widget: clickable stable references
+-- Hook: render bottom widgets
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function()
@@ -76,18 +81,21 @@ event.listen {
   end
 }
 
--- Event: Click on reference text to navigate
+-- Event: click on reference text to navigate
 event.listen {
   name = "page:click",
   run = function(e)
-    local pos = e.data.pos
+    -- Word under clicked position
+    local pos = e.data and e.data.pos or e.pos
+    if not pos then return end
     local word = editor.getWordAtPos(pos)
     if not word then return end
 
+    -- Parse [[Page@anchorId]]
     local pageName, anchorId = word:match("%[%[([^@]+)@([^%]]+)%]%]")
     if not pageName or not anchorId then return end
 
-    -- Parameterized query to safely get anchor
+    -- Query anchor by page and id (formatted exactly as requested)
     local results = query[[
       from index.tag "anchor"
       where _.page == pageName and _.id == anchorId
@@ -98,6 +106,7 @@ event.listen {
       return
     end
 
+    -- Navigate to stored position
     local anchor = results[1]
     editor.navigate({
       kind = "page",
@@ -106,7 +115,6 @@ event.listen {
     })
   end
 }
-
 ```
 
 
