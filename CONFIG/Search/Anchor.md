@@ -1,5 +1,5 @@
 
-asdf
+
 ```space-lua
 -- Stable Cursor Reference Plugin v6
 -- Clipboard-only, dynamic cursor position reference
@@ -69,5 +69,4 @@ event.listen {
 }
 
 ```
-
 
