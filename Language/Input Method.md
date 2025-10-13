@@ -189,7 +189,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-冰雪四拼 ∈ 音码类，单字标码：双拼 SY + 音调 U = 声母 S + 韵调 YU
+冰雪四拼 ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
+                           = 声母 S + 韵调 Y(Y)U =    
 https://input.tansongchen.com/snow4/spelling.html
 >  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
 >  [零声母](https://input.tansongchen.com/snow4/spelling#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y,ü = r,s,f,k
@@ -202,7 +203,7 @@ https://input.tansongchen.com/snow4/spelling.html
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
 >    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
-
+冰雪双拼 ∈ 音码，单字标码类似龙码：SYPP
 
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
