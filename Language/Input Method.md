@@ -190,17 +190,18 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >     （注意，其中的 P 也可能是 B）
 
 冰雪四拼 ∈ 音码类，单字标码：双拼 SY + 音调 U = 声母 S + 韵调 YU
->  声母 S：zh,ch,sh = w,y,v（小鹤是 v,i,u）
->  零声母：v,w,y,ü = r,s,f,k
->  韵母 Y：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
-   韵调 U：12345 = ieuao，也即 aeuio = 42315，5 是轻声
+https://input.tansongchen.com/snow4/spelling.html
+>  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
+>  [零声母](https://input.tansongchen.com/snow4/spelling#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y,ü = r,s,f,k
+>  [韵母 Y](https://input.tansongchen.com/snow4/spelling#%E9%9F%B5%E6%AF%8D)：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
+   [韵调 U](https://input.tansongchen.com/snow4/spelling#%E5%A3%B0%E8%B0%83)：12345 = ieuao，也即 aeuio = 42315，5 是轻声
 - 单字标码：S YY U = 21 * 5^2^ * 5
   - 明显是奔着词去的：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
     - 3,276 连小鹤的 8,000 字都没有
   - 好处就是 二字词 SS 从三码开始顶 SSY S...
 
 
-https://input.tansongchen.com/snow4/spelling.html
+
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
 
