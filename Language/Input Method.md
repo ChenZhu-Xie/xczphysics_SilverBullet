@@ -194,6 +194,9 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >  零声母：v,w,y,ü = r,s,f,k
 >  韵母 Y：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
    韵调 U：12345 = ieuao，也即 aeuio = 42315，5 是轻声
+- 单字标码：S YY U = 21 * 5^2^ * 5
+  - 明显是奔着词去的：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
+    - 连小鹤的 8,000 
 
 https://input.tansongchen.com/snow4/spelling.html
 
