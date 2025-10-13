@@ -194,6 +194,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >  零声母：v,w,y,ü = r,s,f,k
 >  韵母 Y：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
    韵调 U：12345 = ieuao，也即 aeuio = 42315，5 是轻声
+
 https://input.tansongchen.com/snow4/spelling.html
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
