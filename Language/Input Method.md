@@ -46,7 +46,7 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
        小字集 B 右遇下一个 大字集 S/P 时，顶屏。
        https://pwa.sspai.com/post/86791 顶功的问题
        顶功不定长，记忆量大，盲打难，用进废退。
-  
+
 ### 双拼 (SY..) +
 最强双拼：乱序飞猫 https://macroxue.github.io/shuangpin/eval.html
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
