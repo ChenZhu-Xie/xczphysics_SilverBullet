@@ -44,6 +44,8 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
        似乎编码子方案，如 SPBB,SPB、SBBB,SBB,SB 不同
        S,P 充当分隔符 _：SP 处于大字集，B 处于小字集
        小字集 B 右遇下一个 大字集 S/P 时，顶屏。
+       https://pwa.sspai.com/post/86791 顶功的问题
+       顶功不定长，记忆量大，盲打难，用进废退。
   
 ### 双拼 (SY..) +
 最强双拼：乱序飞猫 https://macroxue.github.io/shuangpin/eval.html
@@ -159,7 +161,6 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 ![[Language/Input Method/冰雪四拼.jpeg]]
 
 ![[Language/Input Method/简单鹤.jpeg]]
-
 ![[Language/Input Method/小鹤.jpeg]]
 
 # 结论
