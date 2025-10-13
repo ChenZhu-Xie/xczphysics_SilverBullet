@@ -189,4 +189,6 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-冰雪四拼 和 冰雪清韵 
+冰雪四拼 和 
+
+冰雪清韵 对 
