@@ -190,7 +190,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >     （注意，其中的 P 也可能是 B）
 
 冰雪四拼 ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
-                           = 声母 S + 韵调 Y(Y)U = S + Ỳ 
+                           = 声母 S + 韵调 Y(Y)U = S + Ỳ
 https://input.tansongchen.com/snow4/spelling.html
 >  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
 >  [零声母](https://input.tansongchen.com/snow4/spelling#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y,ü = r,s,f,k
@@ -203,13 +203,13 @@ https://input.tansongchen.com/snow4/spelling.html
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
 >    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
-冰雪双拼 ∈ 音码，单字标码类似龙码：SYPP
-- 但
-
+冰雪双拼 ∈ 音码，单字标码 类似龙码：SỲPP
+- 冰雪：
+- 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
 
 冰雪清韵 词组的 标准编码：没什么大的变化，仍然是 SSS..。
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
-
+我要不要魔改一下：上屏自动敲一个空格？这样比较符合我的视觉逻辑
