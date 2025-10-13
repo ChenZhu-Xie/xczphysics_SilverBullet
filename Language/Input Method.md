@@ -192,7 +192,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 冰雪四拼 和 
 
 
-冰雪清韵 单字的 标准编码，不是该字的 声母 S，而是字根的 S，这... 
-冰雪清韵 词组的 标准编码，没什么问题。
+冰雪清韵 单字的 标准码 1，不是该字的 声母 S，而是字根的 S，这... 
+冰雪清韵 词组的 标准编码，没什么大的变化，仍然是 SSS..。
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
