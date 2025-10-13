@@ -138,7 +138,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 飞码 si db xj lva  zg mz  h_ sw xx fp hk  zxms df_
 - 小鹤 uh_d_ xi la   zi mu  h_ uu xt fu hc  zfme daf_
 - 墨奇 uh de xi la   zi mu  h_ uu xt fu hc  zfme daf_
-- 万象 uh de xi la   zi mu  he uu xt fu hc  zfme da
+- 万象 uh de xi la   zi mu  he uu xt fu hc  zfme da    词 2 码长
 - 简单 u; d_ xi la   zi mu  h_ uu xt fu hc  zfme daj_
 
 # 整句 3 对比
