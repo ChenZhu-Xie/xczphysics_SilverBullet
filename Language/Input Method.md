@@ -203,7 +203,7 @@ https://input.tansongchen.com/snow4/spelling.html
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
 >    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
-冰雪双拼 ∈ 音码，单字标码 类似龙码：SỲPP
+声笔三拼 → 冰雪双拼 ∈ 音码，单字标码 类似龙码：SỲPP
 - 冰雪：
 - 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
