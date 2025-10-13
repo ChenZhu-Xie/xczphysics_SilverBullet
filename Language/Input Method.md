@@ -189,11 +189,10 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-冰雪四拼 ∈音码类，单字标码：双拼 SY + 调 U = 声母 S + 韵 YU
-
-声母 S：zh ch sh = wyv（小鹤是 viu）
-
-调 U：aeuio = 42315，12345 = ieuao
+冰雪四拼 ∈ 音码类，单字标码：双拼 SY + 音调 U = 声母 S + 韵调 YU
+>  声母 S：zh,ch,sh = w,y,v（小鹤是 v,i,u）
+>  韵母 Y：aoeiu, ea, {aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
+   韵调 U：12345 = ieuao，aeuio = 42315，5 是轻声
 
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这... 
