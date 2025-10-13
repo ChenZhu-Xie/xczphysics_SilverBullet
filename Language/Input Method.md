@@ -189,21 +189,21 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-冰雪四拼 ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
+[冰雪四拼](https://input.tansongchen.com/snow4/) ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
                            = 声母 S + 韵调 Y(Y)U = S + Ỳ
-https://input.tansongchen.com/snow4/spelling.html
+[单字规则](https://input.tansongchen.com/snow4/spelling.html) 如下
 >  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
 >  [零声母](https://input.tansongchen.com/snow4/spelling#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y,ü = r,s,f,k
 >  [韵母 Y](https://input.tansongchen.com/snow4/spelling#%E9%9F%B5%E6%AF%8D)：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
    [韵调 U](https://input.tansongchen.com/snow4/spelling#%E5%A3%B0%E8%B0%83)：12345 = ieuao，也即 aeuio = 42315，5 是轻声
 - 单字标码：S Y(Y) U = 21 * 5^2^ * 5 = A B(B) B
-  - 明显是奔着词去的：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
+  - 明显是 [奔着词去的](https://input.tansongchen.com/snow4/#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%B0%E9%9B%AA%E5%9B%9B%E6%8B%BC)：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
 >    - 3,276 连小鹤的 8,000 字都没有
   - [好处就是](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%9B%9B%E6%8B%BC-%E5%90%88%E7%90%86%E5%88%86%E8%AF%8D-%E7%AE%80%E6%8B%BC%E9%A1%B6%E5%8A%9F) 二字词 SS 从三码开始顶 SSY S... （词码长 ~ 1.5）
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
 >    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
-声笔三拼 → 冰雪双拼 ∈ 音码，单字标码 类似龙码：SỲPP
+声笔三拼 → [冰雪双拼](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%8F%8C%E6%8B%BC-%E5%8D%95%E5%AD%97%E7%9B%B2%E6%89%93-%E5%AD%97%E8%AF%8D%E5%8F%8C%E5%85%A8) ∈ 音码，单字标码 类似龙码：SỲPP
 - 冰雪：
 - 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
