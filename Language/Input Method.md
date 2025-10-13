@@ -196,7 +196,9 @@ https://www.zhihu.com/question/376022178/answer/3165035735
    韵调 U：12345 = ieuao，也即 aeuio = 42315，5 是轻声
 - 单字标码：S YY U = 21 * 5^2^ * 5
   - 明显是奔着词去的：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
-    - 连小鹤的 8,000 
+    - 3,276 连小鹤的 8,000 字都没有
+  - 好处就是 二字词 SS 从三码开始顶 SSY S...
+
 
 https://input.tansongchen.com/snow4/spelling.html
 
