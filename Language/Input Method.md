@@ -218,7 +218,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >  [声母 S](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = z,c,s（小鹤是 v,i,u）
 >  [零声母](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y = v,w,y
 >  [韵母 Y](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9F%B5%E6%AF%8D)：单码 9 键 = aeiou;,./
-   [字根](https://input.tansongchen.com/snow4/spelling#%E5%A3%B0%E8%B0%83)：12345 = ieuao，也即 aeuio = 42315，5 是轻声
+   [字根](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%AD%97%E6%A0%B9)：第一主根丨、丿、丶、乛、乚 的 S+Y 为 αβγδεζ+左i右e
+>        第二主根 的 S+Y 为 bpmfdtnlgkhjqxzcsrwyv+左o右a
 > 
 冰雪清韵 词组的 标准编码：没什么大的变化，仍然是 SSS..。
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
