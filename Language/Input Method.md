@@ -31,6 +31,7 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 纯形的劣势
        https://chaifen.app/501VZ6lBH/statistics2
 ## 音形 (包括 S... SY..)
 约定：==音码== 包含 ==音形== 和 ==音调== 
+https://zhuanlan.zhihu.com/p/651114035 音码的好处
 https://www.zhihu.com/question/1941614246552133827 音码的好处
 https://input.tansongchen.com/philosophy.html 音码的好处
 https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
@@ -38,9 +39,11 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
   优劣
        用了声笔就离开了双拼，也就离开了大词库/万象，比如墨奇
        但 S 紧跟的不是 Y 而是 P，则编码空间利用效率更高
+       https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
   顶功
-       似乎编码子方案，如 SPBB,SPB,SP,S、SBBB,SBB,SB 不同
-       就可以在每个子方案接下一个任意子方案，都可以顶功：S 充当分隔 _
+       似乎编码子方案，如 SPBB,SPB、SBBB,SBB,SB 不同
+       S,P 充当分隔符 _：SP 处于大字集，B 处于小字集
+       小字集 B 右遇下一个 大字集 S/P 时，顶屏。
   
 ### 双拼 (SY..) +
 最强双拼：乱序飞猫 https://macroxue.github.io/shuangpin/eval.html
@@ -63,6 +66,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
        https://www.zhihu.com/question/549135035
 
 #### 笔画 (BB..)
+https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
   星空键道
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
@@ -213,4 +217,4 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 冰雪清韵 词组的 标准编码：没什么大的变化，仍然是 SSS..。
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
-我要不要魔改一下：上屏自动敲一个空格？这样比较符合我的视觉逻辑
+我要不要魔改一下：上屏自动敲一个空格？这样 比较符合 我的 视觉逻辑。
