@@ -161,6 +161,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 ![[Language/Input Method/冰雪四拼.jpeg]]
 
 ![[Language/Input Method/简单鹤.jpeg]]
+
 ![[Language/Input Method/小鹤.jpeg]]
 
 # 结论
