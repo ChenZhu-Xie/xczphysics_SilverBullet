@@ -191,6 +191,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 
 冰雪四拼 ∈ 音码类，单字标码：双拼 SY + 音调 U = 声母 S + 韵调 YU
 >  声母 S：zh,ch,sh = w,y,v（小鹤是 v,i,u）
+>  零声母：v,w,y,ü = r,s,f,k
 >  韵母 Y：双码 = aoeiu{}，ea，{aoeiu}o, {aoeiu}e, {aeiu}i, {aou}u
    韵调 U：12345 = ieuao，也即 aeuio = 42315，5 是轻声
 
