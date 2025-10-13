@@ -194,7 +194,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-声笔三拼 → [冰雪四拼](https://input.tansongchen.com/snow4/) ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
+[冰雪四拼](https://input.tansongchen.com/snow4/) ← 声笔三拼 ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
                                       = 声母 S + 韵调 Y(Y)U = S + Ỳ
 [单字规则](https://input.tansongchen.com/snow4/spelling.html) 如下
 >  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
@@ -222,9 +222,10 @@ https://www.zhihu.com/question/376022178/answer/3165035735
    [字根](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%AD%97%E6%A0%B9)：第一主根 一丨丿丶乛乚 的 S+Y 为 αβγδεζ+左i右e
 >        第二主根 的 S+Y 为 bpmfdtnlgkhjqxzcsrwyv+左o右a
 >            副根 的 S+Y 为 字根读音的 S+Y
+- 和 冰雪四拼 类似，其 S 与 Y 相对双拼，分处 2 个不同的字集
 
-
-冰雪清韵 词组的 标准编码：没什么大的变化，仍然是 SSS..。
+冰雪清韵 词组的 标准编码：
+  相对其他方案，以及相对单字编码，均无大变化，仍然是 SY SSY SSSY SSSS
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
 我要不要魔改一下：上屏自动敲一个空格？这样 比较符合 我的 视觉逻辑。
