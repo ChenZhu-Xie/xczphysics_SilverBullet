@@ -197,9 +197,10 @@ https://input.tansongchen.com/snow4/spelling.html
    [韵调 U](https://input.tansongchen.com/snow4/spelling#%E5%A3%B0%E8%B0%83)：12345 = ieuao，也即 aeuio = 42315，5 是轻声
 - 单字标码：S Y(Y) U = 21 * 5^2^ * 5 = A B(B) B
   - 明显是奔着词去的：21 * 5^3^ + 21 * 5^2^ + 21 * 5 + 21 的空间少
-    - 3,276 连小鹤的 8,000 字都没有
+>    - 3,276 连小鹤的 8,000 字都没有
   - [好处就是](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%9B%9B%E6%8B%BC-%E5%90%88%E7%90%86%E5%88%86%E8%AF%8D-%E7%AE%80%E6%8B%BC%E9%A1%B6%E5%8A%9F) 二字词 SS 从三码开始顶 SSY S... （词码长 ~ 1.5）
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
+>    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
 
 
