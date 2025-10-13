@@ -42,6 +42,8 @@
   2. Input: “Page Copy” then ${Green("Enter")}
   3. Input: “/Page Name” then ${Green("Enter")}
   4. ${Green("Ctrl + A")} then ${Green("Backspace")}
+### Navigate Cursors History
+[[Language/Input Method/声笔飞单]] + Ctrl + Enter
 
 ## Wiki Web
 ### Rename a Page with its Backlinks
