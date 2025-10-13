@@ -214,7 +214,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
-[单字规则](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%BC%80%E5%A7%8B%E5%86%B0%E9%9B%AA%E6%B8%85%E9%9F%B5%E7%9A%84%E6%97%85%E7%A8%8B) 如下
+[单字规则](https://beta.input.tansongchen.com/snow-qingyun/basic.html#%E5%8D%95%E5%AD%97%E7%9A%84%E5%89%8D%E7%BC%80%E7%BC%96%E7%A0%81) 如下
 >  [声母 S](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = z,c,s（小鹤是 v,i,u）
 >  [零声母](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y = v,w,y
 >  [韵母 Y](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9F%B5%E6%AF%8D)：单码 9 键 = aeiou;,./
