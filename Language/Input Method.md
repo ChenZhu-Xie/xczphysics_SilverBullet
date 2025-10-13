@@ -55,7 +55,7 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
     - 比如 qw 顶功后，就意味着后面没编码了：26^2^的排列组合就丢失了。
   - 但实际上，mwy<?> 的填充率并不高，所以如声笔输入法类似的顶功方案
     - 就直接丢弃最后一两码，3 码自动上屏。
-    - 所以，声笔飞单的 21×21×5×5 本身是牺牲了编码范围来换取上屏速度？
+    - 所以，声笔飞单的 21×(21+5)×5×5 是牺牲了编码范围来换取上屏速度？
 #### 部首 (PP)
   官鹤
        https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
@@ -194,8 +194,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
        SPBS 肯定不是词 SPSP 而是字，所以自动断词分字为 SPB + S
 >     （注意，其中的 P 也可能是 B）
 
-[冰雪四拼](https://input.tansongchen.com/snow4/) ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
-                           = 声母 S + 韵调 Y(Y)U = S + Ỳ
+声笔三拼 → [冰雪四拼](https://input.tansongchen.com/snow4/) ∈ 半音码，单字标码：半双拼 SY(Y) + 音调 U
+                                      = 声母 S + 韵调 Y(Y)U = S + Ỳ
 [单字规则](https://input.tansongchen.com/snow4/spelling.html) 如下
 >  [声母 S](https://input.tansongchen.com/snow4/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = w,y,v（小鹤是 v,i,u）
 >  [零声母](https://input.tansongchen.com/snow4/spelling#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y,ü = r,s,f,k
@@ -209,7 +209,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
 
 [冰雪双拼](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%8F%8C%E6%8B%BC-%E5%8D%95%E5%AD%97%E7%9B%B2%E6%89%93-%E5%AD%97%E8%AF%8D%E5%8F%8C%E5%85%A8) ∈ 音码，单字标码 类似龙码：SỲPP
-- 冰双：
+- 冰双：SỲPP = A{A+B+D}BB，声 18 大字集 A，辅码 10 小字集 B 
 - 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
 冰雪清韵 单字的 标准码 1：不是该字的 声母 S，而是字根的 S，这...
