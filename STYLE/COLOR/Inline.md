@@ -68,7 +68,7 @@ for _, name in ipairs(colorNames) do
     name = "Color: " .. name .. " Text",
     category = "Style",
     description = string.format("将文本标记为柔和%s色", name),
-    execute = function()
+    run = function()
       wrapWithColor(name)
     end
   }
