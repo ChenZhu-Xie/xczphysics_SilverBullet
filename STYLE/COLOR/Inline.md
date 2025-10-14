@@ -33,12 +33,12 @@ command.define {
 }
 
 local colors = {
-  red   = "#E57373",
-  green = "#81C784",
-  blue  = "#64B5F6",
+  red    = "#E57373",
+  green  = "#81C784",
+  blue   = "#64B5F6",
   yellow = "#FFF176",
   purple = "#BAA7E5",
-  gray = "#B0BEC5"
+  gray   = "#B0BEC5"
 }
 
 local function ColorText(text, color)
@@ -54,4 +54,29 @@ function Blue(text)   return ColorText(text, colors.blue) end
 function Yellow(text) return ColorText(text, colors.yellow) end
 function Purple(text) return ColorText(text, colors.purple) end
 function Gray(text)   return ColorText(text, colors.gray) end
+
+local function wrapWithColor(fnName)
+  local text = editor.getSelection()
+  if text and text ~= "" then
+    editor.replaceSelection(string.format("{{%s(%q)}}", fnName, text))
+  else
+    local insertText = string.format("{{%s(\"\")}}", fnName)
+    local pos = editor.getCursor()
+    editor.insertText(insertText)
+    editor.setCursor(pos + #string.format("{{%s(\"", fnName))
+  end
+end
+
+local colorNames = { "Red", "Green", "Blue", "Yellow", "Purple", "Gray" }
+
+for _, name in ipairs(colorNames) do
+  command.define {
+    name = "Color: " .. name .. " Text",
+    category = "Style",
+    description = string.format("将文本标记为柔和%s色", name),
+    execute = function()
+      wrapWithColor(name)
+    end
+  }
+end
 ```
