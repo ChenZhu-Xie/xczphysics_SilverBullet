@@ -79,7 +79,7 @@ end
 -- 🟥 Ctrl-1 柔和红
 command.define {
   name = "Text: Red",
-  key = "Ctrl-1",
+  key = "Ctrl-R",
   run = function()
     wrapWithColor("Red")
   end
@@ -88,7 +88,7 @@ command.define {
 -- 🟩 Ctrl-2 柔和绿
 command.define {
   name = "Text: Green",
-  key = "Ctrl-2",
+  key = "Ctrl-G",
   run = function()
     wrapWithColor("Green")
   end
@@ -97,7 +97,7 @@ command.define {
 -- 🟦 Ctrl-3 柔和蓝
 command.define {
   name = "Text: Blue",
-  key = "Ctrl-3",
+  key = "Ctrl-B",
   run = function()
     wrapWithColor("Blue")
   end
@@ -106,7 +106,7 @@ command.define {
 -- 🟨 Ctrl-4 柔和黄
 command.define {
   name = "Text: Yellow",
-  key = "Ctrl-4",
+  key = "Ctrl-Y",
   run = function()
     wrapWithColor("Yellow")
   end
@@ -115,7 +115,7 @@ command.define {
 -- 🟪 Ctrl-5 柔和紫
 command.define {
   name = "Text: Purple",
-  key = "Ctrl-5",
+  key = "Ctrl-P",
   run = function()
     wrapWithColor("Purple")
   end
@@ -124,7 +124,7 @@ command.define {
 -- ⚪ Ctrl-6 柔和灰
 command.define {
   name = "Text: Gray",
-  key = "Ctrl-6",
+  key = "Ctrl-G",
   run = function()
     wrapWithColor("Gray")
   end
