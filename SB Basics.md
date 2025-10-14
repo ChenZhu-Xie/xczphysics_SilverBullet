@@ -1,7 +1,7 @@
 
 # This ‘Website’: SilverBullet README
   - This page focuses on the basic operations in SB
-  - ← this is also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
+  - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
 
 # Key Bindings
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
