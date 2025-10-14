@@ -26,7 +26,11 @@ end
 
 
 ```space-lua
-
+command.define {
+  name = "Cursor: Copy Reference",
+  key = "Shift-Alt-c",
+  run = function() Red(text) end
+}
 
 local colors = {
   red   = "#E57373",
