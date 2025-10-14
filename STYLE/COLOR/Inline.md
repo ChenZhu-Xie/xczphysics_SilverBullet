@@ -31,8 +31,7 @@ local colors = {
   green  = "#81C784",
   blue   = "#64B5F6",
   yellow = "#FFF176",
-  purple = "#BAA7E5",
-  gray   = "#B0BEC5"
+  purple = "#BAA7E5"
 }
 
 local function ColorText(text, color)
@@ -61,72 +60,19 @@ local function wrapWithColor(fnName)
   end
 end
 
-local colorNames = { "Red", "Green", "Blue", "Yellow", "Purple", "Gray" }
+local colorNames = { "Red", "Green", "Blue", "Yellow", "Purple" }
 
 for _, name in ipairs(colorNames) do
+  local key = string.lower(string.sub(name, 1, 1))
+
   command.define {
-    name = "Color: " .. name .. " Text",
+    name = "Text: " .. name,
     category = "Style",
+    key = "Alt-" .. key,
     description = string.format("将文本标记为柔和%s色", name),
     run = function()
       wrapWithColor(name)
     end
   }
 end
-```
-
-```space-lua
--- 🟥 Ctrl-1 柔和红
-command.define {
-  name = "Text: Red",
-  key = "Ctrl-R",
-  run = function()
-    wrapWithColor("Red")
-  end
-}
-
--- 🟩 Ctrl-2 柔和绿
-command.define {
-  name = "Text: Green",
-  key = "Ctrl-G",
-  run = function()
-    wrapWithColor("Green")
-  end
-}
-
--- 🟦 Ctrl-3 柔和蓝
-command.define {
-  name = "Text: Blue",
-  key = "Ctrl-B",
-  run = function()
-    wrapWithColor("Blue")
-  end
-}
-
--- 🟨 Ctrl-4 柔和黄
-command.define {
-  name = "Text: Yellow",
-  key = "Ctrl-Y",
-  run = function()
-    wrapWithColor("Yellow")
-  end
-}
-
--- 🟪 Ctrl-5 柔和紫
-command.define {
-  name = "Text: Purple",
-  key = "Ctrl-P",
-  run = function()
-    wrapWithColor("Purple")
-  end
-}
-
--- ⚪ Ctrl-6 柔和灰
-command.define {
-  name = "Text: Gray",
-  key = "Ctrl-G",
-  run = function()
-    wrapWithColor("Gray")
-  end
-}
 ```
