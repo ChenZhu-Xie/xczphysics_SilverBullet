@@ -26,6 +26,8 @@ end
 
 
 ```space-lua
+
+
 local colors = {
   red   = "#E57373",
   green = "#81C784",
