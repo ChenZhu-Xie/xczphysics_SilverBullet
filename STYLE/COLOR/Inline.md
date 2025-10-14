@@ -26,12 +26,6 @@ end
 
 
 ```space-lua
-command.define {
-  name = "Cursor: Copy Reference",
-  key = "Shift-Alt-c",
-  run = function() Red(text) end
-}
-
 local colors = {
   red    = "#E57373",
   green  = "#81C784",
@@ -79,4 +73,60 @@ for _, name in ipairs(colorNames) do
     end
   }
 end
+```
+
+```space-lua
+-- 🟥 Ctrl-1 柔和红
+command.define {
+  name = "Text: Red",
+  key = "Ctrl-1",
+  run = function()
+    wrapWithColor("Red")
+  end
+}
+
+-- 🟩 Ctrl-2 柔和绿
+command.define {
+  name = "Text: Green",
+  key = "Ctrl-2",
+  run = function()
+    wrapWithColor("Green")
+  end
+}
+
+-- 🟦 Ctrl-3 柔和蓝
+command.define {
+  name = "Text: Blue",
+  key = "Ctrl-3",
+  run = function()
+    wrapWithColor("Blue")
+  end
+}
+
+-- 🟨 Ctrl-4 柔和黄
+command.define {
+  name = "Text: Yellow",
+  key = "Ctrl-4",
+  run = function()
+    wrapWithColor("Yellow")
+  end
+}
+
+-- 🟪 Ctrl-5 柔和紫
+command.define {
+  name = "Text: Purple",
+  key = "Ctrl-5",
+  run = function()
+    wrapWithColor("Purple")
+  end
+}
+
+-- ⚪ Ctrl-6 柔和灰
+command.define {
+  name = "Text: Gray",
+  key = "Ctrl-6",
+  run = function()
+    wrapWithColor("Gray")
+  end
+}
 ```
