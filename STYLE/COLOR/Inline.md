@@ -37,7 +37,7 @@ local colors = {
 
 local function ColorText(text, color)
   return widget.html(dom.span {
-    style = "color:%s; font-weight: bold;",
+    style = string.format("color:%s; font-weight:600; font-family:sans-serif;", color),
     text
   })
 end
