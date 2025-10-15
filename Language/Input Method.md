@@ -238,5 +238,6 @@ ${Red("为什么没人玩")}
 (A+B)A(A+B)(A+B)  词组
 (A+B)BA(A+B)      词组
 (A+B)BBA          词组
+${Red("好吧，有人玩")}：[左飞](https://ding.tansongchen.com/tutorial/collection/first/zuofei1811)
 
 > 我要不要魔改一下：上屏自动敲一个空格？这样 比较符合 我的 视觉逻辑。
