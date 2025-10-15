@@ -58,12 +58,13 @@ local function wrapWithColor(fnName)
   local text = getSelectedText()
   editor.flashNotification(text, "info")
   if text and text ~= "" then
-    editor.replaceSelection(string.format("{{%s(%q)}}", fnName, text))
+    editor.replaceRange(sel.from, sel.to, newText)
   else
     local insertText = string.format("{{%s(\"\")}}", fnName)
     local pos = editor.getCursor()
-    editor.insertText(insertText)
-    editor.setCursor(pos + #string.format("{{%s(\"", fnName))
+    editor.insertAtCursor(insertText, true)
+    local newPos = pos + #string.format("{{%s(\"", fnName))
+    editor.moveCursor(newPos, false)
   end
 end
 
