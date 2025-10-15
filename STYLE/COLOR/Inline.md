@@ -1,7 +1,7 @@
 
 Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.
 
-1. https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9
+1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058?u=chenzhu-xie
 
 ```lua
 function Red(text)
@@ -54,20 +54,28 @@ function getSelectedText()
   return text:sub(sel.from + 1, sel.to)
 end
 
+function setSelectedText(newText)
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  editor.replaceRange(sel.from, sel.to, newText)
+end
+
+function moveToNewTextPos(newText)
+  local pos = editor.getCursor()
+  local prefix = string.format(newText, fnName)
+  local newPos = pos + #prefix
+  editor.moveCursor(newPos, true)
+end
+
 local function wrapWithColor(fnName)
   local text = getSelectedText()
-  editor.flashNotification(text, "info")
   if text and text ~= "" then
     local newText = string.format("${%s(\"%s\")}", fnName, text)
-    local sel = editor.getSelection()
-    editor.replaceRange(sel.from, sel.to, newText)
+    setSelectedText(newText)
   else
     local insertText = string.format("${%s(\"\")}", fnName)
-    local pos = editor.getCursor()
     editor.insertAtCursor(insertText, false)
-    local prefix = string.format("{{%s(\"", fnName)
-    local newPos = pos + #prefix
-    editor.moveCursor(newPos, true)
+    moveToNewTextPos("${%s(\"")
   end
 end
 
