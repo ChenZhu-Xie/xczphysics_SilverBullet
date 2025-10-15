@@ -232,12 +232,12 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >                           仍是 SY SSY SSSY SSSS
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
-为什么没人玩
-(A+B)BBB 单字 (20+10)×10×10×10 = 30,000
+${Red("为什么没人玩")}
+(A+B)BBB  30,000  单字  (20+10)×10×10×10
  >          第一个 A 是声母，第二个 B 是韵母，后两个 B 是形码
-(A+B)A(A+B)(A+B) 词
-(A+B)BAB 词
-(A+B)BAA 词
-(A+B)BBA 词
+(A+B)A(A+B)(A+B)  词组
+(A+B)BAB          词组
+(A+B)BAA          词组
+(A+B)BBA          词组
 
 > 我要不要魔改一下：上屏自动敲一个空格？这样 比较符合 我的 视觉逻辑。
