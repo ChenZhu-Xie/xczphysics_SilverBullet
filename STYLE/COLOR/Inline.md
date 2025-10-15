@@ -62,7 +62,7 @@ local function wrapWithColor(fnName)
   else
     local insertText = string.format("{{%s(\"\")}}", fnName)
     local pos = editor.getCursor()
-    editor.insertText(insertText)
+    editor.insertAtCursor(insertText, true)
     editor.setCursor(pos + #string.format("{{%s(\"", fnName))
   end
 end
