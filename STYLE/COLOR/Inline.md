@@ -60,7 +60,7 @@ local function wrapWithColor(fnName)
   if text and text ~= "" then
     editor.replaceRange(sel.from, sel.to, newText)
   else
-    local insertText = string.format("{{%s(\"\")}}", fnName)
+    local insertText = string.format("${%s(\"\")}", fnName)
     local pos = editor.getCursor()
     editor.insertAtCursor(insertText, false)
   end
