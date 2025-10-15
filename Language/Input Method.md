@@ -221,7 +221,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 [单字规则](https://beta.input.tansongchen.com/snow-qingyun/basic.html#%E5%8D%95%E5%AD%97%E7%9A%84%E5%89%8D%E7%BC%80%E7%BC%96%E7%A0%81) 如下
 >  [声母 S](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%A3%B0%E6%AF%8D)：zh,ch,sh = z,c,s（小鹤是 v,i,u）
 >  [零声母](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9B%B6%E5%A3%B0%E6%AF%8D%E9%9F%B3%E8%8A%82)：v,w,y = v,w,y
->  [韵母 Y](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9F%B5%E6%AF%8D)：单码 9 键 = aeiou;,./
+>  [韵母 Y](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E9%9F%B5%E6%AF%8D)：单码 9 键 = aeiou;,./（iou;,./ 全在右手← 这是要废了右手？）
    [字根](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%AD%97%E6%A0%B9)：第一主根 一丨丿丶乛乚 的 S+Y 为 αβγδεζ+左i右e
 >        第二主根 的 S+Y 为 bpmfdtnlgkhjqxzcsrwyv+左o右a
 >            副根 的 S+Y 为 字根读音的 S+Y
