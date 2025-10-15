@@ -58,6 +58,7 @@ local function wrapWithColor(fnName)
   local text = getSelectedText()
   editor.flashNotification(text, "info")
   if text and text ~= "" then
+    local newText = string.format("${%s(\"\")}", fnName)
     local sel = editor.getSelection()
     editor.replaceRange(sel.from, sel.to, newText)
   else
