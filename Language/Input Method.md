@@ -226,7 +226,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
    [字根](https://beta.input.tansongchen.com/snow-qingyun/spelling.html#%E5%AD%97%E6%A0%B9)：第一主根 一丨丿丶乛乚 的 S+Y 为 αβγδεζ+左i右e
 >        第二主根 的 S+Y 为 bpmfdtnlgkhjqxzcsrwyv+左o右a
 >            副根 的 S+Y 为 字根读音的 S+Y
-- 和 冰雪四拼 类似，其 S 与 Y 相对双拼，分处 2 个不同的字集
+- 和 冰雪四拼 类似，其 S 与 Y 相对于 双拼，分处 2 个不同的字集
 
 冰雪清韵 词组的 标准编码：相对其他方案 or 其单字编码，均无大变化
 >                           仍是 SY SSY SSSY SSSS
