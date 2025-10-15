@@ -75,7 +75,7 @@ local function wrapWithColor(fnName)
     local insertText = string.format("${%s(\"\")}", fnName)
     editor.insertAtCursor(insertText, false)
     local prefixText = string.format("${%s(\"", fnName)
-    moveToNewTextPos("${%s(\"")
+    moveToNewTextPos(prefixText)
   end
 end
 
