@@ -232,4 +232,11 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >                           仍是 SY SSY SSSY SSSS
 https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
+为什么没人玩
+(A+B)BBB 单字 (20+10)×10×10×10 = 30,000
+(A+B)BAB 词
+(A+B)BAA 词
+(A+B)BBA 词
+(A+B)A(A+B)(A+B) 词
+
 > 我要不要魔改一下：上屏自动敲一个空格？这样 比较符合 我的 视觉逻辑。
