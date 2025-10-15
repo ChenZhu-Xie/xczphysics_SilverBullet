@@ -48,8 +48,15 @@ function Yellow(text) return ColorText(text, colors.yellow) end
 function Purple(text) return ColorText(text, colors.purple) end
 function Gray(text)   return ColorText(text, colors.gray) end
 
+function getSelectedText()
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  local text = editor.getText()
+  return text:sub(sel.from + 1, sel.to)
+end
+
 local function wrapWithColor(fnName)
-  local text = editor.getSelection()
+  local text = getSelectedText()
   editor.flashNotification(text, "info")
   if text and text ~= "" then
     editor.replaceSelection(string.format("{{%s(%q)}}", fnName, text))
