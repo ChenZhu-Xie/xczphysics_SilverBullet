@@ -209,7 +209,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >    - 3,276 连小鹤的 8,000 字都没有
   - [好处就是](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%9B%9B%E6%8B%BC-%E5%90%88%E7%90%86%E5%88%86%E8%AF%8D-%E7%AE%80%E6%8B%BC%E9%A1%B6%E5%8A%9F) 二字词 SS 从三码开始顶 SSY S... （词码长 ~ 1.5）
     - 然而 二字词 没有 SYSY = ABAB（A 大字集 21，B 小字集 5）
->    - 丢弃了 21 * 5 * 21 * 5，且空间相比声笔的 ABAB = 21^4^ 更小
+>    - 丢弃了 21×5^2^，且空间相比声笔的 ABAB = 21×26^2^ 更小
 
 [冰雪双拼](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%8F%8C%E6%8B%BC-%E5%8D%95%E5%AD%97%E7%9B%B2%E6%89%93-%E5%AD%97%E8%AF%8D%E5%8F%8C%E5%85%A8) ∈ 音码，单字标码 类似龙码：SỲPP
 - 冰双：{S+D}ỲPP = A{A+B}BB，声介 18 大字集 A，辅码 10 小字集 B
