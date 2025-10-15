@@ -24,6 +24,7 @@ function Blue(text)
 end
 ```
 
+1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058/6?u=chenzhu-xie
 
 ```space-lua
 local colors = {
