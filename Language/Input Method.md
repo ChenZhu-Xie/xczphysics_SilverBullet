@@ -77,7 +77,7 @@ https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
        https://github.com/hugh7007/xmjd6-rere 有点像声笔的 aeuio
        https://www.zhihu.com/question/517260176/answer/2426589323
        https://book.xuesong.io/jiandao-primer/
-  性能（非常好看 > 声笔 > 虎码 ≈ 简单鹤，whose 作者也曾入过虎码教）
+  性能（非常好看 >? 声笔 > 虎码 ≈ 简单鹤，whose 作者也曾入过虎码教）
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 #### 任意 (BP)
