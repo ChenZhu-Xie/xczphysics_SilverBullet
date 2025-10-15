@@ -213,7 +213,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 
 [冰雪双拼](https://input.tansongchen.com/snow.html#%E5%86%B0%E9%9B%AA%E5%8F%8C%E6%8B%BC-%E5%8D%95%E5%AD%97%E7%9B%B2%E6%89%93-%E5%AD%97%E8%AF%8D%E5%8F%8C%E5%85%A8) ∈ 音码，单字标码 类似龙码：SỲPP
 - 冰双：{S+D}ỲPP = A{A+B}BB，声介 18 大字集 A，辅码 10 小字集 B
->  - 像声笔的 S{P+B+D}{B+D}B，声母 21 大字集 S，辅码 10 小字集 B
+>  - 像声笔的 S{P+B+D}{B+D}B，声母 21 大字集 S，辅码  5 小字集 B
 >  - 由于第 2 码超大空间，前二码也不少；且从三码开始 AB 互斥 字词分流
 - 龙码：SỲPP 在同一个 26 全字集 A 内（优），四码定长无顶屏（劣）
 
@@ -234,7 +234,7 @@ https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
 ${Red("为什么没人玩")}
 (A+B)BBB  30,000  单字  (20+10)×10×10×10
- >          第一个 A 是声母，第二个 B 是韵母，后两个 B 是形码
+ >           第一个 A 是声母，第二个 B 是韵母，后两个 B 是形码
 (A+B)A(A+B)(A+B)  词组
 (A+B)BA(A+B)      词组
 (A+B)BBA          词组
