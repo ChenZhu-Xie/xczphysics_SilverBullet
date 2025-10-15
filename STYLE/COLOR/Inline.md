@@ -50,6 +50,7 @@ function Gray(text)   return ColorText(text, colors.gray) end
 
 local function wrapWithColor(fnName)
   local text = editor.getText()
+  editor.flashNotification(text, "info")
   if text and text ~= "" then
     editor.replaceSelection(string.format("{{%s(%q)}}", fnName, text))
   else
