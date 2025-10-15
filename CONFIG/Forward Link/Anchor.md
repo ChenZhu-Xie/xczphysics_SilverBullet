@@ -1,4 +1,5 @@
 
+1. an testing improvement from [[CONFIG/Forward Link/Cursor Position]] 
 
 ```space-lua
 -- Stable Cursor Reference Plugin
