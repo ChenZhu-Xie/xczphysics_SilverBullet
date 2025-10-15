@@ -60,10 +60,9 @@ function setSelectedText(newText)
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
-function moveToNewTextPos(newText)
+function moveToNewTextPos(prefixText)
   local pos = editor.getCursor()
-  local prefix = string.format(newText, fnName)
-  local newPos = pos + #prefix
+  local newPos = pos + #prefixText
   editor.moveCursor(newPos, true)
 end
 
@@ -75,7 +74,8 @@ local function wrapWithColor(fnName)
   else
     local insertText = string.format("${%s(\"\")}", fnName)
     editor.insertAtCursor(insertText, false)
-    moveToNewTextPos("${%s(\"")
+    local prefixText = string.format("${%s(\"", fnName)
+    moveToNewTextPos(prefixText)
   end
 end
 
