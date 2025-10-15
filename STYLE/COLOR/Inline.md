@@ -1,6 +1,6 @@
 
 Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.
-test
+
 1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058?u=chenzhu-xie
 
 ```lua
