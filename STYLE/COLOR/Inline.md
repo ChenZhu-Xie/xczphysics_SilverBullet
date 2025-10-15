@@ -46,7 +46,6 @@ function Green(text)  return ColorText(text, colors.green) end
 function Blue(text)   return ColorText(text, colors.blue) end
 function Yellow(text) return ColorText(text, colors.yellow) end
 function Purple(text) return ColorText(text, colors.purple) end
-function Gray(text)   return ColorText(text, colors.gray) end
 
 function getSelectedText()
   local sel = editor.getSelection()
