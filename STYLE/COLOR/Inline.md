@@ -49,7 +49,7 @@ function Purple(text) return ColorText(text, colors.purple) end
 function Gray(text)   return ColorText(text, colors.gray) end
 
 local function wrapWithColor(fnName)
-  local text = editor.getText()
+  local text = editor.getSelection()
   editor.flashNotification(text, "info")
   if text and text ~= "" then
     editor.replaceSelection(string.format("{{%s(%q)}}", fnName, text))
