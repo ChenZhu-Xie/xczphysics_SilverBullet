@@ -234,6 +234,7 @@ https://beta.input.tansongchen.com/snow-qingyun/basic.html
 
 为什么没人玩
 (A+B)BBB 单字 (20+10)×10×10×10 = 30,000
+         第一个 A 是声母，第二个 B 是韵母，后两个 B 是形码
 (A+B)A(A+B)(A+B) 词
 (A+B)BAB 词
 (A+B)BAA 词
