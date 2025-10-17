@@ -1,3 +1,9 @@
+---
+basic level: "kindergarden"
+chain of thoughts:
+- fere
+- fsdfa -- inject this Front Matter (syntax = Yaml) as a snippet
+---
 
 # This ‘Website’: SilverBullet README
   - This page focuses on the basic operations in SB
