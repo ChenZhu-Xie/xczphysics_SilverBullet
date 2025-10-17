@@ -119,7 +119,7 @@ ${query[[from index.tag "header" where CustomAttribute]]}
 * [ ] Do the dishes [dueDate: 2025-10-18]
 >   all ${Red("/queryed")} objs better not have `${Red("expression")}` in its name
     ${query[[from index.tag "task"]]}
-#### Task Done State is embedded in Query, but live editing text is not,
+#### Task Done State is embedded in Query, but sync editing text is not,
 ${template.each(query[[from index.tag "task" where not done]], templates.taskItem)}
 #### the `![transclusions]` is not “edit one place edit everywhere” as well
 - see: https://youtu.be/cH9cs8fowhY?t=879
