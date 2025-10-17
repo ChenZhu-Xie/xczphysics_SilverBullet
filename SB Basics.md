@@ -110,9 +110,14 @@ chain of thoughts:
 ${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", emm="basic level", ref=_.ref, itags=_.itags}]]}
 ### [CustomAttribute:2️⃣]  [CustomAttribute2:ddd] 
 ${query[[from index.tag "header" where CustomAttribute]]}
+### Query Objects beyond Page & Header: Item & Task
 - Hello #like #tana [but:"custom"] [fields:do not belong to tags]
->   the ${Red("/query")} below... should not be in/alongside this item itself...
+>   the ${Red("/query")} below... better not be in/alongside this item itself...
     ${query[[from index.tag "tana"]]}
+* [x] Clean the floors [dueDate: 2025-10-16]
+* [ ] Do the dishes [dueDate: 2025-10-18]
+>   all ${Red("/queryed")} objs better not have `${Red("expression")}` in its name
+${query[[from index.tag "task"]]}
 
 
 # Configuration
