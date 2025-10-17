@@ -125,7 +125,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - https://youtu.be/cH9cs8fowhY?t=879
 
 # Dive in SilverBullet itself
-
+## a Page becomes a meta Page, when
+- the page is tagged with #meta (either at the top or the bottem)
 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
