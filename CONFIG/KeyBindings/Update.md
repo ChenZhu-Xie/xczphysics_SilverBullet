@@ -28,3 +28,12 @@ command.update {
   priority = 0
 }
 ```
+
+```space-lua
+command.update {
+  name = "Navigate: Meta Picker",
+  key = "Ctrl-Shift-/",
+  mac = "Cmd-Shift-/",
+  priority = 0
+}
+```
