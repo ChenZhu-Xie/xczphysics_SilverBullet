@@ -108,7 +108,7 @@ chain of thoughts:
   >   - can be numbers, strings, booleans, lists
 ### [CustomAttribute:1️⃣]
 ${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", emm="basic level", ref=_.ref, itags=_.itags}]]}
-### [CustomAttribute:2️⃣] 
+### [CustomAttribute:2️⃣]  [CustomAttribute2:ddd] 
 ${query[[from index.tag "header" where CustomAttribute]]}
 
 
