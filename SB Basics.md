@@ -124,6 +124,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 #### the `![transclusions]` is not “edit one place edit everywhere” as well
 - see: https://youtu.be/cH9cs8fowhY?t=879
 
+
+[[SB Basics#Query Objects beyond Page & Header: Item & Task]]
 # Configuration
 
 [[CONFIG]]
