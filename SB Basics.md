@@ -125,11 +125,15 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 # Dive in SilverBullet itself
 ## Navigate: meta Page Picker
-1. a Page becomes a meta Page, when
+1. a Page **becomes a meta Page**, when
    - the page is tagged with #meta (either at the top or the bottem)
+   - meta Pages in Library/Std is inside SB, thus **not disk-visible or editable**. They updates with SB itself.
+   - 
 2. ${Green("Ctrl + Shift + l")}, and search for
    - _Space Overview_
    - _table_
+     - turn a Page into a Slash command, by
+     - add key-value pairs `tags: meta/template/slash` in front matter
 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
