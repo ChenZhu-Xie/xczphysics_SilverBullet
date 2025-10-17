@@ -29,6 +29,6 @@ pageDecoration:
 |----------|----------|------|-------|-----|--------|
 | Navigate: | Home | Ctrl | | | h |
 | Navigate: | Page Picker | Ctrl | | | l |
+| Navigate: | Meta Page Picker | Ctrl | Shift | | l |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
-
