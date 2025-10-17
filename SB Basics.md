@@ -69,7 +69,6 @@ chain of thoughts:
   1. [ ] assign a #todo tag for every todo,
   2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
 
-
 ## IndexDB Query
 ### Terminology Mapping
 - [Database Term of SilverBullet](https://youtu.be/Of7zE0AVApc?t=222)
@@ -125,8 +124,12 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - https://youtu.be/cH9cs8fowhY?t=879
 
 # Dive in SilverBullet itself
-## a Page becomes a meta Page, when
-- the page is tagged with #meta (either at the top or the bottem)
+## Navigate: meta Page Picker
+1. a Page becomes a meta Page, when
+   - the page is tagged with #meta (either at the top or the bottem)
+2. ${Green("Ctrl + Shift + l")}, and search for
+   - _Space Overview_
+   - _table_
 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
