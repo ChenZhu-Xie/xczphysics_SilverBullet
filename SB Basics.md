@@ -50,7 +50,7 @@
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
 
-## Tag Attribute
+## Tag Attribute (for aggregating Objs)
 > - #Tag itself is an Object as the __index.tag__ to be indexed.
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
@@ -87,7 +87,7 @@
       order by lastModified desc
     ]], templates.fullPageItem)}
 
-## Tag Alternative: Fields/Metadata
+## Fields/Metadata (for subdivide Objs)
 > - a Page itself is an Object as well, like #tag.
   > - it exists in the Table as Row
 > - it too could have some Attributes/Properties,
