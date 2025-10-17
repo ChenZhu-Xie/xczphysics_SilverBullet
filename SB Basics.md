@@ -55,7 +55,7 @@
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
   > - it is one of the Object’s Properties (if obj has many Tags).
->   - Page Object itself implicitly has a #Page Tag.
+>   - Page Object itself implicitly has a #page tag.
 > - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table [[SB Basics@2750]].
 >   - So, Tag = Table
 ### Aggregation for future
