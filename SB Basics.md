@@ -107,7 +107,9 @@ chain of thoughts:
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
 
-${query[[from index.tag "SB_itself" select {name="[[" .. _.name .. "]]", ref=_.ref, itags=_.itags}]]}
+[CustomAttribute:1️⃣]
+
+${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", ref=_.ref, itags=_.itags}]]}
 
 
 
