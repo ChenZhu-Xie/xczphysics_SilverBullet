@@ -101,7 +101,7 @@
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
 
-${query[[from index.tag "SB_itself"]]}
+${query[[from index.tag "SB_itself" select {name="[[" .. _.name .. "]]", ref=_.ref, itags=_.itags}]]}
 
 
 # Configuration
