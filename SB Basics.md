@@ -110,7 +110,8 @@ chain of thoughts:
 ${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", emm="basic level", ref=_.ref, itags=_.itags}]]}
 ### [CustomAttribute:2️⃣]  [CustomAttribute2:ddd] 
 ${query[[from index.tag "header" where CustomAttribute]]}
-
+- Hello #like #tana [but:"custom"] [fields:do not belong to tags]
+${query[[from index.tag "tana"]]}
 
 # Configuration
 
