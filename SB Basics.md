@@ -91,7 +91,9 @@
   > - it exists in the Table as Row
 > - it too could have some Attributes/Properties,
   > - that is, __key-value pairs__ as __front matter__.
-> - 
+> - add key:value pairs for Page Object, on the page's front matter
+>   - using another markup language: Yaml
+>   - value can be numbers, strings, booleans, lists
 
 
 # Configuration
