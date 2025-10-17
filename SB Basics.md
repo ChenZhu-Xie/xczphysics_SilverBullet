@@ -125,6 +125,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - https://youtu.be/cH9cs8fowhY?t=879
 
 
+
+
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
 # Configuration
 
