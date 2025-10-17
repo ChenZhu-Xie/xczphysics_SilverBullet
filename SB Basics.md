@@ -50,7 +50,7 @@
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
 
-## Tag Attribute (for aggregating Objs)
+## Tag attribute (for aggregating Objs with the same tags)
 > - #Tag itself is an Object as the __index.tag__ to be indexed.
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
@@ -87,7 +87,7 @@
       order by lastModified desc
     ]], templates.fullPageItem)}
 
-## Fields/Metadata (for subdivide Objs)
+## Fields / Metadata (for differentiating Objs with the same tags)
 > - a Page itself is an Object as well, like #tag.
   > - it exists in the Table as Row
 > - it too could have some Attributes/Properties,
@@ -102,6 +102,8 @@
   >   - can be numbers, strings, booleans, lists
 
 ${query[[from index.tag "SB_itself" select {name="[[" .. _.name .. "]]", ref=_.ref, itags=_.itags}]]}
+
+
 
 
 # Configuration
