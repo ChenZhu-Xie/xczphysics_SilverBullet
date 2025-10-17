@@ -106,12 +106,10 @@ chain of thoughts:
   >   - are just names (whose types are all implictly strings?)
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
-
-[CustomAttribute:1️⃣]
-
-${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", ref=_.ref, itags=_.itags}]]}
-
-
+### [CustomAttribute:1️⃣]
+${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .. _.name .. "]]", emm="basic level", ref=_.ref, itags=_.itags}]]}
+### [CustomAttribute:2️⃣] 
+${query[[from index.tag "header" where CustomAttribute]]}
 
 
 # Configuration
