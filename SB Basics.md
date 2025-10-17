@@ -96,10 +96,11 @@
 >   - using another Markup language: Yaml
 > - it is indexed in the `${query[[from index.tag "Page's Tag"]]}` Table
   > - Keys are Columns in the first Row
+  >   - are just names (whose type is implictly strings?)
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
 
-
+${query[[from index.tag "SB_itself"]]}
 
 
 # Configuration
