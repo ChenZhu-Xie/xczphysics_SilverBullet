@@ -31,6 +31,7 @@ chain of thoughts:
   - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
      - Example: `![[SB page path]]`, `![[local file path.png]]`
   - Image: `![image name](url)`
+![[Language/Input Method/QQ 机器人]]
 
 # Orgnizing Workflows
 
@@ -118,9 +119,10 @@ ${query[[from index.tag "header" where CustomAttribute]]}
 * [ ] Do the dishes [dueDate: 2025-10-18]
 >   all ${Red("/queryed")} objs better not have `${Red("expression")}` in its name
     ${query[[from index.tag "task"]]}
-#### Task Done Dtate is embedded in Query, but live editing text is not
+#### Task Done Dtate is embedded in Query, but live editing text is not,
 ${template.each(query[[from index.tag "task" where not done]], templates.taskItem)}
-
+#### even the `![transclusions]` is not “edit one place edit everywhere”
+- see: https://youtu.be/cH9cs8fowhY?t=879
 
 # Configuration
 
