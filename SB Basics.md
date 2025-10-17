@@ -118,7 +118,7 @@ ${query[[from index.tag "header" where CustomAttribute]]}
 * [ ] Do the dishes [dueDate: 2025-10-18]
 >   all ${Red("/queryed")} objs better not have `${Red("expression")}` in its name
     ${query[[from index.tag "task"]]}
-#### Query is embedded
+#### Task Done Dtate is embedded in Query, but live editing text is not
 ${template.each(query[[from index.tag "task" where not done]], templates.taskItem)}
 
 
