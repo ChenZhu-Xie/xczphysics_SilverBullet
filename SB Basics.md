@@ -55,7 +55,7 @@
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
   > - it is one of the Object’s Properties (if obj has many Tags).
->   - Page Object itself implicitly has a #page tag for **indexing**.
+>   - Page Object itself implicitly has a #page (i)tag for **indexing**.
 > - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table [[SB Basics@2750]].
 >   - So, Tag = Table
 ### Aggregation for future
@@ -94,9 +94,10 @@
   > - that is, __key-value pairs__ as __front matter__.
 > - add Key:Value pairs for Page Object, on the Page's Front Matter
 >   - using another Markup language: Yaml
-> - it is indexed in the `${query[[from index.tag "Page's Tag"]]}` Table
+> - fields are indexed in `${query[[from index.tag "Obj's Tag"]]}` Table
+  > - Objs are Rows in the Table
   > - Keys are Columns in the first Row
-  >   - are just names (whose type is implictly strings?)
+  >   - are just names (whose types are all implictly strings?)
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
 
