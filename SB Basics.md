@@ -111,7 +111,8 @@ ${query[[from index.tag "SB_itself" select {ttest=_.CustomAttribute, name="[[" .
 ### [CustomAttribute:2️⃣]  [CustomAttribute2:ddd] 
 ${query[[from index.tag "header" where CustomAttribute]]}
 - Hello #like #tana [but:"custom"] [fields:do not belong to tags]
-${query[[from index.tag "tana"]]}
+${query[[from index.tag "tana" where but]]}
+
 
 # Configuration
 
