@@ -44,7 +44,7 @@ end
 -- 🪄 命令定义
 command.define("Editor: Copy Nearest Pattern", {
   description = "复制光标附近最近且优先级最高的格式化结构",
-  key = "Ctrl-Alt-click",
+  key = "Ctrl-Alt-f",
   run = function()
     editor.flashNotification("testing")
     local match = findNearestPattern()
