@@ -134,8 +134,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >    - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and excuted (constantly running) by priority
 >    - ${Blue("System Reload")} will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
    - _table_
->    - like _table_ Page, you can turn a Page into a ${Blue("Slash Command")}, by
->    - add a key-value pair ${Blue("tags: meta/template/slash")} in front matter
+>    - like _table_ Page, turn a Page into a [[SB Basics#Slash Commands|Slash Commands]], by
+>    - add a key-value ${Blue("tags: meta/template/slash")} in front matter
    - _Maintenance_
 >    - collects all the ${Purple("aspiring pages")}
 >    - collects all the ${Purple("conflicting copies.md")}
