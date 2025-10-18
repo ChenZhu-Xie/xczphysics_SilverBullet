@@ -42,7 +42,8 @@ local function findNearestPattern()
 end
 
 -- 🪄 命令定义
-command.define("Editor: Copy Nearest Pattern", {
+command.define{
+  name = "Editor: Copy Nearest Pattern",
   description = "复制光标附近最近且优先级最高的格式化结构",
   key = "Ctrl-Alt-k",
   run = function()
@@ -56,5 +57,6 @@ command.define("Editor: Copy Nearest Pattern", {
     editor.copyToClipboard(match.text)
     editor.flashNotification("已复制：" .. match.name .. " → " .. match.text)
   end
-})
+}
+
 ```
