@@ -15,14 +15,12 @@ local PATTERNS = {
   { "tag",           "#[%w_%-]+",            50 },   -- #tag
 }
 
--- 🧮 计算某区间与光标位置的“距离”
 local function distanceToCursor(startPos, endPos, cursor)
   if cursor < startPos then return startPos - cursor end
   if cursor > endPos then return cursor - endPos end
   return 0
 end
 
--- 🧭 主函数：查找最近的模式
 local function findNearestPattern()
   local text = editor.getText()
   local cursor = editor.getCursor().pos
@@ -32,7 +30,7 @@ local function findNearestPattern()
     local name, pattern, prio = pat[1], pat[2], pat[3]
     for s, e in text:gmatch("()" .. pattern .. "()") do
       local dist = distanceToCursor(s, e, cursor)
-      local score = dist + (1000 - prio * 10) -- 距离越小、优先级越高得分越高
+      local score = dist + (1000 - prio * 10)
       if not nearest or score < nearest.score then
         nearest = { name = name, start = s, stop = e, text = text:sub(s, e - 1), score = score }
       end
@@ -41,7 +39,6 @@ local function findNearestPattern()
   return nearest
 end
 
--- 🪄 命令定义
 command.define{
   name = "Editor: Copy Nearest Pattern",
   description = "复制光标附近最近且优先级最高的格式化结构",
