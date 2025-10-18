@@ -32,7 +32,7 @@ local function findNearestPattern()
     local name, pattern, prio = pat[1], pat[2], pat[3]
     for s, e in text:gmatch("()" .. pattern .. "()") do
       local dist = distanceToCursor(s, e, cursor)
-      local score = dist + (1000 - prio * 10) -- 距离越小、优先级越高得分越低
+      local score = dist + (1000 - prio * 10) -- 距离越小、优先级越高得分越高
       if not nearest or score < nearest.score then
         nearest = { name = name, start = s, stop = e, text = text:sub(s, e - 1), score = score }
       end
