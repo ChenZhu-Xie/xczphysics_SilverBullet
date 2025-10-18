@@ -22,58 +22,32 @@ local function distanceToCursor(startPos, endPos, cursorPos)
   return 0
 end
 
--- 计算光标所在行的文本切片与其在全文的起始偏移
-local function getCurrentLineSlice(text, cursor_pos)
-  -- 行起点：最后一个换行后的第一个字符
-  local lineStart = (text:sub(1, cursor_pos):match("()[^\n]*$")) or 1
-  -- 行终点：下一个换行符前的最后一个字符
-  local nextNL = text:find("\n", cursor_pos + 1, true) or (#text + 1)
-  local lineEnd = nextNL - 1
-  local lineText = text:sub(lineStart, lineEnd)
-  local base = lineStart - 1  -- 把“行内索引”映射回“全文索引”的基数
-  return lineText, base
-end
-
--- 🔍 主函数：仅扫描光标所在行（dist 绝对优先；评分改为 dist*1001 + tie）
+-- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
   local text = editor.getText()
   local cur = editor.getCursor()
-  local cursor_pos = (type(cur) == "table" and cur.pos) or cur
+  local cursor_pos = (type(cur) == "table" and cur.pos) or cur  -- 兼容不同返回形式
   local nearest = nil
-
-  if type(cursor_pos) ~= "number" or not text or #text == 0 then
-    return nil
-  end
-
-  -- 只取光标所在行
-  local lineText, base = getCurrentLineSlice(text, cursor_pos)
 
   for _, pat in ipairs(PATTERNS) do
     local name, pattern, prio = pat[1], pat[2], pat[3]
     local init = 1
+    -- 用 pcall 防御单条模式异常
     local ok, err = pcall(function()
       while true do
-        local s, e = lineText:find(pattern, init)
+        local s, e = text:find(pattern, init)
         if not s then break end
-        -- 映射为全文绝对位置以计算距离
-        local absS, absE = base + s, base + e
-        local dist = distanceToCursor(absS, absE, cursor_pos)
-
-        -- 距离绝对优先
-        local score = dist * 1001 + (1000 - prio * 10)
-
+        local dist = distanceToCursor(s, e, cursor_pos)
+        local score = dist * 1001 + (1000 - prio * 10) -- 距离越小、优先级越高，得分越低
         if not nearest or score < nearest.score then
-          nearest = {
-            name = name,
-            start = absS, stop = absE,
-            text = lineText:sub(s, e),
-            score = score
-          }
+          nearest = { name = name, start = s, stop = e, text = text:sub(s, e), score = score }
         end
+        -- 推进起点，避免零宽匹配卡死
         init = (e >= init) and (e + 1) or (init + 1)
       end
     end)
     if not ok then
+      -- 若某模式在该运行时不被支持，记录后继续其他模式
       editor.flashNotification(("[Pattern error] %s: %s"):format(name, tostring(err)))
     end
   end
