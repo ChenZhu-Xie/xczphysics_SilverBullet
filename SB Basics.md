@@ -13,7 +13,7 @@ chain of thoughts:
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
   - Custum ∪ Core [[CONFIG/KeyBindings]]
 
-# Format Syntax
+# Format Syntax **asdf**
 ## Emoji
   - [Generate a emoji](https://youtu.be/bb1USz_cEBY?t=492): `:laugh` 🤣
 ## Slash Commands
