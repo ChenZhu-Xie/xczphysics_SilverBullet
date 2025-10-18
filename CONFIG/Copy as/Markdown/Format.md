@@ -52,6 +52,6 @@ command.define("Editor: Copy Nearest Pattern", {
 
     editor.copyToClipboard(match.text)
     editor.flashNotification("已复制：" .. match.name .. " → " .. match.text)
-  end,
+  end
 })
 ```
