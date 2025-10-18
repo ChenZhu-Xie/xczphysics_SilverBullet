@@ -13,16 +13,6 @@ local PATTERNS = {
   { "tag",           "#[%w_%-]+",            50 },   -- #tag
 }
 
--- 🧩 获取当前选中文本（若有）
-local function getSelectedText()
-  local sel = editor.getSelection()
-  if sel and sel.from ~= sel.to then
-    local text = editor.getText()
-    return text:sub(sel.from + 1, sel.to)
-  end
-  return nil
-end
-
 -- 🧮 计算某区间与光标位置的“距离”
 local function distanceToCursor(startPos, endPos, cursor)
   if cursor < startPos then return startPos - cursor end
@@ -54,15 +44,6 @@ command.define("Editor: Copy Nearest Pattern", {
   description = "复制光标附近最近且优先级最高的格式化结构",
   key = "Ctrl-Alt-Click",
   run = function()
-    -- 若选中，则优先复制选中内容
-    local selected = getSelectedText()
-    if selected then
-      editor.copyToClipboard(selected)
-      editor.flashNotification("已复制选中文本")
-      return
-    end
-
-    -- 否则查找最近模式
     local match = findNearestPattern()
     if not match then
       editor.flashNotification("未找到匹配模式")
