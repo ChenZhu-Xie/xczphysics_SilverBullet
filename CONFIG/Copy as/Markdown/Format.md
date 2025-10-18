@@ -24,6 +24,7 @@ end
 local function findNearestPattern()
   local text = editor.getText()
   local cursor = editor.getCursor()
+  editor.flashNotification(cursor)
   local nearest = nil
 
   for _, pat in ipairs(PATTERNS) do
