@@ -8,7 +8,7 @@ local PATTERNS = {
   { "wikilink",      "%[%[[^%]]-%]%]",         100 }, -- [[...]] 或 [[...|...]]
   { "markdown_link", "%[[^%]]-%]%([^)]-%)",     90  }, -- [text](url)
   { "image",         "!%[[^%]]-%]%([^)]-%)",    85  }, -- ![alt](src)
-  { "color_func", "%$%{%s*[%a_][%w_]*%s*%b()%s*%}", 80 }, -- ${Color("...")}
+  { "color_func", "%${%s*[%a_][%w_]*%s*%b()%s*}", 80 }, -- ${Color("...")}
   { "bold",          "%*%*[^%*]-%*%*",          70  }, -- **bold**
   { "italic",        "_[^_]-_",                 60  }, -- _italic_
   { "sup",           "%^.-%^",                  55  }, -- ^sup^
@@ -73,3 +73,16 @@ command.define{
 ```
 
 
+```space-lua
+local s = [[
+  ${Green("Backspace")}
+  ${Red("asdfasf")}
+  ${Blue("X", 2)}
+  ${Green('Enter')}
+]]
+
+print("b() :", s:find("%${%s*[%a_][%w_]*%s*%b()%s*}"))
+print('DQ  :', s:find('%${%s*[%a_][%w_]*%s*%(%s*"%b\\""%%s*%)%s*}')) -- 仅示意
+print('DQ+ :', s:find('%${%s*[%a_][%w_]*%s*%(%s*"[^\"]+"%s*%)%s*}'))
+print("SQ  :", s:find("%${%s*[%a_][%w_]*%s*%(%s*'[^']+'%s*%)%s*}"))
+```
