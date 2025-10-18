@@ -13,7 +13,7 @@ chain of thoughts:
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
   - Custum ∪ Core [[CONFIG/KeyBindings]]
 
-# Format Syntax **asdf**
+# Format Syntax
 ## Emoji
   - [Generate a emoji](https://youtu.be/bb1USz_cEBY?t=492): `:laugh` 🤣
 ## Slash Commands
@@ -52,7 +52,7 @@ chain of thoughts:
 ### Navigate Cursors History
   1. [[Language/Input Method/声笔飞单]] → ${Green("Ctrl + Enter")} → ${Green("Alt + ←")}
 
-## Wiki Web
+## Wiki Web ^dd^
 ### Rename a Page with its Backlinks
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
