@@ -141,7 +141,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
    - _Maintenance_
 >    - collects all the ${Purple("aspiring pages")}
 >    - collects all the ${Purple("conflicting copies.md")}
-
+   - 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
 # Configuration
