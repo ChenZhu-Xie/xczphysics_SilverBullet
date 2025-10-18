@@ -131,12 +131,13 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 2. ${Green("Ctrl + Shift + l")}, and search for
    - _Space Overview_
+>    - in which active space-lua scripts are indexed/listed in sequence and excuted (constantly running) by priority 
    - _table_
->    - turn a Page into a ${Blue("Slash command")}, by
+>    - like _table_ Page, you can turn a Page into a ${Blue("Slash command")}, by
 >    - add a key-value pair ${Blue("tags: meta/template/slash")} in front matter
    - _Maintenance_
->    - all the aspiring pages
->    - all the conflicting copies
+>    - collects all the aspiring pages
+>    - collects all the conflicting copies.md
 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
