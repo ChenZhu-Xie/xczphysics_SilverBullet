@@ -131,8 +131,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
    - [Logically speaking](https://youtu.be/qkLJ3viVq8I?t=1110), the ([[CONFIG]] + [[STYLE]]) (pages + folders) should be taged with #meta, and put under folder ${Blue("Library/User/")}
 2. ${Green("Ctrl + Shift + l")}, and search for
    - _Space Overview_
->    - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and excuted (constantly running) by priority
->    - ${Blue("System Reload")} will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
+>    - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and [excuted (constantly running) by priority](https://youtu.be/qkLJ3viVq8I?t=1398)
+>    - [System Reload](https://youtu.be/qkLJ3viVq8I?t=1378) will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
    - _table_
 >    - like _table_ Page, turn a Page into a [[SB Basics#Slash Commands|Slash Commands]], by
 >    - add a key-value ${Blue("tags: meta/template/slash")} in front matter
