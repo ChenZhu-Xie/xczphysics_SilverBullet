@@ -15,17 +15,6 @@ local PATTERNS = {
   { "tag",           "#[%w_%-]+",               50  }, -- #tag
 }
 
--- 计算优先级打平项的范围，并据此设定 SCALE，确保 dist 绝对优先
-local TIE_MIN, TIE_MAX = math.huge, -math.huge
-for _, pat in ipairs(PATTERNS) do
-  local prio = pat[3]
-  local tie  = 1000 - prio * 10           -- 和你原来一致的“优先级项”
-  if tie < TIE_MIN then TIE_MIN = tie end
-  if tie > TIE_MAX then TIE_MAX = tie end
-end
-local TIE_RANGE = (TIE_MAX - TIE_MIN)
-local SCALE     = (TIE_RANGE + 1)         -- 距离每差 1，比分至少差 (TIE_RANGE+1)
-
 -- 🧮 区间与光标的距离
 local function distanceToCursor(startPos, endPos, cursorPos)
   if cursorPos < startPos then return startPos - cursorPos end
@@ -35,8 +24,8 @@ end
 
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
-  local text = editor.getText() or ""
-  local cur  = editor.getCursor()
+  local text = editor.getText()
+  local cur = editor.getCursor()
   local cursor_pos = (type(cur) == "table" and cur.pos) or cur  -- 兼容不同返回形式
   local nearest = nil
 
@@ -49,12 +38,7 @@ local function findNearestPattern()
         local s, e = text:find(pattern, init)
         if not s then break end
         local dist = distanceToCursor(s, e, cursor_pos)
-
-        -- 绝对以距离为先：score = dist * SCALE + tie'
-        -- 其中 tie' 被平移到 [0, TIE_RANGE] 防止负值
-        local tie   = 1000 - prio * 10
-        local score = dist * SCALE + (tie - TIE_MIN)
-
+        local score = dist * 1001 + (1000 - prio * 10) -- 距离绝对优先；距离越小、优先级越高，得分越低
         if not nearest or score < nearest.score then
           nearest = { name = name, start = s, stop = e, text = text:sub(s, e), score = score }
         end
@@ -74,7 +58,7 @@ end
 -- 🪄 命令
 command.define{
   name = "Editor: Copy Nearest Pattern",
-  description = "复制光标附近最近（距离绝对优先，其次按优先级打平）的格式化结构",
+  description = "复制光标附近最近且优先级最高的格式化结构",
   key = "Ctrl-Alt-k",
   run = function()
     local match = findNearestPattern()
