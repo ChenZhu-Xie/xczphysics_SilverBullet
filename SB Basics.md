@@ -140,11 +140,14 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >    - add a key-value ${Blue("tags: meta/template/slash")} in front matter
    - _Maintenance_
 >    - collects all the ${Purple("aspiring pages")}
+  >    - using ${Red("/query")}
 >    - collects all the ${Purple("conflicting copies.md")}
 >    - ...
    - Std
-    - collects all the [Page Templates](https://youtu.be/qkLJ3viVq8I?t=1632)
-    - collects all the Slash Commands
+>    - collects all the [Page Templates](https://youtu.be/qkLJ3viVq8I?t=1632)
+>    - collects all the [Slash Commands](https://youtu.be/qkLJ3viVq8I?t=1632)
+>    - ...
+
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
 # Configuration
