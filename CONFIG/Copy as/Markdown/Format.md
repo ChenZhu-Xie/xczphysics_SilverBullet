@@ -1,4 +1,6 @@
 
+1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
+
 ```space-lua
 -- 🧠 模式定义表：依次为 { name, pattern, priority }
 -- pattern 要匹配完整包围结构，可用非贪婪匹配 (.-)
