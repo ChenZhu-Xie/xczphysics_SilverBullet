@@ -150,6 +150,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >   - ...
 
 
+
+
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
 # Configuration
 
