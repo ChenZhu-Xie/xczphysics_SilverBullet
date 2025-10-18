@@ -6,7 +6,7 @@ config.set(
     -- 第一个 config.set() 覆盖 第二个 config.set() 覆盖 config.set{}
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
     "ghr:MrMugame/silversearch",
-    -- PLUGS: Update (Download + Update these .plug.js) + SPACE: Reindex
+    -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
   })
 ```
 
