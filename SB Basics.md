@@ -128,7 +128,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 1. a Page **becomes a meta Page**, when
 >   - the page is tagged with #meta (either at the top or the bottem)
 >   - meta Pages in Library/Std is inside SB, thus **not disk-visible, editable or Page Picker able**. They updates with SB itself.
-   - [Logically speaking](https://youtu.be/qkLJ3viVq8I?t=1151), the ([[CONFIG]] + [[STYLE]]) (pages + folders) should be taged with #meta, and put into folder ${Blue("Library/User")}
+   - [Logically speaking](https://youtu.be/qkLJ3viVq8I?t=1110), the ([[CONFIG]] + [[STYLE]]) (pages + folders) should be taged with #meta, and put under folder ${Blue("Library/User/")}
 2. ${Green("Ctrl + Shift + l")}, and search for
    - _Space Overview_
 >    - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and excuted (constantly running) by priority
