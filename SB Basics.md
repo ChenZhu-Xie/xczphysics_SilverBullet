@@ -134,6 +134,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
    - _table_
      - turn a Page into a ${Blue("Slash command")}, by
      - add a key-value pair ${Blue("tags: meta/template/slash")} in front matter
+   - 
 
 
 [[SB Basics#Query Objects beyond Page & Header: Item & Task]]
