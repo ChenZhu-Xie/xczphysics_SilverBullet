@@ -47,8 +47,8 @@ command.define{
   description = "复制光标附近最近且优先级最高的格式化结构",
   key = "Ctrl-Alt-k",
   run = function()
-    editor.flashNotification("testing")
     local match = findNearestPattern()
+    editor.flashNotification("testing")
     if not match then
       editor.flashNotification("未找到匹配模式")
       return
@@ -58,5 +58,4 @@ command.define{
     editor.flashNotification("已复制：" .. match.name .. " → " .. match.text)
   end
 }
-
 ```
