@@ -74,15 +74,6 @@ command.define{
 
 
 ```space-lua
-local s = [[
-  ${Green("Backspace")}
-  ${Red("asdfasf")}
-  ${Blue("X", 2)}
-  ${Green('Enter')}
-]]
-
-print("b() :", s:find("%${%s*[%a_][%w_]*%s*%b()%s*}"))
-print('DQ  :', s:find('%${%s*[%a_][%w_]*%s*%(%s*"%b\\""%%s*%)%s*}')) -- 仅示意
-print('DQ+ :', s:find('%${%s*[%a_][%w_]*%s*%(%s*"[^\"]+"%s*%)%s*}'))
-print("SQ  :", s:find("%${%s*[%a_][%w_]*%s*%(%s*'[^']+'%s*%)%s*}"))
+local BASE = "%$%b{}"
+print("BASE:", text:find(BASE))
 ```
