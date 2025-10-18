@@ -24,7 +24,7 @@ end
 
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
-  local text = editor.getCurrentLine()
+  local text = editor.getCurrentLine().textWithCursor
   editor.flashNotification(text)
   local cur = editor.getCursor()
   local cursor_pos = (type(cur) == "table" and cur.pos) or cur  -- 兼容不同返回形式
