@@ -134,6 +134,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >    - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and [excuted (constantly running) by priority](https://youtu.be/qkLJ3viVq8I?t=1398)
 >    - [System Reload](https://youtu.be/qkLJ3viVq8I?t=1378) will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
   >    - See web brouser’s console - F12
+>      - Print(“...”) is there
    - _table_
 >    - like _table_ Page, turn a Page into a [[SB Basics#Slash Commands|Slash Commands]], by
 >    - add a key-value ${Blue("tags: meta/template/slash")} in front matter
