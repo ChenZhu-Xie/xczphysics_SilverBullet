@@ -103,7 +103,7 @@ chain of thoughts:
 > - fields are indexed in `${query[[from index.tag "Obj's Tag"]]}` Table
   > - Objs are Rows in the Table
   > - Keys are Columns in the first Row
-  >   - are just names (whose types are all implictly strings?)
+  >   - are just names (whose types are all implictly "strings"?)
 >   - Values are Columns in >= 2nd Rows
   >   - can be numbers, strings, booleans, lists
 ### [CustomAttribute:1️⃣]
