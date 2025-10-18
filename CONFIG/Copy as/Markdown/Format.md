@@ -24,11 +24,11 @@ end
 local function findNearestPattern()
   local text = editor.getText()
   local cursor = editor.getCursor()
-  editor.flashNotification(cursor)
   local nearest = nil
 
   for _, pat in ipairs(PATTERNS) do
     local name, pattern, prio = pat[1], pat[2], pat[3]
+    editor.flashNotification(name .. pattern .. prio)
     -- 外层捕获获取起止位置；内部模式不再含 "()"
     for s, e in text:gmatch("()" .. pattern .. "()") do
       local dist = distanceToCursor(s, e, cursor)
