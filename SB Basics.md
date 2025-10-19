@@ -160,10 +160,11 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - non-local ${Yellow("varName = varValue")} and ${Yellow("function end")} can be acquired
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
-### Some details
+### Something about Lua
 - table is actually the only data structure in Lua?
-  - if a function takes **a table** or can  as its single arg,
-  - you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+  - if a function takes **a table** or **a string** as its single arg,
+  - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+
 
 
 # Configuration
