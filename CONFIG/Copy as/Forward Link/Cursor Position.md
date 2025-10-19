@@ -7,14 +7,26 @@ command.define {
   key = "Shift-Alt-c",
   run = function()
     local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
-    editor.flashNotification(currentLine, "info")
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
-    local ref = string.format("[[%s@%d]]", pageName, pos)
+    local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
+
+    local ref
+    if headerMarks and headerName and headerName:match("%S") then
+      -- 如果是 header，则生成 [[Page#Header]]
+      headerName = headerName:match("^%s*(.-)%s*$") -- 去掉首尾空格
+      ref = string.format("[[%s#%s]]", pageName, headerName)
+      editor.flashNotification("Copied header reference: " .. ref, "info")
+    else
+      -- 否则按位置引用
+      ref = string.format("[[%s@%d]]", pageName, pos)
+      editor.flashNotification("Copied cursor reference: " .. ref, "info")
+    end
+
     editor.copyToClipboard(ref)
-    editor.flashNotification("Copied reference: " .. ref, "info")
   end
 }
+
 ```
 
 # Longer Version
