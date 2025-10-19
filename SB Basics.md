@@ -150,9 +150,10 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >   - ...
 
 ## Custom Widgets built using space-lua
-
+- 
 - Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
-- non local ${Purple("varName = varValue")} and ${Purple("function end")}
+  - is a good way to not pollute the global namespace too much
+- non local ${Purple("varName = varValue")} and ${Purple("function end")} 
 
 
 # Configuration
