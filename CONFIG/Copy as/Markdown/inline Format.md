@@ -64,7 +64,7 @@ end
 command.define{
   name = "Editor: Copy Nearest Pattern",
   description = "Copy the nearest and highest-priority formatted structure around the cursor",
-  key = "Ctrl-Alt-k",
+  key = "Shift-Alt-i",
   run = function()
     local match = findNearestPattern()
     if not match then
@@ -155,7 +155,7 @@ end
 command.define{
   name = "Editor: Copy Nearest Pattern",
   description = "Copy the nearest and highest-priority formatted structure around the cursor",
-  key = "Ctrl-Alt-k",
+  key = "Shift-Alt-i",
   run = function()
     local match = findNearestPattern()
     if not match then

@@ -124,14 +124,14 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - https://youtu.be/cH9cs8fowhY?t=879
 
 # Dive in SilverBullet itself
-## Navigate: meta Page Picker
-### a Page **becomes a meta Page**, when
+## a Page **becomes a meta Page**, when
 >  - the page is tagged with #meta (either at the top or the bottem)
 >  - meta Pages in Library/Std is inside SB, thus **not disk-visible, editable or Page Picker able**. They updates with SB itself.
   - [Logically speaking](https://youtu.be/qkLJ3viVq8I?t=1110), the ([[CONFIG]] + [[STYLE]]) (pages + folders) should be taged with #meta, and put under folder ${Blue("Library/User/")}
 >   - rather than taged with #SB_itself, and put under ${Blue("space/")}
+### Navigate: meta( Page) Picker
 
-### ${Green("Ctrl + Shift + l")}, and search for
+## ${Green("Ctrl + Shift + l")}, and search for
  - _Space Overview_
 >   - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and [excuted (constantly running) by priority](https://youtu.be/qkLJ3viVq8I?t=1398)
 >   - [System Reload](https://youtu.be/qkLJ3viVq8I?t=1378) will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
@@ -149,7 +149,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >   - collects all the [[SB Basics#Slash Commands|Slash Commands]]
 >   - ...
 
-### custom widgets built from Space-lua
+## Custom Widgets built using Space-lua
 
 
 # Configuration
