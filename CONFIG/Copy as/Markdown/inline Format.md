@@ -33,39 +33,22 @@ function getCursorPos()
   return cursor_pos
 end
 
-function getCursor_LineStart()
-  local textBeforeCursor = editor.getText():sub(1, getCursorPos())
-  local cursorLineStart = textBeforeCursor:reverse():find("\n", 1, true)
-  -- editor.flashNotification(cursorLineStart)
-  return textBeforeCursor:reverse():find("\n", 1, true)
-end
-
-function getLineStart()
-  local revPos = getCursorPos_LineStart()
-  if revPos then
-    return getCursorPos() - revPos + 2
-  else
-    return 1
-  end
-end
-
 local function findNearestPattern()
-  local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
-  -- editor.flashNotification(currentLine)
+  local pageText = editor.getText()
+  local curPos = getCursorPos()
   local nearest = nil
-  getCursor_LineStart()
 
   for _, pat in ipairs(PATTERNS) do
     local name, pattern, prio = pat[1], pat[2], pat[3]
     local init = 1
     local ok, err = pcall(function()
       while true do
-        local s, e = currentLine:find(pattern, init)
+        local s, e = pageText:find(pattern, init)
         if not s then break end
-        local dist = distanceToCursor(s, e, getCursor_LineStart())
+        local dist = distanceToCursor(s, e, curPos)
         local score = dist * 1001 + (1000 - prio * 10)
         if not nearest or score < nearest.score then
-          nearest = { name = name, start = s, stop = e, text = currentLine:sub(s, e), score = score }
+          nearest = { name = name, start = s, stop = e, text = pageText:sub(s, e), score = score }
         end
         init = (e >= init) and (e + 1) or (init + 1)
       end
@@ -145,9 +128,9 @@ end
 local function findNearestPattern()
   local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   -- editor.flashNotification(currentLine)
+  local curPos_LineStart = getCursor_LineStart()
   local nearest = nil
-  getCursor_LineStart()
-
+  
   for _, pat in ipairs(PATTERNS) do
     local name, pattern, prio = pat[1], pat[2], pat[3]
     local init = 1
@@ -155,7 +138,7 @@ local function findNearestPattern()
       while true do
         local s, e = currentLine:find(pattern, init)
         if not s then break end
-        local dist = distanceToCursor(s, e, getCursor_LineStart())
+        local dist = distanceToCursor(s, e, curPos_LineStart)
         local score = dist * 1001 + (1000 - prio * 10)
         if not nearest or score < nearest.score then
           nearest = { name = name, start = s, stop = e, text = currentLine:sub(s, e), score = score }
