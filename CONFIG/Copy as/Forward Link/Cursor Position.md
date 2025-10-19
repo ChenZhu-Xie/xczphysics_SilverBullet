@@ -10,15 +10,13 @@ command.define {
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
-    editor.flashNotification(headerMarks .. headerName)
+    -- editor.flashNotification(headerMarks .. headerName)
     local ref
     if headerMarks and headerName and headerName:match("%S") then
-      -- 如果是 header，则生成 [[Page#Header]]
       headerName = headerName:match("^%s*(.-)%s*$") -- 去掉首尾空格
       ref = string.format("[[%s#%s]]", pageName, headerName)
       editor.flashNotification("Copied header reference: " .. ref, "info")
     else
-      -- 否则按位置引用
       ref = string.format("[[%s@%d]]", pageName, pos)
       editor.flashNotification("Copied cursor reference: " .. ref, "info")
     end
@@ -29,7 +27,7 @@ command.define {
 
 ```
 
-# Longer Version
+### Longer Version
 
 ```lua
 command.define {
