@@ -8,6 +8,7 @@ pageDecoration:
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
+| Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy reference | | Shift | Alt | c |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |

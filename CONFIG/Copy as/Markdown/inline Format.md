@@ -62,7 +62,7 @@ local function findNearestPattern()
 end
 
 command.define{
-  name = "Editor: Copy Nearest Pattern",
+  name = "Cursor: Copy Nearest Pattern",
   description = "Copy the nearest and highest-priority formatted structure around the cursor",
   key = "Alt-c",
   run = function()
@@ -153,7 +153,7 @@ local function findNearestPattern()
 end
 
 command.define{
-  name = "Editor: Copy Nearest Pattern",
+  name = "Cursor: Copy Nearest Pattern",
   description = "Copy the nearest and highest-priority formatted structure around the cursor",
   key = "Alt-c",
   run = function()
