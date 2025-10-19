@@ -154,10 +154,12 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - ${Purple("${embed.youtube 'url'}")} 's inplementation can be found in
     - ${Green("Ctrl + Shift + l")} → search for [[Library/Std/Widgets/Embed#Implementation]]
     - Note that it is a non-local **function** which defines this widget
+### One usage of non-local function: called by Widgets
 - Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
   - is a good way to ==not pollute== the global namespace too much
 - non-local ${Purple("varName = varValue")} and ${Purple("function end")} can be acquired
-  - by subsequent space-lua code blocks following the executed order
+  - by subsequent space-lua code blocks following the executed order?
+  - by widgets @ anywhere that calls them
 
 
 # Configuration
