@@ -118,14 +118,14 @@ end
 
 function getLineStart()
   local LineStartPos = getCursorPos() - getCursor_LineStart() + 2
-  -- editor.flashNotification(LineStartPos)
+  editor.flashNotification(LineStartPos)
   return LineStartPos
 end
 
 local function findNearestPattern()
   local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   -- editor.flashNotification(currentLine)
-  -- editor.flashNotification(LineStartPos)
+  getLineStart()
   local curPos_LineStart = getCursor_LineStart()
   local nearest = nil
   
