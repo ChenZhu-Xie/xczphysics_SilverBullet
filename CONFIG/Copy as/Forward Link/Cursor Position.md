@@ -11,6 +11,7 @@ command.define {
     local ref = string.format("[[%s@%d]]", pageName, pos)
     editor.copyToClipboard(ref)
     editor.flashNotification("Copied reference: " .. ref, "info")
+    editor.flashNotification(editor.getCurrentPath())
   end
 }
 ```
