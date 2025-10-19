@@ -4,6 +4,7 @@
 ```space-lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
+-- you can add your own patterns
 local PATTERNS = {
   { "Wiki Link",     "%[%[[^%]]+%]%]",         100 }, -- [[...]] 或 [[...|...]]
   { "Fields",        "%[[^%]]+:[^%]]+%]",       95  }, -- ![alt](src)
