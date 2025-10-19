@@ -15,8 +15,6 @@ local PATTERNS = {
   { "tag",           "#[^%s]+",               50  }, -- #tag
 }
 
-
-
 -- 🧮 区间与光标的距离
 local function distanceToCursor(startPos, endPos, cursorPos)
   if cursorPos < startPos then return startPos - cursorPos end
