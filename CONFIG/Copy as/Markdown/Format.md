@@ -49,6 +49,7 @@ local function findNearestPattern()
   local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   editor.flashNotification(currentLine)
   local nearest = nil
+  getCursor_LineStart()
 
   for _, pat in ipairs(PATTERNS) do
     local name, pattern, prio = pat[1], pat[2], pat[3]
