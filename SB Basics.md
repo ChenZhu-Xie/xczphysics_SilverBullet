@@ -52,10 +52,10 @@ chain of thoughts:
 ### Navigate Cursors History
   1. [[Language/Input Method/声笔飞单]] → ${Green("Ctrl + Enter")} → ${Green("Alt + ←")}
 
-## Wiki Web ^dd^
+## Wiki Web
 ### Rename a Page with its Backlinks
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
-  2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421)
+  2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421) will automatically update its backlinks
 
 ## Tag attribute (for aggregating Objs with the same tags)
 > - #Tag itself is an Object as the __index.tag__ to be indexed.
@@ -150,7 +150,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >   - ...
 
 ## Custom Widgets built using space-lua
-- 
+- ${embed.youtube "https://youtu.be/qkLJ3viVq8I?t=1850"}
+  - ${Purple("${embed.youtube 'url'}")} 
 - Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
   - is a good way to not pollute the global namespace too much
 - non local ${Purple("varName = varValue")} and ${Purple("function end")} 
