@@ -13,7 +13,7 @@ command.define {
     -- editor.flashNotification(headerMarks .. headerName)
     local ref
     if headerMarks and headerName and headerName:match("%S") then
-      headerName = headerName:match("^%s*(.-)%s*$") -- 去掉首尾空格
+      headerName = headerName:match("^%s*(.+)")
       ref = string.format("[[%s#%s]]", pageName, headerName)
       editor.flashNotification("Copied header reference: " .. ref, "info")
     else
