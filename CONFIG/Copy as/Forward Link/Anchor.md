@@ -1,7 +1,7 @@
 
 1. an testing improvement from [[CONFIG/Copy as/Forward Link/Cursor Position]] 
 
-```space-lua
+```lua
 -- Stable Cursor Reference Plugin
 -- Author: Expert
 -- Description:
