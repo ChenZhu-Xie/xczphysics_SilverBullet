@@ -30,7 +30,7 @@ end
 
 function getLineStart()
   local textBeforeCursor = editor.getText():sub(1, getCursorPos())
-  editor.flashNotification(textBeforeCursor)
+  -- editor.flashNotification(textBeforeCursor)
   local lastNewlineEnd = textBeforeCursor:match(".*()\n")
   if not lastNewlineEnd then
     return 1
@@ -46,8 +46,8 @@ end
 
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
-  local text = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
-  editor.flashNotification(text)
+  local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
+  editor.flashNotification(currentLine)
   local nearest = nil
 
   for _, pat in ipairs(PATTERNS) do
@@ -56,12 +56,12 @@ local function findNearestPattern()
     -- 用 pcall 防御单条模式异常
     local ok, err = pcall(function()
       while true do
-        local s, e = text:find(pattern, init)
+        local s, e = currentLine:find(pattern, init)
         if not s then break end
         local dist = distanceToCursor(s, e, getCursor_LineStart())
         local score = dist * 1001 + (1000 - prio * 10) -- 距离越小、优先级越高，得分越低
         if not nearest or score < nearest.score then
-          nearest = { name = name, start = s, stop = e, text = text:sub(s, e), score = score }
+          nearest = { name = name, start = s, stop = e, text = currentLine:sub(s, e), score = score }
         end
         -- 推进起点，避免零宽匹配卡死
         init = (e >= init) and (e + 1) or (init + 1)
