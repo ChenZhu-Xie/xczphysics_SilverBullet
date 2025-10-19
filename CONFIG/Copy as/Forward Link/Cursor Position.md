@@ -9,7 +9,7 @@ command.define {
     local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
-    editor.flashNotification(string.matchRegex(currentLine, "^(#+) +(.+)$"))
+    --editor.flashNotification(string.matchRegex(currentLine, "^(#+) +(.+)$"))
 
     
     local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
