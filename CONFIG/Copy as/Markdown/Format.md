@@ -30,6 +30,17 @@ end
 
 function getLineStart()
   local textBeforeCursor = editor.getText():sub(1, getCursorPos())
+  local revPos = textBeforeCursor:reverse():find("\n", 1, true)
+  
+  if revPos then
+    return pos - revPos + 2  -- 行首位置
+  else
+    return 1  -- 第一行
+  end
+end
+
+
+  
   -- editor.flashNotification(textBeforeCursor)
   local lastNewlineEnd = textBeforeCursor.match(".*()\n")
   editor.flashNotification(lastNewlineEnd)
