@@ -71,6 +71,7 @@ local function findNearestPattern()
       editor.flashNotification(("[Pattern error] %s: %s"):format(name, tostring(err)))
     end
   end
+  
   return nearest
 end
 
