@@ -161,9 +161,10 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
 ### Some details
-- table is actually the single data structure in Lua?
+- table is actually the only data structure in Lua?
   - if a function takes **a table** or can  as its single arg,
   - you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+
 
 # Configuration
 
