@@ -21,7 +21,7 @@ local function distanceToCursor(startPos, endPos, cursorPos)
   if cursorPos > endPos   then return cursorPos - endPos   end
   return 0
 end
-
+ 
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
   local text = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
