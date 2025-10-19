@@ -6,6 +6,8 @@ command.define {
   name = "Cursor: Copy Reference",
   key = "Shift-Alt-c",
   run = function()
+    local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
+    editor.flashNotification(currentLine, "info")
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local ref = string.format("[[%s@%d]]", pageName, pos)
