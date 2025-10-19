@@ -23,6 +23,7 @@ local function distanceToCursor(startPos, endPos, cursorPos)
 end
 
 function getLineStart()
+  editor.flashNotification("=============")
   local textBeforeCursor = editor.getText():sub(1, editor.getCursor())
   editor.flashNotification(textBeforeCursor)
   local lastNewlineEnd = textBeforeCursor:match(".*()\n")
