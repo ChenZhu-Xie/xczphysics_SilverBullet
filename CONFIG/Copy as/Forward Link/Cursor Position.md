@@ -24,10 +24,9 @@ command.define {
     editor.copyToClipboard(ref)
   end
 }
-
 ```
 
-### Longer Version
+# Longer Version
 
 ```lua
 command.define {
