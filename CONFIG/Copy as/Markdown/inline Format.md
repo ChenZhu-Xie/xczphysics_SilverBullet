@@ -113,16 +113,19 @@ function getCursor_LineStart()
   local textBeforeCursor = editor.getText():sub(1, getCursorPos())
   local cursorLineStart = textBeforeCursor:reverse():find("\n", 1, true)
   -- editor.flashNotification(cursorLineStart)
-  return textBeforeCursor:reverse():find("\n", 1, true)
+  return cursorLineStart
 end
 
 function getLineStart()
-  getCursorPos() - getCursorPos_LineStart() + 2
+  local LineStartPos = getCursorPos() - getCursor_LineStart() + 2
+  -- editor.flashNotification(LineStartPos)
+  return LineStartPos
 end
 
 local function findNearestPattern()
   local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   -- editor.flashNotification(currentLine)
+  -- editor.flashNotification(LineStartPos)
   local curPos_LineStart = getCursor_LineStart()
   local nearest = nil
   
