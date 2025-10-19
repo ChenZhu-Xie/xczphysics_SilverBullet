@@ -17,8 +17,8 @@ local PATTERNS = {
 
 -- 🧮 区间与光标的距离
 local function distanceToCursor(startPos, endPos, cursorPos)
-  if cursorPos < startPos then return startPos - cursorPos end
-  if cursorPos > endPos   then return cursorPos - endPos   end
+  if endPos > cursorPos   then return endPos - cursorPos   end
+  if cursorPos > startPos then return cursorPos - startPos end
   return 0
 end
  
