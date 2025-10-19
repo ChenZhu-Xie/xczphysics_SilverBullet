@@ -49,21 +49,21 @@ chain of thoughts:
   2. Input: “Page Copy” then ${Green("Enter")}
   3. Input: “/Page Name” then ${Green("Enter")}
   4. ${Green("Ctrl + A")} then ${Green("Backspace")}
-### Navigate Cursors History
-  1. [[Language/Input Method/声笔飞单]] → ${Green("Ctrl + Enter")} → ${Green("Alt + ←")}
 
 ## Wiki Web
 ### Rename a Page with its Backlinks
   1. ${Green("Ctrl + Enter")} or ${Green("Click")} to enter [[the (aspiring) page]]
   2. [Rename its Title](https://youtu.be/7hyLvEfw34w?t=421) will automatically update its backlinks
+### Navigate Cursors History
+  1. [[Language/Input Method/声笔飞单]] → ${Green("Ctrl + Enter")} → ${Green("Alt + ←")}
 
-## Tag attribute (for aggregating Objs with the same tags)
+## Tags (for aggregating Objs with the same tags)
 > - #Tag itself is an Object as the __index.tag__ to be indexed.
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
   > - it is one of the Object’s Properties (if obj has many Tags).
 >   - Page Object itself implicitly has a #page (i)tag for **indexing**.
-> - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table [[SB Basics@2750]].
+> - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table.
 >   - So, Tag = Table
 ### Aggregation for future
   1. [ ] assign a #todo tag for every todo,
@@ -151,7 +151,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 ## Custom Widgets built using space-lua
 - ${embed.youtube "https://youtu.be/qkLJ3viVq8I?t=1850"}
-  - ${Purple("${embed.youtube 'url'}")} 
+  - ${Purple("${embed.youtube 'url'}")} 's inplementation can be found in
+    - ${Green("Ctrl + Shift + l")} → [[Library/Std/Widgets/Embed#Implementation]]
 - Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
   - is a good way to not pollute the global namespace too much
 - non local ${Purple("varName = varValue")} and ${Purple("function end")} 
