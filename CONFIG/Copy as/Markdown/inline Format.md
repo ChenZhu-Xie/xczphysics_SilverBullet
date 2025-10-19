@@ -3,7 +3,7 @@
 
 # Page Version
 
-```lua
+```space-lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
 -- you can add your own patterns
@@ -79,7 +79,7 @@ command.define{
 
 # Line Version
 
-```space-lua
+```lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
 -- you can add your own patterns
