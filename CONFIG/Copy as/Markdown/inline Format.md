@@ -72,7 +72,7 @@ command.define{
       return
     end
     editor.copyToClipboard(match.text)
-    editor.flashNotification("Copied:" .. match.name .. " → " .. match.text)
+    editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
   end
 }
 ```
@@ -163,7 +163,7 @@ command.define{
       return
     end
     editor.copyToClipboard(match.text)
-    editor.flashNotification("Copied:" .. match.name .. " → " .. match.text)
+    editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
   end
 }
 ```
