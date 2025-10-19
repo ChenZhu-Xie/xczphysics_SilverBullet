@@ -133,8 +133,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 ## ${Green("Ctrl + Shift + l")}, and search for
  - _Space Overview_
->   - in which ${Purple("active space-lua scripts")} are indexed/listed in sequence and [excuted (constantly running) by priority](https://youtu.be/qkLJ3viVq8I?t=1398)
->   - [System Reload](https://youtu.be/qkLJ3viVq8I?t=1378) will ${Blue("ReRun")} all ${Purple("existing space-lua scripts")}
+>   - in which ${Yellow("active space-lua scripts")} are indexed/listed in sequence and [excuted (constantly running) by priority](https://youtu.be/qkLJ3viVq8I?t=1398)
+>   - [System Reload](https://youtu.be/qkLJ3viVq8I?t=1378) will ${Blue("ReRun")} all ${Yellow("existing space-lua scripts")}
   >   - See web brouser’s console - F12
 >     - Print(“...”) is there
   - _table_
@@ -151,13 +151,13 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 ## Custom Widgets built using space-lua
 - ${embed.youtube "https://youtu.be/qkLJ3viVq8I?t=1850"}
-  - ${Purple("${embed.youtube 'url'}")} 's inplementation can be found in
+  - ${Yellow("${embed.youtube 'url'}")} 's inplementation can be found in
     - ${Green("Ctrl + Shift + l")} → search for [[Library/Std/Widgets/Embed#Implementation]]
     - Note that it is a non-local **function** which defines this widget
 ### One usage of non-local function: called by Widgets
-- Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
+- Both ${Yellow("local varName = varValue")} and ${Yellow("local function end")} have their scopes confined to the space-lua block in which they are defined.
   - is a good way to ==not pollute== the global namespace too much
-- non-local ${Purple("varName = varValue")} and ${Purple("function end")} can be acquired
+- non-local ${Yellow("varName = varValue")} and ${Yellow("function end")} can be acquired
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
 
