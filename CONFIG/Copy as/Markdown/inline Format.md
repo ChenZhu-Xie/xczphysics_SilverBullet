@@ -8,17 +8,17 @@
 -- use % to escape special characters
 -- you can add your own patterns
 local PATTERNS = {
-  { "Wiki Link",     "%[%[[^%]]+%]%]",         100 }, -- [[...]] 或 [[...|...]]
-  { "Fields",        "%[[^%]]+:[^%]]+%]",       95  }, -- ![alt](src)
-  { "Image",         "!%[[^%]]-%]%([^)]+%)",    90  }, -- ![alt](src)
-  { "Markdown Link", "%[[^%]]+%]%([^)]+%)",     85  }, -- [text](url)
-  { "Color Func",    "%${[A-Za-z0-9]*%([\"\'][^}]*[\"\']%)}", 80 }, -- ${Color("...")}
-  { "Bold",          "%*%*[^%*]+%*%*",          70  }, -- **bold**
-  { "Italic",        "_[^_]+_",                 60  }, -- _italic_
-  { "Sup",           "%^.+%^",                  55  }, -- ^sup^
-  { "Tag",           "#[^, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
-  { "Highlight",     "==[^=]+==",               50  }, -- ==?==
-  { "Inline Code",   "`[^`]+`",                 45  }, -- ``?``
+  { "Wiki Link",     "%[%[[^\n%]]+%]%]",         100 }, -- [[...]] 或 [[...|...]]
+  { "Fields",        "%[[^\n%]]+:[^\n%]]+%]",       95  }, -- ![alt](src)
+  { "Image",         "!%[[^\n%]]-%]%([^\n)]+%)",    90  }, -- ![alt](src)
+  { "Markdown Link", "%[[^\n%]]+%]%([^\n)]+%)",     85  }, -- [text](url)
+  { "Color Func",    "%${[A-Za-z0-9]*%([\"\'][^\n}]*[\"\']%)}", 80 }, -- ${Color("...")}
+  { "Bold",          "%*%*[^\n%*]+%*%*",          70  }, -- **bold**
+  { "Italic",        "_[^\n_]+_",                 60  }, -- _italic_
+  { "Sup",           "%^[^\n%^]+%^",                  55  }, -- ^sup^
+  { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
+  { "Highlight",     "==[^\n=]+==",               50  }, -- ==?==
+  { "Inline Code",   "`[^\n`]+`",                 45  }, -- ``?``
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
