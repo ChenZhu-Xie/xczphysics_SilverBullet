@@ -28,32 +28,20 @@ function getCursorPos()
   return cursor_pos
 end
 
-function getLineStart()
+function getCursor_LineStart()
   local textBeforeCursor = editor.getText():sub(1, getCursorPos())
-  local revPos = textBeforeCursor:reverse():find("\n", 1, true)
-  
-  if revPos then
-    return pos - revPos + 2  -- 行首位置
-  else
-    return 1  -- 第一行
-  end
+  local cursorLineStart = textBeforeCursor:reverse():find("\n", 1, true)
+  editor.flashNotification(cursorLineStart)
+  return textBeforeCursor:reverse():find("\n", 1, true)
 end
 
-
-  
-  -- editor.flashNotification(textBeforeCursor)
-  local lastNewlineEnd = textBeforeCursor.match(".*()\n")
-  editor.flashNotification(lastNewlineEnd)
-  if not lastNewlineEnd then
+function getLineStart()
+  local revPos = getCursorPos_LineStart()
+  if revPos then
+    return getCursorPos() - revPos + 2
+  else
     return 1
   end
-  return lastNewlineEnd + 1
-end
-
-function getCursor_LineStart()
-  local cursor_LineStart = getCursorPos() - getLineStart()
-  editor.flashNotification(cursor_LineStart)
-  return cursor_LineStart
 end
 
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
