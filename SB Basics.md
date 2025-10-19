@@ -162,9 +162,22 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - by widgets @ anywhere that calls them
 ### Something about Lua
 - table is actually the only data structure in Lua?
-  - if a function takes **a table** or **a string** as its single arg,
+  - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
   - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+### Slash command list behave differently inside a code block
+  - generally they [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
+  - similiar to “Quicker movements page switch between apps”
 
+
+
+```space-lua
+slashCommand.define {
+  name = "",
+  run = function()
+    editor.insertAtCursor("Hello |^| world!", false, true)
+  end
+}
+```
 
 
 # Configuration
