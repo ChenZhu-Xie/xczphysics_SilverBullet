@@ -117,12 +117,7 @@ function getCursor_LineStart()
 end
 
 function getLineStart()
-  local revPos = getCursorPos_LineStart()
-  if revPos then
-    return getCursorPos() - revPos + 2
-  else
-    return 1
-  end
+  getCursorPos() - getCursorPos_LineStart() + 2
 end
 
 local function findNearestPattern()
