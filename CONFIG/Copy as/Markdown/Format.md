@@ -12,8 +12,10 @@ local PATTERNS = {
   { "bold",          "%*%*[^%*]-%*%*",          70  }, -- **bold**
   { "italic",        "_[^_]-_",                 60  }, -- _italic_
   { "sup",           "%^.-%^",                  55  }, -- ^sup^
-  { "tag",           "#.+",               50  }, -- #tag
+  { "tag",           "#[^k]+",               50  }, -- #tag
 }
+
+
 
 -- 🧮 区间与光标的距离
 local function distanceToCursor(startPos, endPos, cursorPos)
