@@ -149,7 +149,10 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 >   - collects all the [[SB Basics#Slash Commands|Slash Commands]]
 >   - ...
 
-## Custom Widgets built using Space-lua
+## Custom Widgets built using space-lua
+
+- Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
+- non local ${Purple("varName = varValue")} and ${Purple("function end")}
 
 
 # Configuration
