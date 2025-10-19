@@ -71,22 +71,21 @@ local function findNearestPattern()
       editor.flashNotification(("[Pattern error] %s: %s"):format(name, tostring(err)))
     end
   end
-
   return nearest
 end
 
 command.define{
   name = "Editor: Copy Nearest Pattern",
-  description = "复制光标附近最近且优先级最高的格式化结构",
+  description = "Copy the nearest and highest-priority formatted structure around the cursor",
   key = "Ctrl-Alt-k",
   run = function()
     local match = findNearestPattern()
     if not match then
-      editor.flashNotification("未找到匹配模式")
+      editor.flashNotification("No pattern matched.")
       return
     end
     editor.copyToClipboard(match.text)
-    editor.flashNotification("已复制：" .. match.name .. " → " .. match.text)
+    editor.flashNotification("Copied:" .. match.name .. " → " .. match.text)
   end
 }
 ```
