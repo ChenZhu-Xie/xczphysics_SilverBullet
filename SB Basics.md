@@ -165,9 +165,9 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
   - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
 ### Slash command list behave differently inside a code block
-  - generally they [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
-  - similiar to “Quicker movements page switch between apps”
-
+  - generally it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
+  - similiar to “Quicker Movements Page switch between Apps”
+### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
 
 
 ```space-lua
