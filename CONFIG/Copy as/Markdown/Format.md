@@ -21,13 +21,26 @@ local function distanceToCursor(startPos, endPos, cursorPos)
   if cursorPos > endPos   then return cursorPos - endPos   end
   return 0
 end
- 
+
+function getLineStart()
+  local textBeforeCursor = editor.getText():sub(1, editor.getCursor())
+  local lastNewlineEnd = textBeforeCursor:match(".*()\n")
+  if not lastNewlineEnd then
+    return 1
+  end
+  return lastNewlineEnd + 1
+end
+
+function getCursor_LineStart()
+  local cursor_LineStart = editor.getCursor() - getLineStart()
+  editor.flashNotification(cursor_LineStart)
+  return cursor_LineStart
+end
+
 -- 🔍 主函数：用 string.find 扫描，避免 "()" 空捕获
 local function findNearestPattern()
   local text = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   editor.flashNotification(text)
-  local cur = editor.getCursor()
-  local cursor_pos = (type(cur) == "table" and cur.pos) or cur  -- 兼容不同返回形式
   local nearest = nil
 
   for _, pat in ipairs(PATTERNS) do
@@ -38,7 +51,7 @@ local function findNearestPattern()
       while true do
         local s, e = text:find(pattern, init)
         if not s then break end
-        local dist = distanceToCursor(s, e, cursor_pos)
+        local dist = distanceToCursor(s, e, getCursor2LineStart())
         local score = dist * 1001 + (1000 - prio * 10) -- 距离越小、优先级越高，得分越低
         if not nearest or score < nearest.score then
           nearest = { name = name, start = s, stop = e, text = text:sub(s, e), score = score }
