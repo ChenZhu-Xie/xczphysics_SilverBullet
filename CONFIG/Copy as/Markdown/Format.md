@@ -22,8 +22,14 @@ local function distanceToCursor(startPos, endPos, cursorPos)
   return 0
 end
 
+function getCursorPos()
+  local cur = editor.getCursor() 
+  local cursor_pos = (type(cur) == "table" and cur.pos) or cur
+  return cursor_pos
+end
+
 function getLineStart()
-  local textBeforeCursor = editor.getText():sub(1, editor.getCursor())
+  local textBeforeCursor = editor.getText():sub(1, getCursorPos())
   editor.flashNotification(textBeforeCursor)
   local lastNewlineEnd = textBeforeCursor:match(".*()\n")
   if not lastNewlineEnd then
@@ -33,8 +39,7 @@ function getLineStart()
 end
 
 function getCursor_LineStart()
-  editor.flashNotification("=============")
-  local cursor_LineStart = editor.getCursor() - getLineStart()
+  local cursor_LineStart = getCursorPos() - getLineStart()
   editor.flashNotification(cursor_LineStart)
   return cursor_LineStart
 end
