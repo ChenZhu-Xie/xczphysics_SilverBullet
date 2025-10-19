@@ -10,8 +10,7 @@ command.define {
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
-    editor.flashNotification(headerMarks)
-    editor.flashNotification(headerName)
+    editor.flashNotification(headerMarks .. )
     local ref
     if headerMarks and headerName and headerName:match("%S") then
       -- 如果是 header，则生成 [[Page#Header]]
