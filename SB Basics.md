@@ -152,10 +152,11 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 ## Custom Widgets built using space-lua
 - ${embed.youtube "https://youtu.be/qkLJ3viVq8I?t=1850"}
   - ${Purple("${embed.youtube 'url'}")} 's inplementation can be found in
-    - ${Green("Ctrl + Shift + l")} → [[Library/Std/Widgets/Embed#Implementation]]
+    - ${Green("Ctrl + Shift + l")} → search for [[Library/Std/Widgets/Embed#Implementation]]
 - Both ${Purple("local varName = varValue")} and ${Purple("local function end")} have their scopes confined to the space-lua block in which they are defined.
-  - is a good way to not pollute the global namespace too much
-- non local ${Purple("varName = varValue")} and ${Purple("function end")} 
+  - is a good way to ==not pollute== the global namespace too much
+- non local ${Purple("varName = varValue")} and ${Purple("function end")} can be acquired
+  - by subsequent space-lua code blocks following the executed order
 
 
 # Configuration
