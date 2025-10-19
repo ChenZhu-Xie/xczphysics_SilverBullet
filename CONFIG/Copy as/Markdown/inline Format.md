@@ -116,17 +116,17 @@ function getCursor_LineStart()
   return cursorLineStart
 end
 
-function getLineStart()
-  local LineStartPos = getCursorPos() - getCursor_LineStart() + 2
-  editor.flashNotification(LineStartPos)
-  return LineStartPos
+function getPos_LineStart()
+  local posLineStart = getCursorPos() - getCursor_LineStart() + 2
+  -- editor.flashNotification(posLineStart)
+  return posLineStart
 end
 
 local function findNearestPattern()
   local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   -- editor.flashNotification(currentLine)
-  getLineStart()
   local curPos_LineStart = getCursor_LineStart()
+  -- getPos_LineStart()
   local nearest = nil
   
   for _, pat in ipairs(PATTERNS) do
