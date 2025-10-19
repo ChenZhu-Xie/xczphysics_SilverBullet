@@ -51,7 +51,7 @@ local function findNearestPattern()
       while true do
         local s, e = text:find(pattern, init)
         if not s then break end
-        local dist = distanceToCursor(s, e, getCursor2LineStart())
+        local dist = distanceToCursor(s, e, getCursor_LineStart())
         local score = dist * 1001 + (1000 - prio * 10) -- 距离越小、优先级越高，得分越低
         if not nearest or score < nearest.score then
           nearest = { name = name, start = s, stop = e, text = text:sub(s, e), score = score }
