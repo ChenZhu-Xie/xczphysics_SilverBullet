@@ -1,7 +1,7 @@
 
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
 
-# page
+# Page Version
 
 ```lua
 -- pattern def：{ name, pattern, priority }
@@ -77,7 +77,7 @@ command.define{
 }
 ```
 
-# line
+# Line Version
 
 ```space-lua
 -- pattern def：{ name, pattern, priority }
