@@ -24,8 +24,8 @@ end
 
 function getLineStart()
   local textBeforeCursor = editor.getText():sub(1, editor.getCursor())
+  editor.flashNotification(textBeforeCursor)
   local lastNewlineEnd = textBeforeCursor:match(".*()\n")
-  editor.flashNotification(lastNewlineEnd)
   if not lastNewlineEnd then
     return 1
   end
