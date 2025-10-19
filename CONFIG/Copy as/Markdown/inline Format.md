@@ -1,7 +1,5 @@
 
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
-aasdfasdf ${Green("'asd)f'")} asdf
-
 
 ```space-lua
 -- 🧠 模式定义表：{ name, pattern, priority }
