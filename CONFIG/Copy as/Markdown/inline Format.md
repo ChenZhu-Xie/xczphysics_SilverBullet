@@ -127,7 +127,8 @@ function getPos_LineStart()
 end
 
 local function findNearestPattern()
-  local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
+  -- local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
+  local currentLine = editor.getCurrentLine().text
   -- editor.flashNotification(currentLine)
   local curPos_LineStart = getCursor_LineStart()
   -- getPos_LineStart()
