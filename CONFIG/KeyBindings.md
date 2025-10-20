@@ -22,7 +22,8 @@ pageDecoration:
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Widget: | Refresh All | | | Alt | q |
-| Page: | Add | | Shift | Alt | n |
+| Page: | New | | Shift | Alt | n |
+| Page: | Templete | | Shift | Alt | t |
 | Page: | Delete | | Shift | Alt | d |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Graph View: | Global on/off | Ctrl | | Shift | g |
