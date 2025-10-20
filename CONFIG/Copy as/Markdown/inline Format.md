@@ -3,6 +3,8 @@
 
 # Page Version
 
+~~asd f~~
+
 ```space-lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
@@ -20,7 +22,7 @@ local PATTERNS = {
   { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
   { "Marker",        "==[^\n=]+==",               45  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 40  }, -- ``?``
-  { "Strikethrough", "~~[^\n~~]~~`",              35  }, -- ~~?~~
+  { "Strikethrough", "%~%~[^\n%~%~]%~%~`",        35  }, -- ~~?~~
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
