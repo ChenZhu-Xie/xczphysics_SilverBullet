@@ -2,52 +2,48 @@
 1. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/2?u=chenzhu-xie
 
 ```space-lua
-command.define {  
-  name = "Search All",
-  key = "Ctrl-Shift-t",
-  run = function()  
-    -- Query all object types  
-    local allTags = query[[from index.tag "tag" ]]
-      
-    -- Combine all results  
-    local all = {}  
-    for _, item in ipairs(allTags) do  
-      table.insert(all, item)  
-    end  
-      
-    -- Create filter options  
-    local options = {}  
-    for _, item in ipairs(all) do  
-      table.insert(options, {  
-        name = item.text or item.name or item.page,  
-        description = item.page,  
-        page = item.ref  
-      })  
-    end  
-      
-    -- Show filter box  
-    local selected = editor.filterBox(  
-      "Tag Search",  
-      options,  
-      "Select the search"  
-    )  
-      
-    if selected then  
-      -- Find the original data item  
-      local data = nil  
-      for _, item in ipairs(all) do  
-        if (item.text or item.name or item.page) == selected.name then  
-          data = item  
-          break  
-        end  
-      end  
-        
-      if data then  
-        editor.navigate("tag:" .. data)
-      end  
-    end  
-  end  
+command.define {
+  name = "Search All Tags",
+  key = "Ctrl-Shift-T",
+  run = function()
+    -- Retrieve all tags from the index
+    local tagResults = query[[from index.tag "tag"]]
+
+    -- Aggregate all tags
+    local allTags = {}
+    for _, tag in ipairs(tagResults) do
+      table.insert(allTags, tag)
+    end
+
+    -- Build filter options for selection
+    local filterOptions = {}
+    for _, tag in ipairs(allTags) do
+      table.insert(filterOptions, {
+        name = tag.text or tag.name or tag.page,
+        description = tag.page,
+        page = tag.ref
+      })
+    end
+
+    -- Display selection box
+    local chosenTag = editor.filterBox(
+      "Search Tags",
+      filterOptions,
+      "Select a tag to navigate"
+    )
+
+    -- Navigate to the selected tag
+    if chosenTag then
+      for _, tag in ipairs(allTags) do
+        if (tag.text or tag.name or tag.page) == chosenTag.name then
+          editor.navigate("tag:" .. tag)
+          break
+        end
+      end
+    end
+  end
 }
+
 ```
 
 2. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/14?u=chenzhu-xie
