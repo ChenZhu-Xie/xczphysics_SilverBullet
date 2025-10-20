@@ -192,7 +192,7 @@ slashCommand.define {
 
 # Configuration SilverBullet
 
-
+https://silverbullet.md/Space%20Lua/Lua%20Integrated%20Query
 ${query[[from index.query "keys"]]}
 
 [[CONFIG]]
