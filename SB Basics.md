@@ -193,7 +193,7 @@ slashCommand.define {
 # Configuration SilverBullet
 
 https://silverbullet.md/Space%20Lua/Lua%20Integrated%20Query
-
+hand in my assignment below!
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
 [[CONFIG]]
