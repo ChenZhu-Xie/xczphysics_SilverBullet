@@ -5,7 +5,7 @@ chain of thoughts:
 - fsdfa -- inject this Front Matter (syntax = Yaml) as a snippet
 ---
 
-# This ‘Website’: SilverBullet README
+# Some basics of SilverBullet
   - This page focuses on the basic operations in SB
   - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
 
@@ -31,7 +31,7 @@ chain of thoughts:
   - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
      - Example: `![[SB page path]]`, `![[local file path.png]]`
   - Image: `![image name](url)`
-  - test:
+  - test: [Objects that are `/query`ed OR `!\[transcluded\]]`, better not have widgets like `${Red("expression")}` in its name or body, otherwise might break the Table format](https://github.com/silverbulletmd/silverbullet/issues/1638#issuecomment-3416408442):
 ![[Language/Input Method/QQ 机器人]]
 
 # Orgnizing Workflows
