@@ -11,6 +11,8 @@ ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} ord
 # Tags
 `${query[[from index.tag "tag" select {name = '#' .. _.name} where not string.find(name, "meta")]]}`
 
+1. https://community.silverbullet.md/t/graphview-plug-for-silverbullet/1651/22?u=chenzhu-xie
+2. https://community.silverbullet.md/t/how-could-i-migrate-my-index-page-to-v2/3173/2?u=chenzhu-xie
 
 # TAGS
 ${template.each(query[[from index.tag "tag" select {name = _.name} where not string.find(name, "meta")]], home.renderTag)}
