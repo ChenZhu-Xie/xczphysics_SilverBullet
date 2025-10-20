@@ -37,3 +37,4 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 | Navigate: | Meta Page Picker | Ctrl | Shift | | l |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
+| SilverSearch: | Search | Ctrl | | | s |
