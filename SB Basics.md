@@ -194,7 +194,7 @@ slashCommand.define {
 
 https://silverbullet.md/Space%20Lua/Lua%20Integrated%20Query
 
-${query[[from index.tag "space-lua" select {ref=_.ref, key=string.match(_.script, "key = ([^\n]+)")}]]}
+${query[[from index.tag "space-lua" select {ref=_.ref, key=string.match(_.script, "key = ([^\n]+),")}]]}
 
 [[CONFIG]]
 [[STYLE]]
