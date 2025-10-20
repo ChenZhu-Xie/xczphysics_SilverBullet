@@ -183,7 +183,8 @@ slashCommand.define {
   - ${shell.run("ls", {"-l"})}
 * ${Green("Win/CMD + click")} the called function will jump on its definition
   * if the corresponding particular API is globally accessible and that this has been implemented in space Lua
-  * or the defined local function is on the same page
+  * e.g. ${Yellow("toggleReadOnlyMode()")} inside [[CONFIG/Edit/ReadOnly]]
+  * 
 
 # Configuration
 
