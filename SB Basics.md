@@ -168,6 +168,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - We have actually encountered this situation: [[CONFIG]] or https://silverbullet.md/API/config
 * ${Yellow("local ok, message = pcall(function() ... end)")} is a Lua way of ${Yellow("try: catch/except")}
 * ${Green("Win/CMD + click")} the called function will jump on its definition (on the same page)
+  * 
 ### Slash command list behave differently inside a code block
   - generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
 ```space-lua
