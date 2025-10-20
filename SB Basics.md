@@ -155,7 +155,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
     - ${Green("Ctrl + Shift + l")} → search for [[Library/Std/Widgets/Embed#Implementation]]
     - Note that it is a non-local **function** which defines this widget
 ### One usage of non-local function: called by Widgets
-- Both ${Yellow("local varName = varValue")} and ${Yellow("local function end")} have their scopes confined to the space-lua block in which they are defined.
+- Both ${Yellow("local varName = varValue")} and ${Yellow("local function end")} have their scopes confined to the `space-lua block` in which they are defined.
   - is a good way to ==not pollute== the global namespace too much
 - non-local ${Yellow("varName = varValue")} and ${Yellow("function fn() end")} can be acquired
   - by subsequent space-lua code blocks following the executed order?
@@ -177,7 +177,7 @@ slashCommand.define {
 ```
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-  - It seems that all those Apis which can be borrowed to use inside space-lua blocks, can also be directly called inside ${Red("${...}")} 
+  - It seems that all those Apis which can be borrowed to use inside `space-lua blocks`, can also be directly called inside ${Red("${...}")} 
     - ${shell.run("ls", {"-l"})}
 
 
