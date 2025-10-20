@@ -11,3 +11,30 @@ ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} ord
 ${query[[from index.tag "tag" select {name = '#' .. _.name} where not string.find(name, "meta")]]}
 
 
+# TAGS
+${template.each(query[[from index.tag "tag" select {name = _.name} where not string.find(name, "meta")]], home.renderTag)}
+
+# TASKS
+${template.each(query[[from index.tag "task" select {currentPage = _.page} where not _.done]], template.new[==[
+**[[${currentPage}]]** ${template.each(query[[from index.tag "tag" where _.page == currentPage]], home.renderTag)}
+${template.each(query[[from index.tag "task" where _.page == currentPage and not _.done]], home.renderTask)}
+]==])}
+
+# LATEST
+[[All pages|Show all]]
+
+${template.each(query[[from index.tag "page" where not string.find(_.name,"Library") order by created desc limit 15]], home.renderPage)}
+
+```space-lua
+home = home or {}
+
+home.renderTag = template.new[==[_[[tag:${name}|#${name}]]_ ]==]
+
+home.renderTask = template.new[==[- ${text}
+]==]
+
+home.renderPage = template.new[==[### [[${name}]]
+  ${created}
+
+]==]
+```
