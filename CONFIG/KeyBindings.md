@@ -42,6 +42,7 @@ pageDecoration:
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | Global Search | Ctrl | | Alt | f |
 | SilverSearch: | Search | Ctrl | | | s |
+| TagSearch: | Search | Ctrl | Shift | | t |
 
 # System
 
