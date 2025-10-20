@@ -4,7 +4,7 @@
 ```space-lua
 command.define {
   name = "Search All Tags",
-  key = "Ctrl-Shift-T",
+  key = "Ctrl-Shift-t",
   run = function()
     -- Retrieve all tags from the index
     local tagResults = query[[from index.tag "tag"]]
