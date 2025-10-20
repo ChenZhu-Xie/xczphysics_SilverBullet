@@ -3,8 +3,6 @@
 
 # Page Version
 
-~~asdfa~sdf~~
-
 ```space-lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
@@ -18,12 +16,11 @@ local PATTERNS = {
   { "Bold",          "%*%*[^\n%*]+%*%*",          70  }, -- **bold**
   { "Italic",        "_[^\n_]+_",                 60  }, -- _italic_
   { "Sup",           "%^[^ \n%^]+%^",             55  }, -- ^sup^
-  { "Strikethrough", "~~[^\n]+~~",              50  }, -- ~~?~~
+  { "Strikethrough", "~~[^\n]+~~",                50  }, -- ~~?~~
   { "Sub",           "~[^ \n~]+~",                45  }, -- ^sub^
   { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
-  { "Marker",        "==[^\n]+==",               35  }, -- ==?==
+  { "Marker",        "==[^\n]+==",                35  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
-  
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
@@ -89,17 +86,19 @@ command.define{
 -- use % to escape special characters
 -- you can add your own patterns
 local PATTERNS = {
-  { "Wiki Link",     "%[%[[^%]]+%]%]",         100  }, -- [[...]] 或 [[...|...]]
-  { "Fields",        "%[[^%]]+:[^%]]+%]",       95  }, -- [key:value]
-  { "Image",         "!%[[^%]]-%]%([^)]+%)",    90  }, -- ![alt](src)
-  { "Markdown Link", "%[[^%]]+%]%([^)]+%)",     85  }, -- [text](url)
+  { "Wiki Link",     "%[%[[^%]]+%]%]",       100  }, -- [[...]] 或 [[...|...]]
+  { "Fields",        "%[[^%]]+:[^%]]+%]",     95  }, -- [key:value]
+  { "Image",         "!%[[^%]]-%]%([^)]+%)",  90  }, -- ![alt](src)
+  { "Markdown Link", "%[[^%]]+%]%([^)]+%)",   85  }, -- [text](url)
   { "Color Func",    "%${[A-Za-z0-9]*%([\"\'][^}]*[\"\']%)}", 80 }, -- ${Color("...")}
-  { "Bold",          "%*%*[^%*]+%*%*",          70  }, -- **bold**
-  { "Italic",        "_[^_]+_",                 60  }, -- _italic_
-  { "Sup",           "%^[^ %^]+%^",             55  }, -- ^sup^
-  { "Tag",           "#[^, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
-  { "Highlight",     "==[^=]+==",               45  }, -- ==?==
-  { "Inline Code",   "`[^`]+`",                 40  }, -- ``?``
+  { "Bold",          "%*%*[^%*]+%*%*",        70  }, -- **bold**
+  { "Italic",        "_[^_]+_",               60  }, -- _italic_
+  { "Sup",           "%^[^ %^]+%^",           55  }, -- ^sup^
+  { "Strikethrough", "~~[^]+~~",              50  }, -- ~~?~~
+  { "Sub",           "~[^ ~]+~",              45  }, -- ^sub^
+  { "Tag",           "#[^, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
+  { "Marker",        "==[^]+==",              35  }, -- ==?==
+  { "Inline Code",   "`[^`]+`",               30  }, -- ``?``
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
