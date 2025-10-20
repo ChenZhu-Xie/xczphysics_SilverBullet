@@ -177,8 +177,8 @@ slashCommand.define {
 ```
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-  - It seems that all those api
-  - ${shell.run("ls", {"-l"})}
+  - It seems that all those Apis which can be borrowed to use inside space-lua blocks, can also be directly called inside ${Red("${...}")} 
+    - ${shell.run("ls", {"-l"})}
 
 
 # Configuration
