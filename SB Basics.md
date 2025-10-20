@@ -163,15 +163,10 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 ### Lua tricks
 - table is actually the only data structure in Lua?
   - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
-  - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+    - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
+  - We have actually encountered this situation: [[CONFIG]] or https://silverbullet.md/API/config
 ### Slash command list behave differently inside a code block
-  - generally it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
-  - similiar to “Quicker Movements Page switch between Apps”
-### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-  - It seems that all those api
-  - ${shell.run("ls", {"-l"})}
-
-
+  - generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
 ```space-lua
 slashCommand.define {
   name = "",
@@ -180,6 +175,10 @@ slashCommand.define {
   end
 }
 ```
+  - similiar to “Quicker Movements Page switch between Apps”
+### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
+  - It seems that all those api
+  - ${shell.run("ls", {"-l"})}
 
 
 # Configuration
