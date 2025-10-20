@@ -160,7 +160,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 - non-local ${Yellow("varName = varValue")} and ${Yellow("function end")} can be acquired
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
-### Something about Lua
+### Lua tricks
 - table is actually the only data structure in Lua?
   - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
   - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
@@ -168,6 +168,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - generally it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
+
 
 
 ```space-lua
