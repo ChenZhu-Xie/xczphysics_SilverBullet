@@ -151,7 +151,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 
 ## Custom Widgets built using space-lua
 - ${embed.youtube "https://youtu.be/qkLJ3viVq8I?t=1850"}
-  - ${Yellow("${embed.youtube 'url'}")} 's inplementation can be found in
+  - ${Red("${embed.youtube 'url'}")} 's inplementation can be found in
     - ${Green("Ctrl + Shift + l")} → search for [[Library/Std/Widgets/Embed#Implementation]]
     - Note that it is a non-local **function** which defines this widget
 ### One usage of non-local function: called by Widgets
@@ -161,11 +161,13 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
 ### Lua tricks
+- https://www.lua.org/manual/5.3/
 - table is actually the only data structure in Lua?
   - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
     - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
   - We have actually encountered this situation: [[CONFIG]] or https://silverbullet.md/API/config
 * ${Yellow("local ok, message = pcall(function() ... end)")} is a Lua way of ${Yellow("try: catch/except")}
+* ${Green("Ctrl + click")} 
 ### Slash command list behave differently inside a code block
   - generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
 ```space-lua
