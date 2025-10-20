@@ -44,7 +44,8 @@ home.renderPage = template.new[==[### [[${name}]]
 
 ```space-lua
 command.define {  
-  name = "Search All",  
+  name = "Search All",
+  
   run = function()  
     -- Query all object types  
     local allHeaders = query[[from index.tag "header" ]]
