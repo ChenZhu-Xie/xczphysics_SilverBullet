@@ -193,7 +193,7 @@ slashCommand.define {
 # Configuration SilverBullet
 
 
-${query[[from index.defineTag "space-lua"]]}
+${query[[from index.query "keys"]]}
 
 [[CONFIG]]
 [[STYLE]]
