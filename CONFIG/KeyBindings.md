@@ -35,6 +35,7 @@ pageDecoration:
 | Navigate: | Meta Page Picker | Ctrl | Shift | | l |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
-| SilverSearch: | Search | Ctrl | | | s |
-| SilverSearch: | Global Search | Ctrl | | Alt | f |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
+| SilverSearch: | Global Search | Ctrl | | Alt | f |
+| SilverSearch: | Search | Ctrl | | | s |
+| System: | Reload | Ctrl | | Alt | r |
