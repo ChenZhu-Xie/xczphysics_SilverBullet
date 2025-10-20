@@ -5,7 +5,7 @@ chain of thoughts:
 - fsdfa -- inject this Front Matter (syntax = Yaml) as a snippet
 ---
 
-# Some basics of SilverBullet
+# Quickly Cover the basics of SilverBullet
   - This page focuses on the basic operations in SB
   - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
 
