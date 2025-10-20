@@ -27,6 +27,7 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 | Page: | Add | | Shift | Alt | n |
 | Page: | Delete | | Shift | Alt | d |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
+| Read Only: | Toggle on/off | Ctrl | | Alt | t |
 
 ## Across Pages
 
