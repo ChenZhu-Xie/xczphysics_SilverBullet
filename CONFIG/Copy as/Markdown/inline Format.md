@@ -18,11 +18,12 @@ local PATTERNS = {
   { "Bold",          "%*%*[^\n%*]+%*%*",          70  }, -- **bold**
   { "Italic",        "_[^\n_]+_",                 60  }, -- _italic_
   { "Sup",           "%^[^ \n%^]+%^",             55  }, -- ^sup^
-  { "Sub",           "~[^ \n~]+~",                55  }, -- ^sub^
-  { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
-  { "Marker",        "==[^\n=]+==",               45  }, -- ==?==
-  { "Inline Code",   "`[^\n`]+`",                 40  }, -- ``?``
-  { "Strikethrough", "~~[^\n~~]~~",        35  }, -- ~~?~~
+  { "Strikethrough", "~~[^\n~~]~~",               50  }, -- ~~?~~
+  { "Sub",           "~[^ \n~]+~",                45  }, -- ^sub^
+  { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
+  { "Marker",        "==[^\n=]+==",               35  }, -- ==?==
+  { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
+  
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
