@@ -129,6 +129,7 @@ end
 local function findNearestPattern()
   -- local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
   local currentLine = editor.getCurrentLine().text
+  -- https://silverbullet.md/API/editor#editor.getCurrentLine()
   -- editor.flashNotification(currentLine)
   local curPos_LineStart = getCursor_LineStart()
   -- getPos_LineStart()
