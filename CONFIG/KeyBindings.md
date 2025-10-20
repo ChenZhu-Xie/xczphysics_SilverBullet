@@ -10,7 +10,7 @@ pageDecoration:
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy reference | | Shift | Alt | c |
-| Cursor: | Copy reference | Ctrl | | Alt | l |
+| Cursor: | Copy reference | | Shift | Alt | l |
 | Text: | Red | | | Alt | r |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
@@ -25,6 +25,8 @@ pageDecoration:
 | Page: | Add | | Shift | Alt | n |
 | Page: | Delete | | Shift | Alt | d |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
+| Graph View: | Global on/off | Ctrl | | Shift | g |
+| Graph View: | Local on/off | Ctrl | | Shift | l |
 | Read Only: | Toggle on/off | Ctrl | | Alt | t |
 
 # Across Pages
