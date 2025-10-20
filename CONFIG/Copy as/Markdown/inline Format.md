@@ -3,7 +3,7 @@
 
 # Page Version
 
-~~asd f~~
+~asdf~
 
 ```space-lua
 -- pattern def：{ name, pattern, priority }
@@ -22,7 +22,7 @@ local PATTERNS = {
   { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               50  }, -- #tag
   { "Marker",        "==[^\n=]+==",               45  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 40  }, -- ``?``
-  { "Strikethrough", "%~%~[^\n%~%~]%~%~`",        35  }, -- ~~?~~
+  { "Strikethrough", "~~[^\n~]~~`",        35  }, -- ~~?~~
 }
 
 local function distanceToCursor(startPos, endPos, cursorPos)
