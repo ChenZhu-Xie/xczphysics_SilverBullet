@@ -168,6 +168,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - generally it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
+  - It seems that all those api
   - ${shell.run("ls", {"-l"})}
 
 
