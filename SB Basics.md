@@ -180,7 +180,7 @@ slashCommand.define {
 ```
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-- It seems that all those Apis which can be borrowed to use inside `space-lua blocks`, can also be directly called inside ${Red("${...}")} 
+- It seems that all those Apis which can be borrowed to use inside `space-lua blocks`, can also be directly called inside ${Red("${...}")}, which is to say: all widgets are global functions that are called
   - ${shell.run("ls", {"-l"})}
 * ${Green("Win/CMD + click")} the called function will jump on its definition (across pages)
   * if the corresponding particular API is globally accessible and that this has been implemented in space Lua
