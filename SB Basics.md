@@ -165,6 +165,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - if a function takes ${Yellow("a table")} or ${Yellow("a string")} as its ${Yellow("single arg")},
     - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
   - We have actually encountered this situation: [[CONFIG]] or https://silverbullet.md/API/config
+* ${Yellow("pcall(function() ... end)")} is a Lua way of ${Yellow("try: catch/except")}
 ### Slash command list behave differently inside a code block
   - generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
 ```space-lua
