@@ -11,5 +11,6 @@ config.set(
   })
 ```
 
+Related to [[CONFIG/KeyBindings]]
 
 #SB_itself
