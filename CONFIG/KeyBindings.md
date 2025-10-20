@@ -4,22 +4,19 @@ pageDecoration:
         - wine-table
 ---
 
-# Overall
-
-${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
-
-## In Page
+# In Page
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy reference | | Shift | Alt | c |
+| Text: | Red | | | Alt | r |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | Toggle Level | Ctrl | | | 1 |
 
-## On Page
+# On Page
 
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
@@ -29,7 +26,7 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Read Only: | Toggle on/off | Ctrl | | Alt | t |
 
-## Across Pages
+# Across Pages
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|

@@ -11,6 +11,8 @@ config.set(
   })
 ```
 
-Related to [[CONFIG/KeyBindings]]
+# Related to [[CONFIG/KeyBindings]]
+
+${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
 #SB_itself
