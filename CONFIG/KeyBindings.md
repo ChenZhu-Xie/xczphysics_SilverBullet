@@ -10,6 +10,7 @@ pageDecoration:
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy reference | | Shift | Alt | c |
+| Cursor: | Copy reference | Ctrl | | Alt | l |
 | Text: | Red | | | Alt | r |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
