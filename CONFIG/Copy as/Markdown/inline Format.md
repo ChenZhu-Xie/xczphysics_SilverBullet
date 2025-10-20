@@ -3,7 +3,7 @@
 
 # Page Version
 
-~asdfa~sdf~
+~~asdfa~sdf~~
 
 ```space-lua
 -- pattern def：{ name, pattern, priority }
@@ -19,7 +19,7 @@ local PATTERNS = {
   { "Italic",        "_[^\n_]+_",                 60  }, -- _italic_
   { "Sup",           "%^[^ \n%^]+%^",             55  }, -- ^sup^
   { "Strikethrough", "~~[^\n~~]+~~",              50  }, -- ~~?~~
-  { "Sub",           "~[^ \n]+~",                45  }, -- ^sub^
+  { "Sub",           "~[^ \n~]+~",                45  }, -- ^sub^
   { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
   { "Marker",        "==[^\n]+==",               35  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
