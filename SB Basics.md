@@ -167,10 +167,8 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
     - then you can [omit ()](https://youtu.be/qkLJ3viVq8I?t=2420)
   - We have actually encountered this situation: [[CONFIG]] or https://silverbullet.md/API/config
 * ${Yellow("local ok, message = pcall(function() ... end)")} is a Lua way of ${Yellow("try: catch/except")}
-* ${Green("Win/CMD + click")} the called function will jump on its definition (on the same page)
-  * 
 ### Slash command list behave differently inside a code block
-  - generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
+- generally, it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539), e.g.:
 ```space-lua
 slashCommand.define {
   name = "",
@@ -181,9 +179,11 @@ slashCommand.define {
 ```
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-  - It seems that all those Apis which can be borrowed to use inside `space-lua blocks`, can also be directly called inside ${Red("${...}")} 
-    - ${shell.run("ls", {"-l"})}
-
+- It seems that all those Apis which can be borrowed to use inside `space-lua blocks`, can also be directly called inside ${Red("${...}")} 
+  - ${shell.run("ls", {"-l"})}
+* ${Green("Win/CMD + click")} the called function will jump on its definition
+  * if the corresponding particular API is globally accessible and that this has been implemented in space Lua
+  * or the defined local function is on the same page
 
 # Configuration
 
