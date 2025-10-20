@@ -190,7 +190,7 @@ slashCommand.define {
       - but it is of no use to ${Green("Win/CMD + click")} the ${Yellow("slashCommand.")}
   - ${Green("Win/CMD + click")} called local functions seems not working
 
-# Configuration
+# Configuration SilverBullet
 
 [[CONFIG]]
 [[STYLE]]
