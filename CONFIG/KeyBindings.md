@@ -38,3 +38,5 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search | Ctrl | | | s |
+| SilverSearch: | Global Search | Ctrl | | Alt | f |
+| SilverSearch: | Search Space | Ctrl | Shift | | f |
