@@ -3,6 +3,7 @@
 iiaahhddnnmmkkaaoozzxc660
 
 1. [how do i change the editors default font size](https://community.silverbullet.md/t/how-do-i-change-the-editors-default-font-size/1205/2?u=chenzhu-xie) #SB_Community
+2. https://community.silverbullet.md/t/trying-to-get-custom-font-working/555/9?u=chenzhu-xie
 
 ```space-style
 #sb-root {
