@@ -43,7 +43,7 @@ command.define {
       end  
         
       if data then  
-        editor.navigate(tag .. ":" .. data)  
+        editor.navigate("tag:" .. data)
       end  
     end  
   end  
