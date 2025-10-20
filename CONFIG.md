@@ -7,8 +7,8 @@ config.set(
     -- {} is a Lua Table as a list, array, map... here's a list
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
     "ghr:MrMugame/silversearch",
-    "ghr:deepkn/silverbullet-graphview",
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
+    "ghr:deepkn/silverbullet-graphview",
   })
 ```
 
