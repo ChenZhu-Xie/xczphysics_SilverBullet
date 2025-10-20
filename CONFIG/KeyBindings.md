@@ -38,4 +38,10 @@ pageDecoration:
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | Global Search | Ctrl | | Alt | f |
 | SilverSearch: | Search | Ctrl | | | s |
+
+# System
+
+| Operation: | Target | Ctrl | Shift | Alt | letter |
+|----------|----------|------|-------|-----|--------|
 | System: | Reload | Ctrl | | Alt | r |
+| Plugs: | Update | Ctrl | Shift | | p |
