@@ -6,7 +6,7 @@ command.define {
   name = "Search Tags",
   key = "Ctrl-Shift-t",
   run = function()
-    local tags = query[[from "tag" select {name}]]
+    local tags = query[[from index.tag "tag" ]]
     local items = {}
     for _, t in ipairs(tags) do items[#items+1] = { name = t.name } end
     local sel = editor.filterBox("Tag Search", items, "Select a tag")
