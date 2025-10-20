@@ -157,7 +157,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
 ### One usage of non-local function: called by Widgets
 - Both ${Yellow("local varName = varValue")} and ${Yellow("local function end")} have their scopes confined to the space-lua block in which they are defined.
   - is a good way to ==not pollute== the global namespace too much
-- non-local ${Yellow("varName = varValue")} and ${Yellow("function end")} can be acquired
+- non-local ${Yellow("varName = varValue")} and ${Yellow("function fn() end")} can be acquired
   - by subsequent space-lua code blocks following the executed order?
   - by widgets @ anywhere that calls them
 ### Lua tricks
@@ -168,7 +168,7 @@ ${template.each(query[[from index.tag "task" where not done]], templates.taskIte
   - generally it [generate some ${Yellow("command.define")} templates](https://youtu.be/qkLJ3viVq8I?t=2539)
   - similiar to “Quicker Movements Page switch between Apps”
 ### Some documents are @ https://silverbullet.md/API rather than @ Librabry/Std
-  - 
+  - ${shell.run("ls", {"-l"})}
 
 
 ```space-lua
