@@ -31,6 +31,7 @@ chain of thoughts:
   - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
      - Example: `![[SB page path]]`, `![[local file path.png]]`
   - Image: `![image name](url)`
+  - test:
 ![[Language/Input Method/QQ 机器人]]
 
 # Orgnizing Workflows
