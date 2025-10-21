@@ -111,7 +111,7 @@ local function headingsPicker(options)
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Headings", items, { label = "name", description = "description" })
+  local result = editor.filterBox("Headings:", items, "Select")
   local page = editor.getCurrentPage()
 
   if result and result.selected and result.selected.value then
