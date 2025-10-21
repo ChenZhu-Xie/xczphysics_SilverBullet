@@ -198,5 +198,6 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 
 [[CONFIG]]
 [[STYLE]]
+[[QUERY]]
 
 #SB_itself
