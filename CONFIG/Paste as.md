@@ -4,7 +4,7 @@
 ```space-lua
 command.define {
   name = "Paste: Smart URL",
-  key = "Ctrl-Shift-v",
+  key = "Alt-v",
   run = function()
     local clip = system.getClipboard() or ""
     clip = clip:match("^%s*(.-)%s*$")  -- 去除前后空白
