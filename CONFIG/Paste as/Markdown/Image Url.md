@@ -27,7 +27,6 @@ command.define {
 
     -- 判断是否 URL（支持 http/https、www.、data:image/）
     local function isUrl(u)
-      editor.flashNotification(u:match("^https?://"), "warn")
       return u:match("^https?://")
           or u:match("^www%.")
           or u:match("^data:image/")
@@ -56,8 +55,7 @@ command.define {
     end
 
     local url = ensureScheme(clip)
-    local snippet = isImageUrl(url) and string.format("![](%s)", url)
-                                   or  string.format("[](%s)",  url)
+    local snippet = isImageUrl(url) and string.format("![](%s)", url) or string.format("[](%s)",  url)
     editor.insertText(snippet)
     editor.flashNotification("已插入智能链接")
   end
