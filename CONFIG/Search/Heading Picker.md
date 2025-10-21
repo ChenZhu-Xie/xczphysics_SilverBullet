@@ -1,6 +1,146 @@
 
-
 ```space-lua
+-- Pick Headings with CMD-like Tree UI
+local function headingsPicker(options)
+  local text = editor.getText()
+  local parsed = markdown.parseMarkdown(text)
+
+  -- 1) 解析并收集标题（level / text / pos）
+  local nodes = {}
+
+  local function detect_level(node)
+    if node.tag then
+      local m = string.match(node.tag, "ATXHeading%s*(%d+)")
+      if m then return tonumber(m) end
+    end
+    if node.type then
+      local m = string.match(node.type, "ATXHeading%s*(%d+)") or string.match(node.type, "Heading(%d+)")
+      if m then return tonumber(m) end
+    end
+    return nil
+  end
+
+  local function node_pos(node)
+    return node.from or node.pos or node.name
+  end
+
+  for _, n in ipairs(parsed.children or {}) do
+    local level = detect_level(n)
+    if level then
+      -- 拷贝 children，跳过第一个 token
+      local children = {}
+      if n.children then
+        for i, c in ipairs(n.children) do
+          if i > 1 then table.insert(children, c) end
+        end
+      end
+
+      local parts = {}
+      for _, c in ipairs(children) do
+        local rendered = markdown.renderParseTree(c)
+        if rendered and rendered ~= "" then
+          table.insert(parts, string.trim(rendered))
+        end
+      end
+      local title = table.concat(parts, "")
+
+      if title ~= "" then
+        table.insert(nodes, {
+          level = level,
+          text  = title,
+          pos   = node_pos(n)
+        })
+      end
+    end
+  end
+
+  if #nodes == 0 then
+    editor.flashNotification("No headings found")
+    return
+  end
+
+  -- 2) 预计算每个节点是否为该层级的“最后一个兄弟”
+  --    规则：向后找第一个 level <= 当前 level 的节点；
+  --         若相等 -> 非最后；若更小或不存在 -> 最后。
+  local last_flags = {}
+  for i = 1, #nodes do
+    local L = nodes[i].level
+    local is_last = true
+    for j = i + 1, #nodes do
+      if nodes[j].level <= L then
+        if nodes[j].level == L then
+          is_last = false
+        else
+          is_last = true
+        end
+        break
+      end
+    end
+    last_flags[i] = is_last
+  end
+
+  -- 3) 生成带树形前缀的 label
+  --    使用 Unicode 线条字符（Windows/等宽字体一般可见）。
+  local VERT = "│   "   -- 祖先层级：还有后续兄弟 => 画竖线
+  local BLNK = "    "   -- 祖先层级：已是最后兄弟 => 空白
+  local TEE  = "├── "   -- 当前节点：还有后续兄弟
+  local ELB  = "└── "   -- 当前节点：该层级最后一个
+
+  local items = {}
+  local stack = {}  -- 祖先路径的“是否最后一个”标记：{ {level=, last=}, ... }
+
+  for i = 1, #nodes do
+    local L = nodes[i].level
+    local is_last = last_flags[i]
+
+    -- 收缩栈到 L-1（同级/上跳时弹出）
+    while #stack >= L do table.remove(stack) end
+
+    -- 祖先前缀：非最后 -> │   ，最后 -> 空白
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or VERT)
+    end
+    -- 若出现跳级（如从 H1 跳到 H3），缺失的祖先层用空白填充
+    for d = #stack + 1, L - 1 do
+      prefix = prefix .. BLNK
+    end
+
+    local elbow = is_last and ELB or TEE
+    local label = prefix .. elbow .. nodes[i].text
+
+    table.insert(items, {
+      name = label,
+      description = "",
+      pos = nodes[i].pos
+    })
+
+    -- 将当前节点作为祖先压栈，供后续更深层使用
+    table.insert(stack, { level = L, last = is_last })
+  end
+
+  -- 4) 展示并导航
+  local result = editor.filterBox("Headings", items, { label = "name", description = "description" })
+  local page = editor.getCurrentPage()
+
+  if result and result.selected and result.selected.value then
+    local item = result.selected.value
+    if item.pos then editor.navigate({ page = page, pos = item.pos }) end
+  elseif result and result.pos then
+    editor.navigate({ page = page, pos = result.pos })
+  end
+end
+
+command.define({
+  name = "Pick Headings",
+  key = "Ctrl-Shift-h",
+  run = function() headingsPicker({}) end
+})
+```
+
+
+
+```lua
 -- Pick Headings (robust version)
 local function headingsPicker(options)
   local text = editor.getText()
