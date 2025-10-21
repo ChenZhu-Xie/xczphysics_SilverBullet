@@ -42,7 +42,6 @@ command.define {
     local function isImageUrl(u)
       if u:match("^data:image/") then return true end
       local path = (u:match("^[^%?#]+")) or u
-      editor.flashNotification(u:match("^https?://"), "warn")
       path = path:lower()
       return path:match("%.png$") or path:match("%.jpe?g$") or
              path:match("%.gif$") or path:match("%.webp$") or
@@ -57,6 +56,7 @@ command.define {
 
     local url = ensureScheme(clip)
     local snippet = isImageUrl(url) and string.format("![](%s)", url) or string.format("[](%s)",  url)
+    editor.flashNotification(u:match("^https?://"), "warn")
     editor.insertText(snippet)
     editor.flashNotification("已插入智能链接")
   end
