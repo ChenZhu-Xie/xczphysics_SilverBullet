@@ -4,38 +4,69 @@
 ```space-lua
 command.define {
   name = "Paste: Smart URL",
-  key = "Alt-v",
+  key = "Alt-v", -- 可按需修改快捷键
   run = function()
-    local clip = system.getClipboard() or ""
-    clip = clip:match("^%s*(.-)%s*$")  -- 去除前后空白
-
+    local clip = system.getClipboard()
+    if not clip then
+      editor.flashNotification("剪贴板为空", "warn")
+      return
+    end
+    -- 去除前后空白
+    clip = clip:match("^%s*(.-)%s*$")
     if clip == "" then
       editor.flashNotification("剪贴板为空", "warn")
       return
     end
 
-    -- 判断是否是 URL
-    local is_url = clip:match("^https?://[%w%-%._~:/%?#%[%]@!$&'()*+,;%%=]+$")
-    if not is_url then
+    -- 是否是 URL（支持 http/https、www.、以及 data:image/）
+    local function isUrl(u)
+      return u:match("^https?://")
+          or u:match("^www%.")
+          or u:match("^data:image/")
+    end
+
+    -- 若是裸的 www.，补 https://；data: 或 http/https 保持不变
+    local function ensureScheme(u)
+      if u:match("^https?://") or u:match("^data:") then
+        return u
+      elseif u:match("^www%.") then
+        return "https://" .. u
+      else
+        return u
+      end
+    end
+
+    -- 判断是否为图片链接：检查扩展名（忽略查询/片段），或 data:image/
+    local function isImageUrl(u)
+      if u:match("^data:image/") then return true end
+      local path = (u:match("^[^%?%#]+")) or u -- 去掉 ? 和 #
+      path = path:lower()
+      return path:match("%.png$") or
+             path:match("%.jpg$") or
+             path:match("%.jpeg$") or
+             path:match("%.gif$") or
+             path:match("%.webp$") or
+             path:match("%.bmp$") or
+             path:match("%.tif$") or
+             path:match("%.tiff$") or
+             path:match("%.svg$")
+    end
+
+    if not isUrl(clip) then
       editor.flashNotification("剪贴板内容不是 URL", "warn")
       return
     end
 
-    -- 判断是否是图片链接
-    local is_image = clip:match("%.png$") or clip:match("%.jpg$")
-      or clip:match("%.jpeg$") or clip:match("%.gif$")
-      or clip:match("%.webp$") or clip:match("%.svg$")
-      or clip:match("%.bmp$") or clip:match("%.tiff$")
-
-    local text
-    if is_image then
-      text = string.format("![](%s)", clip)
+    local url = ensureScheme(clip)
+    local snippet
+    if isImageUrl(url) then
+      snippet = string.format("![](%s)", url)
     else
-      text = string.format("[](%s)", clip)
+      snippet = string.format("[](%s)", url)
     end
 
-    editor.insertText(text)
-    editor.flashNotification("已粘贴智能链接", "info")
+    editor.insertText(snippet)
+    editor.flashNotification("已粘贴智能链接")
   end
 }
 ```
