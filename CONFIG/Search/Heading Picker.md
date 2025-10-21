@@ -38,10 +38,9 @@ function headingsPicker(options)
     end
 end
 
-
 command.define {
   name = "Pick Headings",
-  key = "Ctrl-h",
+  key = "Ctrl-Shift-h",
   run = function() headingsPicker({}) end
 }
 ```
