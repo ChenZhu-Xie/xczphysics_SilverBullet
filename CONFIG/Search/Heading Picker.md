@@ -60,9 +60,11 @@ local function headingsPicker(options)
 
   if result and result.selected and result.selected.value then
     local item = result.selected.value
-    if item.pos then editor.moveCursor(item.pos, true) end
+    -- if item.pos then editor.moveCursor(item.pos, true) end
+    if item.pos then editor.navigate({ pos = item.pos }) end
   elseif result and result.pos then
-    editor.moveCursor(result.pos, true)
+    -- editor.moveCursor(result.pos, true)
+    editor.navigate({ pos = result.pos })
   end
 
   -- editor.filterBox({
