@@ -1,14 +1,14 @@
 
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
 
-
+https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b2341b42dafaa26d73f342340ef.jpeg
 
 ```space-lua
 command.define {
   name = "Paste: Smart URL",
   key = "Alt-v", -- 可按需修改快捷键
   run = function()
-    local clip = editor.copyToClipboard()
+    local clip = editor.copyFromClipboard()
     if not clip then
       editor.flashNotification("剪贴板为空", "warn")
       return
