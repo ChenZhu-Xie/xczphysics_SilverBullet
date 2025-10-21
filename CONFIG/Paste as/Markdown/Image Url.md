@@ -6,7 +6,6 @@ https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b23
 
 
 
-
 ```space-lua
 command.define {
   name = "Paste: Smart URL (via Prompt)",
@@ -56,10 +55,6 @@ command.define {
     end
 
     local url = ensureScheme(clip)
-    editor.flashNotification(string.format("![](%s)", url), "warn")
-    local teset = string.format("![](%s)", url) or string.format("[](%s)",  url)
-    
-    
     local snippet = isImageUrl(url) and string.format("![](%s)", url) or string.format("[](%s)",  url)
     editor.insertAtCursor(snippet)
     editor.flashNotification("已插入智能链接")
