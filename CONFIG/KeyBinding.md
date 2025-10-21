@@ -26,6 +26,7 @@ pageDecoration:
 | Page: | New | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
 | Page: | Delete | | Shift | Alt | d |
+| Page: | Copy | Ctrl | | Alt | c |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Graph View: | Global on/off | Ctrl | | Shift | g |
 | Graph View: | Local on/off | Ctrl | | Shift | l |
