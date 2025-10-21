@@ -2,6 +2,41 @@
 githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md"
 ---
 
+## Examples:
+
+> **abstract** Abstract
+> This section provides a brief overview of the concept. Abstracts are perfect for giving readers a quick sense of direction, ensuring they know what’s coming before they commit to reading the full explanation.
+
+> **note** Note
+> This is a simple note to remind you of something important. Keep it in mind before making changes to your setup. Notes like this are meant to draw your attention without alarming you, serving as small signposts to prevent silly mistakes later.
+
+> **info** Info
+> Here’s some additional information that might clarify things. It’s not essential, but it could save you some confusion later. These  informational blocks are like friendly nudges, helping you connect dots that might otherwise slip through the cracks.
+
+> **tip** Tip
+> Use keyboard shortcuts to speed up your workflow. Small optimizations make a big difference over time. Tips are the gentle whispers of experience, saving you hours of trial and error while making you look like you’ve mastered the system from day one.
+
+> **success** Success
+> Your configuration was applied successfully. Everything is running exactly as intended. When success messages appear, take a brief moment to bask in the satisfaction — your system finally listened, and nothing exploded. That’s progress worth celebrating.
+
+> **question** Question
+> What happens if you modify this setting? Try it and observe the result to understand the behavior. Questions like these encourage exploration and help you build intuition instead of just following recipes. The best learning often starts with curiosity.
+
+> **warning** Warning
+> Changing these values could cause unexpected results. Proceed carefully and back up your data first. Warnings exist to stop your future self from swearing at your past self — a small yellow triangle that screams, “Don’t say I didn’t warn you.”
+
+> **failure** Failure
+> The operation didn’t complete as expected. Review the logs to identify what went wrong. Failures are not the end but a breadcrumb trail back to understanding. If nothing ever failed, you’d never know how impressively creative software can be in breaking.
+
+> **danger**Danger
+> This action is irreversible and could break critical functionality. Execute only if you know what you’re doing. Danger warnings are not for decoration; they mean “one click and you’ll regret everything.” Always assume they’re dead serious — because they usually are.
+
+> **bug**Bug
+> There’s a known issue with this feature under certain conditions. Bugs are the digital equivalent of ghosts - rarely seen directly, but you feel their presence when something moves that shouldn’t. Developers chase them. Sometimes catching one just to release three more.
+
+> **example** Example
+> Here’s how you might apply the function in a real use case. Adjust the parameters as needed for your scenario. Examples show what’s possible without forcing you to imagine the outcome. A good example bridges theory and reality in two tidy lines of code.
+
 # Multilingual Custom Admonitions
 
 Shoutout to [paletochen](https://community.silverbullet.md/u/paletochen/summary), [mjf](https://community.silverbullet.md/u/mjf), [malys](https://community.silverbullet.md/u/malys/summary) and [i\_am\_dangry](https://community.silverbullet.md/u/i_am_dangry/summary) for making this admonitions possible.
@@ -346,42 +381,6 @@ for type, displayName in pairs(admonitions) do
   }
 end
 ```
-
-## Examples:
-
-> **abstract** Abstract
-> This section provides a brief overview of the concept. Abstracts are perfect for giving readers a quick sense of direction, ensuring they know what’s coming before they commit to reading the full explanation.
-
-> **note** Note
-> This is a simple note to remind you of something important. Keep it in mind before making changes to your setup. Notes like this are meant to draw your attention without alarming you, serving as small signposts to prevent silly mistakes later.
-
-> **info** Info
-> Here’s some additional information that might clarify things. It’s not essential, but it could save you some confusion later. These  informational blocks are like friendly nudges, helping you connect dots that might otherwise slip through the cracks.
-
-> **tip** Tip
-> Use keyboard shortcuts to speed up your workflow. Small optimizations make a big difference over time. Tips are the gentle whispers of experience, saving you hours of trial and error while making you look like you’ve mastered the system from day one.
-
-> **success** Success
-> Your configuration was applied successfully. Everything is running exactly as intended. When success messages appear, take a brief moment to bask in the satisfaction — your system finally listened, and nothing exploded. That’s progress worth celebrating.
-
-> **question** Question
-> What happens if you modify this setting? Try it and observe the result to understand the behavior. Questions like these encourage exploration and help you build intuition instead of just following recipes. The best learning often starts with curiosity.
-
-> **warning** Warning
-> Changing these values could cause unexpected results. Proceed carefully and back up your data first. Warnings exist to stop your future self from swearing at your past self — a small yellow triangle that screams, “Don’t say I didn’t warn you.”
-
-> **failure** Failure
-> The operation didn’t complete as expected. Review the logs to identify what went wrong. Failures are not the end but a breadcrumb trail back to understanding. If nothing ever failed, you’d never know how impressively creative software can be in breaking.
-
-> **danger**Danger
-> This action is irreversible and could break critical functionality. Execute only if you know what you’re doing. Danger warnings are not for decoration; they mean “one click and you’ll regret everything.” Always assume they’re dead serious — because they usually are.
-
-> **bug**Bug
-> There’s a known issue with this feature under certain conditions. Bugs are the digital equivalent of ghosts - rarely seen directly, but you feel their presence when something moves that shouldn’t. Developers chase them. Sometimes catching one just to release three more.
-
-> **example** Example
-> Here’s how you might apply the function in a real use case. Adjust the parameters as needed for your scenario. Examples show what’s possible without forcing you to imagine the outcome. A good example bridges theory and reality in two tidy lines of code.
-
 
 ## Discussions to this library
 * [SilverBullet Community](https://community.silverbullet.md/t/additional-admonition-types/281?u=mr.red)
