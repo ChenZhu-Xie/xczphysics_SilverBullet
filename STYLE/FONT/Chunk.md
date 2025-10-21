@@ -8,7 +8,7 @@
 }
 
 .sb-code {
-  font-family: "Inconsolata" !important;
+  font-family: "Inconsolata", "Fira Code", "LXGW Bright" !important;
 }
 ```
 
