@@ -52,6 +52,7 @@ I wanted to translate the admonition texts to german for my use case, and tinker
 - available languages: "en", "de", "fr", "it", "zh", "es", "hu","ro",
   
 ```space-lua
+-- prioity: 10
 config.set("admonLang","en")
 ```
 
