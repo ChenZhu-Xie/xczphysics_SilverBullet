@@ -4,7 +4,7 @@
 
 https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b2341b42dafaa26d73f342340ef.jpeg
 
-# Move Cursor Version
+# Move Cursor Only Version
 
 ```space-lua
 command.define {
@@ -80,7 +80,7 @@ command.define {
 }
 ```
 
-# Navigate Cursor Version
+# Navigate Cursor+View Version
 
 ```lua
 command.define {

@@ -11,6 +11,7 @@ pageDecoration:
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy Reference | | Shift | Alt | c |
 | Navigate: | Center Cursor | | Shift | Alt | l |
+| Paste: | Smart Url | | | Alt | v |
 | Text: | Red | | | Alt | r |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
