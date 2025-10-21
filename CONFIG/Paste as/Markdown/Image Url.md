@@ -140,7 +140,7 @@ command.define {
     local targetPos = startPos + delta
 
     -- Move caret to inside the brackets
-    local page = editor.getCurrentPage and editor.getCurrentPage() or nil
+    local page = editor.getCurrentPage() or nil
     if page then
       editor.navigate({ page = page, pos = targetPos })
     else

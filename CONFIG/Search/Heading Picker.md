@@ -58,13 +58,15 @@ local function headingsPicker(options)
 
   local result = editor.filterBox("Headings", headers, { label = "name", description = "description" })
 
+  local page = editor.getCurrentPage()
+  
   if result and result.selected and result.selected.value then
     local item = result.selected.value
     -- if item.pos then editor.moveCursor(item.pos, true) end
-    if item.pos then editor.navigate({ pos = item.pos }) end
+    if item.pos then editor.navigate({page = page , pos = item.pos }) end
   elseif result and result.pos then
     -- editor.moveCursor(result.pos, true)
-    editor.navigate({ pos = result.pos })
+    editor.navigate({page = page , pos = result.pos })
   end
 
   -- editor.filterBox({
