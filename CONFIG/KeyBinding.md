@@ -40,6 +40,7 @@ pageDecoration:
 | Navigate: | Page Picker | Ctrl | | | l |
 | Navigate: | Meta Page Picker | Ctrl | Shift | | l |
 | Navigate: | Tag Picker | Ctrl | Shift | | t |
+| Navigate: | Heading Picker | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
