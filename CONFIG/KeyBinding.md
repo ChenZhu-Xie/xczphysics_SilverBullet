@@ -50,5 +50,5 @@ pageDecoration:
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | System: | Reload | Ctrl | | Alt | r |
-| Plugs: | Update | Ctrl | Shift | | p |
-| Import: | Update | Ctrl | | Alt | u |
+| Plugs: | Update all Plugs | Ctrl | Shift | | p |
+| Import: | Update all Libs | Ctrl | | Alt | z |
