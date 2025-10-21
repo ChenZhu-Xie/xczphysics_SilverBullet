@@ -6,7 +6,6 @@ local function headingsPicker(options)
   local parsed = markdown.parseMarkdown(text)
   local headers = {}
 
-  -- 兼容不同解析器字段：ATXHeading/HeadingN，type/tag；from/pos
   local function detect_level(node)
     if node.tag then
       local m = string.match(node.tag, "ATXHeading%s*(%d+)")
@@ -26,7 +25,6 @@ local function headingsPicker(options)
   for _, n in ipairs(parsed.children or {}) do
     local level = detect_level(n)
     if level then
-      -- 复制 children，并跳过第一个子节点（通常是 heading token）
       local children = {}
       if n.children then
         for i, c in ipairs(n.children) do
@@ -34,7 +32,6 @@ local function headingsPicker(options)
         end
       end
 
-      -- 渲染标题文本
       local parts = {}
       for _, c in ipairs(children) do
         local rendered = markdown.renderParseTree(c)
@@ -59,10 +56,8 @@ local function headingsPicker(options)
     return
   end
 
-  -- 用 label/description 映射，确保 UI 能正确展示并返回选中项
   local result = editor.filterBox("Headings", headers, { label = "name", description = "description" })
 
-  -- 兼容两种返回形态
   if result and result.selected and result.selected.value then
     local item = result.selected.value
     if item.pos then editor.moveCursor(item.pos, true) end
@@ -70,7 +65,6 @@ local function headingsPicker(options)
     editor.moveCursor(result.pos, true)
   end
 
-  -- 如果你的环境是回调式 API，可以改用以下（注释）方式：
   -- editor.filterBox({
   --   placeholder = "Select Heading:",
   --   items = headers,
