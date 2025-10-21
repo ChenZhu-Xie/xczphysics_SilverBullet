@@ -9,7 +9,7 @@ command.define {
   name = "Paste: Smart URL",
   key = "Alt-v", -- 可按需修改快捷键
   run = function()
-    local clip = 
+    local clip = system.getClipboard()
     if not clip then
       editor.flashNotification("剪贴板为空", "warn")
       return
