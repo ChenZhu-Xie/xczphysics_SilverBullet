@@ -88,7 +88,7 @@ for _, name in ipairs(colorNames) do
     name = "Text: " .. name,
     category = "Style",
     key = "Alt-" .. key,
-    description = string.format("将文本标记为柔和%s色", name),
+    description = string.format("Mark the text in a soft shade of %s", name),
     run = function()
       wrapWithColor(name)
     end
