@@ -1,5 +1,5 @@
 
-4.
+4. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=9647438d39
 
 ```space-lua
 -- Pick Headings with CMD-like Tree UI
@@ -76,27 +76,25 @@ local function headingsPicker(options)
     last_flags[i] = is_last
   end
 
-  local VERT = "│　　　"   -- 祖先层级：还有后续兄弟 => 画竖线
-  local BLNK = " 　　　"   -- 祖先层级：已是最后兄弟 => 空白
-  local TEE  = "├────　"   -- 当前节点：还有后续兄弟
-  local ELB  = "└────　"   -- 当前节点：该层级最后一个
+  local VERT = "│　　　"
+  local BLNK = " 　　　"
+  local TEE  = "├────　"
+  local ELB  = "└────　"
 
   local items = {}
-  local stack = {}  -- 祖先路径的“是否最后一个”标记：{ {level=, last=}, ... }
+  local stack = {}
 
   for i = 1, #nodes do
     local L = nodes[i].level
     local is_last = last_flags[i]
 
-    -- 收缩栈到 L-1（同级/上跳时弹出）
     while #stack >= L do table.remove(stack) end
 
-    -- 祖先前缀：非最后 -> │   ，最后 -> 空白
     local prefix = ""
     for d = 1, #stack do
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
-    -- 若出现跳级（如从 H1 跳到 H3），缺失的祖先层用空白填充
+    
     for d = #stack + 1, L - 1 do
       prefix = prefix .. BLNK
     end
@@ -110,11 +108,9 @@ local function headingsPicker(options)
       pos = nodes[i].pos
     })
 
-    -- 将当前节点作为祖先压栈，供后续更深层使用
     table.insert(stack, { level = L, last = is_last })
   end
 
-  -- 4) 展示并导航
   local result = editor.filterBox("Headings", items, { label = "name", description = "description" })
   local page = editor.getCurrentPage()
 
@@ -133,7 +129,7 @@ command.define({
 })
 ```
 
-3.
+3. [[CONFIG/Paste as/Markdown/Image Url#Navigate Cursor+View Version]]
 
 ```lua
 -- Pick Headings (robust version)
@@ -227,7 +223,7 @@ command.define({
 })
 ```
 
-2. [[CONFIG/Paste as/Markdown/Image Url#Navigate Cursor+View Version]]
+2.
 
 ```lua
 -- Pick Headings (robust version)
