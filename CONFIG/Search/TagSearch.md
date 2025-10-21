@@ -6,7 +6,16 @@ command.define {
   name = "Search Tags",
   key = "Ctrl-Shift-t",
   run = function()
-    local items = query[[from index.tag "tag" select {name} order by name]]
+    local rows = query[[from index.tag "tag" select {name}]]
+    local seen, items = {}, {}
+    for _, r in ipairs(rows) do
+      local n = r.name
+      if n and not seen[n] then
+        seen[n] = true
+        items[#items+1] = { name = n }
+      end
+    end
+    table.sort(items, function(a,b) return a.name:lower() < b.name:lower() end)
     local sel = editor.filterBox("Tag Search", items, "Select a tag")
     if sel and sel.name and sel.name ~= "" then
       editor.navigate("tag:" .. sel.name)
