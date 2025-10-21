@@ -16,8 +16,8 @@ I wanted to translate the admonition texts to german for my use case, and tinker
 - add following space-lua to your configuration with your desired language. 
 - available languages: "en", "de", "fr", "it", "zh", "es", "hu","ro",
   
-```lua
-config.set("admonLang","de")
+```space-lua
+config.set("admonLang","en")
 ```
 
 ### Customize the look of your admonitions (paddings,font size , border-width, style & radius)
