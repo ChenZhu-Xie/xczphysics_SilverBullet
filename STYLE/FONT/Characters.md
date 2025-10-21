@@ -3,8 +3,6 @@
 ![](https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b2341b42dafaa26d73f342340ef.jpeg)
 
 ```space-style
-
-```space-style
 @font-face {
   font-family: 'Fira Code';
   src: url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Light.woff2') format('woff2'),
@@ -51,8 +49,5 @@
   --editor-font: "Fira Code", "iA-Mono", "Menlo";
 }
 ```
-
-```
-
 
 1. https://community.silverbullet.md/t/space-style-snippets-showcase/2200/2
