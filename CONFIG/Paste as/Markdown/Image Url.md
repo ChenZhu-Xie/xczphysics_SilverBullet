@@ -27,6 +27,7 @@ command.define {
 
     -- 判断是否 URL（支持 http/https、www.、data:image/）
     local function isUrl(u)
+      editor.flashNotification(u, "warn")
       return u:match("^https?://")
           or u:match("^www%.")
           or u:match("^data:image/")
