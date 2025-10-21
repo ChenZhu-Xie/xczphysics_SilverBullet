@@ -7,8 +7,7 @@ iiaahhddnnmmkkaaoozzxc660
 
 ```space-style
 #sb-root {
-  
-   --editor-font: "Fira Code", "iA-Mono", "Menlo";
+  --editor-font: "Inconsolata", "Fira Code", "LXGW Bright" !important;
 }
 
 #sb-main .cm-editor {
