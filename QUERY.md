@@ -7,7 +7,7 @@
 1. https://community.silverbullet.md/t/confused-by-getobjectbyref/3315/3
 
 > **tip** Virtual pages
-> 
+> tag:<tagname> → journalpages:<tagname>
 
 1. https://community.silverbullet.md/t/when-clicking-on-a-tag-show-pages-with-that-tag-in-subfolder/3413/3?u=chenzhu-xie
 2. https://silverbullet.md/Library/Std/APIs/Virtual%20Page
