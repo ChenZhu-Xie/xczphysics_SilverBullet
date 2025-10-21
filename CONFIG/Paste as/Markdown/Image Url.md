@@ -1,9 +1,6 @@
 
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
 
-
-https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b2341b42dafaa26d73f342340ef.jpeg
-
 # Move Cursor Only Version
 
 ```space-lua
