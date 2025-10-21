@@ -1,12 +1,14 @@
 
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
 
+
+
 ```space-lua
 command.define {
   name = "Paste: Smart URL",
   key = "Alt-v", -- 可按需修改快捷键
   run = function()
-    local clip = system.getClipboard()
+    local clip = editor.copyToClipboard()
     if not clip then
       editor.flashNotification("剪贴板为空", "warn")
       return
