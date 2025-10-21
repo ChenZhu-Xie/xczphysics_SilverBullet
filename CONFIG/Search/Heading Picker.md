@@ -2,7 +2,7 @@
 4. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=9647438d39
 
 ```space-lua
--- Pick Headings with CMD-like Tree UI
+-- Pick Headings with CMD-Tree UI
 local function headingsPicker(options)
   local text = editor.getText()
   local parsed = markdown.parseMarkdown(text)
