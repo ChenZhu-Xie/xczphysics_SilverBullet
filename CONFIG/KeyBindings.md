@@ -50,3 +50,4 @@ pageDecoration:
 |----------|----------|------|-------|-----|--------|
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update | Ctrl | Shift | | p |
+| Import: | Update | Ctrl | Shift | | p |
