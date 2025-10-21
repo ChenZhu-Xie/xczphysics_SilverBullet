@@ -43,12 +43,6 @@ command.define {
       if u:match("^data:image/") then return true end
       local path = (u:match("^[^%?#]+")) or u
       path = path:lower()
-      test = path:match("%.png$") or path:match("%.jpe?g$") or
-             path:match("%.gif$") or path:match("%.webp$") or
-             path:match("%.bmp$") or path:match("%.tiff?$") or
-             path:match("%.svg$")
-      editor.flashNotification(u:match("^https?://"), "warn")
-      
       return path:match("%.png$") or path:match("%.jpe?g$") or
              path:match("%.gif$") or path:match("%.webp$") or
              path:match("%.bmp$") or path:match("%.tiff?$") or
@@ -61,6 +55,9 @@ command.define {
     end
 
     local url = ensureScheme(clip)
+    teset = string.format("![](%s)", url) or string.format("[](%s)",  url)
+    editor.flashNotification(u:match("^https?://"), "warn")
+    
     local snippet = isImageUrl(url) and string.format("![](%s)", url) or string.format("[](%s)",  url)
     editor.insertText(snippet)
     editor.flashNotification("已插入智能链接")
