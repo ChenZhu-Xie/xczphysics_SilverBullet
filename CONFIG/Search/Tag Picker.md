@@ -5,6 +5,8 @@
 
 `${query[[from index.tag "tag"}` 中的 name 含重复的元素。
 
+2. https://community.silverbullet.md/t/headings-picker/1745/8
+
 ```space-lua
 command.define {
   name = "Navigate: Tag Picker",
@@ -17,7 +19,7 @@ command.define {
 }
 ```
 
-2. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/14?u=chenzhu-xie
+3. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/14?u=chenzhu-xie
 
 ```lua
 command.define {  
