@@ -1,5 +1,5 @@
 ---
-githubUrl: "https://github.com/ChenZhu-Xie/SB_git.md"
+githubUrl: "https://github.com/ChenZhu-Xie/SB_git.md/blob/main/Git.md"
 ---
 #meta
 
