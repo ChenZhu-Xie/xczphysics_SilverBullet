@@ -9,8 +9,8 @@ pageDecoration:
 | Target: | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
-| Cursor: | Copy reference | | Shift | Alt | c |
-| Cursor: | Copy reference | | Shift | Alt | l |
+| Cursor: | Copy Reference | | Shift | Alt | c |
+| Navigate: | Center Cursor | | Shift | Alt | l |
 | Text: | Red | | | Alt | r |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
