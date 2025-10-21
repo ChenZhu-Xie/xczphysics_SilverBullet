@@ -40,7 +40,6 @@ command.define {
 
     -- 判断是否图片链接（忽略查询/片段），或 data:image/
     local function isImageUrl(u)
-      editor.flashNotification(u, "warn")
       if u:match("^data:image/") then return true end
       local path = (u:match("^[^%?#]+")) or u
       path = path:lower()
