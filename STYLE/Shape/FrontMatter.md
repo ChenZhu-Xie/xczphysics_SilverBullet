@@ -41,3 +41,5 @@
   color: var(--editor-code-info-color);
 }
 ```
+
+1. https://community.silverbullet.md/t/space-style-snippets-showcase/2200/3?u=chenzhu-xie
