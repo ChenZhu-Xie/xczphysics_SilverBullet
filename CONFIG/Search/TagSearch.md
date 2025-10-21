@@ -9,7 +9,7 @@ command.define {
     local tags = query[[from index.tag "tag" select {name = _.name}]]
     local items = {}
     for _, t in ipairs(tags) do items[#items+1] = { name = t.name } end
-    editor.flashNotification(items)
+    editor.flashNotification(tags)
     local sel = editor.filterBox("Tag Search", items, "Select a tag")
     if sel then editor.navigate("tag:" .. sel.name) end
   end
