@@ -47,7 +47,7 @@ local function headingsPicker(options)
 
       if title ~= "" then
         table.insert(headers, {
-          name = string.rep("  ", math.max(0, level - 1)) .. "🔹 " .. title,
+          name = string.rep("　", math.max(0, level - 1)) .. "🔹　" .. title,
           description = "",
           pos = node_pos(n),
         })
