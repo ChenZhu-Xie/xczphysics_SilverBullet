@@ -3,6 +3,6 @@
 
 ```space-style
 .sb-line-fenced-code {
-  font-family: "monospace" !important;
+  font-family: "JetBrains Mono" !important;
 }
 ```
