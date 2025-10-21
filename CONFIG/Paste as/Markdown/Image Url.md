@@ -7,6 +7,8 @@ https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b23
 
 
 ```space-lua
+editor.prompt
+
 command.define {
   name = "Paste: Smart URL",
   key = "Alt-v", -- 可按需修改快捷键
