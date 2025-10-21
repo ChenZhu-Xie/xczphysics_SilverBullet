@@ -6,4 +6,5 @@
 * [  ] empty state
 
 1. https://community.silverbullet.md/t/how-to-use-task-states/3426/4
+2. https://silverbullet.md/Objects%23taskstate
 
