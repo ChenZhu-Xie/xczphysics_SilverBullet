@@ -7,7 +7,7 @@
 
 ```space-lua
 command.define {
-  name = "Search Tags",
+  name = "Tags: Search",
   key = "Ctrl-Shift-t",
   run = function()
     local tags = query[[from index.tag "tag" select {name = _.name}]]
