@@ -37,3 +37,12 @@ command.update {
   priority = 0
 }
 ```
+
+```space-lua
+command.update {
+  name = "Page: Copy",
+  key = "Ctrl-Alt-c",
+  mac = "Cmd-Alt-c",
+  priority = 0
+}
+```
