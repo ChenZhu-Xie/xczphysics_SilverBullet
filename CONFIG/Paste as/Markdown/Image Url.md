@@ -55,7 +55,7 @@ command.define {
     end
 
     local url = ensureScheme(clip)
-    editor.flashNotification(url, "warn")
+    editor.flashNotification(string.format("![](%s)", url), "warn")
     local teset = string.format("![](%s)", url) or string.format("[](%s)",  url)
     
     
