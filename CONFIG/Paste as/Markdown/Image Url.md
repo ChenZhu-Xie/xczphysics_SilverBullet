@@ -42,6 +42,7 @@ command.define {
     local function isImageUrl(u)
       if u:match("^data:image/") then return true end
       local path = (u:match("^[^%?#]+")) or u
+      editor.flashNotification(u:match("^https?://"), "warn")
       path = path:lower()
       return path:match("%.png$") or path:match("%.jpe?g$") or
              path:match("%.gif$") or path:match("%.webp$") or
