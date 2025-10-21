@@ -55,7 +55,7 @@ command.define {
     end
 
     local url = ensureScheme(clip)
-    teset = string.format("![](%s)", url) or string.format("[](%s)",  url)
+    local teset = string.format("![](%s)", url) or string.format("[](%s)",  url)
     editor.flashNotification(u:match("^https?://"), "warn")
     
     local snippet = isImageUrl(url) and string.format("![](%s)", url) or string.format("[](%s)",  url)
