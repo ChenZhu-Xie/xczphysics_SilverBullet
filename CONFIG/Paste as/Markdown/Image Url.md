@@ -12,6 +12,7 @@ command.define {
   key = "Alt-v", -- 可按需修改快捷键
   run = function()
     local clip = system.getClipboard()
+    editor.flashNotification("剪贴板为空", "warn")
     if not clip then
       editor.flashNotification("剪贴板为空", "warn")
       return
