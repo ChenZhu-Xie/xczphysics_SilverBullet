@@ -123,7 +123,7 @@ local function headingsPicker(options)
 end
 
 command.define({
-  name = "Pick Headings",
+  name = "Navigate: Heading Picker",
   key = "Ctrl-Shift-h",
   run = function() headingsPicker({}) end
 })
