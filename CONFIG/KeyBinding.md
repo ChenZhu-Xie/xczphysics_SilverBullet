@@ -38,12 +38,12 @@ pageDecoration:
 | Navigate: | Home | Ctrl | | | h |
 | Navigate: | Page Picker | Ctrl | | | l |
 | Navigate: | Meta Page Picker | Ctrl | Shift | | l |
+| Navigate: | Tag Picker | Ctrl | Shift | | t |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | Global Search | Ctrl | | Alt | f |
 | SilverSearch: | Search | Ctrl | | | s |
-| Tags: | Search | Ctrl | Shift | | t |
 
 # System
 
