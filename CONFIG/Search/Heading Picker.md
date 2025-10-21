@@ -1,11 +1,12 @@
 
+4.
+
 ```space-lua
 -- Pick Headings with CMD-like Tree UI
 local function headingsPicker(options)
   local text = editor.getText()
   local parsed = markdown.parseMarkdown(text)
 
-  -- 1) 解析并收集标题（level / text / pos）
   local nodes = {}
 
   local function detect_level(node)
@@ -27,7 +28,6 @@ local function headingsPicker(options)
   for _, n in ipairs(parsed.children or {}) do
     local level = detect_level(n)
     if level then
-      -- 拷贝 children，跳过第一个 token
       local children = {}
       if n.children then
         for i, c in ipairs(n.children) do
@@ -59,9 +59,6 @@ local function headingsPicker(options)
     return
   end
 
-  -- 2) 预计算每个节点是否为该层级的“最后一个兄弟”
-  --    规则：向后找第一个 level <= 当前 level 的节点；
-  --         若相等 -> 非最后；若更小或不存在 -> 最后。
   local last_flags = {}
   for i = 1, #nodes do
     local L = nodes[i].level
@@ -79,12 +76,10 @@ local function headingsPicker(options)
     last_flags[i] = is_last
   end
 
-  -- 3) 生成带树形前缀的 label
-  --    使用 Unicode 线条字符（Windows/等宽字体一般可见）。
-  local VERT = "│   "   -- 祖先层级：还有后续兄弟 => 画竖线
-  local BLNK = "    "   -- 祖先层级：已是最后兄弟 => 空白
-  local TEE  = "├── "   -- 当前节点：还有后续兄弟
-  local ELB  = "└── "   -- 当前节点：该层级最后一个
+  local VERT = "│　　　"   -- 祖先层级：还有后续兄弟 => 画竖线
+  local BLNK = " 　　　"   -- 祖先层级：已是最后兄弟 => 空白
+  local TEE  = "├────　"   -- 当前节点：还有后续兄弟
+  local ELB  = "└────　"   -- 当前节点：该层级最后一个
 
   local items = {}
   local stack = {}  -- 祖先路径的“是否最后一个”标记：{ {level=, last=}, ... }
@@ -138,7 +133,7 @@ command.define({
 })
 ```
 
-
+3.
 
 ```lua
 -- Pick Headings (robust version)
