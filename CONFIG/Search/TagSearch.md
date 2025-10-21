@@ -1,6 +1,8 @@
 
 1. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/2?u=chenzhu-xie
 
+
+
 ```space-lua
 command.define {
   name = "Search Tags",
