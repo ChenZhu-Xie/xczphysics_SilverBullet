@@ -12,7 +12,7 @@ command.define {
   key = "Alt-v",
   run = function()
     -- 让用户在弹窗中 Ctrl/Cmd+V 粘贴
-    local input = editor.prompt("请输入或粘贴 URL", "")
+    local input = editor.prompt("请输入或粘贴 URL", "在此按 Ctrl/Cmd+V 粘贴，回车确认")
     if not input then
       editor.flashNotification("已取消", "warn")
       return
