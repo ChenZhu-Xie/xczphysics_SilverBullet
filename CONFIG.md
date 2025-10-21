@@ -16,11 +16,5 @@ config.set(
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
-# To be employed
-
-## Get calendar events
-1. https://community.silverbullet.md/t/icalendar-query-provider/1594/6
-
-
 
 #SB_itself
