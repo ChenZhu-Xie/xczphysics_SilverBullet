@@ -76,10 +76,10 @@ local function headingsPicker(options)
     last_flags[i] = is_last
   end
 
-  local VERT = "│　　　"
-  local BLNK = " 　　　"
-  local TEE  = "├────　"
-  local ELB  = "└────　"
+  local VERT = "│ 　　"
+  local BLNK = "　　　"
+  local TEE  = "├───　"
+  local ELB  = "└───　"
 
   local items = {}
   local stack = {}
