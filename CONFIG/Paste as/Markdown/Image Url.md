@@ -7,74 +7,58 @@ https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b23
 
 
 ```space-lua
-editor.prompt
-
 command.define {
-  name = "Paste: Smart URL",
-  key = "Alt-v", -- 可按需修改快捷键
+  name = "Paste: Smart URL (via Prompt)",
+  key = "Alt-v",
   run = function()
-    local clip = system.getClipboard()
-    editor.flashNotification("剪贴板为空", "warn")
-    if not clip then
-      editor.flashNotification("剪贴板为空", "warn")
-      return
-    end
-    -- 去除前后空白
-    clip = clip:match("^%s*(.-)%s*$")
-    if clip == "" then
-      editor.flashNotification("剪贴板为空", "warn")
+    -- 让用户在弹窗中 Ctrl/Cmd+V 粘贴
+    local input = editor.prompt("请输入或粘贴 URL", "在此按 Ctrl/Cmd+V 粘贴，回车确认")
+    if not input then
+      editor.flashNotification("已取消", "warn")
       return
     end
 
-    -- 是否是 URL（支持 http/https、www.、以及 data:image/）
+    -- 去除前后空白
+    local clip = input:match("^%s*(.-)%s*$")
+    if clip == "" then
+      editor.flashNotification("内容为空", "warn")
+      return
+    end
+
+    -- 判断是否 URL（支持 http/https、www.、data:image/）
     local function isUrl(u)
       return u:match("^https?://")
           or u:match("^www%.")
           or u:match("^data:image/")
     end
 
-    -- 若是裸的 www.，补 https://；data: 或 http/https 保持不变
+    -- 裸 www. 补协议，其它保持
     local function ensureScheme(u)
-      if u:match("^https?://") or u:match("^data:") then
-        return u
-      elseif u:match("^www%.") then
-        return "https://" .. u
-      else
-        return u
-      end
+      if u:match("^www%.") then return "https://" .. u end
+      return u
     end
 
-    -- 判断是否为图片链接：检查扩展名（忽略查询/片段），或 data:image/
+    -- 判断是否图片链接（忽略查询/片段），或 data:image/
     local function isImageUrl(u)
       if u:match("^data:image/") then return true end
-      local path = (u:match("^[^%?%#]+")) or u -- 去掉 ? 和 #
+      local path = (u:match("^[^%?#]+")) or u
       path = path:lower()
-      return path:match("%.png$") or
-             path:match("%.jpg$") or
-             path:match("%.jpeg$") or
-             path:match("%.gif$") or
-             path:match("%.webp$") or
-             path:match("%.bmp$") or
-             path:match("%.tif$") or
-             path:match("%.tiff$") or
+      return path:match("%.png$") or path:match("%.jpe?g$") or
+             path:match("%.gif$") or path:match("%.webp$") or
+             path:match("%.bmp$") or path:match("%.tiff?$") or
              path:match("%.svg$")
     end
 
     if not isUrl(clip) then
-      editor.flashNotification("剪贴板内容不是 URL", "warn")
+      editor.flashNotification("内容不是 URL", "warn")
       return
     end
 
     local url = ensureScheme(clip)
-    local snippet
-    if isImageUrl(url) then
-      snippet = string.format("![](%s)", url)
-    else
-      snippet = string.format("[](%s)", url)
-    end
-
+    local snippet = isImageUrl(url) and string.format("![](%s)", url)
+                                   or  string.format("[](%s)",  url)
     editor.insertText(snippet)
-    editor.flashNotification("已粘贴智能链接")
+    editor.flashNotification("已插入智能链接")
   end
 }
 ```
