@@ -44,8 +44,6 @@
 
 /* Use Fira Nerdfont for fancy ligatures -> <=> <= != */
 #sb-root {
-  --editor-font: "Fira Code", "iA-Mono","Menlo";
+  --editor-font: "Fira Code", "iA-Mono", "Menlo";
 }
 ```
-
-test -> <=> <= !=
