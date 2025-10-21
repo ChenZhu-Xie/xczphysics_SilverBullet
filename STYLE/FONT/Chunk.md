@@ -4,7 +4,7 @@
 
 ```space-style
 .sb-line-fenced-code {
-  font-family: "Inconsolata" !important;
+  font-family: "Inconsolata", "Fira Code", "LXGW Bright" !important;
 }
 
 .sb-code {
