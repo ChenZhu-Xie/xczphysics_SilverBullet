@@ -11,7 +11,7 @@ chain of thoughts:
 
 # Key Bindings
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
-  - Custum ∪ Core [[CONFIG/KeyBindings]]
+  - Custum ∪ Core [[CONFIG/KeyBinding]]
 
 # Format Syntax
 ## Emoji
