@@ -22,7 +22,7 @@ local function headingsPicker(options)
   end
 
   local function node_pos(node)
-    return node.from or node.pos or node.name
+    return node.from or node.pos
   end
 
   for _, n in ipairs(parsed.children or {}) do
@@ -76,10 +76,10 @@ local function headingsPicker(options)
     last_flags[i] = is_last
   end
 
-  local VERT = "│ 　　"
-  local BLNK = "　　　"
-  local TEE  = "├───　"
-  local ELB  = "└───　"
+  local VERT = "│   "
+  local BLNK = "    "
+  local TEE  = "├── "
+  local ELB  = "└── "
 
   local items = {}
   local stack = {}
@@ -94,8 +94,8 @@ local function headingsPicker(options)
     for d = 1, #stack do
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
-    
-    for d = #stack + 1, L - 1 do
+
+    for _ = #stack + 1, L - 1 do
       prefix = prefix .. BLNK
     end
 
