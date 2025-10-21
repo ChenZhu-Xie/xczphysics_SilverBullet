@@ -4,10 +4,11 @@
 
 ```space-style
 .sb-line-fenced-code {
-  font-family: "JetBrains Mono" !important;
+  font-family: "Inconsolata" !important;
 }
 
 .sb-code {
-  font-family: "JetBrains Mono" !important;
+  font-family: "Inconsolata" !important;
 }
 ```
+
