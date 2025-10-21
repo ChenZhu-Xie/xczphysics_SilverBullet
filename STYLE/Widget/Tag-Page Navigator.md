@@ -1,6 +1,8 @@
 
 1. https://community.silverbullet.md/t/super-fast-tag-page-navigator/2203/10?u=chenzhu-xie
 
+# space-style
+
 ```space-style
 .fastnav-tags button {
   background-color: var(--root-background-color);
@@ -94,6 +96,8 @@
   color: var(--root-color);
 }
 ```
+
+# space-lua
 
 ```space-lua
 fastnav = fastnav or {}

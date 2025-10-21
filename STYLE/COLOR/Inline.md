@@ -3,6 +3,8 @@ Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.
 
 1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058?u=chenzhu-xie
 
+# space-style
+
 ```lua
 function Red(text)
   return widget.html(dom.span {
@@ -25,6 +27,8 @@ end
 ```
 
 1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058/6?u=chenzhu-xie
+
+# space-lua
 
 ```space-lua
 local colors = {
