@@ -4,6 +4,8 @@ gistUrl: "https://gist.github.com/mjf/2560a2ad026aafcba1d90deb6a8fc2ab"
 gistFile: Admonitions.md
 ---
 
+1. https://community.silverbullet.md/t/additional-admonition-types/281/15?u=chenzhu-xie
+
 # Declare admonition icons
 
 ```space-style
@@ -123,4 +125,3 @@ for i, v in ipairs(admonitionList) do
   }
 end
 ```
-
