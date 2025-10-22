@@ -9,11 +9,11 @@ githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/OpenWeat
 Get your OpenWeatherMap API KEY from [OpenWeatherMap Website](https://home.openweathermap.org/api_keys). If you don’t have one, you can get one with the free plan.
 Setup your **apiKey** (required⚠️) and the other optional keys in your configuration page using:
 
-```
+```space-lua
 config.set( "owm", {
-            apiKey = "YOUR_API_KEY",  --required ⚠️
+            apiKey = "98438b1afe2725732c6224d7bccfb9ae",  --required ⚠️
             refresh = 30,             --optional (minutes)
-            defLocation = "Berlin"    --optional (req. for def widget)
+            defLocation = "Nanchang"    --optional (req. for def widget)
 }) 
 ```
 
