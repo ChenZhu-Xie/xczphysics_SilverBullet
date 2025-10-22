@@ -11,7 +11,7 @@ Setup your **apiKey** (required⚠️) and the other optional keys in your confi
 
 ```space-lua
 config.set( "owm", {
-            apiKey = "YOUR_API_KEY",  --required ⚠️
+            apiKey = "98438b1afe2725732c6224d7bccfb9ae",  --required ⚠️
             refresh = 30,             --optional (minutes)
             defLocation = "Berlin"    --optional (req. for def widget)
             temp = true,              --optional |
