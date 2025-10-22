@@ -1,5 +1,5 @@
 ---
-banner: ["![Sustainable Agriculture Field at Sunrise in Flat Vector Style](https://t3.ftcdn.net/jpg/15/52/34/98/240_F_1552349810_nL8S9h5jWiqETZenbTNbP8maA73h17Mn.jpg)","","200"]
+banner: ["https://t3.ftcdn.net/jpg/15/52/34/98/240_F_1552349810_nL8S9h5jWiqETZenbTNbP8maA73h17Mn.jpg","","200"]
 ---
 
 # Hello 👋
