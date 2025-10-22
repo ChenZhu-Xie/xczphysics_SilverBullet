@@ -13,7 +13,7 @@ Setup your **apiKey** (required⚠️) and the other optional keys in your confi
 config.set( "owm", {
             apiKey = "98438b1afe2725732c6224d7bccfb9ae",  --required ⚠️
             refresh = 30,             --optional (minutes)
-            defLocation = "Berlin",    --optional (req. for def widget)
+            defLocation = "Nanchang",    --optional (req. for def widget)
             temp = true,              --optional |
             humidity = true,          --optional |
             wind = true,              --optional |-(false to hide)
@@ -35,7 +35,7 @@ or
 
   * `/owm_inline` adds a **simple string** with current weather:
 
-  🌡️11.4°C 💧97% 🍃↑3km/h ☁️overcast clouds ℹ️21:49 🌐Berlin,DE
+  🌡️11.4°C 💧97% 🍃↑3km/h ☁️overcast clouds ℹ️21:49 🌏Berlin,DE
   
 or
 
