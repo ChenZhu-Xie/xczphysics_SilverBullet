@@ -29,7 +29,7 @@ You have three slash command options:
  
   * `/owm_cust` adds the `getOWM()` function for your **prompted** location:
 
-  ${getOWM("New York")}
+  `${getOWM("New York")}`
 
 or
 
@@ -42,7 +42,7 @@ or
   - `/owm_widget_def` - adds a widget for your **default location**
     (requires **defLocation** to be set in configuration)
   
-  ${owm_widget()}
+  `${owm_widget()}`
 
 
 ## Implementation
