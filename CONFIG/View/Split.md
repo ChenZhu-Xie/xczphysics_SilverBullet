@@ -1,4 +1,5 @@
 
+有点像 浏览器的 Ctrl + N 或 Ctrl + Shift + N
 
 1. https://community.silverbullet.md/t/live-rendering-mermaid-or-plugs/3427/2?u=chenzhu-xie
 
