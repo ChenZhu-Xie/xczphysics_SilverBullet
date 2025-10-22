@@ -6,7 +6,7 @@ pageDecoration:
 
 # In Page
 
-| Target: | Operation | Ctrl | Shift | Alt | letter |
+| Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Pattern | | | Alt | c |
 | Cursor: | Copy Reference | | Shift | Alt | c |
@@ -20,7 +20,7 @@ pageDecoration:
 
 # On Page
 
-| Target: | Operation | Ctrl | Shift | Alt | letter |
+| Target: #mint | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Widget: | Refresh All | | | Alt | q |
 | Page: | New | | Shift | Alt | n |
@@ -35,7 +35,7 @@ pageDecoration:
 
 # Across Pages
 
-| Operation: | Target | Ctrl | Shift | Alt | letter |
+| Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Navigate: | Home | Ctrl | | | h |
 | Navigate: | Page Picker | Ctrl | | | l |
