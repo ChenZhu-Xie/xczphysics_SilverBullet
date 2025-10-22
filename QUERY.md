@@ -12,3 +12,9 @@
 1. https://community.silverbullet.md/t/when-clicking-on-a-tag-show-pages-with-that-tag-in-subfolder/3413/3?u=chenzhu-xie
 2. https://silverbullet.md/Library/Std/APIs/Virtual%20Page
 
+> **tip** Objects
+> [List all tables in silverbullet?](https://community.silverbullet.md/t/list-all-tables-in-silverbullet/3410)
+
+1. https://silverbullet.md/Objects
+
+
