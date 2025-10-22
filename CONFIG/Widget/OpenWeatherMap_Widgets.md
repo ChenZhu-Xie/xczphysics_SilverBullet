@@ -19,7 +19,7 @@ config.set( "owm", {
             wind = true,              --optional |-(false to hide)
             cache_time = true,        --optional |
             location = true,          --optional |
-            custom_emojis = {"🌡️","💧","🍃","ℹ️","🌐"} --optional
+            custom_emojis = {"🌡️","💧","🍃","ℹ️","🌏"} --optional
 }) 
 ```
 
