@@ -10,12 +10,11 @@ To define your custom CodeBlock languages, using the `config.set` `blockLang` ar
 
 ## Configuration
 
-```lua
+```space-lua
 -- priority: 10
 config.set("blockLang",
           {"bash", "space-lua", "space-style", "mysql", "html"})
 ```
-
 
 ## Implementation
 
