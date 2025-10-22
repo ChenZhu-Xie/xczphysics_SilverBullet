@@ -5,3 +5,4 @@ ${owm_widget()}
 
 # Where I come from ⛳
 ${embed_map("Leshan Giant Buddha","","400","18","k")}
+${getOWM("Leshan")}

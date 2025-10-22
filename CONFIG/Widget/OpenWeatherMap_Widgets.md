@@ -23,19 +23,19 @@ You have three slash command options:
  
   * `/owm_cust` adds the `getOWM()` function for your **prompted** location:
 
-  ${getOWM("New York")}
+  `${getOWM("New York")}`
 
 or
 
   * `/owm_inline` adds a **simple string** with current weather:
 
-  🌡️11.4°C 💧97% 🍃↑3 km/h ☁️ overcast clouds ℹ️21:49 🌐Berlin,DE
+  🌡️11.4°C 💧97% 🍃↑3 km/h ☁️ overcast clouds ℹ️21:49 🌎Berlin,DE
   
 or
 
   - `/owm_widget_def` - adds a widget for your **default location** (required **defLocation** to be set in configuration)
   
-  ${owm_widget()}
+  `${owm_widget()}`
 
 
 ## Implementation
