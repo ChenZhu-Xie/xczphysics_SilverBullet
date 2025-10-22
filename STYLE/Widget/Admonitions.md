@@ -98,8 +98,7 @@ gistFile: Admonitions.md
 ~~~
 
 # Declare admonition slash commands
-
-~~~lua
+lua
 ```space-lua
 admonitionList = {
   'note',
@@ -128,4 +127,3 @@ for i, v in ipairs(admonitionList) do
   }
 end
 ```
-~~~
