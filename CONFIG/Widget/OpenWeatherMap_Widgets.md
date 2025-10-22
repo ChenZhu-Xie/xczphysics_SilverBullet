@@ -111,7 +111,7 @@ function getOWM(location)
   
   if not owm then
   editor.flashNotification( "⚠️ No weather data available.") end
-    local owm_weather = string.format("🌡️%.1f°C 💧%d%% 🍃%s%.0f km/h %s%s ℹ️%s 🌎%s,%s", owm.temp, owm.hum, owm.wdir, owm.wind, owm.icon, owm.cond, os.date("%H:%M", owm.timestamp), owm.city, owm.country )
+    local owm_weather = string.format("🌡️%.1f°C 💧%d%% 🍃%s%.0f km/h %s %s ℹ️%s 🌐%s,%s", owm.temp, owm.hum, owm.wdir, owm.wind, owm.icon, owm.cond, os.date("%H:%M", owm.timestamp), owm.city, owm.country )
    return owm_weather
 end
 
