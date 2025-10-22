@@ -5,5 +5,11 @@ Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A 
 _[One of us!](https://community.silverbullet.md/)_
 ![[ETP.png]]
 
-# Last Modified
+# Last Modified ✏️
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
+
+
+
+# Time left 🌄
+
+${timeLeftBar()}
