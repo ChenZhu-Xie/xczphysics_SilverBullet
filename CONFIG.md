@@ -12,11 +12,6 @@ config.set(
   })
 ```
 
-```space-lua
--- prioity: 10
-config.set("admonLang","en")
-```
-
 # Related to [[CONFIG/KeyBinding]]
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
