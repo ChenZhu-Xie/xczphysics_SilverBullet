@@ -17,6 +17,7 @@ pageDecoration:
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | Toggle Level | Ctrl | | | 1 |
+| Code Block: | space-lua | Ctrl | | Alt | 1 |
 
 # On Page
 
