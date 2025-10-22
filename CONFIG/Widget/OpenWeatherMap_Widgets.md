@@ -138,7 +138,7 @@ function getOWM(location)
     table.insert(parts, string.format("%s%s%.0fkm/h", e[3], owm.wdir, owm.wind))
   end
 
-  table.insert(parts, string.format("%s %s", owm.icon, owm.cond))
+  table.insert(parts, string.format("%s%s", owm.icon, owm.cond))
 
   if weatherConfig.cache_time ~= false then
     table.insert(parts, string.format("%s%s", e[4], os.date("%H:%M", owm.timestamp)))
