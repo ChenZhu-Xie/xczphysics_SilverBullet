@@ -6,7 +6,6 @@ gistFile: Admonitions.md
 
 # Declare admonition icons
 
-~~~css
 ```space-style
 :root {
   --admonition-icon--note:     url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m3.1 5.07c.14 0 .28.05.4.16l1.27 1.27c.23.22.23.57 0 .78l-1 1-2.05-2.05 1-1c.1-.11.24-.16.38-.16m-1.97 1.74 2.06 2.06-6.06 6.06H7.07v-2.06z"/></svg>');
@@ -23,11 +22,9 @@ gistFile: Admonitions.md
   --admonition-icon--quote:    url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h3l2-4V7h-6v6h3M6 17h3l2-4V7H5v6h3z"/></svg>')
 }
 ```
-~~~
 
 # Declare admonitions
 
-~~~css
 ```space-style
 .sb-admonition-type::before {
   width: 1em !important;
@@ -95,10 +92,9 @@ gistFile: Admonitions.md
   --admonition-color: #9e9e9e;
 }
 ```
-~~~
 
 # Declare admonition slash commands
-lua
+
 ```space-lua
 admonitionList = {
   'note',
@@ -127,3 +123,6 @@ for i, v in ipairs(admonitionList) do
   }
 end
 ```
+
+
+
