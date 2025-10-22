@@ -10,7 +10,7 @@ ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} ord
 
 # Where I am ⛳
 
-${embed_map("Nan Chang","","400","18","k")}
+${embed_map("Pavilion of Prince Teng","","400","18","k")}
 
 # Time left 🌄
 
