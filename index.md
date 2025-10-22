@@ -8,9 +8,6 @@ _[One of us!](https://community.silverbullet.md/)_
 # Last Modified ✏️
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
 
-# Where I come from ⛳
-${embed_map("Leshan Giant Buddha","","400","18","k")}
-
 # Time left 🌄
 
 ${timeLeftBar()}
