@@ -4,7 +4,7 @@ gistUrl: "https://gist.github.com/mjf/2560a2ad026aafcba1d90deb6a8fc2ab"
 gistFile: Admonitions.md
 ---
 
-# Declare admonitions
+# Declare admonitions (icon + color)
 
 ```space-style
 .sb-admonition[admonition="abstract1"] {
