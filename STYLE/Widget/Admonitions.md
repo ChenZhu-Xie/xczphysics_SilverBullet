@@ -24,4 +24,3 @@ gistFile: Admonitions.md
 ```
 
 # Declare admonition slash commands
-/
