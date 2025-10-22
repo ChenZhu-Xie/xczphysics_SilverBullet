@@ -4,8 +4,6 @@ gistUrl: "https://gist.github.com/mjf/2560a2ad026aafcba1d90deb6a8fc2ab"
 gistFile: Admonitions.md
 ---
 
-#meta #meta/template/slash
-
 # Declare admonition icons
 
 ~~~css
@@ -131,3 +129,5 @@ for i, v in ipairs(admonitionList) do
 end
 ```
 ~~~
+
+/que
