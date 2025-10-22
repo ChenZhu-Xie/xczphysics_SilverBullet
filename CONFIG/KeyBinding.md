@@ -33,6 +33,7 @@ pageDecoration:
 | Graph View: | Local on/off | Ctrl | | Shift | l |
 | Read Only: | Toggle on/off | Ctrl | | Alt | t |
 | Import: | Url | Ctrl | Shift | | i |
+| Import: | Update Current Lib | Ctrl | | Alt | u |
 
 # Across Pages
 
@@ -55,4 +56,3 @@ pageDecoration:
 |----------|----------|------|-------|-----|--------|
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update all Plugs | Ctrl | Shift | | p |
-| Import: | Update all Libs | Ctrl | | Alt | z |
