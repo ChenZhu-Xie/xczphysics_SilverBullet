@@ -31,6 +31,7 @@ pageDecoration:
 | Graph View: | Global on/off | Ctrl | | Shift | g |
 | Graph View: | Local on/off | Ctrl | | Shift | l |
 | Read Only: | Toggle on/off | Ctrl | | Alt | t |
+| Import: | Url | Ctrl | Shift | | i |
 
 # Across Pages
 
