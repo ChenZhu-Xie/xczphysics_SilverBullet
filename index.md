@@ -1,5 +1,5 @@
 ---
-banner: ["banner/welcome.jpg","","200"]
+banner: ["https://github.com/Mr-xRed/silverbullet-libraries/blob/main/banner/welcome.jpg","","200"]
 ---
 
 
