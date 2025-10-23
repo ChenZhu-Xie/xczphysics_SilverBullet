@@ -1,5 +1,9 @@
 ---
 tags: {}
+LastVisit: 2025-10-24 01:27:15
+---
+---
+tags: {}
 LastVisit: 2025-10-24 01:22:48
 ---
 
@@ -12,7 +16,6 @@ event.listen{
     local fmExtract = index.extractFrontmatter(text) or {}
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
-    editor.copyToClipboard(body)
 
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
@@ -32,6 +35,7 @@ event.listen{
     table.insert(lines, "---\n")
 
     local newText = table.concat(lines, "\n") .. body
+    editor.copyToClipboard(body)
 
     if newText ~= text then
       editor.setText(newText)
