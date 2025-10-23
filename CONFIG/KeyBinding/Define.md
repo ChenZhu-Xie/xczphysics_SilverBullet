@@ -4,7 +4,7 @@
 command.define {
   name = "Page: New Sibling",
   description = "New Sibling Page",
-  key = "Alt-Ctrl-s",
+  key = "Ctrl-Alt-s",
   run = function()
     local current = editor.getCurrentPage()
     local lastSlash = current:match("^(.*)/[^/]*$") or ""
@@ -23,7 +23,7 @@ command.define {
 command.define {
   name = "Page: New",
   description = "New Children Page",
-  key = "Alt-Ctrl-n",
+  key = "Ctrl-Alt-n",
   run = function()
     local pageName=editor.prompt("Page Name",editor.getCurrentPage().."/")
     editor.navigate(pageName)
