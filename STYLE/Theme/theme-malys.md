@@ -38,7 +38,6 @@ html {
 }
 
 #sb-main .cm-editor {
-  font-size: 15px;
   margin-top: 2rem;
 }
 
