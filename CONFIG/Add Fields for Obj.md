@@ -3,7 +3,7 @@
 command.define{
   name = "Stamp LastViewed (Current)",
   run = function()
-    editor.flashNotification(editor.getRecentlyOpenedPages())
+    print(editor.getRecentlyOpenedPages())
     -- if docId then stamp_last_viewed(docId) end
   end
 }
