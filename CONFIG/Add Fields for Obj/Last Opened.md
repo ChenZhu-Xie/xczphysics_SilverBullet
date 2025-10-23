@@ -1,6 +1,6 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 01:27:15
+LastVisit: 2025-10-24 01:28:11
 ---
 ---
 tags: {}
@@ -35,10 +35,10 @@ event.listen{
     table.insert(lines, "---\n")
 
     local newText = table.concat(lines, "\n") .. body
-    editor.copyToClipboard(body)
+    editor.copyToClipboard(newText)
 
     if newText ~= text then
-      editor.setText(newText)
+      editor.setText(newText, false)
     end
   end
 }
