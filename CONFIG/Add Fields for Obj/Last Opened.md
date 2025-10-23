@@ -1,5 +1,9 @@
 ---
 tags: {}
+LastVisit: 2025-10-24 01:45:09
+---
+---
+tags: {}
 LastVisit: 2025-10-24 01:43:27
 ---
 
@@ -32,7 +36,7 @@ event.listen{
 
     -- 判断原文是否已有 frontmatter：即 text 以 "---" 开头
     local newText
-    if string.match(text, "^%-%-%-\n.-\n") then
+    if string.match(text, "^%-%-%-\n.-\n%-%-%-") then
       -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
       newText = text:gsub("^%-%-%-\n.-\n%-%-%-\n?", fmText)
     else
