@@ -11,8 +11,7 @@ _[One of us!](https://community.silverbullet.md/)_
 # Last Modified ✏️
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
 
-${query[[from index.tag "page" 
-  select {ref=_.key, lastOpened=_.lastOpened} ]]}
+
 
 
 # Time 🌄
