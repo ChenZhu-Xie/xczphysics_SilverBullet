@@ -34,7 +34,7 @@ function yg.breadcrumbs(path)
 end
 
 function yg.bc(path)
-  return "[[home]]"..(template.each(yg.breadcrumbs(path),yg.t_bc)).." "..(template.each(yg.children(path),yg.t_bcsub)) 
+  return "[[home]]"..(template.each(yg.breadcrumbs(path),yg.t_bc))..""..(template.each(yg.children(path),yg.t_bcsub)) 
 end
 
 function compareDate(a, b)
