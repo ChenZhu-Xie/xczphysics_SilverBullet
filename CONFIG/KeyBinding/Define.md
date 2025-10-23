@@ -2,7 +2,7 @@
 
 ```space-lua
 command.define {
-  name = "Nage: New Sibling",
+  name = "Page: New Sibling",
   description = "New Sibling Page",
   key = "Alt-Ctrl-s",
   run = function()

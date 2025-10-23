@@ -24,7 +24,7 @@ pageDecoration:
 | Target: #mint | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Widget: | Refresh All | | | Alt | q |
-| Page: | New | | Shift | Alt | n |
+| Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
 | Page: | Delete | | Shift | Alt | d |
 | Page: | Copy | Ctrl | | Alt | c |
