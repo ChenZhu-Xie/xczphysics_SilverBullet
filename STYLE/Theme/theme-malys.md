@@ -66,37 +66,37 @@ html {
 
 .sb-line-h1::before {
   content: "h1";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
 .sb-line-h2::before {
   content: "h2";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
 .sb-line-h3::before {
   content: "h3";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
 .sb-line-h4::before {
   content: "h4";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
 .sb-line-h5::before {
   content: "h5";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
 .sb-line-h6::before {
   content: "h6";
-  margin-right: 0.5em;
+  margin-right: 0.0em;
   font-size: 0.5em !important;
 }
 
