@@ -13,10 +13,7 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local text = editor.getText()
-    editor.flashNotification(text)
-    
     local fm = index.extractFrontmatter(text) or {}
-    
     local body = fm.body or text
     local fmTable = fm.frontmatter or {}
     
