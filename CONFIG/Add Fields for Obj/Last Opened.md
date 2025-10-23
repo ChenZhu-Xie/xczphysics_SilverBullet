@@ -1,5 +1,9 @@
 ---
 tags: {}
+LastVisit: 2025-10-24 01:22:12
+---
+---
+tags: {}
 LastVisit: 2025-10-24 01:17:49
 ---
 
@@ -12,7 +16,7 @@ event.listen{
     local fmExtract = index.extractFrontmatter(text) or {}
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
-    
+    editor.flashNotification(body)
 
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
