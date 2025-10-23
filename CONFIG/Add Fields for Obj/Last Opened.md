@@ -1,5 +1,13 @@
 ---
 tags: 
+LastVisit: 2025-10-24 00:56:09
+__: [object Object]
+__b: 9
+__i: 0
+__u: 0
+---
+---
+tags: 
 LastVisit: 2025-10-24 00:55:45
 ---
 ---
@@ -14,9 +22,11 @@ event.listen{
   run = function(e)
     local text = editor.getText()
     local fm = index.extractFrontmatter(text) or {}
-    editor.flashNotification(fm)
+    
     local body = fm.body or text
     local fmTable = fm.frontmatter or {}
+    editor.flashNotification(fmTable)
+    
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
     if fmTable.LastVisit == now then
