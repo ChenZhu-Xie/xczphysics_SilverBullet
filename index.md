@@ -16,7 +16,6 @@ ${query[[from index.tag "page"
   order by lastOpened 
   limit 5]]}
 
-
 # Time 🌄
 
 ${timeLeftBar()}
