@@ -112,6 +112,13 @@ html {
 }
 
 
+html {
+  --treeview-phone-height: 25vh;
+  --treeview-tablet-width: 25vw;
+  --treeview-tablet-height: 100vh;
+  --treeview-desktop-width: 20vw; 
+}
+
 .sb-bhs {
   height: var(--treeview-phone-height);
 }
