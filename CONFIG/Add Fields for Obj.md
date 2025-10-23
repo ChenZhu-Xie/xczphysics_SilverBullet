@@ -1,3 +1,5 @@
+
+
 ```space-lua
 function utilities.recentPages(limit)
   local pages = editor.getRecentlyOpenedPages()
@@ -11,3 +13,5 @@ function utilities.recentPages(limit)
 end
 
 ```
+
+${utilities.recentPages(5)}
