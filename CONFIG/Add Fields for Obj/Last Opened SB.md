@@ -15,6 +15,5 @@ function utilities.recentPages(limit)
   end
   return table.concat(lines, "\n")
 end
-
 ```
 
