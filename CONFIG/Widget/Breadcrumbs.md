@@ -44,8 +44,8 @@ function yg.bc(path)
 end
 
 function compareDate(a, b)
-  print(a.lastModified  > b.lastModified )
-  editor.flashNotification(a.lastModified)
+  -- print(a.lastModified  > b.lastModified )
+  -- editor.flashNotification(a.lastModified)
   return a.lastModified  > b.lastModified 
 end
 
