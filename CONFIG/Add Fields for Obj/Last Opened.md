@@ -1,7 +1,3 @@
----
-tags: {}
-LastVisit: 2025-10-24 01:28:11
----
 
 ```space-lua
 -- priority: -1
@@ -14,13 +10,12 @@ event.listen{
     local body = fmExtract.text or text
 
     local now = os.date("%Y-%m-%d %H:%M:%S")
-
     if fmTable.LastVisit == now then
       return
     end
-
     fmTable.LastVisit = now
 
+    -- 构造新的 frontmatter
     local lines = {"---"}
     for k, v in pairs(fmTable) do
       if type(v) == "table" then
@@ -28,13 +23,22 @@ event.listen{
       end
       table.insert(lines, string.format("%s: %s", k, v))
     end
-    table.insert(lines, "---\n")
+    table.insert(lines, "---")
+    local fmText = table.concat(lines, "\n") .. "\n"
 
-    local newText = table.concat(lines, "\n") .. body
-    editor.copyToClipboard(newText)
+    -- 判断原文是否已有 frontmatter：即 text 以 "---" 开头
+    local newText
+    if string.match(text, "^%-%-%-") then
+      -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
+      newText = text:gsub("^%-%-%-[\r\n](.-)[\r\n]%-%-%-[\r\n]?", fmText)
+    else
+      -- 无 frontmatter，直接在开头添加
+      newText = fmText .. body
+    end
 
     if newText ~= text then
       editor.setText(newText, false)
+      -- editor.save()
     end
   end
 }
