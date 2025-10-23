@@ -1,4 +1,4 @@
-${utilities.recentPages(5)}
+${utilities.recentPages(10)}
 
 ```space-lua
 function utilities.recentPages(limit)
