@@ -50,9 +50,7 @@ function yg.children(path)
 end
 
 function widgets.breadcrumbs()
-  return widget.new {
-    markdown = yg.bc()
-  }
+  return widget.new {markdown = yg.bc()}
 end
 
 event.listen {
