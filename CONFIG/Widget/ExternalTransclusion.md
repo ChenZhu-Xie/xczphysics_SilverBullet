@@ -30,3 +30,5 @@ tpl=[[${utilities.embedUrl("https://plantuml.online/uml/","100%","1000px")}]]
   end
 }
 ```
+
+${utilities.embedUrl("https://plantuml.online/uml/","100%","1000px")}
