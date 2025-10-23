@@ -17,6 +17,7 @@ event.listen{
     local body = fmExtract.text or text
 
     local now = Data.now()
+    editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
     end
