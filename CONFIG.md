@@ -17,6 +17,17 @@ config.set(
 config.set("admonLang","en")
 ```
 
+```space-lua
+slashcommand.define {
+  name = "luaeditor",
+  description= "insert lua editor",
+  run = function()
+tpl=[[${utilities.embedUrl("https://glot.io/new/lua","100%","1000px")}]]
+  editor.insertAtCursor(tpl, false, true)
+  end
+}
+```
+
 # Related to [[CONFIG/KeyBinding]]
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
