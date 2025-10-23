@@ -11,10 +11,8 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 
 ```space-lua
 yg=yg or {}
-yg.t_bc = template.new[==[/[[${name}]]
-]==]
-yg.t_bcsub = template.new[==[-[[${name}]]
-]==]
+yg.t_bc = template.new[==[/[[${name}]]]==]
+yg.t_bcsub = template.new[==[-[[${name}]]]==]
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
