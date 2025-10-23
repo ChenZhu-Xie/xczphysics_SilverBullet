@@ -45,6 +45,7 @@ end
 
 function compareDate(a, b)
   print(a.lastModified  > b.lastModified )
+  editor.flashNotification(a.lastModified)
   return a.lastModified  > b.lastModified 
 end
 
