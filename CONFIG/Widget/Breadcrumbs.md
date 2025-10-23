@@ -57,13 +57,14 @@ function yg.children(path)
   return crumbsChildren
 end
 
+-- Widget 模板
 function widgets.breadcrumbs()
   return widget.new {
-    markdown = yg.bc(),
-    id = "breadcrumbs-container"
+    markdown = yg.bc()
   }
 end
 
+-- Hook 到顶部 widget
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
@@ -73,11 +74,3 @@ event.listen {
 ```
 
 See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)
-
-```space-style
-#breadcrumbs-container {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-```
