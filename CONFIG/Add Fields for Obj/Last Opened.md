@@ -1,4 +1,7 @@
-
+---
+tags: {}
+LastVisit: 2025-10-24 01:17:49
+---
 
 ```space-lua
 -- priority: -1
@@ -9,6 +12,7 @@ event.listen{
     local fmExtract = index.extractFrontmatter(text) or {}
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
+    
 
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
