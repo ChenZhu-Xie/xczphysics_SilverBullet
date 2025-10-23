@@ -2,6 +2,7 @@
 event.listen("hooks:renderTopWidgets", function(name)
   -- 读取当前页面内容
   local content = editor.getText()
+  editor.flashNotification 'testetsetsetset'
   local now = os.date("%Y-%m-%d %H:%M")
 
   -- 检查是否已有 frontmatter
