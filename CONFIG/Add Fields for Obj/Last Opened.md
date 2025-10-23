@@ -1,34 +1,41 @@
+---
+tags: 
+LastVisit: 2025-10-24 00:04:44
+---
 ```space-lua
-event.listen("hooks:renderTopWidgets", function(name)
-  -- 读取当前页面内容
-  local content = editor.getText()
-  local now = os.date("%Y-%m-%d %H:%M")
+-- priority: -1, 确保最先执行
+event.listen {
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    local pageName = editor.getCurrentPage()
+    local text = editor.getText()
+    local now = os.date("%Y-%m-%d %H:%M:%S")
 
-  -- 检查是否已有 frontmatter
-  if string.match(content, "^%-%-%-[\r\n]") then
-    -- 若有 frontmatter，则尝试替换或追加 LastVisit
-    local replaced, n = string.gsub(content,
-      "LastVisit:%s*[^\r\n]*",
-      "LastVisit: " .. now
-    )
+    -- 使用 index.extractFrontmatter 提取 frontmatter
+    local fm = index.extractFrontmatter(text)
+    local fmTable = fm.frontmatter or {}
 
-    if n == 0 then
-      -- 若没有该键，则在第一个 YAML 块中添加
-      replaced = string.gsub(replaced,
-        "^(%-%-%-[\r\n])",
-        "%1LastVisit: " .. now .. "\n"
-      )
+    -- 更新 LastVisit
+    fmTable.LastVisit = now
+
+    local body = fm.body or text
+
+    -- 重新生成 frontmatter
+    local newFmLines = {"---"}
+    for k,v in pairs(fmTable) do
+      table.insert(newFmLines, string.format("%s: %s", k, v))
     end
+    table.insert(newFmLines, "---\n")
 
-    if replaced ~= content then
-      editor.setText(replaced)
+    local newText = table.concat(newFmLines, "\n") .. body
+
+    -- 如果内容有变化才写回
+    if newText ~= text then
+      editor.setText(newText)
       editor.save()
     end
-  else
-    -- 若没有 frontmatter，则创建一个新的
-    local newContent = string.format("---\nLastVisit: %s\n---\n\n%s", now, content)
-    editor.setText(newContent)
-    editor.save()
+
+    return nil  -- 不返回 widget，本 widget 仅更新 frontmatter
   end
-end)
+}
 ```
