@@ -1,5 +1,4 @@
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
-2. https://github.com/malys/silverbullet-libraries/blob/main/src/EmbedEditor.md
 
 ```space-lua
 utilities=utilities or {}
@@ -13,7 +12,21 @@ function utilities.embedUrl(specOrUrl,w,h)
     style="width: " .. width .. "; height: " .. height
   })
 end
+```
 
+```space-lua
+-- Convert meeting note title
+function utilities.getmeetingTitle()
+  local t=string.split(string.split(editor.getCurrentPage(),"/")[#string.split(editor.getCurrentPage(),"/")],"_")
+  table.remove(t,1)
+  t=table.concat(t, " ")
+  return t
+end
+```
+
+2. https://github.com/malys/silverbullet-libraries/blob/main/src/EmbedEditor.md
+
+```space-lua
 slashcommand.define {
   name = "luaeditor",
   description= "insert lua editor",
@@ -31,13 +44,4 @@ tpl=[[${utilities.embedUrl("https://plantuml.online/uml/","100%","1000px")}]]
   editor.insertAtCursor(tpl, false, true)
   end
 }
-
--- Convert meeting note title
-function utilities.getmeetingTitle()
-  local t=string.split(string.split(editor.getCurrentPage(),"/")[#string.split(editor.getCurrentPage(),"/")],"_")
-  table.remove(t,1)
-  t=table.concat(t, " ")
-  return t
-end
 ```
-
