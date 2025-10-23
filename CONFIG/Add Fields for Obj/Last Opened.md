@@ -2,7 +2,7 @@
 event.listen {
   name = "page:click",
   run = function()
-    print(editor.getCurrentPageMeta())
+     print(editor.getCurrentPageMeta())
   end
 }
 ```
