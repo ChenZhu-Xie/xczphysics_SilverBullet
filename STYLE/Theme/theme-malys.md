@@ -111,7 +111,6 @@ html {
   color: salmon !important;
 }
 
-
 html {
   --treeview-phone-height: 25vh;
   --treeview-tablet-width: 25vw;
