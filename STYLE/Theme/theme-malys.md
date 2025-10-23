@@ -25,7 +25,7 @@ Dark theme thought for readibility and productivity.
 
 ## Editor
 
-```space-style
+```
 html {
   --ui-font: ui-sans-serif, sans-serif !important;
   --editor-font: ui-sans-serif, sans-serif !important;

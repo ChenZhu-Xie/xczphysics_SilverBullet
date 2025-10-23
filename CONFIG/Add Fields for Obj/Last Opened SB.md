@@ -1,7 +1,3 @@
----
-tags: 
-LastVisit: 2025-10-24 00:19:39
----
 
 ${utilities.RecentlyOpenedPages(10)}
 
