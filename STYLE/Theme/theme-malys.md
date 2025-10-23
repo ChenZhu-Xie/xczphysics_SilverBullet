@@ -183,4 +183,3 @@ div.cm-scroller {
   scrollbar-width: thin;
 }
 ```
-

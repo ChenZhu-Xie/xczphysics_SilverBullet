@@ -1,4 +1,3 @@
-
 # Where I am now ⛳
 ${embed_map("Qiushui Square","","400","18","k")}
 ${owm_widget()}
