@@ -9,8 +9,6 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 ```space-lua
-
-
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
 yg.t_bcsub = template.new[==[-[[${name}]]​]==]
