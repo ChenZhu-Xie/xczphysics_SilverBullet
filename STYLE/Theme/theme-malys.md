@@ -25,13 +25,14 @@ Dark theme thought for readibility and productivity.
 
 ## Editor
 
-```space-style
 html {
   --ui-font: ui-sans-serif, sans-serif !important;
   --editor-font: ui-sans-serif, sans-serif !important;
   --editor-width: 1100px !important;
   line-height: 1 !important;
 }
+
+```space-style
 
 .markmap {
   --markmap-text-color: #BBDEFB !important;

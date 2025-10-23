@@ -1,4 +1,3 @@
-
 # Rounded Code Snippets
 ![](https://community.silverbullet.md/uploads/default/original/2X/6/660e0ae6a4321c3a1ace33cc2cab873e31c931dd.jpeg)
 
