@@ -128,7 +128,7 @@ html {
 ```
 
 ## Treeview
-```space-style
+```
 .tree__label > span {
   font-size: calc(11px + 0.1vh);
 }

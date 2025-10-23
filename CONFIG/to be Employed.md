@@ -1,4 +1,3 @@
-
 - https://v2.silverbullet.md/Plugs
 - https://community.silverbullet.md/t/external-libraries-from-sb-community/3414/2
   - https://github.com/silverbulletmd/silverbullet-libraries

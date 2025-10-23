@@ -1,4 +1,3 @@
-
 1. https://github.com/MrMugame/silversearch#silversearch
 
 ```lua
