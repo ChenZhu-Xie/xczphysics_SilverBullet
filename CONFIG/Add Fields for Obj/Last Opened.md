@@ -1,11 +1,4 @@
----
-tags: 
-LastVisit: 2025-10-24 00:57:49
----
----
-tags: 
-LastVisit: 2025-10-24 00:57:31
----
+
 
 ```space-lua
 -- priority: -1
@@ -13,31 +6,33 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local text = editor.getText()
-    local fm = index.extractFrontmatter(text) or {}
-    local body = fm.body or text
-    local fmTable = fm.frontmatter or {}
-    
-    
+    local fmExtract = index.extractFrontmatter(text) or {}
+    local fmTable = fmExtract.frontmatter or {}
+    local body = fmExtract.text or text
+
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
     if fmTable.LastVisit == now then
-      return -- 无需写回
+      return
     end
 
     fmTable.LastVisit = now
 
-    -- 重建 frontmatter 文本（安全做法：始终用 fm.body，不用原始 text）
     local lines = {"---"}
     for k, v in pairs(fmTable) do
+      if type(v) == "table" then
+        v = "{" .. table.concat(v, ", ") .. "}"
+      end
       table.insert(lines, string.format("%s: %s", k, v))
     end
-    table.insert(lines, "---")
+    table.insert(lines, "---\n")
 
-    local newText = table.concat(lines, "\n") .. "\n" .. (body or "")
+    local newText = table.concat(lines, "\n") .. body
+
     if newText ~= text then
       editor.setText(newText)
-      -- editor.save()
     end
   end
 }
+
 ```
