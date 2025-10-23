@@ -1,6 +1,6 @@
 ${utilities.RecentlyOpenedPages(10)}
 
-```space-lua
+```lua
 function utilities.RecentlyOpenedPages(limit)
   local pages = editor.getRecentlyOpenedPages()
   table.sort(pages, function(a,b)
