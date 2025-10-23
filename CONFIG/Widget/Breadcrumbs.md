@@ -16,7 +16,6 @@ yg.t_bc = template.new
 yg.t_bcsub = template.new
 [==[-[[${name}]]​]==]
 
--- 面包屑主函数
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
   local parts = string.split(mypage, "/")
@@ -33,23 +32,19 @@ function yg.bc(path)
          .. template.each(yg.children(path), yg.t_bcsub)
 end
 
--- 获取最近修改的子页（最多 7 个）
 function yg.children(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
   local pages = {}
 
-  -- 收集直接子页
   for _, page in ipairs(space.listPages()) do
     if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
       table.insert(pages, page)
     end
   end
 
-  -- 按 lastModified 倒序排序（最近修改优先）
   table.sort(pages, function(a, b) return a.lastModified > b.lastModified end)
 
-  -- 取最多 7 个子页
   for i = 1, math.min(7, #pages) do
     table.insert(crumbsChildren, {name = pages[i].ref})
   end
@@ -57,14 +52,12 @@ function yg.children(path)
   return crumbsChildren
 end
 
--- Widget 模板
 function widgets.breadcrumbs()
   return widget.new {
     markdown = yg.bc()
   }
 end
 
--- Hook 到顶部 widget
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
