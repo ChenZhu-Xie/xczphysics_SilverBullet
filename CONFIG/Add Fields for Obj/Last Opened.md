@@ -1,12 +1,3 @@
----
-tags: 
-__: [object Object]
-__b: 9
-__i: 0
-__u: 0
-LastVisit: 2025-10-24 00:56:32
----
-
 
 ```space-lua
 -- priority: -1
@@ -14,11 +5,13 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local text = editor.getText()
+    editor.flashNotification(text)
+    
     local fm = index.extractFrontmatter(text) or {}
     
     local body = fm.body or text
     local fmTable = fm.frontmatter or {}
-    editor.flashNotification(fmTable)
+    
     
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
