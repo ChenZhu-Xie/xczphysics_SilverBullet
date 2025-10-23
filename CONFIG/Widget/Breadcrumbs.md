@@ -16,66 +16,68 @@ div > div.content > span.wrapper > span.p {
 
 
 ```space-lua
-yg=yg or {}
+yg = yg or {}
 yg.t_bc = template.new
 [==[/[[${name}]]​]==]
 yg.t_bcsub = template.new
 [==[-[[${name}]]​]==]
 
+-- 面包屑主函数
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
-  local parts = string.split(mypage,"/")
+  local parts = string.split(mypage, "/")
   local crumbs = {}
-  for i,part in ipairs(parts) do
-    local current = ""
-    for j=1,i do
-      if current ~= "" then
-        current=current.."/"
-      end
-      current = current..parts[j]
-    end
-      table.insert(crumbs, {name = current})
+  for i, part in ipairs(parts) do
+    local current = table.concat(parts, "/", 1, i)
+    table.insert(crumbs, {name = current})
   end
   return crumbs
 end
 
 function yg.bc(path)
-  return "[[home]]"..(template.each(yg.breadcrumbs(path),yg.t_bc))..""..(template.each(yg.children(path),yg.t_bcsub)) 
+  return template.each(yg.breadcrumbs(path), yg.t_bc)
+         .. template.each(yg.children(path), yg.t_bcsub)
 end
 
-function compareDate(a, b)
-  -- print(a.lastModified  > b.lastModified )
-  -- editor.flashNotification(a.lastModified)
-  return a.lastModified  > b.lastModified 
-end
-
-
+-- 获取最近修改的子页（最多 7 个）
 function yg.children(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
-  for page in each(table.sort(space.listPages(), compareDate)) do
-   --print(mypage,page.name,string.find(page.name,mypage) )
-    if (string.find(page.name,mypage) and mypage ~= page.name and #crumbsChildren <7)
-    then
-          table.insert(crumbsChildren, {name = page.ref})
+  local pages = {}
+
+  -- 收集直接子页
+  for _, page in ipairs(space.listPages()) do
+    if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
+      table.insert(pages, page)
     end
   end
+
+  -- 按 lastModified 倒序排序（最近修改优先）
+  table.sort(pages, function(a, b) return a.lastModified > b.lastModified end)
+
+  -- 取最多 7 个子页
+  for i = 1, math.min(7, #pages) do
+    table.insert(crumbsChildren, {name = pages[i].ref})
+  end
+
   return crumbsChildren
 end
 
--- template
+-- Widget 模板
 function widgets.breadcrumbs()
   return widget.new {
     markdown = yg.bc()
   }
 end
 
+-- Hook 到顶部 widget
 event.listen {
   name = "hooks:renderTopWidgets",
-  run = function(e) 
+  run = function(e)
     return widgets.breadcrumbs()
   end
 }
+
 ```
 
 See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)
