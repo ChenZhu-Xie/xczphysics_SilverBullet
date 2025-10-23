@@ -1,7 +1,7 @@
 
 ```space-lua
 event.listen {
-  name = "editor:pageOpened",
+  name = "page:Opened",
   run = function()
     editor.flashNotification "Hello world!"
   end
