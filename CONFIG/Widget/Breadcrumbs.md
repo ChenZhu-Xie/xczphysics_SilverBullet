@@ -12,9 +12,9 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 yg=yg or {}
 yg.t_bc = template.new
-[==[/[[${name}]]​]==]
+[==[/[[${name}]] ]==]
 yg.t_bcsub = template.new
-[==[-[[${name}]]​]==]
+[==[-[[${name}]] ]==]
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
@@ -34,7 +34,7 @@ function yg.breadcrumbs(path)
 end
 
 function yg.bc(path)
-  return "[[home]]"..(template.each(yg.breadcrumbs(path),yg.t_bc))..""..(template.each(yg.children(path),yg.t_bcsub)) 
+  return "[[home]]"..(template.each(yg.breadcrumbs(path),yg.t_bc)).." "..(template.each(yg.children(path),yg.t_bcsub)) 
 end
 
 function compareDate(a, b)
