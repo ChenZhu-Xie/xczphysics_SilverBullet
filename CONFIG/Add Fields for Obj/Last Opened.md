@@ -1,6 +1,10 @@
 ---
 tags: 
-LastVisit: 2025-10-24 00:54:52
+LastVisit: 2025-10-24 00:55:45
+---
+---
+tags: 
+LastVisit: 2025-10-24 00:55:30
 ---
 
 ```space-lua
@@ -10,6 +14,7 @@ event.listen{
   run = function(e)
     local text = editor.getText()
     local fm = index.extractFrontmatter(text) or {}
+    editor.flashNotification(fm)
     local body = fm.body or text
     local fmTable = fm.frontmatter or {}
     local now = os.date("%Y-%m-%d %H:%M:%S")
