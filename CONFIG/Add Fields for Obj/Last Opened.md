@@ -32,9 +32,9 @@ event.listen{
 
     -- 判断原文是否已有 frontmatter：即 text 以 "---" 开头
     local newText
-    if string.match(text, "^%-%-%-\n(.-)") then
+    if string.match(text, "^%-%-%-\n.-") then
       -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
-      newText = text:gsub("^%-%-%-\n(.-)\n%-%-%-\n?", fmText)
+      newText = text:gsub("^%-%-%-\n.-\n%-%-%-\n?", fmText)
     else
       -- 无 frontmatter，直接在开头添加
       newText = fmText .. body
