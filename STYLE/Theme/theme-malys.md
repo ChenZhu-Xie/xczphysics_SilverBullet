@@ -25,7 +25,7 @@ Dark theme thought for readibility and productivity.
 
 ## Editor
 
-```
+```space-style
 
 .markmap {
   --markmap-text-color: #BBDEFB !important;
