@@ -1,7 +1,7 @@
-${utilities.recentPages(10)}
+${utilities.RecentlyOpenedPages(10)}
 
 ```space-lua
-function utilities.recentPages(limit)
+function utilities.RecentlyOpenedPages(limit)
   local pages = editor.getRecentlyOpenedPages()
   table.sort(pages, function(a,b)
     return (a.lastOpened or 0) > (b.lastOpened or 0)
