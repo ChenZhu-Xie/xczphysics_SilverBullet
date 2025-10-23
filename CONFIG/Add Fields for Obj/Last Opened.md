@@ -34,7 +34,7 @@ event.listen{
     local newText
     if string.match(text, "^%-%-%-") then
       -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
-      newText = text:gsub("^%-%-%-[\r\n](.-)[\r\n]%-%-%-[\r\n]?", fmText)
+      newText = text:gsub("^%-%-%-\n(.-)\n%-%-%-\n?", fmText)
     else
       -- 无 frontmatter，直接在开头添加
       newText = fmText .. body
