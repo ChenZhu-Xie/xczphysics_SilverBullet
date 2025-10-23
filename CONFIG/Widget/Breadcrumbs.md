@@ -60,19 +60,24 @@ end
 function widgets.breadcrumbs()
   return widget.new {
     markdown = yg.bc(),
-    style = "display:block; margin-bottom:0.5em;"
+    id = "breadcrumbs-container"
   }
 end
 
-
 event.listen {
-  name = "hooks:renderContentWidgets",  -- 注意，这里改成 content 区域而非 topWidgets
+  name = "hooks:renderTopWidgets",
   run = function(e)
     return widgets.breadcrumbs()
   end
 }
-
-
 ```
 
 See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)
+
+```space-style
+#breadcrumbs-container {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+```
