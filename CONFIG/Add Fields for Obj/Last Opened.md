@@ -1,4 +1,3 @@
-
 ```space-lua
 event.listen {
   name = "page:Opened",
