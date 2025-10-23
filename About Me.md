@@ -1,3 +1,7 @@
+---
+tags: {}
+LastVisit: 2025-10-24 02:08:38
+---
 # Where I am now ⛳
 ${embed_map("Qiushui Square","","400","18","k")}
 ${owm_widget()}

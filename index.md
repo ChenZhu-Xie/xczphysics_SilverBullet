@@ -1,5 +1,6 @@
 ---
-banner: ["https://github.com/Mr-xRed/silverbullet-libraries/blob/main/banner/welcome.jpg?raw=true","","200"]
+tags: {}
+LastVisit: 2025-10-24 02:08:42
 ---
 
 # Hello 👋
@@ -12,6 +13,8 @@ _[One of us!](https://community.silverbullet.md/)_
 
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
 
+
+${query[[from index.tag "page"]]}
 
 # Time 🌄
 
