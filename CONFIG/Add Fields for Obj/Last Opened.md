@@ -1,10 +1,10 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 01:53:43
+LastVisit: 2025-10-24 01:54:26
 ---
 ---
 tags: {}
-LastVisit: 2025-10-24 01:49:36
+LastVisit: 2025-10-24 01:53:43
 ---
 
 ```space-lua
@@ -35,7 +35,7 @@ event.listen{
     local fmText = table.concat(lines, "\n") .. "\n"
 
     -- 判断原文是否已有 frontmatter：即 text 以 "---" 开头
-    local pattern = "^%-%-%-[\r\n]*([\0-\255]-)[\r\n]%-%-%-[\r\n]?"
+    local pattern = "^%-%-%-[\r\n]*(%s-)[\r\n]%-%-%-[\r\n]?"
     local newText
     if string.match(text, pattern) then
       -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
