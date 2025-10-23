@@ -32,8 +32,6 @@ Here's an example usage: \${F("SUM(A1:A5)","1")}\`
 | ${F("SUM(A1:B5)","1")} | ${F("SUM(B1:B5)","2")} | ${F("SUM(C1:C5)","2")} |
 
 
-
-
 ```space-lua
 -- ---------------------------
 -- SilverBullet Markdown Table + Formulajs evaluator
