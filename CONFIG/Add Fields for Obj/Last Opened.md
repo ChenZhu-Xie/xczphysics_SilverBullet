@@ -1,6 +1,6 @@
 ```space-lua
 event.listen {
-  name = "page:Click",
+  name = "page:click",
   run = function()
     print(editor.goHistory())
   end
