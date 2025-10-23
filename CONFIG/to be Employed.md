@@ -3,6 +3,7 @@
 - https://community.silverbullet.md/t/external-libraries-from-sb-community/3414/2
   - https://github.com/silverbulletmd/silverbullet-libraries
   - https://github.com/malys/silverbullet-libraries/tree/main
+    - 有点像 
   - https://github.com/Mr-xRed/silverbullet-libraries
 
 # Get calendar events
