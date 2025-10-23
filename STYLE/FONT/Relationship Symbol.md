@@ -1,4 +1,3 @@
-
 # Fira Code Fonts + Ligatures
 ![](https://community.silverbullet.md/uploads/default/original/2X/0/092ad6b30d4a5b2341b42dafaa26d73f342340ef.jpeg)
 
