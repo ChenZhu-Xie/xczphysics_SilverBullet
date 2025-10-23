@@ -4,11 +4,13 @@
   - https://github.com/silverbulletmd/silverbullet-libraries
   - https://github.com/malys/silverbullet-libraries/tree/main
     - 有点像
-      - Quicker 用户选择 - 
+      - Quicker 用户选择
+      - Page: Templete   - Shift + Alt + t
       - Quicker 命令面板 - Ctrl + Space
       - Utools 命令面板  - Alt + Space
       - Sublime 命令面板 - Ctrl + Shift + P
     - 在同类命令比较多时，比较有必要：提升操作层数 减少记忆数
+      - 以后有必要时，可给同一个 folder 下的 cmd.md 分配统一的 KeyBind
   - https://github.com/Mr-xRed/silverbullet-libraries
 
 # Get calendar events
