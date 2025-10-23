@@ -9,7 +9,7 @@ _[One of us!](https://community.silverbullet.md/)_
 ![[ETP.png]]
 
 # Last Modified ✏️
-${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
+${query[[from index.tag "page"]]}
 
 # Time 🌄
 
