@@ -3,8 +3,8 @@ tags: {}
 LastVisit: 2025-10-24 01:59:34
 ---
 
-1. https://silverbullet.md/API/editor
-2. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
+1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
+2. https://silverbullet.md/API/editor
 
 ```space-lua
 -- priority: -1
@@ -22,7 +22,6 @@ event.listen{
     end
     fmTable.LastVisit = now
 
-    -- 构造新的 frontmatter
     local lines = {"---"}
     for k, v in pairs(fmTable) do
       if type(v) == "table" then
@@ -33,20 +32,16 @@ event.listen{
     table.insert(lines, "---")
     local fmText = table.concat(lines, "\n") .. "\n"
 
-    -- 判断原文是否已有 frontmatter：即 text 以 "---" 开头
     local pattern = "^%-%-%-([\r\n].-)+%-%-%-[\r\n]?"
     local newText
     if string.match(text, pattern) then
-      -- 已有 frontmatter，直接替换掉旧 frontmatter 区块
       newText = text:gsub(pattern, fmText)
     else
-      -- 无 frontmatter，直接在开头添加
       newText = fmText .. body
     end
 
     if newText ~= text then
       editor.setText(newText, false)
-      -- editor.save()
     end
   end
 }
