@@ -2,13 +2,13 @@
 
 ```space-lua
 command.define {
-  name = "new sibling page",
-  description = "create a sibling page",
+  name = "Nage: New Sibling",
+  description = "New Sibling Page",
   key = "Alt-Ctrl-s",
   run = function()
     local current = editor.getCurrentPage()
     local lastSlash = current:match("^(.*)/[^/]*$") or ""
-    local pageName = editor.prompt("Sibling page name", lastSlash.."/")
+    local pageName = editor.prompt("Sibling Page Name", lastSlash.."/")
     if pageName then
       editor.navigate(pageName)
     end
@@ -21,11 +21,11 @@ command.define {
 
 ```space-lua
 command.define {
-  name = "new page",
-  description = "new children page",
+  name = "Page: New",
+  description = "New Children Page",
   key = "Alt-Ctrl-n",
   run = function()
-    local pageName=editor.prompt("page name",editor.getCurrentPage().."/")
+    local pageName=editor.prompt("Page Name",editor.getCurrentPage().."/")
     editor.navigate(pageName)
   end
 }
