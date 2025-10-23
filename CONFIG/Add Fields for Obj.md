@@ -26,7 +26,7 @@ end
 
 -- 可选：跳过某些系统页，避免噪声写入
 local function should_skip(docId)
-  return docId:match("^CONFIG/") or docId:match("^LIB/") or docId:match("^INBOX/")
+  return docId:match("^Lib/") or docId:match("^INBOXXXX/")
 end
 
 -- 写入 lastviewed（UTC ISO8601）
