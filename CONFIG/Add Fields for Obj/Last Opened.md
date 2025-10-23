@@ -1,4 +1,11 @@
 ---
+LastVisit: 2025-10-24 00:06:47
+---
+---
+tags: 
+LastVisit: 2025-10-24 00:06:14
+---
+---
 tags: 
 LastVisit: 2025-10-24 00:05:07
 ---
@@ -19,31 +26,41 @@ event.listen {
     local text = editor.getText()
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
-    -- 使用 index.extractFrontmatter 提取 frontmatter
     local fm = index.extractFrontmatter(text)
     local fmTable = fm.frontmatter or {}
 
-    -- 更新 LastVisit
+    -- 如果 LastVisit 已经是最新，就不改
+    if fmTable.LastVisit == now then return end
+
     fmTable.LastVisit = now
 
-    local body = fm.body or text
-
-    -- 重新生成 frontmatter
-    local newFmLines = {"---"}
-    for k,v in pairs(fmTable) do
-      table.insert(newFmLines, string.format("%s: %s", k, v))
+    local newText
+    if fm.exists then
+      -- 已有 frontmatter，只更新 LastVisit
+      local lines = {}
+      local updated = false
+      for line in fm.raw:gmatch("[^\r\n]+") do
+        if line:match("^LastVisit:") then
+          table.insert(lines, "LastVisit: " .. now)
+          updated = true
+        else
+          table.insert(lines, line)
+        end
+      end
+      if not updated then
+        table.insert(lines, 2, "LastVisit: " .. now) -- 插入到开头
+      end
+      newText = table.concat(lines, "\n") .. "\n" .. fm.body
+    else
+      -- 没有 frontmatter，新建
+      newText = string.format("---\nLastVisit: %s\n---\n%s", now, text)
     end
-    table.insert(newFmLines, "---\n")
 
-    local newText = table.concat(newFmLines, "\n") .. body
-
-    -- 如果内容有变化才写回
     if newText ~= text then
       editor.setText(newText)
       editor.save()
     end
-
-    return nil  -- 不返回 widget，本 widget 仅更新 frontmatter
   end
 }
+
 ```
