@@ -1,8 +1,8 @@
 ```space-lua
 event.listen {
-  name = "page:Opened",
+  name = "page:click",
   run = function()
-    editor.flashNotification "Hello world!"
+    editor.flashNotification(editor.goHistory())
   end
 }
 ```
