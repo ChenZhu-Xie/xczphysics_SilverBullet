@@ -17,17 +17,6 @@ config.set(
 config.set("admonLang","en")
 ```
 
-```space-lua
-transclude = function(url)
-  local result = http.request(url)
-  local tree = markdown.parseMarkdown(result.body)
-  local rendered = markdown.renderParseTree(tree)
-  return widget.new { markdown = rendered:gsub("<[^>]*>","") }
-end
-```
-
-/
-
 # Related to [[CONFIG/KeyBinding]]
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
