@@ -40,7 +40,7 @@ end)
 command.define({
   name = "Stamp LastViewed (Current)",
   run = function()
-    local docId = editor.getCurrentPage()
+    local docId = editor.getRecentlyOpenedPages()
     if docId then stamp_last_viewed(docId) end
   end
 })
