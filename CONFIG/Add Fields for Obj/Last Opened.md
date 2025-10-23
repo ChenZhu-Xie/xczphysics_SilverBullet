@@ -1,6 +1,5 @@
 
 ```space-lua
--- priority: -1  确保最先执行
 -- 仅用 gsub 对首个 YAML frontmatter 做“更新或插入 LastVisit"
 local function upsert_last_visit(text, now)
   -- 统一换行，简化处理
@@ -37,7 +36,10 @@ end
 
 -- 同页同秒防抖，避免 renderTopWidgets 高频触发造成反复写入
 _G.__last_visit_guard = _G.__last_visit_guard or {}
+```
 
+```space-lua
+-- priority: -1  确保最先执行
 event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
