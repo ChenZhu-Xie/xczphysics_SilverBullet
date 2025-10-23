@@ -37,10 +37,6 @@ html {
   --markmap-text-color: #BBDEFB !important;
 }
 
-#sb-main .cm-editor {
-  margin-top: 2rem;
-}
-
 .sb-line-h1 {
   font-size: 1.8em !important;
   color: #ee82ee !important;
