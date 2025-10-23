@@ -5,12 +5,6 @@ githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/Breadc
 # Breadcrumbs
 Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.
 
-```space-style
-div > div.content > span.wrapper > span.p {
-  display: block;
-}
-```
-
 > **example** Example
 > [🏡 home](https://silverbullet.l.malys.ovh/home)/[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
@@ -63,20 +57,21 @@ function yg.children(path)
   return crumbsChildren
 end
 
--- Widget 模板
 function widgets.breadcrumbs()
   return widget.new {
-    markdown = yg.bc()
+    markdown = yg.bc(),
+    style = "display:block; margin-bottom:0.5em;"
   }
 end
 
--- Hook 到顶部 widget
+
 event.listen {
-  name = "hooks:renderTopWidgets",
+  name = "hooks:renderContentWidgets",  -- 注意，这里改成 content 区域而非 topWidgets
   run = function(e)
     return widgets.breadcrumbs()
   end
 }
+
 
 ```
 
