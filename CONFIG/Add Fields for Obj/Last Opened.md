@@ -1,16 +1,12 @@
 ---
-tags: 
-LastVisit: 2025-10-24 00:17:26
+LastVisit: 2025-10-24 00:18:12
 ---
 ---
-LastVisit: 2025-10-24 00:14:21
----
----
-LastVisit: 2025-10-24 00:08:34
+LastVisit: 2025-10-24 00:17:53
 ---
 
 ```space-lua
--- priority: -1
+-- priority: -1, 确保最先执行
 event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
