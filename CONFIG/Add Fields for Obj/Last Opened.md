@@ -1,6 +1,6 @@
 ```space-lua
 event.listen {
-    name = "hooks:renderBottomWidgets",
+    name = "hooks:renderTopWidgets",
     run = function(e)
       editor.flashNotification 'testetsetsetset'
     end
