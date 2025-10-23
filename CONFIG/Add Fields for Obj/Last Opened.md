@@ -16,7 +16,7 @@ event.listen{
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
 
-    local now = os.date("%Y-%m-%d %H:%M:%S")
+    local now = Data.now()
     if fmTable.LastVisit == now then
       return
     end
