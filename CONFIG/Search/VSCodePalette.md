@@ -6,7 +6,7 @@ githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/VSCode
 
 The VSCode Palette feature allows you to search and open content items (pages, commands, etc.) quickly. You can customize the objects to populate, like page, command, etc. The palette is a unique feature that provides a quick way to navigate your content.
 
-```space-lua
+```lua
 -- This script populates the VSCode palette with content items from the enabled
 -- object types. The palette is a feature that allows you to search for content
 -- items (pages, commands, etc.) and open them quickly.
