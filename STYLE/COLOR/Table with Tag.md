@@ -1,4 +1,3 @@
-
 This text should turn blued #blue
 
 1. https://community.silverbullet.md/t/custom-css-for-ttrpg-statblocks/2509/9
