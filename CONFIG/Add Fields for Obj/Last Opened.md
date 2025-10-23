@@ -1,7 +1,10 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 01:57:28
+LastVisit: 2025-10-24 01:59:34
 ---
+
+1. https://silverbullet.md/API/editor
+2. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 
 ```space-lua
 -- priority: -1
@@ -49,3 +52,4 @@ event.listen{
 }
 
 ```
+
