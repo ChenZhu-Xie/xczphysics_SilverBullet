@@ -21,14 +21,23 @@ end
 
 
 ```space-lua
+-- 定义 Slash Command
 slashcommand.define {
   name = "plantumleditor",
-  description= "insert plantuml editor",
+  description = "Insert PlantUML editor iframe",
   run = function()
-tpl=[[${utilities.embedUrl("https://plantuml.online/uml/","100%","1000px")}]]
-  editor.insertAtCursor(tpl, false, true)
+    -- 设置默认宽高
+    local width = "100%"
+    local height = "1000px"
+
+    -- 调用 utilities.embedUrl 生成 iframe HTML
+    local iframe_html = utilities.embedUrl("https://plantuml.online/uml/", width, height)
+
+    -- 插入光标处，直接插入 HTML
+    editor.insertAtCursor(iframe_html, false, false)
   end
 }
+
 ```
 
 ${utilities.embedUrl("https://plantuml.online/uml/","100%","1000px")}
