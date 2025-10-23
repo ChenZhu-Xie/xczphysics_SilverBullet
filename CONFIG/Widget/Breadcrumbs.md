@@ -9,6 +9,8 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 ```space-lua
+
+
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
 yg.t_bcsub = template.new[==[-[[${name}]]​]==]
@@ -52,7 +54,10 @@ end
 function widgets.breadcrumbs()
   return widget.new {markdown = yg.bc()}
 end
+```
 
+```space-lua
+-- priority: -1
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
