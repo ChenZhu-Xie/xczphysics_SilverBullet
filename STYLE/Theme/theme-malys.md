@@ -19,7 +19,7 @@ Dark theme thought for readibility and productivity.
 
 `code`
 
-*emphasis*  
+*emphasis*
 
 **strong**
 
