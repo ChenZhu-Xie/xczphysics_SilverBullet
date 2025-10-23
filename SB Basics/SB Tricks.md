@@ -1,4 +1,3 @@
-
 # Task States
 
 * [STARTED] first state
