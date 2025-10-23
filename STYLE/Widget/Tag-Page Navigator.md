@@ -1,4 +1,3 @@
-
 1. https://community.silverbullet.md/t/super-fast-tag-page-navigator/2203/10?u=chenzhu-xie
 
 ${fastnav.Widget("Language", { tags = {"meta"}, matchMode = "prefix", filterMode = "exclude", pageSize = 30 })}
