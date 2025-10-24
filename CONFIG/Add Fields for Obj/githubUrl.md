@@ -1,7 +1,7 @@
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
--- 作用：先清理空的 tags，再确保 githubUrl 存在（缺失则补全）
+-- 作用：若 frontmatter 中无 githubUrl，则根据当前笔记路径自动补全为 GitHub 直链；否则不做任何事。
 command.define {
   name = "Frontmatter: Ensure GitHub URL",
   key = "Ctrl-Alt-g",
@@ -11,46 +11,20 @@ command.define {
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
-    -- 判空工具：支持 table 空表、空字符串、"[]"/"{}" 这类占位
-    local function isEmptyTags(v)
-      if v == nil then return false end
-      local t = type(v)
-      if t == "table" then
-        return next(v) == nil
-      elseif t == "string" then
-        local s = v:gsub("%s+", "")
-        return s == "" or s == "[]" or s == "{}"
-      end
-      return false
-    end
-
-    local changed = false
-
-    -- 1) 清理空 tags
-    if isEmptyTags(fm.tags) then
-      fm.tags = nil
-      changed = true
-    end
-
-    -- 2) 确保 githubUrl 存在（若已存在且非空则不动）
-    if not (type(fm.githubUrl) == "string" and fm.githubUrl ~= "") then
-      local path = ""
-      if editor.getCurrentPath then
-        local ok, p = pcall(editor.getCurrentPath)
-        path = ok and (p or "") or ""
-      end
-      local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. path
-      fm.githubUrl = url
-      changed = true
-    end
-
-    -- 若无任何变化，直接提示并返回
-    if not changed then
-      editor.flashNotification("No changes (githubUrl present; tags not empty)", "info")
+    if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
+      editor.flashNotification("githubUrl already set", "info")
       return
     end
 
-    -- 3) 重新序列化 frontmatter（保持你当前的简单 key: value；table 作为 YAML 列表输出）
+    local path = ""
+    if editor.getCurrentPath then
+      local ok, p = pcall(editor.getCurrentPath)
+      path = ok and (p or "") or ""
+    end
+    local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. path
+    fm.githubUrl = url
+
+    -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
     for k, v in pairs(fm) do
       if type(v) == "table" then
@@ -64,11 +38,12 @@ command.define {
     end
     local fmText = table.concat(lines, "\n")
 
-    -- 4) 用重建的 frontmatter + 原 body 拼回文档
+    -- 用重建的 frontmatter + 原 body 拼回文档
     local newText = string.format("---\n%s\n---\n%s", fmText, body)
+
     if newText ~= text then
       editor.setText(newText, false)
-      editor.flashNotification("Frontmatter updated", "info")
+      editor.flashNotification("githubUrl added", "info")
     end
   end
 }
