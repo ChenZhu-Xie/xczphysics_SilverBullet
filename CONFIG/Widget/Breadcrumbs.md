@@ -70,7 +70,8 @@ function yg.lastV(path)
   print(pages)
   -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
-  pages = query[[from pages where _.size order by _.size desc]]
+  -- pages = query[[from pages where _.size order by _.size desc]]
+  pages = query[[from pages where _.lastVisit order by _.lastVisit desc]]
 
   print(pages)
 
