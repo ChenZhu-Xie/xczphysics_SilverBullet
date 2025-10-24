@@ -15,7 +15,7 @@ command.define {
     end
   end
 }
-editor.getCurrentPage()
+
 ```
 
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
