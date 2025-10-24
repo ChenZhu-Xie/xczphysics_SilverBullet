@@ -9,7 +9,7 @@ githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/SearchBa
 * it works with light and dark mode
 
 ## Implementation
-```spa
+```space-style
 /* ------Theme Color Variables-----*/
 
 /* Dark theme colors */
