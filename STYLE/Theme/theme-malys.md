@@ -72,7 +72,7 @@ html {
 
 html {
   --editor-width: 1100px !important;
-  line-height: 1 !important;
+  line-height: 2 !important;
 }
 
 .markmap {
