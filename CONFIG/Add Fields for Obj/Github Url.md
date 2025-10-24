@@ -1,5 +1,5 @@
 ---
-githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md"
 ---
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=8a82458ab0
@@ -40,7 +40,7 @@ command.define {
       path = ok and (p or "") or ""
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
-    fm.githubUrl = replace_space_with_percent20(url)
+    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
     -- editor.flashNotification(url)
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
