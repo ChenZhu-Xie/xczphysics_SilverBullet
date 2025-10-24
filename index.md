@@ -1,6 +1,6 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 14:21:08
+LastVisit: 2025-10-24 14:44:03
 ---
 
 # Hello 👋
@@ -12,6 +12,8 @@ _[One of us!](https://community.silverbullet.md/)_
 # Last Modified ✏️
 
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.lastModified} order by lastModified desc limit 5]]}
+
+${query[[from index.tag "page" where _.LastVisit select {ref=_.ref, LastVisit=_.LastVisit}]]}
 
 ${query[[from index.tag "page" where _.LastVisit select {ref=_.ref, LastVisit=_.LastVisit} order by LastVisit desc limit 5]]}
 

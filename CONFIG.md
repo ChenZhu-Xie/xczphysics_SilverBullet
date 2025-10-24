@@ -1,7 +1,4 @@
----
-tags: {SB_itself}
-LastVisit: 2025-10-24 14:17:12
----
+
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua
