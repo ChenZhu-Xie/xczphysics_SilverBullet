@@ -40,10 +40,11 @@ command.define {
       path = ok and (p or "") or ""
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
-    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
     -- editor.flashNotification(url)
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
+    -- fm.githubUrl = replace_space_with_percent20(url)
+    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
 
     local lines = {}
     for k, v in pairs(fm) do
