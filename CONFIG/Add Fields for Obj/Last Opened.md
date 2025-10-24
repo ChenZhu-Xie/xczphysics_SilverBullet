@@ -4,7 +4,6 @@
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
 
--- 给 page tag 定义动态属性 LastVisit
 index.defineTag {
   name = "page",
   metatable = {
@@ -86,7 +85,7 @@ ${query[[from index.tag "page"
 ${query[[from index.tag "page"
   where _.lastVisitEpoch
   select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
-  order by _.lastVisitEpoch desc  -- _.
+  order by _.lastVisitEpoch desc  -- _. matters
   limit 5]]}
 ```
 
