@@ -1,5 +1,7 @@
 1. https://silverbullet.md/API/index#Example
 
+1. 
+
 ```space-lua
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
@@ -40,6 +42,20 @@ event.listen{
     editor.flashNotification("lastVisit updated: " .. lastVisitStore[pageRef].epoch)
   end
 }
+```
+
+```
+${query[[from index.tag "page"
+  where _.lastVisitEpoch
+  select {ref=_.ref, lastVisit=_.lastVisit}
+  order by lastVisitEpoch desc
+  limit 5]]}
+
+${query[[from index.tag "page"
+  where _.lastVisitEpoch
+  select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
+  order by _.lastVisitEpoch desc
+  limit 5]]}
 ```
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
