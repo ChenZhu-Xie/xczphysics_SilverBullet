@@ -68,7 +68,7 @@ function yg.lastV(path)
   local mypage = path or editor.getCurrentPage()
   local table, pages = collect_pages_for(mypage)
 
-  table.sort(pages, function(a, b) return toNumber(a.lastVisit) > toNumber(b.lastVisit) end)
+  table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
 
   for i = 1, math.min(7, #pages) do
     table.insert(crumbsChildren, {name = pages[i].ref})
