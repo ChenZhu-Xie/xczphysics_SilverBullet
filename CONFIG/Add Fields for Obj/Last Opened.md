@@ -107,7 +107,6 @@ event.listen{
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
 
-<<<<<<< HEAD
     local t = os.date("*t")
     local ms = math.floor((os.clock() % 1) * 1000)
     local now = string.format(
@@ -116,9 +115,8 @@ event.listen{
         t.hour, t.min, t.sec,
         ms
     )
-=======
+
     local now = os.date("%Y-%m-%d %H:%M:%S")
->>>>>>> 18cba1992e690360011ae69beafe023e4ff87cbe
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
