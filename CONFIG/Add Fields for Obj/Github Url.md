@@ -43,7 +43,6 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
 
-    -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
     for k, v in pairs(fm) do
       if type(v) == "table" then
@@ -62,8 +61,6 @@ command.define {
     -- editor.flashNotification(lines)
     local fmText = table.concat(lines, "\n")
     
-
-    -- 用重建的 frontmatter + 原 body 拼回文档
     local newText = string.format("---\n%s\n---\n%s", fmText, body)
 
     if newText ~= text then
