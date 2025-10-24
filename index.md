@@ -6,7 +6,7 @@ _[One of us!](https://community.silverbullet.md/)_
 
 # Last Modified ✏️
 
-${query[[from index.tag "page" select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
+${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
 
 # Last Visit 👀
 
