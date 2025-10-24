@@ -1,6 +1,5 @@
 ---
-tags:
-githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add Fields for Obj/githubUrl.md
+
 ---
 
 ```space-lua
@@ -30,7 +29,7 @@ command.define {
 
     -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
-    for k, v in pairs(fm) do
+    for k, v in pairs(fm.tags) do
       if type(v) == "table" then
         editor.flashNotification(k)
         table.insert(lines, k .. ":")
