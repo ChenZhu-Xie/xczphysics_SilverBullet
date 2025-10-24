@@ -18,6 +18,7 @@ yg_B.t_bc_lastV = template.new[==[+[[${name}]]​]==]
 
 function yg_B.breadcrumbs(path)
   local mypage = path or editor.getCurrentPath()
+  editor.flashNotification(mypage)
   local parts = string.split(mypage, "/")
   local crumbs = {}
   for i, part in ipairs(parts) do
