@@ -20,7 +20,7 @@ yg.t_bcsub = template.new[==[-[[${name}]]​]==]
 
 -- 工具: rtrim 去掉末尾空白/换行
 local function rtrim(s)
-  return (s or ""):gsub("%s+$", "")
+  return (s or ""):gsub("\n+$", "")
 end
 
 -- 判断是否是“根目录页面”
