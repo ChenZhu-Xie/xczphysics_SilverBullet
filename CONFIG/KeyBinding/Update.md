@@ -1,6 +1,6 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 13:56:41.000
+LastVisit: 2025-10-24 13:58:33
 ---
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
 2. https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
