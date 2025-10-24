@@ -38,7 +38,7 @@ command.define {
         end
       else
         -- editor.flashNotification(string.format("%s: %s", k, tostring(v)))
-        table.insert(lines, string.format("%s: %s", k, tostring(v)))
+        table.insert(lines, k .. ": " .. tostring(v))
       end
     end
     -- editor.flashNotification(lines)
