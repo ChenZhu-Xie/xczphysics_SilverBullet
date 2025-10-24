@@ -9,7 +9,6 @@ _[One of us!](https://community.silverbullet.md/)_
 
 ${query[[from index.tag "page" select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
 
-
 # Last Visit 👀
 
 ${query[[from index.tag "page" 
