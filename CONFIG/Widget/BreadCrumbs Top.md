@@ -37,7 +37,7 @@ end
 function yg.lastM(path)
   local mypage = path or editor.getCurrentPage()
   return query[[from index.tag "page" 
-         where _.name != mypage and _.name:find("^" .. mypage .. "/")
+         where _.name:find("^" .. mypage .. "/")
          order by _.lastModified desc
          limit 7]]
 end
@@ -45,7 +45,7 @@ end
 function yg.lastV(path)
   local mypage = path or editor.getCurrentPage()
   return query[[from index.tag "page" 
-         where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
+         where _.lastVisit and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
          limit 7]]
 end
