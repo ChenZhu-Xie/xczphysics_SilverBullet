@@ -1,0 +1,68 @@
+---
+githubUrl: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
+---
+# Breadcrumbs
+Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.
+
+> **example** Example
+> /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
+
+1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
+
+```space-lua
+-- priority: 10
+yg = yg or {}
+yg.t_bc = template.new[==[/[[${name}]]​]==]
+yg.t_bc_lastM = template.new[==[-[[${name}]]​]==]
+yg.t_bc_lastV = template.new[==[+[[${name}]]​]==]
+
+function yg.breadcrumbs(path)
+  local mypage = path or editor.getCurrentPage()
+  local parts = string.split(mypage, "/")
+  local crumbs = {}
+  for i, part in ipairs(parts) do
+    local current = table.concat(parts, "/", 1, i)
+    table.insert(crumbs, {name = current})
+  end
+  return crumbs
+end
+
+function yg.bc_B(path)
+  local bc = template.each(yg.breadcrumbs(path), yg.t_bc) or ""
+  local lastMs = template.each(yg.lastM(path), yg.t_bc_lastM) or ""
+  local lastVs = template.each(yg.lastV(path), yg.t_bc_lastV) or ""
+  return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
+end
+
+function yg.lastM(path)
+  local mypage = path or editor.getCurrentPage()
+  return query[[from index.tag "page" 
+         where _.name != mypage and _.name:find("^" .. mypage .. "/")
+         order by _.lastModified desc
+         limit 7]]
+end
+
+function yg.lastV(path)
+  local mypage = path or editor.getCurrentPage()
+  return query[[from index.tag "page" 
+         where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
+         order by _.lastVisit desc
+         limit 7]]
+end
+
+function widgets.breadcrumbs_B()
+  return widget.new {markdown = yg.bc_B()}
+end
+```
+
+```space-lua
+-- priority: -1
+event.listen {
+  name = "hooks:renderBottomWidgets",
+  run = function(e)
+    return widgets.breadcrumbs_B()
+  end
+}
+```
+
+See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)
