@@ -7,7 +7,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
-1. 
+1. GPT 
 ```lua
 -- priority: 10
 yg = yg or {}
@@ -98,8 +98,9 @@ function yg.breadcrumbs(path)
 end
 
 function yg.bc(path)
-  return template.each(yg.breadcrumbs(path), yg.t_bc)
-         .. template.each(yg.children(path), yg.t_bcsub)
+  local bc = template.each(yg.breadcrumbs(path), yg.t_bc) or ""
+  local subs = template.each(yg.children(path), yg.t_bcsub) or ""
+  return "[[.]]" .. bc .. " " .. subs
 end
 
 function yg.children(path)
