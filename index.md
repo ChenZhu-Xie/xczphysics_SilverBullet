@@ -7,7 +7,7 @@ _[One of us!](https://community.silverbullet.md/)_
 
 # Last Modified ✏️
 
-${query[[from index.tag "page" select {ref=_.ref, contentType=_.lastModified} order by lastModified desc limit 5]]}
+${query[[from index.tag "page" select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
 
 # Last Visit 👀
 
@@ -16,6 +16,13 @@ ${query[[from index.tag "page"
   select {ref=_.ref, lastVisit=_.lastVisit}
   order by lastVisitEpoch desc
   limit 5]]}
+
+${query[[from index.tag "page"
+  where _.lastVisitEpoch
+  select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
+  order by lastVisitEpoch desc
+  limit 5]]}
+
 
 ${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by lastVisit desc limit 5]]}
 
