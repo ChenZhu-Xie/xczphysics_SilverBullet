@@ -67,11 +67,12 @@ function yg.lastV(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
   local pages = collect_pages_for(mypage)
+  
   print(query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()
+         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find("^" .. mypage .. "/") and mypage ~= page.name
          select {ref=_.ref, lastVisit=_.lastVisit} 
-         order by _.lastVisit desc 
-         limit 5]])
+         order by _.lastVisit desc]])
+  
   -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
   -- pages = query[[from pages where _.size order by _.size desc]]
