@@ -2,6 +2,7 @@
 banner: ["https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/banner/welcome.jpg"]
 githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TopPageBanner.md"
 ---
+
 ## Usage
 add this to the `frontmatter` of the page where you want the banner shown:
   
