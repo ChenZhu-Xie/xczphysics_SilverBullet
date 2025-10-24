@@ -5,7 +5,7 @@ githubUrl: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcr
 Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.
 
 > **example** Example
-> /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
+> /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
@@ -18,7 +18,7 @@ yg_B.t_bc_lastV = template.new[==[+[[${name}]]​]==]
 
 function yg_B.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
-  editor.flashNotification(mypage)
+  -- editor.flashNotification(mypage)
   local parts = string.split(mypage, "/")
   local crumbs = {}
   for i, part in ipairs(parts) do
