@@ -5,6 +5,8 @@ LastVisit: 2025-10-24 02:16:03
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 2. https://silverbullet.md/API/editor
+3. https://silverbullet.md/API/os
+4. https://silverbullet.md/Library/Std/APIs/Date
 
 ```space-lua
 -- priority: -1
