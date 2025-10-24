@@ -1,4 +1,24 @@
 
+
+```space-lua
+-- priority: -1
+event.listen{
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+    local lastVisit = index.get(pageRef, "LastVisit")
+    if lastVisit == now then
+      return
+    end
+    index.update(pageRef, { lastVisit = now })
+    editor.flashNotification("LastVisit updated: " .. now)
+  end
+}
+
+```
+
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 2. https://silverbullet.md/API/editor
 3. https://silverbullet.md/API/os
