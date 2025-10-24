@@ -1,8 +1,6 @@
 
-
 ```space-lua
--- priority: 10
--- 用于保存每个页面的最近访问时间
+-- priority: -1
 local LastVisitStore = LastVisitStore or {}
 
 -- 给 page tag 定义动态属性 LastVisit
@@ -16,10 +14,7 @@ index.defineTag {
     end
   }
 }
-```
 
-```space-lua
--- priority: -1
 event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
