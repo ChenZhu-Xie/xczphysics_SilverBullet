@@ -1,7 +1,4 @@
----
-tags: {}
-LastVisit: 2025-10-24 13:49:31
----
+
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
 2. https://community.silverbullet.md/t/plug-in-paste-smart-url/3431
 

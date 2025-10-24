@@ -1,7 +1,5 @@
 ---
-tags: {}
 githubUrl: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DayProgressBar.md
-LastVisit: 2025-10-24 13:49:40
 ---
 
 # Time left in a day Progress Bar

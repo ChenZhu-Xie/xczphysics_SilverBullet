@@ -1,7 +1,4 @@
----
-tags: {}
-LastVisit: 2025-10-24 13:49:40
----
+
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
 
 ```space-lua
