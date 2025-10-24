@@ -1,4 +1,3 @@
-
 # Find tags that exist in other page but not in current page
 
 ${template.each(query[[

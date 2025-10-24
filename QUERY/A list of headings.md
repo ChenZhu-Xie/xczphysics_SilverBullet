@@ -1,4 +1,3 @@
-
 # A list of headings
 
 ${template.each(query[[

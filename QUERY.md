@@ -16,4 +16,3 @@
 
 1. https://silverbullet.md/Objects
 
-

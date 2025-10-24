@@ -1,4 +1,3 @@
-
 # Auto-collapsing Frontmatter
 
 ```space-style

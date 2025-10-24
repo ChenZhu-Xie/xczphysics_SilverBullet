@@ -2,6 +2,8 @@
 githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Custom_Width_and_Color_Tables.md"
 ---
 
+1. based on [[STYLE/Color/Table with Tag]] + [[STYLE/Color/Tables on Page]]
+
 # Custom Width & Colored Tables
 
 ## Usage:
