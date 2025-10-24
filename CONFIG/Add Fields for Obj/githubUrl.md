@@ -29,13 +29,11 @@ command.define {
     for k, v in pairs(fm) do
       if type(v) == "table" then
         -- editor.flashNotification(k)
-        if #v == 0 then
-          goto continue
-        end
-        
-        table.insert(lines, k .. ":")
-        for _, val in ipairs(v) do
-          table.insert(lines, "  - " .. tostring(val))
+        if #v > 0 then
+          table.insert(lines, k .. ":")
+          for _, val in ipairs(v) do
+            table.insert(lines, "  - " .. tostring(val))
+          end
         end
       else
         -- editor.flashNotification(string.format("%s: %s", k, tostring(v)))
