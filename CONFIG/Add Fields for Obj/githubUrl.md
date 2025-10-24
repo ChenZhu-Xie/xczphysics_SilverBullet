@@ -2,7 +2,8 @@
 -- 命令：Frontmatter: Ensure GitHub URL
 -- 作用：若 frontmatter 中无 githubUrl，则根据当前笔记路径自动补全为 GitHub 直链；否则不做任何事。
 command.define {
-  "Frontmatter: Ensure GitHub URL",
+  name = "Frontmatter: Ensure GitHub URL",
+  key = "Ctrl-Alt-G",
   run = function()
     local text = editor.getText()
     local fmExtract = index.extractFrontmatter(text) or {}
@@ -46,12 +47,4 @@ command.define {
     end
   end
 }
-
--- 快捷键绑定：Shift+Alt+X 触发上述命令
--- 若你的空间环境支持 keymap.define（常见做法），可使用如下写法：
-if keymap and keymap.define then
-  keymap.define {
-    ["Shift-Alt-X"] = "Frontmatter: Ensure GitHub URL"
-  }
-end
 ```
