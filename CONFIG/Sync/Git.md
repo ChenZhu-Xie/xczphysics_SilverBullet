@@ -320,7 +320,7 @@ function GitOperations.performCommit(message, showSteps, isColdStart)
   message = message or "Snapshot"
   showSteps = showSteps == nil and true or showSteps
 
-  -- Step 1: Commit (内部函数会处理 add & commit)
+  -- Step 1: Commit (add & commit)
   local commitResult, commitMessage = GitOperations.performCommitInternal(message, showSteps, isColdStart)
 
   if needToReleaseLock then releaseFn() end -- 🔓
@@ -391,20 +391,20 @@ function GitOperations.performCommitInternal(message, showSteps, isColdStart)
   -- Step 1: add files
   local addSuccess, addResult = GitOperations.addFiles()
   if not addSuccess then
-    return false, addResult  -- addResult 已经是完整字符串
+    return false, addResult
   end
 
   -- Step 2: commit changes
   local commitSuccess, commitResult = GitOperations.commitChanges(message)
   if commitSuccess then
-    return true, commitResult  -- commitResult 是 stdout，显示完整输出
+    return true, commitResult
   end
 
   -- Step 3: nothing to commit
   if commitResult:find("nothing to commit") then
     return "nothing", NotificationManager.messages.NOTHING_TO_COMMIT_CLEAN
   else
-    return false, commitResult -- 完整错误信息
+    return false, commitResult
   end
 end
 
