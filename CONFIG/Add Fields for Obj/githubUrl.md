@@ -37,7 +37,6 @@ command.define {
       end
     end
     local fmText = table.concat(lines, "\n")
-    editor.flashNotification(fmText)
 
     -- 用重建的 frontmatter + 原 body 拼回文档
     local newText = string.format("---\n%s\n---\n%s", fmText, body)
