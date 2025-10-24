@@ -36,17 +36,17 @@ function yg_B.bc(path)
 end
 
 function yg_B.lastM(path)
-  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   return query[[from index.tag "page" 
-         where _.name != mypage and _.name:find("^" .. mypage .. "/")
+         where _.name != editor.getCurrentPage() and _.name:find("^" .. mypath .. "/")
          order by _.lastModified desc
          limit 7]]
 end
 
 function yg_B.lastV(path)
-  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   return query[[from index.tag "page" 
-         where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
+         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find("^" .. mypath .. "/")
          order by _.lastVisit desc
          limit 7]]
 end
