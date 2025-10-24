@@ -9,7 +9,7 @@ command.define {
     local text = editor.getText()
     
     local ok, tags = pcall(function()
-      return index.extractFrontmatter(text)
+      return index.extractFrontmatter(text).frontmatter.tags
     end)
     
     if ok then
