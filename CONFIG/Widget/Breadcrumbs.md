@@ -8,79 +8,90 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 1. GPT 
-```lua
+```space-lua
 -- priority: 10
+-- 假设你已有 LastVisitStore = { [pageRef] = "2025-10-24T16:52:08.000Z", ... }
+LastVisitStore = LastVisitStore or {}
+
 yg = yg or {}
 
--- 链接模板：末尾保留一个空格用于分隔
-yg.t_bc    = template.new[==[/[[${name}]]​]==]
-yg.t_bcsub = template.new[==[-[[${name}]]​]==]
-
--- 工具：去掉末尾空白，避免渲染出多余空段落
-local function rtrim(s)
-  return (s or ""):gsub("%s+$", "")
+-- 取路径末级名，例如 "CONFIG/Widget/Embed External" -> "Embed External"
+local function basename(ref)
+  return (tostring(ref):match("([^/]+)$")) or tostring(ref)
 end
 
--- 生成逐级面包屑
-function yg.breadcrumbs(path)
-  local mypage = path or editor.getCurrentPage()
-  local parts = string.split(mypage, "/")
-  local crumbs = {}
-  for i, _ in ipairs(parts) do
-    local current = ""
-    for j = 1, i do
-      if current ~= "" then current = current .. "/" end
-      current = current .. parts[j]
-    end
-    table.insert(crumbs, { name = current })
-  end
-  return crumbs
-end
-
--- 最近修改的子页面（不区分根页面，使用 substring 匹配）
-local function compareDate(a, b)
-  return a.lastModified > b.lastModified
-end
-
-function yg.children(path)
-  local mypage = path or editor.getCurrentPage()
-  local crumbsChildren = {}
-
-  -- 拿出所有页面并按 lastModified 降序
-  local pages = space.listPages()
-  table.sort(pages, compareDate)
-
-  -- 使用 substring 匹配（与你给的 string.find 保持一致），排除自身，最多 7 个
-  for _, page in ipairs(pages) do
-    -- 第四个参数 true 表示按字面匹配，避免把 mypage 当作模式
-    if string.find(page.name, mypage, 1, true) and mypage ~= page.name then
-      table.insert(crumbsChildren, { name = page.ref })
-      if #crumbsChildren >= 7 then break end
+-- 收集 path 下的子孙页面（包含多级），并按 lastModified 降序
+local function collect_descendants_sorted(path)
+  local pages = {}
+  for _, p in ipairs(space.listPages()) do
+    -- 用 ref 更稳妥；排除自己本身
+    if p.ref ~= path and p.ref:find("^" .. path .. "/") then
+      table.insert(pages, p)
     end
   end
-
-  return crumbsChildren
+  table.sort(pages, function(a, b)
+    return (a.lastModified or 0) > (b.lastModified or 0)
+  end)
+  return pages
 end
 
--- 组装：前缀 [[home]] + 面包屑 + 子页面
-function yg.bc(path)
-  local bc = template.each(yg.breadcrumbs(path), yg.t_bc) or ""
-  local subs = template.each(yg.children(path), yg.t_bcsub) or ""
-  return "[[home]]" .. bc .. " " .. subs
+-- 取 path 下前 maxCount 个子页的“显示名”（末级名），拼成 -X-Y-Z 这种片段
+local function hyphen_children_segment(path, maxCount)
+  local segs, picked = {}, 0
+  local pages = collect_descendants_sorted(path)
+  for _, p in ipairs(pages) do
+    table.insert(segs, "-" .. basename(p.ref))
+    picked = picked + 1
+    if picked >= (maxCount or 7) then break end
+  end
+  return table.concat(segs, "")
 end
 
--- template
-function widgets.breadcrumbs()
-  -- 渲染前做一次 rtrim，避免末尾空白触发多余段落
-  return widget.new {
-    markdown = rtrim(yg.bc())
-  }
+-- 从 LastVisitStore 中取最近访问的 page refs（降序），拼成 +ref1+ref2… 片段
+local function plus_last_visit_segment(maxCount)
+  local items = {}
+  -- 拍平成数组便于排序
+  for ref, when in pairs(LastVisitStore) do
+    -- ISO 时间串可直接按字典序比较；若为空则视为最小
+    table.insert(items, { ref = ref, when = tostring(when or "") })
+  end
+  table.sort(items, function(a, b)
+    return a.when > b.when
+  end)
+  local segs, picked = {}, 0
+  for _, it in ipairs(items) do
+    if it.when ~= "" then
+      table.insert(segs, "+" .. it.ref)
+      picked = picked + 1
+      if picked >= (maxCount or 4) then break end
+    end
+  end
+  return table.concat(segs, "")
+end
+
+-- 组合最终一行：./PATH -child1-child2 ... +ref1+ref2 ...
+function yg.bc_line(path, childCount, recentCount)
+  path = path or editor.getCurrentPage() or "index"
+  local left = "./" .. path
+  local mid = " " .. hyphen_children_segment(path, childCount or 7)
+  local right = " " .. plus_last_visit_segment(recentCount or 4)
+  return left .. mid .. right
+end
+
+-- 如果你用的是 widgets 渲染：
+function widgets.breadcrumbs_line()
+  return widget.new({
+    markdown = yg.bc_line("CONFIG", 7, 4),
+    -- 如果你希望在正文顶部显示，继续沿用你昨天做的 renderContentWidgets 钩子
+    event = { listen = "renderContentWidgets" },
+    style = "display:block; margin-bottom: 0.5em;"
+  })
 end
 ```
 
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
-```space-lua
+```lua
 -- priority: 10
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
