@@ -1,7 +1,3 @@
----
-tags:
-githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add Fields for Obj/githubUrl.md
----
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
