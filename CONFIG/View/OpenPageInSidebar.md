@@ -1,5 +1,7 @@
 ---
-githubUrl: "https://github.com/janssen-io/silverbullet-libraries/blob/main/Library/OpenPageInSidebar/commands.md"
+tags: {}
+githubUrl: https://github.com/janssen-io/silverbullet-libraries/blob/main/Library/OpenPageInSidebar/commands.md
+LastVisit: 2025-10-24 13:49:51
 ---
 
 # Sidebar: Open Page

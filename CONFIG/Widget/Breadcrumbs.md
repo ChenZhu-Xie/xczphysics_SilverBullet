@@ -1,6 +1,7 @@
 ---
-tags: function
-githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md"
+tags: {}
+githubUrl: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
+LastVisit: 2025-10-24 13:50:17
 ---
 # Breadcrumbs
 Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.

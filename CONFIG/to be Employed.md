@@ -1,3 +1,7 @@
+---
+tags: {}
+LastVisit: 2025-10-24 13:49:37
+---
 - https://v2.silverbullet.md/Plugs
 - https://community.silverbullet.md/t/external-libraries-from-sb-community/3414/2
   - https://github.com/silverbulletmd/silverbullet-libraries
