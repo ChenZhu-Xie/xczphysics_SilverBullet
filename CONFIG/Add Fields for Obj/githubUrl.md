@@ -10,6 +10,8 @@ command.define {
     local ok, tags = pcall(function()
       return index.extractFrontmatter(text).frontmatter.tags
     end)
+
+    editor.flashNotification("ddddddd")
     
     if ok then
       local fmExtract = index.extractFrontmatter(text) or {}
