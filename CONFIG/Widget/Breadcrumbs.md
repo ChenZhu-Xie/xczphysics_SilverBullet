@@ -109,7 +109,7 @@ function yg.children(path)
   local pages = {}
 
   if mypage == "index" then
-    editor.flashNotification(mypage)
+    -- editor.flashNotification(mypage)
     for _, page in ipairs(space.listPages()) do
       table.insert(pages, page)
     end
