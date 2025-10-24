@@ -7,12 +7,14 @@ command.define {
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
+    local ok, tags = pcall(function()
+      return index.extractFrontmatter(text).frontmatter.tags
+    end)
     
-    editor.flashNotification(index.extractFrontmatter(text).frontmatter.tags)
-    if index.extractFrontmatter(text).frontmatter.tags == nil then
-      local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
-    else
+    if ok then
       local fmExtract = index.extractFrontmatter(text) or {}
+    else
+      local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
     end
     
     local fm = fmExtract.frontmatter or {}
