@@ -15,6 +15,19 @@ command.define {
       editor.flashNotification("githubUrl already set", "info")
       return
     end
+
+    local function replace_space_with_percent20(s)
+      local parts = {}
+      for i = 1, #s do
+        local c = s:sub(i, i)
+        if c == " " then
+          parts[#parts+1] = "%20"
+        else
+          parts[#parts+1] = c
+        end
+      end
+      return table.concat(parts)
+    end
     
     local path = ""
     if editor.getCurrentPath then
@@ -22,8 +35,11 @@ command.define {
       path = ok and (p or "") or ""
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
-    fm.githubUrl = string.gsub(url, " ", "%%20")
-    editor.flashNotification(string.gsub(url, " ", "%%20"))
+    fm.githubUrl = replace_space_with_percent20(url)
+
+    -- editor.flashNotification(url)
+    -- editor.flashNotification(string.gsub(url, " ", "%20"))
+    -- editor.flashNotification(string.gsub(url, " ", "%%20"))
 
     -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
