@@ -108,7 +108,7 @@ function yg.children(path)
   local mypage = path or editor.getCurrentPage()
   local pages = {}
 
-  if mypage == "." then
+  if mypage == "index" then
     for _, page in ipairs(space.listPages()) do
       table.insert(pages, page)
     end
