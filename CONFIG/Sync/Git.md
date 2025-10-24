@@ -1,5 +1,6 @@
 ---
-githubUrl: https://github.com/ChenZhu-Xie/SB_git.md/blob/main/Git.md
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md
+githubUrl-original: https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
 ---
 #meta
 
@@ -21,8 +22,6 @@ ${widgets.commandButton("Git: Commit")}
 
 # Configuration
 There is currently only a single configuration option: `git.autoSync`. When set, the `Git: Sync` command will be run every _x_ minutes.
-
-1. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
 
 Example configuration:
 ```lua
