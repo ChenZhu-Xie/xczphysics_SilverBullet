@@ -17,7 +17,7 @@ yg_B.t_bc_lastM = template.new[==[-[[${name}]]​]==]
 yg_B.t_bc_lastV = template.new[==[+[[${name}]]​]==]
 
 function yg_B.breadcrumbs(path)
-  local mypage = path or editor.getCurrentPath()
+  local mypage = path or editor.getCurrent()
   editor.flashNotification(mypage)
   local parts = string.split(mypage, "/")
   local crumbs = {}
