@@ -107,6 +107,7 @@ function yg.children(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
   local pages = {}
+  editor.flashNotification(mypage)
 
   if mypage == "index" then
     for _, page in ipairs(space.listPages()) do
