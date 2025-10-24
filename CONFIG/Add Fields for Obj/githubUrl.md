@@ -14,7 +14,7 @@ command.define {
     if ok then
       local fmExtract = index.extractFrontmatter(text) or {}
       
-    editor.flashNotification("ddddddd")
+      editor.flashNotification("ddddddd")
     else
       local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
     end
