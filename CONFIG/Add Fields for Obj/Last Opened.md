@@ -1,6 +1,6 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 14:04:16
+LastVisit: 2025-10-24 14:07:18
 ---
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
@@ -19,7 +19,7 @@ event.listen{
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
 
-    local now = os.date("%Y-%m-%d %H:%M:%S")
+    local now = os.date("%Y-%m-%d %H-%M-%S")
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
