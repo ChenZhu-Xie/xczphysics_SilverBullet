@@ -1,5 +1,5 @@
 ---
-githubUrl: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs%20Bottom.md
 githubUrl-original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
 ---
 # Breadcrumbs
