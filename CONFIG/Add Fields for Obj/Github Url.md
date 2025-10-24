@@ -1,6 +1,3 @@
----
-githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%undefinedFields%undefinedfor%undefinedObj/Github%undefinedUrl.md
----
 
 
 ```space-lua
@@ -41,7 +38,7 @@ command.define {
         end
       else
         -- editor.flashNotification(string.format("%s: %s", k, tostring(v)))
-        table.insert(lines, k .. ": " .. tostring(v))
+        table.insert(lines, k .. ": " .. v)
       end
     end
     -- editor.flashNotification(lines)
