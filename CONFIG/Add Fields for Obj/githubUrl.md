@@ -12,9 +12,11 @@ command.define {
     else
       local fmExtract = index.extractFrontmatter(text) or {}
     end
-    editor.flashNotification(fmExtract)
+    
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
+
+    editor.flashNotification(body)
 
     if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
       editor.flashNotification("githubUrl already set", "info")
