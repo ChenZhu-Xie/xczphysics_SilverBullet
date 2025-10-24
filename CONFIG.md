@@ -1,7 +1,7 @@
 
 # Plugs That I Wrote
 
-${query[[from index.tag "page"]]}
+${query[[from index.tag "page" where string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")]]}
 
 # Plugs that have [[CONFIG/KeyBinding]]s
 
