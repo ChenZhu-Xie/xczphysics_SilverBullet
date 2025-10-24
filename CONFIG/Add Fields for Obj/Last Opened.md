@@ -2,7 +2,7 @@
 
 ```space-lua
 -- priority: -1
-local LastVisitStore = LastVisitStore or {}
+local lastVisitStore = lastVisitStore or {}
 
 -- 给 page tag 定义动态属性 LastVisit
 index.defineTag {
@@ -10,7 +10,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return LastVisitStore[self.name]
+        return lastVisitStore[self.name]
       end
     end
   }
@@ -20,12 +20,12 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    local now = os.date("%Y-%m-%d %H:%M:%S")
+    local now = os.date("!%Y-%m-%d %H:%M:%S")
 
-    if LastVisitStore[pageRef] == now then
+    if lastVisitStore[pageRef] == now then
       return
     end
-    LastVisitStore[pageRef] = now
+    lastVisitStore[pageRef] = now
 
     editor.flashNotification("lastVisit updated: " .. now)
   end
