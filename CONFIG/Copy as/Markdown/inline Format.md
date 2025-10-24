@@ -1,6 +1,3 @@
----
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/inline%20Format.md"
----
 
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
 2. https://community.silverbullet.md/t/copy-the-nearest-format-around-cursor/3418?u=chenzhu-xie
