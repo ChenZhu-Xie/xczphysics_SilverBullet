@@ -1,4 +1,3 @@
-
 # Knowledge about QUERY
 
 > **tip** Ref

@@ -11,6 +11,6 @@ iiaahhddnnmmkkaaoozzxc660
 
 #sb-main .cm-editor {
   font-size: 22px;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 ```
