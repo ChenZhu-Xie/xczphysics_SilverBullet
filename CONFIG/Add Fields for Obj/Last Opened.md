@@ -18,7 +18,7 @@ event.listen{
     local fmExtract = index.extractFrontmatter(text) or {}
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
-
+    
     local t = os.date("*t")
     local ms = math.floor((os.clock() % 1) * 1000)  -- 模拟毫秒
     local now = string.format(
