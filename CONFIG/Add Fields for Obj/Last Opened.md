@@ -1,8 +1,40 @@
 1. https://silverbullet.md/API/index#Example
 
-1. 
-
 ```space-lua
+-- priority: -1
+local lastVisitStore = lastVisitStore or {}
+
+-- 给 page tag 定义动态属性 LastVisit
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "lastVisit" then
+        return lastVisitStore[self.name]
+      end
+    end
+  }
+}
+
+event.listen{
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+
+    if lastVisitStore[pageRef] == now then
+      return
+    end
+    lastVisitStore[pageRef] = now
+
+    editor.flashNotification("lastVisit updated: " .. now)
+  end
+}
+```
+
+1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=072f4db51d
+
+```lua
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
 
