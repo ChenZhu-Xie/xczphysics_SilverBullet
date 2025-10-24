@@ -18,8 +18,11 @@ event.listen{
     local fmExtract = index.extractFrontmatter(text) or {}
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
-    
-    local now = os.date("%Y-%m-%d %H:%M:%S")
+
+    function utilities.getISOTime()
+      return os.date("!%Y-%m-%dT%H:%M:%S.") .. string.format("%03d", 0)
+    end
+    local now = utilities.getISOTime()
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
