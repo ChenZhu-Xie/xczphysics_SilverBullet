@@ -10,8 +10,8 @@ index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
-      if attr == "LastVisit" then
-        return LastVisitStore[self.ref]
+      if attr == "lastVisit" then
+        return LastVisitStore[self.name]
       end
     end
   }
@@ -31,7 +31,7 @@ event.listen{
     end
     LastVisitStore[pageRef] = now
 
-    editor.flashNotification("LastVisit updated: " .. now)
+    editor.flashNotification("lastVisit updated: " .. now)
   end
 }
 ```
