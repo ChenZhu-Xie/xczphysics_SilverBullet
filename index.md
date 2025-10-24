@@ -11,7 +11,7 @@ ${query[[from index.tag "page" select {ref=_.ref, contentType=_.lastModified} or
 
 # Last Visit 👀
 
-${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by tostring(lastVisit) desc limit 5]]}
+${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by lastVisit desc limit 5]]}
 
 # Time 🌄
 
