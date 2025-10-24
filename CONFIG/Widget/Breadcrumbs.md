@@ -15,8 +15,8 @@ yg = yg or {}
 local ROOT_PAGE = "_root"
 
 -- 去掉模板尾部的零宽空格，并且不含换行
-yg.t_bc    = template.new[==[/[[${name}]]]==]
-yg.t_bcsub = template.new[==[-[[${name}]]]==]
+yg.t_bc    = template.new[==[/[[${name}]]​]==]
+yg.t_bcsub = template.new[==[-[[${name}]]​]==]
 
 -- 工具: rtrim 去掉末尾空白/换行
 local function rtrim(s)
