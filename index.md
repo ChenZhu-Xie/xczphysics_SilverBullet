@@ -20,11 +20,11 @@ ${query[[from index.tag "page"
 ${query[[from index.tag "page"
   where _.lastVisitEpoch
   select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
-  order by lastVisitEpoch desc
+  order by _.lastVisitEpoch desc
   limit 5]]}
 
 
-${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by lastVisit desc limit 5]]}
+${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by _.lastVisit desc limit 5]]}
 
 # Time 🌄
 
