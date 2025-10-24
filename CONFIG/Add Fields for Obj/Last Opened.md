@@ -4,13 +4,24 @@
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
 
--- 给 page tag 定义动态属性 LastVisit
+local function nowEpoch()
+  return os.time()
+end
+
+local function epochToISO(ts)
+  return os.date("%Y-%m-%dT%H:%M:%S", ts)
+end
+
 index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
+      local rec = lastVisitStore[self.name]
+      if not rec then return nil end
       if attr == "lastVisit" then
-        return lastVisitStore[self.name]
+        return rec.iso
+      elseif attr == "lastVisitEpoch" then
+        return rec.epoch
       end
     end
   }
@@ -20,14 +31,13 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    local now = os.date("%Y-%m-%dT%H:%M:%S", os.time())
+    if not pageRef then return end
+    local epoch = nowEpoch()
+    local rec = lastVisitStore[pageRef]
+    if rec and rec.epoch == epoch then return end
 
-    if lastVisitStore[pageRef] == now then
-      return
-    end
-    lastVisitStore[pageRef] = now
-
-    editor.flashNotification("lastVisit updated: " .. now)
+    lastVisitStore[pageRef] = { epoch = epoch, iso = epochToISO(epoch) }
+    editor.flashNotification("lastVisit updated: " .. lastVisitStore[pageRef].iso)
   end
 }
 ```
