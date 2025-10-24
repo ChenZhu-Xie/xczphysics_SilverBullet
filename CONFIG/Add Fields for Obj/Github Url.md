@@ -3,8 +3,7 @@ githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONF
 ---
 
 ```space-lua
--- 命令：Frontmatter: Ensure GitHub URL
--- 作用：若 frontmatter 中无 githubUrl，则根据当前笔记路径自动补全为 GitHub 直链；否则不做任何事。
+-- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path; otherwise, take no action.
 command.define {
   name = "Frontmatter: Ensure GitHub URL",
   key = "Ctrl-Alt-g",
