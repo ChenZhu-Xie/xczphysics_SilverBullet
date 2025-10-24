@@ -7,7 +7,7 @@ command.define {
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
-    if fm.tags == nil then
+    if index.extractFrontmatter(text).frontmatter.tags == nil then
       local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
     else
       local fmExtract = index.extractFrontmatter(text) or {}
