@@ -1,8 +1,3 @@
----
-tags: {}
-githubUrl: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLevelToggle.md
-LastVisit: 2025-10-24 13:57:25.0000
----
 
 # Header: Toggle Level
 
