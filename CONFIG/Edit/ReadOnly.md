@@ -1,6 +1,6 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 13:49:24
+LastVisit: 2025-10-24 13:56:39.000
 ---
 
 1. Modified from https://community.silverbullet.md/t/togglable-and-configurable-read-only-mode/3147
