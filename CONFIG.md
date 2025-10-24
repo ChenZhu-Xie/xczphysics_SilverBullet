@@ -3,6 +3,7 @@
 
 ${query[[from index.tag "page" 
   where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
+  select {ref=_.ref, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
 ]]}
 
 # Plugs that have [[CONFIG/KeyBinding]]s
