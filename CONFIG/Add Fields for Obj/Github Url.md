@@ -1,3 +1,6 @@
+---
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md
+---
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
@@ -36,7 +39,6 @@ command.define {
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
     fm.githubUrl = replace_space_with_percent20(url)
-
     -- editor.flashNotification(url)
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
