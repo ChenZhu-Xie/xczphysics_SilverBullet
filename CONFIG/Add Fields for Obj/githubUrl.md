@@ -1,3 +1,7 @@
+---
+tags:
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add Fields for Obj/githubUrl.md
+---
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
@@ -28,6 +32,7 @@ command.define {
     local lines = {}
     for k, v in pairs(fm) do
       if type(v) == "table" then
+        editor.flashNotification(k)
         table.insert(lines, k .. ":")
         for _, val in ipairs(v) do
           table.insert(lines, "  - " .. tostring(val))
