@@ -7,18 +7,17 @@ command.define {
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
-    local fmExtract = index.extractFrontmatter(text) or {}
+    if fm.tags == nil then
+      local fmExtract = index.extractFrontmatter(text, {removeTags=True}) or {}
+    else
+      local fmExtract = index.extractFrontmatter(text) or {}
+    end
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
     if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
       editor.flashNotification("githubUrl already set", "info")
       return
-    end
-
-    if fm.tags == nil then
-      fm.tags = nil
-      changed = true
     end
     
     local path = ""
