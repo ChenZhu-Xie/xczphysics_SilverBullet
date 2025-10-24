@@ -7,19 +7,7 @@ command.define {
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
-
-    editor.flashNotification("ddddddd")
-    
-    local ok, tags = pcall(function()
-      return index.extractFrontmatter(text).frontmatter.tags
-    end)
-    
-    if ok then
-      local fmExtract = index.extractFrontmatter(text) or {}
-    else
-      local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
-    end
-    
+    local fmExtract = index.extractFrontmatter(text) or {}
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
@@ -49,6 +37,7 @@ command.define {
       end
     end
     local fmText = table.concat(lines, "\n")
+    editor.flashNotification(fmText)
 
     -- 用重建的 frontmatter + 原 body 拼回文档
     local newText = string.format("---\n%s\n---\n%s", fmText, body)
