@@ -1,8 +1,3 @@
----
-tags: {}
-LastVisit: 2025-10-24 02:12:49
----
-
 # Hello 👋
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
 
@@ -11,10 +6,15 @@ _[One of us!](https://community.silverbullet.md/)_
 
 # Last Modified ✏️
 
-${query[[from index.tag "page" select {ref=_.ref, contentType=_.contentType} order by lastModified desc limit 5]]}
+${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
 
+# Last Visit 👀
 
-${query[[from index.tag "page"]]}
+${query[[from index.tag "page" 
+         where _.lastVisit and _.name != editor.getCurrentPage()
+         select {ref=_.ref, lastVisit=_.lastVisit} 
+         order by _.lastVisit desc 
+         limit 5]]}
 
 # Time 🌄
 

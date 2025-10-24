@@ -1,5 +1,5 @@
 ---
-githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DayProgressBar.md"
+githubUrl: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DayProgressBar.md
 ---
 
 # Time left in a day Progress Bar

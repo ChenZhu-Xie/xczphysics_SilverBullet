@@ -1,12 +1,103 @@
----
-tags: {}
-LastVisit: 2025-10-24 02:16:03
----
+1. https://silverbullet.md/API/index#Example
+2. https://chatgpt.com/share/68fb38b1-bc48-8010-8bea-5fc4fbd1e7a9
+
+${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by _.lastVisit desc limit 5]]}
+
+```space-lua
+-- priority: -1
+local lastVisitStore = lastVisitStore or {}
+
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "lastVisit" then
+        return lastVisitStore[self.name]
+      end
+    end
+  }
+}
+
+event.listen{
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+
+    if lastVisitStore[pageRef] == now then
+      return
+    end
+    lastVisitStore[pageRef] = now
+    -- editor.flashNotification("lastVisit: pageRef " .. now)
+  end
+}
+```
+
+1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=072f4db51d
+
+```lua
+-- priority: -1
+local lastVisitStore = lastVisitStore or {}
+
+local function nowEpoch()
+  return os.time()
+end
+
+local function epochToISO(ts)
+  return os.date("%Y-%m-%dT%H:%M:%S", ts)
+end
+
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      local rec = lastVisitStore[self.name]
+      if not rec then return nil end
+      if attr == "lastVisit" then
+        return rec.iso
+      elseif attr == "lastVisitEpoch" then
+        return rec.epoch
+      end
+    end
+  }
+}
+
+event.listen{
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    if not pageRef then return end
+    local epoch = nowEpoch()
+    local rec = lastVisitStore[pageRef]
+    if rec and rec.epoch == epoch then return end
+
+    lastVisitStore[pageRef] = { epoch = epoch, iso = epochToISO(epoch) }
+    editor.flashNotification("lastVisit updated: " .. lastVisitStore[pageRef].epoch)
+  end
+}
+```
+
+```
+${query[[from index.tag "page"
+  where _.lastVisitEpoch
+  select {ref=_.ref, lastVisit=_.lastVisit}
+  order by lastVisitEpoch desc
+  limit 5]]}
+
+${query[[from index.tag "page"
+  where _.lastVisitEpoch
+  select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
+  order by _.lastVisitEpoch desc  -- _. matters
+  limit 5]]}
+```
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 2. https://silverbullet.md/API/editor
+3. https://silverbullet.md/API/os
+4. https://silverbullet.md/Library/Std/APIs/Date
+5. https://silverbullet.md/HTTP%20API
 
-```space-lua
+```lua
 -- priority: -1
 event.listen{
   name = "hooks:renderTopWidgets",
@@ -16,6 +107,7 @@ event.listen{
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
 
+<<<<<<< HEAD
     local t = os.date("*t")
     local ms = math.floor((os.clock() % 1) * 1000)
     local now = string.format(
@@ -24,6 +116,9 @@ event.listen{
         t.hour, t.min, t.sec,
         ms
     )
+=======
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+>>>>>>> 18cba1992e690360011ae69beafe023e4ff87cbe
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
@@ -54,4 +149,3 @@ event.listen{
   end
 }
 ```
-
