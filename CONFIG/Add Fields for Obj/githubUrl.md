@@ -8,7 +8,7 @@ githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONF
 -- 作用：若 frontmatter 中无 githubUrl，则根据当前笔记路径自动补全为 GitHub 直链；否则不做任何事。
 command.define {
   name = "Frontmatter: Ensure GitHub URL",
-  key = "Ctrl-Alt-G",
+  key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
     local fmExtract = index.extractFrontmatter(text) or {}
