@@ -34,43 +34,16 @@ function yg.bc(path)
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
-local function collect_pages_for(mypage)
-  local pages = {}
-  if mypage == "index" then
-    for _, page in ipairs(query[[from index.tag "page"]]) do
-      table.insert(pages, page)
-    end
-  else
-    for _, page in ipairs(query[[from index.tag "page"]]) do
-      if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
-        table.insert(pages, page)
-      end
-    end
-  end
-  return pages
-end
-
 function yg.lastM(path)
-  local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
-  local pages = collect_pages_for(mypage)
-
-  table.sort(pages, function(a, b) return a.lastModified > b.lastModified end)
-
-  for i = 1, math.min(7, #pages) do
-    table.insert(crumbsChildren, {name = pages[i].ref})
-  end
-  return crumbsChildren
+  return query[[from index.tag "page" 
+         where _.name != mypage and _.name:find("^" .. mypage .. "/")
+         order by _.lastModified desc
+         limit 7]]
 end
 
 function yg.lastV(path)
   local mypage = path or editor.getCurrentPage()
-  -- local pages = collect_pages_for(mypage)
-  
-  -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
-  -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
-  -- pages = query[[from pages where _.size order by _.size desc]]
-  -- pages = query[[from pages where _.lastVisit order by _.lastVisit desc]]
   return query[[from index.tag "page" 
          where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
