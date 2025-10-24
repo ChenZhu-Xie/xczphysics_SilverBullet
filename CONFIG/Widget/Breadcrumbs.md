@@ -68,6 +68,7 @@ function yg.lastV(path)
   local mypage = path or editor.getCurrentPage()
   local pages = collect_pages_for(mypage)
 
+  print(pages)
   -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
   pages = query[[from pages where _.lastVisit order by _.lastVisit desc]]
