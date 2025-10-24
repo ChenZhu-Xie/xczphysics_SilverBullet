@@ -1,4 +1,5 @@
 1. https://silverbullet.md/API/index#Example
+2. https://chatgpt.com/share/68fb38b1-bc48-8010-8bea-5fc4fbd1e7a9
 
 ```space-lua
 -- priority: -1
@@ -25,8 +26,7 @@ event.listen{
       return
     end
     lastVisitStore[pageRef] = now
-
-    editor.flashNotification("lastVisit: " .. now)
+    -- editor.flashNotification("lastVisit: pageRef " .. now)
   end
 }
 ```
