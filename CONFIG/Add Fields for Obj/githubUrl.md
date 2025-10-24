@@ -7,11 +7,9 @@ command.define {
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
-
-    editor.flashNotification("ddddddd")
     
     local ok, tags = pcall(function()
-      return index.extractFrontmatter(text).frontmatter.tags
+      return index.extractFrontmatter(text)
     end)
     
     if ok then
