@@ -1,4 +1,4 @@
-# Welcome to visit my 'dynamic' site
+# Welcome to Visit my 'Dynamic' Site
 
 Under construction & Built with [SilverBullet](https://silverbullet.md/):
   - Read-Only: [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/)
@@ -8,4 +8,4 @@ Take a seat!
 
 # What does it looks like?
 
-<img width="1973" height="1650" alt="image" src="https://github.com/user-attachments/assets/16ebef07-972f-4772-9ec4-abba62504d67" />
+<img width="1296" height="1925" alt="image" src="https://github.com/user-attachments/assets/6b9370c0-f503-4a2c-ae1d-c5b2485b8804" />
