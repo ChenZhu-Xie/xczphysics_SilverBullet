@@ -9,9 +9,9 @@ _[One of us!](https://community.silverbullet.md/)_
 
 ${query[[from index.tag "page" select {ref=_.ref, contentType=_.lastModified} order by lastModified desc limit 5]]}
 
-# Last Visit ✏️
+# Last Visit 👀
 
-${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by lastVisit desc limit 5]]}
+${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by tostring(lastVisit) desc limit 5]]}
 
 # Time 🌄
 
