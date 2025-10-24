@@ -1,3 +1,7 @@
+---
+tags:
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add Fields for Obj/githubUrl.md
+---
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
@@ -37,6 +41,7 @@ command.define {
       end
     end
     local fmText = table.concat(lines, "\n")
+    editor.flashNotification(fmText)
 
     -- 用重建的 frontmatter + 原 body 拼回文档
     local newText = string.format("---\n%s\n---\n%s", fmText, body)
