@@ -1,7 +1,5 @@
 ---
-tags: {}
 githubUrl: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/SelectionToCodeblockToggle.md
-LastVisit: 2025-10-24 13:56:40.000
 ---
 
 # Selection to custom CodeBlock

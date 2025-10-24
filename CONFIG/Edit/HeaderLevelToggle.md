@@ -1,3 +1,6 @@
+---
+githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLevelToggle.md"
+---
 
 # Header: Toggle Level
 
