@@ -20,7 +20,7 @@ event.listen{
   name = "hooks:renderTopWidgets",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    local now = os.date("!%Y-%m-%d %H:%M:%S")
+    local now = os.date("%Y-%m-%d %H:%M:%S")
 
     if lastVisitStore[pageRef] == now then
       return
