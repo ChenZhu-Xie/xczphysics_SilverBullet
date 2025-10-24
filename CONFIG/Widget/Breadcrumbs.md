@@ -70,7 +70,7 @@ function yg.lastV(path)
 
   -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
-  table = query[[from pages where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by _.lastVisit desc limit 5]]
+  pages = query[[from pages where _.lastVisit order by _.lastVisit desc]]
 
   for i = 1, math.min(7, #pages) do
     table.insert(crumbsChildren, {name = pages[i].ref})
