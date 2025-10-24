@@ -8,7 +8,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs)-[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 1. GPT 
-```space-lua
+```lua
 -- priority: 10
 -- 假设你已有 LastVisitStore = { [pageRef] = "2025-10-24T16:52:08.000Z", ... }
 LastVisitStore = LastVisitStore or {}
@@ -91,7 +91,7 @@ end
 
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
-```lua
+```space-lua
 -- priority: 10
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
@@ -114,13 +114,9 @@ function yg.bc(path)
   return "[[.]]" .. bc .. " " .. subs
 end
 
-function yg.children(path)
-  local crumbsChildren = {}
-  local mypage = path or editor.getCurrentPage()
+local function collect_pages_for(mypage)
   local pages = {}
-
   if mypage == "index" then
-    -- editor.flashNotification(mypage)
     for _, page in ipairs(space.listPages()) do
       table.insert(pages, page)
     end
@@ -131,6 +127,13 @@ function yg.children(path)
       end
     end
   end
+  return table, pages
+end
+
+function yg.children(path)
+  local crumbsChildren = {}
+  local mypage = path or editor.getCurrentPage()
+  local table, pages = collect_pages_for(mypage)
 
   table.sort(pages, function(a, b) return a.lastModified > b.lastModified end)
 
