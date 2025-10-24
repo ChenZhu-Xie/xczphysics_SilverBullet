@@ -47,13 +47,13 @@ local function collect_pages_for(mypage)
       end
     end
   end
-  return table, pages
+  return pages
 end
 
 function yg.lastM(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
-  local table, pages = collect_pages_for(mypage)
+  local pages = collect_pages_for(mypage)
 
   table.sort(pages, function(a, b) return a.lastModified > b.lastModified end)
 
@@ -66,7 +66,7 @@ end
 function yg.lastV(path)
   local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
-  local table, pages = collect_pages_for(mypage)
+  local pages = collect_pages_for(mypage)
 
   -- table.sort(pages, function(a, b) return a.lastVisit > b.lastVisit end)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
