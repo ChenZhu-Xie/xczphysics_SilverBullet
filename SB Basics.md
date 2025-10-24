@@ -1,8 +1,8 @@
 ---
-basic level: "kindergarden"
-chain of thoughts:
-- fere
-- fsdfa -- inject this Front Matter (syntax = Yaml) as a snippet
+tags: {SB_itself}
+basic level: kindergarden
+chain of thoughts: {}
+LastVisit: NaN
 ---
 
 # Quickly Cover the basics of SilverBullet
