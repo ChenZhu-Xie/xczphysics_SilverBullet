@@ -35,7 +35,7 @@ function yg_B.bc(path)
 end
 
 function yg_B.lastM(path)
-  local mypage = path or editor.getCurrentPage()
+  local mypage = path or editor.getCurrentPath()
   return query[[from index.tag "page" 
          where _.name != mypage and _.name:find("^" .. mypage .. "/")
          order by _.lastModified desc
@@ -43,7 +43,7 @@ function yg_B.lastM(path)
 end
 
 function yg_B.lastV(path)
-  local mypage = path or editor.getCurrentPage()
+  local mypage = path or editor.getCurrentPath()
   return query[[from index.tag "page" 
          where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
