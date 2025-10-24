@@ -10,3 +10,7 @@
 # Configuration
 
 1. https://silverbullet.md/Install/Configuration
+
+# Links in Page
+
+1. https://silverbullet.md/Links
