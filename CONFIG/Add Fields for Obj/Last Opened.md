@@ -37,7 +37,7 @@ event.listen{
     if rec and rec.epoch == epoch then return end
 
     lastVisitStore[pageRef] = { epoch = epoch, iso = epochToISO(epoch) }
-    editor.flashNotification("lastVisit updated: " .. lastVisitStore[pageRef].iso)
+    editor.flashNotification("lastVisit updated: " .. lastVisitStore[pageRef].epoch)
   end
 }
 ```
