@@ -21,12 +21,10 @@ event.listen{
 
     local t = os.date("*t")
     local ms = math.floor((os.clock() % 1) * 1000)  -- 模拟毫秒
-    local timestamp = string.format(
+    local now = string.format(
       "%04d-%02d-%02dT%02d:%02d:%02d.%03d",
       t.year, t.month, t.day, t.hour, t.min, t.sec, ms
     )
-
-    local now = os.difftime()
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
