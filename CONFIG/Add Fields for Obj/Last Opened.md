@@ -26,7 +26,7 @@ event.listen{
     end
     lastVisitStore[pageRef] = now
 
-    editor.flashNotification("lastVisit updated: " .. now)
+    editor.flashNotification("lastVisit: " .. now)
   end
 }
 ```
