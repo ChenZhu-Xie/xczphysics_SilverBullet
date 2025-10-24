@@ -29,7 +29,6 @@ config.set(
 ```
 
 
-
 ```space-lua
 
 -- prioity: 10
@@ -40,9 +39,9 @@ config.set("admonLang","en")
 
 
 # Plugs That I Wrote
-${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
-# Related to [[CONFIG/KeyBinding]]
+
+# Plugs that have [[CONFIG/KeyBinding]]
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
