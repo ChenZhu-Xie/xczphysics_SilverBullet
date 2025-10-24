@@ -70,10 +70,6 @@ html {
 
 ```space-style
 
-html {
-  --editor-width: 1100px !important;
-}
-
 .markmap {
   --markmap-text-color: #BBDEFB !important;
 }
