@@ -1,5 +1,5 @@
 ---
-githubUrl: https://github.com/malys/silverbullet-libraries/blob/main/src/MdTableSheet.md
+githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/MdTableSheet.md"
 ---
 
 # Md Table + Formulajs evaluator

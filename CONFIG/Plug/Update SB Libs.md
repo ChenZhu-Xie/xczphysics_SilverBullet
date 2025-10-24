@@ -1,5 +1,5 @@
 ---
-githubUrl: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/UpdateSilverbulletLibraries.md
+githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/UpdateSilverbulletLibraries.md"
 ---
 
 # Update SilverBullet Libraries 
