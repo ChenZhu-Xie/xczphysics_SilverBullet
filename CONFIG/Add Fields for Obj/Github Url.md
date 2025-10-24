@@ -1,3 +1,6 @@
+---
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/AddundefinedFieldsundefinedforundefinedObj/GithubundefinedUrl.md
+---
 
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
