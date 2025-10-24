@@ -1,3 +1,8 @@
+---
+tags:
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add Fields for Obj/githubUrl.md
+---
+
 ```space-lua
 -- 命令：Frontmatter: Ensure GitHub URL
 -- 作用：若 frontmatter 中无 githubUrl，则根据当前笔记路径自动补全为 GitHub 直链；否则不做任何事。
@@ -42,8 +47,7 @@ command.define {
 
     if newText ~= text then
       editor.setText(newText, false)
-      -- 可选：提示
-      -- editor.flashNotification("githubUrl added", "info")
+      editor.flashNotification("githubUrl added", "info")
     end
   end
 }
