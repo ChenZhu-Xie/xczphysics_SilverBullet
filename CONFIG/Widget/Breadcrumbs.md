@@ -108,9 +108,15 @@ function yg.children(path)
   local mypage = path or editor.getCurrentPage()
   local pages = {}
 
-  for _, page in ipairs(space.listPages()) do
-    if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
+  if mypage == "." then
+    for _, page in ipairs(space.listPages()) do
       table.insert(pages, page)
+    end
+  else
+    for _, page in ipairs(space.listPages()) do
+      if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
+        table.insert(pages, page)
+      end
     end
   end
 
