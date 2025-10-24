@@ -1,3 +1,6 @@
+---
+githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%undefinedFields%undefinedfor%undefinedObj/Github%undefinedUrl.md
+---
 
 
 ```space-lua
@@ -24,7 +27,7 @@ command.define {
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. path
     fm.githubUrl = string.gsub(url, " ", "%%20")
-    editor.flashNotification(path)
+    editor.flashNotification(tostring(path))
 
     -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
