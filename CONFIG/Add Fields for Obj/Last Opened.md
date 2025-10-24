@@ -12,6 +12,7 @@ event.listen{
     if lastVisit == now then
       return
     end
+    
     index.update(pageRef, { lastVisit = now })
     editor.flashNotification("LastVisit updated: " .. now)
   end
