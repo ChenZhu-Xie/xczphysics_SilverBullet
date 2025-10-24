@@ -26,7 +26,7 @@ command.define {
     end
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
     fm.githubUrl = string.gsub(url, " ", "%%20")
-    editor.flashNotification(url)
+    editor.flashNotification(string.gsub(url, " ", "%%20"))
 
     -- 重新序列化 frontmatter（保持你当前的简单 key: value 风格；table 值按 YAML 列表输出）
     local lines = {}
