@@ -16,6 +16,11 @@ command.define {
       return
     end
 
+    if fm.tags == nil then
+      fm.tags = nil
+      changed = true
+    end
+    
     local path = ""
     if editor.getCurrentPath then
       local ok, p = pcall(editor.getCurrentPath)
