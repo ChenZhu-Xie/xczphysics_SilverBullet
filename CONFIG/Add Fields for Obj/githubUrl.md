@@ -8,7 +8,7 @@ command.define {
   run = function()
     local text = editor.getText()
     if fm.tags == nil then
-      local fmExtract = index.extractFrontmatter(text, {removeTags=True}) or {}
+      local fmExtract = index.extractFrontmatter(text, {removeTags=true}) or {}
     else
       local fmExtract = index.extractFrontmatter(text) or {}
     end
