@@ -9,14 +9,11 @@ command.define {
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
-    -- 已存在就直接退出
     if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
-      -- 可选：提示
-      -- editor.flashNotification("githubUrl already set", "info")
+      editor.flashNotification("githubUrl already set", "info")
       return
     end
 
-    -- 计算 URL
     local path = ""
     if editor.getCurrentPath then
       local ok, p = pcall(editor.getCurrentPath)
