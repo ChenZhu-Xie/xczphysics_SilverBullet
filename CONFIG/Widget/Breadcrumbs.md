@@ -64,7 +64,6 @@ function yg.lastM(path)
 end
 
 function yg.lastV(path)
-  local crumbsChildren = {}
   local mypage = path or editor.getCurrentPage()
   -- local pages = collect_pages_for(mypage)
   
@@ -72,16 +71,10 @@ function yg.lastV(path)
   -- table.sort(pages, function(a, b) return tonumber(a.lastVisit) > tonumber(b.lastVisit) end)
   -- pages = query[[from pages where _.size order by _.size desc]]
   -- pages = query[[from pages where _.lastVisit order by _.lastVisit desc]]
-  pages = query[[from index.tag "page" 
+  return query[[from index.tag "page" 
          where _.lastVisit and _.name != mypage and _.name:find("^" .. mypage .. "/")
-         order by _.lastVisit desc]]
-
-  print(pages)
-
-  for i = 1, math.min(7, #pages) do
-    table.insert(crumbsChildren, {name = pages[i].ref})
-  end
-  return crumbsChildren
+         order by _.lastVisit desc
+         limit 7]]
 end
 
 function widgets.breadcrumbs()
