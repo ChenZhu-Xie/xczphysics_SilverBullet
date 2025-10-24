@@ -2,7 +2,7 @@
 tags: {SB_itself}
 basic level: kindergarden
 chain of thoughts: {}
-LastVisit: 2025-10-24 14.16.01
+LastVisit: 2025-10-24 14:19:41
 ---
 
 # Quickly Cover the basics of SilverBullet
