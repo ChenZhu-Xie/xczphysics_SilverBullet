@@ -8,7 +8,7 @@ githubUrl: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONF
 ```space-lua
 -- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path; otherwise, take no action.
 command.define {
-  name = "Frontmatter: Add GitHub URL",
+  name = "Frontmatter: Add githubUrl",
   key = "Ctrl-Alt-g",
   run = function()
     local text = editor.getText()
