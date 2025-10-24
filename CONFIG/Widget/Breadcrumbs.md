@@ -55,22 +55,6 @@ function widgets.breadcrumbs()
 end
 ```
 
-local function collect_pages_for(mypage)
-  local pages = {}
-  if mypage == "index" then
-    for _, page in ipairs(space.listPages()) do
-      table.insert(pages, page)
-    end
-  else
-    for _, page in ipairs(space.listPages()) do
-      if page.name:find("^" .. mypage .. "/") and mypage ~= page.name then
-        table.insert(pages, page)
-      end
-    end
-  end
-  return pages
-end
-
 1. original one https://github.com/malys/silverbullet-libraries/blob/bdecff9d0c7a128b2705b04168f90c75b18248f0/src/Breadcrumbs.md
 
 ```lua
