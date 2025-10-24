@@ -1,5 +1,9 @@
+---
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Link/Cursor%20Position.md"
+---
 
 1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
+2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/7?u=chenzhu-xie
 
 ```space-lua
 command.define {
