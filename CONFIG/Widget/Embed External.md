@@ -1,4 +1,3 @@
-
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
 
 ```space-lua
