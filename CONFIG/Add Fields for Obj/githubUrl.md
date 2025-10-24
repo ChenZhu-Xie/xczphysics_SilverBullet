@@ -8,18 +8,7 @@ command.define {
   run = function()
     local text = editor.getText()
 
-    local ok, tags = pcall(function()
-      local fmExtract = index.extractFrontmatter(text)
-      return fmExtract and fmExtract.frontmatter and fmExtract.frontmatter.tags
-    end)
-    
-    if not ok then
-      -- 提示错误信息（tags 此时是错误消息）
-      editor.flashNotification("extractFrontmatter failed: " .. tostring(tags))
-    else
-      -- ok 为 true，tags 可能是 table/string/nil
-      -- 在此使用 tags
-    end
+    editor.flashNotification("ddddddd")
     
     local ok, tags = pcall(function()
       return index.extractFrontmatter(text).frontmatter.tags
