@@ -1,12 +1,13 @@
 ---
 tags: {}
-LastVisit: 2025-10-24 02:16:03
+LastVisit: 1761279728
 ---
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 2. https://silverbullet.md/API/editor
 3. https://silverbullet.md/API/os
 4. https://silverbullet.md/Library/Std/APIs/Date
+5. https://silverbullet.md/HTTP%20API
 
 ```space-lua
 -- priority: -1
@@ -18,7 +19,7 @@ event.listen{
     local fmTable = fmExtract.frontmatter or {}
     local body = fmExtract.text or text
 
-    local now = os.time()
+    local now = os.date("%z")
     editor.flashNotification(now)
     if fmTable.LastVisit == now then
       return
