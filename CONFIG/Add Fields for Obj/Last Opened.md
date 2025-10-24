@@ -54,7 +54,7 @@ ${query[[from index.tag "page"
 ${query[[from index.tag "page"
   where _.lastVisitEpoch
   select {ref=_.ref, lastVisitEpoch=_.lastVisitEpoch}
-  order by _.lastVisitEpoch desc
+  order by _.lastVisitEpoch desc  -- _.
   limit 5]]}
 ```
 
