@@ -12,6 +12,7 @@ command.define {
     else
       local fmExtract = index.extractFrontmatter(text) or {}
     end
+    editor.flashNotification(fmExtract)
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
