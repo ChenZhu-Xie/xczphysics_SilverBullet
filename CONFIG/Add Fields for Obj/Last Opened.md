@@ -1,6 +1,8 @@
 1. https://silverbullet.md/API/index#Example
 2. https://chatgpt.com/share/68fb38b1-bc48-8010-8bea-5fc4fbd1e7a9
 
+${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by _.lastVisit desc limit 5]]}
+
 ```space-lua
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
