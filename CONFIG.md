@@ -17,6 +17,13 @@ ${query[[from index.tag "page"
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
+# Custom Plugs are located @
+${query[[from index.tag "page"
+         where _.tags and _.tags:some(function(t) return t == "SB_itself" end)
+         select {ref=_.ref, tags=_.tags}]]}
+
+# CONFIG begin
+
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua
