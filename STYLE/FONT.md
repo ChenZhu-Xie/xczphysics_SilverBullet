@@ -1,3 +1,8 @@
+---
+recommend: ⭐⭐
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Font.md"
+---
+
 1. [更改 editor 和 UI 字体](https://community.silverbullet.md/t/how-to-change-editor-and-ui-fonts/752) #SB_Community
   - [space-style 环境](https://community.silverbullet.md/t/how-to-change-editor-and-ui-fonts/752/12?u=chenzhu-xie) #SB_Community
   - [窄页宽，换行，单词也不断开](https://community.silverbullet.md/t/how-to-change-editor-and-ui-fonts/752/9?u=chenzhu-xie) #SB_Community

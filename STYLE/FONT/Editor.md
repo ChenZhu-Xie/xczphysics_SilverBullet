@@ -1,3 +1,8 @@
+---
+recommend: ⭐⭐
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Font/Editor.md"
+---
+
 好像现在宽度完全一致了？6
 iiaahhddnnmmkkaaoozzxc660
 

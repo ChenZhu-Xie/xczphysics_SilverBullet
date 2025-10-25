@@ -1,3 +1,8 @@
+---
+recommend: ⭐⭐
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Font/Chunk.md"
+---
+
 1. [代码块 字体](https://community.silverbullet.md/t/use-different-fonts-for-body-text-and-code-blocks/364/2?u=chenzhu-xie) #SB_Community
 2. inline 字体 + 一些前端知识：https://community.silverbullet.md/t/use-different-fonts-for-body-text-and-code-blocks/364/5
 
