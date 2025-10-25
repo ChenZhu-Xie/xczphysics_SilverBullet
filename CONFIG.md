@@ -22,6 +22,8 @@ ${query[[from index.tag "page"
          where _.tags and _.tags:some(function(t) return t == "SB_itself" end)
          select {ref=_.ref, tags=_.tags}]]}
 
+[[tag:SB_itself]]
+
 # CONFIG begin
 
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
