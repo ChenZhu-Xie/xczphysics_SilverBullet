@@ -261,7 +261,7 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 ```space-style
 html[data-theme="dark"]{
 .sb-hashtag {
-    background: #111111;
+    background: #273645;
   }
 
 .sb-hashtag[data-tag-name="silver"]{background: #444444;}
