@@ -528,7 +528,7 @@ html[data-theme="light"] {
 ```space-style
 :root {
   /* 全局 glow 强度控制，0~1 之间，1 为原始强度 */
-  --glow-scale: 0;
+  --glow-scale: 1;
 
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6b3ff;
