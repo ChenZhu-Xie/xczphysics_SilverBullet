@@ -2,7 +2,7 @@
 ```space-lua
 command.define {
   name = "Calendar: Toggle",
-  key = "Ctrl-Alt-C",
+  key = "Ctrl-Alt-c",
   run = function()
     local jsInit = js.import("/.fs/Library/orbitcal.js")
     jsInit.ToggleCalendar()
