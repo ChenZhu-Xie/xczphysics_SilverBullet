@@ -28,7 +28,7 @@ function yg.breadcrumbs(path)
   return crumbs
 end
 
-local function choose(a, b, path)
+function choose(a, b, path)
   local mypage = path or editor.getCurrentPage()
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
@@ -55,7 +55,7 @@ end
 
 local max_num = 5
 
-local function yg.lastM(path)
+function yg.lastM(path)
   return choose(query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
          order by _.lastModified desc
@@ -66,7 +66,7 @@ local function yg.lastM(path)
          limit max_num]], path)
 end
 
-local function yg.lastV(path)
+function yg.lastV(path)
   return choose(query[[from index.tag "page" 
          where _.lastVisit and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
