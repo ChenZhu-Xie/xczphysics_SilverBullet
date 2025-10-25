@@ -528,7 +528,7 @@ html[data-theme="light"] {
 ```space-style
 :root {
   /* 全局 hover glow 强度控制，默认 1，可调 0~2 */
-  --hover-glow-scale: 2;
+  --hover-glow-scale: 1;
 
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6b3ff;
@@ -545,12 +545,19 @@ html[data-theme="light"] {
   --h5-underline-dark: linear-gradient(to right, #f0e68c, transparent);
   --h6-underline-dark: linear-gradient(to right, #ffbb66, transparent);
 
-  --h1-glow-dark: 0 0 4px #d699ffaa;
-  --h2-glow-dark: 0 0 3.5px #a090ffaa;
-  --h3-glow-dark: 0 0 3px #66a3ffaa;
-  --h4-glow-dark: 0 0 2.5px #6ad0a3aa;
-  --h5-glow-dark: 0 0 2px #ffeaa7aa;
-  --h6-glow-dark: 0 0 1.5px #ff9966aa;
+  --h1-glow-dark-px: 4px;
+  --h2-glow-dark-px: 3.5px;
+  --h3-glow-dark-px: 3px;
+  --h4-glow-dark-px: 2.5px;
+  --h5-glow-dark-px: 2px;
+  --h6-glow-dark-px: 1.5px;
+
+  --h1-glow-dark-color: #d699ffaa;
+  --h2-glow-dark-color: #a090ffaa;
+  --h3-glow-dark-color: #66a3ffaa;
+  --h4-glow-dark-color: #6ad0a3aa;
+  --h5-glow-dark-color: #ffeaa7aa;
+  --h6-glow-dark-color: #ff9966aa;
 
   /* Light theme 颜色变量 */
   --h1-color-light: #7a3fbf;
@@ -567,12 +574,19 @@ html[data-theme="light"] {
   --h5-underline-light: linear-gradient(to right, #b59b00, transparent);
   --h6-underline-light: linear-gradient(to right, #e67e22, transparent);
 
-  --h1-glow-light: 0 0 2px #b366ffaa;
-  --h2-glow-light: 0 0 1.8px #7a7affaa;
-  --h3-glow-light: 0 0 1.5px #66a3ffaa;
-  --h4-glow-light: 0 0 1.2px #00c19baa;
-  --h5-glow-light: 0 0 1px #ffd54faa;
-  --h6-glow-light: 0 0 0.8px #ffb366aa;
+  --h1-glow-light-px: 2px;
+  --h2-glow-light-px: 1.8px;
+  --h3-glow-light-px: 1.5px;
+  --h4-glow-light-px: 1.2px;
+  --h5-glow-light-px: 1px;
+  --h6-glow-light-px: 0.8px;
+
+  --h1-glow-light-color: #b366ffaa;
+  --h2-glow-light-color: #7a7affaa;
+  --h3-glow-light-color: #66a3ffaa;
+  --h4-glow-light-color: #00c19baa;
+  --h5-glow-light-color: #ffd54faa;
+  --h6-glow-light-color: #ffb366aa;
 }
 
 /* 公共 H1–H6 样式 */
@@ -595,12 +609,12 @@ html[data-theme="dark"] {
   .sb-line-h6 { font-size:1em !important; color:var(--h6-color-dark)!important; border-image:var(--h6-underline-dark) 1; }
 
   /* Hover / focus glow */
-  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h1-glow-dark); }
-  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h2-glow-dark); }
-  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h3-glow-dark); }
-  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h4-glow-dark); }
-  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h5-glow-dark); }
-  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h6-glow-dark); }
+  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: 0 0 calc(var(--h1-glow-dark-px) * var(--hover-glow-scale)) var(--h1-glow-dark-color); }
+  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: 0 0 calc(var(--h2-glow-dark-px) * var(--hover-glow-scale)) var(--h2-glow-dark-color); }
+  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: 0 0 calc(var(--h3-glow-dark-px) * var(--hover-glow-scale)) var(--h3-glow-dark-color); }
+  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: 0 0 calc(var(--h4-glow-dark-px) * var(--hover-glow-scale)) var(--h4-glow-dark-color); }
+  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: 0 0 calc(var(--h5-glow-dark-px) * var(--hover-glow-scale)) var(--h5-glow-dark-color); }
+  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: 0 0 calc(var(--h6-glow-dark-px) * var(--hover-glow-scale)) var(--h6-glow-dark-color); }
 }
 
 /* Light Theme */
@@ -613,12 +627,12 @@ html[data-theme="light"] {
   .sb-line-h6 { font-size:1em !important; color:var(--h6-color-light)!important; border-image:var(--h6-underline-light) 1; }
 
   /* Hover / focus glow */
-  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h1-glow-light); }
-  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h2-glow-light); }
-  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h3-glow-light); }
-  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h4-glow-light); }
-  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h5-glow-light); }
-  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: calc(var(--hover-glow-scale) * 1) var(--h6-glow-light); }
+  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: 0 0 calc(var(--h1-glow-light-px) * var(--hover-glow-scale)) var(--h1-glow-light-color); }
+  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: 0 0 calc(var(--h2-glow-light-px) * var(--hover-glow-scale)) var(--h2-glow-light-color); }
+  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: 0 0 calc(var(--h3-glow-light-px) * var(--hover-glow-scale)) var(--h3-glow-light-color); }
+  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: 0 0 calc(var(--h4-glow-light-px) * var(--hover-glow-scale)) var(--h4-glow-light-color); }
+  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: 0 0 calc(var(--h5-glow-light-px) * var(--hover-glow-scale)) var(--h5-glow-light-color); }
+  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: 0 0 calc(var(--h6-glow-light-px) * var(--hover-glow-scale)) var(--h6-glow-light-color); }
 }
 
 ```
