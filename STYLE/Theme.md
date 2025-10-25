@@ -70,7 +70,6 @@ html[data-theme="light"] {
 
 ```
 
-```html
 <!-- ==== 样式部分 ==== -->
 <style>
 :root {
@@ -188,7 +187,6 @@ html[data-theme="light"] {
 })();
 </script>
 
-```
 
 ```style
 :root {
