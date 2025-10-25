@@ -56,7 +56,7 @@ end
 local max_num = 5
 
 function yg.lastM(path)
-  choose(query[[from index.tag "page" 
+  return choose(query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
          order by _.lastModified desc
          limit max_num]], 
@@ -67,7 +67,7 @@ function yg.lastM(path)
 end
 
 function yg.lastV(path)
-  choose(query[[from index.tag "page" 
+  return choose(query[[from index.tag "page" 
          where _.lastVisit and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
          limit max_num]], 
