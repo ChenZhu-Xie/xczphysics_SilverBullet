@@ -37,6 +37,15 @@ function yg.bc(path)
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
+local function pattern(path)
+  mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  if mypath and #mypath > 0 then
+    return "^" .. mypath .. "/[^/]+$"
+  else
+    return "^[^/]+$"
+  end
+end
+
 function yg.lastM(path)
   local mypage = path or editor.getCurrentPage()
   return query[[from index.tag "page" 
