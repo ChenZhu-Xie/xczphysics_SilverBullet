@@ -1,4 +1,10 @@
 ---
+objectDecorators:
+  - where: 'index.tag = "page"'
+    attributes:
+      pageDecoration:
+        cssClasses: "['christmas-decoration']"
+        prefix: "'🎄 '"
 basic level: kindergarden
 ---
 
