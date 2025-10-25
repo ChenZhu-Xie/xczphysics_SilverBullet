@@ -226,93 +226,139 @@ html[data-theme="light"] {
 ```
 
 ```space-style
+:root {
+  /* Dark theme 颜色变量 */
+  --h1-color-dark: #e6b3ff;
+  --h2-color-dark: #b8b0ff;
+  --h3-color-dark: #89b4ff;
+  --h4-color-dark: #8fe1b5;
+  --h5-color-dark: #f0e68c;
+  --h6-color-dark: #ffbb66;
+
+  --h1-underline-dark: linear-gradient(to right, #e6b3ff, #d699ff);
+  --h2-underline-dark: linear-gradient(to right, #b8b0ff, #a090ff);
+  --h3-underline-dark: linear-gradient(to right, #89b4ff, #66a3ff);
+  --h4-underline-dark: linear-gradient(to right, #8fe1b5, #6ad0a3);
+  --h5-underline-dark: linear-gradient(to right, #f0e68c, #ffeaa7);
+  --h6-underline-dark: linear-gradient(to right, #ffbb66, #ff9966);
+
+  --h1-glow-dark: 0 0 4px #d699ffaa;
+  --h2-glow-dark: 0 0 3.5px #a090ffaa;
+  --h3-glow-dark: 0 0 3px #66a3ffaa;
+  --h4-glow-dark: 0 0 2.5px #6ad0a3aa;
+  --h5-glow-dark: 0 0 2px #ffeaa7aa;
+  --h6-glow-dark: 0 0 1.5px #ff9966aa;
+
+  /* Light theme 颜色变量 */
+  --h1-color-light: #7a3fbf;
+  --h2-color-light: #4b4bb8;
+  --h3-color-light: #1a73e8;
+  --h4-color-light: #008c6f;
+  --h5-color-light: #b59b00;
+  --h6-color-light: #e67e22;
+
+  --h1-underline-light: linear-gradient(to right, #7a3fbf, #b366ff);
+  --h2-underline-light: linear-gradient(to right, #4b4bb8, #7a7aff);
+  --h3-underline-light: linear-gradient(to right, #1a73e8, #66a3ff);
+  --h4-underline-light: linear-gradient(to right, #008c6f, #00c19b);
+  --h5-underline-light: linear-gradient(to right, #b59b00, #ffd54f);
+  --h6-underline-light: linear-gradient(to right, #e67e22, #ffb366);
+
+  --h1-glow-light: 0 0 2px #b366ffaa;
+  --h2-glow-light: 0 0 1.8px #7a7affaa;
+  --h3-glow-light: 0 0 1.5px #66a3ffaa;
+  --h4-glow-light: 0 0 1.2px #00c19baa;
+  --h5-glow-light: 0 0 1px #ffd54faa;
+  --h6-glow-light: 0 0 0.8px #ffb366aa;
+}
+
 html[data-theme="dark"] {
   .sb-line-h1 {
     font-size: 1.8em !important;
-    color: #e6b3ff !important; /* 淡紫亮调 */
+    color: var(--h1-color-dark) !important;
     border-bottom: 3px solid transparent !important;
-    border-image: linear-gradient(to right, #e6b3ff, #d699ff) 1;
-    text-shadow: 0 0 4px #d699ffaa; /* 轻微 glow */
+    border-image: var(--h1-underline-dark) 1;
+    text-shadow: var(--h1-glow-dark);
   }
   .sb-line-h2 {
     font-size: 1.6em !important;
-    color: #b8b0ff !important;
+    color: var(--h2-color-dark) !important;
     border-bottom: 2.5px solid transparent !important;
-    border-image: linear-gradient(to right, #b8b0ff, #a090ff) 1;
-    text-shadow: 0 0 3.5px #a090ffaa;
+    border-image: var(--h2-underline-dark) 1;
+    text-shadow: var(--h2-glow-dark);
   }
   .sb-line-h3 {
     font-size: 1.4em !important;
-    color: #89b4ff !important;
+    color: var(--h3-color-dark) !important;
     border-bottom: 2px solid transparent !important;
-    border-image: linear-gradient(to right, #89b4ff, #66a3ff) 1;
-    text-shadow: 0 0 3px #66a3ffaa;
+    border-image: var(--h3-underline-dark) 1;
+    text-shadow: var(--h3-glow-dark);
   }
   .sb-line-h4 {
     font-size: 1.2em !important;
-    color: #8fe1b5 !important;
+    color: var(--h4-color-dark) !important;
     border-bottom: 1.8px solid transparent !important;
-    border-image: linear-gradient(to right, #8fe1b5, #6ad0a3) 1;
-    text-shadow: 0 0 2.5px #6ad0a3aa;
+    border-image: var(--h4-underline-dark) 1;
+    text-shadow: var(--h4-glow-dark);
   }
   .sb-line-h5 {
     font-size: 1em !important;
-    color: #f0e68c !important;
+    color: var(--h5-color-dark) !important;
     border-bottom: 1.5px solid transparent !important;
-    border-image: linear-gradient(to right, #f0e68c, #ffeaa7) 1;
-    text-shadow: 0 0 2px #ffeaa7aa;
+    border-image: var(--h5-underline-dark) 1;
+    text-shadow: var(--h5-glow-dark);
   }
   .sb-line-h6 {
     font-size: 1em !important;
-    color: #ffbb66 !important;
+    color: var(--h6-color-dark) !important;
     border-bottom: 1.2px solid transparent !important;
-    border-image: linear-gradient(to right, #ffbb66, #ff9966) 1;
-    text-shadow: 0 0 1.5px #ff9966aa;
+    border-image: var(--h6-underline-dark) 1;
+    text-shadow: var(--h6-glow-dark);
   }
 }
 
 html[data-theme="light"] {
   .sb-line-h1 {
     font-size: 1.8em !important;
-    color: #7a3fbf !important; /* 深紫 */
+    color: var(--h1-color-light) !important;
     border-bottom: 3px solid transparent !important;
-    border-image: linear-gradient(to right, #7a3fbf, #b366ff) 1;
-    text-shadow: 0 0 2px #b366ffaa; /* 浅 glow，浅色背景更柔和 */
+    border-image: var(--h1-underline-light) 1;
+    text-shadow: var(--h1-glow-light);
   }
   .sb-line-h2 {
     font-size: 1.6em !important;
-    color: #4b4bb8 !important;
+    color: var(--h2-color-light) !important;
     border-bottom: 2.5px solid transparent !important;
-    border-image: linear-gradient(to right, #4b4bb8, #7a7aff) 1;
-    text-shadow: 0 0 1.8px #7a7affaa;
+    border-image: var(--h2-underline-light) 1;
+    text-shadow: var(--h2-glow-light);
   }
   .sb-line-h3 {
     font-size: 1.4em !important;
-    color: #1a73e8 !important;
+    color: var(--h3-color-light) !important;
     border-bottom: 2px solid transparent !important;
-    border-image: linear-gradient(to right, #1a73e8, #66a3ff) 1;
-    text-shadow: 0 0 1.5px #66a3ffaa;
+    border-image: var(--h3-underline-light) 1;
+    text-shadow: var(--h3-glow-light);
   }
   .sb-line-h4 {
     font-size: 1.2em !important;
-    color: #008c6f !important;
+    color: var(--h4-color-light) !important;
     border-bottom: 1.8px solid transparent !important;
-    border-image: linear-gradient(to right, #008c6f, #00c19b) 1;
-    text-shadow: 0 0 1.2px #00c19baa;
+    border-image: var(--h4-underline-light) 1;
+    text-shadow: var(--h4-glow-light);
   }
   .sb-line-h5 {
     font-size: 1em !important;
-    color: #b59b00 !important;
+    color: var(--h5-color-light) !important;
     border-bottom: 1.5px solid transparent !important;
-    border-image: linear-gradient(to right, #b59b00, #ffd54f) 1;
-    text-shadow: 0 0 1px #ffd54faa;
+    border-image: var(--h5-underline-light) 1;
+    text-shadow: var(--h5-glow-light);
   }
   .sb-line-h6 {
     font-size: 1em !important;
-    color: #e67e22 !important;
+    color: var(--h6-color-light) !important;
     border-bottom: 1.2px solid transparent !important;
-    border-image: linear-gradient(to right, #e67e22, #ffb366) 1;
-    text-shadow: 0 0 0.8px #ffb366aa;
+    border-image: var(--h6-underline-light) 1;
+    text-shadow: var(--h6-glow-light);
   }
 }
 
