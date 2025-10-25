@@ -1,7 +1,5 @@
 ---
-objectDecorators:
-- where: '1 == 1'
-  pageDecoration:
+pageDecoration:
       cssClasses: "['christmas-decoration']"
       prefix: "'🎄 '"
 basic level: kindergarden
