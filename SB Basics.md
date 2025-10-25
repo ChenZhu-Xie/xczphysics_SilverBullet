@@ -1,6 +1,6 @@
 ---
 objectDecorators:
-- where: '1 = 1'
+- where: '1 == 1'
   attributes:
     pageDecoration:
       cssClasses: "['christmas-decoration']"
