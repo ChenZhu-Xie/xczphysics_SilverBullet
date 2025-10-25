@@ -1,15 +1,3 @@
-
-```space-lua
-command.define {
-  name = "Highlight Headers: Init",
-  key = "Ctrl-Alt-h",
-  run = function()
-    local jsMod = js.import("/_plug/highlightHeaders.plug.js")
-    jsMod.initHighlightHeaders()
-  end
-}
-```
-
 ```space-style
 :root {
   /* Dark theme 颜色变量 */
