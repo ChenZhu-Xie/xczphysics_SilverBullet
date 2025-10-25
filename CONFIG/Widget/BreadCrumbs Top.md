@@ -46,6 +46,8 @@ local function pattern(path)
   end
 end
 
+local max_num = 5
+
 function yg.lastM(path)
   local mypage = path or editor.getCurrentPage()
   local children = query[[from index.tag "page" 
@@ -54,12 +56,12 @@ function yg.lastM(path)
     return query[[from index.tag "page" 
            where _.name:find("^" .. mypage .. "/")
            order by _.lastModified desc
-           limit 7]]
+           limit max_num]]
   else
     return query[[from index.tag "page"
            where _.name != mypage
            order by _.lastModified desc
-           limit 7]]
+           limit max_num]]
   end
 end
 
@@ -71,12 +73,12 @@ function yg.lastV(path)
     return query[[from index.tag "page" 
            where _.lastVisit and _.name:find("^" .. mypage .. "/")
            order by _.lastVisit desc
-           limit 7]]
+           limit max_num]]
   else
     return query[[from index.tag "page"
            where _.lastVisit and _.name != mypage
            order by _.lastVisit desc
-           limit 7]]
+           limit max_num]]
   end
 end
 
