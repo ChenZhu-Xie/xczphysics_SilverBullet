@@ -4,7 +4,7 @@ command.define {
   name = "Highlight Headers: Init",
   key = "Ctrl-Alt-h",
   run = function()
-    local jsMod = js.import("/_plug/plug.js")
+    local jsMod = js.import("/_plug/highlightHeaders.plug.js")
     jsMod.initHighlightHeaders()
   end
 }
