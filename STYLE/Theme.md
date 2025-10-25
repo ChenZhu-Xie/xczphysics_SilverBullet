@@ -1,5 +1,5 @@
 
-```lua
+```space-lua
 command.define {
   name = "Highlight Headers: Init",
   key = "Ctrl-Alt-h",
