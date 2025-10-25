@@ -1,4 +1,4 @@
-```space-style
+```style
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #ffdd66;
