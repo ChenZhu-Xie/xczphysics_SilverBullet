@@ -43,7 +43,7 @@ local function bc_lastM(path)
   return template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==], path))
 end
 local function bc_lastV(path)
-  return template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==], path))
+  return template.new(choose([==[-[[${name}]]​]==], [==[=[[${name}]]​]==], path))
 end
 
 function yg.bc(path)
