@@ -22,3 +22,6 @@
 
 1. https://community.silverbullet.md/t/using-git-log-to-see-what-youve-worked-on/3439
 
+# Floating Widget
+
+1. https://community.silverbullet.md/t/introducing-orbitcal-a-floating-calendar-widget-proof-of-concept/3442
