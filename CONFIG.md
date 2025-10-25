@@ -31,6 +31,11 @@ ${query[[from index.tag "page"
 ]]}
 ```
 
+${query[[from index.tag "page"
+  where _.tags and table.concat(_.tags, "|"):match("(^|%|)SB_itself(%||$)")
+  select {ref=_.ref, tags=_.tags}
+]]}
+
 [[tag:SB_itself]]
 
 # CONFIG begin
