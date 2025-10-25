@@ -260,9 +260,11 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 #testd
 ```space-style
 html[data-theme="dark"]{
+  
 .sb-hashtag {
-    background: #273645;
-  }
+  background: #2a2a2a;
+  color: #ddd;
+}
 
 .sb-hashtag[data-tag-name="silver"]{background: #444444;}
 .sb-hashtag[data-tag-name="sea"]{background: #4569a2;}
@@ -275,6 +277,12 @@ html[data-theme="dark"]{
 }
 
 html[data-theme="light"] {
+  
+.sb-hashtag {
+  background: #f0f0f0;
+  color: #000;
+}
+  
 .sb-hashtag[data-tag-name="silver"]{background: #f5f5f5;color:#000;}
 .sb-hashtag[data-tag-name="sea"]{background: #e3f0ff;color:#000;}
 .sb-hashtag[data-tag-name="mint"]{background: #e1f8e1;color:#000;}
