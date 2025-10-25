@@ -1,7 +1,4 @@
 ---
-pageDecoration:
-      cssClasses: "['christmas-decoration']"
-      prefix: "'🎄 '"
 basic level: kindergarden
 ---
 
