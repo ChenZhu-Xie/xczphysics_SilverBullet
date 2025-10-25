@@ -1,6 +1,17 @@
 
 ```space-lua
 command.define {
+  name = "Calendar: Toggle",
+  key = "Ctrl-Alt-C",
+  run = function()
+    local jsInit = js.import("/.fs/Library/orbitcal.js")
+    jsInit.ToggleCalendar()
+  end
+}
+```
+
+```space-lua
+command.define {
   name = "Highlight Headers: Init",
   key = "Ctrl-Alt-h",
   run = function()
