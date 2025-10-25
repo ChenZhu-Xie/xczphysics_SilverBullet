@@ -39,7 +39,7 @@ local function choose(a, b, path)
 end
 
 local function Bc_lastM(path)
-  return template.new(choose([==[➭[[${name}]]​]==], [==[⬅⮕[[${name}]]​]==], path))
+  return template.new(choose([==[⤄[[${name}]]​]==], [==[⬅⮕[[${name}]]​]==], path))
   -- https://symbl.cc/cn/search/?q=%E5%90%91%E5%8F%B3%E7%9A%84%E9%BB%91%E7%AE%AD#google_vignette :left_arrow
   -- return template.new(choose([==[⬄[[${name}]]​]==], [==[⬌[[${name}]]​]==], path))
   -- https://symbl.cc/cn/search/?q=%E5%B7%A6%E5%8F%B3%E7%A9%BA%E5%BF%83%E7%AE%AD%E5%A4%B4
