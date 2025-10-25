@@ -121,7 +121,7 @@ html {
   color: #ffa500 !important;
 }
 
-```space-style
+```style
 html[data-theme="dark"] {
   .sb-line-h1 { font-size: 1.8em !important; color: #e6b3ff !important; } /* 淡紫亮调 */
   .sb-line-h2 { font-size: 1.6em !important; color: #b8b0ff !important; } /* 柔和蓝紫 */
@@ -138,6 +138,109 @@ html[data-theme="light"] {
   .sb-line-h4 { font-size: 1.2em !important; color: #008c6f !important; } /* 蓝绿 */
   .sb-line-h5 { font-size: 1em !important;  color: #b59b00 !important; } /* 暖金 */
   .sb-line-h6 { font-size: 1em !important;  color: #e67e22 !important; } /* 柔橙 */
+}
+
+```
+
+```space-style
+html[data-theme="dark"] {
+  /* H1：暖橙 */
+  .sb-line-h1 {
+    font-size: 1.8em !important;
+    color: #ffbb66 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #ffbb66, transparent) 1;
+  }
+
+  /* H2：柔黄 */
+  .sb-line-h2 {
+    font-size: 1.6em !important;
+    color: #f0e68c !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #f0e68c, transparent) 1;
+  }
+
+  /* H3：青绿 */
+  .sb-line-h3 {
+    font-size: 1.4em !important;
+    color: #8fe1b5 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #8fe1b5, transparent) 1;
+  }
+
+  /* H4：浅蓝 */
+  .sb-line-h4 {
+    font-size: 1.2em !important;
+    color: #89b4ff !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #89b4ff, transparent) 1;
+  }
+
+  /* H5：柔和蓝紫 */
+  .sb-line-h5 {
+    font-size: 1em !important;
+    color: #b8b0ff !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #b8b0ff, transparent) 1;
+  }
+
+  /* H6：淡紫亮调 */
+  .sb-line-h6 {
+    font-size: 1em !important;
+    color: #e6b3ff !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #e6b3ff, transparent) 1;
+  }
+}
+
+html[data-theme="light"] {
+  /* H1：柔橙 */
+  .sb-line-h1 {
+    font-size: 1.8em !important;
+    color: #e67e22 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #e67e22, transparent) 1;
+  }
+
+  /* H2：暖金 */
+  .sb-line-h2 {
+    font-size: 1.6em !important;
+    color: #b59b00 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #b59b00, transparent) 1;
+  }
+
+  /* H3：蓝绿 */
+  .sb-line-h3 {
+    font-size: 1.4em !important;
+    color: #008c6f !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #008c6f, transparent) 1;
+  }
+
+  /* H4：经典蓝 */
+  .sb-line-h4 {
+    font-size: 1.2em !important;
+    color: #1a73e8 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #1a73e8, transparent) 1;
+  }
+
+  /* H5：靛蓝 */
+  .sb-line-h5 {
+    font-size: 1em !important;
+    color: #4b4bb8 !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #4b4bb8, transparent) 1;
+  }
+
+  /* H6：深紫 */
+  .sb-line-h6 {
+    font-size: 1em !important;
+    color: #7a3fbf !important;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #7a3fbf, transparent) 1;
+  }
 }
 
 ```
