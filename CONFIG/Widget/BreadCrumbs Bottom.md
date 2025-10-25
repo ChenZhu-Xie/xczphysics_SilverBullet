@@ -13,10 +13,10 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 
 ```space-lua
 -- priority: 10
-yg_B = yg_B or {}
+Yg = Yg or {}
 Bc = template.new[==[/[[${name}]]​]==]
 
-function yg_B.breadcrumbs(path)
+function Yg.breadcrumbs(path)
   -- local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   local mypage = path or editor.getCurrentPage()
   -- editor.flashNotification(mypage)
@@ -47,17 +47,11 @@ local function Bc_lastV(path)
   return template.new(choose([==[☷[[${name}]]​]==], [==[☰[[${name}]]​]==], path))
 end
 
-function yg.bc(path)
-  local bc = template.each(yg.breadcrumbs(path), bc) or ""
-  local lastMs = template.each(yg.lastM(path), bc_lastM(path)) or ""
-  local lastVs = template.each(yg.lastV(path), bc_lastV(path)) or ""
-  return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
-end
 
-function yg_B.bc(path)
-  local bc = template.each(yg_B.breadcrumbs(path), Bc) or ""
-  local lastMs = template.each(yg_B.lastM(path), Bc_lastM) or ""
-  local lastVs = template.each(yg_B.lastV(path), Bc_lastV) or ""
+function Yg.bc(path)
+  local bc = template.each(Yg.breadcrumbs(path), Bc) or ""
+  local lastMs = template.each(Yg.lastM(path), Bc_lastM(path)) or ""
+  local lastVs = template.each(Yg.lastV(path), Bc_lastV(path)) or ""
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
@@ -72,14 +66,14 @@ end
 
 local max_num = 5
 
-function yg_B.lastM(path)
+function Yg.lastM(path)
   return query[[from index.tag "page" 
          where _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 end
 
-function yg_B.lastV(path)
+function Yg.lastV(path)
   return query[[from index.tag "page" 
          where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
@@ -87,7 +81,7 @@ function yg_B.lastV(path)
 end
 
 function widgets.breadcrumbs_B()
-  return widget.new {markdown = yg_B.bc()}
+  return widget.new {markdown = Yg.bc()}
 end
 ```
 
