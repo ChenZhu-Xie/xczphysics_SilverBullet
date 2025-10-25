@@ -38,7 +38,7 @@ function yg_B.bc(path)
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
-local function pattern()
+local function pattern(path)
   mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
     return "^" .. mypath .. "/[^/]+$"
@@ -49,14 +49,14 @@ end
 
 function yg_B.lastM(path)
   return query[[from index.tag "page" 
-         where _.name != editor.getCurrentPage() and _.name:find(pattern())
+         where _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit 7]]
 end
 
 function yg_B.lastV(path)
   return query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern())
+         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit 7]]
 end
