@@ -15,7 +15,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 -- priority: 10
 yg = yg or {}
-bc = template.new[==[/[[${name}]]​]==]
+local bc_folder = template.new[==[/[[${name}]]​]==]
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
@@ -47,7 +47,7 @@ local function bc_lastV(path)
 end
 
 function yg.bc(path)
-  local bc = template.each(yg.breadcrumbs(path), bc) or ""
+  local bc = template.each(yg.breadcrumbs(path), bc_folder) or ""
   local lastMs = template.each(yg.lastM(path), bc_lastM(path)) or ""
   local lastVs = template.each(yg.lastV(path), bc_lastV(path)) or ""
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
