@@ -122,7 +122,7 @@ html[data-theme="light"] {
 
 ```
 
-```space-style
+```style
 html[data-theme="dark"] {
   /* H1：冷蓝紫 */
   .sb-line-h1 {
@@ -220,6 +220,99 @@ html[data-theme="light"] {
     color: #e67339 !important;
     border-bottom: 2px solid;
     border-image: linear-gradient(to right, #e67339, transparent) 1;
+  }
+}
+
+```
+
+```space-style
+html[data-theme="dark"] {
+  .sb-line-h1 {
+    font-size: 1.8em !important;
+    color: #e6b3ff !important; /* 淡紫亮调 */
+    border-bottom: 3px solid transparent !important;
+    border-image: linear-gradient(to right, #e6b3ff, #d699ff) 1;
+    text-shadow: 0 0 4px #d699ffaa; /* 轻微 glow */
+  }
+  .sb-line-h2 {
+    font-size: 1.6em !important;
+    color: #b8b0ff !important;
+    border-bottom: 2.5px solid transparent !important;
+    border-image: linear-gradient(to right, #b8b0ff, #a090ff) 1;
+    text-shadow: 0 0 3.5px #a090ffaa;
+  }
+  .sb-line-h3 {
+    font-size: 1.4em !important;
+    color: #89b4ff !important;
+    border-bottom: 2px solid transparent !important;
+    border-image: linear-gradient(to right, #89b4ff, #66a3ff) 1;
+    text-shadow: 0 0 3px #66a3ffaa;
+  }
+  .sb-line-h4 {
+    font-size: 1.2em !important;
+    color: #8fe1b5 !important;
+    border-bottom: 1.8px solid transparent !important;
+    border-image: linear-gradient(to right, #8fe1b5, #6ad0a3) 1;
+    text-shadow: 0 0 2.5px #6ad0a3aa;
+  }
+  .sb-line-h5 {
+    font-size: 1em !important;
+    color: #f0e68c !important;
+    border-bottom: 1.5px solid transparent !important;
+    border-image: linear-gradient(to right, #f0e68c, #ffeaa7) 1;
+    text-shadow: 0 0 2px #ffeaa7aa;
+  }
+  .sb-line-h6 {
+    font-size: 1em !important;
+    color: #ffbb66 !important;
+    border-bottom: 1.2px solid transparent !important;
+    border-image: linear-gradient(to right, #ffbb66, #ff9966) 1;
+    text-shadow: 0 0 1.5px #ff9966aa;
+  }
+}
+
+html[data-theme="light"] {
+  .sb-line-h1 {
+    font-size: 1.8em !important;
+    color: #7a3fbf !important; /* 深紫 */
+    border-bottom: 3px solid transparent !important;
+    border-image: linear-gradient(to right, #7a3fbf, #b366ff) 1;
+    text-shadow: 0 0 2px #b366ffaa; /* 浅 glow，浅色背景更柔和 */
+  }
+  .sb-line-h2 {
+    font-size: 1.6em !important;
+    color: #4b4bb8 !important;
+    border-bottom: 2.5px solid transparent !important;
+    border-image: linear-gradient(to right, #4b4bb8, #7a7aff) 1;
+    text-shadow: 0 0 1.8px #7a7affaa;
+  }
+  .sb-line-h3 {
+    font-size: 1.4em !important;
+    color: #1a73e8 !important;
+    border-bottom: 2px solid transparent !important;
+    border-image: linear-gradient(to right, #1a73e8, #66a3ff) 1;
+    text-shadow: 0 0 1.5px #66a3ffaa;
+  }
+  .sb-line-h4 {
+    font-size: 1.2em !important;
+    color: #008c6f !important;
+    border-bottom: 1.8px solid transparent !important;
+    border-image: linear-gradient(to right, #008c6f, #00c19b) 1;
+    text-shadow: 0 0 1.2px #00c19baa;
+  }
+  .sb-line-h5 {
+    font-size: 1em !important;
+    color: #b59b00 !important;
+    border-bottom: 1.5px solid transparent !important;
+    border-image: linear-gradient(to right, #b59b00, #ffd54f) 1;
+    text-shadow: 0 0 1px #ffd54faa;
+  }
+  .sb-line-h6 {
+    font-size: 1em !important;
+    color: #e67e22 !important;
+    border-bottom: 1.2px solid transparent !important;
+    border-image: linear-gradient(to right, #e67e22, #ffb366) 1;
+    text-shadow: 0 0 0.8px #ffb366aa;
   }
 }
 
