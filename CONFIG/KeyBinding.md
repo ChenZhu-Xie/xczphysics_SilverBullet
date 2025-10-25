@@ -1,3 +1,8 @@
+---
+pageDecoration:
+    cssClasses:
+        - wine-table
+---
 
 # In Page
 
