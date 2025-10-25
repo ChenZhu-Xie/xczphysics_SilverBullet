@@ -17,7 +17,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
 
-local function choose(a, b, path)
+function choose(a, b, path)
   local mypage = path or editor.getCurrentPage()
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
@@ -28,9 +28,8 @@ local function choose(a, b, path)
   end
 end
 
-yg.t_bc_lastM = template.new(choose([==[●[[${name}]]​]==], [==[▲[[${name}]]​]==]))
-yg.t_bc_lastV = template.new(choose([==[■[[${name}]]​]==], [==[★[[${name}]]​]==]))
-
+yg.t_bc_lastM = template.new(choose([==[◻[[${name}]]​]==], [==[○[[${name}]]​]==]))
+yg.t_bc_lastV = template.new(choose([==[◼[[${name}]]​]==], [==[●[[${name}]]​]==]))
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
