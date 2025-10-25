@@ -1,5 +1,5 @@
 
-# Plugs I Wrote
+# Plugs i Wrote
 
 ${query[[from index.tag "page" 
   where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
@@ -13,7 +13,7 @@ ${query[[from index.tag "page"
   select {ref=_.ref, name=_.name, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
 ]]}
 
-# Plugs that have [[CONFIG/KeyBinding]]s
+# Plugs with [[CONFIG/KeyBinding]]s
 
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
