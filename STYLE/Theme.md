@@ -1,4 +1,59 @@
 ```space-style
+/* 默认半透明 */
+.sb-line-h1, .sb-line-h2, .sb-line-h3,
+.sb-line-h4, .sb-line-h5, .sb-line-h6 {
+  opacity: var(--title-opacity);
+  transition: opacity 0.2s;
+}
+
+/* 鼠标悬停在标题自身，高亮该标题 */
+.sb-line-h1:hover,
+.sb-line-h2:hover,
+.sb-line-h3:hover,
+.sb-line-h4:hover,
+.sb-line-h5:hover,
+.sb-line-h6:hover {
+  opacity: 1 !important;
+}
+
+/* h1 hover → 高亮后续 h2–h6 */
+.sb-line-h1:hover ~ .sb-line-h2,
+.sb-line-h1:hover ~ .sb-line-h3,
+.sb-line-h1:hover ~ .sb-line-h4,
+.sb-line-h1:hover ~ .sb-line-h5,
+.sb-line-h1:hover ~ .sb-line-h6 { opacity: 1 !important; }
+
+/* h2 hover → 高亮后续 h3–h6 */
+.sb-line-h2:hover ~ .sb-line-h3,
+.sb-line-h2:hover ~ .sb-line-h4,
+.sb-line-h2:hover ~ .sb-line-h5,
+.sb-line-h2:hover ~ .sb-line-h6 { opacity: 1 !important; }
+
+/* h3 hover → 高亮后续 h4–h6 */
+.sb-line-h3:hover ~ .sb-line-h4,
+.sb-line-h3:hover ~ .sb-line-h5,
+.sb-line-h3:hover ~ .sb-line-h6 { opacity: 1 !important; }
+
+/* h4 hover → 高亮后续 h5–h6 */
+.sb-line-h4:hover ~ .sb-line-h5,
+.sb-line-h4:hover ~ .sb-line-h6 { opacity: 1 !important; }
+
+/* h5 hover → 高亮后续 h6 */
+.sb-line-h5:hover ~ .sb-line-h6 { opacity: 1 !important; }
+
+/* 可选：鼠标悬停整个内容区域（包裹标题+内容的容器），高亮该标题及所有子标题 */
+.sb-title-group:hover .sb-line-h1,
+.sb-title-group:hover .sb-line-h2,
+.sb-title-group:hover .sb-line-h3,
+.sb-title-group:hover .sb-line-h4,
+.sb-title-group:hover .sb-line-h5,
+.sb-title-group:hover .sb-line-h6 {
+  opacity: 1 !important;
+}
+
+```
+
+```space-style
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6c8ff;
