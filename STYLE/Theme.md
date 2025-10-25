@@ -1,21 +1,10 @@
 
-```space-lua
-command.define {
-  name = "Calendar: Toggle",
-  key = "Ctrl-Alt-c",
-  run = function()
-    local jsInit = js.import("/.fs/Library/orbitcal.js")
-    jsInit.ToggleCalendar()
-  end
-}
-```
-
 ```lua
 command.define {
   name = "Highlight Headers: Init",
   key = "Ctrl-Alt-h",
   run = function()
-    local jsMod = js.import("/.fs/Library/highlightHeaders.js")
+    local jsMod = js.import("/_plug/plug.js")
     jsMod.initHighlightHeaders()
   end
 }
