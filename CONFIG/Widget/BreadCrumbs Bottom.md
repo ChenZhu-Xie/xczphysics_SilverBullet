@@ -40,7 +40,6 @@ end
 
 local function pattern(path)
   mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
-  editor.flashNotification(mypath)
   if mypath and #mypath > 0 then
     return "^" .. mypath .. "/[^/]+$"
   else
