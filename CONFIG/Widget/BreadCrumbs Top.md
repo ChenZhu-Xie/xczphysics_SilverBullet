@@ -53,49 +53,28 @@ function yg.bc(path)
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
-local function pattern(path)
-  mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
-  if mypath and #mypath > 0 then
-    return "^" .. mypath .. "/[^/]+$"
-  else
-    return "^[^/]+$"
-  end
-end
-
 local max_num = 5
 
 function yg.lastM(path)
-  local mypage = path or editor.getCurrentPage()
-  local children = query[[from index.tag "page" 
-         where _.name:find("^" .. mypage .. "/")]]
-  if #children > 0 then
-    return query[[from index.tag "page" 
-           where _.name:find("^" .. mypage .. "/")
-           order by _.lastModified desc
-           limit max_num]]
-  else
-    return query[[from index.tag "page"
-           where _.name != mypage
-           order by _.lastModified desc
-           limit max_num]]
-  end
+  choose(query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")
+         order by _.lastModified desc
+         limit max_num]], 
+         query[[from index.tag "page"
+         where _.name != mypage
+         order by _.lastModified desc
+         limit max_num]], path)
 end
 
 function yg.lastV(path)
-  local mypage = path or editor.getCurrentPage()
-  local children = query[[from index.tag "page" 
-         where _.name:find("^" .. mypage .. "/")]]
-  if #children > 0 then
-    return query[[from index.tag "page" 
-           where _.lastVisit and _.name:find("^" .. mypage .. "/")
-           order by _.lastVisit desc
-           limit max_num]]
-  else
-    return query[[from index.tag "page"
-           where _.lastVisit and _.name != mypage
-           order by _.lastVisit desc
-           limit max_num]]
-  end
+  choose(query[[from index.tag "page" 
+         where _.lastVisit and _.name:find("^" .. mypage .. "/")
+         order by _.lastVisit desc
+         limit max_num]], 
+         query[[from index.tag "page"
+         where _.lastVisit and _.name != mypage
+         order by _.lastVisit desc
+         limit max_num]], path)
 end
 
 function widgets.breadcrumbs()
