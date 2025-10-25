@@ -257,13 +257,13 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 
 ### Optional only  (adds color to the matching tags)
 
-#testd
+#tesdd
 ```space-style
 html[data-theme="dark"]{
   
 .sb-hashtag {
-  background: #2a2a2a;
-  color: #ddd;
+  background: #1c2430;
+  color: #d8e1ef;
 }
 
 .sb-hashtag[data-tag-name="silver"]{background: #444444;}
@@ -279,8 +279,8 @@ html[data-theme="dark"]{
 html[data-theme="light"] {
   
 .sb-hashtag {
-  background: #f0f0f0;
-  color: #000;
+  background: #e8edf5;
+  color: #1a1a1a;
 }
   
 .sb-hashtag[data-tag-name="silver"]{background: #f5f5f5;color:#000;}
