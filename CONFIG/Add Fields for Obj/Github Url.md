@@ -46,8 +46,9 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
     fm.recommend = "⭐⭐⭐⭐⭐"
+    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
+    
 
     local lines = {}
     for k, v in pairs(fm) do
