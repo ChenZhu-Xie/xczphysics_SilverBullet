@@ -28,7 +28,7 @@ function yg.breadcrumbs(path)
   return crumbs
 end
 
-function choose(a, b, path)
+local function choose(a, b, path)
   local mypage = path or editor.getCurrentPage()
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
