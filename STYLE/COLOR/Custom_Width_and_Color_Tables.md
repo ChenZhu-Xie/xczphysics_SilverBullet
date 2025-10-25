@@ -257,7 +257,6 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 
 ### Optional only  (adds color to the matching tags)
 
-#tesdd
 ```space-style
 html[data-theme="dark"]{
   
