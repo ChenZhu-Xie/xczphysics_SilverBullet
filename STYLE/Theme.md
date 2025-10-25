@@ -67,7 +67,6 @@ html[data-theme="light"] {
 .sb-active {
   opacity: 1 !important;
 }
-
 ```
 
 ```style
