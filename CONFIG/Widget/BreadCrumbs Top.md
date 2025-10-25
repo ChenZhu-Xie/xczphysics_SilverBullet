@@ -56,6 +56,7 @@ end
 local max_num = 5
 
 function yg.lastM(path)
+  local mypage = path or editor.getCurrentPage()
   return choose(query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
          order by _.lastModified desc
@@ -63,10 +64,11 @@ function yg.lastM(path)
          query[[from index.tag "page"
          where _.name != mypage
          order by _.lastModified desc
-         limit max_num]], path)
+         limit max_num]], mypage)
 end
 
 function yg.lastV(path)
+  local mypage = path or editor.getCurrentPage()
   return choose(query[[from index.tag "page" 
          where _.lastVisit and _.name:find("^" .. mypage .. "/")
          order by _.lastVisit desc
@@ -74,7 +76,7 @@ function yg.lastV(path)
          query[[from index.tag "page"
          where _.lastVisit and _.name != mypage
          order by _.lastVisit desc
-         limit max_num]], path)
+         limit max_num]], mypage)
 end
 
 function widgets.breadcrumbs()
