@@ -1,4 +1,4 @@
-```style
+```space-style
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6c8ff;
@@ -69,124 +69,6 @@ html[data-theme="light"] {
 }
 
 ```
-
-<!-- ==== 样式部分 ==== -->
-<style>
-:root {
-  /* Dark theme */
-  --h1-color-dark: #e6c8ff;
-  --h2-color-dark: #a0d8ff;
-  --h3-color-dark: #98ffb3;
-  --h4-color-dark: #fff3a8;
-  --h5-color-dark: #ffb48c;
-  --h6-color-dark: #ffa8ff;
-
-  --h1-underline-dark: rgba(230,200,255,0.3);
-  --h2-underline-dark: rgba(160,216,255,0.3);
-  --h3-underline-dark: rgba(152,255,179,0.3);
-  --h4-underline-dark: rgba(255,243,168,0.3);
-  --h5-underline-dark: rgba(255,180,140,0.3);
-  --h6-underline-dark: rgba(255,168,255,0.3);
-
-  /* Light theme */
-  --h1-color-light: #6b2e8c;
-  --h2-color-light: #1c4e8b;
-  --h3-color-light: #1a6644;
-  --h4-color-light: #a67c00;
-  --h5-color-light: #b84c1c;
-  --h6-color-light: #993399;
-
-  --h1-underline-light: rgba(107,46,140,0.3);
-  --h2-underline-light: rgba(28,78,139,0.3);
-  --h3-underline-light: rgba(26,102,68,0.3);
-  --h4-underline-light: rgba(166,124,0,0.3);
-  --h5-underline-light: rgba(184,76,28,0.3);
-  --h6-underline-light: rgba(153,51,153,0.3);
-
-  --title-opacity: 0.7;
-}
-
-/* 公共 H1–H6 样式 */
-.sb-line-h1, .sb-line-h2, .sb-line-h3,
-.sb-line-h4, .sb-line-h5, .sb-line-h6 {
-  position: relative;
-  opacity: var(--title-opacity);
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-}
-
-/* Dark Theme */
-html[data-theme="dark"] {
-  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; border-bottom: 2px solid var(--h1-underline-dark); }
-  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; border-bottom: 2px solid var(--h2-underline-dark); }
-  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-dark)!important; border-bottom: 2px solid var(--h3-underline-dark); }
-  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-dark)!important; border-bottom: 2px solid var(--h4-underline-dark); }
-  .sb-line-h5 { font-size:1em !important; color:var(--h5-color-dark)!important; border-bottom: 2px solid var(--h5-underline-dark); }
-  .sb-line-h6 { font-size:1em !important; color:var(--h6-color-dark)!important; border-bottom: 2px solid var(--h6-underline-dark); }
-}
-
-/* Light Theme */
-html[data-theme="light"] {
-  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; border-bottom: 2px solid var(--h1-underline-light); }
-  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; border-bottom: 2px solid var(--h2-underline-light); }
-  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-light)!important; border-bottom: 2px solid var(--h3-underline-light); }
-  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-light)!important; border-bottom: 2px solid var(--h4-underline-light); }
-  .sb-line-h5 { font-size:1em !important; color:var(--h5-color-light)!important; border-bottom: 2px solid var(--h5-underline-light); }
-  .sb-line-h6 { font-size:1em !important; color:var(--h6-color-light)!important; border-bottom: 2px solid var(--h6-underline-light); }
-}
-
-/* 高亮类 */
-.sb-active { opacity:1 !important; }
-</style>
-
-<!-- ==== JS 高亮逻辑 ==== -->
-<script>
-(() => {
-  const headers = Array.from(document.querySelectorAll('.sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6'));
-  
-  // 构建标题层级树
-  const headerTree = headers.map((h, idx) => {
-    let level = parseInt(h.className.match(/sb-line-h(\d)/)[1]);
-    return { el:h, level, idx, parent:null };
-  });
-
-  headerTree.forEach((node, i)=>{
-    for(let j=i-1; j>=0; j--){
-      if(headerTree[j].level < node.level){
-        node.parent = headerTree[j];
-        break;
-      }
-    }
-  });
-
-  // 鼠标移动监听
-  document.addEventListener('mousemove', e => {
-    headers.forEach(h=>h.classList.remove('sb-active'));
-
-    let target = e.target;
-    while(target && target !== document.body){
-      if(target.classList && (target.classList.contains('sb-line-h1') ||
-         target.classList.contains('sb-line-h2') ||
-         target.classList.contains('sb-line-h3') ||
-         target.classList.contains('sb-line-h4') ||
-         target.classList.contains('sb-line-h5') ||
-         target.classList.contains('sb-line-h6'))){
-        break;
-      }
-      target = target.parentNode;
-    }
-
-    if(target){
-      let node = headerTree.find(n=>n.el===target);
-      while(node){
-        node.el.classList.add('sb-active');
-        node = node.parent;
-      }
-    }
-  });
-})();
-</script>
-
 
 ```style
 :root {
@@ -294,8 +176,6 @@ html[data-theme="light"] {
 .sb-line-h6:hover ~ .sb-line-h6 {
   opacity: 0;
 }
-
-
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
