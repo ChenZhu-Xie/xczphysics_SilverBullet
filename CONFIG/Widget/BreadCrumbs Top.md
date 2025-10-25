@@ -17,14 +17,14 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
 
-local function choose(sym, sym_backup)
+local function choose(a, b, path)
   local mypage = path or editor.getCurrentPage()
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
   if #children > 0 then
-    return sym
+    return a
   else
-    return sym_backup
+    return b
   end
 end
 
