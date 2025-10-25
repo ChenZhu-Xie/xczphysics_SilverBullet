@@ -1,28 +1,28 @@
+# Custom Plugs are Located @
+[[CONFIG]] & [[STYLE]]
 
 # Plugs i Wrote
-
 ${query[[from index.tag "page" 
   where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
   select {ref=_.ref, recommend=_.recommend, githubUrl=_.githubUrl, name=_.name, githubUrl_Original=_.githubUrl_Original}
 ]]}
 
 # Plugs community Wrote
-
 ${query[[from index.tag "page" 
   where _.githubUrl and not string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
   select {ref=_.ref, name=_.name, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
 ]]}
 
 # Plugs with [[CONFIG/KeyBinding]]s
-
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
-# Custom Plugs are located @
+# All SB stuff
 ${template.each(query[[
   from index.tag "SB_itself"
-  where _.tag == "page" and _.name != "SB Basics"
+  where _.tag == "page"
 ]], templates.fullPageItem)}
 1. https://silverbullet.md/Library/Std/Infrastructure/Page%20Templates#Currently%20active%20page%20templates 先过滤 tag 再过滤 page
+2. https://chatgpt.com/share/68fc9915-ebe4-8010-8332-d82ebd289464
 
 ```lua -- 先过滤 page 再过滤 tag
 ${query[[from index.tag "page"
@@ -39,7 +39,6 @@ ${query[[from index.tag "page"
 ```
 
 # CONFIG begin
-
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
 ```space-lua

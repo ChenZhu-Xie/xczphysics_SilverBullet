@@ -1,3 +1,5 @@
+![[CONFIG#Custom Plugs are Located @]]
+
 # Knowledge about QUERY
 
 > **tip** Ref
@@ -16,3 +18,4 @@
 
 1. https://silverbullet.md/Objects
 
+#SB_itself
