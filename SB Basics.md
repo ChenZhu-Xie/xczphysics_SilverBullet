@@ -1,6 +1,6 @@
 ---
 objectDecorators:
-- where: 'tag = "page"'
+- where: 'index.tag = "page"'
   attributes:
     pageDecoration:
       cssClasses: "['christmas-decoration']"
