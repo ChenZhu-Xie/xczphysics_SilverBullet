@@ -29,6 +29,9 @@
   --h4-underline-light: rgba(51,102,102,0.2);
   --h5-underline-light: rgba(51,85,170,0.2);
   --h6-underline-light: rgba(102,51,153,0.2);
+
+  /* 全局标题透明度 */
+  --title-opacity: 0.8; 
 }
 
 /* 公共 H1–H6 样式 */
@@ -39,6 +42,7 @@
   border-image-slice: 1;
   text-shadow: none;
   position: relative;
+  opacity: var(--title-opacity);
 }
 
 /* Dark Theme */
@@ -60,6 +64,47 @@ html[data-theme="light"] {
   .sb-line-h5 { font-size:1em !important; color:var(--h5-color-light)!important; border-bottom: 2px solid var(--h5-underline-light); }
   .sb-line-h6 { font-size:1em !important; color:var(--h6-color-light)!important; border-bottom: 2px solid var(--h6-underline-light); }
 }
+
+/* 鼠标悬停效果：非悬停标题透明度为 0 */
+.sb-line-h1:hover ~ .sb-line-h1,
+.sb-line-h1:hover ~ .sb-line-h2,
+.sb-line-h1:hover ~ .sb-line-h3,
+.sb-line-h1:hover ~ .sb-line-h4,
+.sb-line-h1:hover ~ .sb-line-h5,
+.sb-line-h1:hover ~ .sb-line-h6,
+.sb-line-h2:hover ~ .sb-line-h1,
+.sb-line-h2:hover ~ .sb-line-h2,
+.sb-line-h2:hover ~ .sb-line-h3,
+.sb-line-h2:hover ~ .sb-line-h4,
+.sb-line-h2:hover ~ .sb-line-h5,
+.sb-line-h2:hover ~ .sb-line-h6,
+.sb-line-h3:hover ~ .sb-line-h1,
+.sb-line-h3:hover ~ .sb-line-h2,
+.sb-line-h3:hover ~ .sb-line-h3,
+.sb-line-h3:hover ~ .sb-line-h4,
+.sb-line-h3:hover ~ .sb-line-h5,
+.sb-line-h3:hover ~ .sb-line-h6,
+.sb-line-h4:hover ~ .sb-line-h1,
+.sb-line-h4:hover ~ .sb-line-h2,
+.sb-line-h4:hover ~ .sb-line-h3,
+.sb-line-h4:hover ~ .sb-line-h4,
+.sb-line-h4:hover ~ .sb-line-h5,
+.sb-line-h4:hover ~ .sb-line-h6,
+.sb-line-h5:hover ~ .sb-line-h1,
+.sb-line-h5:hover ~ .sb-line-h2,
+.sb-line-h5:hover ~ .sb-line-h3,
+.sb-line-h5:hover ~ .sb-line-h4,
+.sb-line-h5:hover ~ .sb-line-h5,
+.sb-line-h5:hover ~ .sb-line-h6,
+.sb-line-h6:hover ~ .sb-line-h1,
+.sb-line-h6:hover ~ .sb-line-h2,
+.sb-line-h6:hover ~ .sb-line-h3,
+.sb-line-h6:hover ~ .sb-line-h4,
+.sb-line-h6:hover ~ .sb-line-h5,
+.sb-line-h6:hover ~ .sb-line-h6 {
+  opacity: 0;
+}
+
 
 ```
 
