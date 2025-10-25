@@ -14,7 +14,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 -- priority: 10
 Yg = Yg or {}
-Bc = template.new[==[/[[${name}]]​]==]
+Bc_folder = template.new[==[/[[${name}]]​]==]
 
 function Yg.breadcrumbs(path)
   -- local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
@@ -30,7 +30,7 @@ function Yg.breadcrumbs(path)
 end
 
 local function choose(a, b, path)
-  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
     return a
   else
@@ -47,14 +47,15 @@ end
 
 
 function Yg.bc(path)
-  local bc = template.each(Yg.breadcrumbs(path), Bc) or ""
+  local bc = template.each(Yg.breadcrumbs(path), Bc_folder) or ""
   local lastMs = template.each(Yg.lastM(path), Bc_lastM(path)) or ""
   local lastVs = template.each(Yg.lastV(path), Bc_lastV(path)) or ""
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
 local function pattern(path)
-  return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", path)
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
 end
 
 local max_num = 5
