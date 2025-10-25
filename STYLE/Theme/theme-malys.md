@@ -5,7 +5,7 @@ pageDecoration:
 githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/Theme/theme-malys.md"
 ---
 
-# Malys theme
+# (Modified) Malys theme
 
 Dark theme thought for readibility and productivity.
 
