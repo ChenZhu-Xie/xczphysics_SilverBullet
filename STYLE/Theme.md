@@ -4,7 +4,7 @@ command.define {
   name = "Calendar: Toggle",
   key = "Ctrl-Alt-c",
   run = function()
-    local jsInit = js.import("/Library/orbitcal.js")
+    local jsInit = js.import("/.fs/Library/orbitcal.js")
     jsInit.ToggleCalendar()
   end
 }
