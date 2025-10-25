@@ -60,7 +60,7 @@ basic level: kindergarden
   > - its name “__Tag__” looks like a “__Key without Value__”.
 > - #Tag defines what the Object, e.g. Page/Line, is (about).
   > - it is one of the Object’s Properties (if obj has many Tags).
->   - Page Object itself implicitly has a #page (i)tag for **indexing**.
+>   - Page Object itself implicitly has a #Page (i)tag for **indexing**.
 > - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table.
 >   - So, Tag = Table
 ### Aggregation for future
