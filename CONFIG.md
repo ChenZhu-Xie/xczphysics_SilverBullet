@@ -20,7 +20,7 @@ ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]
 # Custom Plugs are located @
 ${template.each(query[[
   from index.tag "SB_itself"
-  where _.tag == "page"
+  where _.tag == "page" and _.name != "SB Basics"
 ]], templates.fullPageItem)}
 1. https://silverbullet.md/Library/Std/Infrastructure/Page%20Templates#Currently%20active%20page%20templates 先过滤 tag 再过滤 page
 
@@ -31,12 +31,12 @@ ${query[[from index.tag "page"
 ]]}
 ```
 
+```lua
 ${query[[from index.tag "page"
-  where _.tags and table.concat(_.tags, "|"):match("(^|%|)SB_itself(%||$)")
+  where _.tags and table.concat(_.tags, "|"):match("SB_itself")
   select {ref=_.ref, tags=_.tags}
 ]]}
-
-[[tag:SB_itself]]
+```
 
 # CONFIG begin
 
