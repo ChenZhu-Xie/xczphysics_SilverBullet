@@ -38,7 +38,7 @@ function yg_B.bc(path)
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
-local function pattern(path)
+function pattern(path)
   mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
     return "^" .. mypath .. "/[^/]+$"
