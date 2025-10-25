@@ -1,3 +1,9 @@
+```space-style
+
+```
+
+1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
+
 ```style
 html[data-theme="dark"] {
   .sb-line-h1 { font-size: 1.8em !important; color: #e6b3ff !important; } /* 淡紫亮调 */
@@ -637,6 +643,142 @@ html[data-theme="light"] {
 
 ```
 
-```space-style
+```style
+:root {
+  /* 全局 hover glow 强度控制，默认 1，可调 0~2 */
+  --hover-glow-scale: 1;
+
+  /* Dark theme 颜色变量（暖→冷） */
+  --h1-color-dark: #ffeb99;
+  --h2-color-dark: #ffcc88;
+  --h3-color-dark: #99cc88;
+  --h4-color-dark: #66cc99;
+  --h5-color-dark: #66aaaa;
+  --h6-color-dark: #77bbcc;
+
+  --h1-underline-dark: rgba(255,235,153,0.6);
+  --h2-underline-dark: rgba(255,204,136,0.6);
+  --h3-underline-dark: rgba(153,204,136,0.6);
+  --h4-underline-dark: rgba(102,204,153,0.6);
+  --h5-underline-dark: rgba(102,170,170,0.6);
+  --h6-underline-dark: rgba(119,187,204,0.6);
+
+  --h1-glow-dark-px: 4px;
+  --h2-glow-dark-px: 3.5px;
+  --h3-glow-dark-px: 3px;
+  --h4-glow-dark-px: 2.5px;
+  --h5-glow-dark-px: 2px;
+  --h6-glow-dark-px: 1.5px;
+
+  --h1-glow-dark-color: #ffeebb88;
+  --h2-glow-dark-color: #ffcc8888;
+  --h3-glow-dark-color: #99cc8888;
+  --h4-glow-dark-color: #66cc9988;
+  --h5-glow-dark-color: #66aaaa88;
+  --h6-glow-dark-color: #77bbcc88;
+
+  /* Light theme 颜色变量（暖→冷） */
+  --h1-color-light: #996600;
+  --h2-color-light: #994d00;
+  --h3-color-light: #336633;
+  --h4-color-light: #008066;
+  --h5-color-light: #006666;
+  --h6-color-light: #005577;
+
+  --h1-underline-light: rgba(153,102,0,0.6);
+  --h2-underline-light: rgba(153,77,0,0.6);
+  --h3-underline-light: rgba(51,102,51,0.6);
+  --h4-underline-light: rgba(0,128,102,0.6);
+  --h5-underline-light: rgba(0,102,102,0.6);
+  --h6-underline-light: rgba(0,85,119,0.6);
+
+  --h1-glow-light-px: 2px;
+  --h2-glow-light-px: 1.8px;
+  --h3-glow-light-px: 1.5px;
+  --h4-glow-light-px: 1.2px;
+  --h5-glow-light-px: 1px;
+  --h6-glow-light-px: 0.8px;
+
+  --h1-glow-light-color: #99660088;
+  --h2-glow-light-color: #994d0088;
+  --h3-glow-light-color: #33663388;
+  --h4-glow-light-color: #00806688;
+  --h5-glow-light-color: #00666688;
+  --h6-glow-light-color: #00557788;
+}
+
+/* 公共 H1–H6 样式 */
+.sb-line-h1, .sb-line-h2, .sb-line-h3,
+.sb-line-h4, .sb-line-h5, .sb-line-h6 {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-image-slice: 1;
+  text-shadow: none; /* 初始无 glow */
+  transition: text-shadow 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+/* 下划线 blur */
+.sb-line-h1::after, .sb-line-h2::after, .sb-line-h3::after,
+.sb-line-h4::after, .sb-line-h5::after, .sb-line-h6::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  border-radius: 1px;
+  filter: blur(1.5px);
+}
+
+/* Dark Theme */
+html[data-theme="dark"] {
+  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
+  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
+  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-dark)!important; }
+  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-dark)!important; }
+  .sb-line-h5 { font-size:1em !important; color:var(--h5-color-dark)!important; }
+  .sb-line-h6 { font-size:1em !important; color:var(--h6-color-dark)!important; }
+
+  .sb-line-h1::after { background: linear-gradient(to right, var(--h1-underline-dark), transparent); }
+  .sb-line-h2::after { background: linear-gradient(to right, var(--h2-underline-dark), transparent); }
+  .sb-line-h3::after { background: linear-gradient(to right, var(--h3-underline-dark), transparent); }
+  .sb-line-h4::after { background: linear-gradient(to right, var(--h4-underline-dark), transparent); }
+  .sb-line-h5::after { background: linear-gradient(to right, var(--h5-underline-dark), transparent); }
+  .sb-line-h6::after { background: linear-gradient(to right, var(--h6-underline-dark), transparent); }
+
+  /* Hover / focus glow */
+  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: 0 0 calc(var(--h1-glow-dark-px) * var(--hover-glow-scale)) var(--h1-glow-dark-color); }
+  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: 0 0 calc(var(--h2-glow-dark-px) * var(--hover-glow-scale)) var(--h2-glow-dark-color); }
+  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: 0 0 calc(var(--h3-glow-dark-px) * var(--hover-glow-scale)) var(--h3-glow-dark-color); }
+  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: 0 0 calc(var(--h4-glow-dark-px) * var(--hover-glow-scale)) var(--h4-glow-dark-color); }
+  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: 0 0 calc(var(--h5-glow-dark-px) * var(--hover-glow-scale)) var(--h5-glow-dark-color); }
+  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: 0 0 calc(var(--h6-glow-dark-px) * var(--hover-glow-scale)) var(--h6-glow-dark-color); }
+}
+
+/* Light Theme */
+html[data-theme="light"] {
+  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
+  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
+  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-light)!important; }
+  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-light)!important; }
+  .sb-line-h5 { font-size:1em !important; color:var(--h5-color-light)!important; }
+  .sb-line-h6 { font-size:1em !important; color:var(--h6-color-light)!important; }
+
+  .sb-line-h1::after { background: linear-gradient(to right, var(--h1-underline-light), transparent); }
+  .sb-line-h2::after { background: linear-gradient(to right, var(--h2-underline-light), transparent); }
+  .sb-line-h3::after { background: linear-gradient(to right, var(--h3-underline-light), transparent); }
+  .sb-line-h4::after { background: linear-gradient(to right, var(--h4-underline-light), transparent); }
+  .sb-line-h5::after { background: linear-gradient(to right, var(--h5-underline-light), transparent); }
+  .sb-line-h6::after { background: linear-gradient(to right, var(--h6-underline-light), transparent); }
+
+  /* Hover / focus glow */
+  .sb-line-h1:hover, .sb-line-h1:focus { text-shadow: 0 0 calc(var(--h1-glow-light-px) * var(--hover-glow-scale)) var(--h1-glow-light-color); }
+  .sb-line-h2:hover, .sb-line-h2:focus { text-shadow: 0 0 calc(var(--h2-glow-light-px) * var(--hover-glow-scale)) var(--h2-glow-light-color); }
+  .sb-line-h3:hover, .sb-line-h3:focus { text-shadow: 0 0 calc(var(--h3-glow-light-px) * var(--hover-glow-scale)) var(--h3-glow-light-color); }
+  .sb-line-h4:hover, .sb-line-h4:focus { text-shadow: 0 0 calc(var(--h4-glow-light-px) * var(--hover-glow-scale)) var(--h4-glow-light-color); }
+  .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: 0 0 calc(var(--h5-glow-light-px) * var(--hover-glow-scale)) var(--h5-glow-light-color); }
+  .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: 0 0 calc(var(--h6-glow-light-px) * var(--hover-glow-scale)) var(--h6-glow-light-color); }
+}
 
 ```
