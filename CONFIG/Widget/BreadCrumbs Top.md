@@ -40,10 +40,12 @@ local function choose(a, b, path)
 end
 
 local function bc_lastM(path)
-  return template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==], path))
+  return template.new(choose([==[⇩[[${name}]]​]==], [==[●[[${name}]]​]==], path))
+  -- https://symbl.cc/cn/search/?q=%E5%90%91%E4%B8%8B%E7%A9%BA%E5%BF%83%E7%AE%AD%E5%A4%B4
 end
 local function bc_lastV(path)
-  return template.new(choose([==[-[[${name}]]​]==], [==[=[[${name}]]​]==], path))
+  return template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==], path))
+  -- return template.new(choose([==[-[[${name}]]​]==], [==[=[[${name}]]​]==], path))
 end
 
 function yg.bc(path)
