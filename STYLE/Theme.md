@@ -70,17 +70,17 @@ html[data-theme="light"] {
 
 ```
 
+```html
 <script>
-document.addEventListener("DOMContentLoaded", ()=>{
+setTimeout(()=>{
   const headers = Array.from(document.querySelectorAll('.sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6'));
-  
-  // 构建标题层级树
+  headers.forEach(h=>h.style.opacity = 0.7); // 默认半透明
+
   const headerTree = headers.map((h, idx) => {
     let level = parseInt(h.className.match(/sb-line-h(\d)/)[1]);
     return { el:h, level, idx, parent:null };
   });
 
-  // 设置父级关系
   headerTree.forEach((node, i)=>{
     for(let j=i-1; j>=0; j--){
       if(headerTree[j].level < node.level){
@@ -90,13 +90,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
   });
 
-  // 鼠标移动监听
   document.addEventListener('mousemove', e => {
-    // 移除所有 active
     headers.forEach(h=>h.classList.remove('sb-active'));
 
     let target = e.target;
-    // 找到目标对应标题
     while(target && target !== document.body){
       if(target.classList && target.classList.contains('sb-line-h1') ||
          target.classList.contains('sb-line-h2') ||
@@ -108,8 +105,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
       }
       target = target.parentNode;
     }
+
     if(target){
-      // 高亮当前标题及父标题
       let node = headerTree.find(n=>n.el===target);
       while(node){
         node.el.classList.add('sb-active');
@@ -117,9 +114,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
       }
     }
   });
-});
+}, 0);
 </script>
 
+```
 
 ```style
 :root {
