@@ -22,6 +22,7 @@ function choose(a, b, path)
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
   if #children > 0 then
+    editor.flashNotification(#children)
     return a
   else
     return b
