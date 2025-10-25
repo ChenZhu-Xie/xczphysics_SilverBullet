@@ -74,6 +74,28 @@ html {
   --markmap-text-color: #BBDEFB !important;
 }
 
+.sb-code {
+  color: grey !important;
+}
+.sb-emphasis {
+  color: darkorange !important;
+}
+.sb-strong {
+  color: salmon !important;
+}
+
+html {
+  --treeview-phone-height: 25vh;
+  --treeview-tablet-width: 25vw;
+  --treeview-tablet-height: 100vh;
+  --treeview-desktop-width: 20vw; 
+}
+
+.sb-bhs {
+  height: var(--treeview-phone-height);
+}
+```
+
 .sb-line-h1 {
   font-size: 1.8em !important;
   color: #ee82ee !important;
@@ -99,26 +121,25 @@ html {
   color: #ffa500 !important;
 }
 
-.sb-code {
-  color: grey !important;
-}
-.sb-emphasis {
-  color: darkorange !important;
-}
-.sb-strong {
-  color: salmon !important;
-}
-
-html {
-  --treeview-phone-height: 25vh;
-  --treeview-tablet-width: 25vw;
-  --treeview-tablet-height: 100vh;
-  --treeview-desktop-width: 20vw; 
+```space-style
+html[data-theme="dark"] {
+  .sb-line-h1 { font-size: 1.8em !important; color: #e6b3ff !important; } /* 淡紫亮调 */
+  .sb-line-h2 { font-size: 1.6em !important; color: #b8b0ff !important; } /* 柔和蓝紫 */
+  .sb-line-h3 { font-size: 1.4em !important; color: #89b4ff !important; } /* 浅蓝 */
+  .sb-line-h4 { font-size: 1.2em !important; color: #8fe1b5 !important; } /* 青绿 */
+  .sb-line-h5 { font-size: 1em !important;  color: #f0e68c !important; } /* 柔黄 */
+  .sb-line-h6 { font-size: 1em !important;  color: #ffbb66 !important; } /* 暖橙 */
 }
 
-.sb-bhs {
-  height: var(--treeview-phone-height);
+html[data-theme="light"] {
+  .sb-line-h1 { font-size: 1.8em !important; color: #7a3fbf !important; } /* 深紫 */
+  .sb-line-h2 { font-size: 1.6em !important; color: #4b4bb8 !important; } /* 靛蓝 */
+  .sb-line-h3 { font-size: 1.4em !important; color: #1a73e8 !important; } /* 经典蓝 */
+  .sb-line-h4 { font-size: 1.2em !important; color: #008c6f !important; } /* 蓝绿 */
+  .sb-line-h5 { font-size: 1em !important;  color: #b59b00 !important; } /* 暖金 */
+  .sb-line-h6 { font-size: 1em !important;  color: #e67e22 !important; } /* 柔橙 */
 }
+
 ```
 
 ## Treeview
