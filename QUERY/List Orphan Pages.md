@@ -1,3 +1,6 @@
+
+1. https://community.silverbullet.md/t/list-pages-that-have-no-links-to-them-orphan-pages/3360
+
 ```space-lua
 function orphanPages()
   -- Collect all page names of non meta-pages and put them in a map
