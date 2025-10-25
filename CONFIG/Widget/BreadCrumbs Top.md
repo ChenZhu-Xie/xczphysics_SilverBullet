@@ -28,8 +28,8 @@ function choose(a, b, path)
   end
 end
 
-yg.t_bc_lastM = template.new(choose([==[○[[${name}]]​]==], [==[◻[[${name}]]​]==]))
-yg.t_bc_lastV = template.new(choose([==[●[[${name}]]​]==], [==[◼[[${name}]]​]==]))
+yg.t_bc_lastM = template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==]))
+yg.t_bc_lastV = template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==]))
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
