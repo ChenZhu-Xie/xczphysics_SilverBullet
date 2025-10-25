@@ -1,4 +1,5 @@
 ---
+recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Search/Heading%20Picker.md"
 ---
 

@@ -1,4 +1,5 @@
 ---
+recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md"
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
 ---

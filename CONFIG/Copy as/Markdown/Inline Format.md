@@ -1,4 +1,5 @@
 ---
+recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Inline%20Format.md"
 ---
 

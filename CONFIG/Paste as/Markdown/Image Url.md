@@ -1,4 +1,5 @@
 ---
+recommend: ⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste%20as/Markdown/Image%20Url.md"
 ---
 
