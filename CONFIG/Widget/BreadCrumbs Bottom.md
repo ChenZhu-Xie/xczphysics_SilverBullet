@@ -30,10 +30,8 @@ function Yg.breadcrumbs(path)
 end
 
 local function choose(a, b, path)
-  local mypage = path or editor.getCurrentPage()
-  local children = query[[from index.tag "page" 
-         where _.name:find("^" .. mypage .. "/")]]
-  if #children > 0 then
+  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  if mypath and #mypath > 0 then
     return a
   else
     return b
@@ -56,12 +54,7 @@ function Yg.bc(path)
 end
 
 local function pattern(path)
-  mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
-  if mypath and #mypath > 0 then
-    return "^" .. mypath .. "/[^/]+$"
-  else
-    return "^[^/]+$"
-  end
+  return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", path)
 end
 
 local max_num = 5
