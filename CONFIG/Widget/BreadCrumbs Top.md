@@ -18,7 +18,7 @@ yg = yg or {}
 yg.t_bc = template.new[==[/[[${name}]]​]==]
 
 function choose(a, b, path)
-  local mypage = path or editor.getCurrentPage()
+  local mypage = editor.getCurrentPage()
   local children = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")]]
   if #children > 0 then
