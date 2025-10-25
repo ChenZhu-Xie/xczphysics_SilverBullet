@@ -15,21 +15,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 -- priority: 10
 yg = yg or {}
-yg.t_bc = template.new[==[/[[${name}]]​]==]
-
-function choose(a, b, path)
-  local mypage = path or editor.getCurrentPage()
-  local children = query[[from index.tag "page" 
-         where _.name:find("^" .. mypage .. "/")]]
-  if #children > 0 then
-    return a
-  else
-    return b
-  end
-end
-
-yg.t_bc_lastM = template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==]))
-yg.t_bc_lastV = template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==]))
+bc = template.new[==[/[[${name}]]​]==]
 
 function yg.breadcrumbs(path)
   local mypage = path or editor.getCurrentPage()
@@ -42,10 +28,28 @@ function yg.breadcrumbs(path)
   return crumbs
 end
 
+local function choose(a, b, path)
+  local mypage = path or editor.getCurrentPage()
+  local children = query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")]]
+  if #children > 0 then
+    return a
+  else
+    return b
+  end
+end
+
+local function bc_lastM(path)
+  return template.new(choose([==[○[[${name}]]​]==], [==[●[[${name}]]​]==], path))
+end
+local function bc_lastV(path)
+  return template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==], path))
+end
+
 function yg.bc(path)
-  local bc = template.each(yg.breadcrumbs(path), yg.t_bc) or ""
-  local lastMs = template.each(yg.lastM(path), yg.t_bc_lastM) or ""
-  local lastVs = template.each(yg.lastV(path), yg.t_bc_lastV) or ""
+  local bc = template.each(yg.breadcrumbs(path), bc) or ""
+  local lastMs = template.each(yg.lastM(path), bc_lastM(path)) or ""
+  local lastVs = template.each(yg.lastV(path), bc_lastV(path)) or ""
   return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
 end
 
