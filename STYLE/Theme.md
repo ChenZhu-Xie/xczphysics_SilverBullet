@@ -1,3 +1,4 @@
+
 ```space-lua
 command.define {
   name = "Highlight Headers: Init",
