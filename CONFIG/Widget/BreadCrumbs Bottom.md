@@ -41,9 +41,9 @@ end
 local function pattern()
   mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
-    pattern = "^" .. mypath .. "/[^/]+$"
+    return "^" .. mypath .. "/[^/]+$"
   else
-    pattern = "^[^/]+$"
+    return "^[^/]+$"
   end
 end
 
