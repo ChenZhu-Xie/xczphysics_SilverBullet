@@ -528,7 +528,7 @@ html[data-theme="light"] {
 ```space-style
 :root {
   /* 全局 hover glow 强度控制，默认 1，可调 0~2 */
-  --hover-glow-scale: 5;
+  --hover-glow-scale: 2;
 
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6b3ff;
