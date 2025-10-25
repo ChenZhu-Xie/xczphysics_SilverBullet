@@ -39,9 +39,10 @@ local function choose(a, b, path)
 end
 
 local function Bc_lastM(path)
-  return template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==], path))
+  return template.new(choose([==[⇩[[${name}]]​]==], [==[◼[[${name}]]​]==], path))
 end
 local function Bc_lastV(path)
+  return template.new(choose([==[◻[[${name}]]​]==], [==[◼[[${name}]]​]==], path))
   -- return template.new(choose([==[∴[[${name}]]​]==], [==[※[[${name}]]​]==], path))
   -- return template.new(choose([==[☷[[${name}]]​]==], [==[☰[[${name}]]​]==], path))
 end
