@@ -525,7 +525,7 @@ html[data-theme="light"] {
 
 ```
 
-```space-style
+```style
 :root {
   /* 全局 hover glow 强度控制，默认 1，可调 0~2 */
   --hover-glow-scale: 2;
@@ -634,5 +634,9 @@ html[data-theme="light"] {
   .sb-line-h5:hover, .sb-line-h5:focus { text-shadow: 0 0 calc(var(--h5-glow-light-px) * var(--hover-glow-scale)) var(--h5-glow-light-color); }
   .sb-line-h6:hover, .sb-line-h6:focus { text-shadow: 0 0 calc(var(--h6-glow-light-px) * var(--hover-glow-scale)) var(--h6-glow-light-color); }
 }
+
+```
+
+```space-style
 
 ```
