@@ -11,6 +11,7 @@ ${latex.block[[\widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x)\ e^{-i 2\pi \xi x
 
 1. https://community.silverbullet.md/t/mathematical-expressions/421/14
 2. https://github.com/silverbulletmd/silverbullet-katex
+3. https://community.silverbullet.md/t/how-to-center-latex-formulas-and-mermaid-diagrams/3018
 
 ```space-lua
 latex = {
