@@ -3,6 +3,7 @@
 
 1. https://community.silverbullet.md/t/command-button-with-title-alias-does-not-work-in-table/1701/4?u=chenzhu-xie
 - using cmd https://community.silverbullet.md/t/command-in-space-lua-to-set-page-attributes/1696
+  - related to [[CONFIG/Add Fields for Obj/Github Url]]
 
 ```space-lua
 command.define {
@@ -36,6 +37,3 @@ command.define {
   end
 }
 ```
-
-{[Page: Set Attribute|Reset Stars]({"attribute": "stars","value": 0})}
-{[Page: Set Attribute|Add Star]({"attribute": "stars","change":1})}
