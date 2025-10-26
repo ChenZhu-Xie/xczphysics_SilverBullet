@@ -5,7 +5,7 @@
    - https://github.com/silverbulletmd/silverbullet/issues/245
 2. https://community.silverbullet.md/t/floating-header-footer/1211
 3. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
-4. [[CONFIG/View/Treeview_Extension_DragAndResize]]
+4. [[CONFIG/View/Tree/Treeview_Extension_DragAndResize]]
 5. https://community.silverbullet.md/t/hook-lua-on-ast-nodes/3237?u=chenzhu-xie
 
 # 所有页面共用的即时生成的公共部分
