@@ -5,7 +5,7 @@
 - using cmd https://community.silverbullet.md/t/command-in-space-lua-to-set-page-attributes/1696
   - related to [[CONFIG/Add Fields for Obj/Github Url]]
 
-```space-lua
+```lua
 command.define {
   name = "Page: Set Attribute",
   run = function(a)

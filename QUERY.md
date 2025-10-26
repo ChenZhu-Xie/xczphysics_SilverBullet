@@ -1,5 +1,13 @@
 ![[CONFIG#Custom Plugs are Located @]]
 
+# Data schemas and “real” SQL
+
+1. https://community.silverbullet.md/t/data-schemas-and-real-sql/3110?u=chenzhu-xie
+
+## Attributes of Objs
+
+1. https://community.silverbullet.md/t/lets-discuss-attributes-and-tags-vs-page-structure/1266/2?u=chenzhu-xie
+
 # Knowledge about QUERY
 
 > **tip** Ref
