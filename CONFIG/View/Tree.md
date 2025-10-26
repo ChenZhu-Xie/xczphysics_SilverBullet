@@ -22,8 +22,8 @@ actionButton.define {
 }
 ```
 
-```lua
-command.define {
+```space-lua
+command.update {
   name = "Tree View: Toggle",
   run = function()
     editor.invokeCommand "Tree View: Toggle"
