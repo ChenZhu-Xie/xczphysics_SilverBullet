@@ -77,7 +77,7 @@ command.define {
     -- editor.flashNotification(lines)
     local fmText = table.concat(lines, "\n")
     
-    local newText = string.format("---\n%s\n---\n%s", fmText, body)
+    local newText = string.format("---\n%s\n---%s", fmText, body)
 
     if newText ~= text then
       editor.setText(newText, false)
@@ -90,8 +90,4 @@ command.define {
   end
 }
 ```
-
-
-
-
 
