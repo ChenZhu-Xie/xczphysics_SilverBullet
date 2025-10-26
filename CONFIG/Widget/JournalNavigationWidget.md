@@ -36,7 +36,7 @@ function Journal.navigateWidget(currentJournal)
     local prevWeekLink = path .. prevWeek
     local nextWeekLink = path .. nextWeek
 
-    local link = "[[" .. prevWeekLink .. "|⬅️ Previous]] | [[" .. tostring(currentJournal) .."|📅 " .. tostring(currentJournal) .. "]] |[[" .. nextWeekLink .. "| Next ➡️]]"
+    local link = "[[" .. prevWeekLink .. "|⬅️ Previous]] | [[" .. tostring(currentJournal) .."|📅 " .. tostring(currentJournal) .. "]] | [[" .. nextWeekLink .. "|Next ➡️]]"
 
     return link
 end
