@@ -50,13 +50,13 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    if type(fm.recommend) == "string" and fm.recommend ~= "⭐⭐⭐⭐⭐" then
+    if type(fm.recommend) == "string" and fm.recommend ~= "" then
       editor.flashNotification("\"recommend\" already Set", "info")
     else
       fm.recommend = "⭐⭐⭐⭐⭐"
       editor.flashNotification("Added - recommend: " .. fm.udpateDate, "info")
     end
-    if type(fm.udpateDate) == "string" and fm.udpateDate ~= os.date("%Y-%m-%d") then
+    if type(fm.udpateDate) == "string" and fm.udpateDate ~= "" then
       editor.flashNotification("\"udpateDate\" already Set", "info")
     else
       fm.udpateDate = os.date("%Y-%m-%d")
