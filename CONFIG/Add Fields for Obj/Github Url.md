@@ -24,6 +24,24 @@ command.define {
     local text = editor.getText()
     local fmExtract = index.extractFrontmatter(text) or {}
     local fm = fmExtract.frontmatter or {}
+    
+    if type(fm.recommend) == "string" and fm.recommend ~= "" then
+      -- preserve exsiting value
+      editor.flashNotification("\"recommend\" already Set", "info")
+    else
+      fm.recommend = "⭐⭐⭐⭐⭐"
+      editor.flashNotification("Added - recommend: " .. fm.udpateDate, "info")
+    end
+    
+    if type(fm.udpateDate) == "string" and fm.udpateDate == os.date("%Y-%m-%d") then
+      -- modify exsiting value
+      editor.flashNotification("\"udpateDate\" already Set", "info")
+    else
+      fm.udpateDate = os.date("%Y-%m-%d")
+      editor.flashNotification("Added - udpateDate: " .. fm.udpateDate, "info")
+    end
+
+
     local body = index.extractFrontmatter(text,  {
     removeFrontMatterSection = true }).text or text
 
@@ -40,31 +58,11 @@ command.define {
       return table.concat(parts)
     end
     
-    local path = ""
-    if editor.getCurrentPath then
-      local ok, p = pcall(editor.getCurrentPath)
-      path = ok and (p or "") or ""
-    end
-    local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(path)
+    local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(editor.getCurrentPath())
     -- editor.flashNotification(url)
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    if type(fm.recommend) == "string" and fm.recommend ~= "" then
-      -- preserve exsiting value
-      editor.flashNotification("\"recommend\" already Set", "info")
-    else
-      fm.recommend = "⭐⭐⭐⭐⭐"
-      editor.flashNotification("Added - recommend: " .. fm.udpateDate, "info")
-    end
-    
-    if type(fm.udpateDate) == "string" and fm.udpateDate == os.date("%Y-%m-%d") then
-      -- modify exsiting value
-      editor.flashNotification("\"udpateDate\" already Set", "info")
-    else
-      fm.udpateDate = os.date("%Y-%m-%d")
-      editor.flashNotification("Added - udpateDate: " .. fm.udpateDate, "info")
-    end
     
     fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
 
