@@ -14,3 +14,4 @@ objectDecorators:
 3. https://community.silverbullet.md/t/help-fixing-a-where-clause-in-table-of-content-page/770
    - related to [[SB Basics/Ideas#TOC related]]
 
+${query[[from index.tag('paragraph') where table.includes(_.tags, SB_itself)]]}
