@@ -25,3 +25,8 @@
 # Floating Widget
 
 1. https://community.silverbullet.md/t/introducing-orbitcal-a-floating-calendar-widget-proof-of-concept/3442
+
+# AI stuff
+
+1. https://github.com/justyns/silverbullet-ai
+2. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Assistant.md
