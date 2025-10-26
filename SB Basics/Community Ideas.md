@@ -8,20 +8,20 @@
 4. [[CONFIG/View/Tree/Float]]
 5. https://community.silverbullet.md/t/hook-lua-on-ast-nodes/3237?u=chenzhu-xie
 
-# 所有页面共用的即时生成的公共部分
+# On-the-fly Public Section shared by all Pages
 
 1. https://community.silverbullet.md/t/an-on-the-fly-generated-section-common-to-all-pages/1659
 
 # TOC related
 
-## 随时随地 来个 TOC: `${widgets.toc()}`
+## Query a `${widgets.toc()}` anytime, anywhere
 
 ${widgets.toc()}
 
 1. https://community.silverbullet.md/t/linked-table-of-contents-within-other-page/3103
 2. [[Library/Std/Widgets/Widgets#Table of contents]]
 
-## 随时随地 呼出 TOC: 快捷键
+## Shortcut a TOC anytime, anywhere
 
 1. https://community.silverbullet.md/t/adding-a-shortcut-and-a-command-to-table-of-contents/38
 
