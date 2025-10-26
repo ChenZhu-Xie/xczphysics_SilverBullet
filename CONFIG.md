@@ -31,7 +31,7 @@ ${query[[from index.tag "page"
 ]]}
 ```
 
-```lua
+```lua -- not working again though
 ${query[[from index.tag "page"
   where _.tags and table.concat(_.tags, "|"):match("SB_itself")
   select {ref=_.ref, tags=_.tags}
@@ -51,7 +51,8 @@ config.set(
     "ghr:MrMugame/silversearch",
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
     -- "page-meta.plug.js",
-    -- "highlightHeaders.plug.js",
+    -- "highlightHeaders.plug.js", related to [[STYLE/Theme]]
+    "github:silverbulletmd/silverbullet-katex/katex.plug.js",
   })
 ```
 
