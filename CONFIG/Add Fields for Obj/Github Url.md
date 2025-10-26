@@ -41,7 +41,6 @@ command.define {
       editor.flashNotification("Added - udpateDate: " .. fm.udpateDate, "info")
     end
 
-
     local body = index.extractFrontmatter(text,  {
     removeFrontMatterSection = true }).text or text
 
@@ -63,10 +62,8 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    
     fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
 
-    
     local lines = {}
     for k, v in pairs(fm) do
       if type(v) == "table" then
