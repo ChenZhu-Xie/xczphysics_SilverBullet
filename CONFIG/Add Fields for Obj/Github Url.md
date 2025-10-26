@@ -50,7 +50,7 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    if type(fm.recommend) == "string" and fm.recommend == "⭐⭐⭐⭐⭐" then
+    if type(fm.recommend) == "string" and fm.recommend ~= "" then
       editor.flashNotification("\"recommend\" already Set", "info")
     else
       fm.recommend = "⭐⭐⭐⭐⭐"
