@@ -12,7 +12,8 @@ Navigate Weekly/Daily Journals
 
 Journal = Journal or {}
 
-local journalPath = "Journal/Week/"
+-- local journalPath = "Journal/Week/"
+local journalPath = "Inbox/"
 local navigateDuration = 7 * 24 * 60 * 60 -- a week
 
 -- local journalPath = "Journal/Daily/"
