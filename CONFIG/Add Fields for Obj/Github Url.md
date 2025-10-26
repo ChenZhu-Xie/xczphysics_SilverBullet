@@ -19,11 +19,6 @@ command.define {
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
 
-    if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
-      editor.flashNotification("githubUrl already set", "info")
-      return
-    end
-
     local function replace_space_with_percent20(s)
       local parts = {}
       for i = 1, #s do
@@ -47,8 +42,16 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     -- fm.githubUrl = replace_space_with_percent20(url)
-    fm.recommend = "⭐⭐⭐⭐⭐"
-    fm.udpateDate = os.date("%Y-%m-%d")
+    if type(fm.recommend) == "string" and fm.recommend ~= "" then
+      editor.flashNotification("recommend already set", "info")
+    else
+      fm.recommend = "⭐⭐⭐⭐⭐"
+    end
+    if type(fm.udpateDate) == "string" and fm.udpateDate ~= "" then
+      editor.flashNotification("udpateDate already set", "info")
+    else
+      fm.udpateDate = os.date("%Y-%m-%d")
+    end
     fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
     
 
