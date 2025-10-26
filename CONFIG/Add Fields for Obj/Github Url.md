@@ -18,6 +18,7 @@ command.define {
     local fmExtract = index.extractFrontmatter(text) or {}
     local fm = fmExtract.frontmatter or {}
     local body = fmExtract.body or fmExtract.text or text
+    editor.flashNotification(body)
 
     local function replace_space_with_percent20(s)
       local parts = {}
