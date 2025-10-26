@@ -20,6 +20,11 @@ latex = {
 }
 
 function latex.inline(expression)  
+  if not latex.katex then
+    editor.alert("KaTeX 模块尚未加载")
+    return
+  end
+  
   local html = latex.katex.renderToString(expression, {
     trust = true,
     throwOnError = false,
@@ -32,6 +37,11 @@ function latex.inline(expression)
 end
 
 function latex.block(expression)
+  if not latex.katex then
+    editor.alert("KaTeX 模块尚未加载")
+    return
+  end
+  
   local html = latex.katex.renderToString(expression, {
     trust = true,
     throwOnError = false,
