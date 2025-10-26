@@ -13,11 +13,11 @@ Navigate Weekly/Daily Journals
 Journal = Journal or {}
 
 -- local journalPath = "Journal/Week/"
-local journalPath = "Inbox/"
-local navigateDuration = 7 * 24 * 60 * 60 -- a week
+-- local navigateDuration = 7 * 24 * 60 * 60 -- a week
 
 -- local journalPath = "Journal/Daily/"
--- local navigateDuration = 24 * 60 * 60 -- a day
+local journalPath = "Inbox/"
+local navigateDuration = 24 * 60 * 60 -- a day
 
 function Journal.navigateWidget(currentJournal)
     -- currentJournal should be in the format "path/year-month-day"
