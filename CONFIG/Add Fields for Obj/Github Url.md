@@ -10,9 +10,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 4. 参考了 [[^Library/Std/APIs/Template]] 中的用例：
 ```lua
 local fm = index.extractFrontmatter(space.readPage(name),  {
-    removeFrontMatterSection = true,
-    removeTags = true
-  })
+  removeFrontMatterSection = true,
+  removeTags = true
+})
 ```
 
 ```space-lua
@@ -92,6 +92,8 @@ command.define {
       else
         editor.flashNotification("Added - githubUrl: " .. fm.githubUrl, "info")
       end
+    else
+      editor.flashNotification("\"githubUrl\" already Set", "info")
     end
   end
 }
