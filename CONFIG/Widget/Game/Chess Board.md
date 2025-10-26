@@ -1,6 +1,8 @@
 
 ${generate_chessboard("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1", "black", {"h1-g1", "h6-g6", "e2-d4", "a5-a8"}, {"a5", "h4", "e1", "b8"})}
 
+${generate_chessboard("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1", "black", {"h1-g1", "h6-g6", "e2-d4", "a5-a8"}, {"a5", "h4", "e1", "b8"})}
+
 ```space-lua
 function parse_fen(fen)
     local pieces = {}
