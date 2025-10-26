@@ -52,7 +52,7 @@ config.set(
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
     -- "page-meta.plug.js",
     -- "highlightHeaders.plug.js", related to [[STYLE/Theme]]
-    "github:silverbulletmd/silverbullet-katex/katex.plug.js",
+    -- "github:silverbulletmd/silverbullet-katex/katex.plug.js",
   })
 ```
 
