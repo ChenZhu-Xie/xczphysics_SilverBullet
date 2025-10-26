@@ -1,13 +1,4 @@
----
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-10-26
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md"
----
----
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-10-26
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md"
----
+
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=8a82458ab0
 2. https://chatgpt.com/share/68fbc115-15c8-8010-a698-fea9877c82e2
@@ -23,8 +14,8 @@ command.define {
     local text = editor.getText()
     local fmExtract = index.extractFrontmatter(text) or {}
     local fm = fmExtract.frontmatter or {}
-    local body = fmExtract.text or text
-    editor.flashNotification("body:" .. body)
+    local body = index.extractFrontmatter(text,  {
+    removeFrontMatterSection = true }).text or text
 
     local function replace_space_with_percent20(s)
       local parts = {}
