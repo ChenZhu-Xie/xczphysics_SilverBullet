@@ -14,9 +14,7 @@ command.define {
     local current = editor.getCurrentPage()
     local lastSlash = current:match("^(.*)/[^/]*$") or ""
     local pageName = editor.prompt("Sibling Page Name", lastSlash.."/")
-    if pageName then
-      editor.navigate(pageName)
-    end
+    if pageName then editor.navigate(pageName) end
   end
 }
 
@@ -30,8 +28,8 @@ command.define {
   description = "New Children Page",
   key = "Ctrl-Alt-n",
   run = function()
-    local pageName=editor.prompt("Page Name",editor.getCurrentPage().."/")
-    editor.navigate(pageName)
+    local pageName = editor.prompt("Page Name",editor.getCurrentPage().."/")
+    if pageName then editor.navigate(pageName) end
   end
 }
 ```
