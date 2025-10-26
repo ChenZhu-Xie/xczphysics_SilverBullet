@@ -16,7 +16,7 @@ ${latex.block[[\widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x)\ e^{-i 2\pi \xi x
 ```space-lua
 latex = {
   header = [[<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">]],
-  katex = js.import("https://cdn.jsdelivr.net/npm/katex@0.16.22/+esm")
+  katex = js.import("https://cdn.jsdelivr.net/npm/katex@0.16.22/..esm")
 }
 
 function latex.inline(expression)  
@@ -27,7 +27,7 @@ function latex.inline(expression)
   })
   
   return widget.new {
-    html = "<span>" + latex.header + html + "</span>"
+    html = "<span>" .. latex.header .. html .. "</span>"
   }
 end
 
@@ -39,7 +39,7 @@ function latex.block(expression)
   })
   
   return widget.new {
-    html = "<span>" + latex.header + html + "</span>"
+    html = "<span>" .. latex.header .. html .. "</span>"
   }
 end 
 
