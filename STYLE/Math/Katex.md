@@ -8,7 +8,6 @@ If ${latex.inline[[S]]} is a set, ${latex.inline[[\circ]]} is a binary operation
 
 The Fourier transform of a complex-valued (Lebesgue) integrable function ${latex.inline[[f(x)]]} on the real line, is the complex valued function ${latex.inline[[\hat {f}(\xi )]]}, defined by the integral
 ${latex.block[[\widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x)\ e^{-i 2\pi \xi x}\,dx, \quad \forall \xi \in \mathbb{R}.]]}
-
 1. https://community.silverbullet.md/t/mathematical-expressions/421/14
 2. https://github.com/silverbulletmd/silverbullet-katex
 3. https://community.silverbullet.md/t/how-to-center-latex-formulas-and-mermaid-diagrams/3018
