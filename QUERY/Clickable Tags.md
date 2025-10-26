@@ -24,8 +24,6 @@ ${template.each(query[[
 )}
 ```
 
-
-
 * [ ] Tuesday 2025-05-20 This is a Task #task | Ref
 * [ ] 2025-05-20 This is a Task #task | Ref
 * [ ] 2025-05-21 Next day's Task #task | Ref
