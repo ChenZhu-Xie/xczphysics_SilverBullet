@@ -63,6 +63,31 @@ end
 ```
 
 ```space-lua
+function parse_arrows(arrows, flip)
+    local parsed_arrows = {}
+    for _, arrow in ipairs(arrows) do
+        local start_file, start_rank, end_file, end_rank = arrow:match("(%a)(%d)-(%a)(%d)")
+        if start_file and start_rank and end_file and end_rank then
+            local start_x = string.byte(start_file:upper()) - string.byte("A") + 1
+            local start_y = tonumber(start_rank)
+            local end_x = string.byte(end_file:upper()) - string.byte("A") + 1
+            local end_y = tonumber(end_rank)
+            
+            if flip then
+                start_x = 9 - start_x
+                start_y = 9 - start_y
+                end_x = 9 - end_x
+                end_y = 9 - end_y
+            end
+            
+            table.insert(parsed_arrows, {start_x, start_y, end_x, end_y})
+        end
+    end
+    return parsed_arrows
+end
+```
+
+```space-lua
 function generate_chessboard(fen, side, arrows, circles)
     if fen == "start" then
         fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
