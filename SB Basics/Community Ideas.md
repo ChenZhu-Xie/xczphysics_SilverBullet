@@ -16,4 +16,6 @@ ${widgets.toc()}
 
 1. https://community.silverbullet.md/t/adding-a-shortcut-and-a-command-to-table-of-contents/38
 
+# multiple Boxes or Columns on page
 
+1. https://community.silverbullet.md/t/this-one-goes-to-our-css-specialists/1054?u=chenzhu-xie
