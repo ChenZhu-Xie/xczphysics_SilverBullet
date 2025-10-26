@@ -22,7 +22,7 @@ actionButton.define {
 }
 ```
 
-```space-lua
+```lua
 command.define {
   name = "Tree View: Toggle",
   run = function()
