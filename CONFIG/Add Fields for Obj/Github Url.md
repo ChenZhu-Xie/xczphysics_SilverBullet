@@ -56,7 +56,7 @@ command.define {
       fm.recommend = "⭐⭐⭐⭐⭐"
       editor.flashNotification("Added - recommend: " .. fm.udpateDate, "info")
     end
-    if type(fm.udpateDate) == "string" and fm.udpateDate ~= "" then
+    if type(fm.udpateDate) == "string" and fm.udpateDate ~= os.date("%Y-%m-%d") then
       editor.flashNotification("\"udpateDate\" already Set", "info")
     else
       fm.udpateDate = os.date("%Y-%m-%d")
