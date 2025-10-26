@@ -6,6 +6,8 @@ date: 2025-03-05
 githubUrl: "https://github.com/zeus-web/Silverbullet_Libraries/blob/main/JournalCalendar/Library/JournalCalendar/JournalCalendar.md"
 ---
 
+1. https://community.silverbullet.md/t/script-display-a-calendar-for-journal-entries/1308/10?u=chenzhu-xie
+
 # Use the “widget” on your page
 Place the command in expression syntax somewhere on your desired page.
 You can set the year and month as parameter (e.g. `(2025,3)`)
