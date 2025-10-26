@@ -14,6 +14,7 @@ ${latex.block[[\widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x)\ e^{-i 2\pi \xi x
 3. https://community.silverbullet.md/t/how-to-center-latex-formulas-and-mermaid-diagrams/3018
 
 ```space-lua
+
 latex = {
   header = [[<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">]],
   katex = js.import("https://cdn.jsdelivr.net/npm/katex@0.16.22/..esm")
