@@ -88,9 +88,9 @@ command.define {
       editor.setText(newText, false)
       if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
         -- modify exsiting value
-        editor.flashNotification("Updated - githubUrl: " .. fm.githubUrl, "info")
+        editor.flashNotification("githubUrl updated", "info")
       else
-        editor.flashNotification("Added - githubUrl: " .. fm.githubUrl, "info")
+        editor.flashNotification("githubUrl added", "info")
       end
     else
       editor.flashNotification("\"githubUrl\" already Set", "info")
