@@ -14,7 +14,9 @@ udpateDate: 2025-10-27
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
-### Step 4. Reload UI and enjoy: ${widgets.commandButton("Client: Reload UI")}
+### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
+
+### Step 5. Enable HighlightHeadings: ${widgets.commandButton("Enable HighlightHeadings")}
 
 1. borrowed some tech from [[CONFIG/View/Tree/Float]]
 
