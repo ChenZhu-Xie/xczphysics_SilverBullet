@@ -13,6 +13,7 @@ local fm = index.extractFrontmatter(space.readPage(name),  {
   removeTags = true
 })
 ```
+5. https://community.silverbullet.md/t/add-githuburl-to-frontmatter-for-md-plug-developers/3462
 
 ```space-lua
 -- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path.
