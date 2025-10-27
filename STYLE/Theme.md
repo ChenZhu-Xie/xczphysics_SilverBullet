@@ -10,6 +10,15 @@ udpateDate: 2025-10-27
 local jsCode = [[
 
 ]]
+
+command.define {
+  name = "Save PanelDragResize.js",
+  hide = true,
+  run = function()
+          local jsFile = space.writeDocument("Library/PanelDragResize.js", jsCode)
+          editor.flashNotification("JS-File saved with size: " .. jsFile.size .. " bytes")
+    end
+}
 ```
 
 ```space-style
