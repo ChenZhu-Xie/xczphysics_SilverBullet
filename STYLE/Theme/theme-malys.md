@@ -10,6 +10,7 @@ githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/Theme/
 Dark theme thought for readibility and productivity.
 
 ## Example
+
 # 1 
 ## 2
 ### 3
