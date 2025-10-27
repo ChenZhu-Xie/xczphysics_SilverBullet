@@ -22,16 +22,22 @@ actionButton.define {
 }
 ```
 
-```lua
+```space-lua
 command.update {
   name = "Tree View: Toggle",
-  run = function()
-    editor.invokeCommand "Tree View: Toggle"
-    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
-  end,
+  key = "",
+  mac = "",
+  hide = true
+}
+
+command.define {
+  name = "Tree View: Toggle Move&Resize",
   key = "Ctrl-Alt-b",
   mac = "Cmd-Alt-b",
-  priority = 0
+  run = function()
+        editor.invokeCommand "Tree View: Toggle"
+        js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+       end
 }
 ```
 
@@ -42,5 +48,18 @@ actionButton.define {
   run = function()
     editor.invokeCommand("Tree View: Toggle")
   end
+}
+```
+
+```lua
+command.update {
+  name = "Tree View: Toggle",
+  run = function()
+    editor.invokeCommand "Tree View: Toggle"
+    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+  end,
+  key = "Ctrl-Alt-b",
+  mac = "Cmd-Alt-b",
+  priority = 0
 }
 ```
