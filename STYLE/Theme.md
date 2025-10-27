@@ -6,6 +6,12 @@ udpateDate: 2025-10-27
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 
+```space-lua
+local jsCode = [[
+
+]]
+```
+
 ```space-style
 /* 默认半透明 */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
