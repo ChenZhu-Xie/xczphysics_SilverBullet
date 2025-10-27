@@ -5,7 +5,7 @@ githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/sr
 udpateDate: 2025-10-27
 ---
 
-# Breadcrumbs
+# Adaptive Bread Crumb: Top
 Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.
 
 > **example** Example
