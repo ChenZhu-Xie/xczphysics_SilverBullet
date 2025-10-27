@@ -4,10 +4,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Paste: Smart URL
+
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
 2. https://community.silverbullet.md/t/plug-in-paste-smart-url/3431
 
-# Move Cursor Only Version
+## Move Cursor Only Version
 
 ```space-lua
 command.define {
@@ -83,7 +85,7 @@ command.define {
 }
 ```
 
-# Navigate Cursor+View Version
+## Navigate Cursor+View Version
 
 ```lua
 command.define {

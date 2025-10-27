@@ -4,10 +4,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Copy the nearest Format around Cursor
+
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
 2. https://community.silverbullet.md/t/copy-the-nearest-format-around-cursor/3418?u=chenzhu-xie
 
-# Page Version
+## Page Version
 
 ```space-lua
 -- pattern def：{ name, pattern, priority }
@@ -85,7 +87,7 @@ command.define{
 }
 ```
 
-# Line Version
+## Line Version
 
 ```lua
 -- pattern def：{ name, pattern, priority }

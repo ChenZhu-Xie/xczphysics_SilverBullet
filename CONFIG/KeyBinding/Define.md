@@ -4,6 +4,10 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Define Common used Commands
+
+## Page: New Sibling Page
+
 1. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/c/68fa0666-93d0-832a-b5cd-7d4d808a0b48
 
 ```space-lua
@@ -21,6 +25,8 @@ command.define {
 
 ```
 
+## Page: New Children Page
+
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
 
 ```space-lua
@@ -34,6 +40,8 @@ command.define {
   end
 }
 ```
+
+## Navigate: CONFIG
 
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
 2. https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194

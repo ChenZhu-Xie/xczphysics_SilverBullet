@@ -4,8 +4,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Update Commonly used Commands
+
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
 2. https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
+
+## Page: Delete
 
 ```space-lua
 command.update {
@@ -16,6 +20,8 @@ command.update {
 }
 ```  
 
+## Navigate: Page Picker
+
 ```space-lua
 command.update {
   name = "Navigate: Page Picker",
@@ -24,6 +30,8 @@ command.update {
   priority = 0
 }
 ```
+
+## Navigate: Home
 
 ```space-lua
 command.update {
@@ -34,6 +42,8 @@ command.update {
 }
 ```
 
+## Navigate: Meta Picker
+
 ```space-lua
 command.update {
   name = "Navigate: Meta Picker",
@@ -42,6 +52,8 @@ command.update {
   priority = 0
 }
 ```
+
+## Page: Copy
 
 ```space-lua
 command.update {

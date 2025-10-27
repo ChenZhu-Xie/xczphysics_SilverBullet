@@ -4,7 +4,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
-# Add one-off attr: LastVisit to Pages
+# Add attr: LastVisit to Pages
 
 1. https://silverbullet.md/API/index#Example
 2. https://chatgpt.com/share/68fb38b1-bc48-8010-8bea-5fc4fbd1e7a9
@@ -41,6 +41,8 @@ event.listen{
   end
 }
 ```
+
+## Previous Attempt
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=072f4db51d
 
@@ -99,6 +101,8 @@ ${query[[from index.tag "page"
   order by _.lastVisitEpoch desc  -- _. matters
   limit 5]]}
 ```
+
+## Original Frontmatter Version
 
 1. https://chatgpt.com/share/68fa6cef-4a6c-8010-93d1-41fe0c23c6a8
 2. https://silverbullet.md/API/editor

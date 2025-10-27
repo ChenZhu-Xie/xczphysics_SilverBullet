@@ -4,6 +4,10 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Pick Headings with CMD-Tree UI
+
+## Final Version
+
 4. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=9647438d39
 5. https://community.silverbullet.md/t/headings-picker/1745/8
 
@@ -135,6 +139,8 @@ command.define({
 })
 ```
 
+## 2nd Version
+
 3. [[CONFIG/Paste as/Markdown/Image Url#Navigate Cursor+View Version]]
 
 ```lua
@@ -229,6 +235,8 @@ command.define({
 })
 ```
 
+## 1st Version
+
 2. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=52214e9250
 
 ```lua
@@ -316,6 +324,8 @@ command.define({
   run = function() headingsPicker({}) end
 })
 ```
+
+## Original Version
 
 1. https://community.silverbullet.md/t/headings-picker/1745/6
 
