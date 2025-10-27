@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline%20Text.md"
+udpateDate: 2025-10-27
 ---
 
 Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.

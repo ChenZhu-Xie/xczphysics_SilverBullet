@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Font.md"
+udpateDate: 2025-10-27
 ---
 
 1. [更改 editor 和 UI 字体](https://community.silverbullet.md/t/how-to-change-editor-and-ui-fonts/752) #SB_Community

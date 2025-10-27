@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/UI.md"
+udpateDate: 2025-10-27
 ---
 
 1. [正确的 Url format](https://community.silverbullet.md/t/custom-font-doesnt-work/1237?u=chenzhu-xie) #SB_Community
