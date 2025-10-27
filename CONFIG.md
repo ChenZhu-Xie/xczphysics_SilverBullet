@@ -16,7 +16,7 @@ ${query[[from index.tag "page"
 ## Plugs with [[CONFIG/KeyBinding]]s
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
-# All SB stuff
+# SB stuff
 ${template.each(query[[
   from index.tag "SB_itself"
   where _.tag == "page"
