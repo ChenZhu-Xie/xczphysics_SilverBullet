@@ -4,6 +4,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Add one-off attr: LastVisit to Pages
+
 1. https://silverbullet.md/API/index#Example
 2. https://chatgpt.com/share/68fb38b1-bc48-8010-8bea-5fc4fbd1e7a9
 3. https://community.silverbullet.md/t/add-one-off-attr-lastvisit-to-pages/3463/1
