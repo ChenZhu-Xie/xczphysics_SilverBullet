@@ -22,44 +22,123 @@ udpateDate: 2025-10-27
 
 ```space-lua
 local jsCode = [[
-export function enableHighlight() {
-  // 每次调用时动态选择 DOM，保证 SB UI 已渲染
-  const container = document.querySelector("#sb-main"); 
-  if (!container) return;
+const STATE_KEY = "__xhHighlightState";
 
-  const headings = container.querySelectorAll(
-    ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6"
-  );
-
-  function getLevel(el) {
-    for (let i = 1; i <= 6; i++) {
-      if (el.classList.contains(`sb-line-h${i}`)) return i;
-    }
-    return 0;
+function getLevelFromClass(el) {
+  for (let i = 1; i <= 6; i++) {
+    if (el.classList.contains(`sb-line-h${i}`)) return i;
   }
+  return 0;
+}
 
-  headings.forEach(h => {
-    h.addEventListener("pointerenter", () => {
-      const currentLevel = getLevel(h);
-      h.classList.add("sb-active");
+function computeHighlights(startHeading, root, headingSelector) {
+  const highlights = [];
+  const startLevel = getLevelFromClass(startHeading);
+  if (startLevel === 0) return highlights;
 
-      let sibling = h.nextElementSibling;
-      while (sibling) {
-        const siblingLevel = getLevel(sibling);
-        if (siblingLevel === 0) { // 普通内容忽略
-          sibling = sibling.nextElementSibling;
-          continue;
-        }
-        if (siblingLevel <= currentLevel) break; // 遇到同级或更高级标题停止
-        sibling.classList.add("sb-active");
-        sibling = sibling.nextElementSibling;
+  highlights.push(startHeading);
+  let node = startHeading.nextElementSibling;
+  while (node) {
+    // Only consider heading lines
+    if (node.matches && node.matches(headingSelector)) {
+      const lvl = getLevelFromClass(node);
+      if (lvl === 0) {
+        node = node.nextElementSibling;
+        continue;
       }
-    });
+      // stop on same or higher level
+      if (lvl <= startLevel) break;
+      highlights.push(node);
+    }
+    node = node.nextElementSibling;
+  }
+  return highlights;
+}
 
-    h.addEventListener("pointerleave", () => {
-      headings.forEach(hh => hh.classList.remove("sb-active"));
+function clearAllActive(root) {
+  root.querySelectorAll(".sb-active").forEach(el => el.classList.remove("sb-active"));
+}
+
+export function enableHighlight(opts = {}) {
+  const containerSelector = opts.containerSelector || "#sb-main";
+  const headingSelector =
+    opts.headingSelector ||
+    ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
+
+  const bind = () => {
+    const root = document.querySelector(containerSelector);
+    if (!root) {
+      // Try again next frame until UI is ready
+      requestAnimationFrame(bind);
+      return;
+    }
+
+    // Idempotent: cleanup previous
+    const prev = window[STATE_KEY];
+    if (prev && prev.cleanup) prev.cleanup();
+
+    let lastHeading = null;
+
+    function onPointerOver(e) {
+      const h = e.target && e.target.closest && e.target.closest(headingSelector);
+      if (!h || !root.contains(h)) return;
+      if (h === lastHeading) return;
+      lastHeading = h;
+
+      clearAllActive(root);
+      // Highlight the heading and its descendants until next heading of equal/higher level
+      computeHighlights(h, root, headingSelector).forEach(el => el.classList.add("sb-active"));
+    }
+
+    function onPointerOut(e) {
+      // If leaving a heading to a non-heading (or outside), clear
+      const from = e.target && e.target.closest && e.target.closest(headingSelector);
+      const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(headingSelector);
+      if (from && (!to || !root.contains(to))) {
+        lastHeading = null;
+        clearAllActive(root);
+      }
+    }
+
+    function onContainerLeave() {
+      lastHeading = null;
+      clearAllActive(root);
+    }
+
+    root.addEventListener("pointerover", onPointerOver);
+    root.addEventListener("pointerout", onPointerOut);
+    root.addEventListener("pointerleave", onContainerLeave);
+
+    // Minimal observer — if the whole page content is swapped out, just forget lastHeading
+    const mo = new MutationObserver(() => {
+      lastHeading = null;
+      // No need to rebind because we delegate on root
     });
-  });
+    mo.observe(root, { childList: true });
+
+    window[STATE_KEY] = {
+      root,
+      cleanup() {
+        try {
+          root.removeEventListener("pointerover", onPointerOver);
+          root.removeEventListener("pointerout", onPointerOut);
+          root.removeEventListener("pointerleave", onContainerLeave);
+        } catch (e) {}
+        try { mo.disconnect(); } catch (e) {}
+        clearAllActive(root);
+      }
+    };
+  };
+
+  bind();
+}
+
+export function disableHighlight() {
+  const st = window[STATE_KEY];
+  if (st && st.cleanup) {
+    st.cleanup();
+    window[STATE_KEY] = null;
+  }
 }
 ]]
 
@@ -76,6 +155,15 @@ command.define {
   name = "Enable HighlightHeadings",
   run = function()
     js.import("/.fs/Library/HighlightHeadings.js").enableHighlight()
+  end
+}
+
+-- Optional: a quick way to disable for testing
+command.define {
+  name = "Disable HighlightHeadings",
+  hide = true,
+  run = function()
+    js.import("/.fs/Library/HighlightHeadings.js").disableHighlight()
   end
 }
 ```
