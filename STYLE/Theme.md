@@ -21,7 +21,11 @@ udpateDate: 2025-10-27
 ```space-lua
 local jsCode = [[
 export function enableHighlight() {
-  const headings = document.querySelectorAll(
+  // 每次调用时动态选择 DOM，保证 SB UI 已渲染
+  const container = document.querySelector("#sb-main"); 
+  if (!container) return;
+
+  const headings = container.querySelectorAll(
     ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6"
   );
 
@@ -40,11 +44,11 @@ export function enableHighlight() {
       let sibling = h.nextElementSibling;
       while (sibling) {
         const siblingLevel = getLevel(sibling);
-        if (siblingLevel === 0) {
+        if (siblingLevel === 0) { // 普通内容忽略
           sibling = sibling.nextElementSibling;
           continue;
         }
-        if (siblingLevel <= currentLevel) break;
+        if (siblingLevel <= currentLevel) break; // 遇到同级或更高级标题停止
         sibling.classList.add("sb-active");
         sibling = sibling.nextElementSibling;
       }
