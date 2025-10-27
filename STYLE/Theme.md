@@ -20,7 +20,7 @@ udpateDate: 2025-10-27
 
 ```space-lua
 local jsCode = [[
-document.addEventListener("DOMContentLoaded", () => {
+export function enableHighlight() {
   const headings = document.querySelectorAll(
     ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6"
   );
@@ -32,39 +32,45 @@ document.addEventListener("DOMContentLoaded", () => {
     return 0;
   }
 
-  headings.forEach((heading) => {
-    heading.addEventListener("mouseenter", () => {
-      const currentLevel = getLevel(heading);
-      heading.classList.add("sb-active");
+  headings.forEach(h => {
+    h.addEventListener("pointerenter", () => {
+      const currentLevel = getLevel(h);
+      h.classList.add("sb-active");
 
-      // 高亮直属子标题
-      let sibling = heading.nextElementSibling;
+      let sibling = h.nextElementSibling;
       while (sibling) {
         const siblingLevel = getLevel(sibling);
-        if (siblingLevel === 0) { // 普通内容不改变
+        if (siblingLevel === 0) {
           sibling = sibling.nextElementSibling;
           continue;
         }
-        if (siblingLevel <= currentLevel) break; // 遇到同级或更高级标题停止
+        if (siblingLevel <= currentLevel) break;
         sibling.classList.add("sb-active");
         sibling = sibling.nextElementSibling;
       }
     });
 
-    heading.addEventListener("mouseleave", () => {
-      // 移除所有 sb-active
-      headings.forEach((h) => h.classList.remove("sb-active"));
+    h.addEventListener("pointerleave", () => {
+      headings.forEach(hh => hh.classList.remove("sb-active"));
     });
   });
-});
+}
 ]]
 
 command.define {
-  name = "Save XczPhysics_Theme.js",
+  name = "Save HighlightHeadings.js",
   hide = true,
   run = function()
-    local jsFile = space.writeDocument("Library/XczPhysics_Theme.js", jsCode)
-    editor.flashNotification("JS-File saved with size: " .. jsFile.size .. " bytes")
+    local jsFile = space.writeDocument("Library/HighlightHeadings.js", jsCode)
+    editor.flashNotification("HighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
+  end
+}
+
+command.define {
+  name = "Enable HighlightHeadings",
+  hide = true,
+  run = function()
+    js.import("/.fs/Library/HighlightHeadings.js").enableHighlight()
   end
 }
 ```
