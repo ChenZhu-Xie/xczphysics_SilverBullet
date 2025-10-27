@@ -163,14 +163,6 @@ command.define {
 }
 
 command.define {
-  name = "Enable HighlightHeadings (Debug)",
-  hide = true,
-  run = function()
-    js.import("/.fs/Library/HighlightHeadings.js").enableHighlight({debug:true})
-  end
-}
-
-command.define {
   name = "Disable HighlightHeadings",
   hide = true,
   run = function()
