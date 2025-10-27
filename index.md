@@ -20,21 +20,23 @@ The mutual dynamics among this small group, as well as between them and the worl
 
 ## ETP.logo history
 
-Those three words are clearly not what an adult native English speaker would use, and the phrasing seems grammatically off as well. 
+Those three words _Enlarge. The. Percentage._ are clearly not what an adult native English speaker would use, and the phrasing seems grammatically off as well. 
 
 Yes, the image was drawn by an 18-year-old from mainland China — my younger self — meticulously constructed with ruler on the back of my high-school graduation shirt.
 
 At that time, and even now, I feel deeply that:
 
-1. Acquisition: Few people can filter and gather unknown information as efficiently as I do; 
-2. Processing: distill, compress, and transform known information through original thought into forms comprehensible to the public; and 
-3. Output: I strive for what I believe to be precise expression —
+1. Acquisition: Few people can filter and gather unknown information as efficiently as I do (provided that VPN is provided); 
+2. Processing: distill, compress, and transform known information through original thought into forms comprehensible to the public; 
+3. Output: strive for what I believe to be precise expression —
 
 Therefore, I possess value to the outside world.
 
 However, these thoughts are often incomprehensible to others (due to the mismatch), and their true worth cannot be accurately assessed.
 
+That is precisely why I wish to _enlarge the percentage_ — I need to replicate myself (in order to be heard and understood by someone else), not through reproduction, not through education, and certainly not through eliminating others. So how should it be done? 
 
+Well, let’s start with a logo first.
 
 # Last Modified ✏️
 
