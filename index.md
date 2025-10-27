@@ -27,10 +27,10 @@ Yes, the image was drawn by an 18-year-old from mainland China — my younger se
 At that time, and even now, I feel deeply that I am good at:
 
 1. ${Green("Acquisition")}: actively gather and filter unknown information efficiently, discover unusual dark spots;
-2. ${Green("Processing")}: pattern recognize, distill, understand, compress, and transform known information through original thought into forms comprehensible to the public; 
+2. ${Green("Processing")}: pattern recognize, distill, understand, interweave, compress, and transform known information through original logic into forms comprehensible to the public; 
 3. ${Green("Output")}: strive for what one believes to be precise expression —
 
-Therefore, I possess value to the outside world.
+Therefore, I possess value to the outside world, as a crawler + processor + distributor.
 
 However, these thoughts are often incomprehensible to others physically surrounds me (due to the mismatch), and their true worth cannot be accurately assessed.
 
