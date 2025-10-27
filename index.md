@@ -27,11 +27,11 @@ Yes, the image was drawn by an 17-year-old from mainland China — my younger se
 
 At that time — a decade ago, and even now, I feel deeply that I possess a natural gift:
 
-1. ${Green("Acquisition")}: actively gather and filter unknown information efficiently, discover unusual dark spots ([SilverBullet](https://silverbullet.md/) itself counts a proof :);
+1. ${Green("Acquisition")}: actively generate (from purely within), gather (from surroundings) and filter unknown information efficiently, discover unusual dark spots ([SilverBullet](https://silverbullet.md/) itself counts a proof);
 2. ${Green("Processing")}: pattern recognize, distill, understand, interweave, compress, and transform known information through original logic into forms comprehensible to the public; 
-3. ${Green("Output")}: strive for what one believes to be precise expression —
+3. ${Green("Output")}: strive for what one believes to be precise and concise expression —
 
-Therefore, I possess value to the outside world, as a automatic info crawler + processor + distributor.
+Therefore, I possess value to the outside world, as a automatic info generator/crawler + processor + distributor.
 
 However, these thoughts are often incomprehensible to others physically surrounds me (due to the mismatch), and their true worth cannot be accurately assessed.
 
