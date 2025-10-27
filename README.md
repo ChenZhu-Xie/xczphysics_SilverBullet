@@ -8,5 +8,5 @@ Take a seat!
 
 # What does it looks like?
 
-<img width="1452" height="2026" alt="image" src="https://github.com/user-attachments/assets/eb6a3709-3ce0-4eae-8c49-20ca869dffff" />
+<img width="1452" height="1942" alt="image" src="https://github.com/user-attachments/assets/913123d1-5010-41d4-8bc4-38f75f12c0d7" />
 
