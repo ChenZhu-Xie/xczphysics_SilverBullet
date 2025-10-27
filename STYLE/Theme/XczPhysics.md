@@ -1,5 +1,16 @@
+---
+recommend: ⭐⭐⭐⭐⭐
+udpateDate: 2025-10-28
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/XczPhysics%20Theme%20(Pure%20CSS).md"
+---
 
-# XczPhysics Theme (Pure CSS)
+# XczPhysics Theme
+
+## There is another JS added Version
+
+see [[STYLE/Theme]]
+
+## This is the Pure CSS Version
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 

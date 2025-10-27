@@ -6,7 +6,7 @@ udpateDate: 2025-10-27
 
 # XczPhysics Theme
 
-## JS (Experimental): Don't have to Install
+## JS Part (Experimental)
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
@@ -173,6 +173,7 @@ command.define {
 
 ## CSS part
 
+1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/XczPhysics]]
 
 ```space-style
 /* 默认半透明 */
