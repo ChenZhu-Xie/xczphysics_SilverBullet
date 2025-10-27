@@ -10,24 +10,66 @@ udpateDate: 2025-10-27
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save PanelDragResize.js")}
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save XczPhysics_Theme.js")}
 
-1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
+### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
+
+### Step 4. Reload UI and enjoy: ${widgets.commandButton("Client: Reload UI")}
+
+1. borrowed some tech from [[CONFIG/View/Tree/Float]]
 
 ```space-lua
 local jsCode = [[
+document.addEventListener("DOMContentLoaded", () => {
+  const headings = document.querySelectorAll(
+    ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6"
+  );
 
+  function getLevel(el) {
+    for (let i = 1; i <= 6; i++) {
+      if (el.classList.contains(`sb-line-h${i}`)) return i;
+    }
+    return 0;
+  }
+
+  headings.forEach((heading) => {
+    heading.addEventListener("mouseenter", () => {
+      const currentLevel = getLevel(heading);
+      heading.classList.add("sb-active");
+
+      // 高亮直属子标题
+      let sibling = heading.nextElementSibling;
+      while (sibling) {
+        const siblingLevel = getLevel(sibling);
+        if (siblingLevel === 0) { // 普通内容不改变
+          sibling = sibling.nextElementSibling;
+          continue;
+        }
+        if (siblingLevel <= currentLevel) break; // 遇到同级或更高级标题停止
+        sibling.classList.add("sb-active");
+        sibling = sibling.nextElementSibling;
+      }
+    });
+
+    heading.addEventListener("mouseleave", () => {
+      // 移除所有 sb-active
+      headings.forEach((h) => h.classList.remove("sb-active"));
+    });
+  });
+});
 ]]
 
 command.define {
-  name = "Save PanelDragResize.js",
+  name = "Save XczPhysics_Theme.js",
   hide = true,
   run = function()
-          local jsFile = space.writeDocument("Library/PanelDragResize.js", jsCode)
-          editor.flashNotification("JS-File saved with size: " .. jsFile.size .. " bytes")
-    end
+    local jsFile = space.writeDocument("Library/XczPhysics_Theme.js", jsCode)
+    editor.flashNotification("JS-File saved with size: " .. jsFile.size .. " bytes")
+  end
 }
 ```
+
+1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 
 ```space-style
 /* 默认半透明 */
