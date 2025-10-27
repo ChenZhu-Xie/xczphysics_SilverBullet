@@ -1,6 +1,8 @@
 
 # Alongside/Floating Wiget (include TOC)
 
+https://community.silverbullet.md/t/proof-of-concept-floating-widgets-example-treeview-orbitcal-calendar/3442/12?u=chenzhu-xie
+
 1. https://community.silverbullet.md/t/navigation-on-left-side/153/4?u=chenzhu-xie
    - https://github.com/silverbulletmd/silverbullet/issues/245
 2. https://community.silverbullet.md/t/floating-header-footer/1211
