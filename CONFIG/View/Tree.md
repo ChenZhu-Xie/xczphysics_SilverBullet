@@ -13,11 +13,10 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
 
 ```space-lua
 actionButton.define {
-  icon = "layout",
+  icon = "layout", 
   description = "Toggle Tree View",
   run = function()
-    editor.invokeCommand "Tree View: Toggle"
-    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+    editor.invokeCommand "Tree View: Toggle Move&Resize"
   end
 }
 ```
@@ -35,9 +34,9 @@ command.define {
   key = "Ctrl-Alt-b",
   mac = "Cmd-Alt-b",
   run = function()
-        editor.invokeCommand "Tree View: Toggle"
-        js.import("/.fs/Library/PanelDragResize.js").enableDrag()
-       end
+    editor.invokeCommand "Tree View: Toggle"
+    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+  end
 }
 ```
 
