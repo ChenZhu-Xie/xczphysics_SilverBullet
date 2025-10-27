@@ -4,11 +4,13 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 udpateDate: 2025-10-27
 ---
 
+# Coloring Inline Text
+
 Colors ${Red("red")} and ${Green("green")} and ${Blue("blue!")}.
 
 1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058?u=chenzhu-xie
 
-# space-style
+## space-style
 
 ```lua
 function Red(text)
@@ -33,7 +35,7 @@ end
 
 1. https://community.silverbullet.md/t/colors-for-individual-words-or-phrases/3058/6?u=chenzhu-xie
 
-# space-lua
+## space-lua
 
 ```space-lua
 local colors = {

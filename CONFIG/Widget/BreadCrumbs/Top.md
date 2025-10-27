@@ -91,6 +91,8 @@ function widgets.breadcrumbs()
 end
 ```
 
+## Original Bread Crumb
+
 1. original one https://github.com/malys/silverbullet-libraries/blob/bdecff9d0c7a128b2705b04168f90c75b18248f0/src/Breadcrumbs.md
 
 ```lua

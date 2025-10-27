@@ -4,6 +4,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 udpateDate: 2025-10-27
 ---
 
+# My UI color
+
 1. [正确的 Url format](https://community.silverbullet.md/t/custom-font-doesnt-work/1237?u=chenzhu-xie) #SB_Community
 
 ```space-style
