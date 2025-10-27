@@ -1,7 +1,8 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs%20Top.md"
-githubUrl_Original: "https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md"
+githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
+udpateDate: 2025-10-27
 ---
 
 # Breadcrumbs

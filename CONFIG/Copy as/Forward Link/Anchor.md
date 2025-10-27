@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Link/Anchor.md"
+udpateDate: 2025-10-27
 ---
 
 1. an testing improvement from [[CONFIG/Copy as/Forward Link/Cursor Position]] 

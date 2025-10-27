@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md"
+udpateDate: 2025-10-27
 ---
 
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184

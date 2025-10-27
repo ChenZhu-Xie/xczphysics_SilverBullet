@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Inline%20Format.md"
+udpateDate: 2025-10-27
 ---
 
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385

@@ -1,6 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste%20as/Markdown/Image%20Url.md"
+udpateDate: 2025-10-27
 ---
 
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a

@@ -1,7 +1,8 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md"
-githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
+githubUrl_Original: https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md
+udpateDate: 2025-10-27
 ---
 
 1. https://community.silverbullet.md/t/vibe-coded-sb-v2-git-plugin/3228?u=chenzhu-xie
