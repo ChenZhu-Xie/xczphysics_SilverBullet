@@ -18,8 +18,6 @@ These individuals define the boundaries and frontiers between the explored and t
 
 The mutual dynamics among this small group, as well as between them and the world they build, propel the the world’s shared evolution forward, ultimately shaping the course of the future.
 
-他们是与这个世界共同进步的源泉和最终推动力量。
-
 # Last Modified ✏️
 
 ${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
