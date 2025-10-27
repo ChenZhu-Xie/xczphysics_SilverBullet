@@ -23,7 +23,7 @@ The mutual dynamics among this small group, as well as between them and the worl
 
 Those three words _Enlarge. The. Percentage._ are clearly not what an adult native English speaker would use, and the phrasing seems grammatically off as well. 
 
-Yes, the image was drawn by an 18-year-old from mainland China — my younger self — meticulously constructed with ruler on the back of my high-school graduation shirt.
+Yes, the image was drawn by an 17-year-old from mainland China — my younger self — meticulously constructed with ruler on the back of my high-school graduation shirt.
 
 At that time, and even now, I feel deeply that I am good at:
 
