@@ -10,11 +10,11 @@ export function enableDrag(
   const header = headers[0];
 
   // Config
-  const edgeSize = 10;
-  const M_bounds = { l: 10, t: 60, r: 30, b: 10 };
-  const snapDistance = 100;
-  const minWidth = 200;
-  const minHeight = 200;
+  const edgeSize = 20;
+  const M_bounds = { l: 5, t: 60, r: 20, b: 5 };
+  const snapDistance = 50;
+  const minWidth = 100;
+  const minHeight = 100;
 
   // State
   let isDragging = false, isResizing = false;
@@ -224,4 +224,3 @@ export function enableDrag(
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
-

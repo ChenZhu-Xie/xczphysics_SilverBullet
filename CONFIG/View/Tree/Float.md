@@ -10,58 +10,90 @@ githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Treeview
 > **warning** Dependencies
 > You must have TreeView Plug installed: [Treeview Plug](https://github.com/joekrill/silverbullet-treeview)
 
-## Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
+## How to Install?
 
-## Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save PanelDragResize.js")}
+### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-## Step 3. Configure your Treeviews ActionButton, to load the .js when you open Treeview
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save PanelDragResize.js")}
 
-> **note** Add this line after `editor.invokeCommand "Tree View: Toggle"` :
-> `js.import("/.fs/Library/PanelDragResize.js").enableDrag()`
+### Step 3. ReConfigure your Treeviews ActionButton, with new command:
+
+> **note** Important
+> Replace the old command: `"Tree View: Toggle"` with this one: `"Tree View: Toggle Move&Resize"`
 
 Here is an example how your ActionButton Config should look like this:
 
 ```lua
-   {
+    {
       icon = "layout", description = "Toggle Tree View",
       run = function()
-        editor.invokeCommand "Tree View: Toggle"
-        js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+        editor.invokeCommand "Tree View: Toggle Move&Resize"
        end
     },
 ```
 
-## Step 4. System Reload: ${widgets.commandButton("System: Reload")}
+### Step 4. System Reload: ${widgets.commandButton("System: Reload")}
 
-## Step 5. Reload UI and enjoy: ${widgets.commandButton("Client: Reload UI")}
+### Step 5. Reload UI and enjoy: ${widgets.commandButton("Client: Reload UI")}
 
 > **success** Success
 > Now you have a Movable and Resizable TreeView
+
+## How to Uninstall?
+
+> **danger** Step 1: Delete Panel.Drag.Resize.js
+> ${widgets.commandButton("Delete PanelDragResize.js")}
+
+> **danger** Step 2: Change back to your old Action Button Config:
+> Change back to the old command: use `"Tree View: Toggle"` instead of `"Tree View: Toggle Move&Resize"`
+
+> **danger** Step 3: Delete this Page, then -> System Reload, then -> Reload UI
+> ${widgets.commandButton("Page: Delete")}
+
+## How does this work:
+> **warning** This is currently more like a hack than a real-world implementation
+>  1.  **Selection of elements:** It grabs the two panel `<div>` (primary and secondary) and the primary is used as the header element and as the drag handle.
+>  2.  **State tracking:** Maintains flags (`isDragging`, `isResizing`) and initial offsets/positions for calculating movement or resizing.
+>  3.  **Edge detection:** Determines if the pointer is near the right or bottom edges to switch between drag mode and resize mode.
+>  4.  **Dragging logic:** Calculates the new top-left position of the primary panel based on cursor movement and applies the same relative delta to the secondary panel.
+>  5.  **Resizing logic:** Computes width/height changes from pointer movement and updates both panels dimensions while keeping their relative sizes.
+>  6.  **Cursor management:** Dynamically updates the cursor style (`grab`, `move`, `resize`) depending on hover or active action.
+>  7.  **Iframe handling:** Temporarily disables `pointer-events` on any nested iframes while dragging/resizing to prevent event capture issues.
+>  8.  **Bounds and snapping:** Ensures panels stay within screen limits, respect minimum width/height, and snap to edges if near.
+>  9.  **Persistence:** Stores panel positions and sizes in `localStorage` so the layout survives reloads.
+>  10. **Global pointer management:** Uses `window` event listeners for pointermove and pointerup to ensure smooth dragging/resizing even if the cursor leaves the header, cleaning up afterward.
+>  
+> ==This is essentially a two-panel windowing system built on top of elements never intended for it.==
+
 
 ## Implementation
 ### Visual Customization & Style
 ```space-style
 
 :root{
-    --sb-panel-width: 400px; /* Default panel width */
-    --sb-panel-height: 400px; /* Default panel height */
+    --sb-panel-width: 400px;      /* Default panel width */
+    --sb-panel-height: 400px;     /* Default panel height */
 
-    --min-sb-panel-height: 300px; /* Minimal panel height */
-    --min-sb-panel-width: 300px; /* Minimal panel width */
+    --min-sb-panel-height: 250px; /* Minimal panel height */
+    --min-sb-panel-width: 250px;  /* Minimal panel width */
 
-    --header-height: 30px; /* Header height which you drag the window from */
-    --top-offset: 60px; /* Initial Position */
-    --left-offset: 10px; /* Initial Position */
+    --header-height: 30px;        /* Header height, drag-area */
+    --top-offset: 60px;           /* Initial position */
+    --left-offset: 10px;          /* Initial position */
 
-    --widget-border: 2px;
-    --widget-offset: 5px;
-    --widget-border-radius: 10px;
-    --widget-border-color: #5558;
+    --frame-width: 5px;           /* frame thickness, you need to clear local storage to take effect*/
+    --frame-color: #0000;         /* frame color */
+
+    --window-border: 2px;         /* solid border width (aesthetic) */
+    --window-border-radius: 10px; /* inner iframe border radius*/
+    --window-border-color: #5558; /* solid border color (aesthetic) */
 }
 
 #sb-top .panel{
   display: block;
   position: fixed;
+
+  box-sizing: border-box ; 
 
   width: var(--sb-panel-width);
   height: var(--sb-panel-height);
@@ -72,13 +104,13 @@ Here is an example how your ActionButton Config should look like this:
   min-height: var(--min-sb-panel-width);
   min-width: var(--min-sb-panel-height);
 
-  background: #0000 !important;
-  border: var(--widget-border) solid var(--widget-border-color);
+  background: var(--frame-color) !important;
+  border: var(--window-border) solid var(--window-border-color);
 
   backdrop-filter: blur(10px);
   box-shadow:0px 0px 20px #0008;
 
-  border-radius: calc(var(--widget-border-radius) + (var(--widget-offset)));
+  border-radius: calc(var(--window-border-radius) + (var(--frame-width)));
   z-index: 20;
 }
 
@@ -87,24 +119,44 @@ Here is an example how your ActionButton Config should look like this:
   position: fixed;
   overflow: hidden;
 
-  min-width: calc(var(--min-sb-panel-width) - 2 * (var(--widget-offset) + var(--widget-border)));
-  min-height: calc(var(--min-sb-panel-height) - var(--header-height) - var(--widget-offset) - var(--widget-border));
+  box-sizing: border-box ; 
 
-  width: calc(var(--sb-panel-width) - 2 * (var(--widget-offset) + var(--widget-border)));
-  height: calc(var(--sb-panel-height) - var(--header-height) - var(--widget-offset) - var(--widget-border));
+  min-width: calc(var(--min-sb-panel-width) - 2 * (var(--frame-width) + var(--window-border)));
+  min-height: calc(var(--min-sb-panel-height) - var(--header-height) - var(--frame-width) - var(--window-border));
+
+  width: calc(var(--sb-panel-width) - 2 * (var(--frame-width) + var(--window-border)));
+  height: calc(var(--sb-panel-height) - var(--header-height) - var(--frame-width) - var(--window-border));
   top: calc(var(--top-offset) + (var(--header-height)));
-  left: calc(var(--left-offset) + 2px + var(--widget-offset));
+  left: calc(var(--left-offset) + 2px + var(--frame-width));
 
   background: #0000;
-  border: var(--widget-border) solid var(--widget-border-color) !important;
-  border-radius: var(--widget-border-radius);
+  border: var(--window-border) solid var(--window-border-color) !important;
+  border-radius: var(--window-border-radius);
   z-index: 20;
 }
 ```
 
-## Implementation:
-### Javascript
+## Redefine Keybindings and Command
+```space-lua
+command.update {
+  name = "Tree View: Toggle",
+  key = "",
+  mac = "",
+  hide = true
+}
 
+command.define {
+  name = "Tree View: Toggle Move&Resize",
+  key = "Ctrl-Alt-b",
+  mac = "Cmd-Alt-b",
+  run = function()
+        editor.invokeCommand "Tree View: Toggle"
+        js.import("/.fs/Library/PanelDragResize.js").enableDrag()  --this line is added to be Resizable
+       end
+}
+```
+
+### Javascript
 ```space-lua
 local jsCode = [[
 export function enableDrag(
@@ -119,11 +171,11 @@ export function enableDrag(
   const header = headers[0];
 
   // Config
-  const edgeSize = 10;
-  const M_bounds = { l: 10, t: 60, r: 30, b: 10 };
-  const snapDistance = 100;
-  const minWidth = 200;
-  const minHeight = 200;
+  const edgeSize = 20;
+  const M_bounds = { l: 5, t: 60, r: 20, b: 5 };
+  const snapDistance = 50;
+  const minWidth = 100;
+  const minHeight = 100;
 
   // State
   let isDragging = false, isResizing = false;
@@ -333,7 +385,6 @@ export function enableDrag(
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
-
 ]]
 
 command.define {
@@ -363,18 +414,7 @@ command.define {
 }
 
 ```
-Manually load the .js (usefull only for debugging): ${widgets.commandButton("Treeview: Drag&Resize Extension JS Import")}
-
-## Uninstall:
-
-> **danger** Step 1: Delete Panel.Drag.Resize.js
-> ${widgets.commandButton("Delete PanelDragResize.js")}
-
-> **danger** Step 2: Manually remove or comment following line in your ActionButton Config:
-> `js.import("/.fs/Library/PanelDragResize.js").enableDrag()`
-
-> **danger** Step 3: Delete this Page, then -> System Reload, then -> Reload UI
-> ${widgets.commandButton("Page: Delete")}
+Manually load the .js (only for debugging): ${widgets.commandButton("Treeview: Drag&Resize Extension JS Import")}
 
 ## Discussions about this extension:
-- [SilverBullet Community](https://community.silverbullet.md/t/introducing-orbitcal-a-floating-calendar-widget-proof-of-concept/3442?u=mr.red)
+- [SilverBullet Community](https://community.silverbullet.md/t/proof-of-concept-floating-widgets-example-treeview-orbitcal-calendar/3442?u=mr.red)
