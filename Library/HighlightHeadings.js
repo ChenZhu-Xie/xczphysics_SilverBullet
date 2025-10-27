@@ -7,28 +7,26 @@ function getLevelFromClass(el) {
   return 0;
 }
 
-function computeHighlights(startHeading, root, headingSelector) {
-  const highlights = [];
-  const startLevel = getLevelFromClass(startHeading);
-  if (startLevel === 0) return highlights;
+function pickGroupRoot(startHeading, containerRoot, groupSelector) {
+  if (!groupSelector) return containerRoot;
+  const g = startHeading.closest(groupSelector);
+  return g || containerRoot;
+}
 
-  highlights.push(startHeading);
-  let node = startHeading.nextElementSibling;
-  while (node) {
-    // Only consider heading lines
-    if (node.matches && node.matches(headingSelector)) {
-      const lvl = getLevelFromClass(node);
-      if (lvl === 0) {
-        node = node.nextElementSibling;
-        continue;
-      }
-      // stop on same or higher level
-      if (lvl <= startLevel) break;
-      highlights.push(node);
-    }
-    node = node.nextElementSibling;
+function computeHighlightsByIndex(startHeading, groupRoot, headingSelector) {
+  const list = Array.from(groupRoot.querySelectorAll(headingSelector));
+  const startIdx = list.indexOf(startHeading);
+  if (startIdx === -1) return [];
+
+  const res = [startHeading];
+  const startLevel = getLevelFromClass(startHeading);
+  for (let i = startIdx + 1; i < list.length; i++) {
+    const h = list[i];
+    const lvl = getLevelFromClass(h);
+    if (lvl <= startLevel) break; // 在同组内：遇到同级或更高级标题就停止
+    res.push(h);
   }
-  return highlights;
+  return res;
 }
 
 function clearAllActive(root) {
@@ -40,16 +38,17 @@ export function enableHighlight(opts = {}) {
   const headingSelector =
     opts.headingSelector ||
     ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
+  const groupSelector = opts.groupSelector || ".sb-title-group";
+  const debug = !!opts.debug;
 
   const bind = () => {
-    const root = document.querySelector(containerSelector);
-    if (!root) {
-      // Try again next frame until UI is ready
+    const containerRoot = document.querySelector(containerSelector);
+    if (!containerRoot) {
       requestAnimationFrame(bind);
       return;
     }
 
-    // Idempotent: cleanup previous
+    // Idempotent cleanup
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
@@ -57,53 +56,57 @@ export function enableHighlight(opts = {}) {
 
     function onPointerOver(e) {
       const h = e.target && e.target.closest && e.target.closest(headingSelector);
-      if (!h || !root.contains(h)) return;
+      if (!h || !containerRoot.contains(h)) return;
       if (h === lastHeading) return;
       lastHeading = h;
 
-      clearAllActive(root);
-      // Highlight the heading and its descendants until next heading of equal/higher level
-      computeHighlights(h, root, headingSelector).forEach(el => el.classList.add("sb-active"));
+      const groupRoot = pickGroupRoot(h, containerRoot, groupSelector);
+      clearAllActive(containerRoot);
+
+      const highs = computeHighlightsByIndex(h, groupRoot, headingSelector);
+      highs.forEach(el => el.classList.add("sb-active"));
+
+      if (debug) {
+        const txt = (h.textContent || "").trim().slice(0, 80);
+        console.log("[Highlight] heading:", txt, "level:", getLevelFromClass(h), "count:", highs.length);
+      }
     }
 
     function onPointerOut(e) {
-      // If leaving a heading to a non-heading (or outside), clear
       const from = e.target && e.target.closest && e.target.closest(headingSelector);
       const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(headingSelector);
-      if (from && (!to || !root.contains(to))) {
+      if (from && (!to || !containerRoot.contains(to))) {
         lastHeading = null;
-        clearAllActive(root);
+        clearAllActive(containerRoot);
       }
     }
 
     function onContainerLeave() {
       lastHeading = null;
-      clearAllActive(root);
+      clearAllActive(containerRoot);
     }
 
-    root.addEventListener("pointerover", onPointerOver);
-    root.addEventListener("pointerout", onPointerOut);
-    root.addEventListener("pointerleave", onContainerLeave);
+    containerRoot.addEventListener("pointerover", onPointerOver);
+    containerRoot.addEventListener("pointerout", onPointerOut);
+    containerRoot.addEventListener("pointerleave", onContainerLeave);
 
-    // Minimal observer — if the whole page content is swapped out, just forget lastHeading
-    const mo = new MutationObserver(() => {
-      lastHeading = null;
-      // No need to rebind because we delegate on root
-    });
-    mo.observe(root, { childList: true });
+    const mo = new MutationObserver(() => { lastHeading = null; });
+    mo.observe(containerRoot, { childList: true, subtree: true });
 
     window[STATE_KEY] = {
-      root,
+      root: containerRoot,
       cleanup() {
         try {
-          root.removeEventListener("pointerover", onPointerOver);
-          root.removeEventListener("pointerout", onPointerOut);
-          root.removeEventListener("pointerleave", onContainerLeave);
+          containerRoot.removeEventListener("pointerover", onPointerOver);
+          containerRoot.removeEventListener("pointerout", onPointerOut);
+          containerRoot.removeEventListener("pointerleave", onContainerLeave);
         } catch (e) {}
         try { mo.disconnect(); } catch (e) {}
-        clearAllActive(root);
+        clearAllActive(containerRoot);
       }
     };
+
+    if (debug) console.log("[Highlight] enabled");
   };
 
   bind();
@@ -114,5 +117,6 @@ export function disableHighlight() {
   if (st && st.cleanup) {
     st.cleanup();
     window[STATE_KEY] = null;
+    console.log("[Highlight] disabled");
   }
 }
