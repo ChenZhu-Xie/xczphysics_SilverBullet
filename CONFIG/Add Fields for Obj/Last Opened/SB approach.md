@@ -1,6 +1,7 @@
 ---
 recommend: ⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened%20SB.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/SB%20approach.md"
+udpateDate: 2025-10-27
 ---
 
 1. https://chatgpt.com/share/68fa59ac-2e88-8010-aa2c-12021dda94fb
