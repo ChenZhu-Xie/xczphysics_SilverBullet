@@ -32,9 +32,9 @@ At that time, and even now, I feel deeply that I am good at:
 
 Therefore, I possess value to the outside world.
 
-However, these thoughts are often incomprehensible to others surrounds me (due to the mismatch), and their true worth cannot be accurately assessed.
+However, these thoughts are often incomprehensible to others physically surrounds me (due to the mismatch), and their true worth cannot be accurately assessed.
 
-
+Since I face this dilemma, and I am but one instance out of 8.2 billion, it stands to reason that many others share a similar condition. Thus, the thought *“I wish to find my companions among the boundless sea of humanity, and if not, to convert a few myself”* became the very impetus behind this project.
 
 That is precisely why I wish to _enlarge the percentage_ — I need to replicate myself (in order to be heard and understood by someone else), not through reproduction, not through education, and certainly not through eliminating others. So how should it be done? 
 
