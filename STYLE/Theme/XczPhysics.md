@@ -14,7 +14,7 @@ see [[STYLE/Theme]]
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 
-```space-style
+```
 /* 默认半透明 */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
 .sb-line-h4, .sb-line-h5, .sb-line-h6 {
