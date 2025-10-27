@@ -10,7 +10,7 @@ udpateDate: 2025-10-27
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save XczPhysics_Theme.js")}
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save HighlightHeadings.js")}
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
