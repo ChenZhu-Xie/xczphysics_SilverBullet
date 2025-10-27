@@ -4,6 +4,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# Navigate: Tag Picker
+
 1. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/2?u=chenzhu-xie
 
 `${query[[from index.tag "tag" select {name = _.name}]]}` 中的 name 不含重复元素, 是个 set 集合。
@@ -23,6 +25,8 @@ command.define {
   end
 }
 ```
+
+## Community Version
 
 3. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/14?u=chenzhu-xie
 
