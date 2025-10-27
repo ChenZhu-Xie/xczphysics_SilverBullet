@@ -26,7 +26,7 @@ Yes, the image was drawn by an 18-year-old from mainland China — my younger se
 
 At that time, and even now, I feel deeply that I am good at:
 
-1. ${Green("Acquisition")}: gather and filter unknown information efficiently; 
+1. ${Green("Acquisition")}: actively gather and filter unknown information efficiently, discover unusual dark spots;
 2. ${Green("Processing")}: pattern recognize, distill, understand, compress, and transform known information through original thought into forms comprehensible to the public; 
 3. ${Green("Output")}: strive for what one believes to be precise expression —
 
