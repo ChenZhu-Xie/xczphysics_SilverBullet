@@ -16,7 +16,7 @@ local fm = index.extractFrontmatter(space.readPage(name),  {
 ```
 
 ```space-lua
--- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path; otherwise, take no action.
+-- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path.
 command.define {
   name = "Frontmatter: Add githubUrl",
   key = "Ctrl-Alt-g",
