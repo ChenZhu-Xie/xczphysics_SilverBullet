@@ -6,7 +6,7 @@ udpateDate: 2025-10-27
 
 # XczPhysics Theme
 
-## How to Install?
+## JS (Experimental): Don't have to Install
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
@@ -79,6 +79,8 @@ command.define {
   end
 }
 ```
+
+## CSS part
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 
