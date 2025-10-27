@@ -4,6 +4,14 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 udpateDate: 2025-10-27
 ---
 
+# XczPhysics Theme
+
+## How to Install?
+
+### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
+
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save PanelDragResize.js")}
+
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 
 ```space-lua
