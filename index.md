@@ -26,9 +26,9 @@ Yes, the image was drawn by an 18-year-old from mainland China — my younger se
 
 At that time, and even now, I feel deeply that I am good at:
 
-1. Acquisition: gather and filter unknown information efficiently; 
-2. Processing: distill, compress, and transform known information through original thought into forms comprehensible to the public; 
-3. Output: strive for what one believes to be precise expression —
+1. ${Green("Acquisition")}: gather and filter unknown information efficiently; 
+2. ${Green("Processing")}: pattern recognize, distill, understand, compress, and transform known information through original thought into forms comprehensible to the public; 
+3. ${Green("Output")}: strive for what one believes to be precise expression —
 
 Therefore, I possess value to the outside world.
 
