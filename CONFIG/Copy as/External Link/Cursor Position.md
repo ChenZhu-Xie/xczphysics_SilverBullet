@@ -36,9 +36,8 @@ command.define {
     local pageUrl = build_page_url(pageName)
     local out
     if headerMarks and headerName and headerName:match("%S") then
-      headerName = headerName:match("^%s*(.-)%s*$")
+      headerName = headerName:match("^%s*(.+)")
       headerName = replace_space_with_percent20(headerName)
-  
       out = string.format("%s#%s", pageUrl, headerName)
       editor.flashNotification("Copied header external link: " .. out, "info")
     else
