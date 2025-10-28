@@ -68,7 +68,7 @@ Here is an example how your ActionButton Config should look like this:
 
 ## Implementation
 ### Visual Customization & Style
-```space-style
+```
 
 :root{
     --sb-panel-width: 400px;      /* Default panel width */
