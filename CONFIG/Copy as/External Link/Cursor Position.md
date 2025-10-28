@@ -26,15 +26,14 @@ end
 
 command.define {
   name = "Cursor: Copy Link",
-  key = "Shift-Alt-c",
+  key = "Ctrl-Shift-c",
   run = function()
     local currentLine = editor.getCurrentLine().text
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
-  
-    local headerMarks, headerName = string.match(currentLine, "^(#+)%s+(.+)$")
+    local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
+    
     local pageUrl = build_page_url(pageName)
-  
     local out
     if headerMarks and headerName and headerName:match("%S") then
       headerName = headerName:match("^%s*(.-)%s*$")
