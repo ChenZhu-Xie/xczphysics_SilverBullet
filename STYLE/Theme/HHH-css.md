@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 udpateDate: 2025-10-28
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/XczPhysics.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH-css.md"
 ---
 
 # HHH Theme (Pure CSS)
