@@ -177,7 +177,7 @@ command.define {
 event.listen {
   name = 'system:ready',
   run = function(e)
-    enableHighlight()
+    js.import("/.fs/Library/HierarchyHighlightHeadings.js").enableHighlight()
   end
 }
 ```
