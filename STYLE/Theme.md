@@ -10,13 +10,13 @@ udpateDate: 2025-10-27
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save HighlightHeadings.js")}
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save HierarchyHighlightHeadings.js")}
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
-### Step 5. Enable HighlightHeadings: ${widgets.commandButton("Enable HighlightHeadings")}
+### Step 5. Enable HierarchyHighlightHeadings: ${widgets.commandButton("Enable HierarchyHighlightHeadings")}
 
 1. borrowed some tech from [[CONFIG/View/Tree/Float]]
 
@@ -147,26 +147,26 @@ export function disableHighlight() {
 ]]
 
 command.define {
-  name = "Save HighlightHeadings.js",
+  name = "Save HierarchyHighlightHeadings.js",
   hide = true,
   run = function()
-    local jsFile = space.writeDocument("Library/HighlightHeadings.js", jsCode)
-    editor.flashNotification("HighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
+    local jsFile = space.writeDocument("Library/HierarchyHighlightHeadings.js", jsCode)
+    editor.flashNotification("HierarchyHighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
   end
 }
 
 command.define {
-  name = "Enable HighlightHeadings",
+  name = "Enable HierarchyHighlightHeadings",
   run = function()
-    js.import("/.fs/Library/HighlightHeadings.js").enableHighlight()
+    js.import("/.fs/Library/HierarchyHighlightHeadings.js").enableHighlight()
   end
 }
 
 command.define {
-  name = "Disable HighlightHeadings",
+  name = "Disable HierarchyHighlightHeadings",
   hide = true,
   run = function()
-    js.import("/.fs/Library/HighlightHeadings.js").disableHighlight()
+    js.import("/.fs/Library/HierarchyHighlightHeadings.js").disableHighlight()
   end
 }
 ```
