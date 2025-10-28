@@ -137,7 +137,7 @@ Here is an example how your ActionButton Config should look like this:
 ```
 
 ## Redefine Keybindings and Command
-```space-lua
+```lua
 command.update {
   name = "Tree View: Toggle",
   key = "",
