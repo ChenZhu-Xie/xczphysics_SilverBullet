@@ -11,7 +11,7 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
   })
 ```
 
-```space-lua
+```lua
 actionButton.define {
   icon = "layout", 
   description = "Toggle Tree View",
@@ -21,7 +21,7 @@ actionButton.define {
 }
 ```
 
-```space-lua
+```lua
 command.update {
   name = "Tree View: Toggle",
   key = "",
@@ -38,7 +38,9 @@ command.define {
     js.import("/.fs/Library/PanelDragResize.js").enableDrag()
   end
 }
+```
 
+```lua
 event.listen {
   name = 'system:ready',
   run = function(e)
@@ -48,7 +50,7 @@ event.listen {
 }
 ```
 
-```lua
+```space-lua
 actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
