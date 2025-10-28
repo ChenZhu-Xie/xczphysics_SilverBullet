@@ -177,16 +177,7 @@ command.define {
 event.listen {
   name = 'system:ready',
   run = function(e)
-    if config.get('readOnly').persistent
-     
-      then
-      local readOnlyConfig = clientStore.get('readOnly')
-      local readOnlyCurrent = editor.getUiOption('forcedROMode')
-  
-      if readOnlyConfig and not readOnlyCurrent then
-        toggleReadOnlyMode()
-      end
-    end
+    enableHighlight()
   end
 }
 ```
