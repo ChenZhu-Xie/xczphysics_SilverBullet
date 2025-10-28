@@ -10,13 +10,13 @@ udpateDate: 2025-10-27
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save HierarchyHighlightHeadings.js")}
+### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save: HierarchyHighlightHeadings.js")}
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
-### Step 5. Enable HierarchyHighlightHeadings: ${widgets.commandButton("Enable HierarchyHighlightHeadings")}
+### Step 5. Enable: HierarchyHighlightHeadings: ${widgets.commandButton("Enable: HierarchyHighlightHeadings")}
 
 1. borrowed some tech from [[CONFIG/View/Tree/Float]]
 
@@ -149,7 +149,7 @@ export function disableHighlight() {
 
 ```space-lua
 command.define {
-  name = "Save HierarchyHighlightHeadings.js",
+  name = "Save: HierarchyHighlightHeadings.js",
   hide = true,
   run = function()
     local jsFile = space.writeDocument("Library/HierarchyHighlightHeadings.js", jsCode)
@@ -158,7 +158,7 @@ command.define {
 }
 
 command.define {
-  name = "Enable HierarchyHighlightHeadings",
+  name = "Enable: HierarchyHighlightHeadings",
   run = function()
     js.import("/.fs/Library/HierarchyHighlightHeadings.js").enableHighlight()
   end
