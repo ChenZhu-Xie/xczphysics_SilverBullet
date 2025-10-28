@@ -3,7 +3,7 @@
 
 1. https://community.silverbullet.md/t/command-button-with-title-alias-does-not-work-in-table/1701/4?u=chenzhu-xie
 - using cmd https://community.silverbullet.md/t/command-in-space-lua-to-set-page-attributes/1696
-  - related to [[CONFIG/Add Fields for Obj/Github Url]]
+  - related to [[CONFIG/Plug/Github Url]]
 
 ```lua
 command.define {
