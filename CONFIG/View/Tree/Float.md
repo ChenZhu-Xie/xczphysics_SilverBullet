@@ -157,7 +157,7 @@ command.define {
 ```
 
 ### Javascript
-```
+```lua
 local jsCode = [[
 export function enableDrag(
   windowSelector = "#sb-top .panel, #sb-main .sb-panel",
