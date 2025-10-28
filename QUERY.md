@@ -12,9 +12,9 @@
 
 1. https://community.silverbullet.md/t/space-lua-making-space-script-safer-simpler-and-unifying-all-the-things/970?u=chenzhu-xie
 
-## More powerful attributes
+## More powerful Attributes
 
-
+1. https://community.silverbullet.md/t/multiple-credentials-more-query-power-and-more-powerful-attributes/3143
 
 # Knowledge about QUERY
 
