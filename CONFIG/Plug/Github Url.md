@@ -1,7 +1,7 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
 udpateDate: 2025-10-28
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Plug/Github%20Url.md"
+recommend: ⭐⭐⭐⭐⭐
 ---
 
 # Add githubUrl to frontmatter
@@ -33,7 +33,7 @@ command.define {
       editor.flashNotification("\"recommend\" already Set", "info")
     else
       fm.recommend = "⭐⭐⭐⭐⭐"
-      editor.flashNotification("recommend updated: " .. fm.udpateDate, "info")
+      editor.flashNotification("recommend updated" .. fm.recommend, "info")
     end
     
     if type(fm.udpateDate) == "string" and fm.udpateDate == os.date("%Y-%m-%d") then
