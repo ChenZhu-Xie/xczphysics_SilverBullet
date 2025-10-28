@@ -53,6 +53,7 @@ config.set(
     -- "page-meta.plug.js",
     "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/HighlightHeadings.plug.js", -- related to [[STYLE/Theme]]
     -- "github:silverbulletmd/silverbullet-katex/katex.plug.js",
+    "hello.plug.js",
   })
 ```
 

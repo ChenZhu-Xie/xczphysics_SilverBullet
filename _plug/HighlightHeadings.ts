@@ -1,6 +1,6 @@
-// PLUGS/xcz-highlight.ts
+// _Plug/HighlightHeadings.ts
 export const manifest = {
-  name: "xcz-highlight",
+  name: "HighlightHeadings",
   version: "0.2.0",
   description: "Self-contained heading highlight (no Library dependency)",
 };
@@ -115,7 +115,7 @@ function enableInternal(userOpts?: Partial<Options>) {
 
       if (opts.debug) {
         const txt = ((h as HTMLElement).textContent || "").trim().slice(0, 80);
-        console.log("[xcz-highlight] heading:", txt, "level:", getLevelFromClass(h as Element), "count:", highs.length);
+        console.log("[HighlightHeadings] heading:", txt, "level:", getLevelFromClass(h as Element), "count:", highs.length);
       }
     };
 
@@ -174,7 +174,7 @@ function enableInternal(userOpts?: Partial<Options>) {
     };
 
     window.__xhHighlightPlugState = { root: containerRoot, cleanup, options: opts };
-    if (opts.debug) console.log("[xcz-highlight] enabled");
+    if (opts.debug) console.log("[HighlightHeadings] enabled");
   };
 
   bind();
@@ -186,7 +186,7 @@ function disableInternal() {
       window.__xhHighlightPlugState.cleanup();
     } catch {}
     window.__xhHighlightPlugState = undefined;
-    console.log("[xcz-highlight] disabled");
+    console.log("[HighlightHeadings] disabled");
   }
 }
 
