@@ -16,7 +16,7 @@ udpateDate: 2025-10-28
 
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
-1. borrowed some tech from [[CONFIG/View/Tree/Float]]
+1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 
 ```space-lua
 local jsCode = [[
@@ -170,6 +170,8 @@ command.define {
   end
 }
 ```
+
+1. borrowed `event.listen` from [[CONFIG/Edit/Read Only Toggle]]
 
 ```space-lua
 event.listen {
