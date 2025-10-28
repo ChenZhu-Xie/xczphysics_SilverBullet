@@ -145,7 +145,9 @@ export function disableHighlight() {
   }
 }
 ]]
+```
 
+```space-lua
 command.define {
   name = "Save HierarchyHighlightHeadings.js",
   hide = true,
@@ -169,6 +171,10 @@ command.define {
     js.import("/.fs/Library/HierarchyHighlightHeadings.js").disableHighlight()
   end
 }
+```
+
+```space-lua
+
 ```
 
 ## CSS part
