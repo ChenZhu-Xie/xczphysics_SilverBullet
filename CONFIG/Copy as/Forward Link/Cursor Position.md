@@ -14,7 +14,7 @@ command.define {
   name = "Cursor: Copy Reference",
   key = "Shift-Alt-c",
   run = function()
-    local currentLine = editor.getCurrentLine().textWithCursor:gsub("|%^|", "")
+    local currentLine = editor.getCurrentLine().text
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local headerMarks, headerName = string.match(currentLine, "^(#+) +(.+)$")
