@@ -33,7 +33,7 @@ command.define {
       editor.flashNotification("\"recommend\" already Set", "info")
     else
       fm.recommend = "⭐⭐⭐⭐⭐"
-      editor.flashNotification("Added - recommend: " .. fm.udpateDate, "info")
+      editor.flashNotification("recommend updated: " .. fm.udpateDate, "info")
     end
     
     if type(fm.udpateDate) == "string" and fm.udpateDate == os.date("%Y-%m-%d") then
@@ -41,7 +41,7 @@ command.define {
       editor.flashNotification("\"udpateDate\" already Set", "info")
     else
       fm.udpateDate = os.date("%Y-%m-%d")
-      editor.flashNotification("Added - udpateDate: " .. fm.udpateDate, "info")
+      editor.flashNotification("udpateDate added: " .. fm.udpateDate, "info")
     end
 
     local body = index.extractFrontmatter(text,  {
