@@ -4,7 +4,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
-# Generate Link @ Cursor Position
+# Generate Ref @ Cursor Position
 
 1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
 2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/7?u=chenzhu-xie

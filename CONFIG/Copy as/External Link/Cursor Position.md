@@ -1,3 +1,12 @@
+---
+recommend: ⭐⭐⭐⭐⭐
+udpateDate: 2025-10-29
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/External%20Link/Cursor%20Position.md"
+---
+
+# Generate Link @ Cursor Position
+
+1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=a2cb4ea0b8
 
 ```space-lua
 -- 外链复制：[[Page#Header]] -> http(s)://host/Page#Header
