@@ -51,9 +51,9 @@ config.set(
     "ghr:MrMugame/silversearch",
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
     -- "page-meta.plug.js",
-    "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/HierarchyHighlightHeadings.plug.js", -- related to [[STYLE/Theme]]
+    -- "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/HierarchyHighlightHeadings.plug.js", -- related to [[STYLE/Theme]]
     -- "github:silverbulletmd/silverbullet-katex/katex.plug.js",
-    "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/hello.plug.js", -- related to [[STYLE/Theme]]
+    -- "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/hello.plug.js", -- related to [[STYLE/Theme]]
   })
 ```
 
