@@ -1,7 +1,7 @@
 # Custom Plugs are Located @
 [[CONFIG]] & [[STYLE]]
 
-## Plugs i Wrote
+## Plugs (a)i Wrote
 ${query[[from index.tag "page" 
   where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
   select {ref=_.ref, recommend=_.recommend, githubUrl=_.githubUrl, name=_.name, githubUrl_Original=_.githubUrl_Original}
