@@ -16,8 +16,6 @@ udpateDate: 2025-10-27
 
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
-### Step 5. Enable: HierarchyHighlightHeadings: ${widgets.commandButton("Enable: HierarchyHighlightHeadings")}
-
 1. borrowed some tech from [[CONFIG/View/Tree/Float]]
 
 ```space-lua
