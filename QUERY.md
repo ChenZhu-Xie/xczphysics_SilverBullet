@@ -16,6 +16,10 @@
 
 1. https://community.silverbullet.md/t/multiple-credentials-more-query-power-and-more-powerful-attributes/3143
 
+## Performance of Indexing
+
+1. https://community.silverbullet.md/t/performance-one-big-note-vs-many-small-notes/3294/2?u=chenzhu-xie
+
 # Knowledge about QUERY
 
 > **tip** Ref
