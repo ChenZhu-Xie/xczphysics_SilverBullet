@@ -9,8 +9,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=a2cb4ea0b8
 
 ```space-lua
--- 外链复制：[[Page#Header]] -> http(s)://host/Page#Header
---           [[Page@pos]]    -> http(s)://host/Page@pos
+-- [[Page#Header]] -> http(s)://host/Page#Header
+-- [[Page@pos]]    -> http(s)://host/Page@pos
 
 local function replace_space_with_percent20(s)
   local parts = {}
