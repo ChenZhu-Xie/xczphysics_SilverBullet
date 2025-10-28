@@ -33,7 +33,7 @@ command.define {
       editor.flashNotification("\"recommend\" already Set", "info")
     else
       fm.recommend = "⭐⭐⭐⭐⭐"
-      editor.flashNotification("recommend updated" .. fm.recommend, "info")
+      editor.flashNotification("recommend updated: " .. fm.recommend, "info")
     end
     
     if type(fm.udpateDate) == "string" and fm.udpateDate == os.date("%Y-%m-%d") then
