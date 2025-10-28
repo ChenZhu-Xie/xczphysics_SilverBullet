@@ -38,6 +38,14 @@ command.define {
     js.import("/.fs/Library/PanelDragResize.js").enableDrag()
   end
 }
+
+event.listen {
+  name = 'system:ready',
+  run = function(e)
+    editor.invokeCommand "Tree View: Toggle"
+    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+  end
+}
 ```
 
 ```lua
