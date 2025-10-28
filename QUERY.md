@@ -12,6 +12,8 @@
 
 1. https://community.silverbullet.md/t/space-lua-making-space-script-safer-simpler-and-unifying-all-the-things/970?u=chenzhu-xie
 
+## More powerful attributes
+
 
 
 # Knowledge about QUERY
