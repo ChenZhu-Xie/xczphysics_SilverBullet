@@ -88,20 +88,16 @@ command.define {
     
     local newText = string.format("---\n%s\n---%s", fmText, body)
 
-    if newText ~= text then
-      editor.setText(newText, false)
-      if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
-        -- modify exsiting value
-        if fm.githubUrl ~= githubUrl_original then
-          editor.flashNotification("githubUrl updated", "info")
-        else
-          editor.flashNotification("\"githubUrl\" already Set", "info")
-        end
+    editor.setText(newText, false)
+    if type(fm.githubUrl) == "string" and fm.githubUrl ~= "" then
+      -- modify exsiting value
+      if fm.githubUrl ~= githubUrl_original then
+        editor.flashNotification("githubUrl updated", "info")
       else
-        editor.flashNotification("githubUrl added", "info")
+        editor.flashNotification("\"githubUrl\" already Set", "info")
       end
     else
-      editor.flashNotification("\"githubUrl\" already Set", "info")
+      editor.flashNotification("githubUrl added", "info")
     end
   end
 }
