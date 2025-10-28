@@ -17,6 +17,7 @@ udpateDate: 2025-10-28
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
+2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
 ```space-lua
 local jsCode = [[

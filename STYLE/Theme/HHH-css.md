@@ -6,7 +6,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 
 # HHH Theme (Pure CSS)
 
-## There is another JS added Version
+## There is another JS-added Version
 
 see [[STYLE/Theme/HHH|JS Version]]
 
@@ -14,6 +14,7 @@ see [[STYLE/Theme/HHH|JS Version]]
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
 2. if you activate the [[STYLE/Theme/HHH|JS Version]], comment out the 1st block below
+3. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
 ```
 /* 默认半透明 */
