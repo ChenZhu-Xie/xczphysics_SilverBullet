@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme.md"
-udpateDate: 2025-10-27
+udpateDate: 2025-10-28
 ---
 
 # XczPhysics Theme
