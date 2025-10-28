@@ -4,16 +4,16 @@ udpateDate: 2025-10-28
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/XczPhysics.md"
 ---
 
-# XczPhysics Theme
+# HHH Theme (Pure CSS)
 
 ## There is another JS added Version
 
-see [[STYLE/Theme|JS Version]]
+see [[STYLE/Theme/HHH|JS Version]]
 
 ## This is the Pure CSS Version
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
-2. if you activate the [[STYLE/Theme|JS Version]], comment out the 1st block below
+2. if you activate the [[STYLE/Theme/HHH|JS Version]], comment out the 1st block below
 
 ```
 /* 默认半透明 */

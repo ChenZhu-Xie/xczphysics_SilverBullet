@@ -4,7 +4,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 udpateDate: 2025-10-28
 ---
 
-# XczPhysics Theme
+# HierarchyHighlightHeadings - HHH Theme
 
 ## JS Part (Experimental)
 
@@ -182,7 +182,7 @@ event.listen {
 
 ## CSS part
 
-1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/XczPhysics]]
+1. Remember to Cancel the `1st space-style block` from [[<HHH (CSS>))]]
 
 ```space-style
 /* 默认半透明 */
