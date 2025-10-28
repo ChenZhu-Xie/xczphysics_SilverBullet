@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-10-27
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Github%20Url.md"
+udpateDate: 2025-10-28
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Plug/Github%20Url.md"
 ---
 
 # Add githubUrl to frontmatter
