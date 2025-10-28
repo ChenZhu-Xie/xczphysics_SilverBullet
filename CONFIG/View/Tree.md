@@ -22,25 +22,6 @@ actionButton.define {
 ```
 
 ```lua
-command.update {
-  name = "Tree View: Toggle",
-  key = "",
-  mac = "",
-  hide = true
-}
-
-command.define {
-  name = "Tree View: Toggle Move&Resize",
-  key = "Ctrl-Alt-b",
-  mac = "Cmd-Alt-b",
-  run = function()
-    editor.invokeCommand "Tree View: Toggle"
-    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
-  end
-}
-```
-
-```lua
 event.listen {
   name = 'system:ready',
   run = function(e)
