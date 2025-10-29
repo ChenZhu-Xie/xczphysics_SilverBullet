@@ -868,8 +868,8 @@ Hierarchically file browser
 }
 
 /* 分支最底层 page（叶节点）：绿色渐变 */
-.tree__node:has([data-current-page="true"])
-  .tree__node:not(:has(.tree__subnodes))
+.tree__node:has([data-current-page="true"]) 
+  .tree__node:not(:has(.tree__subnodes)) 
   > .tree__label:has(span[data-node-type="page"]) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--green) 40%, transparent) 0%,
@@ -878,9 +878,9 @@ Hierarchically file browser
 }
 
 /* 当前分支的中间层（其他父或子 page）：灰色渐变 */
-.tree__node:has([data-current-page="true"])
+.tree__node:has([data-current-page="true"]) 
   > .tree__label:not(:has([data-current-page="true"])),
-.tree__node:has(> .tree__label [data-current-page="true"])
+.tree__node:has(> .tree__label [data-current-page="true"]) 
   .tree__subnodes .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--grey) 40%, transparent) 0%,
@@ -933,17 +933,17 @@ html[data-theme=dark] {
       transparent 100%);
   }
 
-  .tree__node:has([data-current-page="true"])
-    .tree__node:not(:has(.tree__subnodes))
+  .tree__node:has([data-current-page="true"]) 
+    .tree__node:not(:has(.tree__subnodes)) 
     > .tree__label:has(span[data-node-type="page"]) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--green) 30%, transparent) 0%,
       transparent 100%);
   }
 
-  .tree__node:has([data-current-page="true"])
+  .tree__node:has([data-current-page="true"]) 
     > .tree__label:not(:has([data-current-page="true"])),
-  .tree__node:has(> .tree__label [data-current-page="true"])
+  .tree__node:has(> .tree__label [data-current-page="true"]) 
     .tree__subnodes .tree__label:not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--grey) 50%, transparent) 0%,
@@ -958,6 +958,7 @@ html[data-theme=dark] {
     background-color: var(--bg);
   }
 }
+
 ```
 
 # Miscellaneous
