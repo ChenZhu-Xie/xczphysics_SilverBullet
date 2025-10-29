@@ -860,7 +860,7 @@ Hierarchically file browser
   color: color-mix(in srgb, var(--blue) 60%, transparent);
 }
 
-/* Parent folders of current page - gradient highlight */
+/* Parent folders of current page - blue gradient highlight */
 .tree__node:has([data-current-page="true"]) > .tree__label {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
@@ -868,10 +868,18 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Current page highlighting - stronger gradient */
+/* Current page highlighting - magenta gradient */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right, 
-    color-mix(in srgb, var(--violet) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--magenta) 40%, transparent) 0%, 
+    transparent 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
+/* Child folders of current page - grey gradient */
+.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--grey) 20%, transparent) 0%, 
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -913,9 +921,18 @@ html[data-theme=dark] {
     border-radius: 5px 0px 0px 5px;
   }
   
+  /* Current page in dark mode - still use magenta */
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right, 
-      color-mix(in srgb, var(--grey) 70%, transparent) 0%, 
+      color-mix(in srgb, var(--magenta) 30%, transparent) 0%, 
+      transparent 100%);
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  /* Child folders in dark mode */
+  .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--grey) 30%, transparent) 0%, 
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
