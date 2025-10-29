@@ -940,14 +940,15 @@ html[data-theme=dark] {
   }
 
   /* Bottom-level pages in dark mode (only in current page branch) */
-  sortable-tree-node:has(> .tree__label > span[data-current-page="true"])
-    sortable-tree-node:has(> .tree__subnodes:empty)
+  .tree__node:has(> .tree__label > span[data-current-page="true"])
+    .tree__node:has(> .tree__subnodes:empty)
     > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--green) 30%, transparent) 0%,
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
+
 
   /* Parent folders in dark mode */
   .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
