@@ -932,15 +932,13 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
-  #treeview-tree > .tree__node
-    > .tree__label:has(span[data-node-type="page"])
-    :not(:has([data-current-page="true"])) {
+  .treeview-root > .tree__node > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])),
+  #treeview-tree > .tree__node > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--blue) 30%, transparent) 0%,
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
-
 
   /* Bottom-level pages in dark mode (only in current page branch) */
   .tree__node:has(> .tree__label > span[data-current-page="true"])
