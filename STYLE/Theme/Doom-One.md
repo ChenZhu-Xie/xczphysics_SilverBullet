@@ -838,6 +838,8 @@ html[data-theme=dark] {
 Hierarchically file browser
 
 ```space-style
+/* TreeView section with parent folder highlighting */
+
 /* Default file color */
 .tree__label > span {
   background-color: transparent !important;
@@ -848,36 +850,25 @@ Hierarchically file browser
   color: var(--magenta);
 }
 
-/* Folder color + folder icon */
+/* Folder color - removed icon */
 .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
   color: var(--blue);
-  &::before {
-    position: relative;
-    top: 0.1em;
-    content: url('data:image/svg+xml,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(81,175,239)" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M3 6a2 2 0 0 1 2-2h5.532a2 2 0 0 1 1.536.72l1.9 2.28H3V6Zm0 3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9H3Z" clip-rule="evenodd"/> </svg>');
-  }
 }
 
-/* Opened folder icon */
-.tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label > span {
-  &::before {
-    position: relative;
-    top: 0.1em;
-    content: url('data:image/svg+xml,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(81,175,239)" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"/> </svg>');
-  }
-}
-
-/* Folder (no file) color + folder icon */
+/* Folder (no file) color - removed icon */
 .tree__label > span[data-node-type="folder"] {
   color: color-mix(in srgb, var(--blue) 60%, transparent);
-  &::before {
-    position: relative;
-    top: 0.1em;
-    content: url('data:image/svg+xml,<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(81,175,239)" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M3 6a2 2 0 0 1 2-2h5.532a2 2 0 0 1 1.536.72l1.9 2.28H3V6Zm0 3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9H3Z" clip-rule="evenodd"/> </svg>');
-  }
 }
 
-/* Opened page highlighting */
+/* Parent folders of current page - gradient highlight */
+.tree__node:has([data-current-page="true"]) > .tree__label {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
+    transparent 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
+/* Current page highlighting - stronger gradient */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--violet) 40%, transparent) 0%, 
@@ -914,6 +905,14 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 }
 
 html[data-theme=dark] {
+  /* Parent folders in dark mode */
+  .tree__node:has([data-current-page="true"]) > .tree__label {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--blue) 30%, transparent) 0%, 
+      transparent 100%);
+    border-radius: 5px 0px 0px 5px;
+  }
+  
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--grey) 70%, transparent) 0%, 
@@ -929,6 +928,7 @@ html[data-theme=dark] {
     background-color: var(--bg);
   }
 }
+
 ```
 
 # Miscellaneous
