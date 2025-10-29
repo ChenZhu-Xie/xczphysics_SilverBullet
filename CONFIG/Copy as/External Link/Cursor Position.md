@@ -26,6 +26,7 @@ local function replace_space_with_percent20(s)
 end
 
 -- your address:   "https://your-domain"
+-- local BASE_URL = "http://127.0.0.1:3000"
 local BASE_URL = "http://127.0.0.1:3000"
 
 local function build_page_url(pageName)
@@ -48,10 +49,12 @@ command.define {
       headerName = headerName:match("^%s*(.+)")
       headerName = replace_space_with_percent20(headerName)
       out = string.format("%s#%s", pageUrl, headerName)
-      editor.flashNotification("Copied header external link: " .. out, "info")
+      -- editor.flashNotification("Copied header external link: " .. out, "info")
+      editor.flashNotification("Copied header link: " .. out, "info")
     else
       out = string.format("%s@%d", pageUrl, pos)
-      editor.flashNotification("Copied cursor external link: " .. out, "info")
+      -- editor.flashNotification("Copied cursor external link: " .. out, "info")
+      editor.flashNotification("Copied cursor link: " .. out, "info")
     end
   
     editor.copyToClipboard(out)
