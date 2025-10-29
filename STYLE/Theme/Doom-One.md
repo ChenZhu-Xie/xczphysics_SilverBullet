@@ -868,8 +868,17 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
+#treeview-tree > .tree__node:has([data-current-page="true"])
+  > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--green) 20%, transparent) 0%,
+    transparent 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
 /* Top-level pages - green gradient */
-.treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]:not([data-current-page="true"])) {
+#treeview-tree > .tree__node:has([data-current-page="true"])
+  > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--green) 20%, transparent) 0%,
     transparent 100%);
@@ -893,7 +902,9 @@ Hierarchically file browser
 }
 
 /* Bottom-level pages (leaf nodes) - green gradient */
-.tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+.tree__node:has(> .tree__label > span[data-current-page="true"])
+  .tree__node:has(> .tree__subnodes:empty)
+  > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--green) 20%, transparent) 0%,
     transparent 100%);
