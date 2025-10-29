@@ -861,25 +861,25 @@ Hierarchically file browser
 }
 
 /* Parent folders of current page - blue gradient highlight */
-.tree__node:has([data-current-page="true"]) > .tree__label {
+.tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Current page highlighting - magenta gradient */
+/* Current page highlighting - magenta gradient (higher specificity) */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--magenta) 40%, transparent) 0%, 
-    transparent 100%);
+    transparent 100%) !important;
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Child folders of current page - grey gradient */
+/* Child folders of current page - grey gradient (increased opacity) */
 .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
   background: linear-gradient(to right, 
-    color-mix(in srgb, var(--grey) 20%, transparent) 0%, 
+    color-mix(in srgb, var(--grey) 40%, transparent) 0%, 
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -914,7 +914,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 html[data-theme=dark] {
   /* Parent folders in dark mode */
-  .tree__node:has([data-current-page="true"]) > .tree__label {
+  .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--blue) 30%, transparent) 0%, 
       transparent 100%);
@@ -925,14 +925,14 @@ html[data-theme=dark] {
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--magenta) 30%, transparent) 0%, 
-      transparent 100%);
+      transparent 100%) !important;
     border-radius: 5px 0px 0px 5px;
   }
   
-  /* Child folders in dark mode */
+  /* Child folders in dark mode (increased opacity) */
   .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
     background: linear-gradient(to right, 
-      color-mix(in srgb, var(--grey) 30%, transparent) 0%, 
+      color-mix(in srgb, var(--grey) 50%, transparent) 0%, 
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
