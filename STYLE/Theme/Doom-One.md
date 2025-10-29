@@ -860,26 +860,18 @@ Hierarchically file browser
   color: color-mix(in srgb, var(--blue) 60%, transparent);
 }
 
-/* Top-level pages - green gradient */
-.treeview-root > .tree__node > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
-  background: linear-gradient(to right,
-    color-mix(in srgb, var(--green) 20%, transparent) 0%,
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
-}
-
-/* Bottom-level pages (leaf nodes) - green gradient */
-.tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
-  background: linear-gradient(to right,
-    color-mix(in srgb, var(--green) 20%, transparent) 0%,
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
-}
-
 /* Parent folders of current page - blue gradient highlight */
 .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--blue) 20%, transparent) 0%,
+    transparent 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
+/* Top-level pages - green gradient */
+.treeview-root > .tree__node > .tree__label > span[data-node-type="page"]:not([data-current-page="true"]) {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--green) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -896,6 +888,14 @@ Hierarchically file browser
 .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--grey) 40%, transparent) 0%,
+    transparent 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
+/* Bottom-level pages (leaf nodes) - green gradient */
+.tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--green) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
