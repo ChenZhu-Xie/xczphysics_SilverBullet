@@ -32,7 +32,11 @@ local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
 local function build_page_url(pageName)
   local path = replace_space_with_percent20(pageName)
-  return string.format("%s/%s", BASE_URL, path)
+  if BASE_URL:sub(-1) == "/" then
+    return BASE_URL .. path
+  else
+    return BASE_URL .. "/" .. path
+  end
 end
 
 command.define {
