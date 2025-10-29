@@ -838,148 +838,74 @@ html[data-theme=dark] {
 Hierarchically file browser
 
 ```space-style
-/* TreeView section with parent folder highlighting */
+/* ===== TreeView ===== */
 
-/* Default file color */
+/* 默认文字色 */
 .tree__label > span {
   background-color: transparent !important;
   border: none;
 }
+.tree__label > span[data-node-type="page"] { color: var(--magenta); }
+.tree__label > span[data-node-type="folder"] { color: color-mix(in srgb, var(--blue) 60%, transparent); }
 
-.tree__label > span[data-node-type="page"] {
-  color: var(--magenta);
+/* 父文件夹：蓝色（不要影响顶层/底层优先级，放前面） */
+.tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--blue) 20%, transparent) 0%, transparent 100%);
+  border-radius: 5px 0 0 5px;
 }
 
-/* Folder color - removed icon */
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
-  color: var(--blue);
+/* 子文件夹：灰色（仅限“有子节点”的文件夹，避免覆盖底层页面） */
+.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes > .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label {
+  background: linear-gradient(to right, color-mix(in srgb, var(--grey) 40%, transparent) 0%, transparent 100%);
+  border-radius: 5px 0 0 5px;
 }
 
-/* Folder (no file) color - removed icon */
-.tree__label > span[data-node-type="folder"] {
-  color: color-mix(in srgb, var(--blue) 60%, transparent);
+/* 顶层页面：绿色（高于蓝/灰，低于粉，因此加 !important；排除当前页） */
+.treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--green) 20%, transparent) 0%, transparent 100%) !important;
+  border-radius: 5px 0 0 5px;
 }
 
-/* Parent folders of current page - blue gradient (exclude top-level) */
-.tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])):not(.treeview-root > .tree__node > .tree__label) {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
+/* 底层页面（叶子）：绿色（判定空 subnodes；加 !important；排除当前页） */
+.tree__node:has(> .tree__subnodes:empty):has(> .tree__label > span[data-node-type="page"]) > .tree__label:not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--green) 20%, transparent) 0%, transparent 100%) !important;
+  border-radius: 5px 0 0 5px;
 }
 
-/* Child folders of current page - grey gradient (exclude leaf nodes) */
-.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__node:has(.tree__subnodes) > .tree__label {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--grey) 40%, transparent) 0%, 
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
-}
-
-/* Top-level pages - green gradient */
-.treeview-root > .tree__node > .tree__label:has(span[data-node-type="page"]) {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--green) 20%, transparent) 0%, 
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
-}
-
-/* Bottom-level pages (leaf nodes) - green gradient */
-.tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]) {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--green) 20%, transparent) 0%, 
-    transparent 100%);
-  border-radius: 5px 0px 0px 5px;
-}
-
-/* Current page highlighting - magenta gradient (absolute highest priority) */
+/* 当前页面：粉红（最高优先级） */
 .tree__label:has(span[data-current-page="true"]) {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--magenta) 40%, transparent) 0%, 
-    transparent 100%) !important;
-  border-radius: 5px 0px 0px 5px;
+  background: linear-gradient(to right, color-mix(in srgb, var(--magenta) 40%, transparent) 0%, transparent 100%) !important;
+  border-radius: 5px 0 0 5px;
 }
+.tree__label > span[data-current-page="true"] { background-color: transparent !important; }
 
-/* Label background */
-.tree__label > span[data-current-page="true"] {
-  background-color: transparent !important;
-}
-
-/* TreeView background */
-body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
-  background-color: white !important;
-}
-
-/* Top bar */
-.treeview-actions {
-  background-color: white;
-}
-
-/* Top buttons */
-.treeview-actions button {
-  color: var(--green);
-}
-
-/* All button hover states - grey #adadad */
+/* 顶部按钮与折叠按钮 hover：灰 #adadad */
 .treeview-actions button:hover,
-.tree__collapse:hover {
-  color: rgb(173, 173, 173) !important;
-}
+.tree__collapse:hover { color: rgb(173, 173, 173) !important; }
 
-.tree__collapse {
-  color: var(--blue);
-}
-
+/* 亮/暗色适配 */
 html[data-theme=dark] {
-  /* Parent folders in dark mode (exclude top-level) */
-  .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])):not(.treeview-root > .tree__node > .tree__label) {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--blue) 30%, transparent) 0%, 
-      transparent 100%);
-    border-radius: 5px 0px 0px 5px;
+  .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--blue) 30%, transparent) 0%, transparent 100%);
+    border-radius: 5px 0 0 5px;
   }
-  
-  /* Child folders in dark mode (exclude leaf nodes) */
-  .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__node:has(.tree__subnodes) > .tree__label {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--grey) 50%, transparent) 0%, 
-      transparent 100%);
-    border-radius: 5px 0px 0px 5px;
+  .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes > .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label {
+    background: linear-gradient(to right, color-mix(in srgb, var(--grey) 50%, transparent) 0%, transparent 100%);
+    border-radius: 5px 0 0 5px;
   }
-
-  /* Top-level pages in dark mode */
-  .treeview-root > .tree__node > .tree__label:has(span[data-node-type="page"]) {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--green) 30%, transparent) 0%, 
-      transparent 100%);
-    border-radius: 5px 0px 0px 5px;
+  .treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--green) 30%, transparent) 0%, transparent 100%) !important;
+    border-radius: 5px 0 0 5px;
   }
-
-  /* Bottom-level pages in dark mode */
-  .tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]) {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--green) 30%, transparent) 0%, 
-      transparent 100%);
-    border-radius: 5px 0px 0px 5px;
+  .tree__node:has(> .tree__subnodes:empty):has(> .tree__label > span[data-node-type="page"]) > .tree__label:not(:has([data-current-page="true"])) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--green) 30%, transparent) 0%, transparent 100%) !important;
+    border-radius: 5px 0 0 5px;
   }
-  
-  /* Current page in dark mode - highest priority */
   .tree__label:has(span[data-current-page="true"]) {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--magenta) 30%, transparent) 0%, 
-      transparent 100%) !important;
-    border-radius: 5px 0px 0px 5px;
-  }
-  
-  body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
-    background-color: var(--bg-alt) !important;
-  }
-  
-  .treeview-actions {
-    background-color: var(--bg);
+    background: linear-gradient(to right, color-mix(in srgb, var(--magenta) 30%, transparent) 0%, transparent 100%) !important;
+    border-radius: 5px 0 0 5px;
   }
 }
-
 ```
 
 # Miscellaneous
