@@ -838,72 +838,79 @@ html[data-theme=dark] {
 Hierarchically file browser
 
 ```space-style
-/* ===== TreeView ===== */
+/* ===== TreeView（仅作用于当前页面分支，且仅给 page 加背景）===== */
 
-/* 默认文字色 */
+/* 基础：清理背景 */
 .tree__label > span {
   background-color: transparent !important;
   border: none;
 }
-.tree__label > span[data-node-type="page"] { color: var(--magenta); }
-.tree__label > span[data-node-type="folder"] { color: color-mix(in srgb, var(--blue) 60%, transparent); }
 
-/* 父文件夹：蓝色（不要影响顶层/底层优先级，放前面） */
-.tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
-  background: linear-gradient(to right, color-mix(in srgb, var(--blue) 20%, transparent) 0%, transparent 100%);
+/* 前景色：文件夹=蓝，文件=绿；“作为文件夹的 page”（有子节点）也显示蓝 */
+.tree__label > span[data-node-type="folder"] { color: var(--blue) !important; }
+.tree__label > span[data-node-type="page"] { color: var(--green) !important; }
+.tree__node:has(> .tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
+  color: var(--blue) !important; /* page 具有子节点 -> 作为文件夹显示 */
+}
+
+/* 当前页面：红 -> 透明（最高优先级）*/
+.tree__label:has(> span[data-current-page="true"]) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--red) 40%, transparent) 0%, transparent 100%) !important;
   border-radius: 5px 0 0 5px;
 }
 
-/* 子文件夹：灰色（仅限“有子节点”的文件夹，避免覆盖底层页面） */
-.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes > .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label {
-  background: linear-gradient(to right, color-mix(in srgb, var(--grey) 40%, transparent) 0%, transparent 100%);
+/* 祖先链（父级们，限 page）：灰 -> 透明 */
+.tree__node:has([data-current-page="true"]) > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--grey) 35%, transparent) 0%, transparent 100%);
   border-radius: 5px 0 0 5px;
 }
 
-/* 顶层页面：绿色（高于蓝/灰，低于粉，因此加 !important；排除当前页） */
-.treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
-  background: linear-gradient(to right, color-mix(in srgb, var(--green) 20%, transparent) 0%, transparent 100%) !important;
+/* 分支“最顶层 page”（根层里包含当前页的那个顶层 page）：蓝 -> 透明（覆盖灰）*/
+.treeview-root > .tree__node:has([data-current-page="true"]) > .tree__label:has(> span[data-node-type="page"]) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--blue) 30%, transparent) 0%, transparent 100%) !important;
   border-radius: 5px 0 0 5px;
 }
 
-/* 底层页面（叶子）：绿色（判定空 subnodes；加 !important；排除当前页） */
-.tree__node:has(> .tree__subnodes:empty):has(> .tree__label > span[data-node-type="page"]) > .tree__label:not(:has([data-current-page="true"])) {
-  background: linear-gradient(to right, color-mix(in srgb, var(--green) 20%, transparent) 0%, transparent 100%) !important;
+/* 子树默认（其他子 page，限当前页子树）：灰 -> 透明 */
+.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label:has(> span[data-node-type="page"]) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--grey) 35%, transparent) 0%, transparent 100%);
   border-radius: 5px 0 0 5px;
 }
 
-/* 当前页面：粉红（最高优先级） */
-.tree__label:has(span[data-current-page="true"]) {
-  background: linear-gradient(to right, color-mix(in srgb, var(--magenta) 40%, transparent) 0%, transparent 100%) !important;
+/* 分支“最底层 page”（当前页子树内的叶子 page）：绿 -> 透明（覆盖子树灰）*/
+.tree__node:has(> .tree__label [data-current-page="true"])
+  .tree__subnodes
+  .tree__node:has(> .tree__subnodes:empty)
+  > .tree__label:has(> span[data-node-type="page"]) {
+  background: linear-gradient(to right, color-mix(in srgb, var(--green) 30%, transparent) 0%, transparent 100%) !important;
   border-radius: 5px 0 0 5px;
 }
-.tree__label > span[data-current-page="true"] { background-color: transparent !important; }
 
-/* 顶部按钮与折叠按钮 hover：灰 #adadad */
+/* 按钮 hover：#adadad */
 .treeview-actions button:hover,
-.tree__collapse:hover { color: rgb(173, 173, 173) !important; }
+.tree__collapse:hover {
+  color: rgb(173, 173, 173) !important;
+}
 
-/* 亮/暗色适配 */
+/* 可选：暗色模式微调透明度 */
 html[data-theme=dark] {
-  .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
-    background: linear-gradient(to right, color-mix(in srgb, var(--blue) 30%, transparent) 0%, transparent 100%);
-    border-radius: 5px 0 0 5px;
+  .tree__label:has(> span[data-current-page="true"]) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--red) 30%, transparent) 0%, transparent 100%) !important;
   }
-  .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes > .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label {
-    background: linear-gradient(to right, color-mix(in srgb, var(--grey) 50%, transparent) 0%, transparent 100%);
-    border-radius: 5px 0 0 5px;
+  .tree__node:has([data-current-page="true"]) > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--grey) 45%, transparent) 0%, transparent 100%);
   }
-  .treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]):not(:has([data-current-page="true"])) {
-    background: linear-gradient(to right, color-mix(in srgb, var(--green) 30%, transparent) 0%, transparent 100%) !important;
-    border-radius: 5px 0 0 5px;
+  .treeview-root > .tree__node:has([data-current-page="true"]) > .tree__label:has(> span[data-node-type="page"]) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--blue) 40%, transparent) 0%, transparent 100%) !important;
   }
-  .tree__node:has(> .tree__subnodes:empty):has(> .tree__label > span[data-node-type="page"]) > .tree__label:not(:has([data-current-page="true"])) {
-    background: linear-gradient(to right, color-mix(in srgb, var(--green) 30%, transparent) 0%, transparent 100%) !important;
-    border-radius: 5px 0 0 5px;
+  .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label:has(> span[data-node-type="page"]) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--grey) 45%, transparent) 0%, transparent 100%);
   }
-  .tree__label:has(span[data-current-page="true"]) {
-    background: linear-gradient(to right, color-mix(in srgb, var(--magenta) 30%, transparent) 0%, transparent 100%) !important;
-    border-radius: 5px 0 0 5px;
+  .tree__node:has(> .tree__label [data-current-page="true"])
+    .tree__subnodes
+    .tree__node:has(> .tree__subnodes:empty)
+    > .tree__label:has(> span[data-node-type="page"]) {
+    background: linear-gradient(to right, color-mix(in srgb, var(--green) 40%, transparent) 0%, transparent 100%) !important;
   }
 }
 ```
