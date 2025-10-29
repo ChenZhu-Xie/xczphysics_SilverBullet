@@ -904,8 +904,9 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: var(--green);
 }
 
-.treeview-actions button:hover {
-  color: var(--grey);
+.treeview-actions button:hover,
+.tree__collapse:hover {
+  color: rgb(173, 173, 173) !important;
 }
 
 .tree__collapse {
