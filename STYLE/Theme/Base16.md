@@ -189,34 +189,20 @@ Hierarchically file browser - Based on Base16 theme structure */
     transparent 100%);
 }
 
-/* Folder with content */
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
+/* Folder with content - closed */
+.tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
+  color: var(--blue);
+  opacity: 0.9;
+}
+
+/* Folder with content - open */
+.tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
   color: var(--blue);
   font-weight: 500;
 }
 
-/* Closed folder background */
-.tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--blue) 8%, transparent) 0%, 
-    transparent 100%);
-  border-radius: 5px;
-  margin: 2px 0;
-}
-
-/* Open folder background - more prominent */
-.tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label {
-  background: linear-gradient(to right, 
-    color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
-    color-mix(in srgb, var(--blue) 5%, transparent) 50%,
-    transparent 100%);
-  border-radius: 5px;
-  margin: 2px 0;
-  font-weight: 600;
-}
-
-/* Folder icons */
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
+/* Folder icons - closed with content */
+.tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
   &::before {
     position: relative;
     top: 0.1em;
@@ -225,7 +211,7 @@ Hierarchically file browser - Based on Base16 theme structure */
   }
 }
 
-/* Opened folder icon */
+/* Folder icons - opened with content */
 .tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label > span {
   &::before {
     position: relative;
@@ -235,15 +221,15 @@ Hierarchically file browser - Based on Base16 theme structure */
   }
 }
 
-/* Empty folder */
+/* Empty folder (no content) */
 .tree__label > span[data-node-type="folder"] {
-  color: color-mix(in srgb, var(--blue) 60%, transparent);
+  color: color-mix(in srgb, var(--blue) 50%, transparent);
   &::before {
     position: relative;
     top: 0.1em;
     margin-right: 0.4em;
-    opacity: 0.6;
-    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
+    opacity: 0.5;
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" stroke="rgb(81,175,239)" stroke-width="0.5" stroke-dasharray="2,2" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
   }
 }
 
@@ -257,7 +243,7 @@ Hierarchically file browser - Based on Base16 theme structure */
   }
 }
 
-/* Currently opened/active page - most prominent */
+/* Currently active page OR folder - unified style */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--violet) 40%, transparent) 0%, 
@@ -265,12 +251,20 @@ Hierarchically file browser - Based on Base16 theme structure */
     transparent 100%);
   border-radius: 5px;
   margin: 2px 0;
+}
+
+/* Active item text color enhancement */
+.tree__label > span[data-current-page="true"] {
   font-weight: 600;
 }
 
-/* Active page text color */
-.tree__label > span[data-current-page="true"] {
-  color: var(--violet) !important;
+/* Regular open folder background (not current) */
+.tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label:not(:has(span[data-current-page="true"])) {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--blue) 10%, transparent) 0%, 
+    transparent 100%);
+  border-radius: 5px;
+  margin: 2px 0;
 }
 
 /* Hover effects */
@@ -278,11 +272,12 @@ Hierarchically file browser - Based on Base16 theme structure */
   cursor: pointer;
 }
 
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label:hover {
+/* Hover on closed folders */
+.tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label:hover:not(:has(span[data-current-page="true"])) {
   background: linear-gradient(to right, 
-    color-mix(in srgb, var(--blue) 25%, transparent) 0%, 
-    color-mix(in srgb, var(--blue) 10%, transparent) 50%,
+    color-mix(in srgb, var(--blue) 15%, transparent) 0%, 
     transparent 100%);
+  border-radius: 5px;
 }
 
 /* TreeView background */
@@ -324,22 +319,12 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 /* Dark mode adjustments */
 html[data-theme=dark] {
-  /* Closed folder background in dark mode */
-  .tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--blue) 15%, transparent) 0%, 
-      transparent 100%);
+  /* Empty folder in dark mode */
+  .tree__label > span[data-node-type="folder"] {
+    color: color-mix(in srgb, var(--blue) 40%, transparent);
   }
   
-  /* Open folder background in dark mode */
-  .tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label {
-    background: linear-gradient(to right, 
-      color-mix(in srgb, var(--blue) 30%, transparent) 0%, 
-      color-mix(in srgb, var(--blue) 10%, transparent) 50%,
-      transparent 100%);
-  }
-  
-  /* Current page highlight in dark mode */
+  /* Current page/folder highlight in dark mode */
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--grey) 70%, transparent) 0%, 
@@ -347,10 +332,23 @@ html[data-theme=dark] {
       transparent 100%);
   }
   
+  /* Regular open folder in dark mode */
+  .tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label:not(:has(span[data-current-page="true"])) {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
+      transparent 100%);
+  }
+  
   /* Hover effects in dark mode */
   .tree__label:hover > span[data-node-type="page"] {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--magenta) 25%, transparent) 0%, 
+      transparent 100%);
+  }
+  
+  .tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label:hover:not(:has(span[data-current-page="true"])) {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--blue) 25%, transparent) 0%, 
       transparent 100%);
   }
   
