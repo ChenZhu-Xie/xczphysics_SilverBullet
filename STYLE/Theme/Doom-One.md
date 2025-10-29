@@ -910,7 +910,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 }
 
 .tree__collapse {
-  color: var(--blue);
+  color: rgb(173, 173, 173) !important;
 }
 
 html[data-theme=dark] {
