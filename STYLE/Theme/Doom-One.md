@@ -857,22 +857,22 @@ Hierarchically file browser
 
 /* Folder (no file) color - removed icon */
 .tree__label > span[data-node-type="folder"] {
-  color: color-mix(in srgb, var(--blue) 60%, transparent);
+  color: color-mix(in srgb, var(--green) 50%, transparent);
 }
 
 /* Parent folders of current page - blue gradient highlight */
 .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--blue) 20%, transparent) 0%,
+    color-mix(in srgb, var(--grey) 40%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Top-level pages - green gradient */
+/* Top-level pages - blue gradient */
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--green) 20%, transparent) 0%,
+    color-mix(in srgb, var(--blue) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -938,7 +938,7 @@ html[data-theme=dark] {
   #treeview-tree > .tree__node:has([data-current-page="true"])
     > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
-      color-mix(in srgb, var(--green) 30%, transparent) 0%,
+      color-mix(in srgb, var(--blue) 30%, transparent) 0%,
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
@@ -957,7 +957,7 @@ html[data-theme=dark] {
   /* Parent folders in dark mode */
   .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
-      color-mix(in srgb, var(--blue) 30%, transparent) 0%,
+      color-mix(in srgb, var(--grey) 50%, transparent) 0%,
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
