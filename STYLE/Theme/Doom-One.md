@@ -940,7 +940,7 @@ html[data-theme=dark] {
   }
 
   /* Bottom-level pages in dark mode */
-  .tree__node:not(:has(.tree__subnodes)) > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
+  sortable-tree-node:has(> .tree__subnodes:empty) > .tree__label {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--green) 30%, transparent) 0%,
       transparent 100%);
