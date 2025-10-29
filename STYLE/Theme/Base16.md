@@ -166,24 +166,61 @@ html[data-theme="dark"] {
 
 ```space-style
 /* TreeView
-Hierarchically file browser */
+Hierarchically file browser - Based on Base16 theme structure */
 
 /* Default file color */
 .tree__label > span {
   background-color: transparent !important;
   border: none;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
+/* Regular page files */
 .tree__label > span[data-node-type="page"] {
   color: var(--magenta);
 }
 
-/* Folder color + folder icon */
+/* Page file hover effect */
+.tree__label:hover > span[data-node-type="page"] {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--magenta) 15%, transparent) 0%, 
+    transparent 100%);
+}
+
+/* Folder with content */
 .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
   color: var(--blue);
+  font-weight: 500;
+}
+
+/* Closed folder background */
+.tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--blue) 8%, transparent) 0%, 
+    transparent 100%);
+  border-radius: 5px;
+  margin: 2px 0;
+}
+
+/* Open folder background - more prominent */
+.tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
+    color-mix(in srgb, var(--blue) 5%, transparent) 50%,
+    transparent 100%);
+  border-radius: 5px;
+  margin: 2px 0;
+  font-weight: 600;
+}
+
+/* Folder icons */
+.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
   &::before {
     position: relative;
     top: 0.1em;
+    margin-right: 0.4em;
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
   }
 }
@@ -193,16 +230,19 @@ Hierarchically file browser */
   &::before {
     position: relative;
     top: 0.1em;
+    margin-right: 0.4em;
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M.75 3a.75.75 0 01.75-.75h3.94c.325 0 .635.128.866.356l.97 1.029a.25.25 0 00.181.076H13.25a.75.75 0 01.75.75v.5H1.5V3.25a.75.75 0 01.011-.099A.748.748 0 011.5 3h-.75zM1.5 5.5v6.75c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.5H1.5z"/></svg>');
   }
 }
 
-/* Folder (no file) color + folder icon */
+/* Empty folder */
 .tree__label > span[data-node-type="folder"] {
   color: color-mix(in srgb, var(--blue) 60%, transparent);
   &::before {
     position: relative;
     top: 0.1em;
+    margin-right: 0.4em;
+    opacity: 0.6;
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
   }
 }
@@ -212,22 +252,37 @@ Hierarchically file browser */
   &::before {
     position: relative;
     top: 0.1em;
+    margin-right: 0.4em;
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(198,120,221)" fill-rule="evenodd" d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0113.25 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 00.25-.25V4.664a.25.25 0 00-.073-.177l-2.914-2.914a.25.25 0 00-.177-.073H3.75z" clip-rule="evenodd"/></svg>');
-    margin-right: 0.3em;
   }
 }
 
-/* Opened page highlighting */
+/* Currently opened/active page - most prominent */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right, 
     color-mix(in srgb, var(--violet) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--violet) 20%, transparent) 50%,
     transparent 100%);
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 5px;
+  margin: 2px 0;
+  font-weight: 600;
 }
 
-/* Label background */
+/* Active page text color */
 .tree__label > span[data-current-page="true"] {
-  background-color: transparent !important;
+  color: var(--violet) !important;
+}
+
+/* Hover effects */
+.tree__label:hover {
+  cursor: pointer;
+}
+
+.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label:hover {
+  background: linear-gradient(to right, 
+    color-mix(in srgb, var(--blue) 25%, transparent) 0%, 
+    color-mix(in srgb, var(--blue) 10%, transparent) 50%,
+    transparent 100%);
 }
 
 /* TreeView background */
@@ -238,11 +293,14 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 /* Top bar */
 .treeview-actions {
   background-color: white;
+  padding: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--grey) 20%, transparent);
 }
 
 /* Top buttons */
 .treeview-actions button {
   color: var(--green);
+  transition: color 0.2s ease;
 }
 
 .treeview-actions button:hover {
@@ -252,40 +310,48 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 /* Collapse/expand arrow */
 .tree__collapse {
   color: var(--blue);
+  transition: transform 0.2s ease;
+}
+
+.tree__node[open="true"] > .tree__label > .tree__collapse {
+  transform: rotate(90deg);
+}
+
+/* Indentation and spacing */
+.tree__subnodes {
+  margin-left: 1.2em;
 }
 
 /* Dark mode adjustments */
 html[data-theme=dark] {
-  /* Folder icons in dark mode */
-  .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
-    &::before {
-      content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
-    }
+  /* Closed folder background in dark mode */
+  .tree__node:not([open="true"]):has(.tree__subnodes:not(:empty)) > .tree__label {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--blue) 15%, transparent) 0%, 
+      transparent 100%);
   }
   
-  .tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label > span {
-    &::before {
-      content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M.75 3a.75.75 0 01.75-.75h3.94c.325 0 .635.128.866.356l.97 1.029a.25.25 0 00.181.076H13.25a.75.75 0 01.75.75v.5H1.5V3.25a.75.75 0 01.011-.099A.748.748 0 011.5 3h-.75zM1.5 5.5v6.75c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.5H1.5z"/></svg>');
-    }
+  /* Open folder background in dark mode */
+  .tree__node[open="true"]:has(.tree__subnodes:not(:empty)) > .tree__label {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--blue) 30%, transparent) 0%, 
+      color-mix(in srgb, var(--blue) 10%, transparent) 50%,
+      transparent 100%);
   }
   
-  .tree__label > span[data-node-type="folder"] {
-    &::before {
-      content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(81,175,239)" d="M1.75 2.5a.75.75 0 00-.75.75v10c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75v-7.5a.75.75 0 00-.75-.75H7.81l-.97-1.03A1.75 1.75 0 005.56 2.5H1.75z"/></svg>');
-    }
-  }
-  
-  .tree__label > span[data-node-type="page"]:not(:has(~ .tree__subnodes)) {
-    &::before {
-      content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill="rgb(198,120,221)" fill-rule="evenodd" d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0113.25 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 00.25-.25V4.664a.25.25 0 00-.073-.177l-2.914-2.914a.25.25 0 00-.177-.073H3.75z" clip-rule="evenodd"/></svg>');
-    }
-  }
-  
+  /* Current page highlight in dark mode */
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right, 
       color-mix(in srgb, var(--grey) 70%, transparent) 0%, 
+      color-mix(in srgb, var(--grey) 35%, transparent) 50%,
       transparent 100%);
-    border-radius: 5px 0px 0px 5px;
+  }
+  
+  /* Hover effects in dark mode */
+  .tree__label:hover > span[data-node-type="page"] {
+    background: linear-gradient(to right, 
+      color-mix(in srgb, var(--magenta) 25%, transparent) 0%, 
+      transparent 100%);
   }
   
   body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
@@ -294,6 +360,7 @@ html[data-theme=dark] {
   
   .treeview-actions {
     background-color: var(--bg);
+    border-bottom-color: var(--base4);
   }
 }
 
