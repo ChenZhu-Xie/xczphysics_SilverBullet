@@ -1,6 +1,6 @@
 # Auto-collapsing Frontmatter
 
-```space-style
+```
 /* Hiding Frontmatter when not editing */
 .sb-frontmatter.sb-line-frontmatter-outside:has(+ .sb-frontmatter) ~ .sb-frontmatter {
     display:none
