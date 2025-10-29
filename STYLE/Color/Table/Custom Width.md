@@ -257,9 +257,7 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 
 ### Optional only  (adds color to the matching tags)
 
-```space-style
-html[data-theme="dark"]{
-  
+```
 .sb-hashtag {
     background: #1c2430;
     color: #d8e1ef;
@@ -267,6 +265,10 @@ html[data-theme="dark"]{
     border-radius: 6px;
     padding: 0 4px;
   }
+```
+
+```space-style
+html[data-theme="dark"]{
 
 .sb-hashtag[data-tag-name="silver"]{background: #444444;}
 .sb-hashtag[data-tag-name="sea"]{background: #4569a2;}
