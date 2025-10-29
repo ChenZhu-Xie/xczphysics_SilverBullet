@@ -863,7 +863,7 @@ Hierarchically file browser
 /* Parent folders of current page - blue gradient highlight */
 .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right, 
-    color-mix(in srgb, var(--blue) 20%, transparent) 0%, 
+    color-mix(in srgb, var(--grey) 40%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -905,7 +905,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 }
 
 .treeview-actions button:hover {
-  color: var(--teal);
+  color: var(--grey);
 }
 
 .tree__collapse {
