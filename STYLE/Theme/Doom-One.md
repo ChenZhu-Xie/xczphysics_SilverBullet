@@ -869,7 +869,7 @@ Hierarchically file browser
 }
 
 /* Top-level pages - green gradient */
-.treeview-root > .tree__node > .tree__label > span[data-node-type="page"]:not([data-current-page="true"]) {
+.treeview-root > .tree__node > .tree__label:has(> span[data-node-type="page"]:not([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--green) 20%, transparent) 0%,
     transparent 100%);
