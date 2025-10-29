@@ -27,7 +27,6 @@ end
 
 -- your address:   "https://your-domain"
 -- local BASE_URL = "http://127.0.0.1:3000"
-local BASE_URL = "http://127.0.0.1:3000"
 local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
 local function build_page_url(pageName)
