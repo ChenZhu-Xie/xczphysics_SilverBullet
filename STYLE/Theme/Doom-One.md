@@ -660,7 +660,7 @@ Custom plugs and Lua blocks.
   padding: 0px;
   margin: 0px -1px;
   backdrop-filter: blur(4px);
-  background-color: rgba(40, 44, 52, 0.9) !important;
+  background-color: rgba(40, 44, 52, 0.5) !important;
 }
 
 /* Buttons*/
