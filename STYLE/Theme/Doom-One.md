@@ -722,15 +722,15 @@ Custom Lua blocks at top or bottom of the page.
 #sb-main .cm-editor .sb-lua-top-widget .content,
 #sb-main .cm-editor .sb-lua-bottom-widget .content {
   max-height: 300px;
-  scrollbar-width: 10px;
+  scrollbar-width: none;
 }
 
 /* Title style */
 #sb-main .cm-editor .sb-lua-top-widget h1,
 #sb-main .cm-editor .sb-lua-bottom-widget h1 {
   color: var(--dark-cyan);
-  font-size: 1.5rem;
-  background-color: transparent;
+  font-size: 2.0rem;
+  background-color: var(--base8);
 }
 ```
 
