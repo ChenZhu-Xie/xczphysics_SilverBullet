@@ -215,7 +215,33 @@ event.listen {
   --h-bg-alpha: 16%;
 }
 
+/* Dark */
+html[data-theme="dark"] .sb-line-h1:hover,
+html[data-theme="dark"] .sb-line-h1.sb-active { background-color: var(--h1-underline-dark); }
+html[data-theme="dark"] .sb-line-h2:hover,
+html[data-theme="dark"] .sb-line-h2.sb-active { background-color: var(--h2-underline-dark); }
+html[data-theme="dark"] .sb-line-h3:hover,
+html[data-theme="dark"] .sb-line-h3.sb-active { background-color: var(--h3-underline-dark); }
+html[data-theme="dark"] .sb-line-h4:hover,
+html[data-theme="dark"] .sb-line-h4.sb-active { background-color: var(--h4-underline-dark); }
+html[data-theme="dark"] .sb-line-h5:hover,
+html[data-theme="dark"] .sb-line-h5.sb-active { background-color: var(--h5-underline-dark); }
+html[data-theme="dark"] .sb-line-h6:hover,
+html[data-theme="dark"] .sb-line-h6.sb-active { background-color: var(--h6-underline-dark); }
 
+/* Light */
+html[data-theme="light"] .sb-line-h1:hover,
+html[data-theme="light"] .sb-line-h1.sb-active { background-color: var(--h1-underline-light); }
+html[data-theme="light"] .sb-line-h2:hover,
+html[data-theme="light"] .sb-line-h2.sb-active { background-color: var(--h2-underline-light); }
+html[data-theme="light"] .sb-line-h3:hover,
+html[data-theme="light"] .sb-line-h3.sb-active { background-color: var(--h3-underline-light); }
+html[data-theme="light"] .sb-line-h4:hover,
+html[data-theme="light"] .sb-line-h4.sb-active { background-color: var(--h4-underline-light); }
+html[data-theme="light"] .sb-line-h5:hover,
+html[data-theme="light"] .sb-line-h5.sb-active { background-color: var(--h5-underline-light); }
+html[data-theme="light"] .sb-line-h6:hover,
+html[data-theme="light"] .sb-line-h6.sb-active { background-color: var(--h6-underline-light); }
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
