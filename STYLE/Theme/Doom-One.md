@@ -151,12 +151,7 @@ html[data-theme=dark] {
   background-color: transparent;
 }
 
-#sb-top .main .inner .sb-sync-progress .progress-bar {
-  width: var(--font-size);
-  height: var(--font-size);
-  font-size: calc(var(--font-size) / 3);
-  color: var(--magenta);
-}
+
 
 /* Offline */
 #sb-top.sb-sync-error {
