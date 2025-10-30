@@ -722,7 +722,7 @@ Custom Lua blocks at top or bottom of the page.
 #sb-main .cm-editor .sb-lua-top-widget .content,
 #sb-main .cm-editor .sb-lua-bottom-widget .content {
   max-height: 300px;
-  scrollbar-width: none;
+  scrollbar-width: 10px;
 }
 
 /* Title style */
