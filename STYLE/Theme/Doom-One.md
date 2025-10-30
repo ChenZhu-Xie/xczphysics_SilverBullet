@@ -1089,11 +1089,11 @@ Custom notification can be set up using `.sb-notification-<custom>`
 }
 
 .sb-notification-info {
-  background-color: color-mix(in srgb, var(--blue) 80%, transparent);
+  background-color: color-mix(in srgb, var(--blue) 30%, transparent);
 }
 
 .sb-notification-warning {
-  background-color: color-mix(in srgb, var(--red) 80%, transparent);
+  background-color: color-mix(in srgb, var(--red) 30%, transparent);
 }
 ```
 
