@@ -765,11 +765,11 @@ Web URL: [silverbullet](https://silverbullet.md)
 https://silverbullet.md
 ```space-style
 a, .sb-link:not(.sb-meta, .sb-url) {
-  color: var(--dark-cyan);
+  color: var(--yellow);
 }
 
 .sb-naked-url{
-  color: var(--teal);
+  color: var(--yellow);
 }
 ```
 
