@@ -933,12 +933,8 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: rgb(173, 173, 173) !important;
 }
 
-.tree__node:has(.tree__label > span[data-node-type="page"]) > .tree__collapse {
-  color: var(--blue);
-}
-
-.tree__node:has(.tree__label > span[data-node-type="folder"]) > .tree__collapse {
-  color: var(--green);
+.tree__node[open="true"]:has(> .tree__label > span) > .tree__collapse {
+  color: inherit !important;
 }
 
 html[data-theme=dark] {
