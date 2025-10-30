@@ -494,7 +494,7 @@ Requires one empty line
 ```space-style
 #sb-main .cm-editor .sb-line-hr {
   margin-top: 0em;
-  margin-bottom: 0em;
+  margin-bottom: -1em;
 }
 ```
 
