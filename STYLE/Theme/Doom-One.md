@@ -790,7 +790,7 @@ When entering a link: [[]]
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
   z-index: 99999 !important;
-  border: solid 1px var(--cyan);
+  border: solid 1px var(--dark-blue);
   overflow: hidden;
 }
 
