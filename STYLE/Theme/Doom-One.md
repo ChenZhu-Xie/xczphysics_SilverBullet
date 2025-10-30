@@ -903,46 +903,6 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Label background */
-.tree__label > span[data-current-page="true"] {
-  background-color: transparent !important;
-}
-
-/* TreeView background */
-body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
-  background-color: white !important;
-}
-
-/* Top bar */
-.treeview-actions {
-  background-color: white;
-}
-
-/* Top buttons */
-.treeview-actions button {
-  color: var(--green);
-}
-
-/* All button hover states - grey #adadad */
-.treeview-actions button:hover,
-.tree__collapse:hover {
-  color: rgb(173, 173, 173) !important;
-}
-
-.tree__collapse {
-  color: rgb(173, 173, 173) !important;
-}
-
-.tree__node[open="true"]:has(> .tree__label > span[data-node-type="page"])
-  > .tree__collapse {
-  color: var(--blue) !important;
-}
-
-.tree__node[open="true"]:has(> .tree__label > span[data-node-type="folder"])
-  > .tree__collapse {
-  color: var(--green) !important;
-}
-
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
   #treeview-tree > .tree__node:has([data-current-page="true"])
@@ -987,8 +947,23 @@ html[data-theme=dark] {
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
+  
+```
 
-  body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
+```space-style
+/* Background */
+
+/* Label background */
+.tree__label > span[data-current-page="true"] {
+  background-color: transparent !important;
+}
+
+/* TreeView background */
+body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
+  background-color: white !important;
+}
+
+body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
     background-color: var(--bg-alt) !important;
   }
 
@@ -999,7 +974,44 @@ html[data-theme=dark] {
 ```
 
 ```space-style
+/* Top bar */
+
+.treeview-actions {
+  background-color: white;
+}
+
+/* Top buttons */
+.treeview-actions button {
+  color: var(--green);
+}
+
+/* Top button hover states - grey #adadad */
+.treeview-actions button:hover {
+  color: rgb(173, 173, 173) !important;
+}
+```
+
+```space-style
+/* tree__collapse */
+
+.tree__collapse {
+  color: rgb(173, 173, 173);
+}
+
+.tree__node[open="true"]:has(> .tree__label > span[data-node-type="page"])
+  > .tree__collapse {
+  color: var(--blue);
+}
+
+.tree__node[open="true"]:has(> .tree__label > span[data-node-type="folder"])
+  > .tree__collapse {
+  color: var(--green);
+}
+```
+
+```space-style
 /* hover over */
+
 /* Mouse hover interactions - highest priority */
 .tree__label:hover > span {
   color: rgb(173, 173, 173) !important;
@@ -1027,6 +1039,7 @@ html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
 
 ```space-style
 /* Collapse button turns red when hovering over the node */
+
 .tree__label:hover ~ .tree__collapse,
 .tree__node:hover > .tree__collapse {
   color: red !important;
