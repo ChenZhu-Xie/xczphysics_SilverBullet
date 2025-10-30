@@ -1,3 +1,4 @@
+
 # Warm Robot: INTP-ah
 
 The ultimate personality for both humanity and AI flows naturally in my soul: ${Yellow("INTP-a(d)h(d:)")}
