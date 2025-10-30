@@ -905,7 +905,7 @@ Hierarchically file browser
 
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
-  #treeview-tree .tree__node:has([data-current-page="true"])
+  #treeview-tree > .tree__node:has([data-current-page="true"])
     > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--blue) 30%, transparent) 0%,
@@ -914,7 +914,7 @@ html[data-theme=dark] {
   }
 
   /* Top-level folders in dark mode */
-  #treeview-tree .tree__node:has([data-current-page="true"])
+  #treeview-tree > .tree__node:has([data-current-page="true"])
     > .tree__label:has(span[data-node-type="folder"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--green) 30%, transparent) 0%,
