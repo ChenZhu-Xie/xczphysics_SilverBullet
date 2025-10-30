@@ -157,9 +157,7 @@ export function disableHighlight() {
   window[STATE_KEY] = null;
 }
 ]]
-```
 
-```space-lua
 command.define {
   name = "Save: HierarchyHighlightHeadings.js",
   hide = true,
