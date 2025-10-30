@@ -210,38 +210,6 @@ event.listen {
   opacity: 1 !important;
 }
 
-:root {
-  /* 背景透明度强度调节（百分比越大，背景越浓） */
-  --h-bg-alpha: 16%;
-}
-
-/* Dark */
-html[data-theme="dark"] .sb-line-h1:hover,
-html[data-theme="dark"] .sb-line-h1.sb-active { background-color: var(--h1-underline-dark); }
-html[data-theme="dark"] .sb-line-h2:hover,
-html[data-theme="dark"] .sb-line-h2.sb-active { background-color: var(--h2-underline-dark); }
-html[data-theme="dark"] .sb-line-h3:hover,
-html[data-theme="dark"] .sb-line-h3.sb-active { background-color: var(--h3-underline-dark); }
-html[data-theme="dark"] .sb-line-h4:hover,
-html[data-theme="dark"] .sb-line-h4.sb-active { background-color: var(--h4-underline-dark); }
-html[data-theme="dark"] .sb-line-h5:hover,
-html[data-theme="dark"] .sb-line-h5.sb-active { background-color: var(--h5-underline-dark); }
-html[data-theme="dark"] .sb-line-h6:hover,
-html[data-theme="dark"] .sb-line-h6.sb-active { background-color: var(--h6-underline-dark); }
-
-/* Light */
-html[data-theme="light"] .sb-line-h1:hover,
-html[data-theme="light"] .sb-line-h1.sb-active { background-color: var(--h1-underline-light); }
-html[data-theme="light"] .sb-line-h2:hover,
-html[data-theme="light"] .sb-line-h2.sb-active { background-color: var(--h2-underline-light); }
-html[data-theme="light"] .sb-line-h3:hover,
-html[data-theme="light"] .sb-line-h3.sb-active { background-color: var(--h3-underline-light); }
-html[data-theme="light"] .sb-line-h4:hover,
-html[data-theme="light"] .sb-line-h4.sb-active { background-color: var(--h4-underline-light); }
-html[data-theme="light"] .sb-line-h5:hover,
-html[data-theme="light"] .sb-line-h5.sb-active { background-color: var(--h5-underline-light); }
-html[data-theme="light"] .sb-line-h6:hover,
-html[data-theme="light"] .sb-line-h6.sb-active { background-color: var(--h6-underline-light); }
 
 ```
 
@@ -319,12 +287,10 @@ html[data-theme="light"] {
 ```
 
 ```space-style
-/* 2) 高亮时背景“很淡”：
-   用 currentColor + color-mix 生成与文字同色系的低透明背景；
-   注意：这不会影响 border-bottom（下划线） */
+
 :root {
-  --h-bg-alpha-dark: 8%;   /* 深色主题下：很淡 */
-  --h-bg-alpha-light: 6%;  /* 浅色主题下：更淡一点 */
+  --h-bg-alpha-dark: 6%;   /* 深色主题 */
+  --h-bg-alpha-light: 8%;  /* 浅色主题 */
 }
 
 /* 深色主题：hover 或 .sb-active 才上很淡背景 */
@@ -348,4 +314,6 @@ html[data-theme="light"] .sb-line-h6:hover,
 html[data-theme="light"] .sb-active {
   background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-light), transparent);
 }
+
+
 ```
