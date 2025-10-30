@@ -785,7 +785,7 @@ Internal Links:
 
 ### Tooltip
 When entering a link: [[]]
-/d
+
 ```space-style
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
