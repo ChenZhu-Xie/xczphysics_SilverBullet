@@ -996,7 +996,9 @@ html[data-theme=dark] {
     background-color: var(--bg);
   }
 }
+```
 
+```space-style
 /* hover over */
 /* Mouse hover interactions - highest priority */
 .tree__label:hover > span {
@@ -1020,6 +1022,26 @@ html[data-theme=dark] .tree__label:hover > span[data-node-type="page"],
 html[data-theme=dark] .tree__label:hover > span[data-node-type="folder"],
 html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
   color: rgb(173, 173, 173) !important;
+}
+```
+
+```space-style
+/* Collapse button turns red when hovering over the node */
+.tree__label:hover ~ .tree__collapse,
+.tree__node:hover > .tree__collapse {
+  color: red !important;
+}
+
+/* Dark mode collapse button hover */
+html[data-theme=dark] .tree__label:hover ~ .tree__collapse,
+html[data-theme=dark] .tree__node:hover > .tree__collapse {
+  color: red !important;
+}
+
+/* Override existing collapse button styles when hovering */
+.tree__label:hover ~ .tree__collapse:hover,
+.tree__node:hover > .tree__collapse:hover {
+  color: red !important;
 }
 ```
 
