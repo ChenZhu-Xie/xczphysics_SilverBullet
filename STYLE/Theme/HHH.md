@@ -21,10 +21,8 @@ udpateDate: 2025-10-28
 
 ```space-lua
 local jsCode = [[
-// Library/HierarchyHighlightHeadings.js
 const STATE_KEY = "__xhHighlightState_v2";
 
-// 支持 .sb-line-hN 与原生 h1..h6
 function getLevel(el) {
   for (let i = 1; i <= 6; i++) {
     if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
@@ -54,7 +52,6 @@ function collectDescendants(startIndex, headings, startLevel) {
   return res;
 }
 
-// 逐级向上回溯：最近的 h(N-1)、再最近的 h(N-2)…
 function collectAncestors(startIndex, headings, startLevel) {
   const res = [];
   let minLevel = startLevel;
@@ -85,7 +82,6 @@ export function enableHighlight(opts = {}) {
     const container = document.querySelector(containerSelector);
     if (!container) { requestAnimationFrame(bind); return; }
 
-    // 清理旧的绑定
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
@@ -104,7 +100,6 @@ export function enableHighlight(opts = {}) {
       const descendants = collectDescendants(startIndex, headings, startLevel);
       const ancestors = collectAncestors(startIndex, headings, startLevel);
 
-      // 一个 .sb-active 就可让字体与背景都亮；细分类用于可选的差异化样式
       h.classList.add("sb-active", "sb-active-current");
       descendants.forEach(el => el.classList.add("sb-active", "sb-active-desc"));
       ancestors.forEach(el => el.classList.add("sb-active", "sb-active-anc"));
