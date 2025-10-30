@@ -2,7 +2,6 @@
 source: markdown-import
 sourceUrl: "https://codeberg.org/gulfkiwi/silverbullet-base16-themes/src/branch/trunk/base16.md"
 ---
-#meta/library
 
 This library provides for SilverBullet integration with the tinted-theming base16 specification and library of base16 (but not base24) themes.
 
