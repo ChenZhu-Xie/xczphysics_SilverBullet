@@ -245,7 +245,7 @@ html[data-theme=dark] {
   color: var(--editor-code-info-color);
 }
 .sb-frontmatter:not(.sb-line-frontmatter-outside) {
-  padding-left: 0px !important;
+  padding-left: 10px !important;
 }
 
 /* Edit: Last Line */
