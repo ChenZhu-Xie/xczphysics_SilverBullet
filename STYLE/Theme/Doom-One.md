@@ -933,8 +933,14 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: rgb(173, 173, 173) !important;
 }
 
-.tree__node[open="true"]:has(> .tree__label > span[data-node-type="folder"]) > .tree__collapse {
-  color: inherit !important;
+.tree__node[open="true"]:has(.tree__subnodes > .tree__node > .tree__label > span[data-node-type="page"])
+  > .tree__collapse {
+  color: var(--blue) !important;
+}
+
+.tree__node[open="true"]:not(:has(.tree__subnodes > .tree__node > .tree__label > span[data-node-type="page"]))
+  > .tree__collapse {
+  color: var(--green) !important;
 }
 
 html[data-theme=dark] {
