@@ -730,7 +730,7 @@ Custom Lua blocks at top or bottom of the page.
 #sb-main .cm-editor .sb-lua-bottom-widget h1 {
   color: var(--teal);
   font-size: 2.0rem;
-  background-color: var(--dark-blue);
+  background-color: transparent;
 }
 ```
 
