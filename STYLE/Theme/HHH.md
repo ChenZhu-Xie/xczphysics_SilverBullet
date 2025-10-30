@@ -317,35 +317,3 @@ html[data-theme="light"] {
   opacity: 1 !important;
 }
 ```
-
-```space-style
-/* 2) 高亮时背景“很淡”：
-   用 currentColor + color-mix 生成与文字同色系的低透明背景；
-   注意：这不会影响 border-bottom（下划线） */
-:root {
-  --h-bg-alpha-dark: 8%;   /* 深色主题下：很淡 */
-  --h-bg-alpha-light: 6%;  /* 浅色主题下：更淡一点 */
-}
-
-/* 深色主题：hover 或 .sb-active 才上很淡背景 */
-html[data-theme="dark"] .sb-line-h1:hover,
-html[data-theme="dark"] .sb-line-h2:hover,
-html[data-theme="dark"] .sb-line-h3:hover,
-html[data-theme="dark"] .sb-line-h4:hover,
-html[data-theme="dark"] .sb-line-h5:hover,
-html[data-theme="dark"] .sb-line-h6:hover,
-html[data-theme="dark"] .sb-active {
-  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-dark), transparent);
-}
-
-/* 浅色主题：hover 或 .sb-active 才上很淡背景 */
-html[data-theme="light"] .sb-line-h1:hover,
-html[data-theme="light"] .sb-line-h2:hover,
-html[data-theme="light"] .sb-line-h3:hover,
-html[data-theme="light"] .sb-line-h4:hover,
-html[data-theme="light"] .sb-line-h5:hover,
-html[data-theme="light"] .sb-line-h6:hover,
-html[data-theme="light"] .sb-active {
-  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-light), transparent);
-}
-```
