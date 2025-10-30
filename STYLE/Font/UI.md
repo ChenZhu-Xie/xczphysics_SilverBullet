@@ -10,6 +10,6 @@ udpateDate: 2025-10-27
 
 ```space-style
 #sb-root {
-   --ui-font: "Inconsolata", "LXGW Bright" !important;
+   --ui-font: "Inconsolata", "Fira Code", "LXGW Bright" !important;
 }
 ```

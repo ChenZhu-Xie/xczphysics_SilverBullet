@@ -10,7 +10,7 @@ pageDecoration:
 
 1. https://community.silverbullet.md/t/custom-colorful-table-styles-for-dark-theme/1620?u=chenzhu-xie
 
-```space-style
+```
 table { border-radius: 15px; overflow: hidden;}
 html[data-theme="dark"]{
     /*----------------------------------------------------------------*/
