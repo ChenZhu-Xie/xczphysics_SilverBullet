@@ -236,7 +236,7 @@ html[data-theme=dark] {
 
 /* Edit: First line */
 :not(.sb-frontmatter) + .sb-frontmatter:not(.sb-line-frontmatter-outside) {
-  margin-top: 0px;
+  margin-top: 10px;
   border-radius: 8px 8px 0px 0px;
 }
 
@@ -245,7 +245,7 @@ html[data-theme=dark] {
   color: var(--editor-code-info-color);
 }
 .sb-frontmatter:not(.sb-line-frontmatter-outside) {
-  padding-left: 10px !important;
+  padding-left: 0px !important;
 }
 
 /* Edit: Last Line */
