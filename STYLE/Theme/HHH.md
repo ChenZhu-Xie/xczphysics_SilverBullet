@@ -21,10 +21,8 @@ udpateDate: 2025-10-28
 
 ```space-lua
 local jsCode = [[
-// HierarchyHighlight.js
 const STATE_KEY = "__xhHighlightState";
 
-// 根据 class 判断标题等级 h1-h6
 function getLevelFromClass(el) {
   for (let i = 1; i <= 6; i++) {
     if (el.classList.contains(`sb-line-h${i}`)) return i;
@@ -32,14 +30,12 @@ function getLevelFromClass(el) {
   return 0;
 }
 
-// 获取分组根元素
 function pickGroupRoot(startHeading, containerRoot, groupSelector) {
   if (!groupSelector) return containerRoot;
   const g = startHeading.closest(groupSelector);
   return g || containerRoot;
 }
 
-// 获取当前标题及其下属标题
 function computeHighlightsByIndex(startHeading, groupRoot, headingSelector) {
   const list = Array.from(groupRoot.querySelectorAll(headingSelector));
   const startIdx = list.indexOf(startHeading);
@@ -50,19 +46,16 @@ function computeHighlightsByIndex(startHeading, groupRoot, headingSelector) {
   for (let i = startIdx + 1; i < list.length; i++) {
     const h = list[i];
     const lvl = getLevelFromClass(h);
-    if (lvl <= startLevel) break; // 同组内：遇到同级或更高级标题就停止
+    if (lvl <= startLevel) break; // 在同组内：遇到同级或更高级标题就停止
     res.push(h);
   }
   return res;
 }
 
-// 清除所有高亮
 function clearAllActive(root) {
   root.querySelectorAll(".sb-active").forEach(el => el.classList.remove("sb-active"));
-  root.querySelectorAll(".sb-bg-active").forEach(el => el.classList.remove("sb-bg-active"));
 }
 
-// 启用高亮
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
   const headingSelector =
@@ -78,13 +71,14 @@ export function enableHighlight(opts = {}) {
       return;
     }
 
+    // Idempotent cleanup
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
     let lastHeading = null;
 
     function onPointerOver(e) {
-      const h = e.target?.closest?.(headingSelector);
+      const h = e.target && e.target.closest && e.target.closest(headingSelector);
       if (!h || !containerRoot.contains(h)) return;
       if (h === lastHeading) return;
       lastHeading = h;
@@ -93,10 +87,7 @@ export function enableHighlight(opts = {}) {
       clearAllActive(containerRoot);
 
       const highs = computeHighlightsByIndex(h, groupRoot, headingSelector);
-      highs.forEach(el => {
-        el.classList.add("sb-active");     // 文字高亮
-        el.classList.add("sb-bg-active");  // 背景高亮
-      });
+      highs.forEach(el => el.classList.add("sb-active"));
 
       if (debug) {
         const txt = (h.textContent || "").trim().slice(0, 80);
@@ -105,8 +96,8 @@ export function enableHighlight(opts = {}) {
     }
 
     function onPointerOut(e) {
-      const from = e.target?.closest?.(headingSelector);
-      const to = e.relatedTarget?.closest?.(headingSelector);
+      const from = e.target && e.target.closest && e.target.closest(headingSelector);
+      const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(headingSelector);
       if (from && (!to || !containerRoot.contains(to))) {
         lastHeading = null;
         clearAllActive(containerRoot);
@@ -144,7 +135,6 @@ export function enableHighlight(opts = {}) {
   bind();
 }
 
-// 禁用高亮
 export function disableHighlight() {
   const st = window[STATE_KEY];
   if (st && st.cleanup) {
@@ -218,11 +208,6 @@ event.listen {
 /* 仅保留 JS 驱动的高亮 */
 .sb-active {
   opacity: 1 !important;
-}
-
-/* add background const highlight */
-.sb-bg-active {
-  background-color: rgba(255, 255, 0, 0.2); /* 或你想要的背景色 */
 }
 ```
 
