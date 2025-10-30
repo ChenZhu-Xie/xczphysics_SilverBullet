@@ -1085,7 +1085,7 @@ Custom notification can be set up using `.sb-notification-<custom>`
 ```space-style
 .sb-notification {
   color: var(--bg) !important;
-  border-color: var(--bg-alt) !important;
+  border-color: var(--bg) !important;
 }
 
 .sb-notification-info {
