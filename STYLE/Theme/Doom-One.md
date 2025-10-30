@@ -767,6 +767,10 @@ https://silverbullet.md
 a, .sb-link:not(.sb-meta, .sb-url) {
   color: var(--cyan);
 }
+
+.sb-naked-url{
+  color: var(--cyan);
+}
 ```
 
 Internal Links:
