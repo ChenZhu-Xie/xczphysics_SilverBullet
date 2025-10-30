@@ -825,7 +825,7 @@ html[data-theme=dark] {
   --modal-color: var(--fg);
   --modal-background-color: var(--bg-alt);
   --modal-help-background-color: var(--bg);
-  --modal-selected-option-background-color: var(--green);
+  --modal-selected-option-background-color: var(--yellow);
   --modal-hint-background-color: var(--violet);
 
   .sb-modal-box .sb-selected-option .sb-description {
