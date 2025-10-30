@@ -771,13 +771,13 @@ Internal Links:
 [[Library/Custom/Styles/non-existant|None Existing Link]]
 ```space-style
 /* Existing link */
-.sb-wiki-link-page, a.wiki-link {
+a.sb-wiki-link-page, a.wiki-link {
   color: var(--blue) !important;
   background-color: color-mix(in srgb, var(--blue) 2%, transparent) !important;
 }
 
 /* Non-existing link */
-.sb-wiki-link-page-missing {
+a.sb-wiki-link-page-missing {
   color: var(--red) !important;
   background-color: color-mix(in srgb, var(--red) 2%, transparent) !important;
 }
