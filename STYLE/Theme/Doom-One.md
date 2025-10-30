@@ -933,11 +933,11 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: rgb(173, 173, 173) !important;
 }
 
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label:has(span[data-node-type="page"]) > .tree__collapse {
+.tree__node:has(.tree__label > span[data-node-type="page"]) > .tree__collapse {
   color: var(--blue);
 }
 
-.tree__label:has(span[data-node-type="folder"]) > .tree__collapse {
+.tree__node:has(.tree__label > span[data-node-type="folder"]) > .tree__collapse {
   color: var(--green);
 }
 
