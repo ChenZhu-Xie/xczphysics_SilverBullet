@@ -1,4 +1,3 @@
-1. https://github.com/joekrill/silverbullet-treeview
 
 ```lua
 config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
@@ -10,6 +9,92 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
     -- "ghr:MrMugame/silversearch" -- 由于会相互覆盖，多插件须写在同一个 config.set 下
   })
 ```
+
+# Responsive inhancement
+
+1. https://community.silverbullet.md/t/responsive-treeview/2188
+
+```space-style
+html {
+  --treeview-phone-height: 25vh;
+  --treeview-tablet-width: 25vw;
+  --treeview-tablet-height: 100vh;
+  --treeview-desktop-width: 20vw; 
+}
+
+.sb-bhs {
+  height: var(--treeview-phone-height);
+}
+
+.tree__label > span {
+  font-size: calc(14px + 0.5vh); 
+}
+
+@media (min-width: 960px) {
+  #sb-root:has(.sb-bhs) #sb-main,
+  #sb-root:has(.sb-bhs) #sb-top {
+    margin-left: var(--treeview-tablet-width);
+  }
+
+  .sb-bhs {
+    position: fixed;
+    left: 0;
+    height: var(--treeview-tablet-height);
+    width: var(--treeview-tablet-width);
+    border-right: 1px solid var(--top-border-color);
+  }
+}
+
+@media (min-width: 1440px) {
+  #sb-root:has(.sb-bhs) #sb-main,
+  #sb-root:has(.sb-bhs) #sb-top {
+    margin-left: var(--treeview-desktop-width);
+  }
+
+  .sb-bhs {
+    width: var(--treeview-desktop-width);
+  }
+}
+```
+
+# actionButton
+
+```space-lua
+actionButton.define {
+  icon = "sidebar",
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand("Tree View: Toggle")
+  end
+}
+```
+
+```lua
+actionButton.define {
+  icon = "layout", 
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand "Tree View: Toggle Move&Resize"
+  end
+}
+```
+
+```lua
+command.update {
+  name = "Tree View: Toggle",
+  run = function()
+    editor.invokeCommand "Tree View: Toggle"
+    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
+  end,
+  key = "Ctrl-Alt-b",
+  mac = "Cmd-Alt-b",
+  priority = 0
+}
+```
+
+# TreeView.ini
+
+1. https://github.com/joekrill/silverbullet-treeview
 
 ```space-lua
 config.set (
@@ -63,15 +148,8 @@ config.set (
 )
 ```
 
-```lua
-actionButton.define {
-  icon = "layout", 
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand "Tree View: Toggle Move&Resize"
-  end
-}
-```
+# Initialize
+
 
 ```lua
 event.listen {
@@ -83,25 +161,4 @@ event.listen {
 }
 ```
 
-```space-lua
-actionButton.define {
-  icon = "sidebar",
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand("Tree View: Toggle")
-  end
-}
-```
 
-```lua
-command.update {
-  name = "Tree View: Toggle",
-  run = function()
-    editor.invokeCommand "Tree View: Toggle"
-    js.import("/.fs/Library/PanelDragResize.js").enableDrag()
-  end,
-  key = "Ctrl-Alt-b",
-  mac = "Cmd-Alt-b",
-  priority = 0
-}
-```
