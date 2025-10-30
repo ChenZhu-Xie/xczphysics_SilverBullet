@@ -21,115 +21,136 @@ udpateDate: 2025-10-28
 
 ```space-lua
 local jsCode = [[
-const STATE_KEY = "__xhHighlightState";
+// Library/HierarchyHighlightHeadings.js
+const STATE_KEY = "__xhHighlightState_v2";
 
-function getLevelFromClass(el) {
+// 支持 .sb-line-hN 与原生 h1..h6
+function getLevel(el) {
   for (let i = 1; i <= 6; i++) {
-    if (el.classList.contains(`sb-line-h${i}`)) return i;
+    if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
   }
+  const tag = el.tagName ? el.tagName.toLowerCase() : "";
+  if (/^h[1-6]$/.test(tag)) return Number(tag[1]);
   return 0;
 }
 
-function pickGroupRoot(startHeading, containerRoot, groupSelector) {
-  if (!groupSelector) return containerRoot;
-  const g = startHeading.closest(groupSelector);
-  return g || containerRoot;
+function pickGroupRoot(start, container, groupSelector) {
+  if (!groupSelector) return container;
+  const g = start.closest(groupSelector);
+  return g || container;
 }
 
-function computeHighlightsByIndex(startHeading, groupRoot, headingSelector) {
-  const list = Array.from(groupRoot.querySelectorAll(headingSelector));
-  const startIdx = list.indexOf(startHeading);
-  if (startIdx === -1) return [];
+function listHeadings(root, headingSelector) {
+  return Array.from(root.querySelectorAll(headingSelector));
+}
 
-  const res = [startHeading];
-  const startLevel = getLevelFromClass(startHeading);
-  for (let i = startIdx + 1; i < list.length; i++) {
-    const h = list[i];
-    const lvl = getLevelFromClass(h);
-    if (lvl <= startLevel) break; // 在同组内：遇到同级或更高级标题就停止
-    res.push(h);
+function collectDescendants(startIndex, headings, startLevel) {
+  const res = [];
+  for (let i = startIndex + 1; i < headings.length; i++) {
+    const lvl = getLevel(headings[i]);
+    if (lvl <= startLevel) break;
+    res.push(headings[i]);
   }
   return res;
 }
 
-function clearAllActive(root) {
-  root.querySelectorAll(".sb-active").forEach(el => el.classList.remove("sb-active"));
+// 逐级向上回溯：最近的 h(N-1)、再最近的 h(N-2)…
+function collectAncestors(startIndex, headings, startLevel) {
+  const res = [];
+  let minLevel = startLevel;
+  for (let i = startIndex - 1; i >= 0; i--) {
+    const lvl = getLevel(headings[i]);
+    if (lvl < minLevel) {
+      res.push(headings[i]);
+      minLevel = lvl;
+      if (minLevel === 1) break;
+    }
+  }
+  return res;
+}
+
+function clearClasses(root) {
+  root.querySelectorAll(".sb-active, .sb-active-anc, .sb-active-desc, .sb-active-current")
+      .forEach(el => el.classList.remove("sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"));
 }
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
-  const headingSelector =
-    opts.headingSelector ||
-    ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
+  const headingSelector = opts.headingSelector ||
+    "h1, h2, h3, h4, h5, h6, .sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
   const groupSelector = opts.groupSelector || ".sb-title-group";
   const debug = !!opts.debug;
 
   const bind = () => {
-    const containerRoot = document.querySelector(containerSelector);
-    if (!containerRoot) {
-      requestAnimationFrame(bind);
-      return;
-    }
+    const container = document.querySelector(containerSelector);
+    if (!container) { requestAnimationFrame(bind); return; }
 
-    // Idempotent cleanup
+    // 清理旧的绑定
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
-    let lastHeading = null;
-
     function onPointerOver(e) {
       const h = e.target && e.target.closest && e.target.closest(headingSelector);
-      if (!h || !containerRoot.contains(h)) return;
-      if (h === lastHeading) return;
-      lastHeading = h;
+      if (!h || !container.contains(h)) return;
 
-      const groupRoot = pickGroupRoot(h, containerRoot, groupSelector);
-      clearAllActive(containerRoot);
+      const groupRoot = pickGroupRoot(h, container, groupSelector);
+      const headings = listHeadings(groupRoot, headingSelector);
+      const startIndex = headings.indexOf(h);
+      if (startIndex === -1) return;
 
-      const highs = computeHighlightsByIndex(h, groupRoot, headingSelector);
-      highs.forEach(el => el.classList.add("sb-active"));
+      clearClasses(container);
+
+      const startLevel = getLevel(h);
+      const descendants = collectDescendants(startIndex, headings, startLevel);
+      const ancestors = collectAncestors(startIndex, headings, startLevel);
+
+      // 一个 .sb-active 就可让字体与背景都亮；细分类用于可选的差异化样式
+      h.classList.add("sb-active", "sb-active-current");
+      descendants.forEach(el => el.classList.add("sb-active", "sb-active-desc"));
+      ancestors.forEach(el => el.classList.add("sb-active", "sb-active-anc"));
 
       if (debug) {
-        const txt = (h.textContent || "").trim().slice(0, 80);
-        console.log("[Highlight] heading:", txt, "level:", getLevelFromClass(h), "count:", highs.length);
+        console.log(
+          "[HHH] level", startLevel,
+          "anc", ancestors.length,
+          "desc", descendants.length,
+          "text:", (h.textContent || "").trim().slice(0, 60)
+        );
       }
     }
 
     function onPointerOut(e) {
       const from = e.target && e.target.closest && e.target.closest(headingSelector);
       const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(headingSelector);
-      if (from && (!to || !containerRoot.contains(to))) {
-        lastHeading = null;
-        clearAllActive(containerRoot);
+      if (from && (!to || !container.contains(to))) {
+        clearClasses(container);
       }
     }
 
-    function onContainerLeave() {
-      lastHeading = null;
-      clearAllActive(containerRoot);
+    function onPointerLeave() {
+      clearClasses(container);
     }
 
-    containerRoot.addEventListener("pointerover", onPointerOver);
-    containerRoot.addEventListener("pointerout", onPointerOut);
-    containerRoot.addEventListener("pointerleave", onContainerLeave);
+    container.addEventListener("pointerover", onPointerOver);
+    container.addEventListener("pointerout", onPointerOut);
+    container.addEventListener("pointerleave", onPointerLeave);
 
-    const mo = new MutationObserver(() => { lastHeading = null; });
-    mo.observe(containerRoot, { childList: true, subtree: true });
+    const mo = new MutationObserver(() => { clearClasses(container); });
+    mo.observe(container, { childList: true, subtree: true });
 
     window[STATE_KEY] = {
-      root: containerRoot,
       cleanup() {
         try {
-          containerRoot.removeEventListener("pointerover", onPointerOver);
-          containerRoot.removeEventListener("pointerout", onPointerOut);
-          containerRoot.removeEventListener("pointerleave", onContainerLeave);
-        } catch (e) {}
-        try { mo.disconnect(); } catch (e) {}
-        clearAllActive(containerRoot);
+          container.removeEventListener("pointerover", onPointerOver);
+          container.removeEventListener("pointerout", onPointerOut);
+          container.removeEventListener("pointerleave", onPointerLeave);
+        } catch {}
+        try { mo.disconnect(); } catch {}
+        clearClasses(container);
       }
     };
 
-    if (debug) console.log("[Highlight] enabled");
+    if (debug) console.log("[HHH] enabled");
   };
 
   bind();
@@ -137,11 +158,8 @@ export function enableHighlight(opts = {}) {
 
 export function disableHighlight() {
   const st = window[STATE_KEY];
-  if (st && st.cleanup) {
-    st.cleanup();
-    window[STATE_KEY] = null;
-    console.log("[Highlight] disabled");
-  }
+  if (st && st.cleanup) st.cleanup();
+  window[STATE_KEY] = null;
 }
 ]]
 ```
