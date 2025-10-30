@@ -30,7 +30,7 @@ Dark theme thought for readibility and productivity.
 
 ## Editor
 
-```space-style
+```style
 html {
   --ui-font: ui-sans-serif, sans-serif !important;
   --editor-font: ui-sans-serif, sans-serif !important;
@@ -75,8 +75,7 @@ html {
 }
 ```
 
-```
-
+```space-style
 .markmap {
   --markmap-text-color: #BBDEFB !important;
 }
