@@ -933,6 +933,14 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: rgb(173, 173, 173) !important;
 }
 
+.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > .tree__collapse {
+  color: var(--blue);
+}
+
+.tree__node:has(.tree__subnodes:empty) > .tree__label > .tree__collapse {
+  color: var(--green);
+}
+
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
   #treeview-tree > .tree__node:has([data-current-page="true"])
