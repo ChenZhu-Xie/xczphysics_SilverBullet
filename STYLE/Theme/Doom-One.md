@@ -754,7 +754,7 @@ Lua queries of (meta)data.
 General appearance
 ```space-style
 html {
-  --link-color: var(--magenta) !important;
+  --link-color: var(--blue) !important;
   --link-missing-color: var(--red) !important;
 }
 ```
