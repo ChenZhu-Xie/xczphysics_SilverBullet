@@ -763,8 +763,8 @@ html {
 
 Web URL: [silverbullet](https://silverbullet.md)
 ```space-style
-a, .sb-link:not(.sb-meta, .sb-url) {
-  color: var(--blue);
+a, .sb-link:not(.sb-meta) {
+  color: var(--dark-cyan);
 }
 ```
 
