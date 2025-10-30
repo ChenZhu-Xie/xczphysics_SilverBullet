@@ -209,8 +209,6 @@ event.listen {
 .sb-active {
   opacity: 1 !important;
 }
-
-
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
