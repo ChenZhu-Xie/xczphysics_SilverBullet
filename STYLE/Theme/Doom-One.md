@@ -685,7 +685,7 @@ end)}.
 
 /* Button appearance */
 #sb-main .cm-editor .sb-lua-directive-inline button {
-  padding: -0.1ch 2ch;
+  padding: 0ch 2ch;
   background-color: var(--violet);
   border-color: transparent;
   border-radius: 5px;
