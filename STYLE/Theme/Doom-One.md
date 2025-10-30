@@ -1093,7 +1093,7 @@ Custom notification can be set up using `.sb-notification-<custom>`
 }
 
 .sb-notification-warning {
-  background-color: color-mix(in srgb, var(--yellow) 30%, transparent);
+  background-color: color-mix(in srgb, var(--magenta) 30%, transparent);
 }
 
 .sb-notification-error {
