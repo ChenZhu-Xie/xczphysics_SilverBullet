@@ -6,7 +6,7 @@ githubUrl: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/
 
 Flash page title when saving.
 
-```space-style
+```
 @keyframes saving {
   0%, 100% {
     opacity: 1;
