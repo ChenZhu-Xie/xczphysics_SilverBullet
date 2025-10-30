@@ -860,7 +860,7 @@ Hierarchically file browser
 }
 
 .tree__label > span[data-node-type="page"] {
-  color: var(--yellow);
+  color: var(--violet);
 }
 
 /* Folder (no file) color */
@@ -920,7 +920,7 @@ Hierarchically file browser
   .tree__node:has(> .tree__subnodes:empty)
   > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--yellow) 20%, transparent) 0%,
+    color-mix(in srgb, var(--violet) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
@@ -949,7 +949,7 @@ html[data-theme=dark] {
     .tree__node:has(> .tree__subnodes:empty)
     > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
-      color-mix(in srgb, var(--yellow) 30%, transparent) 0%,
+      color-mix(in srgb, var(--violet) 30%, transparent) 0%,
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
