@@ -262,7 +262,7 @@ html[data-theme=dark] {
 html {
   --editor-hashtag-color: var(--ui-accent-color) !important;
   --editor-hashtag-background-color: transparent !important;
-  --editor-hashtag-border-color: var(--base8) !important;
+  --editor-hashtag-border-color: var(--ui-accent-color) !important;
 }
 ```
 
