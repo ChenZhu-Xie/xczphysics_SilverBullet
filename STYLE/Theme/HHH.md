@@ -242,6 +242,7 @@ html[data-theme="light"] .sb-line-h5:hover,
 html[data-theme="light"] .sb-line-h5.sb-active { background-color: var(--h5-underline-light); }
 html[data-theme="light"] .sb-line-h6:hover,
 html[data-theme="light"] .sb-line-h6.sb-active { background-color: var(--h6-underline-light); }
+
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
@@ -314,6 +315,27 @@ html[data-theme="light"] {
 /* 高亮类 */
 .sb-active {
   opacity: 1 !important;
+}
+
+/* Dimming underline background alphas */
+/* Dark */
+html[data-theme="dark"] {
+  --h1-underline-dark: rgba(230, 200, 255, 0.16);
+  --h2-underline-dark: rgba(160, 216, 255, 0.16);
+  --h3-underline-dark: rgba(152, 255, 179, 0.16);
+  --h4-underline-dark: rgba(255, 243, 168, 0.16);
+  --h5-underline-dark: rgba(255, 180, 140, 0.16);
+  --h6-underline-dark: rgba(255, 168, 255, 0.16);
+}
+
+/* Light */
+html[data-theme="light"] {
+  --h1-underline-light: rgba(107, 46, 140, 0.12);
+  --h2-underline-light: rgba(28, 78, 139, 0.12);
+  --h3-underline-light: rgba(26, 102, 68, 0.12);
+  --h4-underline-light: rgba(166, 124, 0, 0.12);
+  --h5-underline-light: rgba(184, 76, 28, 0.12);
+  --h6-underline-light: rgba(153, 51, 153, 0.12);
 }
 ```
 
