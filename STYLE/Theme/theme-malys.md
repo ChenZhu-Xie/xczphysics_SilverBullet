@@ -75,7 +75,7 @@ html {
 }
 ```
 
-```space-style
+```
 
 .markmap {
   --markmap-text-color: #BBDEFB !important;
