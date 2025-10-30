@@ -409,7 +409,7 @@ This is ==`code highlight`==.
 
 /* Ordered list */
 #sb-editor .sb-li-cursor .sb-meta {
-  color: var(--base6) !important;
+  color: var(--teal) !important;
 }
 ```
 
