@@ -839,6 +839,10 @@ Hierarchically file browser
 
 ```space-style
 /* TreeView section with parent folder highlighting */
+/* Label background */
+.tree__label > span[data-current-page="true"] {
+  background-color: transparent !important;
+}
 
 /* Default file color */
 .tree__label > span {
@@ -965,26 +969,29 @@ html[data-theme=dark] {
       transparent 100%);
     border-radius: 5px 0px 0px 5px;
   }
-  
+}
 ```
 
 ```space-style
 /* Background */
-
-/* Label background */
-.tree__label > span[data-current-page="true"] {
-  background-color: transparent !important;
-}
 
 /* TreeView background */
 body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   background-color: white !important;
 }
 
-body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
+/* Top bar */
+.treeview-actions {
+  background-color: white;
+}
+
+html[data-theme=dark] {
+  /* TreeView background */
+  body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
     background-color: var(--bg-alt) !important;
   }
 
+  /* Top bar */
   .treeview-actions {
     background-color: var(--bg);
   }
@@ -992,12 +999,6 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 ```
 
 ```space-style
-/* Top bar */
-
-.treeview-actions {
-  background-color: white;
-}
-
 /* Top buttons */
 .treeview-actions button {
   color: var(--green);
