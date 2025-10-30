@@ -913,7 +913,6 @@ html[data-theme=dark] {
     border-radius: 5px 0px 0px 5px;
   }
 
-
   /* Bottom-level pages in dark mode (only in current page branch) */
   .tree__node:has(> .tree__label > span[data-current-page="true"])
     .tree__node:has(> .tree__subnodes:empty)
