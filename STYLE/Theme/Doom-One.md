@@ -651,7 +651,7 @@ No syntax highlighting. Requires one empty line.
 ### Directive
 Custom plugs and Lua blocks.
 
-```space-style
+```
 /* Remove decoration */
 #sb-main .cm-editor .sb-lua-directive-block,
 #sb-main .cm-editor .sb-lua-directive-inline,
