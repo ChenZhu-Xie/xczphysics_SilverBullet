@@ -260,9 +260,9 @@ html[data-theme=dark] {
 
 ```space-style
 html {
-  --editor-hashtag-color: var(--ui-accent-color) !important;
+  --editor-hashtag-color: var(--magenta) !important;
   --editor-hashtag-background-color: transparent !important;
-  --editor-hashtag-border-color: var(--ui-accent-color) !important;
+  --editor-hashtag-border-color: var(--magenta) !important;
 }
 ```
 
