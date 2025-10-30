@@ -850,7 +850,7 @@ Hierarchically file browser
   color: var(--magenta);
 }
 
-/* Folder (no file) color - removed icon */
+/* Folder (no file) color */
 .tree__label > span[data-node-type="folder"] {
   color: var(--green);
 }
@@ -860,7 +860,7 @@ Hierarchically file browser
   color: var(--blue);
 }
 
-/* Parent folders of current page - gray gradient highlight */
+/* Parent folders of current page */
 .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--grey) 20%, transparent) 0%,
@@ -868,7 +868,7 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Top-level pages and folders - blue gradient */
+/* Top-level pages and folders */
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
@@ -877,7 +877,7 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Current page highlighting - green gradient (highest priority) */
+/* Current page highlighting - (highest priority) */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--yellow) 20%, transparent) 0%,
@@ -885,10 +885,10 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Child folders of current page - grey gradient */
+/* Child folders of current page */
 .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--) 20%, transparent) 0%,
+    color-mix(in srgb, var(--grey) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
