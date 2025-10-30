@@ -166,7 +166,9 @@ command.define {
     editor.flashNotification("HierarchyHighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
   end
 }
+```
 
+```space-lua
 command.define {
   name = "Enable: HierarchyHighlightHeadings",
   run = function()
