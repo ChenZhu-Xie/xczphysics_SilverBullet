@@ -757,7 +757,7 @@ General appearance
 ```space-style
 html {
   --link-color: var(--blue);
-  --link-missing-color: var(--green) !important;
+  --link-missing-color: var(--green);
 }
 ```
 
