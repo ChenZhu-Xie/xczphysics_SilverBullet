@@ -1042,19 +1042,19 @@ html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
 
 .tree__label:hover ~ .tree__collapse,
 .tree__node:hover > .tree__collapse {
-  color: var(--magenta) !important;
+  color: red !important;
 }
 
 /* Dark mode collapse button hover */
 html[data-theme=dark] .tree__label:hover ~ .tree__collapse,
 html[data-theme=dark] .tree__node:hover > .tree__collapse {
-  color: var(--magenta) !important;
+  color: red !important;
 }
 
 /* Override existing collapse button styles when hovering */
 .tree__label:hover ~ .tree__collapse:hover,
 .tree__node:hover > .tree__collapse:hover {
-  color: var(--magenta) !important;
+  color: red !important;
 }
 ```
 
