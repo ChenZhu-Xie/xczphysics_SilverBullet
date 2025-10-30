@@ -785,18 +785,18 @@ Internal Links:
 
 ### Tooltip
 When entering a link: [[]]
-
+[[]]
 ```space-style
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
   z-index: 99999 !important;
-  border: solid 1px var(--blue);
+  border: solid 1px var(--teal);
   overflow: hidden;
 }
 
 /* Selection */
 #sb-editor .cm-editor .cm-tooltip li[aria-selected] {
-  background-color: var(--teal);
+  background-color: var(--dark-blue);
 }
 
 /* Rounding */
