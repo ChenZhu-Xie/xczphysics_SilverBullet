@@ -893,7 +893,7 @@ Hierarchically file browser
   border-radius: 5px 0px 0px 5px;
 }
 
-/* Bottom-level pages (leaf nodes) - magenta gradient */
+/* Bottom-level pages (leaf nodes) */
 .tree__node:has(> .tree__label > span[data-current-page="true"])
   .tree__node:has(> .tree__subnodes:empty)
   > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -932,10 +932,10 @@ html[data-theme=dark] {
     border-radius: 5px 0px 0px 5px;
   }
 
-  /* Current page in dark mode - still use magenta */
+  /* Current page in dark mode */
   .tree__label:has(span[data-current-page="true"]) {
     background: linear-gradient(to right,
-      color-mix(in srgb, var(--green) 30%, transparent) 0%,
+      color-mix(in srgb, var(--yellow) 30%, transparent) 0%,
       transparent 100%) !important;
     border-radius: 5px 0px 0px 5px;
   }
