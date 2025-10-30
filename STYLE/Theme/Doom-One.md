@@ -790,13 +790,13 @@ When entering a link: [[]]
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
   z-index: 99999 !important;
-  border: solid 1px var(--teal);
+  border: solid 1px var(--cyan);
   overflow: hidden;
 }
 
 /* Selection */
 #sb-editor .cm-editor .cm-tooltip li[aria-selected] {
-  background-color: var(--blue);
+  background-color: var(--teal);
 }
 
 /* Rounding */
