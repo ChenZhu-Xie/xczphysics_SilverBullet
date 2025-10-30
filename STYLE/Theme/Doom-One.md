@@ -404,12 +404,12 @@ This is ==`code highlight`==.
 ```space-style
 /* Unordered list */
 #sb-editor .cm-list-bullet::after {
-  color: var(--green);
+  color: var(--dark-cyan);
 }
 
 /* Ordered list */
 #sb-editor .sb-li-cursor .sb-meta {
-  color: var(--dark-cyan) !important;
+  color: var(--green) !important;
 }
 ```
 
