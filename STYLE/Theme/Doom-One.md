@@ -762,12 +762,14 @@ html {
 ```
 
 Web URL: [silverbullet](https://silverbullet.md)
-https://silverbullet.md
 ```space-style
 a, .sb-link:not(.sb-meta, .sb-url) {
   color: rgb(124, 175, 194);
 }
+```
 
+https://silverbullet.md
+```space-style
 .sb-naked-url{
   color: rgb(124, 175, 194);
 }
