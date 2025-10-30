@@ -656,7 +656,7 @@ Custom plugs and Lua blocks.
 #sb-main .cm-editor .sb-lua-directive-block,
 #sb-main .cm-editor .sb-lua-directive-inline,
 #sb-main .cm-editor .sb-fenced-code-iframe iframe {
-  background-color: rgb(88, 88, 88) !important;
+  background-color: rgb(30, 30, 30) !important;
   border: none;
   padding: 0px;
   margin: 0px -1px;
