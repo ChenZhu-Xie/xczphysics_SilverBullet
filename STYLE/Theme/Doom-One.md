@@ -524,7 +524,7 @@ html[data-theme=dark] {
   margin-top: 10px;
   thead {
     font-size: 1em;
-    line-height: 0.8em;
+    line-height: 1em;
     background-color: color-mix(in srgb, var(--ui-accent-text-color) 15%, transparent);
     tr {
       font-weight: bold;
