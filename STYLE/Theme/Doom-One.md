@@ -938,6 +938,10 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
   color: var(--green) !important;
 }
 
+.tree__node[open="true"]:has(.tree__label > span[data-node-type="folder"]):has(.tree__subnodes > .tree__node > .tree__label > span[data-node-type="page"])
+  > .tree__collapse {
+  color: var(--blue) !important;
+}
 
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
