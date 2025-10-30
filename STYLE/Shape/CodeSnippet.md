@@ -1,7 +1,7 @@
 # Rounded Code Snippets
 ![](https://community.silverbullet.md/uploads/default/original/2X/6/660e0ae6a4321c3a1ace33cc2cab873e31c931dd.jpeg)
 
-```space-style
+```
 /* first line - editing */
 div:not(.sb-line-fenced-code) + .sb-line-fenced-code {
   border-radius: 8px 8px 0px 0px;
