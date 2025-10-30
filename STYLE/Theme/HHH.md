@@ -322,7 +322,7 @@ html[data-theme="light"] {
 /* 1) 取消整体 opacity，避免下划线跟着变淡 */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
 .sb-line-h4, .sb-line-h5, .sb-line-h6 {
-  opacity: 1 !important;           /* 覆盖之前的 var(--title-opacity) */
+  opacity: 0.7 !important;           /* 覆盖之前的 var(--title-opacity) */
   transition: background-color .2s; /* 平滑背景变化 */
   padding: 0 6px;                   /* 背景留点内边距（可选） */
   border-radius: 4px;               /* 让底色更柔和（可选） */
