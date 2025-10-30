@@ -767,7 +767,7 @@ a, .sb-link:not(.sb-meta, .sb-url) {
 ```
 
 Internal Links:
-[[Library/Custom/Styles/theme|Existing link]]
+[[Library|Existing link]]
 [[Library/Custom/Styles/non-existant|None Existing Link]]
 ```space-style
 /* Existing link */
