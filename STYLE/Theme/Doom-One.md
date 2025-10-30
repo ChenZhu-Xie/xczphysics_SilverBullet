@@ -934,12 +934,14 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 }
 
 .tree__node[open="true"]:has(.tree__subnodes:not(:empty))
-  > .tree__collapse {
+  > .tree__label > span[data-node-type="page"]
+  ~ .tree__collapse {
   color: var(--blue) !important;
 }
 
-.tree__node[open="true"]:has(.tree__subnodes:empty)
-  > .tree__collapse {
+.tree__node[open="true"]
+  > .tree__label > span[data-node-type="folder"]
+  ~ .tree__collapse {
   color: var(--green) !important;
 }
 
