@@ -690,7 +690,7 @@ end)}.
   border-color: transparent;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 70%;
+  font-size: 100%;
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1), 0 2px 2px 0 rgba(0,0,0,0.1);
