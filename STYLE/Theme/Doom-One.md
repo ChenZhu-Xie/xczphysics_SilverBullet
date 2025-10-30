@@ -772,8 +772,8 @@ Internal Links:
 ```space-style
 /* Existing link */
 .sb-wiki-link-page, a.wiki-link {
-  color: var(--blue) !important;
-  background-color: color-mix(in srgb, var(--blue) 2%, transparent) !important;
+  color: var(--teal) !important;
+  background-color: color-mix(in srgb, var(--teal) 2%, transparent) !important;
 }
 
 /* Non-existing link */
