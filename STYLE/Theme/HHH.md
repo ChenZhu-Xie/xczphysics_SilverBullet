@@ -315,5 +315,13 @@ html[data-theme="light"] .sb-active {
   background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-light), transparent);
 }
 
+/* 深色：只在 hover 或 sb-active 时给标题行一个很淡的同色背景 */
+html[data-theme="dark"] :is(.sb-line-h1,.sb-line-h2,.sb-line-h3,.sb-line-h4,.sb-line-h5,.sb-line-h6):is(:hover,.sb-active) {
+  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-dark), transparent);
+}
 
+/* 浅色：同理 */
+html[data-theme="light"] :is(.sb-line-h1,.sb-line-h2,.sb-line-h3,.sb-line-h4,.sb-line-h5,.sb-line-h6):is(:hover,.sb-active) {
+  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha-light), transparent);
+}
 ```
