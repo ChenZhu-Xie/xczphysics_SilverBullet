@@ -1089,17 +1089,17 @@ Custom notification can be set up using `.sb-notification-<custom>`
 }
 
 .sb-notification-info {
-  border-color: var(--fg-alt) !important;
+  border-color: var(--fg) !important;
   background-color: color-mix(in srgb, var(--blue) 30%, transparent);
 }
 
 .sb-notification-warning {
-  border-color: var(--fg-alt) !important;
+  border-color: var(--fg) !important;
   background-color: color-mix(in srgb, var(--magenta) 30%, transparent);
 }
 
 .sb-notification-error {
-  border-color: var(--fg-alt) !important;
+  border-color: var(--fg) !important;
   background-color: color-mix(in srgb, var(--red) 30%, transparent);
 }
 ```
