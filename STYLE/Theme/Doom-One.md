@@ -324,7 +324,7 @@ This is ==`code highlight`==.
 ```
 
 ## Quotes
-> Example quote!
+>Example quote!
 
 ```space-style
 #sb-main .cm-editor .sb-blockquote-outside {
