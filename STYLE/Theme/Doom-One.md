@@ -796,7 +796,7 @@ When entering a link: [[]]
 
 /* Selection */
 #sb-editor .cm-editor .cm-tooltip li[aria-selected] {
-  background-color: var(--cyan);
+  background-color: var(--teal);
 }
 
 /* Rounding */
