@@ -213,7 +213,7 @@ event.listen {
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
 
-```space-style
+```
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6c8ff;
