@@ -214,49 +214,6 @@ event.listen {
   /* 背景透明度强度调节（百分比越大，背景越浓） */
   --h-bg-alpha: 16%;
 }
-
-/* 基础外观微调：让背景更像块状标注 */
-.sb-line-h1, .sb-line-h2, .sb-line-h3,
-.sb-line-h4, .sb-line-h5, .sb-line-h6 {
-  /* 保持你原有的样式：opacity / 边线 等 */
-  transition: opacity 0.2s, background-color 0.2s;
-  padding: 0 6px;              /* 给背景留点内边距 */
-  border-radius: 4px;          /* 圆角，让底色更柔和 */
-  background-clip: padding-box;
-}
-
-/* 深色主题：hover 或 JS 激活时，用当前文字色生成半透明背景 */
-html[data-theme="dark"] .sb-line-h1:hover,
-html[data-theme="dark"] .sb-line-h2:hover,
-html[data-theme="dark"] .sb-line-h3:hover,
-html[data-theme="dark"] .sb-line-h4:hover,
-html[data-theme="dark"] .sb-line-h5:hover,
-html[data-theme="dark"] .sb-line-h6:hover,
-html[data-theme="dark"] .sb-active {
-  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha), transparent);
-}
-
-/* 亮色主题：同样处理 */
-html[data-theme="light"] .sb-line-h1:hover,
-html[data-theme="light"] .sb-line-h2:hover,
-html[data-theme="light"] .sb-line-h3:hover,
-html[data-theme="light"] .sb-line-h4:hover,
-html[data-theme="light"] .sb-line-h5:hover,
-html[data-theme="light"] .sb-line-h6:hover,
-html[data-theme="light"] .sb-active {
-  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha), transparent);
-}
-
-/* 如果你的站点未显式设置 data-theme，也可以加上非 dark 的兜底 */
-:root:not([data-theme="dark"]) .sb-line-h1:hover,
-:root:not([data-theme="dark"]) .sb-line-h2:hover,
-:root:not([data-theme="dark"]) .sb-line-h3:hover,
-:root:not([data-theme="dark"]) .sb-line-h4:hover,
-:root:not([data-theme="dark"]) .sb-line-h5:hover,
-:root:not([data-theme="dark"]) .sb-line-h6:hover,
-:root:not([data-theme="dark"]) .sb-active {
-  background-color: color-mix(in srgb, currentColor var(--h-bg-alpha), transparent);
-}
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
