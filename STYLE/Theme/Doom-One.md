@@ -987,7 +987,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 /* Top button hover states - grey #adadad */
 .treeview-actions button:hover {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(216, 216, 216) !important;
 }
 ```
 
@@ -995,7 +995,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 /* tree__collapse */
 
 .tree__collapse {
-  color: rgb(173, 173, 173);
+  color: rgb(216, 216, 216);
 }
 
 .tree__node[open="true"]:has(> .tree__label > span[data-node-type="page"])
@@ -1014,26 +1014,26 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 /* Mouse hover interactions - highest priority */
 .tree__label:hover > span {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(216, 216, 216) !important;
 }
 
 /* Ensure hover effect works on both light and dark themes */
 html[data-theme=dark] .tree__label:hover > span {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(216, 216, 216) !important;
 }
 
 /* Override any existing color styles when hovering */
 .tree__label:hover > span[data-node-type="page"],
 .tree__label:hover > span[data-node-type="folder"],
 .tree__label:hover > span[data-current-page="true"] {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(216, 216, 216) !important;
 }
 
 /* Dark mode hover overrides */
 html[data-theme=dark] .tree__label:hover > span[data-node-type="page"],
 html[data-theme=dark] .tree__label:hover > span[data-node-type="folder"],
 html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(216, 216, 216) !important;
 }
 ```
 
@@ -1042,19 +1042,19 @@ html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
 
 .tree__label:hover ~ .tree__collapse,
 .tree__node:hover > .tree__collapse {
-  color: var(--orange) !important;
+  color: var(--red) !important;
 }
 
 /* Dark mode collapse button hover */
 html[data-theme=dark] .tree__label:hover ~ .tree__collapse,
 html[data-theme=dark] .tree__node:hover > .tree__collapse {
-  color: var(--orange) !important;
+  color: var(--red) !important;
 }
 
 /* Override existing collapse button styles when hovering */
 .tree__label:hover ~ .tree__collapse:hover,
 .tree__node:hover > .tree__collapse:hover {
-  color: var(--orange) !important;
+  color: var(--red) !important;
 }
 ```
 
