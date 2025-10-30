@@ -905,8 +905,8 @@ Hierarchically file browser
 
 html[data-theme=dark] {
   /* Top-level pages in dark mode */
-  .tree__node:has([data-current-page="true"])
-    > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])):has([data-node-type="page"]) {
+  .tree__node:has([data-current-page="true"]):has(> .tree__label > span[data-node-type="page"])
+    > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--blue) 30%, transparent) 0%,
       transparent 100%);
@@ -914,8 +914,8 @@ html[data-theme=dark] {
   }
 
   /* Top-level folders in dark mode */
-  .tree__node:has([data-current-page="true"])
-    > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])):has([data-node-type="folder"]) {
+  .tree__node:has([data-current-page="true"]):has(> .tree__label > span[data-node-type="folder"])
+    > .tree__label:has(span[data-node-type="page"]):not(:has([data-current-page="true"])) {
     background: linear-gradient(to right,
       color-mix(in srgb, var(--green) 30%, transparent) 0%,
       transparent 100%);
