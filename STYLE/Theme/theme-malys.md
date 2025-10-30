@@ -75,7 +75,7 @@ html {
 }
 ```
 
-```space-style
+```
 .markmap {
   --markmap-text-color: #BBDEFB !important;
 }
@@ -83,6 +83,9 @@ html {
 .sb-code {
   color: grey !important;
 }
+```
+
+```space-style
 .sb-emphasis {
   color: darkorange !important;
 }
