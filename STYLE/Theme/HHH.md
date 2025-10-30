@@ -209,6 +209,11 @@ event.listen {
 .sb-active {
   opacity: 1 !important;
 }
+
+/* add background const highlight */
+.sb-bg-active {
+  background-color: rgba(255, 255, 0, 0.2); /* 或你想要的背景色 */
+}
 ```
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
