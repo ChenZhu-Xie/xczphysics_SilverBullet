@@ -754,8 +754,8 @@ Lua queries of (meta)data.
 General appearance
 ```space-style
 html {
-  --link-color: var(--magenta);
-  --link-missing-color: var(--red);
+  --link-color: var(--magenta) !important;
+  --link-missing-color: var(--red) !important;
 }
 ```
 
@@ -771,7 +771,7 @@ Internal Links:
 [[Library/Custom/Styles/non-existant|None Existing Link]]
 ```space-style
 /* Existing link */
-.sb-wiki-link-page, .wiki-link {
+.sb-wiki-link-page, a.wiki-link {
   color: var(--blue) !important;
   background-color: color-mix(in srgb, var(--blue) 2%, transparent) !important;
 }
