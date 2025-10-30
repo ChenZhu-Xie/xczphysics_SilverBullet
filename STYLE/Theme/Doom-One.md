@@ -329,7 +329,7 @@ This is ==`code highlight`==.
 ```space-style
 #sb-main .cm-editor .sb-blockquote-outside {
   border-left: 5px solid var(--base6);
-  text-indent: 1ch;
+  text-indent: 0ch;
 }
 ```
 
