@@ -850,17 +850,17 @@ Hierarchically file browser
   color: var(--magenta);
 }
 
-/* Folder color - removed icon */
-.tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
-  color: var(--blue);
+.tree__node[open="true"]:has(.tree__subnodes:not(:empty))
+  > .tree__collapse {
+  color: var(--blue) !important;
 }
 
-/* Folder (no file) color - removed icon */
-.tree__label > span[data-node-type="folder"] {
-  color: var(--green);
+.tree__node[open="true"]:has(.tree__subnodes:empty)
+  > .tree__collapse {
+  color: var(--green) !important;
 }
 
-/* Parent folders of current page - blue gradient highlight */
+/* Parent folders of current page - gray gradient highlight */
 .tree__node:has([data-current-page="true"]) > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(to right,
     color-mix(in srgb, var(--grey) 20%, transparent) 0%,
