@@ -785,12 +785,12 @@ Internal Links:
 
 ### Tooltip
 When entering a link: [[]]
-[[ds]]
+/d
 ```space-style
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
   z-index: 99999 !important;
-  border: solid 1px var(--dark-blue);
+  border: solid 1px var(--blue);
   overflow: hidden;
 }
 
