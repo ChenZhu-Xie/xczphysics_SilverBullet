@@ -764,7 +764,7 @@ html {
 Web URL: [silverbullet](https://silverbullet.md)
 ```space-style
 a, .sb-link {
-  color: var(--cyan);
+  color: var(--dark-cyan);
 }
 ```
 
