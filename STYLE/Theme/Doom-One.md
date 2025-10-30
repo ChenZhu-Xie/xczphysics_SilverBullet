@@ -880,7 +880,7 @@ Hierarchically file browser
 /* Current page highlighting - green gradient (highest priority) */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--green) 20%, transparent) 0%,
+    color-mix(in srgb, var(--yellow) 20%, transparent) 0%,
     transparent 100%) !important;
   border-radius: 5px 0px 0px 5px;
 }
@@ -888,7 +888,7 @@ Hierarchically file browser
 /* Child folders of current page - grey gradient */
 .tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--grey) 20%, transparent) 0%,
+    color-mix(in srgb, var(--) 20%, transparent) 0%,
     transparent 100%);
   border-radius: 5px 0px 0px 5px;
 }
