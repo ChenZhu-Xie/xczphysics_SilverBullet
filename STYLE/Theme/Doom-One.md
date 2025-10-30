@@ -504,7 +504,7 @@ Requires one empty line
 | info 1 | info 2 | info 3|
 | info 4 | info 5 | info 6|
 
-```space-style
+```
 html {
   --editor-table-head-background-color: transparent;
   --editor-table-head-color: color-mix(in srgb, var(--ui-accent-text-color) 70%, transparent);
