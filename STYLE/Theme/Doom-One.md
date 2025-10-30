@@ -935,12 +935,12 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 
 .tree__node[open="true"]:has(> .tree__label > span[data-node-type="page"])
   > .tree__collapse {
-  color: var(--blue);
+  color: var(--blue) !important;
 }
 
 .tree__node[open="true"]:has(> .tree__label > span[data-node-type="folder"])
   > .tree__collapse {
-  color: var(--green);
+  color: var(--green) !important;
 }
 
 html[data-theme=dark] {
