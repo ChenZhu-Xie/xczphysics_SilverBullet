@@ -880,7 +880,7 @@ Hierarchically file browser
 /* Current page highlighting - (highest priority) */
 .tree__label:has(span[data-current-page="true"]) {
   background: linear-gradient(to right,
-    color-mix(in srgb, var(--yellow) 20%, transparent) 0%,
+    color-mix(in srgb, var(--base8) 20%, transparent) 0%,
     transparent 100%) !important;
   border-radius: 5px 0px 0px 5px;
 }
