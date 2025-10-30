@@ -785,7 +785,7 @@ Internal Links:
 
 ### Tooltip
 When entering a link: [[]]
-[[]]
+
 ```space-style
 /* Link tooltip */
 #sb-editor .cm-editor .cm-tooltip {
@@ -796,7 +796,7 @@ When entering a link: [[]]
 
 /* Selection */
 #sb-editor .cm-editor .cm-tooltip li[aria-selected] {
-  background-color: var(--dark-blue);
+  background-color: var(--blue);
 }
 
 /* Rounding */
