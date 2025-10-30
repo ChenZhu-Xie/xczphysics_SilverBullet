@@ -930,7 +930,7 @@ body:has(.treeview-root), .treeview-root, .treeview-root > .treeview-header {
 }
 
 .tree__collapse {
-  color: rgb(173, 173, 173) !important;
+  color: rgb(173, 173, 173);
 }
 
 .tree__node[open="true"]:has(.tree__subnodes > .tree__node > .tree__label > span[data-node-type="page"])
