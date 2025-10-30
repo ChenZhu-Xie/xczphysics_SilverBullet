@@ -769,7 +769,7 @@ a, .sb-link:not(.sb-meta, .sb-url) {
 }
 
 .sb-naked-url{
-  color: var(--cyan);
+  color: var(--teal);
 }
 ```
 
