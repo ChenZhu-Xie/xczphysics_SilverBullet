@@ -996,6 +996,31 @@ html[data-theme=dark] {
     background-color: var(--bg);
   }
 }
+
+/* hover over */
+/* Mouse hover interactions - highest priority */
+.tree__label:hover > span {
+  color: rgb(173, 173, 173) !important;
+}
+
+/* Ensure hover effect works on both light and dark themes */
+html[data-theme=dark] .tree__label:hover > span {
+  color: rgb(173, 173, 173) !important;
+}
+
+/* Override any existing color styles when hovering */
+.tree__label:hover > span[data-node-type="page"],
+.tree__label:hover > span[data-node-type="folder"],
+.tree__label:hover > span[data-current-page="true"] {
+  color: rgb(173, 173, 173) !important;
+}
+
+/* Dark mode hover overrides */
+html[data-theme=dark] .tree__label:hover > span[data-node-type="page"],
+html[data-theme=dark] .tree__label:hover > span[data-node-type="folder"],
+html[data-theme=dark] .tree__label:hover > span[data-current-page="true"] {
+  color: rgb(173, 173, 173) !important;
+}
 ```
 
 # Miscellaneous
