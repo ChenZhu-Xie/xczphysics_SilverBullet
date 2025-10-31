@@ -281,25 +281,25 @@ html[data-theme="light"] {
 
 ```space-style
 html[data-theme="dark"]{
-.sb-hashtag[data-tag-name="silver"]{background: #444444 !important;}
-.sb-hashtag[data-tag-name="sea"]{background: #4569a2 !important;}
-.sb-hashtag[data-tag-name="mint"]{background: #336633 !important;}
-.sb-hashtag[data-tag-name="hazel"]{background: #6b561a !important;}
-.sb-hashtag[data-tag-name="maroon"]{background: #6b361a !important;}
-.sb-hashtag[data-tag-name="burgundy"]{background: #4d1a1a !important;}
-.sb-hashtag[data-tag-name="wine"]{background: #6b1a3b !important;}
-.sb-hashtag[data-tag-name="grape"]{background: #341b51 !important;}
+.sb-hashtag[data-tag-name="silver"]{color: #444444 !important;}
+.sb-hashtag[data-tag-name="sea"]{color: #4569a2 !important;}
+.sb-hashtag[data-tag-name="mint"]{color: #336633 !important;}
+.sb-hashtag[data-tag-name="hazel"]{color: #6b561a !important;}
+.sb-hashtag[data-tag-name="maroon"]{color: #6b361a !important;}
+.sb-hashtag[data-tag-name="burgundy"]{color: #4d1a1a !important;}
+.sb-hashtag[data-tag-name="wine"]{color: #6b1a3b !important;}
+.sb-hashtag[data-tag-name="grape"]{color: #341b51 !important;}
 }
 
 html[data-theme="light"] {
-.sb-hashtag[data-tag-name="silver"]{background: #f5f5f5 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="sea"]{background: #e3f0ff !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="mint"]{background: #e1f8e1 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="hazel"]{background: #fcf8df !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="maroon"]{background: #f9e2da !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="burgundy"]{background: #f9c6c6 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="wine"]{background: #fbd9e5 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="grape"]{background: #e9e0fc !important;color:#000 !important;}
+.sb-hashtag[data-tag-name="silver"]{color: #f5f5f5 !important; border: #f5f5f5 !important;}
+.sb-hashtag[data-tag-name="sea"]{color: #e3f0ff !important; border: #e3f0ff !important;}
+.sb-hashtag[data-tag-name="mint"]{color: #e1f8e1 !important; border: #e1f8e1 !important;}
+.sb-hashtag[data-tag-name="hazel"]{color: #fcf8df !important; border: #fcf8df !important;}
+.sb-hashtag[data-tag-name="maroon"]{color: #f9e2da !important; border: #f9e2da !important;}
+.sb-hashtag[data-tag-name="burgundy"]{color: #f9c6c6 !important; border: #f9c6c6 !important;}
+.sb-hashtag[data-tag-name="wine"]{color: #fbd9e5 !important; border: #fbd9e5 !important;}
+.sb-hashtag[data-tag-name="grape"]{color: #e9e0fc !important; border: #e9e0fc !important;}
 }
 ```
 
