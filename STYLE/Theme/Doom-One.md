@@ -530,6 +530,7 @@ html[data-theme=dark] {
       font-weight: bold;
       opacity: 1;
       td {
+        border-up: none;
         border-left: none;
         border-right: none;
       }
@@ -538,6 +539,12 @@ html[data-theme=dark] {
   td {
     border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
     line-height: 0.8 rem;
+    &:first-child {
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 ```
