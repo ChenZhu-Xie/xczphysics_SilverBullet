@@ -110,6 +110,7 @@ table .sb-hashtag[data-tag-name="maroon"] {
 html[data-theme="dark"]{
 /* ---------- wine ---------- */
 table:has(.sb-hashtag[data-tag-name="wine"]) {
+  thead { background-color: #4a0d26 !important;}
   tbody tr:nth-child(even) { background-color: #6b1a3b !important;}
   tbody tr:nth-child(odd) { background-color: #5e1735 !important;}
   --editor-wiki-link-page-color: #e6a9c9 !important;
