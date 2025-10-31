@@ -184,7 +184,7 @@ html {
 
 ## Outline
 
-```space-style
+```
 div.cm-scroller {
   scroll-behavior: smooth;
   scrollbar-width: thin;
