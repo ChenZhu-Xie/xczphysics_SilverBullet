@@ -520,7 +520,7 @@ html[data-theme=dark] {
 }
 
 /* Table appearance */
-#sb-main .cm-editor table {
+#sb-main .cm-editor table:not(:has(.sb-hashtag[data-tag-name="wine"])):not(:has(.sb-hashtag[data-tag-name="sea"])):not(:has(.sb-hashtag[data-tag-name="silver"])):not(:has(.sb-hashtag[data-tag-name="mint"])):not(:has(.sb-hashtag[data-tag-name="burgundy"])):not(:has(.sb-hashtag[data-tag-name="grape"])):not(:has(.sb-hashtag[data-tag-name="hazel"])):not(:has(.sb-hashtag[data-tag-name="maroon"])) {
   border-collapse: collapse;
   margin-top: 10px;
   thead {
