@@ -167,7 +167,7 @@ html {
 }
 ```
 
-```
+```space-script
 .tree__label > span {
     padding: 0 5px;
     font-size: 11px;
