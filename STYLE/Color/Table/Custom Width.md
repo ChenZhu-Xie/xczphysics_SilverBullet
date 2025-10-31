@@ -236,6 +236,7 @@ table:has(.sb-hashtag[data-tag-name="hazel"]) thead tr:hover {
 }
 
 
+
 html[data-theme="light"] {
   /* ---------- wine ---------- */
   table:has(.sb-hashtag[data-tag-name="wine"]) {
