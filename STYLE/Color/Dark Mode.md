@@ -14,7 +14,7 @@ event.listen {
       else
         theme = "white"
       end
-      editor.flashNotification("Current Theme: " .. mquery)
+      editor.flashNotification("Current Theme: " .. theme)
     else
       editor.flashNotification("current theme: " .. theme)
     end
