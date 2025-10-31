@@ -95,163 +95,176 @@ Use it Like this:
 /*   Adds a rounded corner to the tables   */
 /* table { border-radius: 15px; overflow: hidden;} */
 
-/* Hide specific colour tags inside tables */
-table .sb-hashtag[data-tag-name="wine"],
-table .sb-hashtag[data-tag-name="sea"],
+/* ===========================================
+   MODERN COLORFUL TABLE SYSTEM (v2025)
+   Designed for backgrounds:
+   - Dark: rgb(40, 44, 52)
+   - Light: rgb(255, 255, 255)
+   =========================================== */
+
+/* -------------------------------------------
+   HIDE COLOR TAGS INSIDE TABLES
+------------------------------------------- */
+table .sb-hashtag[data-tag-name^="t"],
 table .sb-hashtag[data-tag-name="silver"],
+table .sb-hashtag[data-tag-name="sea"],
 table .sb-hashtag[data-tag-name="mint"],
-table .sb-hashtag[data-tag-name="burgundy"],
-table .sb-hashtag[data-tag-name="grape"],
 table .sb-hashtag[data-tag-name="hazel"],
-table .sb-hashtag[data-tag-name="maroon"] {
+table .sb-hashtag[data-tag-name="maroon"],
+table .sb-hashtag[data-tag-name="burgundy"],
+table .sb-hashtag[data-tag-name="wine"],
+table .sb-hashtag[data-tag-name="grape"] {
   display: none !important;
 }
 
-html[data-theme="dark"]{
-/* ---------- wine ---------- */
-table:has(.sb-hashtag[data-tag-name="wine"]) {
-  thead { background-color: #664155 !important; color: #f0e6eb !important;}
-  tbody tr:nth-child(even) { background-color: #3d2c38 !important; color: #e8dde2 !important;}
-  tbody tr:nth-child(odd) { background-color: #352831 !important; color: #e0d5da !important;}
-  border: 1px solid #664155 !important;
-  --editor-wiki-link-page-color: #e91e63 !important;
-}
+/* -------------------------------------------
+   TABLE WIDTH CONTROL (same as original)
+------------------------------------------- */
+table:has(.sb-hashtag[data-tag-name="t30p"]) { width: 30% !important; }
+table:has(.sb-hashtag[data-tag-name="t40p"]) { width: 40% !important; }
+table:has(.sb-hashtag[data-tag-name="t50p"]) { width: 50% !important; }
+table:has(.sb-hashtag[data-tag-name="t60p"]) { width: 60% !important; }
+table:has(.sb-hashtag[data-tag-name="t70p"]) { width: 70% !important; }
+table:has(.sb-hashtag[data-tag-name="t80p"]) { width: 80% !important; }
+table:has(.sb-hashtag[data-tag-name="t90p"]) { width: 90% !important; }
 
-/* ---------- sea ---------- */
-table:has(.sb-hashtag[data-tag-name="sea"]) {
-  thead { background-color: #4a6fa5 !important; color: #e6f0ff !important;}
-  tbody tr:nth-child(even) { background-color: #2d4963 !important; color: #dde9f7 !important;}
-  tbody tr:nth-child(odd) { background-color: #254056 !important; color: #d5e3f3 !important;}
-  border: 1px solid #4a6fa5 !important;
-  --editor-wiki-link-page-color: #2196f3 !important;
-}
+/* ===========================================
+   DARK THEME STYLES
+=========================================== */
+html[data-theme="dark"] {
 
-/* ---------- silver ---------- */
-table:has(.sb-hashtag[data-tag-name="silver"]) {
-  thead { background-color: #6b7280 !important; color: #f3f4f6 !important;}
-  tbody tr:nth-child(even) { background-color: #374151 !important; color: #e5e7eb !important;}
-  tbody tr:nth-child(odd) { background-color: #2d3748 !important; color: #d1d5db !important;}
-  border: 1px solid #6b7280 !important;
-  --editor-wiki-link-page-color: #9ca3af !important;
-}
-
-/* ---------- mint ---------- */
-table:has(.sb-hashtag[data-tag-name="mint"]) {
-  thead { background-color: #10b981 !important; color: #ecfdf5 !important;}
-  tbody tr:nth-child(even) { background-color: #064e3b !important; color: #d1fae5 !important;}
-  tbody tr:nth-child(odd) { background-color: #053f32 !important; color: #a7f3d0 !important;}
-  border: 1px solid #10b981 !important;
-  --editor-wiki-link-page-color: #34d399 !important;
-}
-
-/* ---------- burgundy ---------- */
-table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-  thead { background-color: #991b1b !important; color: #fef2f2 !important;}
-  tbody tr:nth-child(even) { background-color: #450a0a !important; color: #fee2e2 !important;}
-  tbody tr:nth-child(odd) { background-color: #3a0808 !important; color: #fecaca !important;}
-  border: 1px solid #991b1b !important;
-  --editor-wiki-link-page-color: #ef4444 !important;
-}
-
-/* ---------- grape ---------- */
-table:has(.sb-hashtag[data-tag-name="grape"]) {
-  thead { background-color: #7c3aed !important; color: #f5f3ff !important;}
-  tbody tr:nth-child(even) { background-color: #3c1a78 !important; color: #ede9fe !important;}
-  tbody tr:nth-child(odd) { background-color: #2d1465 !important; color: #ddd6fe !important;}
-  border: 1px solid #7c3aed !important;
-  --editor-wiki-link-page-color: #a855f7 !important;
-}
-
-/* ---------- hazel ---------- */
-table:has(.sb-hashtag[data-tag-name="hazel"]) {
-  thead{ background-color: #d97706 !important; color: #fffbeb !important;}
-  tbody tr:nth-child(even) { background-color: #78350f !important; color: #fef3c7 !important;}
-  tbody tr:nth-child(odd) { background-color: #5c2a0c !important; color: #fed7aa !important;}
-  border: 1px solid #d97706 !important;
-  --editor-wiki-link-page-color: #f59e0b !important;
-}
-
-/* --------- maroon ---------- */
-table:has(.sb-hashtag[data-tag-name="maroon"]) {
-  thead { background-color: #dc2626 !important; color: #fef2f2 !important;}
-  tbody tr:nth-child(even) { background-color: #7f1d1d !important; color: #fee2e2 !important;}
-  tbody tr:nth-child(odd) { background-color: #651717 !important; color: #fecaca !important;}
-  border: 1px solid #dc2626 !important;
-  --editor-wiki-link-page-color: #f87171 !important;
-}
-}
-
-html[data-theme="light"] {
-  /* ---------- wine ---------- */
-  table:has(.sb-hashtag[data-tag-name="wine"]) {
-    --editor-wiki-link-page-color: #c2185b !important;
-    thead { background-color: #fce4ec !important; color: #880e4f !important;}
-    tbody tr:nth-child(even) { background-color: #fdf2f8 !important; color: #9d174d !important;}
-    tbody tr:nth-child(odd) { background-color: #fce7f3 !important; color: #a21caf !important;}
-    border: 1px solid #f8bbd9 !important;
-  }
-
-  /* ---------- sea ---------- */
-  table:has(.sb-hashtag[data-tag-name="sea"]) {
-    --editor-wiki-link-page-color: #1565c0 !important;
-    thead { background-color: #e3f2fd !important; color: #0d47a1 !important;}
-    tbody tr:nth-child(even) { background-color: #f0f9ff !important; color: #0c4a6e !important;}
-    tbody tr:nth-child(odd) { background-color: #e0f2fe !important; color: #0e7490 !important;}
-    border: 1px solid #7dd3fc !important;
-  }
-
-  /* ---------- silver ---------- */
+  /* ---------- SILVER ---------- */
   table:has(.sb-hashtag[data-tag-name="silver"]) {
-    --editor-wiki-link-page-color: #4b5563 !important;
-    thead { background-color: #f9fafb !important; color: #1f2937 !important;}
-    tbody tr:nth-child(even) { background-color: #ffffff !important; color: #374151 !important;}
-    tbody tr:nth-child(odd) { background-color: #f3f4f6 !important; color: #4b5563 !important;}
+    thead { background: #4b4f58 !important; color: #f2f3f5 !important; }
+    tbody tr:nth-child(even) { background: #2f333b !important; color: #e3e5e8 !important; }
+    tbody tr:nth-child(odd)  { background: #292d34 !important; color: #d9dbdf !important; }
+    border: 1px solid #555a63 !important;
+  }
+
+  /* ---------- SEA ---------- */
+  table:has(.sb-hashtag[data-tag-name="sea"]) {
+    thead { background: #3e5f8a !important; color: #eaf2fa !important; }
+    tbody tr:nth-child(even) { background: #2a3e56 !important; color: #dee6f1 !important; }
+    tbody tr:nth-child(odd)  { background: #26394f !important; color: #d8e1ec !important; }
+    border: 1px solid #4b6b96 !important;
+  }
+
+  /* ---------- MINT ---------- */
+  table:has(.sb-hashtag[data-tag-name="mint"]) {
+    thead { background: #317c66 !important; color: #e9fdf6 !important; }
+    tbody tr:nth-child(even) { background: #1e4d40 !important; color: #d0f2e3 !important; }
+    tbody tr:nth-child(odd)  { background: #214f43 !important; color: #c9ecdc !important; }
+    border: 1px solid #3b8a72 !important;
+  }
+
+  /* ---------- HAZEL ---------- */
+  table:has(.sb-hashtag[data-tag-name="hazel"]) {
+    thead { background: #8a6533 !important; color: #fff8ef !important; }
+    tbody tr:nth-child(even) { background: #5a4122 !important; color: #f4e1c9 !important; }
+    tbody tr:nth-child(odd)  { background: #543a1d !important; color: #ebd7b8 !important; }
+    border: 1px solid #9b7b4d !important;
+  }
+
+  /* ---------- MAROON ---------- */
+  table:has(.sb-hashtag[data-tag-name="maroon"]) {
+    thead { background: #813838 !important; color: #fdeaea !important; }
+    tbody tr:nth-child(even) { background: #542121 !important; color: #f7dcdc !important; }
+    tbody tr:nth-child(odd)  { background: #4b1b1b !important; color: #efcece !important; }
+    border: 1px solid #995151 !important;
+  }
+
+  /* ---------- BURGUNDY ---------- */
+  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
+    thead { background: #74314a !important; color: #fbeef2 !important; }
+    tbody tr:nth-child(even) { background: #4a1f2e !important; color: #efd5dc !important; }
+    tbody tr:nth-child(odd)  { background: #431b2a !important; color: #e6c8d2 !important; }
+    border: 1px solid #884c60 !important;
+  }
+
+  /* ---------- WINE ---------- */
+  table:has(.sb-hashtag[data-tag-name="wine"]) {
+    thead { background: #6b3a4c !important; color: #fbeaf0 !important; }
+    tbody tr:nth-child(even) { background: #452733 !important; color: #f1d8df !important; }
+    tbody tr:nth-child(odd)  { background: #3d2230 !important; color: #e8cbd6 !important; }
+    border: 1px solid #874e63 !important;
+  }
+
+  /* ---------- GRAPE ---------- */
+  table:has(.sb-hashtag[data-tag-name="grape"]) {
+    thead { background: #58477f !important; color: #f3f1fa !important; }
+    tbody tr:nth-child(even) { background: #3b3059 !important; color: #e4e1f3 !important; }
+    tbody tr:nth-child(odd)  { background: #342a52 !important; color: #d8d4eb !important; }
+    border: 1px solid #6e5e97 !important;
+  }
+}
+
+/* ===========================================
+   LIGHT THEME STYLES
+=========================================== */
+html[data-theme="light"] {
+
+  /* ---------- SILVER ---------- */
+  table:has(.sb-hashtag[data-tag-name="silver"]) {
+    thead { background: #f3f4f6 !important; color: #1f2937 !important; }
+    tbody tr:nth-child(even) { background: #ffffff !important; color: #374151 !important; }
+    tbody tr:nth-child(odd)  { background: #f9fafb !important; color: #4b5563 !important; }
     border: 1px solid #d1d5db !important;
   }
 
-  /* ---------- mint ---------- */
+  /* ---------- SEA ---------- */
+  table:has(.sb-hashtag[data-tag-name="sea"]) {
+    thead { background: #e7f0fa !important; color: #15344f !important; }
+    tbody tr:nth-child(even) { background: #f3f9ff !important; color: #1f3d5f !important; }
+    tbody tr:nth-child(odd)  { background: #eaf4ff !important; color: #29456a !important; }
+    border: 1px solid #b8d4f2 !important;
+  }
+
+  /* ---------- MINT ---------- */
   table:has(.sb-hashtag[data-tag-name="mint"]) {
-    --editor-wiki-link-page-color: #059669 !important;
-    thead { background-color: #ecfdf5 !important; color: #064e3b !important;}
-    tbody tr:nth-child(even) { background-color: #f0fdf4 !important; color: #14532d !important;}
-    tbody tr:nth-child(odd) { background-color: #dcfce7 !important; color: #166534 !important;}
-    border: 1px solid #86efac !important;
+    thead { background: #e6f7ef !important; color: #1c4532 !important; }
+    tbody tr:nth-child(even) { background: #f3fcf9 !important; color: #204836 !important; }
+    tbody tr:nth-child(odd)  { background: #eaf9f3 !important; color: #245a44 !important; }
+    border: 1px solid #c3e8d6 !important;
   }
 
-  /* ---------- burgundy ---------- */
-  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-    --editor-wiki-link-page-color: #dc2626 !important;
-    thead { background-color: #fef2f2 !important; color: #7f1d1d !important;}
-    tbody tr:nth-child(even) { background-color: #fffbfb !important; color: #991b1b !important;}
-    tbody tr:nth-child(odd) { background-color: #fee2e2 !important; color: #b91c1c !important;}
-    border: 1px solid #fca5a5 !important;
-  }
-
-  /* ---------- grape ---------- */
-  table:has(.sb-hashtag[data-tag-name="grape"]) {
-    --editor-wiki-link-page-color: #7c2d12 !important;
-    thead { background-color: #f5f3ff !important; color: #581c87 !important;}
-    tbody tr:nth-child(even) { background-color: #faf5ff !important; color: #6b21a8 !important;}
-    tbody tr:nth-child(odd) { background-color: #ede9fe !important; color: #7c3aed !important;}
-    border: 1px solid #c4b5fd !important;
-  }
-
-  /* ---------- hazel ---------- */
+  /* ---------- HAZEL ---------- */
   table:has(.sb-hashtag[data-tag-name="hazel"]) {
-    --editor-wiki-link-page-color: #c2410c !important;
-    thead { background-color: #fffbeb !important; color: #9a3412 !important;}
-    tbody tr:nth-child(even) { background-color: #fffef5 !important; color: #c2410c !important;}
-    tbody tr:nth-child(odd) { background-color: #fef3c7 !important; color: #d97706 !important;}
-    border: 1px solid #fed7aa !important;
+    thead { background: #fcf4e3 !important; color: #7a4b13 !important; }
+    tbody tr:nth-child(even) { background: #fffaf2 !important; color: #824f16 !important; }
+    tbody tr:nth-child(odd)  { background: #fdf6ea !important; color: #945c1d !important; }
+    border: 1px solid #f0d7aa !important;
   }
 
-  /* ---------- maroon ---------- */
+  /* ---------- MAROON ---------- */
   table:has(.sb-hashtag[data-tag-name="maroon"]) {
-    --editor-wiki-link-page-color: #b91c1c !important;
-    thead { background-color: #fef2f2 !important; color: #7f1d1d !important;}
-    tbody tr:nth-child(even) { background-color: #fffbfb !important; color: #991b1b !important;}
-    tbody tr:nth-child(odd) { background-color: #fee2e2 !important; color: #dc2626 !important;}
-    border: 1px solid #fca5a5 !important;
+    thead { background: #fdecec !important; color: #6d2525 !important; }
+    tbody tr:nth-child(even) { background: #fff6f6 !important; color: #7a2b2b !important; }
+    tbody tr:nth-child(odd)  { background: #feeaea !important; color: #892f2f !important; }
+    border: 1px solid #f4b8b8 !important;
+  }
+
+  /* ---------- BURGUNDY ---------- */
+  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
+    thead { background: #fce9ee !important; color: #73283f !important; }
+    tbody tr:nth-child(even) { background: #fff4f7 !important; color: #82304a !important; }
+    tbody tr:nth-child(odd)  { background: #fae6ed !important; color: #943857 !important; }
+    border: 1px solid #efb5c7 !important;
+  }
+
+  /* ---------- WINE ---------- */
+  table:has(.sb-hashtag[data-tag-name="wine"]) {
+    thead { background: #fae7f0 !important; color: #702f43 !important; }
+    tbody tr:nth-child(even) { background: #fff2f7 !important; color: #7c344b !important; }
+    tbody tr:nth-child(odd)  { background: #fbe8f1 !important; color: #8b3a53 !important; }
+    border: 1px solid #ecb3c7 !important;
+  }
+
+  /* ---------- GRAPE ---------- */
+  table:has(.sb-hashtag[data-tag-name="grape"]) {
+    thead { background: #efe9fb !important; color: #433078 !important; }
+    tbody tr:nth-child(even) { background: #f8f5ff !important; color: #4e358a !important; }
+    tbody tr:nth-child(odd)  { background: #f2edfd !important; color: #5a3b9c !important; }
+    border: 1px solid #d1c3f1 !important;
   }
 }
 ```
@@ -298,6 +311,25 @@ html[data-theme="light"] {
     border-radius: 6px;
     padding: 0 4px;
   }
+}
+
+/* -------------------------------------------
+   OPTIONAL: HASHTAG APPEARANCE (neutral tone)
+------------------------------------------- */
+html[data-theme="dark"] .sb-hashtag {
+  background: #262a33 !important;
+  color: #d8dee9 !important;
+  border: 1px solid #2e3440 !important;
+  border-radius: 6px;
+  padding: 0 4px;
+}
+
+html[data-theme="light"] .sb-hashtag {
+  background: #f1f3f6 !important;
+  color: #2e3440 !important;
+  border: 1px solid #d7dce3 !important;
+  border-radius: 6px;
+  padding: 0 4px;
 }
 ```
 
