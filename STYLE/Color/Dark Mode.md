@@ -9,13 +9,19 @@ event.listen {
   run = function(e)
     local theme = clientStore.get("theme")
     if theme == nil then
-      local mquery = js.window.matchMedia('(prefers-color-scheme: dark)').matches
-      editor.flashNotification("Current theme: " .. mquery)
+      if js.window.matchMedia('(prefers-color-scheme: dark)').matches then
+        theme = "dark"
+      else
+        theme = "white"
+      end
+      editor.flashNotification("Current Theme: " .. mquery)
     else
-      editor.flashNotification("Current: " .. theme)
+      editor.flashNotification("current theme: " .. theme)
     end
-    
-    
+    if theme ~= "dark" then
+      clientStore.set("theme", "dark")
+      editor.reloadUI()
+    end
   end
 }
 ```
