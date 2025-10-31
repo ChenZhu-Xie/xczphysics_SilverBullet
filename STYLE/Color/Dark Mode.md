@@ -14,6 +14,10 @@ event.listen {
       else
         theme = "white"
       end
+      function capitalize(str)
+        return (str:gsub("^%l", string.upper))
+      end
+
       editor.flashNotification("Current Theme: " .. theme)
     else
       editor.flashNotification("current theme: " .. theme)
