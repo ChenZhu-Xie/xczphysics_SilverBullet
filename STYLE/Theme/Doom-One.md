@@ -279,7 +279,7 @@ html {
 
 ```space-style
 .sb-emphasis {
-  color: color-mix(in srgb, darkorange, transparent) !important;
+  color: color-mix(in srgb, darkorange 90%, transparent) !important;
 }
 .sb-strong {
   color: color-mix(in srgb, var(--yellow) 90%, transparent) !important;
