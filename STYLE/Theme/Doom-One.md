@@ -536,7 +536,7 @@ html[data-theme=dark] {
     }
   }
   td {
-    /*border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);*/
+    border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
     line-height: 0.8 rem;
     &:first-child {
       border-left: none;
