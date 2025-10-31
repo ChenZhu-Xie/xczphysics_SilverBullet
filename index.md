@@ -46,7 +46,6 @@ Well, let’s start with a logo first.
 # Last Modified ✏️
 
 ${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
-
 # Last Visit 👀
 
 ${query[[from index.tag "page" 
