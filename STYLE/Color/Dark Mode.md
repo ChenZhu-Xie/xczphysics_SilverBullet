@@ -8,7 +8,8 @@ event.listen {
   name = 'system:ready',
   run = function(e)
     local theme = clientStore.get("theme")
-    print("Current theme: " .. theme)
+    editor.flashNotification("Current theme: " .. theme)
+    if
     clientStore.set("theme", "dark")
     -- editor.reloadUI()
   end
