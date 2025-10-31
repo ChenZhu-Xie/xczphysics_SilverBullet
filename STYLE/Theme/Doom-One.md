@@ -600,7 +600,7 @@ With code highlighting
 
 /* Code highlighting */
 .sb-meta {
-  color: var(--teal);
+  color: var(--red);
 }
 
 .sb-keyword {
@@ -624,7 +624,7 @@ With code highlighting
 }
 
 .sb-atom {
-  color: var(--red);
+  color: var(--teal);
 }
 
 .sb-operator {
