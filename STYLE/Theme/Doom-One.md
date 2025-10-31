@@ -531,6 +531,7 @@ html[data-theme=dark] {
       opacity: 1;
       td {
         border-left: none;
+        border-right: none;
         border-top: none;
       }
     }
@@ -538,6 +539,7 @@ html[data-theme=dark] {
   td {
     border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
     line-height: 0.8 rem;
+    border-right: none;
     &:first-child {
       border-left: none;
     }
