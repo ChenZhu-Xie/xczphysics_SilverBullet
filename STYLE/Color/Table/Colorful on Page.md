@@ -1,8 +1,4 @@
----
-pageDecoration:
-    cssClasses:
-        - sea-table
----
+
 
 | 左 | 中 | 右 |
 | :--- | :---: | ---: |
