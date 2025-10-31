@@ -95,225 +95,105 @@ Use it Like this:
 /*   Adds a rounded corner to the tables   */
 /* table { border-radius: 15px; overflow: hidden;} */
 
-/* ===========================================
-   Modernized Colorful Tables — REFINED
-   Dark background target: rgb(40,44,52)
-   Light background target: rgb(255,255,255)
-   Goal: 深色更暗、浅色更清新；Maroon/Burgundy/Wine 明显区分
-   =========================================== */
-
-/* ---------------------------
-   把表内用于标记的 hashtag 隐藏（不显示标签文本）
-----------------------------*/
-table .sb-hashtag[data-tag-name^="t"],
-table .sb-hashtag[data-tag-name="silver"],
-table .sb-hashtag[data-tag-name="sea"],
-table .sb-hashtag[data-tag-name="mint"],
-table .sb-hashtag[data-tag-name="hazel"],
-table .sb-hashtag[data-tag-name="maroon"],
-table .sb-hashtag[data-tag-name="burgundy"],
-table .sb-hashtag[data-tag-name="wine"],
-table .sb-hashtag[data-tag-name="grape"] {
-  display: none !important;
-}
-
-/* ---------------------------
-   宽度标签（保留） 
-----------------------------*/
-table:has(.sb-hashtag[data-tag-name="t30p"]) { width: 30% !important; }
-table:has(.sb-hashtag[data-tag-name="t40p"]) { width: 40% !important; }
-table:has(.sb-hashtag[data-tag-name="t50p"]) { width: 50% !important; }
-table:has(.sb-hashtag[data-tag-name="t60p"]) { width: 60% !important; }
-table:has(.sb-hashtag[data-tag-name="t70p"]) { width: 70% !important; }
-table:has(.sb-hashtag[data-tag-name="t80p"]) { width: 80% !important; }
-table:has(.sb-hashtag[data-tag-name="t90p"]) { width: 90% !important; }
-
-/* ---------------------------
-   全局表格基础（可按需微调）
-   - 深模式背景接近 rgb(40,44,52)
-   - 边角与间隔保持轻柔
-----------------------------*/
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  font-family: inherit;
-}
-
-/* 轻微 hover 效果（淡亮） */
+/* ==========================================================
+   UNIVERSAL TABLE HOVER EFFECT
+   所有表格（包括无标签）hover 时高亮整行与标题
+========================================================== */
+table:hover thead,
 table tbody tr:hover {
-  transform: none;
-  filter: brightness(1.06);
-  transition: filter 120ms linear;
+  background: color-mix(in srgb, var(--ui-accent-color, #999) 20%, transparent);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-/* ===========================================
-   DARK THEME — 更暗、更接近背景 (rgb(40,44,52))
-   我把所有主色在暗色模式中整体下调亮度并降低饱和度
-=========================================== */
+/* ==========================================================
+   DARK MODE 柔和低亮度方案
+========================================================== */
 html[data-theme="dark"] {
-  /* 可选：定义深色背景变量（仅说明，不影响实际外层背景） */
-  --sb-dark-bg: rgb(40,44,52);
+
+  /* 通用默认表格风格（无标签） */
+  table:not(:has(.sb-hashtag)) {
+    thead { background: #2f2f33; color: #e0e0e0; }
+    tbody tr:nth-child(even) { background: #252529; color: #d5d5d5; }
+    tbody tr:nth-child(odd)  { background: #212124; color: #cfcfcf; }
+    border: 1px solid #3b3b3f;
+  }
+
+  /* ===================== INDIVIDUAL THEMES ===================== */
+  /* 每个主题定义 tone-bg / accent / text */
+  /* ------------ RED系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="maroon"])   { --tone-bg:#3e2020; --tone-accent:#a35b5b; --tone-text:#f2dada; }
+  table:has(.sb-hashtag[data-tag-name="burgundy"]) { --tone-bg:#3b2433; --tone-accent:#b36a8b; --tone-text:#f3dce7; }
+  table:has(.sb-hashtag[data-tag-name="wine"])     { --tone-bg:#35293c; --tone-accent:#a27db2; --tone-text:#f0e0f2; }
+
+  /* ------------ YELLOW / AMBER系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="amber"]) { --tone-bg:#3a3020; --tone-accent:#d3a859; --tone-text:#f5e9c5; }
+  table:has(.sb-hashtag[data-tag-name="hazel"]) { --tone-bg:#2f2b1e; --tone-accent:#b4a072; --tone-text:#eee6cf; }
+
+  /* ------------ GREEN系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="teal"])  { --tone-bg:#203532; --tone-accent:#5daea0; --tone-text:#d5f3ed; }
+  table:has(.sb-hashtag[data-tag-name="green"]) { --tone-bg:#223726; --tone-accent:#66b36a; --tone-text:#daf3dc; }
+
+  /* ------------ BLUE系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="cyan"])  { --tone-bg:#20373e; --tone-accent:#6ac2d1; --tone-text:#d5f2f7; }
+  table:has(.sb-hashtag[data-tag-name="blue"])  { --tone-bg:#222f44; --tone-accent:#7aa7f0; --tone-text:#dbe8fb; }
+  table:has(.sb-hashtag[data-tag-name="indigo"]) { --tone-bg:#2a274a; --tone-accent:#9a91e8; --tone-text:#e6e3f7; }
+
+  /* ------------ PURPLE / PINK系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="violet"]) { --tone-bg:#342646; --tone-accent:#b78ce0; --tone-text:#f1e5f9; }
+  table:has(.sb-hashtag[data-tag-name="grape"])  { --tone-bg:#39243d; --tone-accent:#c179b5; --tone-text:#f2e1ee; }
+  table:has(.sb-hashtag[data-tag-name="pink"])   { --tone-bg:#3d1f2e; --tone-accent:#da84a8; --tone-text:#f7dfeb; }
+
+  /* 通用规则套用变量 */
+  table:has(.sb-hashtag) {
+    thead { background: color-mix(in srgb, var(--tone-bg) 90%, black 10%) !important; color: var(--tone-text); }
+    tbody tr:nth-child(even) { background: color-mix(in srgb, var(--tone-bg) 75%, black 25%); color: var(--tone-text); }
+    tbody tr:nth-child(odd)  { background: color-mix(in srgb, var(--tone-bg) 55%, black 45%); color: var(--tone-text); }
+    border: 1px solid var(--tone-accent);
+  }
 }
 
-/* ---------- SILVER (neutral) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="silver"]) {
-  thead { background: #42444a !important; color: #e9ebee !important; } /* very muted */
-  tbody tr:nth-child(even) { background: #2a2c31 !important; color: #d8dbe0 !important; }
-  tbody tr:nth-child(odd)  { background: #26282d !important; color: #cfcfd3 !important; }
-  border: 1px solid #3e4046 !important;
-}
-
-/* ---------- SEA (blue-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="sea"]) {
-  thead { background: #335273 !important; color: #eaf3f9 !important; }
-  tbody tr:nth-child(even) { background: #243544 !important; color: #d9e6ef !important; }
-  tbody tr:nth-child(odd)  { background: #202e3f !important; color: #d1dfe9 !important; }
-  border: 1px solid #3b516f !important;
-}
-
-/* ---------- MINT (green-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="mint"]) {
-  thead { background: #2b6d58 !important; color: #eaf9f2 !important; }
-  tbody tr:nth-child(even) { background: #173f33 !important; color: #cfeee0 !important; }
-  tbody tr:nth-child(odd)  { background: #133527 !important; color: #c4e8d7 !important; }
-  border: 1px solid #2e6f59 !important;
-}
-
-/* ---------- HAZEL (warm-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="hazel"]) {
-  thead { background: #755734 !important; color: #fff6ea !important; }
-  tbody tr:nth-child(even) { background: #46321f !important; color: #ead9bf !important; }
-  tbody tr:nth-child(odd)  { background: #3f2b18 !important; color: #e1cfae !important; }
-  border: 1px solid #74583e !important;
-}
-
-/* ---------- MAROON (distinct: 红棕) ----------
-   目标：比之前更靠近深背景，偏红棕，低饱和 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="maroon"]) {
-  thead { background: #4a2523 !important; color: #f3e7e6 !important; }    /* 红棕偏暗 */
-  tbody tr:nth-child(even) { background: #321615 !important; color: #e7d1d0 !important; }
-  tbody tr:nth-child(odd)  { background: #2b1211 !important; color: #dcc3c3 !important; }
-  border: 1px solid #5b3030 !important;
-}
-
-/* ---------- BURGUNDY (distinct: 紫红) ----------
-   目标：偏紫红，比 maroon 更紫一点，且更暗 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-  thead { background: #412336 !important; color: #f4e9ee !important; }    /* 紫红偏暗 */
-  tbody tr:nth-child(even) { background: #2a1722 !important; color: #e8d6db !important; }
-  tbody tr:nth-child(odd)  { background: #24121c !important; color: #ddc6cc !important; }
-  border: 1px solid #583446 !important;
-}
-
-/* ---------- WINE (distinct: 深紫灰) ----------
-   目标：偏紫灰，比 burgundy 更冷、更深 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="wine"]) {
-  thead { background: #36232c !important; color: #f2e9ee !important; }    /* 更冷的紫灰 */
-  tbody tr:nth-child(even) { background: #24171f !important; color: #e6d6dc !important; }
-  tbody tr:nth-child(odd)  { background: #20141b !important; color: #dcc9d0 !important; }
-  border: 1px solid #4a3843 !important;
-}
-
-/* ---------- GRAPE (muted purple) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="grape"]) {
-  thead { background: #453b66 !important; color: #f4f2fb !important; }
-  tbody tr:nth-child(even) { background: #31284a !important; color: #e6e0f4 !important; }
-  tbody tr:nth-child(odd)  { background: #2a213f !important; color: #dbd6ef !important; }
-  border: 1px solid #574e80 !important;
-}
-
-/* ===========================================
-   LIGHT THEME — 更清新、更明亮
-=========================================== */
+/* ==========================================================
+   LIGHT MODE 明亮清新方案
+========================================================== */
 html[data-theme="light"] {
 
-  /* ---------- SILVER ---------- */
-  table:has(.sb-hashtag[data-tag-name="silver"]) {
-    thead { background: #f5f6f7 !important; color: #1f2937 !important; }
-    tbody tr:nth-child(even) { background: #ffffff !important; color: #374151 !important; }
-    tbody tr:nth-child(odd)  { background: #f8f9fa !important; color: #4b5563 !important; }
-    border: 1px solid #e2e6ea !important;
+  /* 默认无标签表格 */
+  table:not(:has(.sb-hashtag)) {
+    thead { background: #f5f5f7; color: #333; }
+    tbody tr:nth-child(even) { background: #fafafa; color: #333; }
+    tbody tr:nth-child(odd)  { background: #f2f2f4; color: #333; }
+    border: 1px solid #ddd;
   }
 
-  /* ---------- SEA ---------- */
-  table:has(.sb-hashtag[data-tag-name="sea"]) {
-    thead { background: #eaf4fb !important; color: #123047 !important; }
-    tbody tr:nth-child(even) { background: #f8fdff !important; color: #173a57 !important; }
-    tbody tr:nth-child(odd)  { background: #f0f8ff !important; color: #214a6b !important; }
-    border: 1px solid #cfe7fb !important;
+  /* ------------ RED系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="maroon"])   { --tone-bg:#f6e6e6; --tone-accent:#9b3939; --tone-text:#4b1010; }
+  table:has(.sb-hashtag[data-tag-name="burgundy"]) { --tone-bg:#f5e6ec; --tone-accent:#8a2c56; --tone-text:#43162d; }
+  table:has(.sb-hashtag[data-tag-name="wine"])     { --tone-bg:#f3e8f2; --tone-accent:#7c3f7c; --tone-text:#3b1e3d; }
+
+  /* ------------ YELLOW / AMBER系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="amber"]) { --tone-bg:#fff8e8; --tone-accent:#c68a2b; --tone-text:#4b2d0b; }
+  table:has(.sb-hashtag[data-tag-name="hazel"]) { --tone-bg:#f7f3e6; --tone-accent:#8d7a43; --tone-text:#3a331a; }
+
+  /* ------------ GREEN系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="teal"])  { --tone-bg:#e8f5f3; --tone-accent:#2f867e; --tone-text:#143a36; }
+  table:has(.sb-hashtag[data-tag-name="green"]) { --tone-bg:#e9f6eb; --tone-accent:#2f8a35; --tone-text:#133b18; }
+
+  /* ------------ BLUE系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="cyan"])  { --tone-bg:#e8f7fa; --tone-accent:#318aa0; --tone-text:#13333b; }
+  table:has(.sb-hashtag[data-tag-name="blue"])  { --tone-bg:#eaf1fa; --tone-accent:#3c73c8; --tone-text:#152945; }
+  table:has(.sb-hashtag[data-tag-name="indigo"]) { --tone-bg:#ebe9f7; --tone-accent:#5a52b8; --tone-text:#1d184a; }
+
+  /* ------------ PURPLE / PINK系 ------------ */
+  table:has(.sb-hashtag[data-tag-name="violet"]) { --tone-bg:#f4eaf9; --tone-accent:#8456b8; --tone-text:#2e184b; }
+  table:has(.sb-hashtag[data-tag-name="grape"])  { --tone-bg:#f6e8f3; --tone-accent:#a4508b; --tone-text:#381833; }
+  table:has(.sb-hashtag[data-tag-name="pink"])   { --tone-bg:#f8e8ef; --tone-accent:#c04d82; --tone-text:#3d1528; }
+
+  table:has(.sb-hashtag) {
+    thead { background: color-mix(in srgb, var(--tone-bg) 95%, white 5%) !important; color: var(--tone-text); }
+    tbody tr:nth-child(even) { background: color-mix(in srgb, var(--tone-bg) 90%, white 10%); color: var(--tone-text); }
+    tbody tr:nth-child(odd)  { background: color-mix(in srgb, var(--tone-bg) 80%, white 20%); color: var(--tone-text); }
+    border: 1px solid var(--tone-accent);
   }
-
-  /* ---------- MINT ---------- */
-  table:has(.sb-hashtag[data-tag-name="mint"]) {
-    thead { background: #e8fbf2 !important; color: #114033 !important; }
-    tbody tr:nth-child(even) { background: #f8fffb !important; color: #19533f !important; }
-    tbody tr:nth-child(odd)  { background: #eef9f4 !important; color: #1f6a4f !important; }
-    border: 1px solid #d0efe0 !important;
-  }
-
-  /* ---------- HAZEL ---------- */
-  table:has(.sb-hashtag[data-tag-name="hazel"]) {
-    thead { background: #fff7ef !important; color: #6a4726 !important; }
-    tbody tr:nth-child(even) { background: #fffdf9 !important; color: #7a522f !important; }
-    tbody tr:nth-child(odd)  { background: #fff6ee !important; color: #8a5936 !important; }
-    border: 1px solid #f6dec0 !important;
-  }
-
-  /* ---------- MAROON (light) ---------- */
-  table:has(.sb-hashtag[data-tag-name="maroon"]) {
-    thead { background: #fff0ef !important; color: #632a28 !important; }  /* 红棕清新版 */
-    tbody tr:nth-child(even) { background: #fff9f9 !important; color: #6f332f !important; }
-    tbody tr:nth-child(odd)  { background: #fff3f2 !important; color: #7d3b37 !important; }
-    border: 1px solid #f3c9c7 !important;
-  }
-
-  /* ---------- BURGUNDY (light) ---------- */
-  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-    thead { background: #fff1f6 !important; color: #55243a !important; }  /* 紫红清新版 */
-    tbody tr:nth-child(even) { background: #fff8fb !important; color: #622a45 !important; }
-    tbody tr:nth-child(odd)  { background: #fff3f7 !important; color: #6f3050 !important; }
-    border: 1px solid #f4d3df !important;
-  }
-
-  /* ---------- WINE (light) ---------- */
-  table:has(.sb-hashtag[data-tag-name="wine"]) {
-    thead { background: #fff2f6 !important; color: #4a2734 !important; }  /* 深紫灰清新版 */
-    tbody tr:nth-child(even) { background: #fff8fb !important; color: #583041 !important; }
-    tbody tr:nth-child(odd)  { background: #fff4f8 !important; color: #65374f !important; }
-    border: 1px solid #f1d6df !important;
-  }
-
-  /* ---------- GRAPE ---------- */
-  table:has(.sb-hashtag[data-tag-name="grape"]) {
-    thead { background: #f6f1fd !important; color: #3f2e6a !important; }
-    tbody tr:nth-child(even) { background: #fbf9ff !important; color: #4b367f !important; }
-    tbody tr:nth-child(odd)  { background: #f8f5fe !important; color: #5a43a1 !important; }
-    border: 1px solid #e7ddfb !important;
-  }
-}
-
-/* ---------------------------
-   OPTIONAL: hashtag 外观（可保留或移除）
-   这里提供中性样式（不抢表格主题） 
-----------------------------*/
-html[data-theme="dark"] .sb-hashtag {
-  background: #262a33 !important;
-  color: #cfd6df !important;
-  border: 1px solid #2e3440 !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
-}
-
-html[data-theme="light"] .sb-hashtag {
-  background: #f3f5f8 !important;
-  color: #2b3440 !important;
-  border: 1px solid #d8e0ea !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
 }
 ```
 
