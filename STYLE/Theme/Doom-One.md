@@ -845,7 +845,6 @@ html[data-theme=dark] {
   .sb-modal-box .sb-selected-option .sb-description {
     color: var(--base8);
   }
-
 }
 ```
 
