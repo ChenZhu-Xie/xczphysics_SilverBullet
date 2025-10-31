@@ -530,7 +530,7 @@ html[data-theme=dark] {
       font-weight: bold;
       opacity: 1;
       td {
-        border-up: none;
+        border-top: none;
         border-left: none;
         border-right: none;
       }
