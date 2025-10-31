@@ -545,6 +545,7 @@ html[data-theme=dark] {
       border-right: none;
     }
   }
+  tbody tr:nth-child(odd) { background-color: #5e1735;}
 }
 ```
 
