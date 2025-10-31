@@ -138,8 +138,8 @@ table:has(.sb-hashtag[data-tag-name="wine"]) thead tr:hover {
 
 /* ---------- burgundy (深酒红色 - 偏紫) ---------- */
 table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-  thead { background-color: #3d1a2e !important; color: #e6d0db !important;}
-  tbody tr:nth-child(even) { background-color: #2e1424 !important; color: #d9c2ce !important;}
+  thead { background-color: #2e1424 !important; color: #e6d0db !important;}
+  tbody tr:nth-child(even) { background-color: #3d1a2e !important; color: #d9c2ce !important;}
   tbody tr:nth-child(odd) { background-color: #351829 !important; color: #ddc7d3 !important;}
   border: 1px solid #4d2538 !important;
   --editor-wiki-link-page-color: #c44569 !important;
@@ -152,8 +152,8 @@ table:has(.sb-hashtag[data-tag-name="burgundy"]) thead tr:hover {
 
 /* --------- maroon (栗色 - 偏棕橙) ---------- */
 table:has(.sb-hashtag[data-tag-name="maroon"]) {
-  thead { background-color: #4a2618 !important; color: #e8d6cc !important;}
-  tbody tr:nth-child(even) { background-color: #351c12 !important; color: #dcc9be !important;}
+  thead { background-color: #351c12 !important; color: #e8d6cc !important;}
+  tbody tr:nth-child(even) { background-color: #4a2618 !important; color: #dcc9be !important;}
   tbody tr:nth-child(odd) { background-color: #3e2015 !important; color: #e0cdbd !important;}
   border: 1px solid #5a3020 !important;
   --editor-wiki-link-page-color: #ff8a50 !important;
@@ -166,8 +166,8 @@ table:has(.sb-hashtag[data-tag-name="maroon"]) thead tr:hover {
 
 /* ---------- sea ---------- */
 table:has(.sb-hashtag[data-tag-name="sea"]) {
-  thead { background-color: #1e3a5f !important; color: #d1e0f0 !important;}
-  tbody tr:nth-child(even) { background-color: #182d47 !important; color: #c7d8ea !important;}
+  thead { background-color: #182d47 !important; color: #d1e0f0 !important;}
+  tbody tr:nth-child(even) { background-color: #1e3a5f !important; color: #c7d8ea !important;}
   tbody tr:nth-child(odd) { background-color: #1b3152 !important; color: #cbdced !important;}
   border: 1px solid #2a4870 !important;
   --editor-wiki-link-page-color: #4fc3f7 !important;
@@ -180,8 +180,8 @@ table:has(.sb-hashtag[data-tag-name="sea"]) thead tr:hover {
 
 /* ---------- silver ---------- */
 table:has(.sb-hashtag[data-tag-name="silver"]) {
-  thead { background-color: #3a3f47 !important; color: #e2e6ea !important;}
-  tbody tr:nth-child(even) { background-color: #30353c !important; color: #d8dde2 !important;}
+  thead { background-color: #30353c !important; color: #e2e6ea !important;}
+  tbody tr:nth-child(even) { background-color: #3a3f47 !important; color: #d8dde2 !important;}
   tbody tr:nth-child(odd) { background-color: #353a41 !important; color: #dde2e7 !important;}
   border: 1px solid #4a5058 !important;
   --editor-wiki-link-page-color: #b0bec5 !important;
@@ -194,8 +194,8 @@ table:has(.sb-hashtag[data-tag-name="silver"]) thead tr:hover {
 
 /* ---------- mint ---------- */
 table:has(.sb-hashtag[data-tag-name="mint"]) {
-  thead { background-color: #1e4a3a !important; color: #d0e8df !important;}
-  tbody tr:nth-child(even) { background-color: #183829 !important; color: #c6e0d4 !important;}
+  thead { background-color: #183829 !important; color: #d0e8df !important;}
+  tbody tr:nth-child(even) { background-color: #1e4a3a !important; color: #c6e0d4 !important;}
   tbody tr:nth-child(odd) { background-color: #1b3f31 !important; color: #cae4d9 !important;}
   border: 1px solid #2a5a48 !important;
   --editor-wiki-link-page-color: #66bb6a !important;
@@ -208,8 +208,8 @@ table:has(.sb-hashtag[data-tag-name="mint"]) thead tr:hover {
 
 /* ---------- grape ---------- */
 table:has(.sb-hashtag[data-tag-name="grape"]) {
-  thead { background-color: #2d1b4e !important; color: #e0d4f0 !important;}
-  tbody tr:nth-child(even) { background-color: #241539 !important; color: #d6c7e8 !important;}
+  thead { background-color: #241539 !important; color: #e0d4f0 !important;}
+  tbody tr:nth-child(even) { background-color: #2d1b4e !important; color: #d6c7e8 !important;}
   tbody tr:nth-child(odd) { background-color: #291941 !important; color: #dacbec !important;}
   border: 1px solid #3d2b5e !important;
   --editor-wiki-link-page-color: #ab47bc !important;
@@ -222,8 +222,8 @@ table:has(.sb-hashtag[data-tag-name="grape"]) thead tr:hover {
 
 /* ---------- hazel ---------- */
 table:has(.sb-hashtag[data-tag-name="hazel"]) {
-  thead{ background-color: #4a3d1e !important; color: #e8e0d1 !important;}
-  tbody tr:nth-child(even) { background-color: #352e18 !important; color: #ddd6c7 !important;}
+  thead{ background-color: #352e18 !important; color: #e8e0d1 !important;}
+  tbody tr:nth-child(even) { background-color: #4a3d1e !important; color: #ddd6c7 !important;}
   tbody tr:nth-child(odd) { background-color: #3e351b !important; color: #e1dacb !important;}
   border: 1px solid #5a4d2a !important;
   --editor-wiki-link-page-color: #ffca28 !important;
