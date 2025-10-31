@@ -12,7 +12,7 @@ event.listen {
       local mquery = js.window.matchMedia('(prefers-color-scheme: dark)')
       editor.flashNotification("Current theme: " .. mquery)
     else
-      editor.flashNotification("Current theme: " .. theme)
+      editor.flashNotification("Current: " .. theme)
     end
     
     if clientStore.get("theme") ~= "dark" then
