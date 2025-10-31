@@ -205,7 +205,7 @@ event.listen {
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
 .sb-line-h4, .sb-line-h5, .sb-line-h6 {
   opacity: var(--title-opacity);
-  transition: opacity 0.2s;
+  /* transition: opacity 0.2s; */
 }
 
 /* 标题自身 hover 可高亮该标题 */
