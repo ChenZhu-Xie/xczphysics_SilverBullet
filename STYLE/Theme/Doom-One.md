@@ -279,7 +279,7 @@ html {
 
 ```space-style
 .sb-emphasis {
-  color: var(--violet) !important;
+  color: var(--red) !important;
 }
 .sb-strong {
   color: var(--green) !important;
