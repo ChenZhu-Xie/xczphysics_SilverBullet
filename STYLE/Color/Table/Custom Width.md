@@ -93,7 +93,7 @@ Use it Like this:
 ### Color Themes
 ```space-style
 /*   Adds a rounded corner to the tables   */
-
+table { border-radius: 15px; overflow: hidden;}
 
 /* Hide specific colour tags inside tables */
 table .sb-hashtag[data-tag-name="wine"],
