@@ -519,33 +519,7 @@ html[data-theme=dark] {
 }
 
 /* Table appearance */
-#sb-main .cm-editor table {
-  border-collapse: collapse;
-  margin-top: 10px;
-  thead {
-    font-size: 1em;
-    line-height: 0.8em;
-    /*background-color: color-mix(in srgb, var(--ui-accent-text-color) 15%, transparent);*/
-    tr {
-      font-weight: bold;
-      opacity: 1;
-      td {
-        border-left: none;
-        border-top: none;
-      }
-    }
-  }
-  td {
-    border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
-    line-height: 0.8 rem;
-    &:first-child {
-      border-left: none;
-    }
-    &:last-child {
-      border-right: none;
-    }
-  }
-}
+
 ```
 
 # Code
