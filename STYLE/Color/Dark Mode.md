@@ -12,6 +12,7 @@ event.listen {
     if clientStore.get("theme") ~= "dark" then
       clientStore.set("theme", "dark")
       -- editor.reloadUI()
+    end
   end
 }
 ```
