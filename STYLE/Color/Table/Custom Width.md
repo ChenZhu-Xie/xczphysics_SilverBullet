@@ -39,6 +39,24 @@ Use it Like this:
 | 2  | Bob Johnson  | Inactive   |
 | 3  | Carol Davis  | Pending    |
 
+| ID #silver #t30p | Name        | Status     |
+|----|--------------|------------|
+| 1  | Alice Smith  | Active     |
+| 2  | Bob Johnson  | Inactive   |
+| 3  | Carol Davis  | Pending    |
+
+| ID #silver #t30p | Name        | Status     |
+|----|--------------|------------|
+| 1  | Alice Smith  | Active     |
+| 2  | Bob Johnson  | Inactive   |
+| 3  | Carol Davis  | Pending    |
+
+| ID #silver #t30p | Name        | Status     |
+|----|--------------|------------|
+| 1  | Alice Smith  | Active     |
+| 2  | Bob Johnson  | Inactive   |
+| 3  | Carol Davis  | Pending    |
+
 ### Sea
 | Product #sea #t40p| Category   | Price | In Stock |
 |----------|-------------|-------|-----------|
@@ -112,6 +130,7 @@ table tbody tr:hover,
 table thead tr:hover {
   background-color: rgba(255, 255, 255, 0.15) !important;
   /* transition: background-color 0.2s ease !important; */
+  position: relative !important;
   z-index: 99999 !important;
 }
 
