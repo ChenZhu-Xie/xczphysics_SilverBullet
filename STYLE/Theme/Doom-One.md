@@ -659,7 +659,7 @@ Custom plugs and Lua blocks.
   background-color: rgba(50, 54, 62, 0.9) !important;
   border: none;
   padding: 0px;
-  margin: 0px;
+  margin: 0px -1px;
 }
 
 /* Buttons*/
