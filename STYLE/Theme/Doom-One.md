@@ -654,7 +654,14 @@ Custom plugs and Lua blocks.
 
 ```space-style
 /* Remove decoration */
-#sb-main .cm-editor .sb-lua-directive-block,
+#sb-main .cm-editor .sb-lua-directive-block {
+  background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent) !important;
+  border: none;
+  padding: 0px;
+  margin: 0px -1px;
+}
+
+/* Remove decoration */
 #sb-main .cm-editor .sb-lua-directive-inline,
 #sb-main .cm-editor .sb-fenced-code-iframe iframe {
   background-color: rgba(50, 54, 62, 0.9) !important;
