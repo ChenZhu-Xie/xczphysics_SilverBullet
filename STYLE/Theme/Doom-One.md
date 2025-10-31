@@ -513,7 +513,7 @@ html {
 
 html[data-theme=dark] {
   --editor-table-head-background-color: transparent;
-  --editor-table-head-color: var(--blue);
+  --editor-table-head-color: var(--fg);
   --editor-table-even-background-color: transparent;
   /*--editor-table-even-background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);*/
 }
