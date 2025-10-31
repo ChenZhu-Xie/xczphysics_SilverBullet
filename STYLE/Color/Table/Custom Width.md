@@ -258,18 +258,29 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 ### Optional only  (adds color to the matching tags)
 
 ```
+html[data-theme="dark"]{
+  .sb-hashtag {
+      background: #1c2430;
+      color: #d8e1ef;
+      border: 1px solid #2a3648; /* 同色系略亮边框 */
+      border-radius: 6px;
+      padding: 0 4px;
+  }
+}
+
+html[data-theme="light"] {
 .sb-hashtag {
-    background: #1c2430;
-    color: #d8e1ef;
-    border: 1px solid #2a3648; /* 同色系略亮边框 */
+    background: #e8edf5;
+    color: #1a1a1a;
+    border: 1px solid #d4dce7; /* 同色系略深边框 */
     border-radius: 6px;
     padding: 0 4px;
   }
+}
 ```
 
 ```space-style
 html[data-theme="dark"]{
-
 .sb-hashtag[data-tag-name="silver"]{background: #444444;}
 .sb-hashtag[data-tag-name="sea"]{background: #4569a2;}
 .sb-hashtag[data-tag-name="mint"]{background: #336633;}
@@ -281,15 +292,6 @@ html[data-theme="dark"]{
 }
 
 html[data-theme="light"] {
-  
-.sb-hashtag {
-    background: #e8edf5;
-    color: #1a1a1a;
-    border: 1px solid #d4dce7; /* 同色系略深边框 */
-    border-radius: 6px;
-    padding: 0 4px;
-  }
-  
 .sb-hashtag[data-tag-name="silver"]{background: #f5f5f5;color:#000;}
 .sb-hashtag[data-tag-name="sea"]{background: #e3f0ff;color:#000;}
 .sb-hashtag[data-tag-name="mint"]{background: #e1f8e1;color:#000;}
