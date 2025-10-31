@@ -7,6 +7,11 @@
 event.listen {
   name = 'system:ready',
   run = function(e)
+    function capitalize(str)
+      return (str:gsub("^[a-z]", string.upper))
+    end
+    editor.flashNotification(capitalize("asdfasdf"))
+    
     local theme = clientStore.get("theme")
     if theme == nil then
       if js.window.matchMedia('(prefers-color-scheme: dark)').matches then
@@ -14,9 +19,7 @@ event.listen {
       else
         theme = "white"
       end
-      function capitalize(str)
-        return (str:gsub("^[a-z]", string.upper))
-      end
+      
       editor.flashNotification("Current Theme: " .. capitalize(theme))
     else
       editor.flashNotification("current theme: " .. theme)
