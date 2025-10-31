@@ -8,7 +8,8 @@ event.listen {
   name = 'system:ready',
   run = function(e)
     function capitalize(str)
-      return (str:gsub("^[a-z]", string.upper))
+      if str == nil or str == "" then return str end
+      return str:sub(1,1):upper() .. (str:sub(2) or "")
     end
     editor.flashNotification(capitalize("asdfasdf"))
     
