@@ -10,15 +10,11 @@ event.listen {
     local theme = clientStore.get("theme")
     if theme == nil then
       local mquery = js.window.matchMedia('(prefers-color-scheme: dark)')
-      newCsdm = mquery.matches == false
+      editor.flashNotification("Current theme: " .. mquery)
     else
-      newCsdm = not theme
+      editor.flashNotification("Current theme: " .. theme)
     end
-
-    clientStore.set("darkMode", newCsdm)
-
     
-    editor.flashNotification("Current theme: " .. newCsdm)
     if clientStore.get("theme") ~= "dark" then
       clientStore.set("theme", "dark")
       -- editor.reloadUI()
