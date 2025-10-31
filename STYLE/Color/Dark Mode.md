@@ -17,8 +17,7 @@ event.listen {
       function capitalize(str)
         return (str:gsub("^%l", string.upper))
       end
-
-      editor.flashNotification("Current Theme: " .. theme)
+      editor.flashNotification("Current Theme: " .. capitalize(theme))
     else
       editor.flashNotification("current theme: " .. theme)
     end
