@@ -628,7 +628,7 @@ With code highlighting
 }
 
 .sb-operator {
-  color: var(--blue);
+  color: var(--magenta);
 }
 
 .sb-comment {
