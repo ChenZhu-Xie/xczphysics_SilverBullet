@@ -522,8 +522,7 @@ html[data-theme=dark] {
 /* Table appearance */
 #sb-main .cm-editor table {
   border-collapse: collapse;
-  margin-top: 10px;
-  margin-bottom: 0 !important;
+  padding-top: 10px !important;
   thead {
     font-size: 1em;
     line-height: 0.8em;
