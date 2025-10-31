@@ -841,12 +841,13 @@ html[data-theme=dark] {
   --modal-hint-background-color: var(--modal-selected-option-background-color);
   <!-- --modal-hint-background-color: color-mix(in srgb, var(--violet) 100%, var(--modal-background-color)); -->
 
+  .sb-modal-box .sb-header .sb-label {
+    color: var(--modal-selected-option-background-color);
+  }
   .sb-modal-box .sb-selected-option .sb-description {
     color: var(--base8);
   }
-  .sb-modal .sb-header .sb-label {
-    color: var(--modal-selected-option-background-color) !important;
-  }
+
 }
 ```
 
