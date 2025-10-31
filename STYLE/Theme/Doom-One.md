@@ -519,35 +519,7 @@ html[data-theme=dark] {
   /*--editor-table-even-background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);*/
 }
 
-/* Table appearance */
-#sb-main .cm-editor table {
-  border-collapse: collapse;
-  margin-top: 10px;
-  thead {
-    font-size: 1em;
-    line-height: 0.8em;
-    /*background-color: color-mix(in srgb, var(--ui-accent-text-color) 15%, transparent);*/
-    tr {
-      font-weight: bold;
-      opacity: 1;
-      td {
-        border-left: none;
-        border-top: none;
-      }
-    }
-  }
-  td {
-    border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
-    line-height: 0.8 rem;
-    &:first-child {
-      border-left: none;
-    }
-    &:last-child {
-      border-right: none;
-    }
-  }
-  tbody tr:nth-child(odd) { background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);}
-}
+
 ```
 
 # Code
@@ -717,6 +689,9 @@ Custom Lua blocks at top or bottom of the page.
 }
 
 /* Top spacing */
+#sb-main .cm-editor .sb-lua-bottom-widget {
+  margin-top: 10px;
+}
 
 /* Max height */
 #sb-main .cm-editor .sb-lua-top-widget .content,
