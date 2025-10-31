@@ -114,6 +114,7 @@ table:has(.sb-hashtag[data-tag-name="wine"]) {
   tbody tr:nth-child(even) { background-color: #6b1a3b !important;}
   tbody tr:nth-child(odd) { background-color: #5e1735 !important;}
 }
+  --editor-wiki-link-page-color: #e6a9c9 !important;
 /* ---------- sea ---------- */
 table:has(.sb-hashtag[data-tag-name="sea"]) {
   thead { background-color: #0048f2 !important;}
