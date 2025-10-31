@@ -54,11 +54,6 @@ ${query[[from index.tag "page"
          order by _.lastVisit desc 
          limit 5]]}
 
-| Header A | Header B |
-|----------|----------|
-| Cell A | Cell B |
-| Cell A | Cell B |
-
 # Time 🌄
 
 ${timeLeftBar()}
