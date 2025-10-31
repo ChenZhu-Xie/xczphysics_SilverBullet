@@ -110,7 +110,7 @@ config.set (
     -- position = "lhs" | "rhs": determines the width of the panel.
     -- position = "modal": sets the margin around the modal window.
     -- position = "bhs": No effect
-    size=1,
+    size=3,
 
     dragAndDrop = {
       -- Set to false to disable drag-and-drop
