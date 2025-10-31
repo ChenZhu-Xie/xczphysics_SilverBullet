@@ -123,9 +123,9 @@ html[data-theme="light"] table thead tr:hover {
 html[data-theme="dark"]{
 /* ---------- wine (粉红酒红色 - 偏粉) ---------- */
 table:has(.sb-hashtag[data-tag-name="wine"]) {
-  thead { background-color: #4a2c3a !important; color: #e8d4db !important;}
+  thead { background-color: #3e2430 !important; color: #e8d4db !important;}
   tbody tr:nth-child(even) { background-color: #352029 !important; color: #dcc7d1 !important;}
-  tbody tr:nth-child(odd) { background-color: #3e2430 !important; color: #e0ccd6 !important;}
+  tbody tr:nth-child(odd) { background-color: #4a2c3a !important; color: #e0ccd6 !important;}
   border: 1px solid #5a3848 !important;
   --editor-wiki-link-page-color: #ff6b9d !important;
 }
