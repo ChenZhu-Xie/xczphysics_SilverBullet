@@ -515,7 +515,6 @@ html[data-theme=dark] {
   --editor-table-head-background-color: transparent;
   --editor-table-head-color: var(--fg);
   --editor-table-even-background-color: transparent;
-  --editor-table-odd-background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);
   /*--editor-table-even-background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);*/
 }
 
@@ -660,7 +659,7 @@ Custom plugs and Lua blocks.
   background-color: rgba(50, 54, 62, 0.9) !important;
   border: none;
   padding: 0px;
-  margin: 0px -1px;
+  margin: 0px;
 }
 
 /* Buttons*/
