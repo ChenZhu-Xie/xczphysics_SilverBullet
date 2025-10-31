@@ -282,7 +282,7 @@ html {
   color: violet !important;
 }
 .sb-strong {
-  color: green !important;
+  color: var(--green) !important;
 }
 ```
 
