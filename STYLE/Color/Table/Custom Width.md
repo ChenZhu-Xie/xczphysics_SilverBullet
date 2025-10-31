@@ -113,7 +113,7 @@ table thead tr:hover {
   background-color: rgba(255, 255, 255, 0.15) !important;
   /* transition: background-color 0.2s ease !important; */
   position: relative !important;
-  z-index: 1 !important;
+  z-index: 5 !important;
 }
 
 html[data-theme="light"] table tbody tr:hover,
