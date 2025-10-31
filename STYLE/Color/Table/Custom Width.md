@@ -110,125 +110,125 @@ table .sb-hashtag[data-tag-name="maroon"] {
 html[data-theme="dark"]{
 /* ---------- wine ---------- */
 table:has(.sb-hashtag[data-tag-name="wine"]) {
-  thead { background-color: #4a0d26 !important;}
-  tbody tr:nth-child(even) { background-color: #6b1a3b !important;}
-  tbody tr:nth-child(odd) { background-color: #5e1735 !important;}
-  --editor-wiki-link-page-color: #e6a9c9 !important;
+  thead { background-color: #4a0d26;}
+  tbody tr:nth-child(even) { background-color: #6b1a3b;}
+  tbody tr:nth-child(odd) { background-color: #5e1735;}
+  --editor-wiki-link-page-color: #e6a9c9;
 }
 /* ---------- sea ---------- */
 table:has(.sb-hashtag[data-tag-name="sea"]) {
-  thead { background-color: #0048f2 !important;}
-  tbody tr:nth-child(even) { background-color: #658ac4 !important;}
-  tbody tr:nth-child(odd) { background-color: #4569a2 !important;}
-  --editor-wiki-link-page-color: #ffe559 !important;
+  thead { background-color: #0048f2;}
+  tbody tr:nth-child(even) { background-color: #658ac4;}
+  tbody tr:nth-child(odd) { background-color: #4569a2;}
+  --editor-wiki-link-page-color: #ffe559;
 }
 /* ---------- silver ---------- */
 table:has(.sb-hashtag[data-tag-name="silver"]) {
-  thead { background-color: #333333 !important;}
-  tbody tr:nth-child(even) { background-color: #555555 !important;}
-  tbody tr:nth-child(odd) { background-color: #444444 !important;}
-  --editor-wiki-link-page-color: #d1d1d1 !important;
+  thead { background-color: #333333;}
+  tbody tr:nth-child(even) { background-color: #555555;}
+  tbody tr:nth-child(odd) { background-color: #444444;}
+  --editor-wiki-link-page-color: #d1d1d1;
 }
 /* ---------- mint ---------- */
 table:has(.sb-hashtag[data-tag-name="mint"]) {
-  thead { background-color: #264d26 !important;}
-  tbody tr:nth-child(even) { background-color: #336633 !important;}
-  tbody tr:nth-child(odd) { background-color: #2b5b2b !important;}
-  --editor-wiki-link-page-color: #a8d5a2 !important;
+  thead { background-color: #264d26;}
+  tbody tr:nth-child(even) { background-color: #336633;}
+  tbody tr:nth-child(odd) { background-color: #2b5b2b;}
+  --editor-wiki-link-page-color: #a8d5a2;
 }
 /* ---------- burgundy ---------- */
 table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-  thead { background-color: #330d0d !important;}
-  tbody tr:nth-child(even) { background-color: #4d1a1a !important;}
-  tbody tr:nth-child(odd) { background-color: #401515 !important;}
-  --editor-wiki-link-page-color: #d19999 !important;
+  thead { background-color: #330d0d;}
+  tbody tr:nth-child(even) { background-color: #4d1a1a;}
+  tbody tr:nth-child(odd) { background-color: #401515;}
+  --editor-wiki-link-page-color: #d19999;
 }
 /* ---------- grape ---------- */
 table:has(.sb-hashtag[data-tag-name="grape"]) {
-  thead { background-color: #1a0d33 !important;}
-  tbody tr:nth-child(even) { background-color: #341b51 !important; }
-  tbody tr:nth-child(odd) { background-color: #261540 !important;}
-  --editor-wiki-link-page-color: #a799d1 !important;
+  thead { background-color: #1a0d33;}
+  tbody tr:nth-child(even) { background-color: #341b51; }
+  tbody tr:nth-child(odd) { background-color: #261540;}
+  --editor-wiki-link-page-color: #a799d1;
 }
 /* ---------- hazel ---------- */
 table:has(.sb-hashtag[data-tag-name="hazel"]) {
-  thead{ background-color: #4a3b0d !important;}
-  tbody tr:nth-child(even) { background-color: #6b561a !important;}
-  tbody tr:nth-child(odd) { background-color: #5e4e17 !important;}
-  --editor-wiki-link-page-color: #e6d899 !important;
+  thead{ background-color: #4a3b0d;}
+  tbody tr:nth-child(even) { background-color: #6b561a;}
+  tbody tr:nth-child(odd) { background-color: #5e4e17;}
+  --editor-wiki-link-page-color: #e6d899;
 }
 /* --------- maroon ---------- */
   table:has(.sb-hashtag[data-tag-name="maroon"]) {
-  thead { background-color: #4a230d !important; }
-  tbody tr:nth-child(even) { background-color: #6b361a !important; }
-  tbody tr:nth-child(odd) { background-color: #5e3017 !important; }
-    --editor-wiki-link-page-color: #e6b899 !important;
+  thead { background-color: #4a230d; }
+  tbody tr:nth-child(even) { background-color: #6b361a; }
+  tbody tr:nth-child(odd) { background-color: #5e3017; }
+    --editor-wiki-link-page-color: #e6b899;
  }
 }
 
 html[data-theme="light"] {
   /* ---------- wine ---------- */
   table:has(.sb-hashtag[data-tag-name="wine"]) {
-    --editor-wiki-link-page-color: #bf4664 !important;
-    thead { background-color: #f7c1d0 !important; }
-    tbody tr:nth-child(even) { background-color: #fbd9e5 !important; }
-    tbody tr:nth-child(odd) { background-color: #f9b7cf !important; }
+    --editor-wiki-link-page-color: #bf4664;
+    thead { background-color: #f7c1d0; }
+    tbody tr:nth-child(even) { background-color: #fbd9e5; }
+    tbody tr:nth-child(odd) { background-color: #f9b7cf; }
   }
 
   /* ---------- sea ---------- */
   table:has(.sb-hashtag[data-tag-name="sea"]) {
-    --editor-wiki-link-page-color: #0033b2 !important;
-    thead { background-color: #c3dbff !important; }
-    tbody tr:nth-child(even) { background-color: #e3f0ff !important; }
-    tbody tr:nth-child(odd) { background-color: #b7d1ff !important; }
+    --editor-wiki-link-page-color: #0033b2;
+    thead { background-color: #c3dbff; }
+    tbody tr:nth-child(even) { background-color: #e3f0ff; }
+    tbody tr:nth-child(odd) { background-color: #b7d1ff; }
   }
 
   /* ---------- silver ---------- */
   table:has(.sb-hashtag[data-tag-name="silver"]) {
-    --editor-wiki-link-page-color: #777777 !important;
-    thead { background-color: #e0e0e0 !important; }
-    tbody tr:nth-child(even) { background-color: #f5f5f5 !important; }
-    tbody tr:nth-child(odd) { background-color: #ececec !important; }
+    --editor-wiki-link-page-color: #777777;
+    thead { background-color: #e0e0e0; }
+    tbody tr:nth-child(even) { background-color: #f5f5f5; }
+    tbody tr:nth-child(odd) { background-color: #ececec; }
   }
 
   /* ---------- mint ---------- */
   table:has(.sb-hashtag[data-tag-name="mint"]) {
-    --editor-wiki-link-page-color: #3b803b !important;
-    thead { background-color: #c8eac6 !important; }
-    tbody tr:nth-child(even) { background-color: #e1f8e1 !important; }
-    tbody tr:nth-child(odd) { background-color: #b8e5b8 !important; }
+    --editor-wiki-link-page-color: #3b803b;
+    thead { background-color: #c8eac6; }
+    tbody tr:nth-child(even) { background-color: #e1f8e1; }
+    tbody tr:nth-child(odd) { background-color: #b8e5b8; }
   }
 
   /* ---------- burgundy ---------- */
   table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-    --editor-wiki-link-page-color: #a01a1a !important;
-    thead { background-color: #f2a1a1 !important; }
-    tbody tr:nth-child(even) { background-color: #f9c6c6 !important; }
-    tbody tr:nth-child(odd) { background-color: #f6b0b0 !important; }
+    --editor-wiki-link-page-color: #a01a1a;
+    thead { background-color: #f2a1a1; }
+    tbody tr:nth-child(even) { background-color: #f9c6c6; }
+    tbody tr:nth-child(odd) { background-color: #f6b0b0; }
   }
 
   /* ---------- grape ---------- */
   table:has(.sb-hashtag[data-tag-name="grape"]) {
-    --editor-wiki-link-page-color: #361a70 !important;
-    thead { background-color: #d5c1f3 !important; }
-    tbody tr:nth-child(even) { background-color: #e9e0fc !important; }
-    tbody tr:nth-child(odd) { background-color: #dfd1f9 !important; }
+    --editor-wiki-link-page-color: #361a70;
+    thead { background-color: #d5c1f3; }
+    tbody tr:nth-child(even) { background-color: #e9e0fc; }
+    tbody tr:nth-child(odd) { background-color: #dfd1f9; }
   }
 
   /* ---------- hazel ---------- */
   table:has(.sb-hashtag[data-tag-name="hazel"]) {
-    --editor-wiki-link-page-color: #7c5f1a !important;
-    thead { background-color: #f5f0cc !important; }
-    tbody tr:nth-child(even) { background-color: #fcf8df !important; }
-    tbody tr:nth-child(odd) { background-color: #f1e8b5 !important; }
+    --editor-wiki-link-page-color: #7c5f1a;
+    thead { background-color: #f5f0cc; }
+    tbody tr:nth-child(even) { background-color: #fcf8df; }
+    tbody tr:nth-child(odd) { background-color: #f1e8b5; }
   }
 
   /* ---------- maroon ---------- */
   table:has(.sb-hashtag[data-tag-name="maroon"]) {
-    --editor-wiki-link-page-color: #862f18 !important;
-    thead { background-color: #f4c6b8 !important; }
-    tbody tr:nth-child(even) { background-color: #f9e2da !important; }
-    tbody tr:nth-child(odd) { background-color: #f6cfc3 !important; }
+    --editor-wiki-link-page-color: #862f18;
+    thead { background-color: #f4c6b8; }
+    tbody tr:nth-child(even) { background-color: #f9e2da; }
+    tbody tr:nth-child(odd) { background-color: #f6cfc3; }
   }
 }
 
@@ -260,9 +260,9 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 ```
 html[data-theme="dark"]{
   .sb-hashtag {
-      background: #1c2430 !important;
-      color: #d8e1ef !important;
-      border: 1px solid #2a3648 !important; /* 同色系略亮边框 */
+      background: #1c2430;
+      color: #d8e1ef;
+      border: 1px solid #2a3648; /* 同色系略亮边框 */
       border-radius: 6px;
       padding: 0 4px;
   }
@@ -270,9 +270,9 @@ html[data-theme="dark"]{
 
 html[data-theme="light"] {
 .sb-hashtag {
-    background: #e8edf5 !important;
-    color: #1a1a1a !important;
-    border: 1px solid #d4dce7 !important; /* 同色系略深边框 */
+    background: #e8edf5;
+    color: #1a1a1a;
+    border: 1px solid #d4dce7; /* 同色系略深边框 */
     border-radius: 6px;
     padding: 0 4px;
   }
@@ -281,25 +281,25 @@ html[data-theme="light"] {
 
 ```space-style
 html[data-theme="dark"]{
-.sb-hashtag[data-tag-name="silver"]{background: #444444 !important;}
-.sb-hashtag[data-tag-name="sea"]{background: #4569a2 !important;}
-.sb-hashtag[data-tag-name="mint"]{background: #336633 !important;}
-.sb-hashtag[data-tag-name="hazel"]{background: #6b561a !important;}
-.sb-hashtag[data-tag-name="maroon"]{background: #6b361a !important;}
-.sb-hashtag[data-tag-name="burgundy"]{background: #4d1a1a !important;}
-.sb-hashtag[data-tag-name="wine"]{background: #6b1a3b !important;}
-.sb-hashtag[data-tag-name="grape"]{background: #341b51 !important;}
+.sb-hashtag[data-tag-name="silver"]{background: #444444;}
+.sb-hashtag[data-tag-name="sea"]{background: #4569a2;}
+.sb-hashtag[data-tag-name="mint"]{background: #336633;}
+.sb-hashtag[data-tag-name="hazel"]{background: #6b561a;}
+.sb-hashtag[data-tag-name="maroon"]{background: #6b361a;}
+.sb-hashtag[data-tag-name="burgundy"]{background: #4d1a1a;}
+.sb-hashtag[data-tag-name="wine"]{background: #6b1a3b;}
+.sb-hashtag[data-tag-name="grape"]{background: #341b51;}
 }
 
 html[data-theme="light"] {
-.sb-hashtag[data-tag-name="silver"]{background: #f5f5f5 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="sea"]{background: #e3f0ff !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="mint"]{background: #e1f8e1 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="hazel"]{background: #fcf8df !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="maroon"]{background: #f9e2da !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="burgundy"]{background: #f9c6c6 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="wine"]{background: #fbd9e5 !important;color:#000 !important;}
-.sb-hashtag[data-tag-name="grape"]{background: #e9e0fc !important;color:#000 !important;}
+.sb-hashtag[data-tag-name="silver"]{background: #f5f5f5;color:#000;}
+.sb-hashtag[data-tag-name="sea"]{background: #e3f0ff;color:#000;}
+.sb-hashtag[data-tag-name="mint"]{background: #e1f8e1;color:#000;}
+.sb-hashtag[data-tag-name="hazel"]{background: #fcf8df;color:#000;}
+.sb-hashtag[data-tag-name="maroon"]{background: #f9e2da;color:#000;}
+.sb-hashtag[data-tag-name="burgundy"]{background: #f9c6c6;color:#000;}
+.sb-hashtag[data-tag-name="wine"]{background: #fbd9e5;color:#000;}
+.sb-hashtag[data-tag-name="grape"]{background: #e9e0fc;color:#000;}
 }
 ```
 
