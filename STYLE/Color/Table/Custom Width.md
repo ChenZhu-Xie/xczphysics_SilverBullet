@@ -95,225 +95,184 @@ Use it Like this:
 /*   Adds a rounded corner to the tables   */
 /* table { border-radius: 15px; overflow: hidden;} */
 
-/* ===========================================
-   Modernized Colorful Tables — REFINED
-   Dark background target: rgb(40,44,52)
-   Light background target: rgb(255,255,255)
-   Goal: 深色更暗、浅色更清新；Maroon/Burgundy/Wine 明显区分
-   =========================================== */
-
-/* ---------------------------
-   把表内用于标记的 hashtag 隐藏（不显示标签文本）
-----------------------------*/
-table .sb-hashtag[data-tag-name^="t"],
-table .sb-hashtag[data-tag-name="silver"],
-table .sb-hashtag[data-tag-name="sea"],
-table .sb-hashtag[data-tag-name="mint"],
-table .sb-hashtag[data-tag-name="hazel"],
-table .sb-hashtag[data-tag-name="maroon"],
-table .sb-hashtag[data-tag-name="burgundy"],
+/* Hide specific colour tags inside tables */
 table .sb-hashtag[data-tag-name="wine"],
-table .sb-hashtag[data-tag-name="grape"] {
+table .sb-hashtag[data-tag-name="sea"],
+table .sb-hashtag[data-tag-name="silver"],
+table .sb-hashtag[data-tag-name="mint"],
+table .sb-hashtag[data-tag-name="burgundy"],
+table .sb-hashtag[data-tag-name="grape"],
+table .sb-hashtag[data-tag-name="hazel"],
+table .sb-hashtag[data-tag-name="maroon"] {
   display: none !important;
 }
 
-/* ---------------------------
-   宽度标签（保留） 
-----------------------------*/
-table:has(.sb-hashtag[data-tag-name="t30p"]) { width: 30% !important; }
-table:has(.sb-hashtag[data-tag-name="t40p"]) { width: 40% !important; }
-table:has(.sb-hashtag[data-tag-name="t50p"]) { width: 50% !important; }
-table:has(.sb-hashtag[data-tag-name="t60p"]) { width: 60% !important; }
-table:has(.sb-hashtag[data-tag-name="t70p"]) { width: 70% !important; }
-table:has(.sb-hashtag[data-tag-name="t80p"]) { width: 80% !important; }
-table:has(.sb-hashtag[data-tag-name="t90p"]) { width: 90% !important; }
-
-/* ---------------------------
-   全局表格基础（可按需微调）
-   - 深模式背景接近 rgb(40,44,52)
-   - 边角与间隔保持轻柔
-----------------------------*/
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  font-family: inherit;
-}
-
-/* 轻微 hover 效果（淡亮） */
+/* Universal table row hover effect */
 table tbody tr:hover {
-  transform: none;
-  filter: brightness(1.06);
-  transition: filter 120ms linear;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  transition: background-color 0.2s ease;
 }
 
-/* ===========================================
-   DARK THEME — 更暗、更接近背景 (rgb(40,44,52))
-   我把所有主色在暗色模式中整体下调亮度并降低饱和度
-=========================================== */
-html[data-theme="dark"] {
-  /* 可选：定义深色背景变量（仅说明，不影响实际外层背景） */
-  --sb-dark-bg: rgb(40,44,52);
+html[data-theme="light"] table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-/* ---------- SILVER (neutral) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="silver"]) {
-  thead { background: #42444a !important; color: #e9ebee !important; } /* very muted */
-  tbody tr:nth-child(even) { background: #2a2c31 !important; color: #d8dbe0 !important; }
-  tbody tr:nth-child(odd)  { background: #26282d !important; color: #cfcfd3 !important; }
-  border: 1px solid #3e4046 !important;
+/* Universal table header hover effect */
+table thead tr:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  transition: background-color 0.2s ease;
 }
 
-/* ---------- SEA (blue-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="sea"]) {
-  thead { background: #335273 !important; color: #eaf3f9 !important; }
-  tbody tr:nth-child(even) { background: #243544 !important; color: #d9e6ef !important; }
-  tbody tr:nth-child(odd)  { background: #202e3f !important; color: #d1dfe9 !important; }
-  border: 1px solid #3b516f !important;
+html[data-theme="light"] table thead tr:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
 }
 
-/* ---------- MINT (green-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="mint"]) {
-  thead { background: #2b6d58 !important; color: #eaf9f2 !important; }
-  tbody tr:nth-child(even) { background: #173f33 !important; color: #cfeee0 !important; }
-  tbody tr:nth-child(odd)  { background: #133527 !important; color: #c4e8d7 !important; }
-  border: 1px solid #2e6f59 !important;
+html[data-theme="dark"]{
+/* ---------- wine (粉红酒红色 - 偏粉) ---------- */
+table:has(.sb-hashtag[data-tag-name="wine"]) {
+  thead { background-color: #4a2c3a !important; color: #e8d4db !important;}
+  tbody tr:nth-child(even) { background-color: #352029 !important; color: #dcc7d1 !important;}
+  tbody tr:nth-child(odd) { background-color: #3e2430 !important; color: #e0ccd6 !important;}
+  border: 1px solid #5a3848 !important;
+  --editor-wiki-link-page-color: #ff6b9d !important;
 }
 
-/* ---------- HAZEL (warm-muted) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="hazel"]) {
-  thead { background: #755734 !important; color: #fff6ea !important; }
-  tbody tr:nth-child(even) { background: #46321f !important; color: #ead9bf !important; }
-  tbody tr:nth-child(odd)  { background: #3f2b18 !important; color: #e1cfae !important; }
-  border: 1px solid #74583e !important;
+/* ---------- burgundy (深酒红色 - 偏紫) ---------- */
+table:has(.sb-hashtag[data-tag-name="burgundy"]) {
+  thead { background-color: #3d1a2e !important; color: #e6d0db !important;}
+  tbody tr:nth-child(even) { background-color: #2e1424 !important; color: #d9c2ce !important;}
+  tbody tr:nth-child(odd) { background-color: #351829 !important; color: #ddc7d3 !important;}
+  border: 1px solid #4d2538 !important;
+  --editor-wiki-link-page-color: #c44569 !important;
 }
 
-/* ---------- MAROON (distinct: 红棕) ----------
-   目标：比之前更靠近深背景，偏红棕，低饱和 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="maroon"]) {
-  thead { background: #4a2523 !important; color: #f3e7e6 !important; }    /* 红棕偏暗 */
-  tbody tr:nth-child(even) { background: #321615 !important; color: #e7d1d0 !important; }
-  tbody tr:nth-child(odd)  { background: #2b1211 !important; color: #dcc3c3 !important; }
-  border: 1px solid #5b3030 !important;
+/* --------- maroon (栗色 - 偏棕橙) ---------- */
+table:has(.sb-hashtag[data-tag-name="maroon"]) {
+  thead { background-color: #4a2618 !important; color: #e8d6cc !important;}
+  tbody tr:nth-child(even) { background-color: #351c12 !important; color: #dcc9be !important;}
+  tbody tr:nth-child(odd) { background-color: #3e2015 !important; color: #e0cdbd !important;}
+  border: 1px solid #5a3020 !important;
+  --editor-wiki-link-page-color: #ff8a50 !important;
 }
 
-/* ---------- BURGUNDY (distinct: 紫红) ----------
-   目标：偏紫红，比 maroon 更紫一点，且更暗 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-  thead { background: #412336 !important; color: #f4e9ee !important; }    /* 紫红偏暗 */
-  tbody tr:nth-child(even) { background: #2a1722 !important; color: #e8d6db !important; }
-  tbody tr:nth-child(odd)  { background: #24121c !important; color: #ddc6cc !important; }
-  border: 1px solid #583446 !important;
+/* ---------- sea ---------- */
+table:has(.sb-hashtag[data-tag-name="sea"]) {
+  thead { background-color: #1e3a5f !important; color: #d1e0f0 !important;}
+  tbody tr:nth-child(even) { background-color: #182d47 !important; color: #c7d8ea !important;}
+  tbody tr:nth-child(odd) { background-color: #1b3152 !important; color: #cbdced !important;}
+  border: 1px solid #2a4870 !important;
+  --editor-wiki-link-page-color: #4fc3f7 !important;
 }
 
-/* ---------- WINE (distinct: 深紫灰) ----------
-   目标：偏紫灰，比 burgundy 更冷、更深 */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="wine"]) {
-  thead { background: #36232c !important; color: #f2e9ee !important; }    /* 更冷的紫灰 */
-  tbody tr:nth-child(even) { background: #24171f !important; color: #e6d6dc !important; }
-  tbody tr:nth-child(odd)  { background: #20141b !important; color: #dcc9d0 !important; }
-  border: 1px solid #4a3843 !important;
+/* ---------- silver ---------- */
+table:has(.sb-hashtag[data-tag-name="silver"]) {
+  thead { background-color: #3a3f47 !important; color: #e2e6ea !important;}
+  tbody tr:nth-child(even) { background-color: #30353c !important; color: #d8dde2 !important;}
+  tbody tr:nth-child(odd) { background-color: #353a41 !important; color: #dde2e7 !important;}
+  border: 1px solid #4a5058 !important;
+  --editor-wiki-link-page-color: #b0bec5 !important;
 }
 
-/* ---------- GRAPE (muted purple) ---------- */
-html[data-theme="dark"] table:has(.sb-hashtag[data-tag-name="grape"]) {
-  thead { background: #453b66 !important; color: #f4f2fb !important; }
-  tbody tr:nth-child(even) { background: #31284a !important; color: #e6e0f4 !important; }
-  tbody tr:nth-child(odd)  { background: #2a213f !important; color: #dbd6ef !important; }
-  border: 1px solid #574e80 !important;
+/* ---------- mint ---------- */
+table:has(.sb-hashtag[data-tag-name="mint"]) {
+  thead { background-color: #1e4a3a !important; color: #d0e8df !important;}
+  tbody tr:nth-child(even) { background-color: #183829 !important; color: #c6e0d4 !important;}
+  tbody tr:nth-child(odd) { background-color: #1b3f31 !important; color: #cae4d9 !important;}
+  border: 1px solid #2a5a48 !important;
+  --editor-wiki-link-page-color: #66bb6a !important;
 }
 
-/* ===========================================
-   LIGHT THEME — 更清新、更明亮
-=========================================== */
+/* ---------- grape ---------- */
+table:has(.sb-hashtag[data-tag-name="grape"]) {
+  thead { background-color: #2d1b4e !important; color: #e0d4f0 !important;}
+  tbody tr:nth-child(even) { background-color: #241539 !important; color: #d6c7e8 !important;}
+  tbody tr:nth-child(odd) { background-color: #291941 !important; color: #dacbec !important;}
+  border: 1px solid #3d2b5e !important;
+  --editor-wiki-link-page-color: #ab47bc !important;
+}
+
+/* ---------- hazel ---------- */
+table:has(.sb-hashtag[data-tag-name="hazel"]) {
+  thead{ background-color: #4a3d1e !important; color: #e8e0d1 !important;}
+  tbody tr:nth-child(even) { background-color: #352e18 !important; color: #ddd6c7 !important;}
+  tbody tr:nth-child(odd) { background-color: #3e351b !important; color: #e1dacb !important;}
+  border: 1px solid #5a4d2a !important;
+  --editor-wiki-link-page-color: #ffca28 !important;
+}
+}
+
 html[data-theme="light"] {
-
-  /* ---------- SILVER ---------- */
-  table:has(.sb-hashtag[data-tag-name="silver"]) {
-    thead { background: #f5f6f7 !important; color: #1f2937 !important; }
-    tbody tr:nth-child(even) { background: #ffffff !important; color: #374151 !important; }
-    tbody tr:nth-child(odd)  { background: #f8f9fa !important; color: #4b5563 !important; }
-    border: 1px solid #e2e6ea !important;
-  }
-
-  /* ---------- SEA ---------- */
-  table:has(.sb-hashtag[data-tag-name="sea"]) {
-    thead { background: #eaf4fb !important; color: #123047 !important; }
-    tbody tr:nth-child(even) { background: #f8fdff !important; color: #173a57 !important; }
-    tbody tr:nth-child(odd)  { background: #f0f8ff !important; color: #214a6b !important; }
-    border: 1px solid #cfe7fb !important;
-  }
-
-  /* ---------- MINT ---------- */
-  table:has(.sb-hashtag[data-tag-name="mint"]) {
-    thead { background: #e8fbf2 !important; color: #114033 !important; }
-    tbody tr:nth-child(even) { background: #f8fffb !important; color: #19533f !important; }
-    tbody tr:nth-child(odd)  { background: #eef9f4 !important; color: #1f6a4f !important; }
-    border: 1px solid #d0efe0 !important;
-  }
-
-  /* ---------- HAZEL ---------- */
-  table:has(.sb-hashtag[data-tag-name="hazel"]) {
-    thead { background: #fff7ef !important; color: #6a4726 !important; }
-    tbody tr:nth-child(even) { background: #fffdf9 !important; color: #7a522f !important; }
-    tbody tr:nth-child(odd)  { background: #fff6ee !important; color: #8a5936 !important; }
-    border: 1px solid #f6dec0 !important;
-  }
-
-  /* ---------- MAROON (light) ---------- */
-  table:has(.sb-hashtag[data-tag-name="maroon"]) {
-    thead { background: #fff0ef !important; color: #632a28 !important; }  /* 红棕清新版 */
-    tbody tr:nth-child(even) { background: #fff9f9 !important; color: #6f332f !important; }
-    tbody tr:nth-child(odd)  { background: #fff3f2 !important; color: #7d3b37 !important; }
-    border: 1px solid #f3c9c7 !important;
-  }
-
-  /* ---------- BURGUNDY (light) ---------- */
-  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
-    thead { background: #fff1f6 !important; color: #55243a !important; }  /* 紫红清新版 */
-    tbody tr:nth-child(even) { background: #fff8fb !important; color: #622a45 !important; }
-    tbody tr:nth-child(odd)  { background: #fff3f7 !important; color: #6f3050 !important; }
-    border: 1px solid #f4d3df !important;
-  }
-
-  /* ---------- WINE (light) ---------- */
+  /* ---------- wine (粉红酒红色 - 偏粉) ---------- */
   table:has(.sb-hashtag[data-tag-name="wine"]) {
-    thead { background: #fff2f6 !important; color: #4a2734 !important; }  /* 深紫灰清新版 */
-    tbody tr:nth-child(even) { background: #fff8fb !important; color: #583041 !important; }
-    tbody tr:nth-child(odd)  { background: #fff4f8 !important; color: #65374f !important; }
-    border: 1px solid #f1d6df !important;
+    --editor-wiki-link-page-color: #e91e63 !important;
+    thead { background-color: #f8e1eb !important; color: #6a1b3a !important;}
+    tbody tr:nth-child(even) { background-color: #fdf4f7 !important; color: #7d1f42 !important;}
+    tbody tr:nth-child(odd) { background-color: #fbedf2 !important; color: #8e2449 !important;}
+    border: 1px solid #f48fb1 !important;
   }
 
-  /* ---------- GRAPE ---------- */
+  /* ---------- burgundy (深酒红色 - 偏紫) ---------- */
+  table:has(.sb-hashtag[data-tag-name="burgundy"]) {
+    --editor-wiki-link-page-color: #8e24aa !important;
+    thead { background-color: #f3e5f5 !important; color: #4a148c !important;}
+    tbody tr:nth-child(even) { background-color: #faf4fc !important; color: #6a1b9a !important;}
+    tbody tr:nth-child(odd) { background-color: #f6e9f8 !important; color: #7b1fa2 !important;}
+    border: 1px solid #ce93d8 !important;
+  }
+
+  /* ---------- maroon (栗色 - 偏棕橙) ---------- */
+  table:has(.sb-hashtag[data-tag-name="maroon"]) {
+    --editor-wiki-link-page-color: #ff5722 !important;
+    thead { background-color: #fff3e0 !important; color: #bf360c !important;}
+    tbody tr:nth-child(even) { background-color: #fffaf7 !important; color: #d84315 !important;}
+    tbody tr:nth-child(odd) { background-color: #fff6f0 !important; color: #e64a19 !important;}
+    border: 1px solid #ffab91 !important;
+  }
+
+  /* ---------- sea ---------- */
+  table:has(.sb-hashtag[data-tag-name="sea"]) {
+    --editor-wiki-link-page-color: #1976d2 !important;
+    thead { background-color: #e1f5fe !important; color: #01579b !important;}
+    tbody tr:nth-child(even) { background-color: #f0fcff !important; color: #0277bd !important;}
+    tbody tr:nth-child(odd) { background-color: #e8f8ff !important; color: #0288d1 !important;}
+    border: 1px solid #81d4fa !important;
+  }
+
+  /* ---------- silver ---------- */
+  table:has(.sb-hashtag[data-tag-name="silver"]) {
+    --editor-wiki-link-page-color: #616161 !important;
+    thead { background-color: #f5f5f5 !important; color: #212121 !important;}
+    tbody tr:nth-child(even) { background-color: #fdfdfb !important; color: #424242 !important;}
+    tbody tr:nth-child(odd) { background-color: #f8f8f8 !important; color: #616161 !important;}
+    border: 1px solid #e0e0e0 !important;
+  }
+
+  /* ---------- mint ---------- */
+  table:has(.sb-hashtag[data-tag-name="mint"]) {
+    --editor-wiki-link-page-color: #388e3c !important;
+    thead { background-color: #e8f5e8 !important; color: #1b5e20 !important;}
+    tbody tr:nth-child(even) { background-color: #f1faf1 !important; color: #2e7d32 !important;}
+    tbody tr:nth-child(odd) { background-color: #edf7ed !important; color: #388e3c !important;}
+    border: 1px solid #a5d6a7 !important;
+  }
+
+  /* ---------- grape ---------- */
   table:has(.sb-hashtag[data-tag-name="grape"]) {
-    thead { background: #f6f1fd !important; color: #3f2e6a !important; }
-    tbody tr:nth-child(even) { background: #fbf9ff !important; color: #4b367f !important; }
-    tbody tr:nth-child(odd)  { background: #f8f5fe !important; color: #5a43a1 !important; }
-    border: 1px solid #e7ddfb !important;
+    --editor-wiki-link-page-color: #7b1fa2 !important;
+    thead { background-color: #f3e5f5 !important; color: #4a148c !important;}
+    tbody tr:nth-child(even) { background-color: #faf4fc !important; color: #6a1b9a !important;}
+    tbody tr:nth-child(odd) { background-color: #f6e9f8 !important; color: #7b1fa2 !important;}
+    border: 1px solid #ce93d8 !important;
   }
-}
 
-/* ---------------------------
-   OPTIONAL: hashtag 外观（可保留或移除）
-   这里提供中性样式（不抢表格主题） 
-----------------------------*/
-html[data-theme="dark"] .sb-hashtag {
-  background: #262a33 !important;
-  color: #cfd6df !important;
-  border: 1px solid #2e3440 !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
-}
-
-html[data-theme="light"] .sb-hashtag {
-  background: #f3f5f8 !important;
-  color: #2b3440 !important;
-  border: 1px solid #d8e0ea !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
+  /* ---------- hazel ---------- */
+  table:has(.sb-hashtag[data-tag-name="hazel"]) {
+    --editor-wiki-link-page-color: #f57c00 !important;
+    thead { background-color: #fff8e1 !important; color: #e65100 !important;}
+    tbody tr:nth-child(even) { background-color: #fffcf5 !important; color: #ef6c00 !important;}
+    tbody tr:nth-child(odd) { background-color: #fffaeb !important; color: #f57c00 !important;}
+    border: 1px solid #ffcc02 !important;
+  }
 }
 ```
 
