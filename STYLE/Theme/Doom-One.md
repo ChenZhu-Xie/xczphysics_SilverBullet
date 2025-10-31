@@ -531,7 +531,7 @@ html[data-theme=dark] {
       opacity: 1;
       td {
         border-left: none;
-        border-right: 1px solid;
+        border-right: 1px;
         border-top: none;
       }
     }
