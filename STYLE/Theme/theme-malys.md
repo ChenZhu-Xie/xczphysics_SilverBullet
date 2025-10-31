@@ -85,7 +85,7 @@ html {
 }
 ```
 
-```space-style
+```
 .sb-emphasis {
   color: darkorange !important;
 }
