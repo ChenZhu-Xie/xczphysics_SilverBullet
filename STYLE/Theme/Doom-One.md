@@ -608,7 +608,7 @@ With code highlighting
 }
 
 .sb-typeName {
-  color: var(--cyan);
+  color: var(--teal);
 }
 
 .sb-variableName {
