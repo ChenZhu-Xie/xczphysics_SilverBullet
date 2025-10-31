@@ -844,6 +844,9 @@ html[data-theme=dark] {
   .sb-modal-box .sb-selected-option .sb-description {
     color: var(--base8);
   }
+  .sb-modal-box .sb-header .sb-label {
+    color: var(--modal-selected-option-background-color) !important;
+  }
 }
 ```
 
