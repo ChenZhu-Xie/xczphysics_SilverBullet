@@ -279,10 +279,10 @@ html {
 
 ```space-style
 .sb-emphasis {
-  color: cyan !important;
+  color: violet !important;
 }
 .sb-strong {
-  color: darkorange !important;
+  color: green !important;
 }
 ```
 
