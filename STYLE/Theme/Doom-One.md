@@ -828,7 +828,8 @@ html {
   --modal-background-color: white;
   --modal-help-background-color: var(--fg);
   --modal-selected-option-background-color: color-mix(in srgb, var(--ui-accent-color) 60%, var(--modal-background-color));
-  --modal-hint-background-color: color-mix(in srgb, var(--violet) 50%, var(--modal-background-color));
+  --modal-hint-background-color: var(--modal-selected-option-background-color);
+  <!-- --modal-hint-background-color: color-mix(in srgb, var(--violet) 50%, var(--modal-background-color)); -->
 }
 
 html[data-theme=dark] {
@@ -836,7 +837,8 @@ html[data-theme=dark] {
   --modal-background-color: var(--bg-alt);
   --modal-help-background-color: var(--bg);
   --modal-selected-option-background-color: color-mix(in srgb, var(--ui-accent-color) 50%, var(--modal-background-color));
-  --modal-hint-background-color: color-mix(in srgb, var(--violet) 100%, var(--modal-background-color));
+  --modal-hint-background-color: var(--modal-selected-option-background-color);
+  <!-- --modal-hint-background-color: color-mix(in srgb, var(--violet) 100%, var(--modal-background-color)); -->
 
   .sb-modal-box .sb-selected-option .sb-description {
     color: var(--base8);
