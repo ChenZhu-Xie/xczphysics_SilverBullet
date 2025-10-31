@@ -293,6 +293,28 @@ html[data-theme="light"] {
     border: 1px solid #e7ddfb !important;
   }
 }
+
+/* ---------------------------
+   OPTIONAL: hashtag 外观（可保留或移除）
+   这里提供中性样式（不抢表格主题） 
+----------------------------*/
+html[data-theme="dark"] .sb-hashtag {
+  background: #262a33 !important;
+  color: #cfd6df !important;
+  border: 1px solid #2e3440 !important;
+  border-radius: 6px;
+  padding: 0 6px;
+  font-size: 0.85em;
+}
+
+html[data-theme="light"] .sb-hashtag {
+  background: #f3f5f8 !important;
+  color: #2b3440 !important;
+  border: 1px solid #d8e0ea !important;
+  border-radius: 6px;
+  padding: 0 6px;
+  font-size: 0.85em;
+}
 ```
 
 ### Table Width with Tag
@@ -356,28 +378,6 @@ html[data-theme="light"] .sb-hashtag {
   border: 1px solid #d7dce3 !important;
   border-radius: 6px;
   padding: 0 4px;
-}
-
-/* ---------------------------
-   OPTIONAL: hashtag 外观（可保留或移除）
-   这里提供中性样式（不抢表格主题） 
-----------------------------*/
-html[data-theme="dark"] .sb-hashtag {
-  background: #262a33 !important;
-  color: #cfd6df !important;
-  border: 1px solid #2e3440 !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
-}
-
-html[data-theme="light"] .sb-hashtag {
-  background: #f3f5f8 !important;
-  color: #2b3440 !important;
-  border: 1px solid #d8e0ea !important;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.85em;
 }
 ```
 
