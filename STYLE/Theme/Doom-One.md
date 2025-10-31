@@ -531,7 +531,6 @@ html[data-theme=dark] {
       opacity: 1;
       td {
         border-left: none;
-        border-right: none;
         border-top: none;
       }
     }
@@ -542,7 +541,9 @@ html[data-theme=dark] {
     &:first-child {
       border-left: none;
     }
-    border-right: none;
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 ```
