@@ -608,7 +608,7 @@ With code highlighting
 }
 
 .sb-typeName {
-  color: var(--blue);
+  color: var(--cyan);
 }
 
 .sb-variableName {
@@ -624,7 +624,7 @@ With code highlighting
 }
 
 .sb-atom {
-  color: var(--magenta);
+  color: var(--red);
 }
 
 .sb-operator {
