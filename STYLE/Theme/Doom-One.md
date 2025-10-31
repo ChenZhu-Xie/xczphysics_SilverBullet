@@ -278,6 +278,15 @@ html {
 ~~Strikethrough~~
 
 ```space-style
+.sb-emphasis {
+  color: cyan !important;
+}
+.sb-strong {
+  color: darkorange !important;
+}
+```
+
+```space-style
 /* Headers */
 #sb-editor .sb-line-h1 {
   color: var(--blue);
