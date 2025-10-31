@@ -530,9 +530,9 @@ html[data-theme=dark] {
       font-weight: bold;
       opacity: 1;
       td {
-        border-top: none;
         border-left: none;
         border-right: none;
+        border-top: none;
       }
     }
   }
