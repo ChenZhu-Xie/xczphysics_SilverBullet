@@ -600,7 +600,7 @@ With code highlighting
 
 /* Code highlighting */
 .sb-meta {
-  color: var(--violet);
+  color: var(--orange);
 }
 
 .sb-keyword {
@@ -616,7 +616,7 @@ With code highlighting
 }
 
 .sb-number {
-  color: var(--orange);
+  color: var(--violet);
 }
 
 .sb-string {
