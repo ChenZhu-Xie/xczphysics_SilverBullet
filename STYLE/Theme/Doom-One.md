@@ -739,15 +739,7 @@ Custom Lua blocks at top or bottom of the page.
 Lua queries of (meta)data.
 
 ```space-style
-/* Remove top spacing for block*/
-.cm-line:has(.sb-lua-wrapper):has(.sb-lua-directive-block) {
-  margin-top: -2ch;
-}
 
-/* ${} - will also use code highlighting*/
-.sb-directive-mark {
-  color: var(--red);
-}
 ```
 
 # Links & Navigation
