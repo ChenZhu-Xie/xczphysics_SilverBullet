@@ -257,7 +257,7 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 
 ### Optional only  (adds color to the matching tags)
 
-```space-style
+```
 .sb-hashtag {
     background: #1c2430;
     color: #d8e1ef;
