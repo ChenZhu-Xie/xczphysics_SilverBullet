@@ -12,7 +12,7 @@ event.listen {
       if js.window.matchMedia('(prefers-color-scheme: dark)').matches then
         theme = "dark"
       else
-        theme = "white"
+        theme = "light"
       end
       function capitalize(str)
         if str == nil or str == "" then return str end
