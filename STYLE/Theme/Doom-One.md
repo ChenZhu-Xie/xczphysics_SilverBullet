@@ -155,12 +155,12 @@ html[data-theme=dark] {
   width: var(--font-size);
   height: var(--font-size);
   font-size: calc(var(--font-size) / 3);
-  color: var(--magenta);
+  color: var(--yellow);
 }
 
 /* Offline */
 #sb-top.sb-sync-error {
-  background-color: color-mix(in srgb, var(--violet) 80%, transparent) !important;
+  background-color: color-mix(in srgb, var(--cyan) 80%, transparent) !important;
 }
 
 /* Dark mode */
