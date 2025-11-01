@@ -161,6 +161,7 @@ html[data-theme=dark] {
 /* Offline */
 #sb-top.sb-sync-error {
   background-color: color-mix(in srgb, var(--cyan) 80%, transparent) !important;
+  <!-- background-color: color-mix(in srgb, var(--violet) 80%, transparent) !important; -->
 }
 
 /* Dark mode */
