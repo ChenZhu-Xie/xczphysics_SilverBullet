@@ -8,7 +8,9 @@ udpateDate: 2025-10-27
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 local lastVisitStore = lastVisitStore or {}
+local isUpdatingVisitTimes = false
 
+-- page 标签：page.lastVisit 可从 lastVisitStore 读取
 index.defineTag {
   name = "page",
   metatable = {
@@ -20,19 +22,155 @@ index.defineTag {
   }
 }
 
+-- 工具函数：标准化换行
+local function normalizeNewlines(s)
+  if not s or s == "" then return "" end
+  s = s:gsub("\r\n", "\n")
+  s = s:gsub("\r", "\n")
+  return s
+end
+
+-- 转义/反转义表格单元中的 |
+local function escapeCellPipes(s)
+  return (tostring(s or ""):gsub("|", "\\|"))
+end
+local function unescapeCellPipes(s)
+  return (tostring(s or ""):gsub("\\|", "|"))
+end
+
+-- 初始化空表内容
+local function initialTable()
+  return table.concat({
+    "| pageName | lastVisit | Times |",
+    "|----------|-----------|-------|",
+    ""
+  }, "\n")
+end
+
+-- 判断是否已有我们需要的表头
+local function hasHeader(content)
+  content = content or ""
+  return content:find("|%s*pageName%s*|%s*lastVisit%s*|%s*Times%s*|") ~= nil
+end
+
+-- 解析一行是否为数据行，返回3列
+local function parseRow(line)
+  -- 匹配三列表格行，忽略前后空格；避开分隔行
+  if line:match("^%s*|%s*%-") then return nil end
+  local c1, c2, c3 = line:match("^%s*|%s*([^|]-)%s*|%s*([^|]-)%s*|%s*([^|]-)%s*|%s*$")
+  if not c1 then return nil end
+  return c1, c2, c3
+end
+
+-- 格式化行
+local function formatRow(name, lastVisit, times)
+  return ("| %s | %s | %s |"):format(escapeCellPipes(name), escapeCellPipes(lastVisit), tostring(times))
+end
+
+-- 把整页文本拆成行数组（保留顺序）
+local function splitLines(text)
+  text = normalizeNewlines(text or "")
+  local lines = {}
+  for line in (text .. "\n"):gmatch("([^\n]*)\n") do
+    table.insert(lines, line)
+  end
+  -- 去掉末尾可能的空行堆叠
+  while #lines > 0 and lines[#lines] == "" do
+    table.remove(lines, #lines)
+  end
+  return lines
+end
+
+-- 合并行
+local function joinLines(lines)
+  return table.concat(lines, "\n") .. "\n"
+end
+
+-- 写回页面：优先 space.writePage，如不可用则回退到 editor 全文替换
+local function writePageContent(targetPath, newContent)
+  if type(space) == "table" and type(space.writePage) == "function" then
+    space.writePage(targetPath, newContent)
+    return true
+  end
+
+  -- 回退方案：打开目标页并整体替换
+  if editor and editor.openPage and editor.getText and editor.replaceRange then
+    local ok = pcall(function()
+      editor.openPage(targetPath)
+      local old = editor.getText() or ""
+      -- 全量替换
+      editor.replaceRange(0, #old, newContent, true)
+    end)
+    return ok
+  end
+  return false
+end
+
+-- 主更新逻辑：更新/追加一行
+local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
+  local content = space.readPage(targetPath) or ""
+  if content == "" or not hasHeader(content) then
+    content = initialTable()
+  end
+
+  local lines = splitLines(content)
+  local foundIndex = nil
+  local newLines = {}
+
+  for i, line in ipairs(lines) do
+    local c1, c2, c3 = parseRow(line)
+    if c1 then
+      local name = unescapeCellPipes(c1):match("^%s*(.-)%s*$")
+      if name == pageName then
+        local timesNum = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
+        timesNum = timesNum + (incTimes and 1 or 0)
+        line = formatRow(pageName, lastVisit, timesNum)
+        foundIndex = i
+      end
+    end
+    table.insert(newLines, line)
+  end
+
+  if not foundIndex then
+    -- 追加新行到表末尾（表可能只有表头两行）
+    table.insert(newLines, formatRow(pageName, lastVisit, 1))
+  end
+
+  local newContent = joinLines(newLines)
+  return writePageContent(targetPath, newContent)
+end
+
 event.listen{
   -- name = "hooks:renderTopWidgets",
   name = "editor:pageLoaded",
   run = function(e)
+    -- 再入保护
+    if isUpdatingVisitTimes then return end
+
     local pageRef = editor.getCurrentPage()
+    local pageName = tostring(pageRef or "")
+    if pageName == "" then return end
+
+    -- 避免对统计页本身计数，防止自触发递归
+    if pageName == path then return end
+
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
-    if lastVisitStore[pageRef] == now then return end
-    lastVisitStore[pageRef] = now
+    -- 同秒防抖
+    if lastVisitStore[pageName] == now then return end
+    lastVisitStore[pageName] = now
 
-    local lastOpened = space.readPage(path)
-    -- 查找 pageRef 是否在 lastOpened 内容里：若有，说明键存在，开始依次覆写中，该 pageRef 键所在行的 2 个值：lastVisit, Times
-    -- 若 pageRef 不存在 lastOpened 内容里，则新增 pageRef 键及其所在行的 2 个值：lastVisit, Times
+    -- 更新统计表
+    isUpdatingVisitTimes = true
+    local ok, err = pcall(function()
+      -- 存在则更新 lastVisit 并 Times+1；否则新增该行
+      upsertVisitRow(path, pageName, now, true)
+    end)
+    isUpdatingVisitTimes = false
+
+    if not ok then
+      editor.flashNotification(("[Visit Times] 更新失败: %s"):format(tostring(err)))
+    end
   end
 }
 ```
