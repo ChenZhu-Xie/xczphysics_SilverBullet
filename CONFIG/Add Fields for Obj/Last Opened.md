@@ -49,7 +49,7 @@ end
 
 -- 是否为分隔行（例如 |-----|-----|-----|）
 local function isSeparatorLine(line)
-  editor.flashNotification(line)
+  editor.flashNotification(line:match("^%s*|%s*[-%:]+%s*|%s*$"))
   return line:match("^%s*|%s*[-%:]+%s*|%s*$") ~= nil
 end
 
