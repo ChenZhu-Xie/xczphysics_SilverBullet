@@ -27,7 +27,8 @@ event.listen {
 
 ```lua
 event.listen {
-  name = 'system:ready',
+  -- name = 'system:ready',
+  name = 'editor:init',
   run = function(e)
     local theme = clientStore.get("theme")
     if theme == nil then
