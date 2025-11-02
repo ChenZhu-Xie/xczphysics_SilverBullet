@@ -64,7 +64,7 @@ end
 
 -- 格式化行
 local function formatRow(name, lastVisit, times)
-  return ("| %s | %s | %s |"):format(escapeCellPipes(name), escapeCellPipes(lastVisit), tostring(times))
+  return ("| %s | %s | %s |"):format(name, lastVisit, tostring(times))
 end
 
 -- 把整页文本拆成行数组（保留顺序）
@@ -134,7 +134,7 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     end
     table.insert(newLines, line)
   end
-  editor.flashNotification(newLines)
+  -- editor.flashNotification(newLines)
 
   if not foundIndex then
     -- 追加新行到表末尾（表可能只有表头两行）
