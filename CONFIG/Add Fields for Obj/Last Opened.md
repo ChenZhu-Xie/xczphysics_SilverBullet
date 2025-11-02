@@ -121,9 +121,9 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
   for i, line in ipairs(lines) do
     local c1, c2, c3 = parseRow(line)
     if c1 then
-      local name = unescapeCellPipes(c1):match("^%s*(.-)%s*$")
+      local name = unescapeCellPipes(c1):match("^ *(.-) *$")
       if name == pageName then
-        local timesNum = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
+        local timesNum = tonumber((c3 or ""):match("^ *(.-) *$")) or 0
         timesNum = timesNum + (incTimes and 1 or 0)
         line = formatRow(pageName, lastVisit, timesNum)
         foundIndex = i
