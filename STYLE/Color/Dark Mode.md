@@ -1,4 +1,20 @@
 
+1. https://silverbullet.md/Index%20Page
+2. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
+
+```space-lua
+event.listen {
+  -- name = "editor:pageLoaded",
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    if not clientStore.get("darkMode") then
+      clientStore.set("darkMode", true)
+      editor.reloadUI()
+    end
+  end
+}
+```
+
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8?u=chenzhu-xie
 
 ```space-lua
@@ -10,17 +26,6 @@ event.listen {
       editor.flashNotification("Current Theme: Dark")
     else
       editor.flashNotification("Current Theme: Light")
-      clientStore.set("darkMode", true)
-      editor.reloadUI()
-    end
-  end
-}
-
-event.listen {
-  -- name = "editor:pageLoaded",
-  name = "hooks:renderTopWidgets",
-  run = function(e)
-    if not clientStore.get("darkMode") then
       clientStore.set("darkMode", true)
       editor.reloadUI()
     end
