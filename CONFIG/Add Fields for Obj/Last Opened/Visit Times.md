@@ -1,2 +1,2 @@
 | pageRef | lastVisit | visitTimes |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 04:01:38 | 4 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 04:08:00 | 6 |

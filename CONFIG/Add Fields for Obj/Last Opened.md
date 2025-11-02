@@ -49,8 +49,8 @@ end
 
 -- 是否为分隔行（例如 |-----|-----|-----|）
 local function isSeparatorLine(line)
-  editor.flashNotification(line:match("^%s*|%s*[%-:]+%s*|%s*$"))
-  return line:match("^%s*|%s*[%-:]+%s*|%s*$") ~= nil
+  editor.flashNotification(line:match("^%s*|%s*[-%:]+%s*|%s*$"))
+  return line:match("^%s*|%s*[-%:]+%s*|%s*$") ~= nil
 end
 
 -- 解析一行是否为数据行，返回3列（忽略分隔行）
