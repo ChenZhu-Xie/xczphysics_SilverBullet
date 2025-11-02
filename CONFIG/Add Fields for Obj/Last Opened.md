@@ -7,13 +7,6 @@ udpateDate: 2025-10-27
 ```space-lua
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
-
--- 保存 YAML 数据（覆盖写）
-local function saveLastVisit(data)
-  
-end
-
--- priority: -1
 local lastVisitStore = lastVisitStore or {}
 
 index.defineTag {
@@ -34,14 +27,11 @@ event.listen{
     local pageRef = editor.getCurrentPage()
     local now = os.date("%Y-%m-%d %H:%M:%S")
 
-    if lastVisitStore[pageRef] == now then
-      return
-    end
+    if lastVisitStore[pageRef] == now then return end
     lastVisitStore[pageRef] = now
-    -- editor.flashNotification("lastVisit: pageRef " .. now)
 
     local lastOpened = space.readPage(path)
-    
+    -- 查找 pageRef 是否在 lastOpened 内容里：使用
   end
 }
 ```
