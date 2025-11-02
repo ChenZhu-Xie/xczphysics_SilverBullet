@@ -130,6 +130,8 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
         timesNum = timesNum + (incTimes and 1 or 0)
         line = formatRow(pageName, lastVisit, timesNum)
         foundIndex = i
+      elseif not space.pageExists(name) then
+        -- 
       end
     end
     table.insert(newLines, line)
