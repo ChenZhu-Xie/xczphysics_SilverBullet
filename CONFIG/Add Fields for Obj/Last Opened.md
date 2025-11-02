@@ -10,18 +10,7 @@ local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
-  editor.flashNotification(fs.exists(path))
-  if not fs.exists(path) then return {} end
-  local f = io.open(path, "r")
-  if not f then return {} end
-  local content = f:read("*a")
-  f:close()
-  local ok, data = pcall(yaml.decode, content)
-  if ok and type(data) == "table" then
-    return data
-  else
-    return {}
-  end
+  space.readPage("CONFIG/Add Fields for Obj/Last Opened/Visit Times")
 end
 
 -- 保存 YAML 数据（覆盖写）
