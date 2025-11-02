@@ -17,7 +17,7 @@ event.listen {
 
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8?u=chenzhu-xie
 
-```space-lua
+```lua
 event.listen {
   -- name = 'system:ready',
   name = 'editor:init',
