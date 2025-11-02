@@ -15,17 +15,11 @@ end
 
 -- 保存 YAML 数据（覆盖写）
 local function saveLastVisit(data)
-  local yamlStr = yaml.encode(data)
-  fs.mkdirp("CONFIG/Add Fields for Obj/Last Opened") -- 确保目录存在
-  local f = io.open(path, "w")
-  if f then
-    f:write(yamlStr)
-    f:close()
-  end
+  
 end
 
--- 全局缓存
-local lastVisitStore = loadLastVisit()
+-- priority: -1
+local lastVisitStore = lastVisitStore or {}
 
 index.defineTag {
   name = "page",
@@ -36,6 +30,21 @@ index.defineTag {
       end
     end
   }
+}
+
+event.listen{
+  -- name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+
+    if lastVisitStore[pageRef] == now then
+      return
+    end
+    lastVisitStore[pageRef] = now
+    -- editor.flashNotification("lastVisit: pageRef " .. now)
+  end
 }
 
 event.listen{
