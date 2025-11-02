@@ -49,8 +49,8 @@ end
 
 -- 是否为分隔行（例如 |-----|-----|-----|）
 local function isSeparatorLine(line)
-  editor.flashNotification(line:match("^%s*|%s*[-]+"))
-  return line:match("^%s*|%s*[-:]+") ~= nil
+  editor.flashNotification(line:match("^%s*|%s*[%-:]+%s*|%s*$"))
+  return line:match("^%s*|%s*[%-:]+%s*|%s*$") ~= nil
 end
 
 -- 解析一行是否为数据行，返回3列（忽略分隔行）
@@ -151,7 +151,7 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
 
         if isHeaderRow then
           -- 把表头第一列强制改成 pageRef（兼容你之前的 pageName）
-          local _, h2, h3 = c1, c2 or "lastVisit", c3 or "visitTimes"
+          -- local _, h2, h3 = c1, c2 or "lastVisit", c3 or "visitTimes"
           line = "| pageRef | lastVisit | visitTimes |"
           table.insert(newLines, line)
         else
