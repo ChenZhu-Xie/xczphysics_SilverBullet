@@ -19,7 +19,8 @@ event.listen {
 
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8
 2. https://community.silverbullet.md/t/changing-favicon-darkmode/836/33?u=chenzhu-xie
-3. https://silverbullet.md/API/clientStore
+  3. https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie
+4. https://silverbullet.md/API/clientStore
 
 ```lua
 event.listen {
