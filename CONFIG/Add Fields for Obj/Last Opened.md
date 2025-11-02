@@ -120,9 +120,9 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
 
   for i, line in ipairs(lines) do
     local c1, c2, c3 = parseRow(line)
-    editor.flashNotification(c1)
-    editor.flashNotification(c2)
-    editor.flashNotification(c3)
+    -- editor.flashNotification(c1)
+    -- editor.flashNotification(c2)
+    -- editor.flashNotification(c3)
     if c1 then
       local name = unescapeCellPipes(c1):match("^ *(.-) *$")
       if name == pageName then
