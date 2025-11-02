@@ -10,6 +10,8 @@ local yaml = require("yaml")  -- SB 已内建 yaml 支持
 local fs = require("fs")
 local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
+editor.flashNotification "Hello world!"
+
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
   if not fs.exists(path) then return {} end
