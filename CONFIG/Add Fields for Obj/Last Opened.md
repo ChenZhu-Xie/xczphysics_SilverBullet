@@ -112,7 +112,6 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
   if content == "" or not hasHeader(content) then
     content = initialTable()
   end
-  editor.flashNotification("info")
 
   local lines = splitLines(content)
   local foundIndex = nil
