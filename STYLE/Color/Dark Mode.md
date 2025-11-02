@@ -23,6 +23,8 @@ event.listen {
 }
 ```
 
+1. `string.upper("str")` https://silverbullet.md/API/index#Example
+
 ```lua
 event.listen {
   name = 'system:ready',
