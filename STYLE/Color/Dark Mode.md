@@ -3,6 +3,7 @@
 2. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
 
 ```space-lua
+-- priority: -1 
 event.listen {
   -- name = "editor:pageLoaded",
   name = "hooks:renderTopWidgets",
