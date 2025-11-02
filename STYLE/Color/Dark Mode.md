@@ -4,23 +4,11 @@ event.listen {
   -- name = 'system:ready',
   name = 'editor:init',
   run = function(e)
-    local theme = clientStore.get("theme")
-    if theme == nil then
-      if js.window.matchMedia('(prefers-color-scheme: dark)').matches then
-        theme = "dark"
-      else
-        theme = "light"
-      end
-      function capitalize(str)
-        if str == nil or str == "" then return str end
-        return str:sub(1,1):upper() .. (str:sub(2) or "")
-      end
-      editor.flashNotification("Current Theme: " .. capitalize(theme))
+    if clientStore.get("darkMode") then
+      editor.flashNotification("Current Theme: Dark")
     else
-      editor.flashNotification("current theme: " .. theme)
-    end
-    if theme ~= "dark" then
-      clientStore.set("theme", "dark")
+      editor.flashNotification("Current Theme: Light")
+      clientStore.set("darkMode", true)
       editor.reloadUI()
     end
   end
