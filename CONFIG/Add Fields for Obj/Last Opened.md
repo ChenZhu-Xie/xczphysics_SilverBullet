@@ -132,6 +132,8 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     table.insert(newLines, line)
   end
 
+  editor.flashNotification(newLines)
+
   if not foundIndex then
     -- 追加新行到表末尾（表可能只有表头两行）
     table.insert(newLines, formatRow(pageName, lastVisit, 1))
