@@ -41,7 +41,7 @@ end
 -- 初始化空表内容
 local function initialTable()
   return table.concat({
-    "| pageName | lastVisit | Times |",
+    "| pageName | lastVisit | visitTimes |",
     "|----------|-----------|-------|",
     ""
   }, "\n")
@@ -50,7 +50,7 @@ end
 -- 判断是否已有我们需要的表头
 local function hasHeader(content)
   content = content or ""
-  return content:find("|%s*pageName%s*|%s*lastVisit%s*|%s*Times%s*|") ~= nil
+  return content:find("|%s*pageName%s*|%s*lastVisit%s*|%s*visitTimes%s*|") ~= nil
 end
 
 -- 解析一行是否为数据行，返回3列
@@ -63,8 +63,8 @@ local function parseRow(line)
 end
 
 -- 格式化行
-local function formatRow(name, lastVisit, times)
-  return ("| %s | %s | %s |"):format(name, lastVisit, tostring(times))
+local function formatRow(name, lastVisit, visitTimes)
+  return ("| %s | %s | %s |"):format(name, lastVisit, tostring(visitTimes))
 end
 
 -- 把整页文本拆成行数组（保留顺序）
