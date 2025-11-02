@@ -131,7 +131,6 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     end
     table.insert(newLines, line)
   end
-
   editor.flashNotification(newLines)
 
   if not foundIndex then
