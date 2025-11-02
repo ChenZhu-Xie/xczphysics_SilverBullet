@@ -6,11 +6,11 @@ udpateDate: 2025-10-27
 
 ```space-lua
 -- priority: -1
-local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
+local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 
 -- 尝试读取 YAML 数据
-local function loadLastVisit()
-  space.readPage("CONFIG/Add Fields for Obj/Last Opened/Visit Times")
+local function loadlastOpened()
+  local lastOpened = space.readPage(path)
 end
 
 -- 保存 YAML 数据（覆盖写）
