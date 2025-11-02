@@ -5,7 +5,8 @@
 
 ```space-lua
 event.listen {
-  name = 'system:ready',
+  -- name = 'system:ready',
+  name = 'editor:init',
   run = function(e)
     if js.window.matchMedia('(prefers-color-scheme: dark)').matches then
       editor.flashNotification("Current Theme: Dark")
