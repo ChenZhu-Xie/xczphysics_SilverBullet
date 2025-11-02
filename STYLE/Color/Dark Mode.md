@@ -13,6 +13,11 @@ event.listen {
       editor.flashNotification("Current Theme: Light")
       editor.invokeCommand "Editor: Toggle Dark Mode"
     end
+
+    local events = event.listEvents()
+    for _, eventName in ipairs(events) do
+        print("Registered event: " .. eventName)
+    end
   end
 }
 ```
