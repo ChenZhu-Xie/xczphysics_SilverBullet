@@ -1,3 +1,8 @@
+---
+recommend: ⭐⭐⭐⭐⭐
+udpateDate: 2025-11-03
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Dark%20Mode.md"
+---
 
 1. https://silverbullet.md/Index%20Page
 2. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
