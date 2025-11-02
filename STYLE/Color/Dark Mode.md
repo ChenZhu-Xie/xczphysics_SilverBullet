@@ -17,7 +17,8 @@ event.listen {
 }
 
 event.listen {
-  name = "editor:pageLoaded",
+  -- name = "editor:pageLoaded",
+  name = "hooks:renderTopWidgets",
   run = function(e)
     if not clientStore.get("darkMode") then
       clientStore.set("darkMode", true)
