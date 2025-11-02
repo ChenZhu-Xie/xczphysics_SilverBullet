@@ -171,7 +171,8 @@ html {
 
 ```lua
 event.listen {
-  name = 'system:ready',
+  -- name = 'system:ready',
+  name = 'editor:init',
   run = function(e)
     editor.invokeCommand "Tree View: Toggle"
     js.import("/.fs/Library/PanelDragResize.js").enableDrag()
