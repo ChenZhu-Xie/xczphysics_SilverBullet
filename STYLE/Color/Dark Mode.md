@@ -5,7 +5,6 @@
 event.listen {
   -- name = 'system:ready',
   name = 'editor:init',
-  -- name = 'editor:complete',
   run = function(e)
     if clientStore.get("darkMode") then
       editor.flashNotification("Current Theme: Dark")
@@ -13,11 +12,6 @@ event.listen {
       editor.flashNotification("Current Theme: Light")
       clientStore.set("darkMode", true)
       editor.reloadUI()
-    end
-
-    local events = event.listEvents()
-    for _, eventName in ipairs(events) do
-        print("Registered event: " .. eventName)
     end
   end
 }
