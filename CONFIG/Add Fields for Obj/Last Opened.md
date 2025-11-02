@@ -6,6 +6,8 @@ udpateDate: 2025-10-27
 
 ```space-lua
 -- priority: -1
+editor.flashNotification "Hello world!"
+
 local yaml = require("yaml")  -- SB 已内建 yaml 支持
 local fs = require("fs")
 local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
@@ -56,7 +58,6 @@ event.listen{
     local pageRef = editor.getCurrentPage()
     local now = os.date("%Y-%m-%d %H:%M:%S")
     
-    editor.flashNotification "Hello world!"
     -- 确保该页条目存在
     if not lastVisitStore[pageRef] then
       lastVisitStore[pageRef] = {
