@@ -8,7 +8,7 @@ udpateDate: 2025-10-27
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
-editor.
+
 
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
