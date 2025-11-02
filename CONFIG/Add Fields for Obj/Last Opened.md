@@ -8,11 +8,6 @@ udpateDate: 2025-10-27
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 
--- 尝试读取 YAML 数据
-local function loadlastOpened()
-  local lastOpened = space.readPage(path)
-end
-
 -- 保存 YAML 数据（覆盖写）
 local function saveLastVisit(data)
   
@@ -44,29 +39,9 @@ event.listen{
     end
     lastVisitStore[pageRef] = now
     -- editor.flashNotification("lastVisit: pageRef " .. now)
-  end
-}
 
-event.listen{
-  name = "editor:pageLoaded",
-  run = function(e)
-    local pageRef = editor.getCurrentPage()
-    local now = os.date("%Y-%m-%d %H:%M:%S")
+    local lastOpened = space.readPage(path)
     
-    -- 确保该页条目存在
-    if not lastVisitStore[pageRef] then
-      lastVisitStore[pageRef] = {
-        lastOpened = now,
-        openedTimes = 1
-      }
-    else
-      local entry = lastVisitStore[pageRef]
-      entry.lastOpened = now
-      entry.openedTimes = (entry.openedTimes or 0) + 1
-    end
-
-    -- 增量更新写回
-    saveLastVisit(lastVisitStore)
   end
 }
 ```
