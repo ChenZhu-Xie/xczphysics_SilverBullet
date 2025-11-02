@@ -13,6 +13,11 @@ event.listen {
       clientStore.set("darkMode", true)
       editor.reloadUI()
     end
+
+    local events = event.listEvents()
+    for _, eventName in ipairs(events) do
+        print("Registered event: " .. eventName)
+    end
   end
 }
 ```
