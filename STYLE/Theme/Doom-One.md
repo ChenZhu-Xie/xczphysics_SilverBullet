@@ -1,6 +1,11 @@
 ---
-tag: style
-githubUrl: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"
+tags:
+  - style
+  - active
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-One.md"
+githubUrl_Original: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"
+recommend: ⭐⭐⭐⭐⭐
+udpateDate: 2025-11-03
 ---
 #style #active
 
