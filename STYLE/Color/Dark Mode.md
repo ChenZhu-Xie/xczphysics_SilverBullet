@@ -15,6 +15,16 @@ event.listen {
     end
   end
 }
+
+event.listen {
+  name = "editor:pageLoaded",
+  run = function(e)
+    if ~clientStore.get("darkMode") then
+      clientStore.set("darkMode", true)
+      editor.reloadUI()
+    end
+  end
+}
 ```
 
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8
