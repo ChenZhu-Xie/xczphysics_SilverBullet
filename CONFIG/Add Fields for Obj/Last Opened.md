@@ -137,6 +137,7 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
   for i, line in ipairs(lines) do
     -- 分隔行直接保留
     if isSeparatorLine(line) then
+      editor.flashNotification(line)
       table.insert(newLines, line)
     else
       local c1, c2, c3 = parseRow(line)
