@@ -12,7 +12,6 @@ local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
-  editor.flashNotification "Hello world!"
   if not fs.exists(path) then return {} end
   local f = io.open(path, "r")
   if not f then return {} end
@@ -56,7 +55,8 @@ event.listen{
   run = function(e)
     local pageRef = editor.getCurrentPage()
     local now = os.date("%Y-%m-%d %H:%M:%S")
-
+    
+    editor.flashNotification "Hello world!"
     -- 确保该页条目存在
     if not lastVisitStore[pageRef] then
       lastVisitStore[pageRef] = {
