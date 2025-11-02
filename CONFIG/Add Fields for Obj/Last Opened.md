@@ -24,30 +24,15 @@ index.defineTag {
   }
 }
 
--- 工具：标准化换行/去首尾空白/取 basename
+-- 工具函数：标准化换行
 local function normalizeNewlines(s)
   if not s or s == "" then return "" end
-  s = s:gsub("\r\n", "\n"):gsub("\r", "\n")
-  return s
-end
-local function trim(s)
-  return (tostring(s or ""):match("^%s*(.-)%s*$"))
-end
-local function basename(ref)
-  -- 去掉目录部分
-  local b = ref:gsub("[/\\]+$", ""):gsub("^.+[/\\]", "")
-  return b ~= "" and b or ref
-end
-local function unquote(s)
-  s = trim(s or "")
-  local q = s:sub(1,1)
-  if (q == '"' or q == "'") and s:sub(-1) == q then
-    return s:sub(2, -2)
-  end
+  s = s:gsub("\r\n", "\n")
+  s = s:gsub("\r", "\n")
   return s
 end
 
--- 初始化空表内容（表头为 pageRef | lastVisit | visitTimes）
+-- 初始化空表内容（表头改为 pageRef，末列为 visitTimes）
 local function initialTable()
   return table.concat({
     "| pageRef | lastVisit | visitTimes |",
@@ -67,169 +52,32 @@ local function isSeparatorLine(line)
   return line:match("^%s*|%s*[-:]+") ~= nil
 end
 
--- 行拆分器：把一行表格内容分成 N 个单元格
--- 支持：
---  - 链接 [[...|...]] 内的管道不会作为分隔符
---  - 转义管道 \| 不作为分隔符
-local function splitRowCells(line)
-  local cells = {}
-  local buf = {}
-  local i, n = 1, #line
-  local started = false
-  local linkDepth = 0 -- 处理 [[  ]] 成对出现
-  local function pushCell()
-    local cell = table.concat(buf)
-    table.insert(cells, trim(cell))
-    buf = {}
-  end
-
-  while i <= n do
-    local ch = line:sub(i,i)
-    local next2 = (i < n) and (line:sub(i, i+1)) or nil
-
-    -- 跳过行首的分隔竖线
-    if not started then
-      if ch == "|" then
-        started = true
-        i = i + 1
-      else
-        -- 非表格行
-        return nil
-      end
-    else
-      -- 处理转义 \|
-      if ch == "\\" and i < n then
-        local ch2 = line:sub(i+1,i+1)
-        table.insert(buf, ch) -- 保留转义（原样）
-        table.insert(buf, ch2)
-        i = i + 2
-      -- 处理 [[ 与 ]]
-      elseif next2 == "[[" then
-        linkDepth = linkDepth + 1
-        table.insert(buf, next2)
-        i = i + 2
-      elseif next2 == "]]" and linkDepth > 0 then
-        linkDepth = linkDepth - 1
-        table.insert(buf, next2)
-        i = i + 2
-      -- 非链接/非转义下的单元格分隔符
-      elseif ch == "|" and linkDepth == 0 then
-        pushCell()
-        i = i + 1
-        -- 如果后面直接是行尾或仅有一个额外的“|”，继续循环让它收集空单元格
-      else
-        table.insert(buf, ch)
-        i = i + 1
-      end
-    end
-  end
-
-  if started then
-    pushCell()
-  end
-
-  -- 去除最后一个空单元格（如果行末以 | 结束）
-  while #cells > 0 and cells[#cells] == "" do
-    table.remove(cells, #cells)
-  end
-
-  return cells
-end
-
 -- 解析一行是否为数据行，返回3列（忽略分隔行）
 local function parseRow(line)
   if isSeparatorLine(line) then return nil end
-  local cells = splitRowCells(line)
-  if not cells or #cells < 3 then return nil end
-  return cells[1], cells[2], cells[3]
+  local c1, c2, c3 = line:match("^%s*|%s*([^|]-)%s*|%s*([^|]-)%s*|%s*([^|]-)%s*|%s*$")
+  if not c1 then return nil end
+  return c1, c2, c3
 end
 
 -- 从第一格内容提取 pageRef：
 -- 支持 "[[Ref]]" 或 "[[Ref|Alias]]"；否则原样返回去掉首尾空格的文本
 local function extractPageRefFromFirstCell(cellText)
-  local cell = trim(cellText or "")
+  local cell = (cellText or ""):match("^%s*(.-)%s*$") or ""
   local inner = cell:match("^%[%[%s*(.-)%s*%]%]$")
   if inner then
     local ref = inner:match("^(.-)|") or inner
-    return trim(ref or "")
+    return (ref or ""):match("^%s*(.-)%s*$")
   end
   return cell
 end
 
--- 计算“显示别名”
-local aliasCache = {}
-local function extractFrontmatter(content)
-  -- 只在文首提取简单 YAML frontmatter: ---\n ... \n---
-  local fm = content:match("^%-%-%-\n(.-)\n%-%-%-")
-  return fm
-end
-local function pickFirstAliasesFromFrontmatter(fm)
-  -- 支持三种：title, alias, aliases
-  local title = nil
-  local alias = nil
-  local firstAliases = nil
-
-  -- 行级扫描，简单稳健
-  for line in (fm or ""):gmatch("([^\n]+)") do
-    local k, v = line:match("^%s*([%w_%-]+)%s*:%s*(.-)%s*$")
-    if k and v then
-      local kl = k:lower()
-      if kl == "title" and not title then
-        title = unquote(v)
-      elseif kl == "alias" and not alias then
-        alias = unquote(v)
-      elseif kl == "aliases" and not firstAliases then
-        -- 支持 array 语法 aliases: [A, B] 或后续多行 "- A"
-        local bracket = v:match("^%[(.-)%]$")
-        if bracket then
-          local first = bracket:match("^%s*([^,]+)")
-          firstAliases = first and unquote(first)
-        end
-      end
-    else
-      -- 也支持 YAML 列表项："- xxx" 仅在前一行是 aliases: 时有效，但为简化不做上下文跟踪
-      -- 如需更严谨可扩展为状态机，这里尽量保持简单
-    end
-  end
-  return title or alias or firstAliases
-end
-
-local function getPageAlias(pageRef)
-  if aliasCache[pageRef] ~= nil then return aliasCache[pageRef] end
-  local disp = basename(pageRef)
-
-  local ok, content = pcall(function() return space.readPage(pageRef) end)
-  if ok and content and content ~= "" then
-    content = normalizeNewlines(content)
-    local fm = extractFrontmatter(content)
-    local picked = fm and pickFirstAliasesFromFrontmatter(fm)
-    if picked and picked ~= "" then
-      disp = picked
-    else
-      -- 从正文中取第一个 H1
-      local h1 = content:match("^\n?#%s+([^\n]+)") or content:match("\n#%s+([^\n]+)")
-      if h1 and trim(h1) ~= "" then
-        disp = trim(h1)
-      end
-    end
-  end
-
-  -- 避免别名中出现会破坏链接的字符
-  disp = disp:gsub("%]%]", "]] ")     -- 防止闭合符
-  disp = disp:gsub("%[%[", " [[")     -- 防止开符
-  disp = disp:gsub("|", "¦")          -- 别名内不允许有 |，替换为相似字符
-
-  aliasCache[pageRef] = disp
-  return disp
-end
-
--- 将 pageRef 渲染成第一格内容：[[pageRef|alias]]
+-- 将 pageRef 渲染成第一格内容（前向链接）
 local function renderFirstCellFromPageRef(pageRef)
-  local alias = getPageAlias(pageRef)
-  return ("[[%s|%s]]"):format(tostring(pageRef or ""), tostring(alias or ""))
+  return ("[[%s]]"):format(tostring(pageRef or ""))
 end
 
--- 行格式化：第一格写入前向链接 "[[pageRef|alias]]"
+-- 行格式化：第一格写入前向链接 "[[pageRef]]"
 local function formatRow(pageRef, lastVisit, visitTimes)
   return ("| %s | %s | %s |"):format(
     renderFirstCellFromPageRef(pageRef),
@@ -287,38 +135,38 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
   local foundIndex = nil
 
   for i, line in ipairs(lines) do
+    -- 分隔行直接保留
     if isSeparatorLine(line) then
       table.insert(newLines, line)
     else
       local c1, c2, c3 = parseRow(line)
       if not c1 then
-        -- 非表格数据行（表头、空行或其他内容），原样保留
-        local firstCellTrim = trim((splitRowCells(line) or {})[1] or "")
-        local isHeaderRow = (firstCellTrim:lower() == "pagename" or firstCellTrim:lower() == "pageref")
-        if isHeaderRow then
-          table.insert(newLines, "| pageRef | lastVisit | visitTimes |")
-        else
-          table.insert(newLines, line)
-        end
+        -- 非表格数据行（包含表头、空行或其他内容），原样保留
+        table.insert(newLines, line)
       else
-        local firstCellTrim = trim(c1)
+        -- 表格数据行
+        local firstCellTrim = (c1 or ""):match("^%s*(.-)%s*$") or ""
         local isHeaderRow = (firstCellTrim:lower() == "pagename" or firstCellTrim:lower() == "pageref")
+
         if isHeaderRow then
-          -- 强制规范表头
-          table.insert(newLines, "| pageRef | lastVisit | visitTimes |")
+          -- 把表头第一列强制改成 pageRef（兼容你之前的 pageName）
+          local _, h2, h3 = c1, c2 or "lastVisit", c3 or "visitTimes"
+          line = "| pageRef | lastVisit | visitTimes |"
+          table.insert(newLines, line)
         else
+          -- 普通数据行：提取真正的 pageRef
           local rowRef = extractPageRefFromFirstCell(c1)
 
           -- 1) 自动清理：若该 pageRef 在空间中已不存在，则跳过（不写入 newLines）
           local canCheck = (type(space) == "table" and type(space.pageExists) == "function")
           if canCheck and rowRef ~= "" and rowRef ~= pageRef and not space.pageExists(rowRef) then
-            -- 删除：跳过
+            -- 跳过该行，相当于删除
           else
-            -- 2) 更新目标行；非目标行保持原样
+            -- 2) 正常保留或更新目标行
             if rowRef == pageRef then
-              local timesNum = tonumber(trim(c3 or "")) or 0
+              local timesNum = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
               timesNum = timesNum + (incTimes and 1 or 0)
-              line = formatRow(pageRef, lastVisit, timesNum) -- 第一列默认显示别名
+              line = formatRow(pageRef, lastVisit, timesNum)
               foundIndex = i
             end
             table.insert(newLines, line)
@@ -328,7 +176,7 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
     end
   end
 
-  -- 未找到则追加（第一列默认显示别名）
+  -- 未找到则追加
   if not foundIndex then
     table.insert(newLines, formatRow(pageRef, lastVisit, 1))
   end
