@@ -3,8 +3,8 @@
 
 ```space-lua
 event.listen {
-  name = 'system:ready',
-  -- name = 'editor:init',
+  -- name = 'system:ready',
+  name = 'editor:init',
   run = function(e)
     if clientStore.get("darkMode") then
       editor.flashNotification("Current Theme: Dark")
