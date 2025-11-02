@@ -124,10 +124,10 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     -- editor.flashNotification(c2)
     -- editor.flashNotification(c3)
     if c1 then
-      local name = unescapeCellPipes(c1):match("^ *(.-) *$")
+      local name = c1:match("^%s*(.-)%s*$")
       editor.flashNotification(name)
       if name == pageName then
-        local timesNum = tonumber((c3 or ""):match("^ *(.-) *$")) or 0
+        local timesNum = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
         timesNum = timesNum + (incTimes and 1 or 0)
         line = formatRow(pageName, lastVisit, timesNum)
         foundIndex = i
