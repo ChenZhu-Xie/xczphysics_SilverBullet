@@ -123,9 +123,9 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     -- editor.flashNotification(c1)
     -- editor.flashNotification(c2)
     -- editor.flashNotification(c3)
+    editor.flashNotification(name)
     if c1 then
       local name = c1:match("^%s*(.-)%s*$")
-      editor.flashNotification(name)
       if name == pageName then
         local timesNum = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
         timesNum = timesNum + (incTimes and 1 or 0)
