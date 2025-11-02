@@ -31,7 +31,8 @@ event.listen{
     lastVisitStore[pageRef] = now
 
     local lastOpened = space.readPage(path)
-    -- 查找 pageRef 是否在 lastOpened 内容里：使用
+    -- 查找 pageRef 是否在 lastOpened 内容里：若有，说明键存在，开始依次覆写中，该 pageRef 键所在行的 2 个值：lastVisit, Times
+    -- 若 pageRef 不存在 lastOpened 内容里，则新增 pageRef 键及其所在行的 2 个值：lastVisit, Times
   end
 }
 ```
