@@ -112,7 +112,7 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
   if content == "" or not hasHeader(content) then
     content = initialTable()
   end
-  editor.flashNotification(content)
+  -- editor.flashNotification(content)
 
   local lines = splitLines(content)
   local foundIndex = nil
@@ -120,6 +120,7 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
 
   for i, line in ipairs(lines) do
     local c1, c2, c3 = parseRow(line)
+    editor.flashNotification(c1)
     if c1 then
       local name = unescapeCellPipes(c1):match("^ *(.-) *$")
       if name == pageName then
