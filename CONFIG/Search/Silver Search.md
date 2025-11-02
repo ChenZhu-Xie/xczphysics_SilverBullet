@@ -15,3 +15,15 @@ config.set("plugs", { -- 注意，第一个 config.set() 覆盖 第二个 config
 ```space-lua
 
 ```
+
+```space-style
+#sb-root:has(.sb-modal-box)::before, #sb-root:has(.sb-modal)::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sb-modal-box[open], .sb-modal {
+  position: fixed;
+  z-index: 9999;
+}
+```
