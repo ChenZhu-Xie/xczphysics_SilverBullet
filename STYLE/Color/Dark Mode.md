@@ -17,6 +17,7 @@ event.listen {
 ```
 
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8?u=chenzhu-xie
+2. https://silverbullet.md/API/event#event.listEvents()
 
 ```lua
 event.listen {
@@ -29,6 +30,11 @@ event.listen {
       editor.flashNotification("Current Theme: Light")
       clientStore.set("darkMode", true)
       editor.reloadUI()
+    end
+    
+    local events = event.listEvents()
+    for _, eventName in ipairs(events) do
+        print("Registered event: " .. eventName)
     end
   end
 }
@@ -49,11 +55,6 @@ event.listen {
     else
       editor.flashNotification("Current Theme: Light")
       editor.invokeCommand "Editor: Toggle Dark Mode"
-    end
-
-    local events = event.listEvents()
-    for _, eventName in ipairs(events) do
-        print("Registered event: " .. eventName)
     end
   end
 }
