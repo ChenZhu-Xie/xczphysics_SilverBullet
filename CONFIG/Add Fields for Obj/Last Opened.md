@@ -123,7 +123,6 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     -- editor.flashNotification(c1)
     -- editor.flashNotification(c2)
     -- editor.flashNotification(c3)
-    editor.flashNotification(c1:match("^%s*(.-)%s*$"))
     if c1 then
       local name = c1:match("^%s*(.-)%s*$")
       if name == pageName then
@@ -135,7 +134,7 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     end
     table.insert(newLines, line)
   end
-  -- editor.flashNotification(newLines)
+  editor.flashNotification(newLines)
 
   if not foundIndex then
     -- 追加新行到表末尾（表可能只有表头两行）
