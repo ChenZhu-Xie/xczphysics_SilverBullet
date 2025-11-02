@@ -28,7 +28,8 @@ index.defineTag {
 }
 
 event.listen{
-  name = "hooks:renderTopWidgets",
+  -- name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
   run = function(e)
     local pageRef = editor.getCurrentPage()
     local now = os.date("%Y-%m-%d %H:%M:%S")
