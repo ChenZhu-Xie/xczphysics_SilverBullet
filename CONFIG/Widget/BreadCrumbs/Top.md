@@ -44,8 +44,8 @@ end
 
 local function bc_lastM(path)
   return template.new(choose(
-    [==[⇩<span style="color:var(--ui-accent-color)">[[${name}]]</span>]==],
-    [==[⬇<span style="color:var(--ui-accent-color)">[[${name}]]</span>]==],
+    [==[⇩<span style="color:#98be65">[[${name}]]</span>]==],
+    [==[⬇<span style="color:#98be65">[[${name}]]</span>]==],
     path))
 end
 
