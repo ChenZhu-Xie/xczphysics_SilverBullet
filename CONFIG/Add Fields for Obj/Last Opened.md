@@ -6,14 +6,11 @@ udpateDate: 2025-10-27
 
 ```space-lua
 -- priority: -1
-editor.flashNotification "Hello world!"
-
-local yaml = require("yaml")  -- SB 已内建 yaml 支持
-local fs = require("fs")
 local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
+  editor.flashNotification "Hello world!"
   if not fs.exists(path) then return {} end
   local f = io.open(path, "r")
   if not f then return {} end
