@@ -100,7 +100,6 @@ local function writePageContent(targetPath, newContent)
       local old = editor.getText() or ""
       -- 全量替换
       editor.replaceRange(0, #old, newContent, true)
-      -- space.writePage(name, text) 也可以。
     end)
     return ok
   end
