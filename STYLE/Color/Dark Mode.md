@@ -19,7 +19,7 @@ event.listen {
 event.listen {
   name = "editor:pageLoaded",
   run = function(e)
-    if ~clientStore.get("darkMode") then
+    if not clientStore.get("darkMode") then
       clientStore.set("darkMode", true)
       editor.reloadUI()
     end
