@@ -10,7 +10,7 @@ local path = "CONFIG/Add Fields for Obj/Last Opened/lastVisit.yaml"
 
 -- 尝试读取 YAML 数据
 local function loadLastVisit()
-  editor.flashNotification "Hello world!"
+  editor.flashNotification(fs.exists(path))
   if not fs.exists(path) then return {} end
   local f = io.open(path, "r")
   if not f then return {} end
