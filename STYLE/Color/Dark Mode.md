@@ -9,7 +9,7 @@ event.listen {
   run = function(e)
     if not js.window.matchMedia('(prefers-color-scheme: dark)').matches then
       editor.flashNotification("Current Theme: Light")
-      editor.invokeCommand "Toggle Dark Mode"
+      editor.invokeCommand "Editor: Toggle Dark Mode"
     else
       editor.flashNotification("Current Theme: Dark")
     end
