@@ -123,7 +123,7 @@ local function upsertVisitRow(targetPath, pageName, lastVisit, incTimes)
     -- editor.flashNotification(c1)
     -- editor.flashNotification(c2)
     -- editor.flashNotification(c3)
-    editor.flashNotification(unescapeCellPipes(c1))
+    editor.flashNotification(unescapeCellPipes(c1)):match("^%s*(.-)%s*$")
     if c1 then
       local name = c1:match("^%s*(.-)%s*$")
       if name == pageName then
