@@ -192,7 +192,7 @@ function yg.bc(path)
 
   -- 访问次数（来自 Visit Times 表，带秒级缓存 + 快速路径）
   local visits = getVisitTimesFor(mypage)
-  local visitsSuffix = " 👀:" .. tostring(visits)
+  local visitsSuffix = "👀:" .. tostring(visits)
 
   return bc .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
