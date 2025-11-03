@@ -4,7 +4,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
-${utilities.RecentlyOpenedPages(10)}
+${utilities.RecentlyOpenedPages(12)}
 2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
 
 ```space-lua
