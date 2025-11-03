@@ -114,8 +114,10 @@ function yg.lastM(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastM）
-  local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  -- local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  -- local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local M_CHILD     = {"⇩","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_NOCHILD   = {"⬇","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
   local badges = hasChild and M_CHILD or M_NOCHILD
 
   for i, item in ipairs(list) do
@@ -139,8 +141,10 @@ function yg.lastV(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastV）
-  local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  -- local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  -- local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local V_CHILD     = {"⇩","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_NOCHILD   = {"⬇","➋","➌","➍","➎","➏","➐","➑","➒"}
   local badges = hasChild and V_CHILD or V_NOCHILD
 
   for i, item in ipairs(list) do
