@@ -100,11 +100,11 @@ function yg.lastM(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastM）
-  local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local M_hasCHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_noCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
   -- local M_CHILD     = {"⇩","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
   -- local M_NOCHILD   = {"⬇","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
-  local badges = hasChild and M_CHILD or M_NOCHILD
+  local badges = hasChild and M_hasCHILD or M_noCHILD
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
