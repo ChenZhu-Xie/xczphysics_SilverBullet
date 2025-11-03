@@ -42,11 +42,125 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
+## Ver 2
+
+```space-lua
+-- priority: 10
+yg = yg or {}
+local bc_folder = template.new[==[/[[${name}]]​]==]
+
+function yg.breadcrumbs(path)
+  local mypage = path or editor.getCurrentPage()
+  local parts = string.split(mypage, "/")
+  local crumbs = {}
+  for i, part in ipairs(parts) do
+    local current = table.concat(parts, "/", 1, i)
+    table.insert(crumbs, {name = current})
+  end
+  return crumbs
+end
+
+-- 保留 choose（若后续有用），但不再用于 bc_lastM / bc_lastV 模板
+local function choose(a, b, path)
+  local mypage = path or editor.getCurrentPage()
+  local children = query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")]]
+  if #children > 0 then
+    return a
+  else
+    return b
+  end
+end
+
+-- 模板改为使用 ${badge}，具体符号在数据阶段注入
+local function bc_lastM(_path)
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+local function bc_lastV(_path)
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+function yg.bc(path)
+  local bc = template.each(yg.breadcrumbs(path), bc_folder) or ""
+  local lastMs = template.each(yg.lastM(path), bc_lastM(path)) or ""
+  local lastVs = template.each(yg.lastV(path), bc_lastV(path)) or ""
+  return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
+end
+
+-- 支持最多 9 个（对应 1~9）
+local max_num = 5
+
+-- 辅助：判断是否有子页面
+local function has_children(mypage)
+  local children = query[[from index.tag "page"
+         where _.name:find("^" .. mypage .. "/")
+         limit 1]]
+  return #children > 0
+end
+
+function yg.lastM(path)
+  local mypage = path or editor.getCurrentPage()
+  local hasChild = has_children(mypage)
+
+  -- 选择数据源：有子页面时选子页面最近修改，否则全局最近修改（排除当前页）
+  local list = hasChild and query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")
+         order by _.lastModified desc
+         limit max_num]]
+       or query[[from index.tag "page"
+         where _.name != mypage
+         order by _.lastModified desc
+         limit max_num]]
+
+  -- 序号徽章（bc_lastM）
+  local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = hasChild and M_CHILD or M_NOCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function yg.lastV(path)
+  local mypage = path or editor.getCurrentPage()
+  local hasChild = has_children(mypage)
+
+  -- 选择数据源：有子页面时选子页面最近访问，否则全局最近访问（排除当前页）
+  local list = hasChild and query[[from index.tag "page" 
+         where _.lastVisit and _.name:find("^" .. mypage .. "/")
+         order by _.lastVisit desc
+         limit max_num]]
+       or query[[from index.tag "page"
+         where _.lastVisit and _.name != mypage
+         order by _.lastVisit desc
+         limit max_num]]
+
+  -- 序号徽章（bc_lastV）
+  local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = hasChild and V_CHILD or V_NOCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function widgets.breadcrumbs()
+  return widget.new {markdown = yg.bc()}
+end
+```
+
+## Ver 1
+
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 2. https://community.silverbullet.md/t/hooks-rendertopwidgets/2074/2?u=chenzhu-xie
 3. https://community.silverbullet.md/t/abc-adaptive-bread-crumb/3464
 
-```space-lua
+```lua
 -- priority: 10
 yg = yg or {}
 local bc_folder = template.new[==[/[[${name}]]​]==]
