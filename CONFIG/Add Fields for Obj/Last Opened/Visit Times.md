@@ -1,7 +1,7 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:19:33 | 35 |
-| [[CONFIG/Copy as/External Link/Cursor Position]] | 2025-11-04 01:16:28 | 2 |
+| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:20:35 | 36 |
+| [[CONFIG/Copy as/External Link/Cursor Position]] | 2025-11-04 01:20:35 | 3 |
 | [[CONFIG/Edit]] | 2025-11-04 01:16:22 | 1 |
 | [[CONFIG/Copy as/Forward Link]] | 2025-11-04 01:16:17 | 1 |
 | [[CONFIG/Copy as/Markdown/Inline Format]] | 2025-11-04 01:16:10 | 2 |
