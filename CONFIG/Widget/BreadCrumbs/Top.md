@@ -167,7 +167,7 @@ local function getVisitTimesFor(pageRef)
 end
 
 -- 模板改为使用 ${badge}，具体符号在数据阶段注入
-local function bc_last(_path)
+local function bc_last()
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
@@ -187,8 +187,8 @@ function yg.bc(path)
   end
 
   -- 最近修改/访问徽章（沿用原有逻辑）
-  local lastMs = template.each(yg.lastM(mypage), bc_last(mypage)) or ""
-  local lastVs = template.each(yg.lastV(mypage), bc_last(mypage)) or ""
+  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
+  local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
   -- 访问次数（来自 Visit Times 表，带秒级缓存 + 快速路径）
   local visits = getVisitTimesFor(mypage)
@@ -208,8 +208,7 @@ local function has_children(mypage)
   return #children > 0
 end
 
-function yg.lastM(path)
-  local mypage = path or editor.getCurrentPage()
+function yg.lastM(mypage)
   local hasChild = has_children(mypage)
 
   -- 选择数据源：有子页面时选子页面最近修改，否则全局最近修改（排除当前页）
@@ -233,8 +232,7 @@ function yg.lastM(path)
   return list
 end
 
-function yg.lastV(path)
-  local mypage = path or editor.getCurrentPage()
+function yg.lastV(mypage)
   local hasChild = has_children(mypage)
 
   -- 选择数据源：有子页面时选子页面最近访问，否则全局最近访问（排除当前页）
