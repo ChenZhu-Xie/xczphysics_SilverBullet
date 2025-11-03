@@ -194,14 +194,14 @@ local max_num = 5
 
 function Yg.lastM(path)
   return query[[from index.tag "page" 
-         where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 end
 
 function Yg.lastV(path)
   return query[[from index.tag "page" 
-         where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit max_num]]
 end
