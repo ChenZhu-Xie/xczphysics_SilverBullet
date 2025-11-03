@@ -47,18 +47,6 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 -- priority: 10
 yg = yg or {}
-local bc_folder = template.new[==[/[[${name}]]​]==]
-
-function yg.breadcrumbs(path)
-  local mypage = path or editor.getCurrentPage()
-  local parts = string.split(mypage, "/")
-  local crumbs = {}
-  for i, part in ipairs(parts) do
-    local current = table.concat(parts, "/", 1, i)
-    table.insert(crumbs, {name = current})
-  end
-  return crumbs
-end
 
 -- 保留 choose（若后续有用），但不再用于 bc_lastM / bc_lastV 模板
 local function choose(a, b, path)
@@ -73,11 +61,7 @@ local function choose(a, b, path)
 end
 
 -- 模板改为使用 ${badge}，具体符号在数据阶段注入
-local function bc_lastM(_path)
-  return template.new([==[${badge}[[${name}]]​]==])
-end
-
-local function bc_lastV(_path)
+local function bc_last(_path)
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
@@ -97,8 +81,8 @@ function yg.bc(path)
   end
 
   -- 保持你已有的最近修改/访问徽章渲染（使用之前注入 badge 的模板）
-  local lastMs = template.each(yg.lastM(mypage), bc_lastM(mypage)) or ""
-  local lastVs = template.each(yg.lastV(mypage), bc_lastV(mypage)) or ""
+  local lastMs = template.each(yg.lastM(mypage), bc_last(mypage)) or ""
+  local lastVs = template.each(yg.lastV(mypage), bc_last(mypage)) or ""
   return bc .. " " .. lastMs .. " " .. lastVs
 end
 
