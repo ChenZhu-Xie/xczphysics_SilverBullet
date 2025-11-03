@@ -105,7 +105,7 @@ function Yg.lastV(path)
   -- 圆形风格（沿用 Top 的约定）
   local V_HASFATHER   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
   local V_NOFATHER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local badges = choose(M_HASFATHER, M_NOFATHER, path)
+  local badges = choose(V_HASFATHER, V_NOFATHER, path)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
