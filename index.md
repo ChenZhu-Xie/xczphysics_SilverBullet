@@ -7,12 +7,7 @@ Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A 
 ${widget.html(dom.marquee{
   dom.span {
     style="color:cyan;",
-    "Finally, "
-  },
-  "You’ve made it ",
-  dom.span {
-    style="color:cyan;",
-    "here!"
+    "Finally, You’ve made it here!"
   }
 })}
 _[One of us!](https://community.silverbullet.md/)_

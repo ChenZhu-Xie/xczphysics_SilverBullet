@@ -9,7 +9,7 @@ udpateDate: 2025-10-27
 ## Line: Move Up/Down
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
-2. Extracting from [[SB Basics/SB Tricks/Useful Stuff]]
+2. Extracting from [[SB Basics/SB API/editor]]
 
 ```space-lua
 command.define {

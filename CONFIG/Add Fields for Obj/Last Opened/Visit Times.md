@@ -1,7 +1,10 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-04 01:22:51 | 16 |
-| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:20:35 | 36 |
+| [[SB Basics/SB API/editor-11-04 01:26:47 | 1 |
+| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 01:25:50 | 13 |
+| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:24:55 | 37 |
+| [[index]] | 2025-11-04 01:23:43 | 16 |
+| [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-04 01:23:29 | 17 |
 | [[CONFIG/Copy as/External Link/Cursor Position]] | 2025-11-04 01:20:35 | 3 |
 | [[CONFIG/Edit]] | 2025-11-04 01:16:22 | 1 |
 | [[CONFIG/Copy as/Forward Link]] | 2025-11-04 01:16:17 | 1 |
@@ -13,9 +16,7 @@
 | [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-04 01:13:09 | 8 |
 | [[CONFIG/KeyBinding]] | 2025-11-04 01:11:38 | 3 |
 | [[CONFIG/KeyBinding/Define]] | 2025-11-04 01:11:27 | 17 |
-| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 01:11:24 | 12 |
 | [[CONFIG/KeyBinding/Update]] | 2025-11-04 01:11:20 | 11 |
-| [[index]] | 2025-11-04 01:11:19 | 15 |
 | [[SB Basics]] | 2025-11-04 00:56:56 | 7 |
 | [[Library/Std/APIs/Virtual Page]] | 2025-11-04 00:42:19 | 1 |
 | [[SB Basics/SB Tricks]] | 2025-11-04 00:40:52 | 4 |

@@ -1,5 +1,5 @@
 
-# [API/editor]( https://silverbullet.md/API/editor)
+# [API/space](https://silverbullet.md/API/space)
 
 ## editor.showPanel
 
