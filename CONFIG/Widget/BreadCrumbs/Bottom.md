@@ -97,18 +97,15 @@ function Yg.lastM(path)
 end
 
 function Yg.lastV(path)
-  local mypage = path or editor.getCurrentPage()
-  local hasChild = has_children(mypage)
-
   local list = query[[from index.tag "page" 
          where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit max_num]]
 
   -- 圆形风格（沿用 Top 的约定）
-  local V_CHILD   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  local V_NOCHILD = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local badges = hasChild and V_CHILD or V_NOCHILD
+  local V_HASFATHER   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_NOFATHER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = choose(M_HASFATHER, M_NOFATHER, path)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
