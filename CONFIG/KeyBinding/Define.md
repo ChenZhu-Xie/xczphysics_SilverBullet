@@ -17,7 +17,7 @@ command.define {
     editor.toggleComment()
   end,
   key = "Shift-Alt-m",
-  mac = "Shift-Alt-c",
+  mac = "Shift-Alt-m",
   priority = 0
 }
 ```
