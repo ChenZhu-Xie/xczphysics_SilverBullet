@@ -1,9 +1,9 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/KeyBinding/Define]] | 2025-11-04 00:58:31 | 4 |
+| [[CONFIG/KeyBinding/Define]] | 2025-11-04 01:07:43 | 6 |
+| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 01:06:24 | 5 |
 | [[CONFIG/KeyBinding/Update]] | 2025-11-04 00:57:58 | 7 |
 | [[index]] | 2025-11-04 00:57:55 | 14 |
-| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 00:57:02 | 3 |
 | [[SB Basics]] | 2025-11-04 00:56:56 | 7 |
 | [[Library/Std/APIs/Virtual Page]] | 2025-11-04 00:42:19 | 1 |
 | [[SB Basics/SB Tricks]] | 2025-11-04 00:40:52 | 4 |

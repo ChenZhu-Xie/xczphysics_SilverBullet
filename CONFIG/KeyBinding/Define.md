@@ -9,9 +9,7 @@ udpateDate: 2025-10-27
 ## Line: Move Up/Down
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
-asdfffds
-poweqkr
-fades fades is the 
+
 ```space-lua
 command.define {
   name = "Line: Move Up",
