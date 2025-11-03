@@ -92,7 +92,7 @@ function Yg.lastM(path)
   local hasChild = has_children(mypage)
 
   local list = query[[from index.tag "page" 
-         where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 
@@ -112,7 +112,7 @@ function Yg.lastV(path)
   local hasChild = has_children(mypage)
 
   local list = query[[from index.tag "page" 
-         where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit max_num]]
 
