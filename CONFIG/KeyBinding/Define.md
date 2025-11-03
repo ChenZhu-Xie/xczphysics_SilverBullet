@@ -14,10 +14,22 @@ udpateDate: 2025-10-27
 command.define {
   name = "Line: Move Up",
   run = function()
-    editor.toggleComment()
+    editor.moveLineUp()
   end,
   key = "Alt-arrowup",
   mac = "Alt-arrowup",
+  priority = 0
+}
+```
+
+```space-lua
+command.define {
+  name = "Line: Move Down",
+  run = function()
+    editor.moveLineDown()
+  end,
+  key = "Alt-arrowdown",
+  mac = "Alt-arrowdown",
   priority = 0
 }
 ```
