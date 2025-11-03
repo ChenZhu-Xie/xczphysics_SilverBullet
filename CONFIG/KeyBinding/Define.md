@@ -20,7 +20,7 @@ asdf
 command.define {
   name = "Text: Toggle Comment",
   run = function()
-    editor.toggleComment()
+    editor.Comment()
   end,
   key = "Shift-Alt-m",
   mac = "Shift-Alt-m",
