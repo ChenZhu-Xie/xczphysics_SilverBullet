@@ -60,7 +60,7 @@ function yg.bc(path)
 
   -- 构建类似 .⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 的链接串
   local bc = "[[.]]"
-  local parts = string.split(mypage, "/")
+  local parts = string.split(editor.getCurrentPage(), "/")
   local current = ""
   for i, part in ipairs(parts) do
     if current ~= "" then current = current .. "/" end
