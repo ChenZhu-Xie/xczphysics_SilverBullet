@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 23:03:11 | 3 |
 | [[SB Basics/SB Tricks]] | 2025-11-03 22:51:40 | 3 |
 | [[index]] | 2025-11-03 22:34:14 | 11 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 22:33:28 | 33 |
@@ -15,7 +16,6 @@
 | [[SB Basics]] | 2025-11-03 20:25:24 | 2 |
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 20:24:16 | 9 |
 | [[CONFIG]] | 2025-11-03 19:53:14 | 4 |
-| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 19:53:10 | 2 |
 | [[CONFIG/Copy as/Markdown/Inline Format]] | 2025-11-03 19:52:36 | 1 |
 | [[CONFIG/Copy as/Markdown]] | 2025-11-03 19:52:35 | 1 |
 | [[About Me]] | 2025-11-03 19:51:20 | 12 |
