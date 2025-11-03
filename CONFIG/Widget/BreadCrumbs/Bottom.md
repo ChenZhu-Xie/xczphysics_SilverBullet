@@ -187,7 +187,7 @@ function Yg.lastV(thisPage, mypath)
   return list
 end
 
--- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符，并追加👀访问次数
+-- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符，并追加 👀访问次数
 function Yg.bc(path)
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
@@ -209,9 +209,9 @@ function Yg.bc(path)
 
   -- 访问次数（来自 Visit Times 表，带秒级缓存 + 快速路径）
   local visits = getVisitTimesFor(thisPage)
-  local visitsSuffix = "👀" .. tostring(visits)
+  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
-  return bc .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
 
 function widgets.breadcrumbs_B()

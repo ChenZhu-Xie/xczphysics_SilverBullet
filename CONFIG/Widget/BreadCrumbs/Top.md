@@ -45,7 +45,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 
 ## Ver 3: 👀lastVisit added
 
-.⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top👀lastVisit
+.⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 👀lastVisit
 
 ```space-lua
 -- priority: 10
@@ -194,7 +194,7 @@ function yg.bc(path)
   local visits = getVisitTimesFor(mypage)
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
-  return bc .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
 
 -- 支持最多 9 个（对应 1~9）
