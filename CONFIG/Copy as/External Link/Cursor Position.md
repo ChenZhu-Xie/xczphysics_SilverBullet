@@ -56,7 +56,11 @@ command.define {
       -- editor.flashNotification("Copied header external link: " .. out, "info")
       editor.flashNotification("Copied header link: " .. out, "info")
     else
-      out = string.format("%s@%d", pageUrl, pos)
+      if pos and pos > 0 then
+        out = string.format("%s@%d", pageUrl, pos)
+      else
+        out = string.format("%s", pageUrl)
+      end
       -- editor.flashNotification("Copied cursor external link: " .. out, "info")
       editor.flashNotification("Copied cursor link: " .. out, "info")
     end
