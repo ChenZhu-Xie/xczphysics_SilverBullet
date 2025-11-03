@@ -1,5 +1,10 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[SB Basics/SB Instances]] | 2025-11-03 21:37:54 | 2 |
+| [[SB Basics/SB Docs]] | 2025-11-03 21:37:53 | 1 |
+| [[SB Basics/SB Philosophy]] | 2025-11-03 21:37:50 | 2 |
+| [[SB Basics/SB Tricks]] | 2025-11-03 21:37:48 | 1 |
+| [[SB Basics/Community Ideas]] | 2025-11-03 21:37:44 | 1 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 21:36:28 | 9 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 21:35:35 | 6 |
 | [[CONFIG/Sync/Git]] | 2025-11-03 21:13:24 | 1 |
