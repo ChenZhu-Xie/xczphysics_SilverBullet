@@ -36,8 +36,8 @@ end
 
 -- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符
 function Yg.bc(path)
-  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
-  local arrow = choose("⇦⇨", "⬅⮕", mypage)
+  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
+  local arrow = choose("⇦⇨", "⬅⮕", mypath)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local bc = "[[.]]"
@@ -57,15 +57,16 @@ end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
 local function pattern(path)
-  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
   return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
 end
 
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
 
 function Yg.lastM(path)
+  local thisPage = path or editor.getCurrentPage()
   local list = query[[from index.tag "page" 
-         where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.name ~= thisPage and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 
@@ -81,8 +82,9 @@ function Yg.lastM(path)
 end
 
 function Yg.lastV(path)
+  local thisPage = path or editor.getCurrentPage()
   local list = query[[from index.tag "page" 
-         where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit max_num]]
 
