@@ -560,6 +560,7 @@ if not GitConfigValidator then
       editor.flashNotification("Config set: " .. gitCommand, "warning")
       -- print("Git config set: " .. gitCommand)
     else
+      editor.flashNotification("Failed to set config:" .. (output or "(no error)"), "warning")
       -- print("Failed to set config:", key, "=", value, "Error:", output or "(no error)")
     end
 
@@ -930,9 +931,9 @@ end
 
 -- Initialize auto-sync configuration
 local periodicSyncMinutes = config.get("git.autoSync")
-if periodicSyncMinutes then
+-- if periodicSyncMinutes then
   -- print("Enabling periodic git auto sync every " .. periodicSyncMinutes .. " minutes")
-end
+-- end
 
 -- FIXED EVENT LISTENERS (remove unnecessary lock checks)
 event.listen {
