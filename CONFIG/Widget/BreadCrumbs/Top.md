@@ -42,6 +42,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
+.⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top👀
 ## Ver 2
 
 ```space-lua
