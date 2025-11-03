@@ -5,10 +5,14 @@ banner: ["https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
 ${widget.html(dom.marquee{
-  "I'm in a ",
   dom.span {
-    style="color:red;",
-    "marquee"
+    style="color:cyan;",
+    "Finally, "
+  },
+  "You’ve made it ",
+  dom.span {
+    style="color:cyan;",
+    "here!"
   }
 })}
 _[One of us!](https://community.silverbullet.md/)_
