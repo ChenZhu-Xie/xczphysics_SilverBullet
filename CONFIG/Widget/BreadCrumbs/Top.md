@@ -60,7 +60,7 @@ function yg.bc(path)
 
   -- 构建类似 .⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 的链接串
   local bc = "[[.]]"
-  local parts = string.split(editor.getCurrentPage(), "/")
+  local parts = string.split(mypage, "/")
   local current = ""
   for i, part in ipairs(parts) do
     if current ~= "" then current = current .. "/" end
@@ -127,11 +127,11 @@ function yg.lastV(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastV）
-  local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local V_hasCHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_noCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
   -- local V_CHILD     = {"⇩","②","③","④","⑤","⑥","⑦","⑧","⑨"}
   -- local V_NOCHILD   = {"⬇","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local badges = hasChild and V_CHILD or V_NOCHILD
+  local badges = hasChild and V_hasCHILD or V_noCHILD
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
