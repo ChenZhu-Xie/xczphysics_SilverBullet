@@ -25,7 +25,7 @@ local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 local lastVisitStore = lastVisitStore or {}
 local isUpdatingVisitTimes = false
 
--- page 标签：page.lastVisit 可从 lastVisitStore 读取
+-- page 标签：page.lastVisit 可从 lastVisitStore 读取（仅用于需要的地方）
 index.defineTag {
   name = "page",
   metatable = {
@@ -45,7 +45,7 @@ local function normalizeNewlines(s)
   return s
 end
 
--- 初始化空表内容（表头改为 pageRef，末列为 visitTimes）
+-- 初始化空表内容（表头为 pageRef / lastVisit / visitTimes）
 local function initialTable()
   return table.concat({
     "| pageRef | lastVisit | visitTimes |",
@@ -62,7 +62,6 @@ end
 
 -- 是否为分隔行（例如 |-----|-----|-----|）
 local function isSeparatorLine(line)
-  -- editor.flashNotification(line:match("^%s*|%s*[%-:]+[%- :|]*$"))
   return line:match("^%s*|%s*[%-:]+[%- :|]*$") ~= nil
 end
 
@@ -119,6 +118,73 @@ local function joinLines(lines)
   return table.concat(lines, "\n") .. "\n"
 end
 
+-- 把 "YYYY-MM-DD HH:MM:SS" 解析为 epoch（本地时区）
+local function parseTimestamp(s)
+  if not s then return 0 end
+  local y, mo, d, h, mi, se = s:match("^(%d%d%d%d)%-(%d%d)%-(%d%d)%s+(%d%d):(%d%d):(%d%d)$")
+  if not y then return 0 end
+  return os.time{
+    year = tonumber(y), month = tonumber(mo), day = tonumber(d),
+    hour = tonumber(h), min = tonumber(mi), sec = tonumber(se)
+  } or 0
+end
+
+-- 仅对表格区段排序：保留表头与分隔行，按 lastVisit 降序重排数据行
+local function sortTableByLastVisit(lines)
+  local out = {}
+  local i, n = 1, #lines
+
+  while i <= n do
+    local line = lines[i]
+    local isHeader = line:match("^%s*|%s*pageRef%s*|%s*lastVisit%s*|%s*visitTimes%s*|%s*$") ~= nil
+
+    if not isHeader then
+      table.insert(out, line)
+      i = i + 1
+    else
+      -- 1) 表头
+      table.insert(out, line)
+      i = i + 1
+
+      -- 2) 分隔行（如果有）
+      if i <= n and isSeparatorLine(lines[i]) then
+        table.insert(out, lines[i])
+        i = i + 1
+      end
+
+      -- 3) 收集连续的数据行
+      local rows = {}
+      while i <= n do
+        local c1, c2, c3 = parseRow(lines[i])
+        if not c1 then break end
+        table.insert(rows, {
+          pageRef = extractPageRefFromFirstCell(c1),
+          lastVisit = (c2 or ""):match("^%s*(.-)%s*$"),
+          visitTimes = tonumber((c3 or ""):match("^%s*(.-)%s*$")) or 0
+        })
+        i = i + 1
+      end
+
+      -- 4) 排序：lastVisit 降序；其次 visitTimes 降序；最后 pageRef 升序（稳定）
+      if #rows > 1 then
+        table.sort(rows, function(a, b)
+          local ta, tb = parseTimestamp(a.lastVisit), parseTimestamp(b.lastVisit)
+          if ta ~= tb then return ta > tb end
+          if a.visitTimes ~= b.visitTimes then return a.visitTimes > b.visitTimes end
+          return (a.pageRef or "") < (b.pageRef or "")
+        end)
+      end
+
+      -- 5) 重写数据行
+      for _, r in ipairs(rows) do
+        table.insert(out, formatRow(r.pageRef, r.lastVisit, r.visitTimes))
+      end
+    end
+  end
+
+  return out
+end
+
 -- 写回页面：优先 space.writePage，如不可用则回退到 editor 全文替换
 local function writePageContent(targetPath, newContent)
   if type(space) == "table" and type(space.writePage) == "function" then
@@ -137,7 +203,7 @@ local function writePageContent(targetPath, newContent)
   return false
 end
 
--- 主更新逻辑：清理不存在的键 + 更新/追加一行
+-- 主更新逻辑：清理不存在的键 + 更新/追加一行 + 按 lastVisit 降序排序
 local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
   local content = space.readPage(targetPath) or ""
   if content == "" or not hasHeader(content) then
@@ -152,21 +218,27 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
     -- 分隔行直接保留
     if isSeparatorLine(line) then
       table.insert(newLines, line)
+
     else
       local c1, c2, c3 = parseRow(line)
       if not c1 then
         -- 非表格数据行（包含表头、空行或其他内容），原样保留
-        table.insert(newLines, line)
+        -- 如果是混用旧表头（pageName），统一为 pageRef
+        local firstCellTrim = (line:match("^%s*|%s*([^|]-)%s*|") or ""):lower()
+        if firstCellTrim == "pagename" or firstCellTrim == "pageref" then
+          table.insert(newLines, "| pageRef | lastVisit | visitTimes |")
+        else
+          table.insert(newLines, line)
+        end
+
       else
         -- 表格数据行
         local firstCellTrim = (c1 or ""):match("^%s*(.-)%s*$") or ""
         local isHeaderRow = (firstCellTrim:lower() == "pagename" or firstCellTrim:lower() == "pageref")
 
         if isHeaderRow then
-          -- 把表头第一列强制改成 pageRef（兼容你之前的 pageName）
-          -- local _, h2, h3 = c1, c2 or "lastVisit", c3 or "visitTimes"
-          line = "| pageRef | lastVisit | visitTimes |"
-          table.insert(newLines, line)
+          -- 统一表头
+          table.insert(newLines, "| pageRef | lastVisit | visitTimes |")
         else
           -- 普通数据行：提取真正的 pageRef
           local rowRef = extractPageRefFromFirstCell(c1)
@@ -174,7 +246,7 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
           -- 1) 自动清理：若该 pageRef 在空间中已不存在，则跳过（不写入 newLines）
           local canCheck = (type(space) == "table" and type(space.pageExists) == "function")
           if canCheck and rowRef ~= "" and rowRef ~= pageRef and not space.pageExists(rowRef) then
-            -- 跳过该行，相当于删除
+            -- 跳过该行
           else
             -- 2) 正常保留或更新目标行
             if rowRef == pageRef then
@@ -195,12 +267,13 @@ local function upsertVisitRow(targetPath, pageRef, lastVisit, incTimes)
     table.insert(newLines, formatRow(pageRef, lastVisit, 1))
   end
 
-  local newContent = joinLines(newLines)
+  -- 在写回前对表格数据行按 lastVisit 降序排序（高性能：仅处理表格区段）
+  local sortedLines = sortTableByLastVisit(newLines)
+  local newContent = joinLines(sortedLines)
   return writePageContent(targetPath, newContent)
 end
 
 event.listen{
-  -- name = "hooks:renderTopWidgets",
   name = "editor:pageLoaded",
   run = function(e)
     -- 再入保护
@@ -219,7 +292,7 @@ event.listen{
     if lastVisitStore[pageRef] == now then return end
     lastVisitStore[pageRef] = now
 
-    -- 更新统计表（包含清理）
+    -- 更新统计表（包含清理 + 排序）
     isUpdatingVisitTimes = true
     local ok, err = pcall(function()
       upsertVisitRow(path, pageRef, now, true)
