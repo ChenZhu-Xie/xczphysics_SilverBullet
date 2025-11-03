@@ -30,11 +30,7 @@ local function choose(a, b, path)
 end
 
 -- 模板使用 ${badge}，序号徽章在数据阶段注入
-local function Bc_lastM(_path)
-  return template.new([==[${badge}[[${name}]]​]==])
-end
-
-local function Bc_lastV(_path)
+local function Bc_last(_path)
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
@@ -54,8 +50,8 @@ function Yg.bc(path)
   end
 
   -- 最近修改 / 最近访问（带序号徽章）
-  local lastMs = template.each(Yg.lastM(mypage), Bc_lastM(mypage)) or ""
-  local lastVs = template.each(Yg.lastV(mypage), Bc_lastV(mypage)) or ""
+  local lastMs = template.each(Yg.lastM(mypage), Bc_last(mypage)) or ""
+  local lastVs = template.each(Yg.lastV(mypage), Bc_last(mypage)) or ""
   return bc .. " " .. lastMs .. " " .. lastVs
 end
 
@@ -74,9 +70,9 @@ function Yg.lastM(path)
          limit max_num]]
 
   -- 方块风格（沿用 Top 的约定）
-  local M_HASFATHER   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  local M_NOFATHER = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
-  local badges = choose(M_HASFATHER, M_NOFATHER, path)
+  local M_hasFATHER   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_noFATHER = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = choose(M_hasFATHER, M_noFATHER, path)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
@@ -91,9 +87,9 @@ function Yg.lastV(path)
          limit max_num]]
 
   -- 圆形风格（沿用 Top 的约定）
-  local V_HASFATHER   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  local V_NOFATHER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local badges = choose(V_HASFATHER, V_NOFATHER, path)
+  local V_hasFATHER   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_noFATHER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = choose(V_hasFATHER, V_noFATHER, path)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
