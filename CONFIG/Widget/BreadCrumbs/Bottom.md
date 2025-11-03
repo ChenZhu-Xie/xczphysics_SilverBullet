@@ -21,7 +21,7 @@ Yg = Yg or {}
 
 -- 仅用于 pattern() 的场景选择（保留原逻辑）
 local function choose(a, b, path)
-  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
     return a
   else
@@ -57,7 +57,7 @@ end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
 local function pattern(path)
-  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
 end
 
