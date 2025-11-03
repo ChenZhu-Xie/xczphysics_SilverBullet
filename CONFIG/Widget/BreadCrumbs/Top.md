@@ -81,11 +81,25 @@ local function bc_lastV(_path)
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
+-- 面包屑：根据是否有子页面，使用 ⇩ 或 ⬇ 拼接
 function yg.bc(path)
-  local bc = template.each(yg.breadcrumbs(path), bc_folder) or ""
-  local lastMs = template.each(yg.lastM(path), bc_lastM(path)) or ""
-  local lastVs = template.each(yg.lastV(path), bc_lastV(path)) or ""
-  return "[[.]]" .. bc .. " " .. lastMs .. " " .. lastVs
+  local mypage = path or editor.getCurrentPage()
+  local arrow = has_children(mypage) and "⇩" or "⬇"
+
+  -- 构建类似 .⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 的链接串
+  local bc = "[[.]]"
+  local parts = string.split(mypage, "/")
+  local current = ""
+  for i, part in ipairs(parts) do
+    if current ~= "" then current = current .. "/" end
+    current = current .. part
+    bc = bc .. arrow .. "[[" .. current .. "]]"
+  end
+
+  -- 保持你已有的最近修改/访问徽章渲染（使用之前注入 badge 的模板）
+  local lastMs = template.each(yg.lastM(mypage), bc_lastM(mypage)) or ""
+  local lastVs = template.each(yg.lastV(mypage), bc_lastV(mypage)) or ""
+  return bc .. " " .. lastMs .. " " .. lastVs
 end
 
 -- 支持最多 9 个（对应 1~9）
@@ -114,10 +128,10 @@ function yg.lastM(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastM）
-  -- local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  -- local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
-  local M_CHILD     = {"⇩","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  local M_NOCHILD   = {"⬇","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local M_CHILD     = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_NOCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  -- local M_CHILD     = {"⇩","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  -- local M_NOCHILD   = {"⬇","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
   local badges = hasChild and M_CHILD or M_NOCHILD
 
   for i, item in ipairs(list) do
@@ -141,10 +155,10 @@ function yg.lastV(path)
          limit max_num]]
 
   -- 序号徽章（bc_lastV）
-  -- local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  -- local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local V_CHILD     = {"⇩","②","③","④","⑤","⑥","⑦","⑧","⑨"}
-  local V_NOCHILD   = {"⬇","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local V_CHILD     = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_NOCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  -- local V_CHILD     = {"⇩","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  -- local V_NOCHILD   = {"⬇","➋","➌","➍","➎","➏","➐","➑","➒"}
   local badges = hasChild and V_CHILD or V_NOCHILD
 
   for i, item in ipairs(list) do
