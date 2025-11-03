@@ -15,7 +15,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 
 ➡🢧➩🢥 ⇨🡆🢥⮊
 
-```space-lua
+```lua
 -- priority: 10
 Yg = Yg or {}
 Bc_folder = template.new[==[/[[${name}]]​]==]  -- 保留但不再在 bc() 中使用
@@ -92,7 +92,7 @@ function Yg.lastM(path)
   local hasChild = has_children(mypage)
 
   local list = query[[from index.tag "page" 
-         where _.name != editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 
@@ -112,7 +112,7 @@ function Yg.lastV(path)
   local hasChild = has_children(mypage)
 
   local list = query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage() and _.name:find(pattern(path))
+         where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastVisit desc
          limit max_num]]
 
@@ -137,7 +137,7 @@ end
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 2. https://community.silverbullet.md/t/abc-adaptive-bread-crumb/3464
 
-```lua
+```space-lua
 -- priority: 10
 Yg = Yg or {}
 Bc_folder = template.new[==[/[[${name}]]​]==]
