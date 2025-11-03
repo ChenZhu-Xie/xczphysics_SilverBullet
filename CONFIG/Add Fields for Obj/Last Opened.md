@@ -6,8 +6,8 @@ udpateDate: 2025-10-27
 
 # 不使用 frontmatter 的 自建表
 
-优点：不污染（查询出来的所有）page 对象的 fields
-缺点：但也就没法直接 /query 查询。
+==优点== 不污染（查询出来的所有）page 对象的 fields
+==缺点== 但也就没法直接 /query 查询。
 
 1. https://silverbullet.md/API/space
 2. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=968e4d9470
