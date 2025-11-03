@@ -1,13 +1,13 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 21:56:40 | 7 |
+| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 21:56:16 | 15 |
 | [[SB Basics/SB Philosophy/SB Insights]] | 2025-11-03 21:55:08 | 17 |
 | [[SB Basics/SB Philosophy]] | 2025-11-03 21:55:00 | 8 |
-| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 21:53:14 | 14 |
 | [[SB Basics/SB Instances]] | 2025-11-03 21:37:54 | 2 |
 | [[SB Basics/SB Docs]] | 2025-11-03 21:37:53 | 1 |
 | [[SB Basics/SB Tricks]] | 2025-11-03 21:37:48 | 1 |
 | [[SB Basics/Community Ideas]] | 2025-11-03 21:37:44 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 21:35:35 | 6 |
 | [[CONFIG/Sync/Git]] | 2025-11-03 21:13:24 | 1 |
 | [[index]] | 2025-11-03 20:52:18 | 6 |
 | [[Language/Input Method/Insights]] | 2025-11-03 20:47:18 | 1 |
