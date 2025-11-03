@@ -1,6 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[index]] | 2025-11-03 16:56:37 | 7 |
+| [[index]] | 2025-11-03 17:26:07 | 8 |
 | [[Inbox]] | 2025-11-03 15:03:32 | 1 |
 | [[Inbox/2025-10-04]] | 2025-11-03 15:03:34 | 1 |
 | [[Inbox/2025-10-04/19-45-21]] | 2025-11-03 15:03:35 | 1 |
@@ -11,7 +11,7 @@
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 16:47:15 | 4 |
 | [[STYLE]] | 2025-11-03 15:26:23 | 1 |
 | [[STYLE/Inline Contents]] | 2025-11-03 15:27:57 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 16:53:30 | 21 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 17:26:23 | 22 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 17:18:40 | 22 |
 | [[Language/Input Method/声笔飞单]] | 2025-11-03 16:55:02 | 1 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 17:22:34 | 7 |
