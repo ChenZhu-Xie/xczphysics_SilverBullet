@@ -55,7 +55,7 @@ command.update {
 
 ## Page: Copy
 
-```space-lua
+```lua
 command.update {
   name = "Page: Copy",
   key = "Ctrl-Alt-c",

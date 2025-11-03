@@ -6,21 +6,31 @@ udpateDate: 2025-10-27
 
 # Define Common used Commands
 
+## Line: Move Up
+
+1. editor.toggleComment() https://silverbullet.md/API/editor
+
+```space-lua
+command.define {
+  name = "Line: Move Up",
+  run = function()
+    editor.toggleComment()
+  end,
+  key = "Alt-arrowup",
+  mac = "Alt-arrowup",
+  priority = 0
+}
+```
+
 ## Line: Toggle Comment
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 
-asdf
-da
-daasdf
-asfd
-asdf
-
 ```space-lua
 command.define {
-  name = "Text: Toggle Comment",
+  name = "Line: Toggle Comment",
   run = function()
-    editor.Comment()
+    editor.toggleComment()
   end,
   key = "Shift-Alt-m",
   mac = "Shift-Alt-m",

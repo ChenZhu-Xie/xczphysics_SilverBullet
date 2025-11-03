@@ -1,12 +1,13 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/KeyBinding/Define]] | 2025-11-04 00:48:53 | 1 |
-| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 00:42:22 | 2 |
+| [[CONFIG/KeyBinding/Define]] | 2025-11-04 00:58:31 | 4 |
+| [[CONFIG/KeyBinding/Update]] | 2025-11-04 00:57:58 | 7 |
+| [[index]] | 2025-11-04 00:57:55 | 14 |
+| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 00:57:02 | 3 |
+| [[SB Basics]] | 2025-11-04 00:56:56 | 7 |
 | [[Library/Std/APIs/Virtual Page]] | 2025-11-04 00:42:19 | 1 |
 | [[SB Basics/SB Tricks]] | 2025-11-04 00:40:52 | 4 |
-| [[SB Basics]] | 2025-11-04 00:40:25 | 3 |
 | [[CONFIG/Copy as/Forward Link/Cursor Position]] | 2025-11-04 00:30:22 | 2 |
-| [[index]] | 2025-11-04 00:24:07 | 12 |
 | [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 23:34:19 | 7 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 23:13:00 | 10 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 23:09:22 | 34 |
