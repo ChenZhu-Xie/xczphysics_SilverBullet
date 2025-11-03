@@ -48,18 +48,6 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 -- priority: 10
 yg = yg or {}
 
--- 保留 choose（若后续有用），但不再用于 bc_lastM / bc_lastV 模板
-local function choose(a, b, path)
-  local mypage = path or editor.getCurrentPage()
-  local children = query[[from index.tag "page" 
-         where _.name:find("^" .. mypage .. "/")]]
-  if #children > 0 then
-    return a
-  else
-    return b
-  end
-end
-
 -- 模板改为使用 ${badge}，具体符号在数据阶段注入
 local function bc_last(_path)
   return template.new([==[${badge}[[${name}]]​]==])
