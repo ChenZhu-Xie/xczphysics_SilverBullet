@@ -50,23 +50,23 @@ function Yg.bc(path)
   end
 
   -- 最近修改 / 最近访问（带序号徽章）
-  local lastMs = template.each(Yg.lastM(mypage), Bc_last(mypage)) or ""
-  local lastVs = template.each(Yg.lastV(mypage), Bc_last(mypage)) or ""
+  local lastMs = template.each(Yg.lastM(mypath), Bc_last(mypath)) or ""
+  local lastVs = template.each(Yg.lastV(mypath), Bc_last(mypath)) or ""
   return bc .. " " .. lastMs .. " " .. lastVs
 end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
 local function pattern(path)
-  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
-  return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
+  return choose("^" .. path .. "/[^/]+$", "^[^/]+$", path)
 end
 
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
 
 function Yg.lastM(path)
   local thisPage = path or editor.getCurrentPage()
+  local mypath = thisPage:match("^(.*)/[^/]*$")
   local list = query[[from index.tag "page" 
-         where _.name ~= thisPage and _.name:find(pattern(path))
+         where _.name ~= thisPage and _.name:find(pattern(mypath))
          order by _.lastModified desc
          limit max_num]]
 
@@ -83,8 +83,9 @@ end
 
 function Yg.lastV(path)
   local thisPage = path or editor.getCurrentPage()
+  local mypath = thisPage:match("^(.*)/[^/]*$")
   local list = query[[from index.tag "page" 
-         where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(path))
+         where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(mypath))
          order by _.lastVisit desc
          limit max_num]]
 
