@@ -36,7 +36,7 @@ end
 
 -- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符
 function Yg.bc(path)
-  local mypage = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
+  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
   local arrow = choose("⇦⇨", "⬅⮕", mypage)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
