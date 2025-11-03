@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[SB Basics/SB Tricks]] | 2025-11-03 22:44:51 | 2 |
 | [[index]] | 2025-11-03 22:34:14 | 11 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 22:33:28 | 33 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 22:31:26 | 15 |
@@ -8,7 +9,6 @@
 | [[SB Basics/SB Philosophy]] | 2025-11-03 21:55:00 | 8 |
 | [[SB Basics/SB Instances]] | 2025-11-03 21:37:54 | 2 |
 | [[SB Basics/SB Docs]] | 2025-11-03 21:37:53 | 1 |
-| [[SB Basics/SB Tricks]] | 2025-11-03 21:37:48 | 1 |
 | [[SB Basics/Community Ideas]] | 2025-11-03 21:37:44 | 1 |
 | [[CONFIG/Sync/Git]] | 2025-11-03 21:13:24 | 1 |
 | [[Language/Input Method/Insights]] | 2025-11-03 20:47:18 | 1 |

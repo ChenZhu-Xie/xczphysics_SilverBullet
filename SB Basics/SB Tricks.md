@@ -18,3 +18,7 @@
 # Get Link Title
 
 1. https://community.silverbullet.md/t/the-position-of-the-cursor-when-the-page-is-opened/308/2?u=chenzhu-xie
+
+# Tag in Page picker
+
+
