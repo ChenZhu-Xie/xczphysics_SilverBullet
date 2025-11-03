@@ -68,36 +68,36 @@ config.define("git", {
 ```space-lua
 -- Utility functions for consistent error handling
 local function executeGitCommand(command, args, operation)
-  print("=== executeGitCommand DEBUG START ===")
-  print("command:", command)
-  print("args:", table.concat(args or {}, " "))
-  print("operation:", operation)
+  -- print("=== executeGitCommand DEBUG START ===")
+  -- print("command:", command)
+  -- print("args:", table.concat(args or {}, " "))
+  -- print("operation:", operation)
 
   local success, result = pcall(function()
     return shell.run(command, args)
   end)
 
-  print("pcall success:", success)
-  print("result type:", type(result))
+  -- print("pcall success:", success)
+  -- print("result type:", type(result))
 
-  if type(result) == "table" then
-    print("=== Table contents ===")
-    for k, v in pairs(result) do
-      print("  " .. tostring(k) .. ":", tostring(v))
-    end
-    print("=== End table ===")
-  else
-    print("result value:", tostring(result))
-  end
+  -- if type(result) == "table" then
+    -- print("=== Table contents ===")
+    -- for k, v in pairs(result) do
+      -- print("  " .. tostring(k) .. ":", tostring(v))
+    -- end
+    -- print("=== End table ===")
+  -- else
+    -- print("result value:", tostring(result))
+  -- end]
 
   if not success then
     local errorMsg = tostring(result or "Unknown error")
-    print("pcall failed, returning:", operation .. " failed: " .. errorMsg)
+    -- print("pcall failed, returning:", operation .. " failed: " .. errorMsg)
     return false, operation .. " failed: " .. errorMsg
   end
 
   if result == nil then
-    print("result is nil, returning error")
+    -- print("result is nil, returning error")
     return false, operation .. " failed: No result returned from git command"
   end
 
@@ -105,9 +105,9 @@ local function executeGitCommand(command, args, operation)
     local out = ""
     local exitCode = result.code or 0
 
-    print("exitCode:", exitCode)
-    print("result.stdout:", tostring(result.stdout))
-    print("result.stderr:", tostring(result.stderr))
+    -- print("exitCode:", exitCode)
+    -- print("result.stdout:", tostring(result.stdout))
+    -- print("result.stderr:", tostring(result.stderr))
 
     if result.stderr and result.stderr ~= "" then
       out = result.stderr
@@ -117,31 +117,31 @@ local function executeGitCommand(command, args, operation)
       out = "Git command completed with no output"
     end
 
-    print("final out:", out)
+    -- print("final out:", out)
 
     if exitCode ~= 0 then
-      print("returning false due to non-zero exit code")
+      -- print("returning false due to non-zero exit code")
       return false, operation .. " failed: " .. out
     else
-      print("returning true with output:", out)
+      -- print("returning true with output:", out)
       return true, out
     end
   elseif type(result) == "string" then
-    print("result is string, returning:", result)
+    -- print("result is string, returning:", result)
     return true, result
   elseif type(result) == "number" then
-    print("result is number:", result)
+    -- print("result is number:", result)
     if result ~= 0 then
       return false, operation .. " failed with exit code: " .. tostring(result)
     else
       return true, operation .. " completed successfully"
     end
   else
-    print("result is other type, returning:", tostring(result))
+    -- print("result is other type, returning:", tostring(result))
     return true, operation .. " completed: " .. tostring(result)
   end
 
-  print("=== executeGitCommand DEBUG END ===")
+  -- print("=== executeGitCommand DEBUG END ===")
 end
 
 -- Notification manager for consistent messaging
@@ -544,7 +544,7 @@ if not GitConfigValidator then
 
     -- Debug: Check what executeCommand actually returns
     -- editor.flashNotification("etst", "warning")
-    print("setConfigValue debug - success:", success, "output:", output or "(nil)")
+    -- print("setConfigValue debug - success:", success, "output:", output or "(nil)")
 
     if success then
       -- Construct the git command string for display
@@ -558,9 +558,9 @@ if not GitConfigValidator then
 
       -- Flash notification and print
       editor.flashNotification("Config set: " .. gitCommand, "warning")
-      print("Git config set: " .. gitCommand)
+      -- print("Git config set: " .. gitCommand)
     else
-      print("Failed to set config:", key, "=", value, "Error:", output or "(no error)")
+      -- print("Failed to set config:", key, "=", value, "Error:", output or "(no error)")
     end
 
     return success
@@ -620,7 +620,7 @@ if not GitConfigValidator then
       local configSet = self:checkAndSetConfig(key, expectedValue)
       if not configSet then
         editor.flashNotification("Warning: Failed to set config " .. key .. " = " .. expectedValue, "warning")
-        print("Warning: Failed to set config " .. key .. " = " .. expectedValue)
+        -- print("Warning: Failed to set config " .. key .. " = " .. expectedValue)
       end
     end
 
@@ -882,7 +882,7 @@ end
 
 -- AUTO SYNC FUNCTION
 function AutoSyncManager:performAutoSync(syncType)
-  print("Triggering " .. syncType:lower() .. " git sync...")
+  -- print("Triggering " .. syncType:lower() .. " git sync...")
   editor.flashNotification("Triggering " .. syncType .. " Git sync...", "warning")
 
   local isColdStart = (syncType == "Startup")
@@ -894,21 +894,21 @@ function AutoSyncManager:performAutoSync(syncType)
     else
       editor.flashNotification(syncType .. ": Git sync complete.", "warning")
     end
-    print(syncType .. " sync completed successfully")
+    -- print(syncType .. " sync completed successfully")
   elseif syncOk == "nothing" then
     editor.flashNotification(syncMessage, "warning")
-    print(syncType .. " sync: nothing to commit")
+    -- print(syncType .. " sync: nothing to commit")
   elseif syncOk == false then
     if syncMessage == NotificationManager.messages.GIT_OPERATION_IN_PROGRESS then
       editor.flashNotification(syncMessage, "warning")
-      print(syncType .. " sync warning: " .. syncMessage)
+      -- print(syncType .. " sync warning: " .. syncMessage)
     else
       editor.flashNotification(syncMessage, "error")
-      print(syncType .. " sync failed:\n" .. syncMessage)
+      -- print(syncType .. " sync failed:\n" .. syncMessage)
     end
   else
     editor.flashNotification("Unknown git sync result", "error")
-    print(syncType .. " sync unknown result:", syncOk, syncMessage)
+    -- print(syncType .. " sync unknown result:", syncOk, syncMessage)
   end
 end
 
@@ -931,7 +931,7 @@ end
 -- Initialize auto-sync configuration
 local periodicSyncMinutes = config.get("git.autoSync")
 if periodicSyncMinutes then
-  print("Enabling periodic git auto sync every " .. periodicSyncMinutes .. " minutes")
+  -- print("Enabling periodic git auto sync every " .. periodicSyncMinutes .. " minutes")
 end
 
 -- FIXED EVENT LISTENERS (remove unnecessary lock checks)
@@ -939,11 +939,11 @@ event.listen {
   name = "page:saved",
   run = function(event)
     local pageName = event.data and event.data.name or "?"
-    print("Page '" .. pageName .. "' saved. Scheduling git sync in " .. AutoSyncManager.eventSyncDelaySeconds/60 .. " minutes.")
+    -- print("Page '" .. pageName .. "' saved. Scheduling git sync in " .. AutoSyncManager.eventSyncDelaySeconds/60 .. " minutes.")
     AutoSyncManager.eventSyncScheduledAt = os.time()
   end
 }
-print("Event-driven git sync enabled (on page save).")
+-- print("Event-driven git sync enabled (on page save).")
 
 event.listen {
   name = "cron:secondPassed",
@@ -951,15 +951,15 @@ event.listen {
     local syncType = AutoSyncManager:shouldTriggerSync()
 
     if syncType then
-      print("=== " .. syncType .. " sync trigger detected ===")
+      -- print("=== " .. syncType .. " sync trigger detected ===")
 
       -- Update sync state
       AutoSyncManager:updateSyncState(syncType)
 
       -- Execute sync (locking handled internally by git.sync)
       if syncType == "cold-start" then
-        print("=== Cold Start Sync Triggered ===")
-        print("Uptime:", os.time() - AutoSyncManager.startupTime, "seconds")
+        -- print("=== Cold Start Sync Triggered ===")
+        -- print("Uptime:", os.time() - AutoSyncManager.startupTime, "seconds")
         AutoSyncManager:performAutoSync("Startup")
       elseif syncType == "periodic" then
         AutoSyncManager:performAutoSync("Periodic")

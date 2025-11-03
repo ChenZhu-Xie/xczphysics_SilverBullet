@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Sync/Git]] | 2025-11-03 21:13:24 | 1 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 21:00:52 | 7 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 20:57:17 | 4 |
 | [[index]] | 2025-11-03 20:52:18 | 6 |
