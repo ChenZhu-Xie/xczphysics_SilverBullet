@@ -8,6 +8,8 @@ udpateDate: 2025-10-27
 2. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=968e4d9470
 3. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/69070e88-48f8-8332-b60c-47f2ab2e1755?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
+[[CONFIG/Add Fields for Obj/Last Opened/Visit Times]]
+
 ```space-lua
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
