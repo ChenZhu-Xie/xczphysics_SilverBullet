@@ -7,6 +7,8 @@ udpateDate: 2025-10-27
 ${utilities.RecentlyOpenedPages(10)}
 1. https://chatgpt.com/share/68fa59ac-2e88-8010-aa2c-12021dda94fb
 
+${editor.getRecentlyOpenedPages()}
+
 ```space-lua
 function utilities.RecentlyOpenedPages(limit)
   local pages = editor.getRecentlyOpenedPages()
