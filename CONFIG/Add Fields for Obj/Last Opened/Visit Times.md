@@ -1,11 +1,11 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[index]] | 2025-11-04 00:24:07 | 12 |
 | [[CONFIG/Copy as/Forward Link/Cursor Position]] | 2025-11-04 00:06:58 | 1 |
 | [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 23:34:19 | 7 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 23:13:00 | 10 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 23:09:22 | 34 |
 | [[SB Basics/SB Tricks]] | 2025-11-03 22:51:40 | 3 |
-| [[index]] | 2025-11-03 22:34:14 | 11 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 22:31:26 | 15 |
 | [[SB Basics/SB Philosophy/SB Insights]] | 2025-11-03 21:55:08 | 17 |
 | [[SB Basics/SB Philosophy]] | 2025-11-03 21:55:00 | 8 |
