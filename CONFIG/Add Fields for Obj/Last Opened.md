@@ -4,11 +4,16 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# 不使用 frontmatter 的 自建表
+
+优点：不污染（查询出来的所有）page 对象的 fields
+缺点：但也就没法直接 /query 查询。
+
 1. https://silverbullet.md/API/space
 2. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=968e4d9470
 3. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/69070e88-48f8-8332-b60c-47f2ab2e1755?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
-[[CONFIG/Add Fields for Obj/Last Opened/Visit Times]]
+效果见 [[CONFIG/Add Fields for Obj/Last Opened/Visit Times]]
 
 ```space-lua
 -- priority: -1
