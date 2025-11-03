@@ -29,7 +29,7 @@ local function choose(a, b, path)
 end
 
 -- 模板使用 ${badge}，序号徽章在数据阶段注入
-local function Bc_last(_path)
+local function Bc_last()
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
@@ -50,8 +50,8 @@ function Yg.bc(path)
   end
 
   -- 最近修改 / 最近访问（带序号徽章）
-  local lastMs = template.each(Yg.lastM(mypath), Bc_last(mypath)) or ""
-  local lastVs = template.each(Yg.lastV(mypath), Bc_last(mypath)) or ""
+  local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
+  local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
   return bc .. " " .. lastMs .. " " .. lastVs
 end
 
@@ -62,9 +62,7 @@ end
 
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
 
-function Yg.lastM(path)
-  local thisPage = path or editor.getCurrentPage()
-  local mypath = thisPage:match("^(.*)/[^/]*$")
+function Yg.lastM(thisPage, mypath)
   local list = query[[from index.tag "page" 
          where _.name ~= thisPage and _.name:find(pattern(mypath))
          order by _.lastModified desc
@@ -81,9 +79,7 @@ function Yg.lastM(path)
   return list
 end
 
-function Yg.lastV(path)
-  local thisPage = path or editor.getCurrentPage()
-  local mypath = thisPage:match("^(.*)/[^/]*$")
+function Yg.lastV(thisPage, mypath)
   local list = query[[from index.tag "page" 
          where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(mypath))
          order by _.lastVisit desc
