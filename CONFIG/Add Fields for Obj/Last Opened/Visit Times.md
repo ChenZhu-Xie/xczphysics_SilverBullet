@@ -1,8 +1,8 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 23:13:00 | 10 |
+| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 23:12:54 | 4 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 23:09:22 | 34 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 23:05:49 | 9 |
-| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 23:03:11 | 3 |
 | [[SB Basics/SB Tricks]] | 2025-11-03 22:51:40 | 3 |
 | [[index]] | 2025-11-03 22:34:14 | 11 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 22:31:26 | 15 |
