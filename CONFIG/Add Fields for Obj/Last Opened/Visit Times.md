@@ -16,3 +16,4 @@
 | [[CONFIG/Copy as/Markdown/Inline Format]] | 2025-11-03 19:52:36 | 1 |
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 20:24:16 | 9 |
 | [[SB Basics]] | 2025-11-03 20:25:24 | 2 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 20:28:08 | 1 |
