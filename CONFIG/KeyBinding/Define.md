@@ -18,8 +18,8 @@ command.define {
   run = function()
     editor.moveLineUp()
   end,
-  key = "Alt-ArrowUp",
-  mac = "Alt-ArrowUp",
+  key = "Shift-Alt-ArrowUp",
+  mac = "Shift-Alt-ArrowUp",
   priority = 0
 }
 ```
