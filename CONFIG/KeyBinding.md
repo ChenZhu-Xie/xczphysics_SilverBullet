@@ -13,6 +13,9 @@ pageDecoration:
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
 | Text: | Red | | | Alt | r |
+| Line: | Toggle Comment | | Shift | Alt | m |
+| Line: | Move Up | | Shift | Alt | ↑ |
+| Line: | Move Down | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
