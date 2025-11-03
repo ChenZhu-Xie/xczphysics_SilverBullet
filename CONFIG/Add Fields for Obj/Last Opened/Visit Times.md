@@ -1,21 +1,4 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[index]] | 2025-11-03 17:26:07 | 8 |
-| [[Inbox]] | 2025-11-03 15:03:32 | 1 |
-| [[Inbox/2025-10-04]] | 2025-11-03 15:03:34 | 1 |
-| [[Inbox/2025-10-04/19-45-21]] | 2025-11-03 15:03:35 | 1 |
-| [[Inbox/2025-10-09/18-20-59]] | 2025-11-03 15:03:36 | 1 |
-| [[Inbox/2025-10-11/17-13-46]] | 2025-11-03 15:03:46 | 1 |
-| [[Inbox/2025-10-11/17-16-05]] | 2025-11-03 15:03:47 | 1 |
-| [[Inbox/2025-10-20/21-29-32]] | 2025-11-03 15:03:50 | 1 |
-| [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 16:47:15 | 4 |
-| [[STYLE]] | 2025-11-03 15:26:23 | 1 |
-| [[STYLE/Inline Contents]] | 2025-11-03 15:27:57 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 17:37:53 | 24 |
-| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 17:18:40 | 22 |
-| [[Language/Input Method/声笔飞单]] | 2025-11-03 16:55:02 | 1 |
-| [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 17:47:06 | 10 |
-| [[CONFIG/to be Employed]] | 2025-11-03 17:28:21 | 1 |
-| [[CONFIG/Search]] | 2025-11-03 17:28:37 | 1 |
-| [[CONFIG/Search/Silver Search]] | 2025-11-03 17:29:43 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 17:45:42 | 1 |
+| [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-03 17:48:10 | 12 |
+| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 17:48:09 | 1 |
