@@ -4,7 +4,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
-${editor.getCurrentEditor()}
+${editor.showPanel("rhs", 1, "<h1>Hello</h1>")}
+${editor.hidePanel("rhs")}
 
 # Generate Ref @ Cursor Position
 
