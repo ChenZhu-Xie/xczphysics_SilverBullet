@@ -41,14 +41,6 @@ local function choose(a, b, path)
   end
 end
 
--- 辅助：判断当前页是否有子页面
-local function has_children(mypage)
-  local children = query[[from index.tag "page"
-         where _.name:find("^" .. mypage .. "/")
-         limit 1]]
-  return #children > 0
-end
-
 -- 模板使用 ${badge}，序号徽章在数据阶段注入
 local function Bc_lastM(_path)
   return template.new([==[${badge}[[${name}]]​]==])
@@ -61,7 +53,7 @@ end
 -- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符
 function Yg.bc(path)
   local mypage = path or editor.getCurrentPage()
-  local arrow = has_children(mypage) and "⇦⇨" or "⬅⮕"
+  local arrow = choose("⇦⇨", "⬅⮕", mypage)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local bc = "[[.]]"
@@ -88,18 +80,15 @@ end
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
 
 function Yg.lastM(path)
-  local mypage = path or editor.getCurrentPage()
-  local hasChild = has_children(mypage)
-
   local list = query[[from index.tag "page" 
          where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
          order by _.lastModified desc
          limit max_num]]
 
   -- 方块风格（沿用 Top 的约定）
-  local M_CHILD   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
-  local M_NOCHILD = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
-  local badges = hasChild and M_CHILD or M_NOCHILD
+  local M_HASFATHER   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_NOFATHER = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = choose(M_HASFATHER, M_NOFATHER, path)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
