@@ -11,5 +11,5 @@
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 16:47:15 | 4 |
 | [[STYLE]] | 2025-11-03 15:26:23 | 1 |
 | [[STYLE/Inline Contents]] | 2025-11-03 15:27:57 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 16:51:32 | 17 |
-| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 16:51:33 | 12 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 16:53:30 | 21 |
+| [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 16:53:30 | 16 |
