@@ -18,18 +18,6 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 -- priority: 10
 Yg = Yg or {}
-Bc_folder = template.new[==[/[[${name}]]​]==]  -- 保留但不再在 bc() 中使用
-
-function Yg.breadcrumbs(path)
-  local mypage = path or editor.getCurrentPage()
-  local parts = string.split(mypage, "/")
-  local crumbs = {}
-  for i, part in ipairs(parts) do
-    local current = table.concat(parts, "/", 1, i)
-    table.insert(crumbs, {name = current})
-  end
-  return crumbs
-end
 
 -- 仅用于 pattern() 的场景选择（保留原逻辑）
 local function choose(a, b, path)
@@ -57,7 +45,7 @@ function Yg.bc(path)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local bc = "[[.]]"
-  local parts = string.split(mypage, "/")
+  local parts = string.split(editor.getCurrentPage(), "/")
   local current = ""
   for i, part in ipairs(parts) do
     if current ~= "" then current = current .. "/" end
