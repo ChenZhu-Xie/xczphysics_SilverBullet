@@ -64,7 +64,7 @@ basic level: kindergarden
 > - a #Tag is also a Class with a cluster of Instances = Objects = Rows in Table.
 >   - So, Tag = Table
 ### Aggregation for future
-  1. [ ] assign a #todo tag for every todo,
+  1. [ ] assign a #Todo tag for every todo,
   2. then [Enter this ↑ Page to Filter all Todos](https://youtu.be/bZ79-RbyNoU?t=423)
 
 ## IndexDB Query
@@ -92,7 +92,7 @@ basic level: kindergarden
     ]], templates.fullPageItem)}
 
 ## Fields / Metadata (for differentiating Objs with the same tags)
-> - a Page itself is an Object as well, like #tag.
+> - a Page itself is an Object as well, like #Tag.
   > - it exists in the Table as Row
 > - it too could have some Attributes/Properties,
   > - that is, __key-value pairs__ as __front matter__.
