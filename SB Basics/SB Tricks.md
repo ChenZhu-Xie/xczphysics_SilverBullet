@@ -21,4 +21,7 @@
 
 # Tag in Page picker
 
+1. https://community.silverbullet.md/t/page-picker-filter-phrase-with-negative-tag/1611
+  - 这似乎与 [[CONFIG/Picker/Tag|tag picker]] 功能重叠？
+    - 至少在 #Tag 与 #Page 的交集方面（即有 tag 的 page）
 
