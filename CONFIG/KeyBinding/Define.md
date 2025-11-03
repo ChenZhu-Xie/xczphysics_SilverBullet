@@ -10,13 +10,17 @@ udpateDate: 2025-10-27
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 
-d
-d
+asdf
+da
+daasdf
+asfd
+asdf
+
 ```space-lua
 command.define {
   name = "Text: Toggle Comment",
   run = function()
-    editor.moveLineUp()
+    editor.toggleComment()
   end,
   key = "Shift-Alt-m",
   mac = "Shift-Alt-m",
