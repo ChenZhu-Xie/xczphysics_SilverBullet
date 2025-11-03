@@ -5,6 +5,8 @@ udpateDate: 2025-10-27
 ---
 
 ${utilities.RecentlyOpenedPages(10)}
+2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
+
 ```space-lua
 function utilities.RecentlyOpenedPages(limit)
   local raw = editor.getRecentlyOpenedPages()
@@ -39,7 +41,6 @@ function utilities.RecentlyOpenedPages(limit)
   end
   return table.concat(lines, "\n")
 end
-
 ```
 
 1. https://chatgpt.com/share/68fa59ac-2e88-8010-aa2c-12021dda94fb
