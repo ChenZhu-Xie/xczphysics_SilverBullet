@@ -7,7 +7,7 @@ banner: ["https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
 
 _[One of us!](https://community.silverbullet.md/)_
-![[ETP.png]]
+![[ETP.png|500]]
 
 ## ETP.logo Meaning
 
