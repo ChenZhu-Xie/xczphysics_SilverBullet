@@ -73,7 +73,7 @@ function Yg.lastM(path)
   -- 方块风格（沿用 Top 的约定）
   local M_hasFATHER   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
   local M_noFATHER = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
-  local badges = choose(M_hasFATHER, M_noFATHER, path)
+  local badges = choose(M_hasFATHER, M_noFATHER, mypath)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
@@ -92,7 +92,7 @@ function Yg.lastV(path)
   -- 圆形风格（沿用 Top 的约定）
   local V_hasFATHER   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
   local V_noFATHER = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
-  local badges = choose(V_hasFATHER, V_noFATHER, path)
+  local badges = choose(V_hasFATHER, V_noFATHER, mypath)
 
   for i, item in ipairs(list) do
     item.badge = badges[i] or ""
