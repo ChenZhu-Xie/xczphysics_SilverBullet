@@ -1,4 +1,7 @@
 ---
+recommend: ⭐⭐⭐⭐
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md"
+udpateDate: 2025-10-27
 ---
 
 # Define Common used Commands
@@ -15,8 +18,8 @@ command.define {
   run = function()
     editor.moveLineUp()
   end,
-  key = "Alt-ArrowUp",
-  mac = "Alt-ArrowUp",
+  key = "Ctrl-Alt-ArrowUp",
+  mac = "Ctrl-Alt-ArrowUp",
   priority = 0
 }
 ```
@@ -27,8 +30,8 @@ command.define {
   run = function()
     editor.moveLineDown()
   end,
-  key = "Alt-arrowdown",
-  mac = "Alt-arrowdown",
+  key = "Ctrl-Alt-arrowdown",
+  mac = "Ctrl-Alt-arrowdown",
   priority = 0
 }
 ```
