@@ -11,10 +11,10 @@
 | [[Library]] | 2025-11-03 19:50:12 | 1 |
 | [[QUERY]] | 2025-11-03 19:50:16 | 1 |
 | [[QUERY/Clickable Tags]] | 2025-11-03 19:50:46 | 1 |
-| [[index]] | 2025-11-03 20:25:27 | 5 |
+| [[index]] | 2025-11-03 20:52:18 | 6 |
 | [[CONFIG/Copy as/Markdown]] | 2025-11-03 19:52:35 | 1 |
 | [[CONFIG/Copy as/Markdown/Inline Format]] | 2025-11-03 19:52:36 | 1 |
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 20:24:16 | 9 |
 | [[SB Basics]] | 2025-11-03 20:25:24 | 2 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 20:28:08 | 1 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-03 20:52:54 | 2 |
 | [[Language/Input Method/Insights]] | 2025-11-03 20:47:18 | 1 |
