@@ -9,17 +9,17 @@ udpateDate: 2025-10-27
 ## Line: Move Up/Down
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
+asdfffds
 poweqkr
 fades fades is the 
-asdfffds
 ```space-lua
 command.define {
   name = "Line: Move Up",
   run = function()
     editor.moveLineUp()
   end,
-  key = "Ctrl-Alt-ArrowUp",
-  mac = "Ctrl-Alt-ArrowUp",
+  key = "Alt-ArrowUp",
+  mac = "Alt-ArrowUp",
   priority = 0
 }
 ```
@@ -30,8 +30,8 @@ command.define {
   run = function()
     editor.moveLineDown()
   end,
-  key = "Ctrl-Alt-arrowdown",
-  mac = "Ctrl-Alt-arrowdown",
+  key = "Shift-Alt-ArrowDown",
+  mac = "Shift-Alt-ArrowDown",
   priority = 0
 }
 ```
