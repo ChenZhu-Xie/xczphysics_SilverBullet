@@ -16,7 +16,120 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ➡🢧➩🢥 ⇨🡆🢥⮊
 
 ```space-lua
+-- priority: 10
+Yg = Yg or {}
+Bc_folder = template.new[==[/[[${name}]]​]==]  -- 保留但不再在 bc() 中使用
 
+function Yg.breadcrumbs(path)
+  local mypage = path or editor.getCurrentPage()
+  local parts = string.split(mypage, "/")
+  local crumbs = {}
+  for i, part in ipairs(parts) do
+    local current = table.concat(parts, "/", 1, i)
+    table.insert(crumbs, {name = current})
+  end
+  return crumbs
+end
+
+-- 仅用于 pattern() 的场景选择（保留原逻辑）
+local function choose(a, b, path)
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  if mypath and #mypath > 0 then
+    return a
+  else
+    return b
+  end
+end
+
+-- 辅助：判断当前页是否有子页面
+local function has_children(mypage)
+  local children = query[[from index.tag "page"
+         where _.name:find("^" .. mypage .. "/")
+         limit 1]]
+  return #children > 0
+end
+
+-- 模板使用 ${badge}，序号徽章在数据阶段注入
+local function Bc_lastM(_path)
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+local function Bc_lastV(_path)
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+-- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符
+function Yg.bc(path)
+  local mypage = path or editor.getCurrentPage()
+  local arrow = has_children(mypage) and "⇦⇨" or "⬅⮕"
+
+  -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
+  local bc = "[[.]]"
+  local parts = string.split(mypage, "/")
+  local current = ""
+  for i, part in ipairs(parts) do
+    if current ~= "" then current = current .. "/" end
+    current = current .. part
+    bc = bc .. arrow .. "[[" .. current .. "]]"
+  end
+
+  -- 最近修改 / 最近访问（带序号徽章）
+  local lastMs = template.each(Yg.lastM(mypage), Bc_lastM(mypage)) or ""
+  local lastVs = template.each(Yg.lastV(mypage), Bc_lastV(mypage)) or ""
+  return bc .. " " .. lastMs .. " " .. lastVs
+end
+
+-- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
+local function pattern(path)
+  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
+end
+
+local max_num = 5  -- 如需覆盖 1~9，可改为 9
+
+function Yg.lastM(path)
+  local mypage = path or editor.getCurrentPage()
+  local hasChild = has_children(mypage)
+
+  local list = query[[from index.tag "page" 
+         where _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         order by _.lastModified desc
+         limit max_num]]
+
+  -- 方块风格（沿用 Top 的约定）
+  local M_CHILD   = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_NOCHILD = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = hasChild and M_CHILD or M_NOCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function Yg.lastV(path)
+  local mypage = path or editor.getCurrentPage()
+  local hasChild = has_children(mypage)
+
+  local list = query[[from index.tag "page" 
+         where _.lastVisit and _.name ~= editor.getCurrentPage() and _.name:find(pattern(path))
+         order by _.lastVisit desc
+         limit max_num]]
+
+  -- 圆形风格（沿用 Top 的约定）
+  local V_CHILD   = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_NOCHILD = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = hasChild and V_CHILD or V_NOCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function widgets.breadcrumbs_B()
+  return widget.new {markdown = Yg.bc()}
+end
 ```
 
 ## Ver 1
@@ -24,7 +137,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 2. https://community.silverbullet.md/t/abc-adaptive-bread-crumb/3464
 
-```space-lua
+```lua
 -- priority: 10
 Yg = Yg or {}
 Bc_folder = template.new[==[/[[${name}]]​]==]
