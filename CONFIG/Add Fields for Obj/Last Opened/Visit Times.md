@@ -18,3 +18,4 @@
 | [[CONFIG/to be Employed]] | 2025-11-03 17:28:21 | 1 |
 | [[CONFIG/Search]] | 2025-11-03 17:28:37 | 1 |
 | [[CONFIG/Search/Silver Search]] | 2025-11-03 17:29:43 | 1 |
+| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-03 17:45:42 | 1 |
