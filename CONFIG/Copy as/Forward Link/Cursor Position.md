@@ -4,6 +4,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+${editor.getCurrentEditor()}
+
 # Generate Ref @ Cursor Position
 
 1. https://chatgpt.com/share/68ea401c-7eb4-8010-b5b7-348257a7b961
