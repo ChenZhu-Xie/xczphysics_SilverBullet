@@ -16,7 +16,8 @@ udpateDate: 2025-10-27
 效果见 [[CONFIG/Add Fields for Obj/Last Opened/Visit Times]]
 
 重复造了已有的轮子：https://silverbullet.md/Page%20Picker 
-其中的 page，默认就是按 lastVisit 排序的。但我找不到其 lua 实现。
+其中的 page，默认就是按 lastVisit 排序的。
+但我找不到其 lua 实现，就自己造了...。
 
 ```space-lua
 -- priority: -1
