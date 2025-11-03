@@ -19,6 +19,8 @@ udpateDate: 2025-10-27
 其中的 page，默认就是按 lastVisit 排序的。
 但我找不到其 lua 实现，就自己造了...。
 
+## Sorted by lastVisit
+
 ```space-lua
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
