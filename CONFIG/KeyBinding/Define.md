@@ -6,6 +6,22 @@ udpateDate: 2025-10-27
 
 # Define Common used Commands
 
+## Line: Toggle Comment
+
+1. editor.toggleComment() https://silverbullet.md/API/editor
+d
+```space-lua
+command.define {
+  name = "Text: Toggle Comment",
+  run = function()
+    editor.toggleComment()
+  end,
+  key = "Shift-Alt-m",
+  mac = "Shift-Alt-c",
+  priority = 0
+}
+```
+
 ## Page: New Sibling Page
 
 1. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/c/68fa0666-93d0-832a-b5cd-7d4d808a0b48
@@ -22,7 +38,6 @@ command.define {
     if pageName then editor.navigate(pageName) end
   end
 }
-
 ```
 
 ## Page: New Children Page

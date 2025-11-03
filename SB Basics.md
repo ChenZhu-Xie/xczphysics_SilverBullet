@@ -4,7 +4,7 @@ basic level: kindergarden
 
 # Quickly Cover the basics of SilverBullet
   - This page focuses on the basic operations in SB
-  - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #outline
+  - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #Outline
 
 # Key Bindings
   - [Search for Command](https://youtu.be/bb1USz_cEBY?t=252) along with its KeyBindings
