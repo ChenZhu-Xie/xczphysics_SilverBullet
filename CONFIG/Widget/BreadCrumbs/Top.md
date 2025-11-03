@@ -194,7 +194,7 @@ function yg.bc(path)
   local visits = getVisitTimesFor(mypage)
   local visitsSuffix = " 👀:" .. tostring(visits)
 
-  return bc .. " " .. lastMs .. " " .. lastVs .. visitsSuffix
+  return bc .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
 
 -- 支持最多 9 个（对应 1~9）
