@@ -1,8 +1,8 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[SB Basics/SB Philosophy/SB Insights]] | 2025-11-03 21:55:08 | 17 |
+| [[SB Basics/SB Philosophy]] | 2025-11-03 21:55:00 | 8 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-03 21:53:14 | 14 |
-| [[SB Basics/SB Philosophy/SB Insights]] | 2025-11-03 21:52:57 | 5 |
-| [[SB Basics/SB Philosophy]] | 2025-11-03 21:43:14 | 3 |
 | [[SB Basics/SB Instances]] | 2025-11-03 21:37:54 | 2 |
 | [[SB Basics/SB Docs]] | 2025-11-03 21:37:53 | 1 |
 | [[SB Basics/SB Tricks]] | 2025-11-03 21:37:48 | 1 |
