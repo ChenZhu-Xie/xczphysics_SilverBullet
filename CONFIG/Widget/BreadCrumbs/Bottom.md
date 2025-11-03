@@ -16,7 +16,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 ```space-lua
 
 ```
-
+➡ ⇨
 ## Ver 1
 
 1. modified one https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/68f9f16d-259c-832e-aae8-699bbb61fd15?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
