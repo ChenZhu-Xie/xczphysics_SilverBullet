@@ -21,7 +21,7 @@ Yg = Yg or {}
 
 -- 仅用于 pattern() 的场景选择（保留原逻辑）
 local function choose(a, b, path)
-  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
   if mypath and #mypath > 0 then
     return a
   else
@@ -36,12 +36,12 @@ end
 
 -- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符
 function Yg.bc(path)
-  local mypage = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypage = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
   local arrow = choose("⇦⇨", "⬅⮕", mypage)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local bc = "[[.]]"
-  local parts = string.split(editor.getCurrentPage(), "/")
+  local parts = string.split(path or editor.getCurrentPage(), "/")
   local current = ""
   for i, part in ipairs(parts) do
     if current ~= "" then current = current .. "/" end
@@ -57,7 +57,7 @@ end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
 local function pattern(path)
-  local mypath = path or editor.getCurrentPage():match("^(.*)/[^/]*$")
+  local mypath = (path or editor.getCurrentPage()):match("^(.*)/[^/]*$")
   return choose("^" .. mypath .. "/[^/]+$", "^[^/]+$", mypath)
 end
 
