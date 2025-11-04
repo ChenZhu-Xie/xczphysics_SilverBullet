@@ -64,7 +64,7 @@ event.listen{
   -- name = "editor:pageLoaded",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    Visitimes[pageRef] = {Visitimes + 1} or 0
+    Visitimes[pageRef] = (Visitimes[pageRef] + 1) or 0
     editor.flashNotification("Visitimes: " .. Visitimes[pageRef])
   end
 }
