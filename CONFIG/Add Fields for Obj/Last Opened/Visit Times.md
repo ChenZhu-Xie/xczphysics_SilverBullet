@@ -1,6 +1,7 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Edit/Header Level Toggle]] | 2025-11-04 21:38:28 | 4 |
+| [[CONFIG/Edit/Header Level Toggle]] | 2025-11-04 21:40:31 | 6 |
+| [[index]] | 2025-11-04 21:40:29 | 2 |
 | [[Library/Std/APIs/Command]] | 2025-11-04 21:37:05 | 1 |
 | [[CONFIG/Picker/Heading]] | 2025-11-04 21:33:54 | 1 |
 | [[STYLE/Widget/Tag-Page Navigator]] | 2025-11-04 21:27:55 | 1 |
@@ -17,4 +18,3 @@
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-04 21:07:11 | 4 |
 | [[CONFIG]] | 2025-11-04 21:07:04 | 1 |
 | [[CONFIG/Widget]] | 2025-11-04 21:06:23 | 2 |
-| [[index]] | 2025-11-04 21:05:35 | 1 |
