@@ -57,7 +57,7 @@ config.set(
   })
 ```
 
-```space-lua
+```lua
 -- prioity: 10
 config.set("admonLang","en")
 ```
