@@ -6,28 +6,24 @@ udpateDate: 2025-10-27
 
 # SB approach
 
-
-${query[[from editor.getRecentlyOpenedPages "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()
-         select {ref=_.ref, lastVisit=_.lastVisit} 
-         order by _.lastVisit desc 
-         limit 5]]}
-
 ${query[[from editor.getRecentlyOpenedPages "page"
          where _.name == editor.getCurrentPage()
          select {lastOpened = _.lastOpened}]]}
-
 ${template.each(query[[from editor.getRecentlyOpenedPages "page"
-    where _.name == editor.getCurrentPage()]], template.new[==[
-    * [[${_.name}]]: ${_.description}
+    where _.name == editor.getCurrentPage()]], 
+    template.new[==[
+    ${_.lastOpened}
 ]==])}
 
+另一种 先索引 attr，再索引 obj_name 的 方式
 1. https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage]]}
 
-taskstate
-
+1. https://silverbullet.md/Space%20Lua
+`${_CTX.currentPage}`
 `${space.getPageMeta("CONFIG/Add Fields for Obj/Last Opened")}`
+
+`${_CTX._GLOBAL}`
 `${space.listPages()}`
 
 ```space-lua
@@ -39,7 +35,11 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return lastVisitStore[self.name]
+        return template.each(query[[from editor.getRecentlyOpenedPages "page"
+    where _.name == self.name]], 
+    template.new[==[
+    ${_.lastOpened}
+]==])
       end
     end
   }
