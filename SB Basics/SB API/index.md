@@ -16,4 +16,6 @@ index.indexObjects("my page", objects)
 ${index.queryLuaObjects("mytask", {limit=3})}
 
 ${index.getObjectByRef("my page", "mytask", "task1")}
+上述看上去是永久的，哪怕你 `Client: wipe out`
+
 
