@@ -8,6 +8,7 @@ Toggle header levels (h1-h6)  headers with one convenient combo-keypress (Ctrl-1
 
 ## Implementation 
 ```space-lua
+-- priority == -1
 -- function to toggle a specific header level
 local function toggleHead(level)
   local line = editor.getCurrentLine()
