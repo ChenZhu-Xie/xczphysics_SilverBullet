@@ -26,8 +26,6 @@ ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
 
-
-
 ```space-lua
 -- priority: -1
 index.defineTag {
@@ -55,7 +53,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "Visitimes" then
-        return Visitimes[self.name]
+        return Visitimes[self.name] or 0
       end
     end
   }
@@ -66,7 +64,7 @@ event.listen{
   -- name = "editor:pageLoaded",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    Visitimes[pageRef] = (Visitimes[pageRef] + 1) or 0
+    Visitimes[pageRef] = (Visitimes[pageRef] or 0) + 1
     editor.flashNotification("Visitimes: " .. Visitimes[pageRef])
   end
 }
