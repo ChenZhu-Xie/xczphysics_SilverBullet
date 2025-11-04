@@ -80,4 +80,5 @@ local lastVisitStore = lastVisitStore or {}
 那么，一旦这个问题（的根源）被描述清楚了，则：谜底写在谜面上
 - 需要将 lastVisitStore 长久化储存，
 - 或者直接 string.upper(self.name) 一样 依附于 另一个 attr。
-  - 对于 lastVisit 可以
+  - 对于 lastVisit 可以 依附于 lastOpened
+  - 但对于 VisitTimes 呢？
