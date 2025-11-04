@@ -6,7 +6,13 @@ udpateDate: 2025-10-27
 
 # SB approach
 
-${editor.getRecentlyOpenedPages()}
+
+${query[[from editor.getRecentlyOpenedPages "page" 
+         where _.lastVisit and _.name != editor.getCurrentPage()
+         select {ref=_.ref, lastVisit=_.lastVisit} 
+         order by _.lastVisit desc 
+         limit 5]]}
+
 
 ```space-lua
 -- priority: -1
