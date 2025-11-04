@@ -68,3 +68,5 @@ index.defineTag {
 
 ${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
 肯定不是呀！你刷新后不还有么
+
+问题在哪：
