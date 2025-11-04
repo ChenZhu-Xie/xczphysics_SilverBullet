@@ -217,3 +217,35 @@ function page.title(pagina)
   end
 end
 ```
+
+# Widget
+
+## page.childlink()
+
+```space-lua
+-- function page.childlink(div)
+-- Widget that lists and links all subpages.  
+-- Returns “No subpages.” if none exist.
+-- div is the delimiter of the page list
+page = page or {}
+
+function page.childlink(div)
+  local div = div or "\n* "
+  local subpage = page.child()
+  local subpagenum = #subpage
+  local result = {}
+
+  if subpagenum == 0 then
+    return "Non ci sono pagine sottese."
+  end
+
+  table.insert(result, subpagenum .. " pagine sottese:\n")
+  for i = 1, subpagenum do
+    local s = subpage[i]
+    local label = page.title(s.name) or s.displayName or s.name 
+    table.insert(result, string.format("[[%s|%s]]", s.name, label))
+  end
+
+  return table.concat(result, div)
+end
+```
