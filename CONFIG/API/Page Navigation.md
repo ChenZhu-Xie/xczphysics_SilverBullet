@@ -297,7 +297,7 @@ function page.navs()
 end
 ```
 
-## breadcrumb (Top Widget)
+## Marco breadcrumb (Top Widget)
 
 ```space-lua
 -- Creates breadcrumb navigation links up to the parent page,  
@@ -305,7 +305,7 @@ end
 -- Checks `navp` and `navs` for nil or empty values.  
 -- Uses `displayName` when available.
 
-function breadcrumb()
+function Marco_breadcrumb()
   local path = editor.getCurrentPage()
   local child = page.child()
   local parts = string.split(path, "/")
@@ -356,4 +356,18 @@ function breadcrumb()
 
   return table.concat(breadcrumbs, "|")
 end
+```
+
+```space-lua
+event.listen {
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    if editor.getCurrentPage().startsWith("Diario/") then
+      return
+    elseif editor.getCurrentPage().startsWith("index") then
+      return
+    end
+    return widget.new {markdown = "\n\n".. Marco_breadcrumb().."\n\n"}
+  end
+}
 ```
