@@ -38,7 +38,7 @@ command.define {
     end
   }
 ```
-
+d
 ```lua
 for lvl = 1, 6 do
   -- editor.flashNotification(lvl)
