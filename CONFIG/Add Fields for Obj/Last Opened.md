@@ -4,6 +4,39 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 udpateDate: 2025-10-27
 ---
 
+# SB approach
+
+```space-lua
+-- priority: -1
+local lastVisitStore = lastVisitStore or {}
+
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "lastVisit" then
+        return lastVisitStore[self.name]
+      end
+    end
+  }
+}
+
+event.listen{
+  -- name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
+  run = function(e)
+    local pageRef = editor.getCurrentPage()
+    local now = os.date("%Y-%m-%d %H:%M:%S")
+
+    if lastVisitStore[pageRef] == now then
+      return
+    end
+    lastVisitStore[pageRef] = now
+    -- editor.flashNotification("lastVisit: pageRef " .. now)
+  end
+}
+```
+
 # 不使用 frontmatter 的 自建表
 
 ==优点== 不污染（查询出来的所有）page 对象的 fields
@@ -21,7 +54,7 @@ udpateDate: 2025-10-27
 
 ## Sorted by lastVisit
 
-```space-lua
+```lua
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 local lastVisitStore = lastVisitStore or {}
