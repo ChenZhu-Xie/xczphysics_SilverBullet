@@ -157,4 +157,56 @@ function page.meta(where)
 end
 ```
 
+## page.nome()
+
+```space-lua
+page = page or {}
+-- Extracts the final part of the path as the page name.  
+-- If the last part contains an ISO date, returns only the date.  
+
+function page.nome(path)
+  -- Extracts the last part after the final “/”.    
+
+  local lastPart = path:match(".*/(.*)$") or path
+  -- Searches for an ISO-formatted date (YYYY-MM-DD).  
+
+  local dateISO = lastPart:match("(%d%d%d%d%-%d%d%-%d%d)")
+  if dateISO then return dateISO end
+
+  local cleaned = lastPart:gsub("_", " ")
+  -- Replaces underscores with spaces.  
+  -- Decodes URL-encoded characters (e.g. %27 → ').
+  cleaned = cleaned:gsub("%%(%x%x)", function(hex)
+    return string.char(tonumber(hex, 16))
+  end)
+
+  return cleaned
+end
+```
+
+## page.title(“path”)
+
+```space-lua
+-- Returns the first H1 header as the page title; 
+-- if none exists, uses `page.nome()`.
+
+page = page or {} -- function page.title(pagina)
+function page.title(pagina)
+  pagina = pagina or editor.getCurrentPage()
+  -- Searches for a level-1 header.
+  local titolo = query[[
+      from index.tag "header" where
+        page == pagina and
+        level == 1
+        order by pos
+        limit 1
+    ]]
+  if titolo then
+    return tostring(titolo[1].name)
+  else
+    return page.nome(pagina)
+  end
+end
+```
+
 
