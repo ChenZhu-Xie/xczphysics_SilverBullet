@@ -1,6 +1,7 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Edit/Header Level Toggle]] | 2025-11-04 21:40:31 | 6 |
+| [[CONFIG/Edit/Header Level Toggle]] | 2025-11-04 21:45:46 | 9 |
+| [[CONFIG/KeyBinding/Define]] | 2025-11-04 21:45:45 | 2 |
 | [[index]] | 2025-11-04 21:40:29 | 2 |
 | [[Library/Std/APIs/Command]] | 2025-11-04 21:37:05 | 1 |
 | [[CONFIG/Picker/Heading]] | 2025-11-04 21:33:54 | 1 |

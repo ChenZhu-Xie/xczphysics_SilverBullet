@@ -43,10 +43,11 @@ end
 
 command.define {
     name = "Header: Toggle Level 2",
-    key = "Ctrl-2",
     run = function() 
       toggleHead(2) 
-    end
+    end,
+    key = "Ctrl-2",
+    priority = 0,
   }
 ```
 
