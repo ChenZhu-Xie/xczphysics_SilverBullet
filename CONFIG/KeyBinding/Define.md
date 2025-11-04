@@ -21,9 +21,7 @@ command.define {
   mac = "Shift-Alt-ArrowUp",
   priority = 0
 }
-```
 
-```space-lua
 command.define {
   name = "Line: Move Down",
   run = function()
