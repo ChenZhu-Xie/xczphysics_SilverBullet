@@ -5,13 +5,6 @@
 
     if not `Client: wipe out`, no erase; if so, erase.
 
-```space-lua
-local objects = {
-    {tag = "mytask", ref="task1", content = "Buy groceries"},
-    {tag = "mytask", ref="task2", content = "Write docs"}
-}
-index.indexObjects("my page", objects)
-```
 
 ${index.queryLuaObjects("mytask", {limit=3})}
 ${index.getObjectByRef("my page", "mytask", "task1")}
@@ -66,7 +59,7 @@ index.defineTag {
 }
 ```
 
-${query[[from index.tag "page"]]}
+${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
 肯定不是呀！你刷新后不还有么。
 
 问题在这：每次加载 SB 后，[[CONFIG/Add Fields for Obj/Last Opened]] 中的 

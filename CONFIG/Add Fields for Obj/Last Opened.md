@@ -22,6 +22,7 @@ ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.
 1. https://silverbullet.md/Space%20Lua
 `${_CTX.currentPage}`
 `${space.getPageMeta("CONFIG/Add Fields for Obj/Last Opened")}`
+`${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}`
 
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
@@ -45,7 +46,6 @@ index.defineTag {
 ```
 
 ${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}
-
 ```space-lua
 -- priority: -1
 local Visitimes = Visitimes or {}
