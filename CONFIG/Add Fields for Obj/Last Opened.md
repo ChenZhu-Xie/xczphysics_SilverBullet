@@ -17,7 +17,7 @@ ${template.each(query[[from editor.getRecentlyOpenedPages "page"
 
 另一种 先索引 attr，再索引 obj_name 的 方式
 1. https://silverbullet.md/Objects#taskstate
-${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage]]}
+${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage()]]}
 
 1. https://silverbullet.md/Space%20Lua
 `${_CTX.currentPage}`
@@ -43,6 +43,8 @@ index.defineTag {
   }
 }
 ```
+
+${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}
 
 ```space-lua
 -- priority: -1
