@@ -14,3 +14,6 @@ index.indexObjects("my page", objects)
 ```
 
 ${index.queryLuaObjects("mytask", {limit=3})}
+
+${index.getObjectByRef("my page", "mytask", "task1")}
+
