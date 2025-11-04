@@ -30,15 +30,15 @@ local function toggleHead(level)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
-
-
-command.define {
-    name = "Header: Toggle Level " .. 1,
-    key = "Ctrl-" .. 1,
+for lvl = 1, 6 do
+  command.define {
+    name = "Header: Toggle Level " .. lvl,
+    key = "Ctrl-" .. lvl,
     run = function() 
-      toggleHead(1) 
+      toggleHead(lvl) 
     end
   }
+end
 ```
 
 ## Discussions about this widget
