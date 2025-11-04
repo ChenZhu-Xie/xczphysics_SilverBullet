@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[Library/Std]] | 2025-11-05 00:45:04 | 1 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 00:38:51 | 14 |
 | [[SB Basics/SB API/index]] | 2025-11-05 00:33:17 | 12 |
 | [[SB Basics/SB API/space]] | 2025-11-05 00:32:06 | 2 |

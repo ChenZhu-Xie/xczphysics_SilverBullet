@@ -13,7 +13,9 @@ ${query[[from editor.getRecentlyOpenedPages "page"
          order by _.lastVisit desc 
          limit 5]]}
 
-${query[[from editor.getRecentlyOpenedPages "page" where _.name == editor.getCurrentPage()]]}
+${query[[from editor.getRecentlyOpenedPages "page"
+         where _.name == editor.getCurrentPage()
+         select {lastOpened = _.lastOpened}]]}
 
 1. https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage]]}
