@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Edit/Read Only Toggle]] | 2025-11-04 17:40:54 | 1 |
 | [[index]] | 2025-11-04 17:39:49 | 5 |
 | [[STYLE/Color/Dark Mode]] | 2025-11-04 17:25:37 | 10 |
 | [[SB Basics/SB API/editor]] | 2025-11-04 17:25:31 | 10 |
