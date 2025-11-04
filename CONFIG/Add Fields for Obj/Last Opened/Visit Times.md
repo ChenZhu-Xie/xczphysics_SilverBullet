@@ -1,3 +1,3 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[undefined]] | 2025-11-04 14:58:59 | 1 |
+| [[CONFIG/API/Page Navigation]] | 2025-11-04 14:59:19 | 1 |
