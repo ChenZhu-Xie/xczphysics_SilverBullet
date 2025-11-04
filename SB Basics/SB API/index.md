@@ -78,5 +78,6 @@ local lastVisitStore = lastVisitStore or {}
 一旦定义了 lastVisitStore，SB 跑着跑着就 往 lastVisitStore 里存values
 
 那么，一旦这个问题（的根源）被描述清楚了，则：谜底写在谜面上
-需要将 lastVisitStore 长久化储存，
-或者直接 string.upper(self.name) 一样 依附于 另一个 attr。
+- 需要将 lastVisitStore 长久化储存，
+- 或者直接 string.upper(self.name) 一样 依附于 另一个 attr。
+  - 对于 lastVisit 可以
