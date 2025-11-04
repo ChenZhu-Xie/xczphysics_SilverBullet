@@ -72,9 +72,10 @@ ${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3
 问题在这：每次加载 SB 后，[[CONFIG/Add Fields for Obj/Last Opened]] 中的 
 ```space-lua
 local lastVisitStore = lastVisitStore or {}
+
 ```
 会 `lastVisitStore = {}`，因为 刚开始 没有 lastVisitStore
 一旦定义了 lastVisitStore，SB 跑着跑着就 往 lastVisitStore 里存values
 
 那么，一旦这个问题（的根源）被描述清楚了，则：谜底写在谜面上
-
+需要将 lastVisitStore 长久化储存。
