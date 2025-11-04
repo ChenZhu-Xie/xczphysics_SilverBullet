@@ -46,7 +46,7 @@ command.define {
     run = function() 
       toggleHead(2) 
     end,
-    key = "Ctrl-2",
+    key = "Ctrl-y",
     priority = 0,
   }
 ```
