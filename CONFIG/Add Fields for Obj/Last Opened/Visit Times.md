@@ -1,5 +1,9 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/API/Page Navigation]] | 2025-11-04 14:24:00 | 1 |
+| [[CONFIG]] | 2025-11-04 14:23:21 | 6 |
+| [[CONFIG/Widget]] | 2025-11-04 14:22:39 | 1 |
+| [[CONFIG/to be Employed]] | 2025-11-04 14:22:06 | 1 |
 | [[index]] | 2025-11-04 14:19:24 | 17 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:24:55 | 37 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-04 01:23:29 | 17 |
@@ -27,7 +31,6 @@
 | [[CONFIG/Sync/Git]] | 2025-11-03 21:13:24 | 1 |
 | [[Language/Input Method/Insights]] | 2025-11-03 20:47:18 | 1 |
 | [[Inbox/2025-11-02/17-48-47]] | 2025-11-03 20:24:16 | 9 |
-| [[CONFIG]] | 2025-11-03 19:53:14 | 4 |
 | [[About Me]] | 2025-11-03 19:51:20 | 12 |
 | [[QUERY/Clickable Tags]] | 2025-11-03 19:50:46 | 1 |
 | [[QUERY]] | 2025-11-03 19:50:16 | 1 |
