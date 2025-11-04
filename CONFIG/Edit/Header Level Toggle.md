@@ -9,7 +9,7 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 ## Implementation 
 ```space-lua
 -- function to toggle a specific header level
-local function toggleHead(level)
+function toggleHead(level)
   local line = editor.getCurrentLine()
   local text = line.textWithCursor
   
@@ -40,16 +40,6 @@ for lvl = 1, 6 do
     end
   }
 end
-```
-
-```space-lua
-command.define {
-    name = "Header: Toggle Level " .. 2,
-    key = "Ctrl-" .. 2,
-    run = function() 
-      toggleHead(2) 
-    end
-  }
 ```
 
 ## Discussions about this widget
