@@ -4,7 +4,7 @@ githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLe
 
 # Header: Toggle Level
 
-Toggle header levels (h1-h6)  headers with one convenient combo-keypress (Ctrl-1 to Ctrl-6):
+Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 to Ctrl-6):
 
 ## Implementation 
 ```space-lua
@@ -35,7 +35,7 @@ for lvl = 1, 6 do
   command.define {
     name = "Header: Toggle Level " .. lvl,
     key = "Ctrl-" .. lvl,
-    priority = 0,
+    priority = -1,
     run = function() 
       toggleHead(lvl) 
     end
