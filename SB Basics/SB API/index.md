@@ -50,6 +50,8 @@ Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
 ## 为什么 [[CONFIG/Add Fields for Obj/Last Opened]] 中的 lastVisit 甚至重开 SB 就没了，生命周期 甚至 短于 indexDB
 
+是因为 下述 新增的 attr 重开 SB 就没了么？
+
 ```space-lua
 index.defineTag {
   name = "page",
@@ -64,3 +66,4 @@ index.defineTag {
 ```
 
 ${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
+肯定不是呀！你刷新后不还有么
