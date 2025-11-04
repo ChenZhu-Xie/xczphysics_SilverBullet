@@ -1,21 +1,7 @@
 
 # [API/space](https://silverbullet.md/API/space)
 
-## editor.showPanel
+## space.writeDocument(name, data)
 
-`editor.showPanel("rhs", 1, "<h1>Hello</h1>")`
-`editor.hidePanel("rhs")`
+## space.readDocument(name)
 
-## editor.filterBox
-
-`${editor.filterBox("Select:", {
-    { name="Option 1", value="1" },
-    { name="Option 2", value="2", description="More details about 2" }
-})}`
-
-## editor.setUiOption
-
-`${editor.setUiOption("darkMode", true)}`
-`${editor.setUiOption("darkMode", false)}`
-
-`${editor.getUiOption("darkMode")}`

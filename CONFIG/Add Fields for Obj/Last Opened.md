@@ -12,7 +12,8 @@ ${query[[from editor.getRecentlyOpenedPages "page"
          select {ref=_.ref, lastVisit=_.lastVisit} 
          order by _.lastVisit desc 
          limit 5]]}
-
+`${space.getPageMeta("CONFIG/Add Fields for Obj/Last Opened")}`
+`${space.listPages()}`
 
 ```space-lua
 -- priority: -1
