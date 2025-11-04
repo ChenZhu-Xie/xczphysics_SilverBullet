@@ -1,10 +1,11 @@
 
 # List of Page Navigation Functions
 
-
+1. https://community.silverbullet.md/t/page-navigation-functions/3484
 
 ## page.parents(path)
 
+${page.parents()}
 ```space-lua
 -- Returns a table with the list of parent pages.
 page = page or {}
@@ -208,6 +209,3 @@ function page.title(pagina)
   end
 end
 ```
-
-
-
