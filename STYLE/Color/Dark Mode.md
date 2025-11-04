@@ -4,10 +4,30 @@ udpateDate: 2025-11-03
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Dark%20Mode.md"
 ---
 
-1. https://silverbullet.md/Index%20Page
-2. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
+1. https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie
+
+<https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie>
 
 ```space-lua
+event.listen {
+  -- name = 'system:ready',
+  name = 'editor:init',
+  run = function(e)
+    if clientStore.get("darkMode") then
+      editor.flashNotification("Current Theme: Dark")
+    else
+      editor.flashNotification("Current Theme: Light")
+      clientStore.set("darkMode", true)
+      editor.reloadUI()
+    end
+  end
+}
+```
+
+1. https://silverbullet.md/Index%20Page
+1. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
+
+```lua
 -- priority: -1
 event.listen {
   -- name = "editor:pageLoaded",
@@ -47,8 +67,7 @@ event.listen {
 
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8
 2. https://community.silverbullet.md/t/changing-favicon-darkmode/836/33?u=chenzhu-xie
-  3. https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie
-4. https://silverbullet.md/API/clientStore
+3. https://silverbullet.md/API/clientStore
 
 ```lua
 event.listen {
