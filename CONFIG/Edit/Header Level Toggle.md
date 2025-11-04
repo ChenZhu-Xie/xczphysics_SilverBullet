@@ -16,7 +16,7 @@ local function toggleHead(level)
   -- Detect current header level
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
-  editor.flashNotification(currentLevel, "info")
+  -- editor.flashNotification(currentLevel, "info")
 
   local cleanText = string.gsub(text, "^#+%s*", "")
 
@@ -31,11 +31,12 @@ end
 
 -- register commands Ctrl-1 → Ctrl-6
 for lvl = 1, 6 do
+  local level = lvl
   command.define {
-    name = "Header: Toggle Level " .. lvl,
-    key = "Ctrl-" .. lvl,
+    name = "Header: Toggle Level " .. level,
+    key = "Ctrl-" .. level,
     run = function() 
-      toggleHead(lvl) 
+      toggleHead(level) 
     end
   }
 end
