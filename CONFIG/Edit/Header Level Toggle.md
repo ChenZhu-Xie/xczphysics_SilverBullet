@@ -31,7 +31,7 @@ end
 
 -- register commands Ctrl-1 → Ctrl-6
 for lvl = 1, 6 do
-  editor.flashNotification(lvl)
+  -- editor.flashNotification(lvl)
   command.define {
     name = "Header: Toggle Level " .. lvl,
     key = "Ctrl-" .. lvl,
