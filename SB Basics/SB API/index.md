@@ -63,4 +63,4 @@ index.defineTag {
 }
 ```
 
-
+${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
