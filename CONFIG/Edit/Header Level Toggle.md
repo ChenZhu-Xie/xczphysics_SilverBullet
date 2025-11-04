@@ -23,7 +23,7 @@ local function toggleHead(level)
   -- Toggle: remove if same, otherwise set new level
   if currentLevel == level then
     editor.replaceRange(line.from, line.to, cleanText, true)
-    editor.flashNotification(editor.getCurrentLine(), "info")
+    editor.flashNotification(line, "info")
   else
     editor.replaceRange(line.from, line.to, string.rep("#", level) .. " " .. cleanText, true)
   end
@@ -31,7 +31,7 @@ end
 
 -- register commands Ctrl-1 → Ctrl-6
 for lvl = 1, 6 do
-  editor.flashNotification(lvl)
+  -- editor.flashNotification(lvl)
   command.define {
     name = "Header: Toggle Level " .. lvl,
     key = "Ctrl-" .. lvl,
