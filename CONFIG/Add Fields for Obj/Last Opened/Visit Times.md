@@ -1,5 +1,6 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
+| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-04 20:27:42 | 1 |
 | [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-04 18:11:24 | 1 |
 | [[index]] | 2025-11-04 18:10:58 | 8 |
 | [[CONFIG/API/Page Navigation]] | 2025-11-04 18:07:36 | 4 |
