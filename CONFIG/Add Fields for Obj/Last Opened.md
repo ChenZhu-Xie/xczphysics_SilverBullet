@@ -26,7 +26,7 @@ ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
 
-```space-lua
+```lua
 -- priority: -1
 index.defineTag {
   name = "page",
@@ -62,8 +62,8 @@ index.defineTag {
 }
 
 event.listen{
-  name = "hooks:renderTopWidgets",
-  -- name = "editor:pageLoaded",
+  -- name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
   run = function(e)
     local pageRef = editor.getCurrentPage()
     Visitimes[pageRef] = (Visitimes[pageRef] or 0) + 1
