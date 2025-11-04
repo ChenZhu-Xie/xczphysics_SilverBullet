@@ -30,16 +30,6 @@ local function toggleHead(level)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
-for lvl = 1, 6 do
-  -- editor.flashNotification(lvl)
-  command.define {
-    name = "Header: Toggle Level " .. lvl,
-    key = "Ctrl-" .. lvl,
-    run = function() 
-      toggleHead(lvl) 
-    end
-  }
-end
 
 command.define {
     name = "Header: Toggle Level y",
