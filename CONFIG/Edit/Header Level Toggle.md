@@ -35,12 +35,21 @@ for lvl = 1, 6 do
   command.define {
     name = "Header: Toggle Level " .. lvl,
     key = "Ctrl-" .. lvl,
-    priority = -1,
     run = function() 
       toggleHead(lvl) 
     end
   }
 end
+```
+
+```space-style
+command.define {
+    name = "Header: Toggle Level " .. 2,
+    key = "Ctrl-" .. 2,
+    run = function() 
+      toggleHead(2) 
+    end
+  }
 ```
 
 ## Discussions about this widget
