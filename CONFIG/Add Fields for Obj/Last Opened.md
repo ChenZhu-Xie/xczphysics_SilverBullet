@@ -26,6 +26,8 @@ ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
 
+
+
 ```space-lua
 -- priority: -1
 index.defineTag {
