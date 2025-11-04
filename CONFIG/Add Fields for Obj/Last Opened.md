@@ -17,6 +17,11 @@ ${query[[from editor.getRecentlyOpenedPages "page"
          where _.name == editor.getCurrentPage()
          select {lastOpened = _.lastOpened}]]}
 
+${template.each(query[[from editor.getRecentlyOpenedPages "page"
+    where _.name == editor.getCurrentPage()]], template.new[==[
+    * [[${_.name}]]: ${_.description}
+]==])}
+
 1. https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage]]}
 
