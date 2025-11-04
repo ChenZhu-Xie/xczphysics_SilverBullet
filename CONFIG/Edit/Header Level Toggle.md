@@ -31,12 +31,11 @@ end
 
 -- register commands Ctrl-1 → Ctrl-6
 for lvl = 1, 6 do
-  local level = lvl
   command.define {
-    name = "Header: Toggle Level " .. level,
-    key = "Ctrl-" .. level,
+    name = "Header: Toggle Level " .. lvl,
+    key = "Ctrl-" .. lvl,
     run = function() 
-      toggleHead(level) 
+      toggleHead(lvl) 
     end
   }
 end
