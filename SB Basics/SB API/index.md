@@ -42,4 +42,4 @@ ${index.getObjectByRef("my page", "mytask", "task1")}
 })}`
 以写入 indexdb 。
 
-However: take a test below ?
+## 为什么 space-lua block 写的可以跨越 Client 周期呢?
