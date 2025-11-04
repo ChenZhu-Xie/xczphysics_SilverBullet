@@ -12,6 +12,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
    - fixed by https://github.com/silverbulletmd/silverbullet/pull/1607
    - raised by https://github.com/silverbulletmd/silverbullet/issues/1604
    - and by https://community.silverbullet.md/t/angle-bracket-links-not-clickable/3355
+3. [event.listEvents()](https://silverbullet.md/API/event#event.listEvents()) 也行
+   - <https://silverbullet.md/API/event#event.listEvents()>
+   - https://silverbullet.md/API/event#event.listEvents()
 
 ```space-lua
 -- priority: -1
