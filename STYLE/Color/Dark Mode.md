@@ -14,9 +14,11 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 ```space-lua
 -- priority: -1
 event.listen {
-  name = 'editor:init',
+  name = 'hooks:renderTopWidgets',
   run = function(e)
-    editor.setUiOption("darkMode", true)
+    if not editor.getUiOption("darkMode") then
+      editor.setUiOption("darkMode", true)
+    end
   end
 }
 ```
