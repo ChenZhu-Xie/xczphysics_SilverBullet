@@ -12,17 +12,11 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
    - fixed by https://github.com/silverbulletmd/silverbullet/pull/1607
 
 ```space-lua
+-- priority: -1
 event.listen {
-  -- name = 'system:ready',
   name = 'editor:init',
   run = function(e)
-    if clientStore.get("darkMode") then
-      editor.flashNotification("Current Theme: Dark")
-    else
-      editor.flashNotification("Current Theme: Light")
-      clientStore.set("darkMode", true)
-      editor.reloadUI()
-    end
+    editor.setUiOption("darkMode", true)
   end
 }
 ```
