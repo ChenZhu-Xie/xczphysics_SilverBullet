@@ -23,12 +23,13 @@ function page.parents(path)
 end
 ```
 
-## page.sister()
+## page.sisters()
 
+${page.sisters()}
 ```space-lua
 -- Collection of “sister” pages at the same level.
 page = page or {}
-function page.sister()
+function page.sisters()
   local pa = query[[from index.tag "page"
   where string.startsWith(name, page.up() .. "/") 
   and not string.match(name, page.up() .. "/.+/")
