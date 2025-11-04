@@ -40,6 +40,7 @@ end
 
 ## page.prec()
 
+${page.prec()}
 ```space-lua
 -- Returns the previous page at the same level.  
 -- Returns an empty string if no page is found.
@@ -65,6 +66,7 @@ end
 
 ## page.succ()
 
+${page.succ()}
 ```space-lua
 -- Returns the next page at the same level.  
 -- Returns an empty string if no page is found.
@@ -79,7 +81,6 @@ function page.succ()
               and name > paa
               order by name 
               limit 1]]
-    -- Se pa è nil o vuota, restituisce una stringa vuota
     if not pa or #pa == 0 then
       return ""
     end
@@ -89,6 +90,7 @@ end
 
 ## page.up()
 
+${page.up()}
 ```space-lua
 -- Returns the parent page.
 page = page or {}
@@ -113,6 +115,7 @@ end
 
 ## page.child(path)
 
+${page.child()}
 ```space-lua
 page = page or {}
 function page.child(path)
@@ -135,6 +138,7 @@ end
 
 ## page.lev()
 
+${page.lev()}
 ```space-lua
 -- Calculates the number of levels in the path.
 page = page or {}
@@ -146,6 +150,7 @@ end
 
 ## page.meta(where)
 
+${page.meta()}
 ```space-lua
 -- Returns metadata of the specified page (or current page if omitted).  
 page = page or {}
@@ -161,6 +166,7 @@ end
 
 ## page.nome()
 
+${page.nome("CONFIG/API/Page Navigation")}
 ```space-lua
 page = page or {}
 -- Extracts the final part of the path as the page name.  
@@ -188,6 +194,7 @@ end
 
 ## page.title(“path”)
 
+${page.title()}
 ```space-lua
 -- Returns the first H1 header as the page title; 
 -- if none exists, uses `page.nome()`.
