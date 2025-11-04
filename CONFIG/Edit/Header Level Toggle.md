@@ -8,21 +8,8 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 
 ## Implementation 
 ```space-lua
-
--- register commands Ctrl-1 → Ctrl-6
-for lvl = 1, 6 do
-  editor.flashNotification(lvl)
-  command.define {
-    name = "Header: Toggle Level " .. lvl,
-    key = "Ctrl-" .. lvl,
-    run = function() 
-      toggleHead(lvl) 
-    end
-  }
-end
-
 -- function to toggle a specific header level
-local function toggleHead(level)
+function toggleHead(level)
   local line = editor.getCurrentLine()
   local text = line.textWithCursor
   
@@ -42,6 +29,20 @@ local function toggleHead(level)
   end
 end
 
+```
+
+```space-lua
+-- register commands Ctrl-1 → Ctrl-6
+for lvl = 1, 6 do
+  editor.flashNotification(lvl)
+  command.define {
+    name = "Header: Toggle Level " .. lvl,
+    key = "Ctrl-" .. lvl,
+    run = function() 
+      toggleHead(lvl) 
+    end
+  }
+end
 ```
 
 ## Discussions about this widget
