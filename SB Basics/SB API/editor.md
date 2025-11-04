@@ -13,7 +13,7 @@
     { name="Option 2", value="2", description="More details about 2" }
 })}`
 
-## editor.setUiOption
+## editor.setUiOption()
 
 `${editor.setUiOption("darkMode", true)}`
 `${editor.setUiOption("darkMode", false)}`

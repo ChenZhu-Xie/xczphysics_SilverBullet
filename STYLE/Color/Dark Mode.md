@@ -5,8 +5,11 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 ---
 
 1. https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie
-
-<https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie>
+2. [[SB Basics/SB API/editor#editor.setUiOption()]]
+ - https://enlarge-the-percentage.fly.dev/SB%20Basics/SB%20API/editor#editor.setUiOption()
+ - <https://enlarge-the-percentage.fly.dev/SB%20Basics/SB%20API/editor#editor.setUiOption()>
+   - comes from https://community.silverbullet.md/t/silverbullet-2-2-released/3482?u=chenzhu-xie
+     - 
 
 ```space-lua
 event.listen {

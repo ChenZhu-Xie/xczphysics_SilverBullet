@@ -1,8 +1,13 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[SB Basics/SB API/editor]] | 2025-11-04 16:44:16 | 1 |
-| [[SB Basics/SB Tricks]] | 2025-11-04 16:43:48 | 1 |
-| [[CONFIG/API/Page Navigation]] | 2025-11-04 16:43:38 | 1 |
-| [[CONFIG/API]] | 2025-11-04 16:43:34 | 1 |
-| [[STYLE/Color/Dark Mode]] | 2025-11-04 16:40:21 | 1 |
-| [[index]] | 2025-11-04 16:39:05 | 3 |
+| [[STYLE/Color/Dark Mode]] | 2025-11-04 16:48:57 | 6 |
+| [[SB Basics/SB API/editor]] | 2025-11-04 16:48:51 | 7 |
+| [[CONFIG/API]] | 2025-11-04 16:47:31 | 2 |
+| [[CONFIG/API/Page Navigation]] | 2025-11-04 16:47:30 | 2 |
+| [[SB Basics/SB Tricks]] | 2025-11-04 16:47:29 | 5 |
+| [[SB Basics/SB Philosophy/SB Insights]] | 2025-11-04 16:47:29 | 2 |
+| [[index]] | 2025-11-04 16:47:24 | 4 |
+| [[Library/Std/Infrastructure/Search]] | 2025-11-04 16:46:37 | 2 |
+| [[Library/Std/Infrastructure/Page Templates]] | 2025-11-04 16:46:19 | 1 |
+| [[Library/Std/Infrastructure/Slash Templates]] | 2025-11-04 16:46:10 | 1 |
+| [[Library/Std/Infrastructure/Tag Page]] | 2025-11-04 16:46:06 | 1 |
