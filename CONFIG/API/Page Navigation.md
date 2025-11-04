@@ -299,7 +299,7 @@ end
 
 ## Marco breadcrumb (Top Widget)
 
-```space-lua
+```lua
 -- Creates breadcrumb navigation links up to the parent page,  
 -- optionally showing previous/next arrows (👈 👉).  
 -- Checks `navp` and `navs` for nil or empty values.  
@@ -358,7 +358,7 @@ function Marco_breadcrumb()
 end
 ```
 
-```space-lua
+```lua
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
