@@ -28,8 +28,6 @@ ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.
 
 ```space-lua
 -- priority: -1
-local lastVisitStore = lastVisitStore or {}
-
 index.defineTag {
   name = "page",
   metatable = {
@@ -44,19 +42,30 @@ index.defineTag {
     end
   }
 }
+```
+
+```space-lua
+-- priority: -1
+local Visitimes = Visitimes or {}
+
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "Visitimes" then
+        return Visitimes[self.name]
+      end
+    end
+  }
+}
 
 event.listen{
-  -- name = "hooks:renderTopWidgets",
-  name = "editor:pageLoaded",
+  name = "hooks:renderTopWidgets",
+  -- name = "editor:pageLoaded",
   run = function(e)
     local pageRef = editor.getCurrentPage()
-    local now = os.date("%Y-%m-%d %H:%M:%S")
-
-    if lastVisitStore[pageRef] == now then
-      return
-    end
-    lastVisitStore[pageRef] = now
-    -- editor.flashNotification("lastVisit: pageRef " .. now)
+    Visitimes[pageRef] = {Visitimes + 1} or 0
+    editor.flashNotification("Visitimes: " .. Visitimes[pageRef])
   end
 }
 ```
