@@ -41,8 +41,8 @@ for lvl = 1, 6 do
 end
 
 command.define {
-    name = "Header: Toggle Level " .. 2,
-    key = "Ctrl-" .. 2,
+    name = "Header: Toggle Level " .. "2",
+    key = "Ctrl-" .. "2",
     run = function() 
       toggleHead(2) 
     end
