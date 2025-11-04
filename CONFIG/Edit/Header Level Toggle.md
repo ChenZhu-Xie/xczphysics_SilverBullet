@@ -42,7 +42,7 @@ for lvl = 1, 6 do
 end
 
 command.define {
-    name = "Header: Toggle Level 2",
+    name = "Header: Toggle Level y",
     run = function() 
       toggleHead(2) 
     end,
