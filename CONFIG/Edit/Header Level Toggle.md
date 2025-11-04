@@ -45,10 +45,8 @@ command.define {
       toggleHead(1) 
     end
   }
-
-
 ```
-d
+
 ```lua
 for lvl = 1, 6 do
   -- editor.flashNotification(lvl)
