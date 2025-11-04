@@ -296,3 +296,64 @@ function page.navs()
     return pa[1].name
 end
 ```
+
+## breadcrumb (Top Widget)
+
+```space-lua
+-- Creates breadcrumb navigation links up to the parent page,  
+-- optionally showing previous/next arrows (👈 👉).  
+-- Checks `navp` and `navs` for nil or empty values.  
+-- Uses `displayName` when available.
+
+function breadcrumb()
+  local path = editor.getCurrentPage()
+  local child = page.child()
+  local parts = string.split(path, "/")
+  local breadcrumbs = {}
+  local currentPath = ""
+
+  local navp_raw = page.navp()
+  local navs_raw = page.navs()
+
+  local navp = (navp_raw and navp_raw ~= "") and ("[[" .. navp_raw .. "|👈]]") or nil
+  local navs = (navs_raw and navs_raw ~= "") and ("[[" .. navs_raw .. "|👉]]") or nil
+
+  if parts[1] == "Diario" then
+    return
+  elseif parts[1] == "index" then
+    return
+  end
+
+  local function getDisplayName(pagePath)
+    local meta = query[[
+      from index.tag "page"
+      where name == pagePath
+      select { displayName = displayName }
+    ]]
+    if meta[1] and meta[1].displayName then
+      return meta[1].displayName
+    else
+      return string.match(pagePath, "([^/]+)$") or pagePath
+    end
+  end
+
+  for i, part in ipairs(parts) do
+    if i == 1 then
+      currentPath = part
+    else
+      currentPath = currentPath .. "/" .. part
+    end
+    local label = page.title(currentPath)
+    if i == #parts then
+      if navp then table.insert(breadcrumbs, navp) end
+      table.insert(breadcrumbs, "**" .. label .. "**")
+    else
+      table.insert(breadcrumbs, string.format("[[%s|%s]]", currentPath, label))
+    end
+  end
+
+  if navs then table.insert(breadcrumbs, navs) end
+
+  return table.concat(breadcrumbs, "|")
+end
+```
