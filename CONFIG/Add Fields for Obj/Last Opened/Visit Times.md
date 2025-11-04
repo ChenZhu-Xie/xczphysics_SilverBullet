@@ -1,7 +1,8 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-05 00:18:53 | 1 |
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 00:17:22 | 7 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 00:22:10 | 10 |
+| [[Library/Std/Slash Templates/func]] | 2025-11-05 00:22:07 | 1 |
+| [[CONFIG/Add Fields for Obj/Last Opened/SB approach]] | 2025-11-05 00:20:54 | 2 |
 | [[QUERY/FrontMatter with Space-Lua]] | 2025-11-05 00:16:51 | 1 |
 | [[SB Basics/SB API/index]] | 2025-11-04 23:25:38 | 10 |
 | [[index]] | 2025-11-04 23:18:07 | 2 |

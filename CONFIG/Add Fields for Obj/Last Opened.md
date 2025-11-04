@@ -6,6 +6,8 @@ udpateDate: 2025-10-27
 
 # SB approach
 
+${editor.getRecentlyOpenedPages()}
+
 ```space-lua
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
