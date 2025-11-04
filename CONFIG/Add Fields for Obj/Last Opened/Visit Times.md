@@ -1,9 +1,7 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[SB Basics/SB API/editor-11-04 01:26:47 | 1 |
-| [[SB Basics/SB Tricks/Useful Stuff]] | 2025-11-04 01:25:50 | 13 |
+| [[index]] | 2025-11-04 14:19:24 | 17 |
 | [[CONFIG/Widget/BreadCrumbs/Top]] | 2025-11-04 01:24:55 | 37 |
-| [[index]] | 2025-11-04 01:23:43 | 16 |
 | [[CONFIG/Widget/BreadCrumbs/Bottom]] | 2025-11-04 01:23:29 | 17 |
 | [[CONFIG/Copy as/External Link/Cursor Position]] | 2025-11-04 01:20:35 | 3 |
 | [[CONFIG/Edit]] | 2025-11-04 01:16:22 | 1 |
