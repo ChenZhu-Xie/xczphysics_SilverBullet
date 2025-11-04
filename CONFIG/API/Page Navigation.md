@@ -222,6 +222,7 @@ end
 
 ## page.childlink()
 
+[[CONFIG/API]]
 ```space-lua
 -- function page.childlink(div)
 -- Widget that lists and links all subpages.  
