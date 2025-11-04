@@ -42,7 +42,7 @@ for lvl = 1, 6 do
 end
 ```
 
-```space-style
+```space-lua
 command.define {
     name = "Header: Toggle Level " .. 2,
     key = "Ctrl-" .. 2,
