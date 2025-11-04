@@ -273,3 +273,27 @@ function page.navp()
   return pa[1].name
 end
 ```
+
+## page.navs()
+
+${page.navs()}
+```space-lua
+-- Returns the next page within the same section.  
+-- Returns an empty string if no page is found.  
+page = page or {}
+function page.navs()
+  local paa = editor.getCurrentPage()
+  local p = string.split(paa, "/")
+  local pa = query[[from index.tag "page"
+              where string.startsWith(name, tostring(p[1]))              
+              and name > paa
+              order by name 
+              limit 1]]
+    -- Se pa è nil o vuota, restituisce una stringa vuota
+    -- Returns an empty string if no page is found.  
+    if not pa or #pa == 0 then
+      return ""
+    end
+    return pa[1].name
+end
+```
