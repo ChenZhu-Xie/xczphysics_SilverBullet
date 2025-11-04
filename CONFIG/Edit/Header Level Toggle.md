@@ -42,5 +42,15 @@ for lvl = 1, 6 do
 end
 ```
 
+```space-lua
+command.define {
+    name = "Header: Toggle Level " .. 2,
+    key = "Ctrl-" .. 2,
+    run = function() 
+      toggleHead(2) 
+    end
+  }
+```
+
 ## Discussions about this widget
 * [SilverBullet Community](https://community.silverbullet.md/t/space-lua-toggle-rotate-header-level-h1-h6-on-off/3320?u=mr.red)
