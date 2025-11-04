@@ -9,7 +9,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
  - https://enlarge-the-percentage.fly.dev/SB%20Basics/SB%20API/editor#editor.setUiOption()
  - <https://enlarge-the-percentage.fly.dev/SB%20Basics/SB%20API/editor#editor.setUiOption()>
    - comes from https://community.silverbullet.md/t/silverbullet-2-2-released/3482?u=chenzhu-xie
-     - 
+   - fixed by https://github.com/silverbulletmd/silverbullet/pull/1607
 
 ```space-lua
 event.listen {
