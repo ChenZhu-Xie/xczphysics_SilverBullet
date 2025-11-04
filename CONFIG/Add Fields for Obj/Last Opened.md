@@ -34,7 +34,7 @@ index.defineTag {
     __index = function(self, attr)
       if attr == "lastVisit" then
         return template.each(query[[from editor.getRecentlyOpenedPages "page"
-    where name == self.name]], 
+    where _.name == self.name]], 
     template.new[==[
     ${_.lastOpened}
 ]==])
