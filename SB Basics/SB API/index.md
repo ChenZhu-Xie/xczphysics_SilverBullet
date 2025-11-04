@@ -48,5 +48,5 @@ ${index.getObjectByRef("my page", "mytask", "task1")}
 因为 每次 login SB 后，除了 可能的 reindex，
 Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
-## 那么怎样使 
+## 为什么 [[CONFIG/Add Fields for Obj/Last Opened]] 中的 lastVisit 甚至重开 SB 就没了，生命周期 甚至 短于 index DB
 
