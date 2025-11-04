@@ -35,6 +35,7 @@ ${index.getObjectByRef("my page", "mytask", "task1")}
 只要 indexdb 里有，且有 indexdb，那就是有。
 
 然而你一旦 `Client: wipe out`，就会发现没了。
+
 除非你再执行一次
 `${index.indexObjects("my page", {
     {tag = "mytask", ref="task1", content = "Buy groceries"},
@@ -42,4 +43,10 @@ ${index.getObjectByRef("my page", "mytask", "task1")}
 })}`
 以写入 indexdb 。
 
-## 为什么 space-lua block 写的可以跨越 Client 周期呢?
+## 为什么 space-lua block 写的可以跨越 Client/IndexDB 周期呢?
+
+因为 每次 login SB 后，除了 可能的 reindex，
+Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
+
+## 那么怎样使 
+
