@@ -35,18 +35,16 @@ command.define {
     key = "Ctrl-" .. 1,
     run = function() 
       toggleHead(1) 
-    end
-  }
-
-command.define {
+    end,
     name = "Header: Toggle Level " .. 2,
     key = "Ctrl-" .. 2,
     run = function() 
       toggleHead(2) 
     end
   }
-```
 
+```
+3
 ```lua
 for lvl = 1, 6 do
   -- editor.flashNotification(lvl)
