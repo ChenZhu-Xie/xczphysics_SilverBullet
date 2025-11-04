@@ -252,10 +252,10 @@ end
 
 ## page.navp()
 
+${page.navp()}
 ```space-lua
 -- Returns the previous page within the same section.  
 -- Returns an empty string if no page is found.
-
 page = page or {}
 function page.navp()
   local paa = editor.getCurrentPage()
@@ -265,7 +265,6 @@ function page.navp()
       and name < paa
       order by name desc
       limit 1]]
-  -- Se pa è nil o vuota, restituisce una stringa vuota
   -- Returns an empty string if no page is found.  
   if not pa or #pa == 0 then
     return ""
