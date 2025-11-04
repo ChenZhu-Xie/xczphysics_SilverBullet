@@ -50,3 +50,5 @@ Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
 ## 为什么 [[CONFIG/Add Fields for Obj/Last Opened]] 中的 lastVisit 甚至重开 SB 就没了，生命周期 甚至 短于 index DB
 
+
+
