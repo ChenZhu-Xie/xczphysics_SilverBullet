@@ -66,6 +66,7 @@ end
 
 ```space-lua
 -- works
+-- priority: -1
 index.defineTag {
   name = "page",
   metatable = {
