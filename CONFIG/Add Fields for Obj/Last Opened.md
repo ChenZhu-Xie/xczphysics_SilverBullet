@@ -97,7 +97,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return 1
+        return page.lastOpened(self.name)
       end
     end
   }
@@ -139,8 +139,13 @@ index.defineTag {
 
 ### Visitimes
 
-${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}
-```lua
+${query[[from index.tag "page" 
+         where _.Visitimes and _.name != editor.getCurrentPage()
+         select {ref=_.ref, Visitimes=_.Visitimes} 
+         order by _.Visitimes desc 
+         limit 5]]}
+
+```space-lua
 -- priority: -1
 local Visitimes = Visitimes or {}
 
