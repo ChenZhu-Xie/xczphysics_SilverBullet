@@ -96,7 +96,7 @@ index.defineTag { -- work within client/indexdb cycle
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return page.lastOpened(self.name)
+        return page.lastOpened()
       end
     end
   }
