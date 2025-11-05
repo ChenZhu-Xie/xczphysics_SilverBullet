@@ -81,22 +81,9 @@ ${(query[[
 
 `${query[[from index.tag "page" 
          where _.lastVisit]]}`
-
-${query[[from index.tag "page" 
-         where _.lastVisit]]}
-```space-lua
+```lua
 -- priority: -1
-page = page or {} -- function page.lastOpened(mypage)
-function page.lastOpened(mypage)
-  mypage = mypage or editor.getCurrentPage()
-  local table = query[[
-    from editor.getRecentlyOpenedPages "page"
-    where _.name == mypage
-  ]]
-  return table[1].lastOpened
-end
-
--- work within client/indexdb cycle
+-- work within client/indexdb cycle。不知道为什么不 work in lastOpened cycle，但试过与 [[CONFIG/Add Fields for Obj/Last Opened#Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]]] 不在同一 block 无关
 index.defineTag {
   name = "page",
   metatable = {
@@ -121,7 +108,7 @@ _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来�
          where _.lastVisit]]}`
 ```lua
 -- priority: -1
-page = page or {} -- work
+page = page or {} -- work within lastOpened cycle
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   return template.each(query[[
