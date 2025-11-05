@@ -91,7 +91,8 @@ function page.lastOpened(mypage)
   return table[1].lastOpened
 end
 
-index.defineTag { -- work within client/indexdb cycle
+-- work within client/indexdb cycle
+index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
@@ -123,7 +124,8 @@ function page.lastOpened(mypage)
 ]==])
 end
 
-index.defineTag {-- doesn't work
+-- doesn't work
+index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
