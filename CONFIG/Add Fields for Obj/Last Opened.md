@@ -54,7 +54,7 @@ ${query[[
 ${page.lastOpened()}
 ```space-lua
 -- priority: -1
--- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用
+-- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用? 至少在 v2.1.9 可以分开。
 page = page or {} -- function page.lastOpened(mypage)
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
@@ -80,7 +80,6 @@ ${query[[from index.tag "page"
          where _.lastVisit]]}
 ```space-lua
 -- priority: -1
-
 -- work within client/indexdb cycle
 index.defineTag {
   name = "page",
