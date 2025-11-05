@@ -113,7 +113,7 @@ index.defineTag {
 ```
 
 ${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}
-```space-lua
+```lua
 -- priority: -1
 local Visitimes = Visitimes or {}
 
