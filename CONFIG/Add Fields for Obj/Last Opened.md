@@ -57,7 +57,7 @@ function page.lastOpened(pagina)
   pagina = pagina or editor.getCurrentPage()
   return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == self.name
+    where _.name == pagina
   ]], template.new[==[
     ${_.lastOpened}
 ]==])
