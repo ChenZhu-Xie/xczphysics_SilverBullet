@@ -79,7 +79,7 @@ ${(query[[
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```space-lua
+```lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
