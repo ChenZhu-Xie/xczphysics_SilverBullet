@@ -119,13 +119,13 @@ function page.lastOpened(mypage)
 ]==])
 end
 
--- v2.2.1 doesn't work
+-- work but nil
 index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return page.lastOpened(self.name)
+        return string(page.lastOpened(self.name))
       end
     end
   }
