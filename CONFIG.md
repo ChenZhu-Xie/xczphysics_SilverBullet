@@ -39,6 +39,7 @@ ${query[[from index.tag "page"
 ```
 
 3. [where <expression>](https://silverbullet.md/Space%20Lua/Lua%20Integrated%20Query/where <expression>)
+- https://community.silverbullet.md/t/v2-understanding-queries-lua-and-help-to-migrate-old-requests/2253/4?u=chenzhu-xie
 
 ${query[[from index.tag "page" where table.includes(tags, "SB_itself")]]}
 # CONFIG begin
