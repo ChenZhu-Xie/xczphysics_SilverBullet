@@ -52,14 +52,3 @@ Well, let’s start with a logo first.
 ${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
 # Last Visit 👀
 
-${query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()
-         select {ref=_.ref, lastVisit=_.lastVisit} 
-         order by _.lastVisit desc 
-         limit 5]]}
-
-${query[[from index.tag "page" 
-         where _.Visitimes and _.name != editor.getCurrentPage()
-         select {ref=_.ref, Visitimes=_.Visitimes} 
-         order by _.Visitimes desc 
-         limit 5]]}
