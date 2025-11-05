@@ -138,7 +138,7 @@ ${query[[from index.tag "page"
          limit 5]]}
 `${Visitimes[editor.getCurrentPage()]}`
 
-```space-lua
+```lua
 -- priority: -1
 local Visitimes = Visitimes or {}
 
