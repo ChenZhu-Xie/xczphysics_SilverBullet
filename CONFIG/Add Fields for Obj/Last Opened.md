@@ -70,7 +70,7 @@ end
 有 page = page or {} 后，SB 重启后 lastVisit 又没了。
 ${query[[from index.tag "page" 
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
-```lua
+```space-lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
@@ -97,7 +97,7 @@ index.defineTag { -- work client/indexdb
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 ${query[[from index.tag "page" 
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
-```space-lua
+```lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
