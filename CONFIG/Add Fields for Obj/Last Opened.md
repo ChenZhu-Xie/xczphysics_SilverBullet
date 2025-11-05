@@ -86,7 +86,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        local lastVisit = page.lastOpened(self.name)
+        local lastVisit = page.lastOpened()
         editor.flashNotification("lastVisit: " .. lastVisit)
         return lastVisit
       end
