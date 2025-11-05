@@ -72,8 +72,10 @@ function yg.bc(path)
   local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
   local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
-  -- 访问次数（来自 Visit Times 表，带秒级缓存 + 快速路径）
-  local visits = getVisitTimesFor(mypage)
+  -- 访问次数
+  local mypage = editor.getCurrentPage()
+  local data = datastore.get({"Visitimes", mypage}) or {}
+  local visits = data.value or 0
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
   return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
