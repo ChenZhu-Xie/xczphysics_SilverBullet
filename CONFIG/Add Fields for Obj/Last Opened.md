@@ -167,13 +167,14 @@ event.listen{
 ### Visitimes 2: Client level
 
 1. https://silverbullet.md/API/datastore
-2. https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
 
 ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
 ${datastore.get({"Visitimes", editor.getCurrentPage()}).value} 
 
 ${datastore.queryLua("Visitimes")}
+AboutDatastore:https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
+SomeOtherGoodStuff:JsDebug:https://github.com/silverbulletmd/silverbullet/issues/1520#issuecomment-3285366880
 
 ```space-lua
 -- priority: -1
