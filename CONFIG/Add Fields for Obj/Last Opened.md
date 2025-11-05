@@ -78,9 +78,7 @@ function page.lastOpened(mypage)
 end
 ```
 
-
-
-```lua
+```space-lua
 -- priority: -1
 -- doesn't work
 index.defineTag {
