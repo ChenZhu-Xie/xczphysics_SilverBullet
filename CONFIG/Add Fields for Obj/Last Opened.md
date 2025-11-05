@@ -1,5 +1,5 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
+recommend: ⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened.md"
 udpateDate: 2025-10-27
 ---
@@ -172,7 +172,8 @@ ${query[[from index.tag "page"
          order by _.Visitimes desc 
          limit 5]]}
 
-${datastore.get({"user","123"})}
+${datastore.set({"user","123"}, {name = "test"})}
+${(datastore.get({"user","12"})).value}
 
 ```space-lua
 -- priority: -1
@@ -181,7 +182,9 @@ event.listen{
   name = "editor:pageLoaded",
   run = function(e)
     local mypage = editor.getCurrentPage()
-    datastore.set({"Visitimes", mypage}, {value = (datastore.get({"Visitimes", mypage}).value or 0) + 1})
+    local data = datastore.get({"Visitimes", mypage}) or {}
+    local value = data.value or 0
+    datastore.set({"Visitimes", mypage}, { value = value + 1 })
     editor.flashNotification("Visitimes: " .. datastore.get({"Visitimes", mypage}).value)
   end
 }

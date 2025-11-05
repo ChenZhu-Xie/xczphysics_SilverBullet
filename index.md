@@ -66,7 +66,3 @@ ${query[[from index.tag "page"
          select {ref=_.ref, Visitimes=_.Visitimes} 
          order by _.Visitimes desc 
          limit 5]]}
-
-# Time 🌄
-
-${timeLeftBar()}
