@@ -53,11 +53,7 @@ ${query[[
 
 ${page.lastOpened()}
 
-_.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
-${query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```space-lua
--- priority: -1
 page = page or {} -- function page.lastOpened(mypage)
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
@@ -67,7 +63,13 @@ function page.lastOpened(mypage)
   ]]
   return table[1].lastOpened
 end
+```
 
+有 page = page or {} 后，SB 重启后 lastVisit 又没了。
+${query[[from index.tag "page" 
+         where _.lastVisit and _.name != editor.getCurrentPage()]]}
+```lua
+-- priority: -1
 index.defineTag {
   name = "page",
   metatable = {
@@ -80,6 +82,9 @@ index.defineTag {
 }
 ```
 
+_.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
+${query[[from index.tag "page" 
+         where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```lua
 -- priority: -1
 -- doesn't work
