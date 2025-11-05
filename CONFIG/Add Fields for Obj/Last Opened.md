@@ -51,7 +51,7 @@ index.defineTag {
     ${_.lastOpened}
 ]==])
         editor.flashNotification("lastVisit: " .. lastVisit)
-        return 
+        return lastVisit
       end
     end
   }
