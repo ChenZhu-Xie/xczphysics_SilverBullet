@@ -24,8 +24,8 @@ index.defineTag {
 }
 
 event.listen{
-  -- name = "hooks:renderTopWidgets",
-  name = "editor:pageLoaded",
+  name = "hooks:renderTopWidgets",
+  -- name = "editor:pageLoaded",
   run = function(e)
     local mypage = editor.getCurrentPage()
     visitimeStore[mypage] = (visitimeStore[mypage] or 0) + 1
