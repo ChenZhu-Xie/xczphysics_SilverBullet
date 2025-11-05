@@ -159,7 +159,7 @@ event.listen{
   run = function(e)
     local mypage = editor.getCurrentPage()
     Visitimes[mypage] = (Visitimes[mypage] or 0) + 1
-    editor.flashNotification("Visitimes: " .. Visitimes[mypage])
+    -- editor.flashNotification("Visitimes: " .. Visitimes[mypage])
   end
 }
 ```
