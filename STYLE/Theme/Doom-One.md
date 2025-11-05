@@ -729,7 +729,7 @@ Custom Lua blocks at top or bottom of the page.
 /* Bottom spacing */
 #sb-main .cm-editor .sb-lua-top-widget {
   /* margin-bottom: 10px; */
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 /* Top spacing */
