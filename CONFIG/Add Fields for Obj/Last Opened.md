@@ -52,7 +52,7 @@ ${query[[
 ### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
-```lua
+```space-lua
 -- priority: -1
 -- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用
 page = page or {} -- function page.lastOpened(mypage)
@@ -78,17 +78,8 @@ ${(query[[
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```lua
+```space-lua
 -- priority: -1
-page = page or {} -- work
-function page.lastOpened(mypage)
-  mypage = mypage or editor.getCurrentPage()
-  local table = query[[
-    from editor.getRecentlyOpenedPages "page"
-    where _.name == mypage
-  ]]
-  return table[1].lastOpened
-end
 
 -- work within client/indexdb cycle
 index.defineTag {
