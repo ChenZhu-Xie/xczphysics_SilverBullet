@@ -9,7 +9,6 @@ ${query[[from index.tag "page"
 `${Visitimes[editor.getCurrentPage()]}`
 
 ```space-lua
--- priority: -1
 local Visitimes = Visitimes or {}
 
 index.defineTag {
