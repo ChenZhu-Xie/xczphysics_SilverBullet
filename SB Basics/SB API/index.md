@@ -52,7 +52,7 @@ Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
 是因为 下述 新增的 attr 重开 SB 就没了么？
 
-```space-lua
+```lua
 -- priority: -1
 index.defineTag {
   name = "page",
