@@ -71,7 +71,5 @@ ${query[[
 
 ${query[[
     from index.tag "page"
-    select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)} 
-    order by _.Visitimes
-    desc limit 5
+    select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
 ]]}
