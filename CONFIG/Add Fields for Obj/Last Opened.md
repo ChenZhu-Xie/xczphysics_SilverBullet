@@ -97,6 +97,7 @@ index.defineTag {
 
 ${page.lastOpened()}
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
+这个版本的 lastVisit = lastOpened ，而不是其子集。
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
 ```space-lua
