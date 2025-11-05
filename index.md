@@ -47,10 +47,12 @@ So how should it be done?
 
 Well, let’s start with a logo first.
 
-# Last Modified ✏️
+# Statistics
+
+## Last Modified ✏️
 
 ${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
-# Last Visit 👀
+## Last Visit 👀
 
 ${query[[
   from editor.getRecentlyOpenedPages "page"
@@ -59,3 +61,6 @@ ${query[[
   order by _.lastOpened desc
   limit 5
 ]]}
+## Most Visit ❤️‍🔥
+
+
