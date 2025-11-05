@@ -170,6 +170,8 @@ ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
 ${datastore.get({"Visitimes", editor.getCurrentPage()}).value}
 
+${datastore.query({"Visitimes" })}
+
 ```space-lua
 -- priority: -1
 event.listen{
