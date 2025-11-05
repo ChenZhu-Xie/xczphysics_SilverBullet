@@ -166,14 +166,10 @@ event.listen{
 
 ### Visitimes 2: Client level
 
-${query[[from index.tag "page" 
-         where _.Visitimes and _.name != editor.getCurrentPage()
-         select {ref=_.ref, Visitimes=_.Visitimes} 
-         order by _.Visitimes desc 
-         limit 5]]}
-
 ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
+${datastore.get({"Visitimes", editor.getCurrentPage()}).value}
+
 ```space-lua
 -- priority: -1
 event.listen{
@@ -184,7 +180,7 @@ event.listen{
     local data = datastore.get({"Visitimes", mypage}) or {}
     local value = data.value or 0
     datastore.set({"Visitimes", mypage}, { value = value + 1 })
-    editor.flashNotification("Visitimes: " .. datastore.get({"Visitimes", mypage}).value)
+    -- editor.flashNotification("Visitimes: " .. datastore.get({"Visitimes", mypage}).value)
   end
 }
 ```
