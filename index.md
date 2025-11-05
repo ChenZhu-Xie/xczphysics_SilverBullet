@@ -69,7 +69,10 @@ ${query[[
 ]]}
 ## Most Visit ❤️‍🔥
 
-${table.sort(mytable2, compareVisitimes)}
+${table.sort(query[[from query[[
+            from index.tag "page"
+            select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
+          ]] where _.Visitimes > 0]], compareVisitimes)}
 
 ```space-lua
 local mytable = query[[
@@ -77,7 +80,7 @@ local mytable = query[[
             select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
           ]]
 
-mytable2 = query[[from mytable where _.Visitimes > 0]]
+Opentimes = 
 
 function compareVisitimes(a, b)
   return a.Visitimes  > b.Visitimes 
