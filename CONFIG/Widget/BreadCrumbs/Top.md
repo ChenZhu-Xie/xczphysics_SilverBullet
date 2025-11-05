@@ -120,15 +120,16 @@ function yg.lastV(mypage)
   local hasChild = has_children(mypage)
 
   -- 选择数据源：有子页面时选子页面最近访问，否则全局最近访问（排除当前页）
-  local list = hasChild and query[[from index.tag "page" 
-         where _.lastVisit and _.name:find("^" .. mypage .. "/")
-         order by _.lastVisit desc
+  local list = hasChild and 
+  query[[from editor.getRecentlyOpenedPages "page" 
+         where _.lastOpened and _.name:find("^" .. mypage .. "/")
+         order by _.lastOpened desc
          limit max_num]]
-       or query[[from index.tag "page"
-         where _.lastVisit and _.name != mypage
-         order by _.lastVisit desc
+       or query[[from editor.getRecentlyOpenedPages "page" 
+         where _.lastOpened and _.name != mypage
+         order by _.lastOpened desc
          limit max_num]]
-
+  
   -- 序号徽章（bc_lastV）
   local V_hasCHILD  = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
   local V_noCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
