@@ -129,7 +129,7 @@ index.defineTag {
 }
 ```
 
-### Visitimes 1
+### Visitimes 1: Instance level
 
 ${query[[from index.tag "page" 
          where _.Visitimes and _.name != editor.getCurrentPage()
@@ -164,7 +164,7 @@ event.listen{
 }
 ```
 
-### Visitimes 2
+### Visitimes 2: Client level
 
 ${query[[from index.tag "page" 
          where _.Visitimes and _.name != editor.getCurrentPage()
@@ -174,7 +174,6 @@ ${query[[from index.tag "page"
 
 ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
-
 ```space-lua
 -- priority: -1
 event.listen{
