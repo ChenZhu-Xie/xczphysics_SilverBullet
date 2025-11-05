@@ -188,7 +188,7 @@ event.listen{
 
 ## Sorted by lastVisit
 
-```lua
+```space-lua
 -- priority: -1
 local path = "CONFIG/Add Fields for Obj/Last Opened/Visit Times"
 local lastVisitStore = lastVisitStore or {}
