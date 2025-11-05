@@ -71,6 +71,6 @@ ${query[[
 
 ${query[[
     from index.tag "page"
-    where (datastore.get({"Visitimes", _.name}) or {}).value
+    where (datastore.get({"Visitimes", _.name}) or {}).value > 0
     select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
 ]]}
