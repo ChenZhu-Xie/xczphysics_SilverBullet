@@ -53,16 +53,14 @@ ${query[[
 
 ```space-lua
 page = page or {} -- function page.title(pagina)
-function page.title(pagina)
+function page.lastOpened(pagina)
   pagina = pagina or editor.getCurrentPage()
-  -- Searches for a level-1 header.
-  local titolo = query[[
-      from index.tag "header" where
-        page == pagina and
-        level == 1
-        order by pos
-        limit 1
-    ]]
+  local titolo = template.each(query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == self.name
+  ]], template.new[==[
+    ${_.lastOpened}
+]==])
   if titolo then
     return tostring(titolo[1].name)
   else
@@ -78,11 +76,12 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        local lastVisit = template.each(query[[from editor.getRecentlyOpenedPages "page"
-    where _.name == self.name]], 
-    template.new[==[
-    ${_.lastOpened}
-]==])
+        local lastVisit = template.each(query[[
+            from editor.getRecentlyOpenedPages "page"
+            where _.name == self.name
+          ]], template.new[==[
+            ${_.lastOpened}
+        ]==])
         editor.flashNotification("lastVisit: " .. lastVisit)
         return lastVisit
       end
