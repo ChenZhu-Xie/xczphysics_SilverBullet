@@ -36,6 +36,7 @@ ${query[[
 ]]}
 ## Simplest way of getting lastOpened attr?
 
+### Some equivalences
 1. https://silverbullet.md/Space%20Lua
 
 `${_CTX.currentPage.name}` from https://silverbullet.md/Objects#page
@@ -45,8 +46,9 @@ ${query[[
 
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
-${_CTX._GLOBAL[3]}
+`${query[[from index.tag "page"]]}`
 
+### 
 
 ```lua
 -- priority: -1
