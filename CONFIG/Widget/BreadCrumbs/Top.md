@@ -43,6 +43,8 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 
+## Ver 4: Adapt To [[CONFIG/Add Fields for Obj/Last Opened#Visitimes 2: Client level]] and 
+
 ## Ver 3: 👀lastVisit added
 
 .⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 👀lastVisit
