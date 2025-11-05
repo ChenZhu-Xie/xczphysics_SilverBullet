@@ -66,9 +66,11 @@ function page.lastOpened(pagina)
 end
 ```
 
-```lua
+
+
+```space-lua
 -- priority: -1
--- works
+-- work
 index.defineTag {
   name = "page",
   metatable = {
