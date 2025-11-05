@@ -51,7 +51,25 @@ ${query[[
 
 ### Drawing some insights from [[CONFIG/API/Page Navigation]]
 
-
+```space-lua
+page = page or {} -- function page.title(pagina)
+function page.title(pagina)
+  pagina = pagina or editor.getCurrentPage()
+  -- Searches for a level-1 header.
+  local titolo = query[[
+      from index.tag "header" where
+        page == pagina and
+        level == 1
+        order by pos
+        limit 1
+    ]]
+  if titolo then
+    return tostring(titolo[1].name)
+  else
+    return page.nome(pagina)
+  end
+end
+```
 
 ```lua
 -- priority: -1
