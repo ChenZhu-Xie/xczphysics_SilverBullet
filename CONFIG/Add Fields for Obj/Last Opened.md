@@ -115,7 +115,7 @@ index.defineTag {-- doesn't work
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return page.lastOpened()
+        return page.lastOpened(self.name)
       end
     end
   }
