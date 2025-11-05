@@ -29,6 +29,7 @@ ${template.each(query[[
   from editor.getRecentlyOpenedPages "lastOpened"
   where _.tag == "page" and _.name == editor.getCurrentPage()
 ]], templates.fullPageItem)}
+`${_CTX.currentPage.name}` from https://silverbullet.md/Objects#page
 ${query[[
   from editor.getRecentlyOpenedPages "lastOpened"
   where _.tag == "page" and _.name == editor.getCurrentPage()
@@ -44,7 +45,7 @@ ${query[[
 `${space.getPageMeta(editor.getCurrentPage())}`
 `${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}`
 
-`${_CTX._GLOBAL}`
+`${_CTX._GLOBAL}` ?
 `${space.listPages()}`
 `${query[[from index.tag "page"]]}`
 
