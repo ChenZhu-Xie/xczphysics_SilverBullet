@@ -86,7 +86,7 @@ function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   local table = query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == editor.getCurrentPage()
+    where _.name == mypage
   ]]
   return table[1].lastOpened
 end
