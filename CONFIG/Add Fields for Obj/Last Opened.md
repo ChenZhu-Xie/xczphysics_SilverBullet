@@ -173,13 +173,15 @@ ${(datastore.get({"user","12"})).value}
 ${datastore.get({"Visitimes", editor.getCurrentPage()}).value} 
 
 ${datastore.queryLua("Visitimes")}
-Datastore:https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
-ClientStore:https://github.com/silverbulletmd/silverbullet/pull/1542#issuecomment-3290746660
+- Datastore: https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
+- ClientStore: https://github.com/silverbulletmd/silverbullet/pull/1542#issuecomment-3290746660
 
 OtherGoodStuff:
-JsDebug:https://github.com/silverbulletmd/silverbullet/issues/1520#issuecomment-3285366880
-Per-tag page styling:https://github.com/silverbulletmd/silverbullet/pull/945
-High Quality External Judgment about SB:https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
+- JsDebug: https://github.com/silverbulletmd/silverbullet/issues/1520#issuecomment-3285366880
+- Per-tag page styling: https://github.com/silverbulletmd/silverbullet/pull/945
+- Performance issues with a large garden: https://github.com/silverbulletmd/silverbullet/issues/1010
+
+High Quality External Judgment about SB: https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
 
 
 ```space-lua
