@@ -15,14 +15,19 @@ ${template.each(query[[from editor.getRecentlyOpenedPages "page"
     ${_.lastOpened}
 ]==])}
 
-另一种 先索引 attr，再索引 obj_name 的 方式
+另一种 先索引 attr，再索引 obj_name 的 方式（类似 [[CONFIG#SB stuff]]）
 1. https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage()]]}
 
 ${template.each(query[[
   from editor.getRecentlyOpenedPages "lastOpened"
-  where _.tag == "page"
+  where _.tag == "page" and _.name == editor.getCurrentPage()
 ]], templates.fullPageItem)}
+${query[[
+  from editor.getRecentlyOpenedPages "lastOpened"
+  where _.tag == "page" and _.name == editor.getCurrentPage()
+  select ({lastOpened = _.lastOpened})
+]]}
 
 1. https://silverbullet.md/Space%20Lua
 `${_CTX.currentPage}`
