@@ -172,6 +172,8 @@ ${query[[from index.tag "page"
          order by _.Visitimes desc 
          limit 5]]}
 
+${datastore.get({"user","123"})}
+
 ```space-lua
 -- priority: -1
 event.listen{
