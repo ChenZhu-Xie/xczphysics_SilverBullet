@@ -72,7 +72,7 @@ ${query[[from index.tag "page"
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```lua
 -- priority: -1
-page = page or {} -- function page.lastOpened(mypage)
+page = page or {} -- work
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   local table = query[[
@@ -82,7 +82,7 @@ function page.lastOpened(mypage)
   return table[1].lastOpened
 end
 
-index.defineTag {
+index.defineTag { -- work client/indexdb
   name = "page",
   metatable = {
     __index = function(self, attr)
@@ -99,8 +99,7 @@ ${query[[from index.tag "page"
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```space-lua
 -- priority: -1
--- doesn't work
-page = page or {} -- function page.lastOpened(mypage)
+page = page or {} -- work
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   return template.each(query[[
@@ -111,7 +110,7 @@ function page.lastOpened(mypage)
 ]==])
 end
 
-index.defineTag {
+index.defineTag {-- doesn't work
   name = "page",
   metatable = {
     __index = function(self, attr)
