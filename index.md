@@ -55,6 +55,7 @@ ${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {r
 ${query[[
   from editor.getRecentlyOpenedPages "page"
   where _.lastOpened and _.name != editor.getCurrentPage()
-  select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastVisit)} 
+  select {ref=_.ref, lastVisit=_.lastOpened} 
+  order by (tonumber(_.lastOpened) or 0) desc
   limit 5
 ]]}
