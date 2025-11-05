@@ -186,8 +186,8 @@ OtherGoodStuff:
 High Quality External Judgment about SB: https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
   - https://www.startpage.com/sp/search
 
-还是 没能实现如何 将 Visitimes 按 value 降序，排列 mypage 成表格，以放在 [[index#Last Visit 👀]] 中，暂时不做了 = =...
-“datastore 查询” 的接口似乎还没暴露出来。
+还是 没能实现 直接将 Visitimes 按 value 降序，排列 mypage 成表格，以放在 [[index#Last Visit 👀]] 中，暂时不做了 = =...
+“dataStore 查询” 的接口似乎还没暴露出来。[[index#Most Visit ❤️‍🔥|尽管另寻他法做表格很容易]]。
 
 ```space-lua
 -- priority: -1

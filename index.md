@@ -70,9 +70,8 @@ ${query[[
 ## Most Visit ❤️‍🔥
 
 ${query[[
-    from index.tag "page" 
-    where _.name != editor.getCurrentPage() 
-    select {ref=_.ref, lastModified=_.lastModified} 
-    order by lastModified 
+    from index.tag "page"
+    select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)} 
+    order by _.Visitimes
     desc limit 5
 ]]}
