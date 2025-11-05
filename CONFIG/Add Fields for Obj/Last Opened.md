@@ -94,6 +94,8 @@ index.defineTag { -- work client/indexdb
 }
 ```
 
+${page.lastOpened()}
+
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 ${query[[from index.tag "page" 
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
