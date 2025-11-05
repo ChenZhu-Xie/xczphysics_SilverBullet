@@ -6,6 +6,7 @@ udpateDate: 2025-10-27
 
 # SB approach
 
+
 ${query[[from editor.getRecentlyOpenedPages "page"
          where _.name == editor.getCurrentPage()
          select {lastOpened = _.lastOpened}]]}
