@@ -56,6 +56,6 @@ ${query[[
   from editor.getRecentlyOpenedPages "page"
   where _.lastOpened and _.name != editor.getCurrentPage()
   select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastVisit)} 
-  order by tonumber(_.lastVisit) desc 
+  order by _.lastVisit desc 
   limit 5
 ]]}
