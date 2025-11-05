@@ -174,7 +174,11 @@ ${datastore.get({"Visitimes", editor.getCurrentPage()}).value}
 
 ${datastore.queryLua("Visitimes")}
 AboutDatastore:https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
-SomeOtherGoodStuff:JsDebug:https://github.com/silverbulletmd/silverbullet/issues/1520#issuecomment-3285366880
+SomeOtherGoodStuff:
+JsDebug:https://github.com/silverbulletmd/silverbullet/issues/1520#issuecomment-3285366880
+Per-tag page styling:https://github.com/silverbulletmd/silverbullet/pull/945
+
+
 
 ```space-lua
 -- priority: -1
