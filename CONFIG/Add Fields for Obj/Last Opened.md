@@ -65,7 +65,6 @@ end
 ```
 
 ```space-lua
--- priority: -1
 -- works
 index.defineTag {
   name = "page",
