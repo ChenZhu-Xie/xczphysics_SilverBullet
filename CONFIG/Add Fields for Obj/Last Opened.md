@@ -99,14 +99,13 @@ index.defineTag {
 ### integrate with `index.defineTag` 1
 
 ${page.lastOpened()}
-
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 
 这个版本的 lastVisit = lastOpened，而不是其子集。生命周期：永续存在。
 
 `${query[[from index.tag "page" 
          where _.lastVisit]]}`
-```lua
+```space-lua
 -- priority: -1
 page = page or {} -- work within lastOpened cycle
 function page.lastOpened(mypage)
