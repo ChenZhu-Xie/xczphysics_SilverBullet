@@ -129,7 +129,7 @@ index.defineTag {
 }
 ```
 
-### Visitimes
+### Visitimes 1
 
 ${query[[from index.tag "page" 
          where _.Visitimes and _.name != editor.getCurrentPage()
@@ -160,6 +160,27 @@ event.listen{
     local mypage = editor.getCurrentPage()
     Visitimes[mypage] = (Visitimes[mypage] or 0) + 1
     -- editor.flashNotification("Visitimes: " .. Visitimes[mypage])
+  end
+}
+```
+
+### Visitimes 2
+
+${query[[from index.tag "page" 
+         where _.Visitimes and _.name != editor.getCurrentPage()
+         select {ref=_.ref, Visitimes=_.Visitimes} 
+         order by _.Visitimes desc 
+         limit 5]]}
+
+```space-lua
+-- priority: -1
+event.listen{
+  -- name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
+  run = function(e)
+    local mypage = editor.getCurrentPage()
+    datastore.set({"Visitimes", mypage}, {value = (datastore.get({"Visitimes", mypage}).value or 0) + 1})
+    editor.flashNotification("Visitimes: " .. datastore.get({"Visitimes", mypage}).value)
   end
 }
 ```
