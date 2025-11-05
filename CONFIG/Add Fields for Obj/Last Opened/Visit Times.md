@@ -1,5 +1,9 @@
-| pageRef | lastVisit | visitTimes |
-|---------|-----------|------------|
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 17:05:05 | 25 |
-| [[index]] | 2025-11-05 17:05:04 | 3 |
-| [[SB Basics/SB API/index]] | 2025-11-05 17:04:29 | 1 |
+${query[[
+    from query[[
+      from index.tag "page"
+      select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
+    ]] 
+    where _.Visitimes > 0
+    order by _.Visitimes desc
+    limit 5
+]]}

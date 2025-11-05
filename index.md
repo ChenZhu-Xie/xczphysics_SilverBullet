@@ -49,16 +49,7 @@ Well, let’s start with a logo first.
 
 # Statistics
 
-## Last Modified ✏️
-
-${query[[
-    from index.tag "page" 
-    where _.name != editor.getCurrentPage() 
-    select {ref=_.ref, lastModified=_.lastModified} 
-    order by lastModified 
-    desc limit 5
-]]}
-## Last Visit 👀
+## Your Last Visit 👀
 
 ${query[[
     from editor.getRecentlyOpenedPages "page"
@@ -67,22 +58,23 @@ ${query[[
     order by _.lastOpened desc
     limit 5
 ]]}
-## Most Visit ❤️‍🔥
+## Your Most Visit ❤️‍🔥
 
-${table.sort(query[[from query[[
-            from index.tag "page"
-            select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
-          ]] where _.Visitimes > 0]], compareVisitimes)}
+${query[[
+    from query[[
+      from index.tag "page"
+      select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
+    ]] 
+    where _.Visitimes > 0
+    order by _.Visitimes desc
+    limit 5
+]]}
+## My Last Modified ✏️
 
-```space-lua
-local mytable = query[[
-            from index.tag "page"
-            select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
-          ]]
-
-Opentimes = 
-
-function compareVisitimes(a, b)
-  return a.Visitimes  > b.Visitimes 
-end
-```
+${query[[
+    from index.tag "page" 
+    where _.name != editor.getCurrentPage() 
+    select {ref=_.ref, lastModified=_.lastModified} 
+    order by lastModified 
+    desc limit 5
+]]}
