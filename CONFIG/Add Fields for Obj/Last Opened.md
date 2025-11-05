@@ -145,7 +145,7 @@ ${query[[from index.tag "page"
 
 `${Visitimes[editor.getCurrentPage()]}`
 
-```lua
+```space-lua
 -- priority: -1
 local visitimeStore = visitimeStore or {}
 
