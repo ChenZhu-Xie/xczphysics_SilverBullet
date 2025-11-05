@@ -38,6 +38,9 @@ ${query[[from index.tag "page"
 ]]}
 ```
 
+3. [where <expression>](https://silverbullet.md/Space%20Lua/Lua%20Integrated%20Query/where <expression>)
+
+${query[[from index.tag "page" where table.includes(tags, "SB_itself")]]}
 # CONFIG begin
 This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.
 
