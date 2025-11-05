@@ -49,7 +49,7 @@ ${query[[
 `${space.listPages()}`
 `${query[[from index.tag "page"]]}`
 
-### Wraping functions! from [[CONFIG/API/Page Navigation]]
+### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
 
@@ -67,9 +67,13 @@ function page.lastOpened(mypage)
 end
 ```
 
-有 page = page or {} 后，SB 重启后 lastVisit 又没了。
+### integrate with `index.defineTag` 2
+
+有 page = page or {} 后，SB 重启后 lastVisit 又没了?
+不。仍有。但仍撑不过 `Client: Wipe Out`，则下述是 [[SB Basics/SB API/index#Client level]]
+奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()]]}
+         where _.lastVisit]]}
 ```space-lua
 -- priority: -1
 page = page or {} -- work
@@ -82,7 +86,7 @@ function page.lastOpened(mypage)
   return table[1].lastOpened
 end
 
-index.defineTag { -- work client/indexdb
+index.defineTag { -- work within client/indexdb cycle
   name = "page",
   metatable = {
     __index = function(self, attr)
@@ -94,11 +98,13 @@ index.defineTag { -- work client/indexdb
 }
 ```
 
+### integrate with `index.defineTag` 1
+
 ${page.lastOpened()}
 
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 ${query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()]]}
+         where _.lastVisit]]}
 ```lua
 -- priority: -1
 page = page or {} -- work
@@ -123,6 +129,8 @@ index.defineTag {-- doesn't work
   }
 }
 ```
+
+### Visitimes
 
 ${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}
 ```lua
