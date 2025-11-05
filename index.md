@@ -53,7 +53,7 @@ Well, let’s start with a logo first.
 
 ${query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.lastOpened and _.name != editor.getCurrentPage()
+    where _.lastOpened
     select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
     order by _.lastOpened desc
     limit 5
