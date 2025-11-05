@@ -11,9 +11,103 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
-## Ver 3: 👀lastVisit added
+## Ver 4: Adapt To [[CONFIG/Add Fields for Obj/Last Opened#Visitimes 2: Client level]] and [[index#Last Visit 👀]]
 
 ```space-lua
+-- priority: 10
+Yg = Yg or {}
+
+-- 仅用于 pattern() 的场景选择（保留原逻辑）
+local function choose(a, b, path)
+  if path and #path > 0 then
+    return a
+  else
+    return b
+  end
+end
+
+-- 模板使用 ${badge}，序号徽章在数据阶段注入
+local function Bc_last()
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+-- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
+local function pattern(path)
+  return choose("^" .. path .. "/[^/]+$", "^[^/]+$", path)
+end
+
+local max_num = 5  -- 如需覆盖 1~9，可改为 9
+
+function Yg.lastM(thisPage, mypath)
+  local list = query[[from index.tag "page" 
+         where _.name ~= thisPage and _.name:find(pattern(mypath))
+         order by _.lastModified desc
+         limit max_num]]
+
+  -- 方块风格（沿用 Top 的约定）
+  local M_hasFATHER = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_noFATHER  = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = choose(M_hasFATHER, M_noFATHER, mypath)
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function Yg.lastV(thisPage, mypath)
+  local list = query[[from index.tag "page" 
+         where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(mypath))
+         order by _.lastVisit desc
+         limit max_num]]
+
+  -- 圆形风格（沿用 Top 的约定）
+  local V_hasFATHER = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_noFATHER  = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = choose(V_hasFATHER, V_noFATHER, mypath)
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+-- 主面包屑：按是否有子页面切换 ⇦⇨ / ⬅⮕ 分隔符，并追加 👀访问次数
+function Yg.bc(path)
+  local thisPage = path or editor.getCurrentPage()
+  local mypath = thisPage:match("^(.*)/[^/]*$")
+  local arrow = choose("⇦⇨", "⬅⮕", mypath)
+
+  -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
+  local bc = "[[.]]"
+  local parts = string.split(thisPage, "/")
+  local current = ""
+  for i, part in ipairs(parts) do
+    if current ~= "" then current = current .. "/" end
+    current = current .. part
+    bc = bc .. arrow .. "[[" .. current .. "]]"
+  end
+
+  -- 最近修改 / 最近访问（带序号徽章）
+  local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
+  local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
+
+  -- 访问次数
+  local data = datastore.get({"Visitimes", thisPage}) or {}
+  local visits = data.value or 0
+  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
+
+  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+end
+
+function widgets.breadcrumbs_B()
+  return widget.new {markdown = Yg.bc()}
+end
+```
+
+## Ver 3: 👀lastVisit added
+
+```lua
 -- priority: 10
 Yg = Yg or {}
 
