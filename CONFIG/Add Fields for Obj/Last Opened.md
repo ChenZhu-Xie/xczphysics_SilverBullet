@@ -54,6 +54,7 @@ ${query[[
 ${page.lastOpened()}
 
 ```space-lua
+-- priority: -1
 page = page or {} -- function page.lastOpened(mypage)
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
