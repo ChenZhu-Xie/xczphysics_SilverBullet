@@ -53,9 +53,6 @@ ${query[[
 
 ${page.lastOpened()}
 
-有 page = page or {} 后，SB 重启后 lastVisit 又没了。
-${query[[from index.tag "page" 
-         where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```space-lua
 -- priority: -1
 page = page or {} -- function page.lastOpened(mypage)
@@ -67,7 +64,13 @@ function page.lastOpened(mypage)
   ]]
   return table[1].lastOpened
 end
+```
 
+有 page = page or {} 后，SB 重启后 lastVisit 又没了。
+${query[[from index.tag "page" 
+         where _.lastVisit and _.name != editor.getCurrentPage()]]}
+```space-lua
+-- priority: -1
 index.defineTag {
   name = "page",
   metatable = {
