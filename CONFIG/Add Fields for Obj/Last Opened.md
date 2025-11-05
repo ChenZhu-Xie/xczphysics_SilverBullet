@@ -53,7 +53,7 @@ ${query[[
 
 ${page.lastOpened()}
 
-```space-lua
+```lua
 -- priority: -1
 -- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用
 page = page or {} -- function page.lastOpened(mypage)
