@@ -115,10 +115,7 @@ index.defineTag {-- doesn't work
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return (query[[
-    from editor.getRecentlyOpenedPages "page"
-    where _.name == mypage
-  ]])[1].lastOpened
+        return page.lastOpened()
       end
     end
   }
