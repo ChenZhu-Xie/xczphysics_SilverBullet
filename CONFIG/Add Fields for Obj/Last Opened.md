@@ -52,7 +52,7 @@ ${query[[
 ### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
-```space-lua
+```lua
 -- priority: -1
 -- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用? 至少在 v2.1.9 可以分开。
 page = page or {} -- function page.lastOpened(mypage)
@@ -78,7 +78,7 @@ ${(query[[
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```space-lua
+```lua
 -- priority: -1
 -- work within client/indexdb cycle
 index.defineTag {
@@ -99,7 +99,7 @@ ${page.lastOpened()}
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```lua
+```space-lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
