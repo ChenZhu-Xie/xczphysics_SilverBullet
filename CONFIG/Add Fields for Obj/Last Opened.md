@@ -6,6 +6,7 @@ udpateDate: 2025-10-27
 
 # SB approach
 
+## query lastOpened: 1st shot
 
 ${query[[from editor.getRecentlyOpenedPages "page"
          where _.name == editor.getCurrentPage()
@@ -15,6 +16,8 @@ ${template.each(query[[from editor.getRecentlyOpenedPages "page"
     template.new[==[
     ${_.lastOpened}
 ]==])}
+
+## query lastOpened: 2nd shot
 
 另一种 先索引 attr，再索引 obj_name 的 方式（类似 [[CONFIG#SB stuff]]）
 1. https://silverbullet.md/Objects#taskstate
