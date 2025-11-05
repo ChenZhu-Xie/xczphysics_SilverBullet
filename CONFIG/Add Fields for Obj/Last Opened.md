@@ -123,9 +123,9 @@ event.listen{
   -- name = "hooks:renderTopWidgets",
   name = "editor:pageLoaded",
   run = function(e)
-    local pageRef = editor.getCurrentPage()
-    Visitimes[pageRef] = (Visitimes[pageRef] or 0) + 1
-    editor.flashNotification("Visitimes: " .. Visitimes[pageRef])
+    local mypage = editor.getCurrentPage()
+    Visitimes[mypage] = (Visitimes[mypage] or 0) + 1
+    editor.flashNotification("Visitimes: " .. Visitimes[mypage])
   end
 }
 ```
