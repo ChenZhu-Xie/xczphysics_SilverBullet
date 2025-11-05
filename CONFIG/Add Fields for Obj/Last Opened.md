@@ -171,7 +171,7 @@ event.listen{
 
 ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
-${datastore.get({"Visitimes", editor.getCurrentPage()}).value}
+${datastore.get({"Visitimes", editor.getCurrentPage()}).value} ← 单独 Query 特定 路径下的 ViewTimes 可以做，但 Table/List 还不行
 
 ${datastore.queryLua()}
 ${datastore.queryLua({"Visitimes", editor.getCurrentPage()})}
@@ -186,7 +186,9 @@ OtherGoodStuff:
 High Quality External Judgment about SB: https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
   - https://www.startpage.com/sp/search
 
-还是 没能实现如何 将 Visitimes 按 value 降序，排列 mypage
+还是 没能实现如何 将 Visitimes 按 value 降序，排列 mypage 成表格，以放在 [[index#Last Visit 👀]] 中，暂时不做了 = =...
+“datastore 查询” 的接口似乎还没暴露出来。
+
 ```space-lua
 -- priority: -1
 event.listen{
