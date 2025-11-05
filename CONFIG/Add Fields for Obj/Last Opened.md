@@ -51,6 +51,8 @@ ${query[[
 
 ### Drawing some insights from [[CONFIG/API/Page Navigation]]
 
+${page.lastOpened()}
+
 ```space-lua
 page = page or {} -- function page.title(pagina)
 function page.lastOpened(pagina)
@@ -64,16 +66,16 @@ function page.lastOpened(pagina)
 end
 ```
 
-```space-lua
--- works
+```lua
 -- priority: -1
+-- works
 index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
         local lastVisit = page.lastOpened(self.name)
-        editor.flashNotification("lastVisit: " .. lastVisit)
+        -- editor.flashNotification("lastVisit: " .. lastVisit)
         return lastVisit
       end
     end
