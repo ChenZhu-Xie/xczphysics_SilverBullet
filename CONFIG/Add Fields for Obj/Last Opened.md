@@ -147,7 +147,7 @@ ${query[[from index.tag "page"
 
 ```space-lua
 -- priority: -1
-local Visitimes = Visitimes or {}
+Visitimes = Visitimes or {}
 
 index.defineTag {
   name = "page",
