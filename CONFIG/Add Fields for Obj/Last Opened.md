@@ -48,7 +48,9 @@ ${query[[
 `${space.listPages()}`
 `${query[[from index.tag "page"]]}`
 
-### 
+### Drawing some insights from [[CONFIG/API/Page Navigation]]
+
+
 
 ```lua
 -- priority: -1
