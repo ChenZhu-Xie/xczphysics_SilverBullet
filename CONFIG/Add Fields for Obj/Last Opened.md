@@ -74,12 +74,25 @@ ${(query[[
   ]])[1].lastOpened}
 
 有 page = page or {} 后，SB 重启后 lastVisit 又没了?
+
 不。仍有。但仍撑不过 `Client: Wipe Out`，则下述是 [[SB Basics/SB API/index#Client level]]
+这个版本的 lastVisit < lastOpened，是其子集。
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
-${query[[from index.tag "page" 
-         where _.lastVisit]]}
-```lua
+
+`${query[[from index.tag "page" 
+         where _.lastVisit]]}`
+```space-lua
 -- priority: -1
+page = page or {} -- function page.lastOpened(mypage)
+function page.lastOpened(mypage)
+  mypage = mypage or editor.getCurrentPage()
+  local table = query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == mypage
+  ]]
+  return table[1].lastOpened
+end
+
 -- work within client/indexdb cycle
 index.defineTag {
   name = "page",
@@ -96,11 +109,14 @@ index.defineTag {
 ### integrate with `index.defineTag` 1
 
 ${page.lastOpened()}
+
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
-这个版本的 lastVisit = lastOpened ，而不是其子集。
-${query[[from index.tag "page" 
-         where _.lastVisit]]}
-```space-lua
+
+这个版本的 lastVisit = lastOpened，而不是其子集。生命周期：永续存在。
+
+`${query[[from index.tag "page" 
+         where _.lastVisit]]}`
+```lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
@@ -113,7 +129,7 @@ function page.lastOpened(mypage)
 ]==])
 end
 
--- doesn't work
+-- v2.2.1 doesn't work
 index.defineTag {
   name = "page",
   metatable = {
