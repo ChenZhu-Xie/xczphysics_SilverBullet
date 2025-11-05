@@ -38,13 +38,14 @@ ${query[[
 
 1. https://silverbullet.md/Space%20Lua
 
+`${_CTX.currentPage.name}` from https://silverbullet.md/Objects#page
 `${_CTX.currentPage}`
 `${space.getPageMeta(editor.getCurrentPage())}`
 `${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}`
 
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
-${}
+${_CTX._GLOBAL[3]}
 
 
 ```lua
