@@ -113,7 +113,7 @@ function page.lastOpened(mypage)
   return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
     where _.name == mypage
-  ]], template.new[==[${_.lastOpened}]==])
+  ]], template.new[==[${lastOpened}]==])
 end
 
 -- work, but all nil
