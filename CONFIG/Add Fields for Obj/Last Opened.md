@@ -106,7 +106,7 @@ _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来�
 
 `${query[[from index.tag "page" 
          where _.lastVisit]]}`
-```space-lua
+```lua
 -- priority: -1
 page = page or {} -- work within lastOpened cycle
 function page.lastOpened(mypage)
