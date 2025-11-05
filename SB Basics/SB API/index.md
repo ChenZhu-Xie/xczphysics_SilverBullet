@@ -66,9 +66,10 @@ index.defineTag {
 }
 ```
 
-${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
+如果不 select，单从表中 看不出 loudName 这个 attr：
+${query[[from index.tag "page" limit 3]]}
 肯定不是呀！你刷新后不还有么。
-
+${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
 问题在这：每次加载 SB 后，[[CONFIG/Add Fields for Obj/Last Opened]] 中的 
 ```space-lua
 local lastVisitStore = lastVisitStore or {}
