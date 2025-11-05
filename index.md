@@ -69,12 +69,11 @@ ${query[[
 ]]}
 ## Most Visit ❤️‍🔥
 
-pcall(function()
-  return (datastore.get({"Visitimes", _.name}) or {}).value
-end)
+```space-lua
+local m = {}
 
-${query[[
+query[[
     from index.tag "page"
-    where (datastore.get({"Visitimes", _.name}) or {}).value
     select {ref=_.ref, Visitimes=((datastore.get({"Visitimes", _.name}) or {}).value or 0)}
-]]}
+]]
+```
