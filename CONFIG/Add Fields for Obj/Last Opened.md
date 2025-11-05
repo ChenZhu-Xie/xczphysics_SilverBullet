@@ -80,7 +80,6 @@ ${(query[[
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
 ```space-lua
--- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
