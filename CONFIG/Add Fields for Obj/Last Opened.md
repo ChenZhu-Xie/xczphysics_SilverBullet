@@ -19,6 +19,11 @@ ${template.each(query[[from editor.getRecentlyOpenedPages "page"
 1. https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage()]]}
 
+${template.each(query[[
+  from editor.getRecentlyOpenedPages "lastOpened"
+  where _.tag == "page"
+]], templates.fullPageItem)}
+
 1. https://silverbullet.md/Space%20Lua
 `${_CTX.currentPage}`
 `${space.getPageMeta("CONFIG/Add Fields for Obj/Last Opened")}`
