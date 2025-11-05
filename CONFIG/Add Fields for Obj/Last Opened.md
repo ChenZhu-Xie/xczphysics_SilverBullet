@@ -55,6 +55,7 @@ ${page.lastOpened()}
 
 ```space-lua
 -- priority: -1
+-- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用
 page = page or {} -- function page.lastOpened(mypage)
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
@@ -71,6 +72,16 @@ ${query[[from index.tag "page"
          where _.lastVisit and _.name != editor.getCurrentPage()]]}
 ```space-lua
 -- priority: -1
+page = page or {} -- function page.lastOpened(mypage)
+function page.lastOpened(mypage)
+  mypage = mypage or editor.getCurrentPage()
+  local table = query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == mypage
+  ]]
+  return table[1].lastOpened
+end
+
 index.defineTag {
   name = "page",
   metatable = {
