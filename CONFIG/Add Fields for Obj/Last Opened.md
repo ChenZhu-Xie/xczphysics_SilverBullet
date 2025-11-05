@@ -52,7 +52,7 @@ ${query[[
 ### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
-```space-lua
+```lua
 -- priority: -1
 -- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用? 至少在 v2.1.9 可以分开。
 page = page or {} -- function page.lastOpened(mypage)
@@ -81,7 +81,7 @@ ${(query[[
 
 `${query[[from index.tag "page" 
          where _.lastVisit]]}`
-```space-lua
+```lua
 -- priority: -1
 -- work within client/indexdb cycle。不知道为什么不 work in lastOpened cycle，但试过与 [[CONFIG/Add Fields for Obj/Last Opened#Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]]] 不在同一 block 无关
 index.defineTag {
@@ -114,9 +114,7 @@ function page.lastOpened(mypage)
   return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
     where _.name == mypage
-  ]], template.new[==[
-    ${_.lastOpened}
-]==])
+  ]], template.new[==[${_.lastOpened}]==])
 end
 
 -- work, but all nil
