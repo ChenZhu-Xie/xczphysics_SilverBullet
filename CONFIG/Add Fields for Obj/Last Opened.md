@@ -49,17 +49,29 @@ ${query[[
 `${space.listPages()}`
 `${query[[from index.tag "page"]]}`
 
-### Drawing some insights from [[CONFIG/API/Page Navigation]]
+### Wraping functions! from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
 
 ```space-lua
-page = page or {} -- function page.title(pagina)
-function page.lastOpened(pagina)
-  pagina = pagina or editor.getCurrentPage()
+page = page or {} -- function page.lastOpened(mypage)
+function page.lastOpened(mypage)
+  mypage = mypage or editor.getCurrentPage()
+  local table = query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == mypage
+  ]]
+  return table[1].lastOpened
+end
+```
+
+```lua
+page = page or {} -- function page.lastOpened(mypage)
+function page.lastOpened(mypage)
+  mypage = mypage or editor.getCurrentPage()
   return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == pagina
+    where _.name == mypage
   ]], template.new[==[
     ${_.lastOpened}
 ]==])
