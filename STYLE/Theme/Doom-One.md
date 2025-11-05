@@ -231,7 +231,7 @@ html[data-theme=dark] {
 
 /* No Edit */
 .sb-line-frontmatter-outside {
-  padding-top: 15px !important;
+  padding-top: 5px !important;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -729,7 +729,7 @@ Custom Lua blocks at top or bottom of the page.
 /* Bottom spacing */
 #sb-main .cm-editor .sb-lua-top-widget {
   /* margin-bottom: 10px; */
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 /* Top spacing */
