@@ -38,7 +38,7 @@ ${query[[
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
 
-```lua
+```space-lua
 -- priority: -1
 index.defineTag {
   name = "page",
