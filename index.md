@@ -51,16 +51,28 @@ Well, let’s start with a logo first.
 
 ## Last Modified ✏️
 
-${query[[from index.tag "page" where _.name != editor.getCurrentPage() select {ref=_.ref, lastModified=_.lastModified} order by lastModified desc limit 5]]}
+${query[[
+    from index.tag "page" 
+    where _.name != editor.getCurrentPage() 
+    select {ref=_.ref, lastModified=_.lastModified} 
+    order by lastModified 
+    desc limit 5
+]]}
 ## Last Visit 👀
 
 ${query[[
-  from editor.getRecentlyOpenedPages "page"
-  where _.lastOpened and _.name != editor.getCurrentPage()
-  select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
-  order by _.lastOpened desc
-  limit 5
+    from editor.getRecentlyOpenedPages "page"
+    where _.lastOpened and _.name != editor.getCurrentPage()
+    select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
+    order by _.lastOpened desc
+    limit 5
 ]]}
 ## Most Visit ❤️‍🔥
 
-
+${query[[
+    from index.tag "page" 
+    where _.name != editor.getCurrentPage() 
+    select {ref=_.ref, lastModified=_.lastModified} 
+    order by lastModified 
+    desc limit 5
+]]}
