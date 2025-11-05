@@ -55,22 +55,40 @@ ${query[[
 page = page or {} -- function page.title(pagina)
 function page.lastOpened(pagina)
   pagina = pagina or editor.getCurrentPage()
-  local titolo = template.each(query[[
+  return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
     where _.name == self.name
   ]], template.new[==[
     ${_.lastOpened}
 ]==])
-  if titolo then
-    return tostring(titolo[1].name)
-  else
-    return page.nome(pagina)
-  end
 end
+```
+
+```space-lua
+-- priority: -1
+-- works
+index.defineTag {
+  name = "page",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "lastVisit" then
+        local lastVisit = template.each(query[[
+            from editor.getRecentlyOpenedPages "page"
+            where _.name == self.name
+          ]], template.new[==[
+            ${_.lastOpened}
+        ]==])
+        editor.flashNotification("lastVisit: " .. lastVisit)
+        return lastVisit
+      end
+    end
+  }
+}
 ```
 
 ```lua
 -- priority: -1
+-- doesn't work
 index.defineTag {
   name = "page",
   metatable = {
