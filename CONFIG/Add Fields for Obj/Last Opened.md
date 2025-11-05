@@ -173,6 +173,7 @@ ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
 ${datastore.get({"Visitimes", editor.getCurrentPage()}).value}
 
+${datastore.queryLua()}
 ${datastore.queryLua({"Visitimes", editor.getCurrentPage()})}
 - Datastore: https://github.com/silverbulletmd/silverbullet/issues/914#issuecomment-2205905590
 - ClientStore: https://github.com/silverbulletmd/silverbullet/pull/1542#issuecomment-3290746660
