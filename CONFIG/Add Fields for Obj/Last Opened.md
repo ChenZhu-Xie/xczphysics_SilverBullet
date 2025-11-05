@@ -6,7 +6,7 @@ udpateDate: 2025-10-27
 
 # SB approach
 
-## query lastOpened: 1st shot
+## Query lastOpened: 1st shot
 
 ${query[[from editor.getRecentlyOpenedPages "page"
          where _.name == editor.getCurrentPage()
@@ -17,12 +17,14 @@ ${template.each(query[[from editor.getRecentlyOpenedPages "page"
     ${_.lastOpened}
 ]==])}
 
-## query lastOpened: 2nd shot
+## Query lastOpened: 2nd shot
 
 另一种 先索引 attr，再索引 obj_name 的 方式（类似 [[CONFIG#SB stuff]]）
-1. https://silverbullet.md/Objects#taskstate
+
+1. inspired by https://silverbullet.md/Objects#taskstate
 ${query[[from editor.getRecentlyOpenedPages "lastOpened" where _.page == editor.getCurrentPage()]]}
 
+2. comming from [[CONFIG#SB stuff]]
 ${template.each(query[[
   from editor.getRecentlyOpenedPages "lastOpened"
   where _.tag == "page" and _.name == editor.getCurrentPage()
@@ -32,14 +34,18 @@ ${query[[
   where _.tag == "page" and _.name == editor.getCurrentPage()
   select ({lastOpened = _.lastOpened})
 ]]}
+## Simplest way of getting lastOpened attr?
 
 1. https://silverbullet.md/Space%20Lua
+
 `${_CTX.currentPage}`
-`${space.getPageMeta("CONFIG/Add Fields for Obj/Last Opened")}`
+`${space.getPageMeta(editor.getCurrentPage())}`
 `${query[[from index.tag "page" where _.name == editor.getCurrentPage()]]}`
 
 `${_CTX._GLOBAL}`
 `${space.listPages()}`
+${}
+
 
 ```lua
 -- priority: -1
