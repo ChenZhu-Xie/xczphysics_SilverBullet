@@ -167,7 +167,7 @@ event.listen{
 ### Visitimes 2: Client level
 
 1. https://silverbullet.md/API/datastore
-2. https://github.com/silverbulletmd/silverbullet/blob/df28a3f04dc8f1bcc20be1beb5e6e47c58bfd917/client/data/datastore.ts#L14
+2. https://github.com/silverbulletmd/silverbullet/blob/df28a3f04dc8f1bcc20be1beb5e6e47c58bfd917/client/data/datastore.ts#L76
 
 ${datastore.set({"user","123"}, {name = "test"})}
 ${(datastore.get({"user","12"})).value}
