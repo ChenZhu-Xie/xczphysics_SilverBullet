@@ -97,7 +97,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        return string.upper(self.name)
+        return 1
       end
     end
   }
