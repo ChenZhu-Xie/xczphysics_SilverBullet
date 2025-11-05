@@ -52,7 +52,6 @@ ${query[[
 ### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
 
 ${page.lastOpened()}
-
 ```lua
 -- priority: -1
 -- 这个不能和 index.defineTag 分开，否则 index.defineTag 没用
@@ -146,7 +145,7 @@ ${query[[from index.tag "page"
 
 `${Visitimes[editor.getCurrentPage()]}`
 
-```lua
+```space-lua
 -- priority: -1
 local visitimeStore = visitimeStore or {}
 
