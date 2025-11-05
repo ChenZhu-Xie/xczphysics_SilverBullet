@@ -119,7 +119,7 @@ function page.lastOpened(mypage)
 ]==])
 end
 
--- work but nil
+-- work, but all nil
 index.defineTag {
   name = "page",
   metatable = {
