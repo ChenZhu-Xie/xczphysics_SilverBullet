@@ -79,7 +79,7 @@ ${(query[[
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```lua
+```space-lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
@@ -484,7 +484,7 @@ event.listen{
 3. https://community.silverbullet.md/t/add-one-off-attr-lastvisit-to-pages/3463/1
 
 ${query[[from index.tag "page" where _.lastVisit select {ref=_.ref, lastVisit=_.lastVisit} order by _.lastVisit desc limit 5]]}
-```space-lua
+```lua
 -- priority: -1
 local lastVisitStore = lastVisitStore or {}
 
