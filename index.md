@@ -69,7 +69,7 @@ ${query[[
 ]]}
 ## Most Visit ❤️‍🔥
 
-${table.sort(mytable, compareVisitimes)}
+`${table.sort(mytable, compareVisitimes)}`
 
 ```space-lua
 mytable = query[[
