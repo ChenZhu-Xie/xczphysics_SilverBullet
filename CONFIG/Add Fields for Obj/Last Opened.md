@@ -182,6 +182,7 @@ OtherGoodStuff:
 - Performance issues with a large garden: https://github.com/silverbulletmd/silverbullet/issues/1010
 
 High Quality External Judgment about SB: https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
+  - https://www.startpage.com/sp/search
 
 
 ```space-lua
