@@ -242,7 +242,7 @@ html[data-theme=dark] {
 
 /* Edit: First line */
 :not(.sb-frontmatter) + .sb-frontmatter:not(.sb-line-frontmatter-outside) {
-  margin-top: 20px;
+  margin-top: 10px;
   border-radius: 8px 8px 0px 0px;
 }
 
