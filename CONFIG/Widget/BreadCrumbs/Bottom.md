@@ -56,11 +56,11 @@ function Yg.lastM(thisPage, mypath)
 end
 
 function Yg.lastV(thisPage, mypath)
-  local list = query[[from index.tag "page" 
-         where _.lastVisit and _.name ~= thisPage and _.name:find(pattern(mypath))
-         order by _.lastVisit desc
+  local list = query[[from editor.getRecentlyOpenedPages "page"
+         where _.lastOpened and _.name ~= thisPage and _.name:find(pattern(mypath))
+         order by _.lastOpened desc
          limit max_num]]
-
+  
   -- 圆形风格（沿用 Top 的约定）
   local V_hasFATHER = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
   local V_noFATHER  = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
