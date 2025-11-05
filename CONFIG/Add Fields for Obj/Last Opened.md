@@ -105,7 +105,7 @@ function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   return template.each(query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == editor.getCurrentPage()
+    where _.name == mypage
   ]], template.new[==[
     ${_.lastOpened}
 ]==])
