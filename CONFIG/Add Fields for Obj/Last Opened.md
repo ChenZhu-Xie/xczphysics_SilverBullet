@@ -64,24 +64,7 @@ function page.lastOpened(mypage)
   ]]
   return table[1].lastOpened
 end
-```
 
-```lua
-page = page or {} -- function page.lastOpened(mypage)
-function page.lastOpened(mypage)
-  mypage = mypage or editor.getCurrentPage()
-  return template.each(query[[
-    from editor.getRecentlyOpenedPages "page"
-    where _.name == mypage
-  ]], template.new[==[
-    ${_.lastOpened}
-]==])
-end
-```
-
-```space-lua
--- priority: -1
--- works
 index.defineTag {
   name = "page",
   metatable = {
@@ -99,6 +82,17 @@ index.defineTag {
 ```lua
 -- priority: -1
 -- doesn't work
+page = page or {} -- function page.lastOpened(mypage)
+function page.lastOpened(mypage)
+  mypage = mypage or editor.getCurrentPage()
+  return template.each(query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == mypage
+  ]], template.new[==[
+    ${_.lastOpened}
+]==])
+end
+
 index.defineTag {
   name = "page",
   metatable = {
