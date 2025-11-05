@@ -541,7 +541,7 @@ html[data-theme=dark] {
   thead {
     font-size: 1em;
     line-height: 0.8em;
-    /*background-color: color-mix(in srgb, var(--ui-accent-text-color) 15%, transparent);*/
+    /* background-color: color-mix(in srgb, var(--ui-accent-text-color) 15%, transparent); */
     tr {
       font-weight: bold;
       opacity: 1;
@@ -561,7 +561,8 @@ html[data-theme=dark] {
       border-right: none;
     }
   }
-  tbody tr:nth-child(odd) { background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);}
+  /* tbody tr:nth-child(odd) { background-color: color-mix(in srgb, var(--ui-accent-text-color) 3%, transparent);} */
+  tbody tr:nth-child(odd) { background-color: color-mix(in srgb, var(--yellow) 3%, transparent);}
 }
 ```
 
