@@ -88,7 +88,7 @@ function page.lastOpened(mypage)
     from editor.getRecentlyOpenedPages "page"
     where _.name == mypage
   ]]
-  return table.lastOpened
+  return table[1].lastOpened
 end
 
 index.defineTag { -- work within client/indexdb cycle
