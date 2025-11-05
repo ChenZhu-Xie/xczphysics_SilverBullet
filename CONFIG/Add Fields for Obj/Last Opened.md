@@ -72,12 +72,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "lastVisit" then
-        local lastVisit = template.each(query[[
-            from editor.getRecentlyOpenedPages "page"
-            where _.name == self.name
-          ]], template.new[==[
-            ${_.lastOpened}
-        ]==])
+        local lastVisit = page.lastOpened()
         editor.flashNotification("lastVisit: " .. lastVisit)
         return lastVisit
       end
