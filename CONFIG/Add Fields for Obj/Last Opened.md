@@ -147,14 +147,14 @@ ${query[[from index.tag "page"
 
 ```space-lua
 -- priority: -1
-local visitimeStore = visitimeStore or {}
+local Visitimes = Visitimes or {}
 
 index.defineTag {
   name = "page",
   metatable = {
     __index = function(self, attr)
       if attr == "Visitimes" then
-        return visitimeStore[self.name]
+        return Visitimes[self.name]
       end
     end
   }
@@ -165,8 +165,8 @@ event.listen{
   name = "editor:pageLoaded",
   run = function(e)
     local mypage = editor.getCurrentPage()
-    visitimeStore[mypage] = (visitimeStore[mypage] or 0) + 1
-    editor.flashNotification("Visitimes: " .. visitimeStore[mypage])
+    Visitimes[mypage] = (Visitimes[mypage] or 0) + 1
+    editor.flashNotification("Visitimes: " .. Visitimes[mypage])
   end
 }
 ```
