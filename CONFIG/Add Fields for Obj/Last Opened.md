@@ -79,14 +79,14 @@ ${(query[[
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```lua
+```space-lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
   local table = query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == mypage
+    where _.name == editor.getCurrentPage()
   ]]
   return table[1].lastOpened
 end
@@ -110,7 +110,7 @@ ${page.lastOpened()}
 _.lastVisit 存在但 仍无法 从表格中 直接看到，只能 query 出来。
 ${query[[from index.tag "page" 
          where _.lastVisit]]}
-```space-lua
+```lua
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
