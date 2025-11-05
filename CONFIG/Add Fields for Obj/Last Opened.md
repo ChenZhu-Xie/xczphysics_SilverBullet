@@ -69,6 +69,11 @@ end
 
 ### integrate with `index.defineTag` 2
 
+${(query[[
+    from editor.getRecentlyOpenedPages "page"
+    where _.name == editor.getCurrentPage()
+  ]])[1].lastOpened}
+
 有 page = page or {} 后，SB 重启后 lastVisit 又没了?
 不。仍有。但仍撑不过 `Client: Wipe Out`，则下述是 [[SB Basics/SB API/index#Client level]]
 奇怪，即便没有 editor:pageLoaded 这个 event.listen，也是 Client 周期
@@ -83,7 +88,7 @@ function page.lastOpened(mypage)
     from editor.getRecentlyOpenedPages "page"
     where _.name == mypage
   ]]
-  return table[1].lastOpened
+  return table.lastOpened
 end
 
 index.defineTag { -- work within client/indexdb cycle
