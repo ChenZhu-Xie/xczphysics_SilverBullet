@@ -1,7 +1,7 @@
 | pageRef | lastVisit | visitTimes |
 |---------|-----------|------------|
-| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 17:03:25 | 20 |
-| [[index]] | 2025-11-05 17:03:15 | 8 |
+| [[CONFIG/Add Fields for Obj/Last Opened]] | 2025-11-05 17:03:52 | 22 |
+| [[index]] | 2025-11-05 17:03:46 | 10 |
 | [[CONFIG/KeyBinding/Define]] | 2025-11-05 16:51:31 | 1 |
 | [[Library/Std]] | 2025-11-05 00:46:40 | 2 |
 | [[Library/Std/Page Templates/Page Template]] | 2025-11-05 00:46:38 | 1 |
