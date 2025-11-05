@@ -54,6 +54,7 @@ ${query[[
 ${page.lastOpened()}
 
 ```space-lua
+-- priority: -1
 page = page or {} -- function page.lastOpened(mypage)
 function page.lastOpened(mypage)
   mypage = mypage or editor.getCurrentPage()
@@ -80,7 +81,7 @@ end
 
 ```space-lua
 -- priority: -1
--- doesn't work
+-- works
 index.defineTag {
   name = "page",
   metatable = {
