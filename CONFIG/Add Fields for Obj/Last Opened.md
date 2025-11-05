@@ -145,7 +145,7 @@ ${query[[from index.tag "page"
 
 `${Visitimes[editor.getCurrentPage()]}`
 
-```space-lua
+```lua
 -- priority: -1
 local visitimeStore = visitimeStore or {}
 
@@ -154,7 +154,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "Visitimes" then
-        return visitimeStore[self.name] or 0
+        return visitimeStore[self.name]
       end
     end
   }
