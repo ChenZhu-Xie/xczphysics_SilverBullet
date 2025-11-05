@@ -61,6 +61,12 @@ ${query[[from index.tag "page"
          order by _.lastVisit desc 
          limit 5]]}
 
+${query[[from index.tag "page" 
+         where _.Visitimes and _.name != editor.getCurrentPage()
+         select {ref=_.ref, Visitimes=_.Visitimes} 
+         order by _.Visitimes desc 
+         limit 5]]}
+
 # Time 🌄
 
 ${timeLeftBar()}
