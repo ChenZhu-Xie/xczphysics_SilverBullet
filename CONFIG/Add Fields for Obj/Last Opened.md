@@ -83,10 +83,10 @@ ${query[[from index.tag "page"
 -- priority: -1
 page = page or {} -- work
 function page.lastOpened(mypage)
-  my = mypage or editor.getCurrentPage()
+  mypage = mypage or editor.getCurrentPage()
   local table = query[[
     from editor.getRecentlyOpenedPages "page"
-    where _.name == my
+    where _.name == mypage
   ]]
   return table[1].lastOpened
 end
