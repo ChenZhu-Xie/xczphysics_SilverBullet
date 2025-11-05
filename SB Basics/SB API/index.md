@@ -1,4 +1,6 @@
 
+1. https://silverbullet.md/API/index
+
 # Client level
 
 `Client level` means
@@ -54,6 +56,7 @@ Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
 ```lua
 -- priority: -1
+-- 这个 index.defineTag 和 config.define 一样，会互相覆盖。
 index.defineTag {
   name = "page",
   metatable = {

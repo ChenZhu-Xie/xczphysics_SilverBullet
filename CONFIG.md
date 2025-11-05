@@ -44,7 +44,7 @@ This is where you configure SilverBullet to your liking. See [[^Library/Std/Conf
 ```space-lua
 config.set(
   "plugs", {
-    -- `config.set()`|`config.set{}` will cover each other
+    -- `config.set()`|`config.set{}` will cover each other ( for specific "key":table )
     -- {} is a Lua Table as a list, array, map... here's a list
     "github:joekrill/silverbullet-treeview/treeview.plug.js",
     -- "ghr:deepkn/silverbullet-graphview",
