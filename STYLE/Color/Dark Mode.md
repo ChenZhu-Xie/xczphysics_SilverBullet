@@ -28,7 +28,7 @@ event.listen {
    - <https://silverbullet.md/API/event#event.listEvents()>
    - https://silverbullet.md/API/event#event.listEvents()
 
-```lua
+```space-lua
 -- priority: -1
 event.listen {
   name = 'hooks:renderTopWidgets',
@@ -60,7 +60,7 @@ event.listen {
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8?u=chenzhu-xie
 2. https://silverbullet.md/API/event#event.listEvents()
 
-```space-lua
+```lua
 event.listen {
   -- name = 'system:ready',
   name = 'editor:init',
