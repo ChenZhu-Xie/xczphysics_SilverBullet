@@ -1,5 +1,6 @@
 
-1. https://github.com/deepkn/silverbullet-nldates
+1. https://community.silverbullet.md/t/natural-language-dates-autocompletion/3341
+2. https://github.com/deepkn/silverbullet-nldates
 
 ```space-lua
 config.set (
@@ -10,7 +11,7 @@ config.set (
     -- Include time in output if parsed (default: true)
     includeTime = false,
     -- Timezone (default: system timezone)
-    timezone = "America/New_York",
+    timezone = "Chinese/Nan_Chang",
   }
 )
 ```
