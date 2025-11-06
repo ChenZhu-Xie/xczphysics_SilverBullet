@@ -11,6 +11,7 @@ udpateDate: 2025-10-27
 ### regex split
 
 [hint-inflections-of-page-titles](https://community.silverbullet.md/t/hint-inflections-of-page-titles/706/2?u=chenzhu-xie) #community #silverbullet
+[track-changes-in-latex](https://tex.stackexchange.com/questions/65453/track-changes-in-latex/65460#65460) #tex #stackexchange
 ```space-lua
 command.define {
   name = "Paste: Smart URL (via Prompt)",
