@@ -67,6 +67,7 @@ config.define("git", {
 
 ## Commands
 ```space-lua
+-- priority: 98
 -- Utility functions for consistent error handling
 local function executeGitCommand(command, args, operation)
   -- print("=== executeGitCommand DEBUG START ===")
@@ -848,7 +849,7 @@ command.define {
 ```
 
 ```space-lua
--- priority: 98
+-- priority: 97
 
 -- Auto-sync manager (SIMPLIFIED - no explicit locking, core functions handle it)
 local AutoSyncManager = {
