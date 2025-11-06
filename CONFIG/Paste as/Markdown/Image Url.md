@@ -74,7 +74,7 @@ command.define {
     local TLD_IGNORE = {
       com=true, org=true, net=true, io=true, md=true, app=true, dev=true, edu=true, gov=true,
       cn=true, uk=true, co=true, jp=true, de=true, fr=true, ru=true, nl=true, xyz=true,
-      info=true, me=true, tv=true, cc=true, ai=true, us=true, ca=true, au=true, in=true,
+      info=true, me=true, tv=true, cc=true, ai=true, us=true, ca=true, au=true, ["in"]=true,
       site=true, top=true, cloud=true, shop=true, blog=true,
       www=true  -- also ignore www label
     }
