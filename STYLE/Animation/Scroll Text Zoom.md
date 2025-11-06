@@ -3,7 +3,7 @@
 .cm-line {
   animation: appearText linear both;
   animation-timeline: view();
-  animation-range: entry 0% cover 100%;
+  animation-range: entry 0% cover 40%;
   
 }
 
