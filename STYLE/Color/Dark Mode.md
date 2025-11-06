@@ -4,6 +4,19 @@ udpateDate: 2025-11-03
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Dark%20Mode.md"
 ---
 
+1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
+```space-style
+-- priority: -1
+event.listen {
+  name = 'page:index',
+  run = function(e)
+    if not editor.getUiOption("darkMode") then
+      editor.setUiOption("darkMode", true)
+    end
+  end
+}
+```
+
 1. https://community.silverbullet.md/t/changing-favicon-darkmode/836/27?u=chenzhu-xie
 2. [[SB Basics/SB API/editor#editor.setUiOption()]]
  - https://enlarge-the-percentage.fly.dev/SB%20Basics/SB%20API/editor#editor.setUiOption()
@@ -16,7 +29,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
    - <https://silverbullet.md/API/event#event.listEvents()>
    - https://silverbullet.md/API/event#event.listEvents()
 
-```space-lua
+```lua
 -- priority: -1
 event.listen {
   name = 'hooks:renderTopWidgets',
