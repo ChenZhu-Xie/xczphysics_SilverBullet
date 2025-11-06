@@ -16,7 +16,7 @@
   }
   80% {
     opacity: 1;
-    scale: 1.05; /* briefly overshoots */
+    scale: 1; /* briefly overshoots */
   }
   100% {
     opacity: 1;
