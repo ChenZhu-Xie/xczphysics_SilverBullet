@@ -14,7 +14,7 @@
   0% {    /* BOTTOM OF THE PAGE*/
     opacity: 0;
     scale: 0.7; 
-    filter: blur(10px);
+    filter: blur(0px);
   }
   15% {    /* LINE FULLY RENDERED*/
     opacity: 1;
@@ -29,7 +29,7 @@
   100% {  /* TOP OF THE PAGE*/
     opacity: 0;
     scale: 0.7;
-     filter: blur(10px);
+     filter: blur(0px);
   }
 }
 ```
