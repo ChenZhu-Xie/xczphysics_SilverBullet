@@ -1,11 +1,11 @@
 
-```space-lua
+
 # Data
+
 - One [mode: warm]
 - Two [mode: cool]
 - Three [mode: hot]
 - Four [mode: hot]
-```
 
 ```space-lua
 function buildList(q)
