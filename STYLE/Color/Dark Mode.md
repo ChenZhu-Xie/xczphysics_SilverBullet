@@ -11,9 +11,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 event.listen {
   name = 'page:index',
   run = function(e)
-    if not editor.getUiOption("darkMode") then
-      editor.setUiOption("darkMode", true)
-    end
+    editor.setUiOption("darkMode", true)
   end
 }
 ```
