@@ -1,4 +1,6 @@
 
+${tasksByPage()}
+
 1. https://community.silverbullet.md/t/tasks-by-page/3481
 
 ```space-lua
@@ -33,5 +35,3 @@ function tasksByPage()
   return md
 end
 ```
-
-${tasksByPage()}
