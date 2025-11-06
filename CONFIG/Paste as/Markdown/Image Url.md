@@ -122,8 +122,6 @@ command.define {
     end
 
     -- title_from_url:
-    -- - 仅从路径中取最后一个非纯数字段作为 slug
-    -- - 清洗时将连字符 `-` 转为空格；不再回退为 "untitled"
     local function title_from_url(u)
       local path = (u:match("^https?://[^/%?#]+(/[^?#]*)")
                  or u:match("^www%.[^/%?#]+(/[^?#]*)")
@@ -136,11 +134,10 @@ command.define {
 
       if slug then
         slug = urldecode(slug or "")
-        -- 将 '-' 转为空格；顺便做空白折叠和裁剪
         slug = slug:gsub("%-", " ")
         slug = trim((slug:gsub("%s+", " ")))
       else
-        slug = "" -- 不回退为 'untitled'，让用户手工输入
+        slug = ""
       end
 
       return slug
@@ -170,7 +167,7 @@ command.define {
     -- Case 2: web URL -> build [title](url) + tags (highest priority for non-image)
     local host = parse_host(url)
     local tags = build_tags_from_host(host)       -- e.g. "#community #silverbullet" or "#tex #stackexchange"
-    local title = title_from_url(url)             -- 用户可编辑的 slug，可能为空字符串
+    local title = title_from_url(url)
 
     local suffix = (tags ~= "" and (" " .. tags)) or ""
     local snippet = string.format("[%s](%s)%s", title, url, suffix)
@@ -180,13 +177,12 @@ command.define {
     local startPos = (sel and (sel.from or sel.start)) or editor.getCursor()
     editor.insertAtCursor(snippet, false)
 
-    -- 匹配要求：title/slug 非空 → 光标移动到“行末”（片段末尾）；否则 → 移动到 [title] 内
     local function is_nonempty(s) return s and trim(s) ~= "" end
     local targetPos
     if is_nonempty(title) then
       targetPos = startPos + #snippet
     else
-      targetPos = startPos + 1 + #title -- title 为空则为 startPos + 1，位于 '[]' 内
+      targetPos = startPos + 1 + #title
     end
 
     if editor.moveCursor then
