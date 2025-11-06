@@ -7,7 +7,7 @@
 
     if not `Client: wipe out`, no erase; if so, erase.
 
-```space-lua
+```lua
 local objects = {
     {tag = "mytask", ref="task1", content = "Buy groceries"},
     {tag = "mytask", ref="task2", content = "Write docs"}
