@@ -849,7 +849,7 @@ command.define {
 ```
 
 ```space-lua
--- priority: 97
+-- priority: 90
 
 -- Auto-sync manager (SIMPLIFIED - no explicit locking, core functions handle it)
 local AutoSyncManager = {
