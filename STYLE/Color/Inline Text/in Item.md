@@ -7,6 +7,12 @@
 - Three [mode: hot]
 - Four [mode: hot]
 
+${buildList(query[[
+  from index.tag "item"
+  where _.page == editor.getCurrentPage()
+  order by _.name
+]])}
+
 ```space-lua
 function buildList(q)
   local items = {}
