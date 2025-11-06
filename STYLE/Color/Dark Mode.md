@@ -6,7 +6,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 
 1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
 
-```space-style
+```space-lua
 -- priority: -1
 event.listen {
   name = 'page:index',
