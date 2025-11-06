@@ -2,7 +2,7 @@
 ```space-style
 .cm-line,
 .sb-lua-directive-inline {
-  animation: appear linear both;
+  animation: appearText linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 100%;
   
