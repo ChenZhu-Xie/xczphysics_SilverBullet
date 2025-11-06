@@ -11,7 +11,7 @@ ${widget.html(dom.marquee{
 })}
 
 _[One of us!](https://community.silverbullet.md/)_
-![[ETP.png|500]]
+![[ETP.png|444]]
 
 ## ETP.logo Meaning
 
