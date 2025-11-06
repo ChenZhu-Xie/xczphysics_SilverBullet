@@ -520,14 +520,6 @@ Requires one empty line
 | info 4 | info 5 | info 6|
 
 ```space-style
-/* Universal table row hover effect - 提高优先级 */
-table tbody tr:hover,
-table thead tr:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  /* transition: background-color 0.2s ease !important; */
-  position: relative !important;
-  z-index: 99999 !important;
-}
 
 html {
   --editor-table-head-background-color: transparent;
