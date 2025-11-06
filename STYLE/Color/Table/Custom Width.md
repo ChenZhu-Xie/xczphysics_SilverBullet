@@ -106,7 +106,6 @@ table .sb-hashtag[data-tag-name="maroon"] {
   display: none !important;
 }
 
-
 html[data-theme="light"] table tbody tr:hover,
 html[data-theme="light"] table thead tr:hover {
   background-color: rgba(0, 0, 0, 0.08) !important;
