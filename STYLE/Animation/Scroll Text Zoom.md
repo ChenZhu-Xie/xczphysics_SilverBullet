@@ -1,5 +1,5 @@
 
-```
+```space-style
 .cm-line,
 .sb-table-widget, 
 .sb-lua-directive-inline,
