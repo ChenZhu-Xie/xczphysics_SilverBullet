@@ -6,20 +6,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 
 1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
 
-```space-lua
--- priority: -1
-event.listen {
-  name = 'hooks:renderTopWidgets',
-  run = function(e)
-    clientStore.set("darkMode", true)
-    editor.reloadUI()
-  end
-}
-```
-
-
-1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
-
 ```lua
 -- priority: -1
 event.listen {
@@ -57,7 +43,7 @@ event.listen {
 1. https://silverbullet.md/Index%20Page
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
 
-```lua
+```space-lua
 -- priority: -1
 event.listen {
   -- name = "editor:pageLoaded",
