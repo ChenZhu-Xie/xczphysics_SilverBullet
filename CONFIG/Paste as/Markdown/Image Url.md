@@ -79,10 +79,21 @@ command.define {
       www=true  -- also ignore www label
     }
 
-    local function split(str, pat)
-      local t = {}
-      str:gsub("([^" .. pat .. "]+)", function(c) t[#t+1] = c end)
-      return t
+    local function split(str, sep)
+      if sep == nil or sep == "" then
+        return { str } -- nothing to split on
+      end
+      local out, pos = {}, 1
+      while true do
+        local s, e = string.find(str, sep, pos, true) -- plain=true
+        if not s then
+          table.insert(out, string.sub(str, pos))
+          break
+        end
+        table.insert(out, string.sub(str, pos, s - 1))
+        pos = e + 1
+      end
+      return out
     end
 
     local function parse_host(u)
