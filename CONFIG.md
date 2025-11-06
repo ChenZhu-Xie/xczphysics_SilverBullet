@@ -58,6 +58,7 @@ config.set(
     -- "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/HierarchyHighlightHeadings.plug.js", -- related to [[STYLE/Theme]]
     -- "github:silverbulletmd/silverbullet-katex/katex.plug.js",
     -- "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/hello.plug.js", -- related to [[STYLE/Theme]]
+    "github:deepkn/silverbullet-nldates/nldates.plug.js",
   })
 ```
 
