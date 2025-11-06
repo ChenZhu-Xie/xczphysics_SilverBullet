@@ -21,6 +21,5 @@
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
-  
 }
 ```
