@@ -14,13 +14,13 @@
     opacity: 0;
     scale: 0.4;  /* starting point */
   }
-  80% {
+  50% {
     opacity: 1;
     scale: 1; /* briefly overshoots */
   }
   100% {
-    opacity: 1;
-    scale: 1; /* settles back */
+    opacity: 0;
+    scale: 0.4; /* settles back */
   }
 }
 ```
