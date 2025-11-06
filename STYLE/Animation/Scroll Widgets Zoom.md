@@ -2,7 +2,7 @@
 1. https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498
 
 ```space-style
-@keyframes appear {
+@keyframes appearWidget {
   0% {
     opacity: 0;
     scale: 0.4;  /* starting point */
