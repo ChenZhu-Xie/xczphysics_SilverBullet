@@ -846,6 +846,8 @@ command.define {
   end
 }
 
+-- =========================================================
+
 -- Auto-sync manager (SIMPLIFIED - no explicit locking, core functions handle it)
 local AutoSyncManager = {
   lastPeriodicSync = 0,
