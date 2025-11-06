@@ -189,7 +189,7 @@ command.define {
 }
 ```
 
-
+[[CONFIG/Paste as/Markdown/Image Url@2004]]
 ## Move Cursor Only Version
 
 1. https://chatgpt.com/share/68f750a0-14a0-8010-925b-c0415b75e62a
