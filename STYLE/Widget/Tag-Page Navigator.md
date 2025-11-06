@@ -520,3 +520,6 @@ function fastnav.Widget(dir, options)
   }
 end
 ```
+
+
+[[STYLE/Widget/Tag-Page Navigator@3172]] has some problem
