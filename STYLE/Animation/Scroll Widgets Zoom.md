@@ -2,6 +2,13 @@
 1. https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498
 
 ```space-style
+.sb-table-widget, 
+.sb-lua-directive-block {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
 @keyframes appearWidget {
   0% {
     opacity: 0;
@@ -15,11 +22,5 @@
     opacity: 1;
     scale: 1; /* settles back */
   }
-}
-.sb-table-widget, 
-.sb-lua-directive-block {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
 }
 ```
