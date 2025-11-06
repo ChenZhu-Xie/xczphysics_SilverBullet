@@ -79,19 +79,20 @@ command.define {
       www=true  -- also ignore www label
     }
 
-    -- Escape for Lua patterns
-    local function escape_lua_pattern(s)
-      return (s:gsub("([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1"))
-    end
-    
-    function split(str, pat)
-      local esc = escape_lua_pattern(pat or "")
-      local out = {}
-      -- Use a fixed, safe pattern and captured separators
-      -- but simpler is: split with plain find (Option A). If you must keep gsub:
-      str:gsub("([^" .. esc .. "]+)", function(chunk)
-        table.insert(out, chunk)
-      end)
+    local function split(str, sep)
+      if sep == nil or sep == "" then
+        return { str } -- nothing to split on
+      end
+      local out, pos = {}, 1
+      while true do
+        local s, e = string.find(str, sep, pos, true) -- plain=true
+        if not s then
+          table.insert(out, string.sub(str, pos))
+          break
+        end
+        table.insert(out, string.sub(str, pos, s - 1))
+        pos = e + 1
+      end
       return out
     end
 
