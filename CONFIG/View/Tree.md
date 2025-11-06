@@ -45,7 +45,7 @@ command.update {
   end,
   key = "Ctrl-Alt-b",
   mac = "Cmd-Alt-b",
-  priority = 0
+  priority = 1,
 }
 ```
 

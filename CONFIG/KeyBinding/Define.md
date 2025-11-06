@@ -19,7 +19,7 @@ command.define {
   end,
   key = "Shift-Alt-ArrowUp",
   mac = "Shift-Alt-ArrowUp",
-  priority = 0
+  priority = 1,
 }
 ```
 
@@ -31,7 +31,7 @@ command.define {
   end,
   key = "Shift-Alt-ArrowDown",
   mac = "Shift-Alt-ArrowDown",
-  priority = 0
+  priority = 1,
 }
 ```
 
@@ -47,7 +47,7 @@ command.define {
   end,
   key = "Shift-Alt-m",
   mac = "Shift-Alt-m",
-  priority = 0
+  priority = 1,
 }
 ```
 
@@ -98,6 +98,6 @@ command.define {
   end,
   key = "Ctrl-Alt-c",
   mac = "Cmd-Alt-c",
-  priority = 0
+  priority = 1,
 }
 ```

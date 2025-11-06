@@ -164,9 +164,9 @@ vscode.previousCheck = os.time() -- Update the last check time
 -- Define a command to open the VSCode palette
 command.define {
     name = "VSCode Palette",
-    description = "palette llike VSCode",
+    description = "palette like VSCode",
     key = "Ctrl-p",
-    priority =1,
+    priority = 1,
     run = function()
         -- Get the help string for the search feature
         local help = getHelp()

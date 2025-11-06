@@ -69,7 +69,7 @@ command.define {
   end,
   key = "Ctrl-Alt-f",
   mac = "Cmd-Alt-f",
-  priority = 0
+  priority = 1,
 }
 
 command.define {
