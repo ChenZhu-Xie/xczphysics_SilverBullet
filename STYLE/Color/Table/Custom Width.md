@@ -106,14 +106,6 @@ table .sb-hashtag[data-tag-name="maroon"] {
   display: none !important;
 }
 
-/* Universal table row hover effect - 提高优先级 */
-table tbody tr:hover,
-table thead tr:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  /* transition: background-color 0.2s ease !important; */
-  position: relative !important;
-  z-index: 99999 !important;
-}
 
 html[data-theme="light"] table tbody tr:hover,
 html[data-theme="light"] table thead tr:hover {
