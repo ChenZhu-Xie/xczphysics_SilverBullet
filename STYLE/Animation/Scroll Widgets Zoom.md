@@ -4,7 +4,7 @@
 ```space-style
 .sb-table-widget, 
 .sb-lua-directive-block {
-  animation: appear linear;
+  animation: appearWidget linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
 }
