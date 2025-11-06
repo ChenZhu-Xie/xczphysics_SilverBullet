@@ -66,8 +66,4 @@ config.set(
 config.set("admonLang","en")
 ```
 
-```space-lua
-config.set("git", {autoSync = 60 * 24})
-```
-
 #SB_itself

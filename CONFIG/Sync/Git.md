@@ -46,7 +46,7 @@ config.set("git.autoSync", 5)
 ```
 
 Real configuration:
-```lua
+```space-lua
 config.set("git", {autoSync = 60 * 24})
 ```
 
