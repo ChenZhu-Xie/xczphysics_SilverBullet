@@ -225,7 +225,7 @@ end
 local function sortedTagList(counts)
   local tags = {}
   for tag, count in pairs(counts) do
-    table.insert(tags, {name = tag, count = count}****)
+    table.insert(tags, {name = tag, count = count})
   end
   table.sort(tags, function(a, b) return a.name < b.name end)
   return tags
