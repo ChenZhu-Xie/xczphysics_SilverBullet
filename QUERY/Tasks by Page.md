@@ -34,6 +34,4 @@ function tasksByPage()
 end
 ```
 
-- [ ] test
-
 ${tasksByPage()}
