@@ -13,12 +13,12 @@
     scale: 0.7; 
     filter: blur(0px);
   }
-  10% {    /* LINE FULLY RENDERED*/
+  20% {    /* LINE FULLY RENDERED*/
     opacity: 1;
     scale: 1.0;
     filter: blur(0px);
   }
-  90% {  /* LINE FULLY RENDERED*/
+  80% {  /* LINE FULLY RENDERED*/
     opacity: 1;
     scale: 1;
     filter: blur(0px);
