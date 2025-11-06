@@ -20,7 +20,7 @@ event.listen {
 
 1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
 
-```space-lua
+```lua
 -- priority: -1
 event.listen {
   name = 'page:index',
