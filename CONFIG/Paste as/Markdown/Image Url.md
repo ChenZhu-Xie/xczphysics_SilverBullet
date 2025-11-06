@@ -14,7 +14,7 @@ udpateDate: 2025-10-27
 2. https://chatgpt.com/share/690c9ac1-9d8c-8010-a29a-bf35735497d0
 
 [hint-inflections-of-page-titles](https://community.silverbullet.md/t/hint-inflections-of-page-titles/706/2?u=chenzhu-xie) #community #silverbullet
-
+asdf
 ```space-lua
 command.define {
   name = "Paste: Smart URL (via Prompt)",
