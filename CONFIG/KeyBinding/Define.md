@@ -72,6 +72,7 @@ command.define {
 ## Page: New Children Page
 
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
+2. https://community.silverbullet.md/t/folder-auto-complete/686/11?u=chenzhu-xie
 
 ```space-lua
 command.define {
