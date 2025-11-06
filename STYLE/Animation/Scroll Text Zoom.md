@@ -1,6 +1,6 @@
 
 ```space-style
-.sb-lua-directive-inline {
+.cm-line {
   animation: appearText linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 100%;
