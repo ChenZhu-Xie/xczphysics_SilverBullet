@@ -43,7 +43,7 @@ event.listen {
 1. https://silverbullet.md/Index%20Page
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
 
-```space-lua
+```lua
 -- priority: -1
 event.listen {
   -- name = "editor:pageLoaded",
@@ -60,7 +60,7 @@ event.listen {
 1. https://community.silverbullet.md/t/permanent-dark-mode/370/8?u=chenzhu-xie
 2. https://silverbullet.md/API/event#event.listEvents()
 
-```lua
+```space-lua
 event.listen {
   -- name = 'system:ready',
   name = 'editor:init',
