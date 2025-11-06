@@ -47,7 +47,7 @@ config.set("git.autoSync", 5)
 
 Real configuration:
 ```space-lua
--- priority: 99
+-- priority: 98
 config.set("git", {autoSync = 60 * 24})
 ```
 
@@ -67,7 +67,7 @@ config.define("git", {
 
 ## Commands
 ```space-lua
--- priority: 98
+-- priority: 99
 -- Utility functions for consistent error handling
 local function executeGitCommand(command, args, operation)
   -- print("=== executeGitCommand DEBUG START ===")
