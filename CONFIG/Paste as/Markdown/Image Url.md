@@ -10,8 +10,11 @@ udpateDate: 2025-10-27
 
 ### regex split
 
+1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=5ea34d9be6
+2. https://chatgpt.com/share/690c9ac1-9d8c-8010-a29a-bf35735497d0
+
 [hint-inflections-of-page-titles](https://community.silverbullet.md/t/hint-inflections-of-page-titles/706/2?u=chenzhu-xie) #community #silverbullet
-[track-changes-in-latex](https://tex.stackexchange.com/questions/65453/track-changes-in-latex/65460#65460) #tex #stackexchange
+
 ```space-lua
 command.define {
   name = "Paste: Smart URL (via Prompt)",
