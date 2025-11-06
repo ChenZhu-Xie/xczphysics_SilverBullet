@@ -1,9 +1,7 @@
 
 ```space-style
 .cm-line,
-.sb-table-widget, 
-.sb-lua-directive-inline,
-.sb-lua-directive-block {
+.sb-lua-directive-inline {
   animation: appear linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 100%;
