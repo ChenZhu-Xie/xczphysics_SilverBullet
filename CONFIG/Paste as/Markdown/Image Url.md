@@ -123,7 +123,7 @@ command.define {
 
     -- title_from_url:
     -- - 仅从路径中取最后一个非纯数字段作为 slug
-    -- - 清洗后可为空字符串（不再回退为 "untitled" 或 host）
+    -- - 清洗时将连字符 `-` 转为空格；不再回退为 "untitled"
     local function title_from_url(u)
       local path = (u:match("^https?://[^/%?#]+(/[^?#]*)")
                  or u:match("^www%.[^/%?#]+(/[^?#]*)")
@@ -135,13 +135,12 @@ command.define {
       local slug = last_non_numeric_segment(parts)
 
       if slug then
-        slug = urldecode(slug)
-        slug = slug:gsub("[_%-%s]+", " ")
-        slug = trim(slug or "")
-        -- 允许空：命中规则依赖“非空”
-        -- 不转小写也可，这里保持原逻辑不破坏你的行为，如需小写可在此处: slug = slug:lower()
+        slug = urldecode(slug or "")
+        -- 将 '-' 转为空格；顺便做空白折叠和裁剪
+        slug = slug:gsub("%-", " ")
+        slug = trim((slug:gsub("%s+", " ")))
       else
-        slug = "" -- 不再使用 'untitled' 回退
+        slug = "" -- 不回退为 'untitled'，让用户手工输入
       end
 
       return slug
@@ -182,9 +181,9 @@ command.define {
     editor.insertAtCursor(snippet, false)
 
     -- 匹配要求：title/slug 非空 → 光标移动到“行末”（片段末尾）；否则 → 移动到 [title] 内
-    local has_title = (title ~= nil and trim(title) ~= "")
+    local function is_nonempty(s) return s and trim(s) ~= "" end
     local targetPos
-    if has_title then
+    if is_nonempty(title) then
       targetPos = startPos + #snippet
     else
       targetPos = startPos + 1 + #title -- title 为空则为 startPos + 1，位于 '[]' 内
