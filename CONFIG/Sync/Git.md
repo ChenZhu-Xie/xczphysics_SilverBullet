@@ -47,6 +47,7 @@ config.set("git.autoSync", 5)
 
 Real configuration:
 ```space-lua
+-- priority: 100
 config.set("git", {autoSync = 60 * 24})
 ```
 
@@ -55,7 +56,7 @@ The full implementation of this integration follows.
 
 ## Configuration
 ```space-lua
--- priority: 100
+-- priority: 99
 config.define("git", {
   type = "object",
   properties = {
@@ -847,7 +848,7 @@ command.define {
 ```
 
 ```space-lua
--- priority: -1
+-- priority: 101
 
 -- Auto-sync manager (SIMPLIFIED - no explicit locking, core functions handle it)
 local AutoSyncManager = {
