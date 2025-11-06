@@ -20,7 +20,7 @@ end
 
 local function urldecode(s)
   if not s then return s end
-  s = s:gsub("+", " ")
+  s = s:gsub("%+", " ")
   return (s:gsub("%%(%x%x)", function(h)
     local n = tonumber(h, 16)
     return n and string.char(n) or ("%%" .. h)
