@@ -1,5 +1,5 @@
 
-```
+```space-style
 .cm-line {
   animation: appearText linear both;
   animation-timeline: view();
