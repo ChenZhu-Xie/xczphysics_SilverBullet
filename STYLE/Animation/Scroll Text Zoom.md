@@ -25,7 +25,7 @@
     filter: blur(0px);
   }
   100% {  /* TOP OF THE PAGE*/
-    opacity: 1;
+    opacity: 0;
     scale: 0.7;
     filter: blur(0px);
   }
