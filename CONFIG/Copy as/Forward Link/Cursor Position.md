@@ -25,12 +25,15 @@ command.define {
       ref = string.format("[[%s#%s]]", pageName, headerName)
       editor.flashNotification("Copied header reference: " .. ref, "info")
     else
-      if pos and pos > 0 then
-        ref = string.format("[[%s@%d]]", pageName, pos)
-      else
-        ref = string.format("[[%s]]", pageName)
-      end
-      editor.flashNotification("Copied cursor reference: " .. ref, "info")
+      -- if pos and pos > 0 then
+      --   ref = string.format("[[%s@%d]]", pageName, pos)
+      -- else
+      --   ref = string.format("[[%s]]", pageName)
+      -- end
+      ref = string.format("[[%s@%d]]", pageName, pos)
+      -- editor.flashNotification("Copied cursor reference: " .. ref, "info")
+      editor.flashNotification("Copied cursor reference: ", "info")
+      editor.flashNotification(ref, "info")
     end
 
     editor.copyToClipboard(ref)
