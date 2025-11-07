@@ -1,7 +1,7 @@
 
 1. https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498
 
-```space-style
+```
 .sb-table-widget, 
 .sb-lua-directive-block {
   animation: appearWidget linear;
