@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 udpateDate: 2025-11-07
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/External%20Link/Cursor%20Position.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/External%20Link/Cursor%20Pos.md"
 ---
 
 # Generate Link @ Cursor Position
