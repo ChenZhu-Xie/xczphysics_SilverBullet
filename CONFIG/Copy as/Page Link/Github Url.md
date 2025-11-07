@@ -2,6 +2,7 @@
 # Github Url
 
 1. 使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: encode_url`
+   - [[CONFIG/Copy as/External Link/Cursor Pos]] 和  也用了
 
 ```space-lua
 -- description: Copy the GitHub URL of the current page to clipboard
