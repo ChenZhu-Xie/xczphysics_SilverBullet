@@ -1,4 +1,5 @@
 
+
 ```space-style
 .cm-line {
   animation: appearText linear both;
@@ -11,22 +12,22 @@
   0% {    /* BOTTOM OF THE PAGE*/
     opacity: 0;
     scale: 0.7; 
-    filter: blur(0px);
+    /* filter: blur(1px); */
   }
   10% {    /* LINE FULLY RENDERED*/
     opacity: 1;
     scale: 1.0;
-    filter: blur(0px);
+    /* filter: blur(0px); */
   }
   90% {  /* LINE FULLY RENDERED*/
     opacity: 1;
     scale: 1;
-    filter: blur(0px);
+    /* filter: blur(0px); */
   }
   100% {  /* TOP OF THE PAGE*/
     opacity: 0;
     scale: 0.7;
-    filter: blur(0px);
+    /* filter: blur(1px); */
   }
 }
 ```
