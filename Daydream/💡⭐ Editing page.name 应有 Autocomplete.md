@@ -1,6 +1,6 @@
 #silverbullet #dev #💡
 
-# 💡✴️ Editing page.name 应有 Autocomplete
+# 💡⭐ Editing page.name 应有 Autocomplete
 
 难道不是么？在 SB 中编辑 本页的 title 时。
 
