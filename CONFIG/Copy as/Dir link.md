@@ -19,8 +19,9 @@ command.define {
     local url = base .. encode_url(editor.getCurrentPath())
 
     -- Copy to clipboard
-    system.clipboard.set(url)
+    editor.copyToClipboard(url)
     editor.flashNotification("Copied GitHub URL to clipboard ✅", "info")
+    editor.flashNotification(url, "info")
   end
 }
 
