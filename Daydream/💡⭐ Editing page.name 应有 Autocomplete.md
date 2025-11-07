@@ -9,7 +9,7 @@ function generateLua()
     return '{editor.getCurrentPage()}'
 end
 ```
-
+${"$"}${generateLua()}
 
 ## Use case
 
