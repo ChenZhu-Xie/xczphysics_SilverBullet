@@ -23,7 +23,8 @@ command.define {
     if headerMarks and headerName and headerName:match("%S") then
       headerName = headerName:match("^%s*(.+)")
       ref = string.format("[[%s#%s]]", pageName, headerName)
-      editor.flashNotification("Copied header reference: " .. ref, "info")
+      editor.copyToClipboard(ref)
+      editor.flashNotification("Header Reference ✅" .. ref, "info")
     else
       -- if pos and pos > 0 then
       --   ref = string.format("[[%s@%d]]", pageName, pos)
@@ -31,12 +32,11 @@ command.define {
       --   ref = string.format("[[%s]]", pageName)
       -- end
       ref = string.format("[[%s@%d]]", pageName, pos)
+      editor.copyToClipboard(ref)
       -- editor.flashNotification("Copied cursor reference: " .. ref, "info")
       editor.flashNotification("Cursor Reference ✅", "info")
       editor.flashNotification(ref, "info")
     end
-
-    editor.copyToClipboard(ref)
   end
 }
 ```
