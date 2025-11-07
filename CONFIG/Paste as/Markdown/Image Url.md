@@ -17,12 +17,7 @@ command.define {
   name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",
   run = function()
-    -- Ask the user to paste the URL into a prompt dialog
-    local input = editor.prompt("Enter or paste URL", "")
-    if not input then
-      editor.flashNotification("Cancelled", "warn")
-      return
-    end
+    local input= js.window.navigator.clipboard.readText()
 
     -- Trim whitespace
     local clip = input:match("^%s*(.-)%s*$")
