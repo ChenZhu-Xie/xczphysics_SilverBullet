@@ -36,5 +36,4 @@ command.define {
     editor.flashNotification(url, "info")
   end
 }
-
 ```
