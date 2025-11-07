@@ -424,8 +424,8 @@ local admonitions = {
 -- Generate slash commands
 for displayName, type in pairs(admonitions) do
   slashcommand.define {
-    name = "Admonition",
-    description = "Insert admonition type: "..type,
+    name = displayName .. " - Admonition",
+    description = "Insert admonition type: " .. type,
     run = function()
       local currentLine = editor.getCurrentLine()
       local admonitionTemplate = "> **" .. type .. "** " .. displayName .. "\n> " .. currentLine.text .. "|^|\n"
