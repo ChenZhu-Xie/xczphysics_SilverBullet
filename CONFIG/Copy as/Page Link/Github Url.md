@@ -4,7 +4,7 @@
 使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: replace_space_with_percent20`
 
 ```space-lua
--- description: Copy the GitHub URL of the current page to clipboard (Shift+Alt+G)
+-- description: Copy the GitHub URL of the current page to clipboard
 
 command.define {
   name = "Copy: GitHub URL",
@@ -31,7 +31,8 @@ command.define {
 
     -- Copy to clipboard
     editor.copyToClipboard(url)
-    editor.flashNotification("Copied: GitHub URL ✅", "info")
+    -- editor.flashNotification("Copied: GitHub URL ✅", "info")
+    editor.flashNotification("GitHub URL ✅", "info")
     editor.flashNotification(url, "info")
   end
 }
