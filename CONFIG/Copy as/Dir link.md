@@ -11,7 +11,16 @@ command.define {
 
     -- Helper: encode spaces (you can expand for more encoding if needed)
     local function encode_url(s)
-      return (s:gsub(" ", "%%20"))
+      local parts = {}
+      for i = 1, #s do
+        local c = s:sub(i, i)
+        if c == " " then
+          parts[#parts+1] = "%20"
+        else
+          parts[#parts+1] = c
+        end
+      end
+      return table.concat(parts)
     end
 
     -- Construct GitHub URL
