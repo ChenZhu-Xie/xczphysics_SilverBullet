@@ -24,7 +24,9 @@ command.define {
       headerName = headerName:match("^%s*(.+)")
       ref = string.format("[[%s#%s]]", pageName, headerName)
       editor.copyToClipboard(ref)
-      editor.flashNotification("Header Reference ✅" .. ref, "info")
+      -- editor.flashNotification("Copied header reference: " .. ref, "info")
+      editor.flashNotification("Header Reference ✅", "info")
+      editor.flashNotification(ref, "info")
     else
       -- if pos and pos > 0 then
       --   ref = string.format("[[%s@%d]]", pageName, pos)
