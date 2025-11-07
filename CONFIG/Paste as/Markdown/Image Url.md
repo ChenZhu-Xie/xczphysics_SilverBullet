@@ -11,6 +11,7 @@ udpateDate: 2025-10-27
 ### based on [[#regex split]], add a `if` branch to manipulate `cursor pos`
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=a6c74093b6
+[plug in paste smart url](https://community.silverbullet.md/t/plug-in-paste-smart-url/3431/3) #community #silverbullet
 
 ```space-lua
 command.define {
