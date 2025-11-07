@@ -1,10 +1,10 @@
 ---
 recommend: ⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Ref/Anchor.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Wiki/Anchor.md"
 udpateDate: 2025-11-07
 ---
 
-1. an testing improvement from [[CONFIG/Copy as/Forward Ref/Cursor Ref]] 
+1. an testing improvement from [[CONFIG/Copy as/Forward Wiki/Cursor Ref]] 
 2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
 
 ```lua
