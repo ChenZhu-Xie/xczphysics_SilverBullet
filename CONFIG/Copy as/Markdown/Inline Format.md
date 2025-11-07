@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Inline%20Format.md"
-udpateDate: 2025-10-27
+udpateDate: 2025-11-07
 ---
 
 # Copy the nearest Format around Cursor
