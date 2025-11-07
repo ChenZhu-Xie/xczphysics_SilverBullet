@@ -8,7 +8,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ```space-lua
 command.define {
-  name = "Copy: Page Reference",
+  name = "Page: Copy Wiki",
   key = "Shift-Alt-p",
   run = function()
     local ref = string.format("[[%s]]", editor.getCurrentPage())
