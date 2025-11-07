@@ -83,7 +83,7 @@ command.define{
     end
     editor.copyToClipboard(match.text)
     -- editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
-    editor.flashNotification("Copied: " .. match.name .. " → ")
+    editor.flashNotification("Copied: " .. match.name .. ": ")
     editor.flashNotification(match.text)
   end
 }
