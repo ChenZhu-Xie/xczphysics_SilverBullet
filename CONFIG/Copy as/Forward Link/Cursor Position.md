@@ -32,7 +32,7 @@ command.define {
       -- end
       ref = string.format("[[%s@%d]]", pageName, pos)
       -- editor.flashNotification("Copied cursor reference: " .. ref, "info")
-      editor.flashNotification("Copied cursor reference: ", "info")
+      editor.flashNotification("Cursor Reference ✅", "info")
       editor.flashNotification(ref, "info")
     end
 

@@ -64,7 +64,7 @@ command.define {
       out = string.format("%s@%d", pageUrl, pos)
       -- editor.flashNotification("Copied cursor external link: " .. out, "info")
       -- editor.flashNotification("Copied cursor link: " .. out, "info")
-      editor.flashNotification("Copied cursor link: ", "info")
+      editor.flashNotification("Copied: Cursor Link ✅", "info")
       editor.flashNotification(out, "info")
     end
   

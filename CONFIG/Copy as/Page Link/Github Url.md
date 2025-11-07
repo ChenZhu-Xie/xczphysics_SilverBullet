@@ -33,7 +33,7 @@ command.define {
 
     -- Copy to clipboard
     editor.copyToClipboard(url)
-    editor.flashNotification("Copied GitHub URL to clipboard ✅", "info")
+    editor.flashNotification("Copied: GitHub URL ✅", "info")
     editor.flashNotification(url, "info")
   end
 }
