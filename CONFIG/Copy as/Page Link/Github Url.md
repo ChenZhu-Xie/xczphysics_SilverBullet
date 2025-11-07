@@ -7,7 +7,7 @@
 -- description: Copy the GitHub URL of the current page to clipboard
 
 command.define {
-  name = "Copy: Page GitHub",
+  name = "Copy: Page Github",
   key = "Shift-Alt-g",
   run = function()
 
