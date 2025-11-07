@@ -415,9 +415,9 @@ This is ==`code highlight`==.
 -- prioity: 9
 
 local admonitions = {
+  ["Tip"] = "tip",
   ["Warning"] = "warning",
   ["Caution"] = "caution",
-  ["Tip"] = "tip",
   ["Important"] = "important",
   ["Note"] = "note",
 }
