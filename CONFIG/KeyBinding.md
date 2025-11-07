@@ -30,7 +30,7 @@
 | Page: | Delete | | Shift | Alt | d |
 | Page: | Copy | Ctrl | Shift | Alt | c |
 | Page: | Copy Github | | Shift | Alt | g |
-| Page: | Copy Github | | Shift | Alt | g |
+| Page: | Copy Wiki | | Shift | Alt | p |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Graph View: | Global on/off | Ctrl | | Shift | g |
 | Graph View: | Local on/off | Ctrl | | Shift | l |
