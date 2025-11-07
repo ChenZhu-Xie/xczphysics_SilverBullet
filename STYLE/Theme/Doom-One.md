@@ -409,7 +409,7 @@ This is ==`code highlight`==.
 ```
 
 1. [Admonitions_multilingual.md](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md) #github
-/
+
 ```space-lua
 -- prioity: 9
 local admonitions = {
