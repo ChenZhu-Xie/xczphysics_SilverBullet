@@ -412,6 +412,8 @@ This is ==`code highlight`==.
 
 
 ```space-lua
+-- prioity: 9
+
 local admonitions = {
   ["Warning"] = "warning",
   ["Caution"] = "caution",
