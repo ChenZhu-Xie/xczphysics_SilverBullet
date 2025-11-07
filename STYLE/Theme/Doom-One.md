@@ -410,13 +410,14 @@ This is ==`code highlight`==.
 
 1. [Admonitions_multilingual.md](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md) #github
 
+
 ```space-lua
 local admonitions = {
-  ["warning"] = "warning",
-  ["caution"] = "caution",
-  ["tip"] = "tip",
-  ["important"] = "important",
-  ["note"] = "note"
+  ["Warning"] = "warning",
+  ["Caution"] = "caution",
+  ["Tip"] = "tip",
+  ["Important"] = "important",
+  ["Note"] = "note",
 }
 
 -- Generate slash commands
