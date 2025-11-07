@@ -1,4 +1,6 @@
 
+使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: replace_space_with_percent20`
+
 ```space-lua
 -- priority: 0
 -- name: Copy GitHub URL
