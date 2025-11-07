@@ -1,6 +1,6 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Nearest%20Inline.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Nearest%20Pattern.md"
 udpateDate: 2025-11-07
 ---
 
@@ -83,7 +83,7 @@ command.define{
     end
     editor.copyToClipboard(match.text)
     -- editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
-    editor.flashNotification("Copied: " .. match.name .. " ✅")
+    editor.flashNotification(match.name .. " ✅")
     editor.flashNotification(match.text)
   end
 }
