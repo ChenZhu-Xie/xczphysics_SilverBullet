@@ -408,6 +408,23 @@ This is ==`code highlight`==.
 }
 ```
 
+1. [Admonitions_multilingual.md](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md) #github
+
+```space-lua
+-- Generate slash commands
+for displayName, type in pairs(admonitions) do
+  slashcommand.define {
+    name = "Admonition for " .. displayName,
+    description = "Insert admonition type: "..type,
+    run = function()
+      local currentLine = editor.getCurrentLine()
+      local admonitionTemplate = "> **" .. type .. "** " .. displayName .. "\n> " .. currentLine.text .. "|^|\n"
+      editor.replaceRange(currentLine.from, currentLine.to, admonitionTemplate, true)
+    end
+  }
+end
+```
+
 # Lists & Layout
 ## List
 - bullet 1
