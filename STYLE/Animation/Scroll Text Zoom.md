@@ -1,4 +1,5 @@
 
+1. [space style animation of lua block widgets incl tables](https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498?u=chenzhu-xie) #community #silverbullet
 
 ```
 .cm-line {

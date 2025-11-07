@@ -1,5 +1,5 @@
 
-1. https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498
+1. [space style animation of lua block widgets incl tables](https://community.silverbullet.md/t/space-style-animation-of-lua-block-widgets-incl-tables/3498/3?u=chenzhu-xie) #community #silverbullet
 
 ```
 .sb-table-widget, 
