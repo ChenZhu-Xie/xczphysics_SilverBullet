@@ -54,7 +54,10 @@ command.define {
       headerName = replace_space_with_percent20(headerName)
       out = string.format("%s#%s", pageUrl, headerName)
       -- editor.flashNotification("Copied header external link: " .. out, "info")
-      editor.flashNotification("Copied header link: " .. out, "info")
+      -- editor.flashNotification("Copied header link: " .. out, "info")
+      editor.copyToClipboard(out)
+      editor.flashNotification("Header Link ✅", "info")
+      editor.flashNotification(out, "info")
     else
       -- if pos and pos > 0 then
       --   out = string.format("%s@%d", pageUrl, pos)
@@ -64,11 +67,10 @@ command.define {
       out = string.format("%s@%d", pageUrl, pos)
       -- editor.flashNotification("Copied cursor external link: " .. out, "info")
       -- editor.flashNotification("Copied cursor link: " .. out, "info")
-      editor.flashNotification("Copied: Cursor Link ✅", "info")
+      editor.copyToClipboard(out)
+      editor.flashNotification("Cursor Link ✅", "info")
       editor.flashNotification(out, "info")
     end
-  
-    editor.copyToClipboard(out)
   end
 }
 ```
