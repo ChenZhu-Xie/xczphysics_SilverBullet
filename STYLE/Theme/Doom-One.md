@@ -411,10 +411,18 @@ This is ==`code highlight`==.
 1. [Admonitions_multilingual.md](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md) #github
 
 ```space-lua
+local admonitions = {
+  ["warning"] = "warning",
+  ["caution"] = "caution",
+  ["tip"] = "tip",
+  ["important"] = "important",
+  ["note"] = "note"
+}
+
 -- Generate slash commands
 for displayName, type in pairs(admonitions) do
   slashcommand.define {
-    name = "Admonition for " .. displayName,
+    name = "Admonition",
     description = "Insert admonition type: "..type,
     run = function()
       local currentLine = editor.getCurrentLine()
