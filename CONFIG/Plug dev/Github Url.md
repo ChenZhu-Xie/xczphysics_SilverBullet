@@ -64,7 +64,7 @@ command.define {
     -- editor.flashNotification(url)
     -- editor.flashNotification(string.gsub(url, " ", "%20"))
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
-    githubUrl_original = "\"" .. fm.githubUrl .. "\""
+    githubUrl_original = "\"" .. (fm.githubUrl or "") .. "\""
     -- editor.flashNotification(githubUrl_original)
     -- fm.githubUrl = replace_space_with_percent20(url)
     fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
