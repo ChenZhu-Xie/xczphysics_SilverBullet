@@ -1,6 +1,6 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Link/Cursor%20Position.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Link/Cursor%20Ref.md"
 udpateDate: 2025-11-07
 ---
 

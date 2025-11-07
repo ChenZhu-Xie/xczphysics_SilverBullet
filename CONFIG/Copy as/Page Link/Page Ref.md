@@ -1,3 +1,10 @@
+---
+recommend: ⭐⭐⭐⭐⭐
+udpateDate: 2025-11-07
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Page%20Link/Page%20Ref.md"
+---
+
+1. extracted from [[CONFIG/Copy as/Forward Link/Cursor Ref]]
 
 ```space-lua
 command.define {

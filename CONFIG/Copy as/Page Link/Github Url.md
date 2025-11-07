@@ -1,7 +1,7 @@
 
 # Github Url
 
-使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: replace_space_with_percent20`
+1. 使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: replace_space_with_percent20`
 
 ```space-lua
 -- description: Copy the GitHub URL of the current page to clipboard
