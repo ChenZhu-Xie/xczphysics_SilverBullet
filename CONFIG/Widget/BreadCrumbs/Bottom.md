@@ -33,7 +33,8 @@ end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
 local function pattern(path)
-  return choose("^" .. path .. "/[^/]+$", "^[^/]+$", path)
+  local a = path and ("^" .. path .. "/[^/]+$") or nil
+  return choose(a, "^[^/]+$", path)
 end
 
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
