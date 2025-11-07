@@ -12,25 +12,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 -- [[Page#Header]] -> http(s)://host/Page#Header
 -- [[Page@pos]]    -> http(s)://host/Page@pos
 
-local function replace_space_with_percent20(s)
-  local parts = {}
-  for i = 1, #s do
-    local c = s:sub(i, i)
-    if c == " " then
-      parts[#parts+1] = "%20"
-    else
-      parts[#parts+1] = c
-    end
-  end
-  return table.concat(parts)
-end
-
 -- your address:   "https://your-domain"
 -- local BASE_URL = "http://127.0.0.1:3000"
 local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
 local function build_page_url(pageName)
-  local path = replace_space_with_percent20(pageName)
+  local path = encode_url(pageName)
   if BASE_URL:sub(-1) == "/" then
     return BASE_URL .. path
   else
@@ -51,7 +38,7 @@ command.define {
     local out
     if headerMarks and headerName and headerName:match("%S") then
       headerName = headerName:match("^%s*(.+)")
-      headerName = replace_space_with_percent20(headerName)
+      headerName = encode_url(headerName)
       out = string.format("%s#%s", pageUrl, headerName)
       -- editor.flashNotification("Copied header external link: " .. out, "info")
       -- editor.flashNotification("Copied header link: " .. out, "info")

@@ -46,19 +46,6 @@ command.define {
 
     local body = index.extractFrontmatter(text,  {
     removeFrontMatterSection = true }).text or text
-
-    local function replace_space_with_percent20(s)
-      local parts = {}
-      for i = 1, #s do
-        local c = s:sub(i, i)
-        if c == " " then
-          parts[#parts+1] = "%20"
-        else
-          parts[#parts+1] = c
-        end
-      end
-      return table.concat(parts)
-    end
     
     local url = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/" .. tostring(editor.getCurrentPath())
     -- editor.flashNotification(url)
@@ -66,8 +53,8 @@ command.define {
     -- editor.flashNotification(string.gsub(url, " ", "%%20"))
     githubUrl_original = "\"" .. (fm.githubUrl or "") .. "\""
     -- editor.flashNotification(githubUrl_original)
-    -- fm.githubUrl = replace_space_with_percent20(url)
-    fm.githubUrl = "\"" .. replace_space_with_percent20(url) .. "\""
+    -- fm.githubUrl = encode_url(url)
+    fm.githubUrl = "\"" .. encode_url(url) .. "\""
 
     local lines = {}
     for k, v in pairs(fm) do
