@@ -3,6 +3,7 @@ recommend: ⭐⭐⭐⭐⭐
 udpateDate: 2025-11-08
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/page%20title/Github%20Url.md"
 ---
+#forward #external #wiki
 
 # Github Url
 
