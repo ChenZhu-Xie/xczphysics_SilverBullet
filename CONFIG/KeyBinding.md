@@ -43,7 +43,7 @@
 | Page: | [[CONFIG/Plug dev/Github Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy as/page title/Page Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy as/page title/Page Link|Copy Link]] | | Shift | Alt | l |
-| Page: | [[CONFIG/Copy as/page title/Absolute Path|Copy Dir]] | Ctrl | Shift | | d |
+| Page: | [[CONFIG/Copy as/page title/Disk Dir|Copy Dir]] | Ctrl | Shift | | d |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
