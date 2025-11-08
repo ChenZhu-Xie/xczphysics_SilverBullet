@@ -32,7 +32,7 @@ local function Bc_last()
 end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
-function pattern(path)
+local function pattern(path)
   -- return choose("^" .. path .. "/[^/]+$", "^[^/]+$", path)
   local a = path and ("^" .. path .. "/[^/]+$") or nil
   return choose(a, "^[^/]+$", path)
