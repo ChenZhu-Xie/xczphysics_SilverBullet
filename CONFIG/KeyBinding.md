@@ -1,12 +1,11 @@
-
 [[CONFIG#Plugs with KeyBindings]]
-
 # In Page
 
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Format | | | Alt | c |
-| Cursor: | Copy Reference | | Shift | Alt | c |
+| Cursor: | [[CONFIG/Copy as/External Link/Cursor Pos#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
+| Cursor: | [[CONFIG/Copy as/Forward Wiki/Cursor Ref#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste as/Markdown/Image Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
