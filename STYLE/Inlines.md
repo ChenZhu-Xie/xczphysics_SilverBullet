@@ -76,7 +76,7 @@ command.define {
   end
 }
 ```
-d${${${${}}}}
+
 ### Superscript: ^sup^
 
 ```space-lua
