@@ -75,7 +75,7 @@ end
 function moveToNewTextPos(suffixText)
   local pos = editor.getCursor()
   local newPos = pos - #suffixText
-  editor.moveCursor(newPos, true)
+  editor.moveCursor(newPos, false)
 end
 
 local function wrapWithColor(fnName)
