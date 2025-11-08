@@ -24,7 +24,8 @@ command.define {
       absPath = basePath
     end
     
-    -- editor.copyToClipboard(absPath)
+    editor.copyToClipboard(absPath)
+    -- js.window.navigator.clipboard.writeText(absPath)
     editor.flashNotification("Absolute path ✅", "info")
     editor.flashNotification(absPath, "info")
   end
