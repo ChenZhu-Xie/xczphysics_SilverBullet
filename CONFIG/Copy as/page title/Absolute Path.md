@@ -1,7 +1,7 @@
 
 ```space-lua
 command.define {
-  name = "Page: Copy Absolute Path",
+  name = "Page: Copy Dir",
   key = "Ctrl-Shift-d",
   run = function()
     local basePath = "F:\\Note_book\\SilverBullet\\1.local_server\\SB_space"
