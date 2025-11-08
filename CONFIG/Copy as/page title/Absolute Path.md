@@ -5,8 +5,6 @@ command.define {
   key = "Ctrl-Shift-d",
   run = function()
     local basePath = "F:\\Note_book\\SilverBullet\\1.local_server\\SB_space"
-
-    local relPath = editor.getCurrentPath()
     
     local sep
     if string.find(basePath, "\\") then
@@ -15,6 +13,8 @@ command.define {
     else
       sep = "/"   -- macOS / Linux
     end
+
+    local relPath = editor.getCurrentPath():gsub("\\+", sep)
     
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
