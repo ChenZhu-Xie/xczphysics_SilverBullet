@@ -18,7 +18,7 @@
 | Text: | [[STYLE/Inline CMD#Quote Selection: > ...|Quote]] | | | Alt | . |
 | Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
 | Line: | [[CONFIG/KeyBinding/Define#Line: Move Up|Move Up]] | | Shift | Alt | ↑ |
-| Line: | Move Down | | Shift | Alt | ↓ |
+| Line: | [[CONFIG/KeyBinding/Define#Line: Move Down|Move Down]] | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
