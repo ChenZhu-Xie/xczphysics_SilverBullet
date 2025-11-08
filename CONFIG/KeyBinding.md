@@ -9,7 +9,7 @@
 | Cursor: | [[CONFIG/Copy as/Cursor Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste as/Markdown/Image Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
-| Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
+| Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | | | Alt | r |
 | Text: | [[STYLE/Inline CMD#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Inline CMD#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
 | Text: | [[STYLE/Inline CMD#Superscript: ^sup^|Superscript]] | | | Alt | 6 |
@@ -47,7 +47,7 @@
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
 | Read Only: | [[CONFIG/Edit/Read Only Toggle|Toggle on/off]] | Ctrl | | Alt | t |
 | Import: | Url | Ctrl | Shift | | i |
-| Import: | Update Current Lib | Ctrl | | Alt | u |
+| Import: | [[CONFIG/Plug dev/Update SB Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
 
 # Across Pages
 
