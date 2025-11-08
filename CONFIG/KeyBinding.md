@@ -5,7 +5,7 @@
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Format | | | Alt | c |
 | Cursor: | Copy Reference | | Shift | Alt | c |
-| Navigate: | Center Cursor | | Ctrl | Alt | l |
+| Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste as/Markdown/Image Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
 | Text: | [[STYLE/Inline CMD#Inline code: `code`|Inline Code]] | | | Alt | ` |
@@ -22,7 +22,7 @@
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
-| Header: | Toggle Level | Ctrl | | | 1 |
+| Header: | [[CONFIG/Edit/Header Level Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
 | Code Block: | Space-Lua Format | Ctrl | | Alt | 1 |
 | Frontmatter: | Add Github Url | Ctrl | | Alt | g |
 
