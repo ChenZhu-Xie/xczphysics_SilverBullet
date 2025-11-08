@@ -93,4 +93,15 @@ command.update {
   mac = "Ctrl-Shift-`",
   priority = 1,
 }
+
+-- 6. Strike through: ~~strike~~
+command.update {
+  name = "Text: Strikethrough",
+  key = "Ctrl-Shift-`",
+  mac = "Ctrl-Shift-`",
+  priority = 1,
+}
 ```
+
+ddd
+
