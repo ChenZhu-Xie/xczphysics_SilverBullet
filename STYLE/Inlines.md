@@ -94,14 +94,14 @@ command.update {
   priority = 1,
 }
 
--- 6. Strike through: ~~strike~~
+-- 6. Listify Selection: * 
 command.update {
-  name = "Text: Strikethrough",
-  key = "Ctrl-Shift-`",
-  mac = "Ctrl-Shift-`",
+  name = "Text: Listify Selection",
+  key = "Alt-8",
+  mac = "Alt-8",
   priority = 1,
 }
 ```
 
-ddd
+
 
