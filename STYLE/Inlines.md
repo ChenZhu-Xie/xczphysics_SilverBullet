@@ -69,14 +69,14 @@ command.define {
 command.define {
   name = "Text: Lua Widget",
   category = "Format",
-  key = "Alt-{",
+  key = "Alt-[",
   description = "Wrap selection or insert Lua widget expression",
   run = function()
     wrapText("${", "}")
   end
 }
 ```
-d
+d${${${${}}}}
 ### Superscript: ^sup^
 
 ```space-lua
