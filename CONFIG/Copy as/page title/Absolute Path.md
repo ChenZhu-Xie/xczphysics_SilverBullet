@@ -5,6 +5,8 @@ command.define {
   key = "Ctrl-Shift-d",
   run = function()
     local basePath = "F:\\Note_book\\SilverBullet\\1.local_server\\SB_space"
+
+    local relPath = editor.getCurrentPath()
     
     local sep
     if string.find(basePath, "\\") then
@@ -16,9 +18,9 @@ command.define {
     
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
-      absPath = basePath .. editor.getCurrentPage()
+      absPath = basePath .. relPath
     else
-      absPath = basePath .. sep .. editor.getCurrentPage()
+      absPath = basePath .. sep .. relPath
     end
     
     editor.copyToClipboard(absPath)
