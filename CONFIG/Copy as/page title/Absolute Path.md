@@ -1,6 +1,3 @@
-F:\Note_book\SilverBullet\1.local_server\SB_space\CONFIG\Copy as\page title\Absolute Path.md
-
-F:\Note_book\SilverBullet\1.local_server\SB_space\CONFIG\Copy as\page title\Absolute Path
 
 ```space-lua
 command.define {
