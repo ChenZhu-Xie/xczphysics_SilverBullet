@@ -167,15 +167,14 @@ command.update {
 }
 ```
 
-### Quote Selection: > ...
+### Marker: ==text==
 
 ```space-lua
--- 8. Quote Selection: | ...
--- bug: 行末 无法 触发
+-- 9. Marker: ==text==
 command.update {
-  name = "Text: Quote Selection",
-  key = "Alt-.",
-  mac = "Alt-.",
+  name = "Text: Marker",
+  key = "Alt-=",
+  mac = "Alt-=",
   priority = 1,
 }
 ```
