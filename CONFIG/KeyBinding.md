@@ -7,7 +7,11 @@
 | Cursor: | Copy Reference | | Shift | Alt | c |
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
-| Text: | Red | | | Alt | r |
+| Text: | Red | Ctrl | | Alt | ` |
+| Text: | Strikethrough | | | Alt | r |
+| Text: | Listify | | | Alt | 8 |
+| Text: | Number Listify | | | Alt | n |
+| Text: | [[STYLE/Inlines|Quote]] | | | Alt | . |
 | Line: | Toggle Comment | | Shift | Alt | m |
 | Line: | Move Up | | Shift | Alt | ↑ |
 | Line: | Move Down | | Shift | Alt | ↓ |
