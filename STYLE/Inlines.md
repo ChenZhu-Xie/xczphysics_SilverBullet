@@ -103,6 +103,7 @@ command.update {
 }
 
 -- 6. Listify Selection: * 
+-- no bug: 行末 可以 触发
 command.update {
   name = "Text: Listify Selection",
   key = "Alt-8",
@@ -111,7 +112,7 @@ command.update {
 }
 
 -- 7. Number Listify Selection: * 
--- bug: 行末无法 触发
+-- bug: 行末 无法 触发
 command.update {
   name = "Text: Number Listify Selection",
   key = "Alt-n",
@@ -119,5 +120,3 @@ command.update {
   priority = 1,
 }
 ```
-
-asdf
