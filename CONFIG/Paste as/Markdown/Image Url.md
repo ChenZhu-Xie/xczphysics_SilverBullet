@@ -47,7 +47,7 @@ command.define {
     end
 
     --------------------------------------------------------------
-    -- ✨ 新增：Wiki 语法检测与引用别名粘贴
+    -- ✨ add: Wiki detect + Alias paste
     --------------------------------------------------------------
     if not isUrl(clip) then
       local wiki_content = clip:match("%[%[([^%]]+)%]%]")
