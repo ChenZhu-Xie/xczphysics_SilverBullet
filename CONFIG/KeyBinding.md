@@ -7,7 +7,7 @@
 | Cursor: | Copy Reference | | Shift | Alt | c |
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
-| Text: | Red | Ctrl | | Alt | ` |
+| Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
 | Text: | [[STYLE/Inlines#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Inlines#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
 | Text: | [[STYLE/Inlines#Superscript: ^sup^|Superscript]] | Alt | | | 6 |
