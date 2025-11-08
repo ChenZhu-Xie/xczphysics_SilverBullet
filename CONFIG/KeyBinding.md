@@ -38,7 +38,7 @@
 | Page: | [[CONFIG/KeyBinding/Define#Page: New Sibling Page|New Sibling]] | | Ctrl | Alt | s |
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
-| Page: | Delete | | Shift | Alt | d |
+| Page: | [[CONFIG/KeyBinding/Update#Page: Delete|Delete]] | | Shift | Alt | d |
 | Page: | Copy | Ctrl | Shift | Alt | c |
 | Page: | Copy Github | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy as/page title/Page Wiki|Copy Wiki]] | | Shift | Alt | w |
