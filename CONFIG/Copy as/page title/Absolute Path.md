@@ -14,12 +14,14 @@ command.define {
       sep = "/"   -- macOS / Linux
     end
 
-    local relPath = editor.getCurrentPage():gsub("/", sep)
+    local relPath = (editor.getCurrentPage():match("^(.*)/[^/]*$") or ""):gsub("/", sep) or ""
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
       absPath = basePath .. relPath
+    elseif finalRelPath ~= "" then
+      absPath = basePath .. sep .. finalRelPath
     else
-      absPath = basePath .. sep .. relPath
+      absPath = basePath
     end
     
     editor.copyToClipboard(absPath)
