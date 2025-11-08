@@ -93,7 +93,7 @@ command.define {
 
 ## Command Update
 
-### 
+### Strike through: ~~strike~~
 
 ```space-lua
 -- 5. Strike through: ~~strike~~
@@ -103,7 +103,11 @@ command.update {
   mac = "Ctrl-alt-`",
   priority = 1,
 }
+```
 
+### Listify Selection: * text
+
+```space-lua
 -- 6. Listify Selection: * text
 -- no bug: 行末 可以 触发
 command.update {
@@ -112,7 +116,11 @@ command.update {
   mac = "Alt-8",
   priority = 1,
 }
+```
 
+### Number Listify Selection: 1. text
+
+```space-lua
 -- 7. Number Listify Selection: 1. text
 -- bug: 行末 无法 触发
 command.update {
@@ -121,7 +129,11 @@ command.update {
   mac = "Alt-n",
   priority = 1,
 }
+```
 
+### Quote Selection: | ...
+
+```space-lua
 -- 8. Quote Selection: | ...
 -- bug: 行末 无法 触发
 command.update {
@@ -131,5 +143,4 @@ command.update {
   priority = 1,
 }
 ```
-
 

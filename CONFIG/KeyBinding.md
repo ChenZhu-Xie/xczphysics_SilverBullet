@@ -11,7 +11,7 @@
 | Text: | Strikethrough | | | Alt | r |
 | Text: | Listify | | | Alt | 8 |
 | Text: | Number Listify | | | Alt | n |
-| Text: | [[STYLE/Inlines|Quote]] | | | Alt | . |
+| Text: | [[STYLE/Inlines#Quote Selection: |Quote]] | | | Alt | . |
 | Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
 | Line: | Move Up | | Shift | Alt | ↑ |
 | Line: | Move Down | | Shift | Alt | ↓ |
