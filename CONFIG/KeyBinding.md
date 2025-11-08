@@ -8,8 +8,8 @@
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
 | Text: | Red | Ctrl | | Alt | ` |
-| Text: | Strikethrough | | | Alt | r |
-| Text: | [[STYLE/Inlines#Listify Selection: * text]] | | | Alt | 8 |
+| Text: | [[STYLE/Inlines#Strike through: ~~strike~~|Strikethrough]] | | | Alt | r |
+| Text: | [[STYLE/Inlines#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Inlines#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
 | Text: | [[STYLE/Inlines#Quote Selection: > ...|Quote]] | | | Alt | . |
 | Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
