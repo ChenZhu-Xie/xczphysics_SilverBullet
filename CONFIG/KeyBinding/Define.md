@@ -75,7 +75,7 @@ command.define {
 }
 ```
 
-## Page: New Children Page
+## Page: New Child Page
 
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
 2. https://community.silverbullet.md/t/folder-auto-complete/686/11?u=chenzhu-xie
@@ -83,7 +83,7 @@ command.define {
 ```space-lua
 command.define {
   name = "Page: New",
-  description = "New Children Page",
+  description = "New Child Page",
   key = "Ctrl-Alt-n",
   run = function()
     local pageName = editor.prompt("Page Name",editor.getCurrentPage().."/")
