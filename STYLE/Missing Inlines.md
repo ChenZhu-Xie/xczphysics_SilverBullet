@@ -64,14 +64,14 @@ command.define {
   end
 }
 
--- 3. Superscript: ^^
+-- 3. Superscript: ^
 command.define {
   name = "Format: Superscript",
   category = "Format",
   key = "Alt-6",
   description = "Wrap selection or insert superscript text",
   run = function()
-    wrapText("^^", "^^")
+    wrapText("^", "^")
   end
 }
 
@@ -88,4 +88,4 @@ command.define {
 
 ```
 
-asdf
+as^d^f
