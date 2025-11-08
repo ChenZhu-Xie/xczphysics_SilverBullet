@@ -8,6 +8,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 
 ## Command Define
 
+1. [690f2cab c814 8010 a9f3 9b1f3c77938d](https://chatgpt.com/share/690f2cab-c814-8010-a9f3-9b1f3c77938d) #chatgpt
+
 ```space-lua
 -- =========================
 -- Inline Formatting Commands

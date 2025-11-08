@@ -5,6 +5,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ---
 #forward #external #wiki
 
+1. [690f2cf2 f8a8 8010 bc58 2bc6c9a33a03](https://chatgpt.com/share/690f2cf2-f8a8-8010-bc58-2bc6c9a33a03) #chatgpt
+
 ```space-lua
 -- Page: Copy Link
 
