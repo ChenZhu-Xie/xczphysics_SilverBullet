@@ -18,8 +18,8 @@ command.define {
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
       absPath = basePath .. relPath
-    elseif finalRelPath ~= "" then
-      absPath = basePath .. sep .. finalRelPath
+    elseif relPath ~= "" then
+      absPath = basePath .. sep .. relPath
     else
       absPath = basePath
     end
