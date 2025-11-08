@@ -15,7 +15,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 -- Inline Formatting Commands
 -- =========================
 
--- acquire current text
+-- acquire current text 获取
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
