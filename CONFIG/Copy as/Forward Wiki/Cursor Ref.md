@@ -1,7 +1,7 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Forward%20Wiki/Cursor%20Ref.md"
-udpateDate: 2025-11-07
+udpateDate: 2025-11-08
 ---
 
 # Generate Ref @ Cursor Position
