@@ -37,7 +37,7 @@ function moveToNewTextPos(suffixText)
   editor.moveCursor(newPos, false)
 end
 
--- 通用包裹函数
+-- universal wrap
 function wrapText(prefix, suffix)
   local text = getSelectedText()
   if text and text ~= "" then
@@ -48,10 +48,6 @@ function wrapText(prefix, suffix)
     moveToNewTextPos(suffix)
   end
 end
-
--- ==============
--- 各种格式命令
--- ==============
 ```
 
 ### Inline code: `code`
