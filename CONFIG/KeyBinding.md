@@ -12,7 +12,7 @@
 | Text: | Listify | | | Alt | 8 |
 | Text: | Number Listify | | | Alt | n |
 | Text: | [[STYLE/Inlines|Quote]] | | | Alt | . |
-| Text: | Toggle Comment | | Shift | Alt | m |
+| Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
 | Line: | Move Up | | Shift | Alt | ↑ |
 | Line: | Move Down | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |
