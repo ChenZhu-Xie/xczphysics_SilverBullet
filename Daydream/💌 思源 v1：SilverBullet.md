@@ -16,5 +16,6 @@
 
 ## Kernel 内核大小
 
-SiYuan ~ 231 MB
-SilverBullet ~ 28 MB
+* Tana ~ Core 233 MB + Pages ...
+* SiYuan ~ Core 231 MB + Pages ... 
+* SilverBullet ~ 28 MB
