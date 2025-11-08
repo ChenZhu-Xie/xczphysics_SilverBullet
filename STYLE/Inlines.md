@@ -97,8 +97,8 @@ command.define {
 -- 5. Strike through: ~~strike~~
 command.update {
   name = "Text: Strikethrough",
-  key = "Ctrl-Shift-`",
-  mac = "Ctrl-Shift-`",
+  key = "Ctrl-alt-`",
+  mac = "Ctrl-alt-`",
   priority = 1,
 }
 
