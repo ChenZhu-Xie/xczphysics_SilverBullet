@@ -8,6 +8,10 @@
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
 | Text: | Red | Ctrl | | Alt | ` |
+| Text: | Lua Widget | Ctrl | | Alt | ` |
+| Text: | Red | Ctrl | | Alt | ` |
+| Text: | [[STYLE/Inlines#Superscript: ^sup^|Superscript]] | Alt | | | 6 |
+| Text: | [[STYLE/Inlines#Subscript: ~sub~|Subscript]] | Ctrl | | | ` |
 | Text: | [[STYLE/Inlines#Strike through: ~~strike~~|Strikethrough]] | | | Alt | r |
 | Text: | [[STYLE/Inlines#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Inlines#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
