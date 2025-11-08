@@ -59,25 +59,6 @@ function Blue(text)   return ColorText(text, colors.blue) end
 function Yellow(text) return ColorText(text, colors.yellow) end
 function Purple(text) return ColorText(text, colors.purple) end
 
-function getSelectedText()
-  local sel = editor.getSelection()
-  if not sel or sel.from == sel.to then return nil end
-  local text = editor.getText()
-  return text:sub(sel.from + 1, sel.to)
-end
-
-function setSelectedText(newText)
-  local sel = editor.getSelection()
-  if not sel or sel.from == sel.to then return nil end
-  editor.replaceRange(sel.from, sel.to, newText)
-end
-
-function moveToNewTextPos(suffixText)
-  local pos = editor.getCursor()
-  local newPos = pos - #suffixText
-  editor.moveCursor(newPos, false)
-end
-
 local function wrapWithColor(fnName)
   local text = getSelectedText()
   if text and text ~= "" then

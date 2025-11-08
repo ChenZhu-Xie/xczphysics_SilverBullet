@@ -6,6 +6,8 @@
 - Three [mode: hot]
 - Four [mode: hot]
 
+## Effect
+
 ${buildList(query[[
   from index.tag "item"
   where _.page == editor.getCurrentPage()
