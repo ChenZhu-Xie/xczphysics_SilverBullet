@@ -9,7 +9,7 @@
 -- =========================
 
 -- 通用：获取选中文本
-local function getSelectedText()
+function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
   local text = editor.getText()
@@ -17,21 +17,21 @@ local function getSelectedText()
 end
 
 -- 通用：替换选中文本
-local function setSelectedText(newText)
+function setSelectedText(newText)
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
 -- 通用：光标移动到中间位置
-local function moveToNewTextPos(suffixText)
+function moveToNewTextPos(suffixText)
   local pos = editor.getCursor()
   local newPos = pos - #suffixText
   editor.moveCursor(newPos, false)
 end
 
 -- 通用包裹函数
-local function wrapText(prefix, suffix)
+function wrapText(prefix, suffix)
   local text = getSelectedText()
   if text and text ~= "" then
     setSelectedText(prefix .. text .. suffix)
@@ -76,6 +76,8 @@ command.define {
   end
 }
 ```
+
+asdf
 
 ### Superscript: ^sup^
 
