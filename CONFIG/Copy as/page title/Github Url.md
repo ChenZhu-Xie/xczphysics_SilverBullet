@@ -5,6 +5,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ---
 #forward #external #wiki
 
+1. [690f2d31 4b60 8010 9770 eda3e44d845f](https://chatgpt.com/share/690f2d31-4b60-8010-9770-eda3e44d845f) #chatgpt
+
 # Github Url
 
 1. 使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: encode_url`

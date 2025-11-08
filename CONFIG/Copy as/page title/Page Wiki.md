@@ -17,6 +17,8 @@ about `[[wiki link]]`
   - or `@ref` (reference) in Tana
   - or `[[Quote (Block)]]` in SiYuan
 
+2. [690f2d0c ced8 8010 abea 455bd91fec6d](https://chatgpt.com/share/690f2d0c-ced8-8010-abea-455bd91fec6d) #chatgpt
+
 ```space-lua
 command.define {
   -- name = "Copy: Page Reference",
