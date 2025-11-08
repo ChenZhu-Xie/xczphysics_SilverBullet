@@ -23,7 +23,7 @@ end
 local function moveToNewTextPos(suffixText)
   local pos = editor.getCursor()
   local newPos = pos - #suffixText
-  editor.moveCursor(newPos, true)
+  editor.moveCursor(newPos, false)
 end
 
 -- 通用包裹函数
