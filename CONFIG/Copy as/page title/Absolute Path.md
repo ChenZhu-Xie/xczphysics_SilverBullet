@@ -4,9 +4,14 @@ command.define {
   name = "Page: Copy Absolute Path",
   key = "Ctrl-Shift-d",
   run = function()
-    local sep = package.config:sub(1,1)  -- 自动检测操作系统的路径分隔符
-    local basePath = app.getSpaceDir()   -- 获取当前空间的根目录（SB 内置 API）
-    local absPath = basePath .. sep .. editor.getCurrentPage()
+    local basePath = "D:\\MySB"
+    local sep = string.find(basePath, "\\") and "\\" or "/"
+    local absPath
+    if basePath:sub(-1) == sep then
+      absPath = basePath .. editor.getCurrentPage()
+    else
+      absPath = basePath .. sep .. editor.getCurrentPage()
+    end
 
     -- 复制到剪贴板
     editor.copyToClipboard(absPath)
