@@ -79,7 +79,7 @@ command.define {
 command.define {
   name = "Format: Subscript",
   category = "Format",
-  key = "Alt-~",
+  key = "Ctrl-~",
   description = "Wrap selection or insert subscript text",
   run = function()
     wrapText("~~", "~~")
@@ -88,4 +88,4 @@ command.define {
 
 ```
 
-as^d^f
+as^d^fasdasdf
