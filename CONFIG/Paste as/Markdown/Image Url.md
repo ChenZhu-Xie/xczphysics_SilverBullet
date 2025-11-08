@@ -15,7 +15,7 @@ udpateDate: 2025-10-27
 
 ```space-lua
 command.define {
-  name = "Paste: Smart URL",
+  name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",
   run = function()
     local input = js.window.navigator.clipboard.readText()
@@ -25,7 +25,7 @@ command.define {
       return
     end
 
-    -- URL check
+    -- URL 检查
     local function isUrl(u)
       return u:match("^https?://")
           or u:match("^www%.")
@@ -46,26 +46,37 @@ command.define {
              path:match("%.svg$")
     end
 
-    --------------------------------------------------------------
+    ----------------------------------------------------------------
     -- ✨ add: Wiki detect + Alias paste
-    --------------------------------------------------------------
+    ----------------------------------------------------------------
     if not isUrl(clip) then
       local wiki_content = clip:match("%[%[([^%]]+)%]%]")
       if wiki_content then
         local selected = getSelectedText()
         if selected and selected ~= "" then
+          -- selected：[[content|selected]]
           setSelectedText(string.format("[[%s|%s]]", wiki_content, selected))
           editor.flashNotification("Inserted wiki alias link")
           return
         else
-          editor.flashNotification("No text selected for wiki alias", "warn")
+          -- no selection：[[content|]]
+          local snippet = string.format("[[%s|]]", wiki_content)
+          local pos = editor.getCursor()
+          editor.insertAtCursor(snippet, false)
+          if editor.moveCursor then
+            editor.moveCursor((pos + #string.format("[[%s|", wiki_content)), false)
+          elseif editor.setSelection then
+            local target = pos + #string.format("[[%s|", wiki_content)
+            editor.setSelection(target, target)
+          end
+          editor.flashNotification("Inserted wiki link placeholder")
           return
         end
       end
       editor.flashNotification("Not a URL or wiki link", "warn")
       return
     end
-    --------------------------------------------------------------
+    ----------------------------------------------------------------
 
     -- Helpers
     local function urldecode(s)
@@ -146,7 +157,7 @@ command.define {
 
     local url = ensureScheme(clip)
 
-    -- image URL
+    -- img URL
     if isImageUrl(url) then
       local snippet = string.format("![](%s)", url)
       editor.insertAtCursor(snippet, false)
@@ -155,7 +166,7 @@ command.define {
       return
     end
 
-    -- normal URL
+    -- web URL
     local host = parse_host(url)
     local tags = build_tags_from_host(host)
     local title = title_from_url(url)
