@@ -44,7 +44,7 @@ end
 
 -- 1. Inline code: `code`
 command.define {
-  name = "Format: Inline Code",
+  name = "Text: Inline Code",
   category = "Format",
   key = "Alt-`",
   description = "Wrap selection or insert inline code block",
@@ -55,7 +55,7 @@ command.define {
 
 -- 2. Lua widget: ${ ... }
 command.define {
-  name = "Format: Lua Widget",
+  name = "Text: Lua Widget",
   category = "Format",
   key = "Alt-4",
   description = "Wrap selection or insert Lua widget expression",
@@ -66,7 +66,7 @@ command.define {
 
 -- 3. Superscript: ^sup^
 command.define {
-  name = "Format: Superscript",
+  name = "Text: Superscript",
   category = "Format",
   key = "Alt-6",
   description = "Wrap selection or insert superscript text",
@@ -77,7 +77,7 @@ command.define {
 
 -- 4. Subscript: ~sub~
 command.define {
-  name = "Format: Subscript",
+  name = "Text: Subscript",
   category = "Format",
   key = "Ctrl-`",
   description = "Wrap selection or insert subscript text",
@@ -86,7 +86,7 @@ command.define {
   end
 }
 
--- 5. Strike through: ~sub~
+-- 5. Strike through: ~~strike~~
 command.update {
   name = "Text: Strikethrough",
   key = "Ctrl-Shift-`",
@@ -94,5 +94,3 @@ command.update {
   priority = 1,
 }
 ```
-
-d
