@@ -3,7 +3,7 @@
 
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Cursor: | [[CONFIG/Copy as/Markdown/Nearest Pattern#Copy the nearest Format around Cursor|Copy Nearest Format]] | | | Alt | c |
+| Cursor: | [[CONFIG/Nearest Pattern/Copy#Copy the nearest Format around Cursor|Copy Nearest Format]] | | | Alt | c |
 | Cursor: | [[CONFIG/Copy as/External Link/Cursor Pos#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
 | Cursor: | [[CONFIG/Copy as/Forward Wiki/Cursor Ref#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
