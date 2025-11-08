@@ -14,7 +14,7 @@
 | Text: | [[STYLE/Inline CMD#Superscript: ^sup^|Superscript]] | | | Alt | 6 |
 | Text: | [[STYLE/Inline CMD#Subscript: ~sub~|Subscript]] | Ctrl | | | ` |
 | Text: | [[STYLE/Inline CMD#Strike through: ~~strike~~|Strikethrough]] | Ctrl | | Alt | ` |
-| Text: |  | | | Alt | = |
+| Text: | [[STYLE/Inline CMD#Marker: ==text==|Marker]] | | | Alt | = |
 | Text: | [[STYLE/Inline CMD#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Inline CMD#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
 | Text: | [[STYLE/Inline CMD#Quote Selection: > ...|Quote]] | | | Alt | . |

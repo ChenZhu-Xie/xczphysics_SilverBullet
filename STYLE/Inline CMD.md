@@ -126,10 +126,22 @@ command.update {
 }
 ```
 
+### Marker: ==text==
+
+```space-lua
+-- 6. Marker: ==text==
+command.update {
+  name = "Text: Marker",
+  key = "Alt-=",
+  mac = "Alt-=",
+  priority = 1,
+}
+```
+
 ### Listify Selection: * text
 
 ```space-lua
--- 6. Listify Selection: * text
+-- 7. Listify Selection: * text
 -- no bug: 行末 可以 触发
 command.update {
   name = "Text: Listify Selection",
@@ -144,7 +156,7 @@ command.update {
 1. [issues](https://github.com/silverbulletmd/silverbullet/issues/1673#issue-3602995726) #github
 
 ```space-lua
--- 7. Number Listify Selection: 1. text
+-- 8. Number Listify Selection: 1. text
 -- bug: 行末 无法 触发
 command.update {
   name = "Text: Number Listify Selection",
@@ -157,24 +169,12 @@ command.update {
 ### Quote Selection: > ...
 
 ```space-lua
--- 8. Quote Selection: | ...
+-- 9. Quote Selection: | ...
 -- bug: 行末 无法 触发
 command.update {
   name = "Text: Quote Selection",
   key = "Alt-.",
   mac = "Alt-.",
-  priority = 1,
-}
-```
-
-### Marker: ==text==
-
-```space-lua
--- 9. Marker: ==text==
-command.update {
-  name = "Text: Marker",
-  key = "Alt-=",
-  mac = "Alt-=",
   priority = 1,
 }
 ```
