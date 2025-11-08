@@ -27,7 +27,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 只是 Tana Workflowy Logseq RoamResearch RoamEdit 等大纲类 app 还原了 file 内 本身的 page 结构 的 性质：
     与 file 外 其在 folder 结构 中 的相对位置 一样，
-都是 tree 状的而已。
+都是 tree 状的==而已==。
+
 
 
 ## SB 缺乏 页面以外对象 的 反链自动更新
