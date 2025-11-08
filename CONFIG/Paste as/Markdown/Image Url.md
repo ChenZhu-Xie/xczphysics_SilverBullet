@@ -25,7 +25,7 @@ command.define {
       return
     end
 
-    -- URL 检查
+    -- URL check
     local function isUrl(u)
       return u:match("^https?://")
           or u:match("^www%.")
@@ -46,9 +46,9 @@ command.define {
              path:match("%.svg$")
     end
 
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
     -- ✨ 新增：Wiki 语法检测与引用别名粘贴
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
     if not isUrl(clip) then
       local wiki_content = clip:match("%[%[([^%]]+)%]%]")
       if wiki_content then
@@ -65,7 +65,7 @@ command.define {
       editor.flashNotification("Not a URL or wiki link", "warn")
       return
     end
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
 
     -- Helpers
     local function urldecode(s)
@@ -146,7 +146,7 @@ command.define {
 
     local url = ensureScheme(clip)
 
-    -- 图片 URL
+    -- image URL
     if isImageUrl(url) then
       local snippet = string.format("![](%s)", url)
       editor.insertAtCursor(snippet, false)
@@ -155,7 +155,7 @@ command.define {
       return
     end
 
-    -- 普通 URL
+    -- normal URL
     local host = parse_host(url)
     local tags = build_tags_from_host(host)
     local title = title_from_url(url)
