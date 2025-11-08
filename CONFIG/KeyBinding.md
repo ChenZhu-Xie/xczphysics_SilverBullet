@@ -23,7 +23,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | [[CONFIG/Edit/Header Level Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
-| Code Block: | Space-Lua Format | Ctrl | | Alt | 1 |
+| Code Block: | [[CONFIG/Edit/Selection To Codeblock Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | Add Github Url | Ctrl | | Alt | g |
 
 # On Page
