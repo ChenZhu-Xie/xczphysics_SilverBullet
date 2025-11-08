@@ -1,6 +1,4 @@
-
-
-
+[[CONFIG#Plugs with KeyBindings]]
 # In Page
 
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |

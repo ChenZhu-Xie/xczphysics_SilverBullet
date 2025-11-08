@@ -14,7 +14,8 @@ ${query[[from index.tag "page"
   select {ref=_.ref, name=_.name, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
 ]]}
 
-## Plugs with [[CONFIG/KeyBinding]]s
+## Plugs with KeyBindings
+[[CONFIG/KeyBinding]]
 ${query[[from index.tag "space-lua" where string.match(_.script, "key = \"([^\n]+)\",") select {ref=_.ref, key=string.match(_.script, "key = \"([^\n]+)\",")}]]}
 
 # SB stuff
