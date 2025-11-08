@@ -15,7 +15,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 -- Inline Formatting Commands
 -- =========================
 
--- 通用：获取选中文本
+-- acquire current text
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
@@ -23,21 +23,21 @@ function getSelectedText()
   return text:sub(sel.from + 1, sel.to)
 end
 
--- 通用：替换选中文本
+-- replace current text
 function setSelectedText(newText)
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
--- 通用：光标移动到中间位置
+-- cursor pos to center 
 function moveToNewTextPos(suffixText)
   local pos = editor.getCursor()
   local newPos = pos - #suffixText
   editor.moveCursor(newPos, false)
 end
 
--- universal wrap
+-- universal wrapper
 function wrapText(prefix, suffix)
   local text = getSelectedText()
   if text and text ~= "" then
