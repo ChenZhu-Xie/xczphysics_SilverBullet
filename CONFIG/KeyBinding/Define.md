@@ -41,7 +41,7 @@ command.define {
 
 ```space-lua
 command.define {
-  name = "Line: Toggle Comment",
+  name = "Text: Toggle Comment",
   run = function()
     editor.toggleComment()
   end,
