@@ -11,9 +11,10 @@
 | Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
 | Text: | [[STYLE/Inline CMD#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Inline CMD#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
-| Text: | [[STYLE/Inline CMD#Superscript: ^sup^|Superscript]] | Alt | | | 6 |
+| Text: | [[STYLE/Inline CMD#Superscript: ^sup^|Superscript]] | | | Alt | 6 |
 | Text: | [[STYLE/Inline CMD#Subscript: ~sub~|Subscript]] | Ctrl | | | ` |
-| Text: | [[STYLE/Inline CMD#Strike through: ~~strike~~|Strikethrough]] | | | Alt | r |
+| Text: | [[STYLE/Inline CMD#Strike through: ~~strike~~|Strikethrough]] | Ctrl | | Alt | ` |
+| Text: |  | | | Alt | = |
 | Text: | [[STYLE/Inline CMD#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Inline CMD#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
 | Text: | [[STYLE/Inline CMD#Quote Selection: > ...|Quote]] | | | Alt | . |

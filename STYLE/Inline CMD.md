@@ -178,4 +178,3 @@ command.update {
   priority = 1,
 }
 ```
-
