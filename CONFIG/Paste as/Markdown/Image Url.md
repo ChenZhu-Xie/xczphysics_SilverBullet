@@ -25,7 +25,7 @@ command.define {
       return
     end
 
-    -- URL 检查
+    -- URL check
     local function isUrl(u)
       return u:match("^https?://")
           or u:match("^www%.")
