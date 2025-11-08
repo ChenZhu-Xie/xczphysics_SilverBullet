@@ -85,4 +85,12 @@ command.define {
     wrapText("~", "~")
   end
 }
+
+-- 5. Strike through: ~sub~
+command.update {
+  name = "Text: Strikethrough",
+  key = "Ctrl-Alt-c",
+  mac = "Cmd-Alt-c",
+  priority = 1,
+}
 ```
