@@ -3,7 +3,7 @@
 
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Cursor: | Copy Nearest Pattern | | | Alt | c |
+| Cursor: | Copy Nearest Format | | | Alt | c |
 | Cursor: | Copy Reference | | Shift | Alt | c |
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
@@ -15,7 +15,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | Toggle Level | Ctrl | | | 1 |
-| Code Block: | Format into Space-Lua | Ctrl | | Alt | 1 |
+| Code Block: | Space-Lua Format | Ctrl | | Alt | 1 |
 | Frontmatter: | Add Github Url | Ctrl | | Alt | g |
 
 # On Page
@@ -31,6 +31,7 @@
 | Page: | Copy | Ctrl | Shift | Alt | c |
 | Page: | Copy Github | | Shift | Alt | g |
 | Page: | Copy Ref | | Shift | Alt | p |
+| Page: | Copy Link | | Shift | Alt | l |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Graph View: | Global on/off | Ctrl | | Shift | g |
 | Graph View: | Local on/off | Ctrl | | Shift | l |
