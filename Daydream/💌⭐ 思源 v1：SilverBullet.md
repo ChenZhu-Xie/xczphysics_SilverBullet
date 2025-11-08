@@ -1,3 +1,4 @@
+#silverbullet #SiYuan #dir #tree
 
 # SB - SiYuan
 
@@ -36,7 +37,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 比如，SiYuan 中的 Heading 可以自动更新其反链。
 
-## Kernel 内核大小
+## SB 有 最小 Kernel 内核
 
 * Tana ~ Core 233 MB + Pages ...
 * SiYuan ~ Core 231 MB + Pages ... 
