@@ -45,8 +45,8 @@
 | Page: | [[CONFIG/Copy as/page title/Page Link|Copy Link]] | | Shift | Alt | l |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
-| Graph View: | Local on/off | Ctrl | | Shift | l |
-| Read Only: | Toggle on/off | Ctrl | | Alt | t |
+| Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
+| Read Only: | [[CONFIG/Edit/Read Only Toggle|Toggle on/off]] | Ctrl | | Alt | t |
 | Import: | Url | Ctrl | Shift | | i |
 | Import: | Update Current Lib | Ctrl | | Alt | u |
 
