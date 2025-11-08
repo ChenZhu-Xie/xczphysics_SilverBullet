@@ -1,4 +1,8 @@
 
+# (Missing) Inline Commands
+
+## Command Define
+
 ```space-lua
 -- =========================
 -- Inline Formatting Commands
@@ -85,7 +89,11 @@ command.define {
     wrapText("~", "~")
   end
 }
+```
 
+## Command Update
+
+```space-lua
 -- 5. Strike through: ~~strike~~
 command.update {
   name = "Text: Strikethrough",
@@ -97,11 +105,18 @@ command.update {
 -- 6. Listify Selection: * 
 command.update {
   name = "Text: Listify Selection",
-  key = "Alt-8",
-  mac = "Alt-8",
+  key = "Alt-l",
+  mac = "Alt-l",
+  priority = 1,
+}
+
+-- 7. Number Listify Selection: * 
+command.update {
+  name = "Text: Number Listify Selection",
+  key = "Alt-n",
+  mac = "Alt-n",
   priority = 1,
 }
 ```
 
-
-
+sadf
