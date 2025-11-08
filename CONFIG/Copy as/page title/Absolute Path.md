@@ -1,4 +1,7 @@
 F:\Note_book\SilverBullet\1.local_server\SB_space\CONFIG\Copy as\page title\Absolute Path.md
+
+F:\Note_book\SilverBullet\1.local_server\SB_space\CONFIG\Copy as\page title\Absolute Path
+
 ```space-lua
 command.define {
   name = "Page: Copy Absolute Path",
@@ -14,7 +17,7 @@ command.define {
       sep = "/"   -- macOS / Linux
     end
 
-    local relPath = editor.getCurrent():gsub("/", sep)
+    local relPath = editor.getCurrentPage():gsub("/", sep)
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
       absPath = basePath .. relPath
