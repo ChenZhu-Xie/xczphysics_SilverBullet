@@ -69,7 +69,7 @@ command.define {
 command.define {
   name = "Text: Lua Widget",
   category = "Format",
-  key = "Alt-4",
+  key = "Alt-k",
   description = "Wrap selection or insert Lua widget expression",
   run = function()
     wrapText("${", "}")
