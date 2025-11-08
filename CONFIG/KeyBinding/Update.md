@@ -9,6 +9,17 @@ udpateDate: 2025-10-27
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
 2. https://community.silverbullet.md/t/capslock-shortcut-keys-containing-letter-fail/3194
 
+## Navigate: Home
+
+```space-lua
+command.update {
+  name = "Navigate: Home",
+  key = "Ctrl-h",
+  mac = "Cmd-h",
+  priority = 1,
+}
+```
+
 ## Page: Delete
 
 ```space-lua
@@ -27,17 +38,6 @@ command.update {
   name = "Navigate: Page Picker",
   key = "Ctrl-l",
   mac = "Cmd-l",
-  priority = 1,
-}
-```
-
-## Navigate: Home
-
-```space-lua
-command.update {
-  name = "Navigate: Home",
-  key = "Ctrl-h",
-  mac = "Cmd-h",
   priority = 1,
 }
 ```

@@ -53,9 +53,9 @@
 
 | Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Navigate: | Home | Ctrl | | | h |
-| Navigate: | Page Picker | Ctrl | | | l |
-| Navigate: | Meta Page Picker | Ctrl | Shift | | l |
+| Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Home|Home]] | Ctrl | | | h |
+| Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Page Picker|Page Picker]] | Ctrl | | | l |
+| Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Meta Picker|Meta Page Picker]] | Ctrl | Shift | | l |
 | Navigate: | Tag Picker | Ctrl | Shift | | t |
 | Navigate: | Heading Picker | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
