@@ -15,7 +15,7 @@ udpateDate: 2025-10-27
 
 ```space-lua
 command.define {
-  name = "Paste: Smart URL (via Prompt)",
+  name = "Paste: Smart URL",
   key = "Alt-v",
   run = function()
     local input = js.window.navigator.clipboard.readText()
