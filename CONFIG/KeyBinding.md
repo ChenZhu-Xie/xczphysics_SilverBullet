@@ -34,7 +34,7 @@
 | Target: #mint | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Widget: | Refresh All | | | Alt | q |
-| Page: | [[CONFIG/KeyBinding/Define#Page: New Child Page|New]] | | Ctrl | Alt | n |
+| Page: | [[CONFIG/KeyBinding/Define#Page: New Child Page|New Child]] | | Ctrl | Alt | n |
 | Page: | [[CONFIG/KeyBinding/Define#Page: New Sibling Page|New Sibling]] | | Ctrl | Alt | s |
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
