@@ -62,7 +62,7 @@
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
-| SilverSearch: | Global Search | Ctrl | | Alt | f |
+| SilverSearch: | [[CONFIG/Search/全局搜索结果在侧边栏|Global Search]] | Ctrl | | Alt | f |
 | SilverSearch: | Search | Ctrl | | | s |
 
 # System
