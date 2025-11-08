@@ -15,8 +15,8 @@ function encode_url(s)
   return table.concat(parts)
 end
 
--- BASE_URL = "http://127.0.0.1:3000"
-BASE_URL = "https://enlarge-the-percentage.fly.dev/"
+-- local BASE_URL = "http://127.0.0.1:3000"
+local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
 function build_page_url(pageName)
   local path = encode_url(pageName)

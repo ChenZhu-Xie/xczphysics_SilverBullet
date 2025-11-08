@@ -16,15 +16,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 -- local BASE_URL = "http://127.0.0.1:3000"
 local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
-local function build_page_url(pageName)
-  local path = encode_url(pageName)
-  if BASE_URL:sub(-1) == "/" then
-    return BASE_URL .. path
-  else
-    return BASE_URL .. "/" .. path
-  end
-end
-
 command.define {
   name = "Cursor: Copy Link",
   key = "Ctrl-Shift-c",
