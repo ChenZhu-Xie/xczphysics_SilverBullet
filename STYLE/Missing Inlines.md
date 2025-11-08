@@ -64,7 +64,7 @@ command.define {
   end
 }
 
--- 3. Superscript: ^
+-- 3. Superscript: ^sup^
 command.define {
   name = "Format: Superscript",
   category = "Format",
@@ -75,17 +75,17 @@ command.define {
   end
 }
 
--- 4. Subscript: ~~
+-- 4. Subscript: ~sub~
 command.define {
   name = "Format: Subscript",
   category = "Format",
   key = "Ctrl-`",
   description = "Wrap selection or insert subscript text",
   run = function()
-    wrapText("~~", "~~")
+    wrapText("~", "~")
   end
 }
 
 ```
 
-as^d^fasdasd~~~~~~f~~
+as^d^fasdasd~d~ ~~~~
