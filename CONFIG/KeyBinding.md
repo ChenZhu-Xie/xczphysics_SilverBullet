@@ -39,7 +39,6 @@
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
 | Page: | [[CONFIG/KeyBinding/Update#Page: Delete|Delete]] | | Shift | Alt | d |
-| Page: | Copy | Ctrl | Shift | Alt | c |
 | Page: | [[CONFIG/Plug dev/Github Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy as/page title/Page Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy as/page title/Page Link|Copy Link]] | | Shift | Alt | l |
