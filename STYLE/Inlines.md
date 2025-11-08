@@ -45,7 +45,11 @@ end
 -- ==============
 -- 各种格式命令
 -- ==============
+```
 
+### Inline code: `code`
+
+```space-lua
 -- 1. Inline code: `code`
 command.define {
   name = "Text: Inline Code",
@@ -56,7 +60,11 @@ command.define {
     wrapText("`", "`")
   end
 }
+```
 
+### Lua widget: `${ ... }`
+
+```space-lua
 -- 2. Lua widget: ${ ... }
 command.define {
   name = "Text: Lua Widget",
@@ -67,7 +75,11 @@ command.define {
     wrapText("${", "}")
   end
 }
+```
 
+### Superscript: ^sup^
+
+```space-lua
 -- 3. Superscript: ^sup^
 command.define {
   name = "Text: Superscript",
@@ -78,7 +90,11 @@ command.define {
     wrapText("^", "^")
   end
 }
+```
 
+### Subscript: ~sub~
+
+```space-lua
 -- 4. Subscript: ~sub~
 command.define {
   name = "Text: Subscript",
