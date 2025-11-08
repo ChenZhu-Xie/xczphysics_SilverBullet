@@ -18,7 +18,7 @@
 | Text: | [[STYLE/Inline CMD#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Inline CMD#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
 | Text: | [[STYLE/Inline CMD#Quote Selection: > ...|Quote]] | | | Alt | . |
-| Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
+| Text: | [[CONFIG/KeyBinding/Define]] | | Shift | Alt | m |
 | Line: | [[CONFIG/KeyBinding/Define#Line: Move Up|Move Up]] | | Shift | Alt | ↑ |
 | Line: | [[CONFIG/KeyBinding/Define#Line: Move Down|Move Down]] | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |

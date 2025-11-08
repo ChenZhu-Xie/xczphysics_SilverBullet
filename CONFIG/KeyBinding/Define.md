@@ -37,7 +37,7 @@ command.define {
 }
 ```
 
-## Line: Toggle Comment
+## Text: Toggle Comment
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 
