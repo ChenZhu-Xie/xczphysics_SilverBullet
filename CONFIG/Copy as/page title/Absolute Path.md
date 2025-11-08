@@ -5,7 +5,15 @@ command.define {
   key = "Ctrl-Shift-d",
   run = function()
     local basePath = "F:\\Note_book\\SilverBullet\\1.local_server\\SB_space"
-    local sep = string.find(basePath, "\\") and "\\" or "/"
+    
+    local sep
+    if string.find(basePath, "\\") then
+      sep = "\\"  -- Windows
+      basePath = basePath:gsub("\\+", "\\")
+    else
+      sep = "/"   -- macOS / Linux
+    end
+    
     local absPath  -- ensure 
     if basePath:sub(-1) == sep then
       absPath = basePath .. editor.getCurrentPage()
