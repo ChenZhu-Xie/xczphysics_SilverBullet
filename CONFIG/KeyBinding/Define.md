@@ -23,7 +23,7 @@ command.define {
 }
 ```
 
-## Line: Move Up
+## Line: Move Down
 
 ```space-lua
 command.define {

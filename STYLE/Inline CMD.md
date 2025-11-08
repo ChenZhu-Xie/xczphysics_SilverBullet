@@ -136,6 +136,8 @@ command.update {
 
 ### Number Listify Selection: 1. text
 
+1. [issues](https://github.com/silverbulletmd/silverbullet/issues/1673#issue-3602995726) #github
+
 ```space-lua
 -- 7. Number Listify Selection: 1. text
 -- bug: 行末 无法 触发
