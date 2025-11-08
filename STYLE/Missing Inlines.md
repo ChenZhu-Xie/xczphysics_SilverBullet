@@ -49,7 +49,7 @@ command.define {
   key = "Alt-`",
   description = "Wrap selection or insert inline code block",
   run = function()
-    wrapText("``", "``")
+    wrapText("`", "`")
   end
 }
 
