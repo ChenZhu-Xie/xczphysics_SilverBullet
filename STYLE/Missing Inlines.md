@@ -85,7 +85,5 @@ command.define {
     wrapText("~", "~")
   end
 }
-
 ```
 
-as^d^fasdasd~d~ ~~~~
