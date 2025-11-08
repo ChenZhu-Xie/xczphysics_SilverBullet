@@ -35,7 +35,7 @@
 |----------|----------|------|-------|-----|--------|
 | Widget: | Refresh All | | | Alt | q |
 | Page: | New | | Ctrl | Alt | n |
-| Page: | New Sibling | | Ctrl | Alt | s |
+| Page: | [[CONFIG/KeyBinding/Define#Page: New Sibling Page|New Sibling]] | | Ctrl | Alt | s |
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
 | Page: | Delete | | Shift | Alt | d |
