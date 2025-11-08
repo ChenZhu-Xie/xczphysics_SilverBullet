@@ -120,7 +120,8 @@ command.update {
   priority = 1,
 }
 
--- 8. Quote Selection: 
+-- 8. Quote Selection: | ...
+-- bug: 行末 无法 触发
 command.update {
   name = "Text: Quote Selection",
   key = "Alt-.",
@@ -129,5 +130,4 @@ command.update {
 }
 ```
 
-asdf
 
