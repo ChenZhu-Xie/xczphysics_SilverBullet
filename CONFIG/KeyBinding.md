@@ -39,7 +39,7 @@
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
 | Page: | [[CONFIG/KeyBinding/Update#Page: Delete|Delete]] | | Shift | Alt | d |
-| Page: | [[CONFIG/Plug dev/Github Url#Add githubUrl to frontmatter|Copy Github]] | Ctrl | | Alt | c |
+| Page: | [[CONFIG/KeyBinding/Update#Page: Copy|Copy]] | Ctrl | | Alt | c |
 | Page: | [[CONFIG/Plug dev/Github Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy as/page title/Page Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy as/page title/Page Link|Copy Link]] | | Shift | Alt | l |
@@ -57,8 +57,8 @@
 | Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Home|Home]] | Ctrl | | | h |
 | Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Page Picker|Page Picker]] | Ctrl | | | l |
 | Navigate: | [[CONFIG/KeyBinding/Update#Navigate: Meta Picker|Meta Page Picker]] | Ctrl | Shift | | l |
-| Navigate: | Tag Picker | Ctrl | Shift | | t |
-| Navigate: | Heading Picker | Ctrl | Shift | | h |
+| Navigate: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] | Ctrl | Shift | | t |
+| Navigate: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading Picker]] | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
