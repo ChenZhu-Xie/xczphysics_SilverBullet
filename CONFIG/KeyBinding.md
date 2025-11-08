@@ -4,8 +4,8 @@
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | [[CONFIG/Nearest Pattern/Copy#Copy the nearest Format around Cursor|Copy Nearest Format]] | | | Alt | c |
-| Cursor: | [[CONFIG/Copy as/External Link/Cursor Pos#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
-| Cursor: | [[CONFIG/Copy as/Forward Wiki/Cursor Ref#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
+| Cursor: | [[CONFIG/Copy as/Cursor Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
+| Cursor: | [[CONFIG/Copy as/Cursor Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste as/Markdown/Image Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
@@ -40,7 +40,7 @@
 | Page: | Delete | | Shift | Alt | d |
 | Page: | Copy | Ctrl | Shift | Alt | c |
 | Page: | Copy Github | | Shift | Alt | g |
-| Page: | [[CONFIG/Copy as/page title/Page Ref|Copy Wiki]] | | Shift | Alt | w |
+| Page: | [[CONFIG/Copy as/page title/Page Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | Copy Link | | Shift | Alt | l |
 | Tree View: | Toggle on/off | Ctrl | | Alt | b |
 | Graph View: | Global on/off | Ctrl | | Shift | g |

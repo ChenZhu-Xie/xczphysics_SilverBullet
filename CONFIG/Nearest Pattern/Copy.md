@@ -1,6 +1,6 @@
 ---
 recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Markdown/Nearest%20Pattern.md"
+githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest%20Pattern/Copy.md"
 udpateDate: 2025-11-08
 ---
 
