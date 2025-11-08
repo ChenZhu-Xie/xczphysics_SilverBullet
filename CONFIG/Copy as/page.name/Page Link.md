@@ -1,6 +1,6 @@
 
 ```space-lua
--- Copy: Page Link
+-- Page: Copy Link
 
 function encode_url(s)
   local parts = {}
@@ -15,10 +15,10 @@ function encode_url(s)
   return table.concat(parts)
 end
 
--- local BASE_URL = "http://127.0.0.1:3000"
-local BASE_URL = "https://enlarge-the-percentage.fly.dev/"
+-- BASE_URL = "http://127.0.0.1:3000"
+BASE_URL = "https://enlarge-the-percentage.fly.dev/"
 
-local function build_page_url(pageName)
+function build_page_url(pageName)
   local path = encode_url(pageName)
   if BASE_URL:sub(-1) == "/" then
     return BASE_URL .. path
