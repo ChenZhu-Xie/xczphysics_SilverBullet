@@ -6,7 +6,7 @@ udpateDate: 2025-10-27
 
 # Define Common used Commands
 
-## Line: Move Up/Down
+## Line: Move Up
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 2. Extracting from [[SB Basics/SB API/editor]]
@@ -22,6 +22,8 @@ command.define {
   priority = 1,
 }
 ```
+
+## Line: Move Up
 
 ```space-lua
 command.define {

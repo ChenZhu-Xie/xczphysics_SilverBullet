@@ -5,8 +5,8 @@
 |----------|----------|------|-------|-----|--------|
 | Cursor: | Copy Nearest Format | | | Alt | c |
 | Cursor: | Copy Reference | | Shift | Alt | c |
-| Navigate: | Center Cursor | | Shift | Alt | l |
-| Paste: | Smart Url | | | Alt | v |
+| Navigate: | Center Cursor | | Ctrl | Alt | l |
+| Paste: | [[CONFIG/Paste as/Markdown/Image Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Text: | [[STYLE/Color/Inline Text#space-lua|Red]] | Ctrl | | Alt | ` |
 | Text: | [[STYLE/Inlines#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Inlines#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
@@ -17,7 +17,7 @@
 | Text: | [[STYLE/Inlines#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
 | Text: | [[STYLE/Inlines#Quote Selection: > ...|Quote]] | | | Alt | . |
 | Text: | [[CONFIG/KeyBinding/Define#Line: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
-| Line: | Move Up | | Shift | Alt | ↑ |
+| Line: | [[CONFIG/KeyBinding/Define#Line: Move Up|Move Up]] | | Shift | Alt | ↑ |
 | Line: | Move Down | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
