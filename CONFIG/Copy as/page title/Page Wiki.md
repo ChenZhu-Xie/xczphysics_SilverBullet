@@ -9,14 +9,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 #forward #wiki
 
 1. extracted from [[CONFIG/Copy as/Cursor Wiki]]
-
-about `[[wiki link]]`
-  1. [Help:Links](https://www.mediawiki.org/wiki/Help:Links) #mediawiki
-  2. [how do i use wiki link syntax](https://community.telligent.com/community/13/a/user-documentation/UD1032/how-do-i-use-wiki-link-syntax) #community #telligent
-- also known as `[[forward wiki]]`
-  - or `@ref` (reference) in Tana
-  - or `[[Quote (Block)]]` in SiYuan
-
+  - about `[[wiki link]]`
+    1. [Help:Links](https://www.mediawiki.org/wiki/Help:Links) #mediawiki
+    2. [how do i use wiki link syntax](https://community.telligent.com/community/13/a/user-documentation/UD1032/how-do-i-use-wiki-link-syntax) #community #telligent
+  - also known as `[[forward wiki]]`
+    - or `@ref` (reference) in Tana
+    - or `[[Quote (Block)]]` in SiYuan
 2. [690f2d0c ced8 8010 abea 455bd91fec6d](https://chatgpt.com/share/690f2d0c-ced8-8010-abea-455bd91fec6d) #chatgpt
 
 ```space-lua
