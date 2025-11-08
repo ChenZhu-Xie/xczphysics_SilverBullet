@@ -10,7 +10,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 command.define {
   -- name = "Copy: Page Reference",
   name = "Page: Copy Wiki",
-  key = "Shift-Alt-p",
+  key = "Shift-Alt-w",
   run = function()
     local ref = string.format("[[%s]]", editor.getCurrentPage())
     editor.copyToClipboard(ref)
