@@ -18,29 +18,25 @@ command.define {
   name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",
   run = function()
-    local input= js.window.navigator.clipboard.readText()
-
-    -- Trim whitespace
+    local input = js.window.navigator.clipboard.readText()
     local clip = input:match("^%s*(.-)%s*$")
     if clip == "" then
       editor.flashNotification("Empty content", "warn")
       return
     end
 
-    -- Basic URL check: http/https, www., or data:image/
+    -- URL 检查
     local function isUrl(u)
       return u:match("^https?://")
           or u:match("^www%.")
           or u:match("^data:image/")
     end
 
-    -- Add scheme for bare www.
     local function ensureScheme(u)
       if u:match("^www%.") then return "https://" .. u end
       return u
     end
 
-    -- Image URL check: ignore ? / #; also allow data:image/
     local function isImageUrl(u)
       if u:match("^data:image/") then return true end
       local path = (u:match("^[^%?#]+") or u):lower()
@@ -50,12 +46,28 @@ command.define {
              path:match("%.svg$")
     end
 
+    ----------------------------------------------------------------
+    -- ✨ 新增：Wiki 语法检测与引用别名粘贴
+    ----------------------------------------------------------------
     if not isUrl(clip) then
-      editor.flashNotification("Not a URL", "warn")
+      local wiki_content = clip:match("%[%[([^%]]+)%]%]")
+      if wiki_content then
+        local selected = getSelectedText()
+        if selected and selected ~= "" then
+          setSelectedText(string.format("[[%s|%s]]", wiki_content, selected))
+          editor.flashNotification("Inserted wiki alias link")
+          return
+        else
+          editor.flashNotification("No text selected for wiki alias", "warn")
+          return
+        end
+      end
+      editor.flashNotification("Not a URL or wiki link", "warn")
       return
     end
+    ----------------------------------------------------------------
 
-    -- Helpers for title/tags
+    -- Helpers
     local function urldecode(s)
       s = s:gsub("%+", " ")
       return (s:gsub("%%(%x%x)", function(h)
@@ -75,7 +87,7 @@ command.define {
       cn=true, uk=true, co=true, jp=true, de=true, fr=true, ru=true, nl=true, xyz=true,
       info=true, me=true, tv=true, cc=true, ai=true, us=true, ca=true, au=true, ["in"]=true,
       site=true, top=true, cloud=true, shop=true, blog=true,
-      www=true  -- also ignore www label
+      www=true
     }
 
     local function split(str, pat)
@@ -85,18 +97,14 @@ command.define {
     end
 
     local function parse_host(u)
-      -- extract host from URL
-      -- 1) Drop scheme
       local no_scheme = u:gsub("^[a-zA-Z][a-zA-Z0-9+.-]*://", "")
-      -- 2) Stop at first / or ? or #
       local host = no_scheme:match("^([^/%?#]+)") or ""
       return host:lower()
     end
 
     local function build_tags_from_host(host)
       local parts = split(host, "%.")
-      local out = {}
-      local seen = {}
+      local out, seen = {}, {}
       for _, p in ipairs(parts) do
         local label = p:lower()
         if not TLD_IGNORE[label] and not seen[label] and label ~= "" then
@@ -117,7 +125,6 @@ command.define {
       return nil
     end
 
-    -- title_from_url:
     local function title_from_url(u)
       local path = (u:match("^https?://[^/%?#]+(/[^?#]*)")
                  or u:match("^www%.[^/%?#]+(/[^?#]*)")
@@ -127,7 +134,6 @@ command.define {
         parts[#parts+1] = seg
       end
       local slug = last_non_numeric_segment(parts)
-
       if slug then
         slug = urldecode(slug or "")
         slug = slug:gsub("%-", " ")
@@ -135,58 +141,28 @@ command.define {
       else
         slug = ""
       end
-
       return slug
     end
 
     local url = ensureScheme(clip)
 
-    -- Case 1: images -> keep original behavior
+    -- 图片 URL
     if isImageUrl(url) then
       local snippet = string.format("![](%s)", url)
-
-      -- Remember insertion position (selection-aware), insert, then move cursor inside []
-      local sel = editor.getSelection and editor.getSelection() or nil
-      local startPos = (sel and (sel.from or sel.start)) or editor.getCursor()
       editor.insertAtCursor(snippet, false)
-
-      local targetPos = startPos + 2 -- "![](...)" -> '[' is the 2nd character
-      if editor.moveCursor then
-        editor.moveCursor(targetPos, false)
-      elseif editor.setSelection then
-        editor.setSelection(targetPos, targetPos)
-      end
+      editor.moveCursor(editor.getCursor() - #snippet + 2, false)
       editor.flashNotification("Inserted smart image link")
       return
     end
 
-    -- Case 2: web URL -> build [title](url) + tags (highest priority for non-image)
+    -- 普通 URL
     local host = parse_host(url)
-    local tags = build_tags_from_host(host)       -- e.g. "#community #silverbullet" or "#tex #stackexchange"
+    local tags = build_tags_from_host(host)
     local title = title_from_url(url)
-
     local suffix = (tags ~= "" and (" " .. tags)) or ""
     local snippet = string.format("[%s](%s)%s", title, url, suffix)
 
-    -- Remember insertion position (selection-aware), insert
-    local sel = editor.getSelection and editor.getSelection() or nil
-    local startPos = (sel and (sel.from or sel.start)) or editor.getCursor()
     editor.insertAtCursor(snippet, false)
-
-    local function is_nonempty(s) return s and trim(s) ~= "" end
-    local targetPos
-    if is_nonempty(title) then
-      targetPos = startPos + #snippet
-    else
-      targetPos = startPos + 1 + #title
-    end
-
-    if editor.moveCursor then
-      editor.moveCursor(targetPos, false)
-    elseif editor.setSelection then
-      editor.setSelection(targetPos, targetPos)
-    end
-
     editor.flashNotification("Inserted titled link with tags")
   end
 }
