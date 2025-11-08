@@ -4,7 +4,7 @@
 | Target: #sea | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Cursor: | [[CONFIG/Nearest Pattern/Delete#Delete nearest Format around Cursor|Delete Nearest Format]] | | | Alt | d |
-| Cursor: | [[CONFIG/Nearest Pattern/Duplicate#Copy the nearest Format around Cursor|Copy Nearest Format]] | | | Alt | c |
+| Cursor: | [[CONFIG/Nearest Pattern/Duplicate#Copy nearest Format around Cursor|Duplicate Nearest Format]] | | | Alt | c |
 | Cursor: | [[CONFIG/Copy as/Cursor Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
 | Cursor: | [[CONFIG/Copy as/Cursor Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
