@@ -25,11 +25,12 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 所以...文件夹树状结构并不是那么不可取，对么？
 
-只是 Tana Workflowy Logseq RoamResearch RoamEdit 等大纲类 app 还原了 file 内 本身的 page 结构 的 性质：
+==只是== Tana, Workflowy, Logseq, RoamResearch, RoamEdit 大纲 app 还原了 file 内 本身的 page 结构 的 性质：
     与 file 外 其在 folder 结构 中 的相对位置 一样，
 都是 tree 状的==而已==。
 
-
+有了（像这样自定义的）Heading 的颜色区分、Tree 状高亮，不必因 “只有 Heading 的 字体大小，所以无法像 缩进 那样 区分 层级结构”
+而无奈只好被迫选择 Lists/Bullets 列表/大纲，作为 页面内视图。
 
 ## SB 缺乏 页面以外对象 的 反链自动更新
 
