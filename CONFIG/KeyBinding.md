@@ -8,8 +8,8 @@
 | Navigate: | Center Cursor | | Shift | Alt | l |
 | Paste: | Smart Url | | | Alt | v |
 | Text: | Red | Ctrl | | Alt | ` |
-| Text: | Lua Widget | Ctrl | | Alt | ` |
-| Text: | Red | Ctrl | | Alt | ` |
+| Text: | [[STYLE/Inlines#Inline code: `code`|Inline Code]] | | | Alt | ` |
+| Text: | [[STYLE/Inlines#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
 | Text: | [[STYLE/Inlines#Superscript: ^sup^|Superscript]] | Alt | | | 6 |
 | Text: | [[STYLE/Inlines#Subscript: ~sub~|Subscript]] | Ctrl | | | ` |
 | Text: | [[STYLE/Inlines#Strike through: ~~strike~~|Strikethrough]] | | | Alt | r |
