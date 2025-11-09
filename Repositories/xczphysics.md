@@ -105,3 +105,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 
 
+
+# Other Custom Configs
+
+${query[[from index.tag "page" 
+  where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
+  select {ref=_.ref, recommend=_.recommend, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
+]]}
