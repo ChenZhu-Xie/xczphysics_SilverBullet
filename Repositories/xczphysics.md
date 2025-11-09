@@ -70,7 +70,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 
 # 📎 Paste as
 
-## Smart URL
+## [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Markdown/Image_Url
