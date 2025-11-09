@@ -1,3 +1,7 @@
+---
+tags: meta/library
+pageDecoration.prefix: 🪚
+---
 
 # Copy nearest Format around Cursor
 

@@ -96,5 +96,12 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Duplicate
 ```
 [Duplicate](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Duplicate) #enlarge-the-percentage #fly
 
-## Delete
+## [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Nearest_Pattern/Delete
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
+```
+[Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
+
 
