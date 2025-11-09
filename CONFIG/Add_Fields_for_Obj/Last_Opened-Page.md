@@ -185,8 +185,8 @@ OtherGoodStuff:
 High Quality External Judgment about SB: https://github.com/silverbulletmd/silverbullet/pull/751#issue-2152559352
   - https://www.startpage.com/sp/search
 
-还是 没能实现 直接将 Visitimes 按 value 降序，排列 mypage 成表格，以放在 [[index#Last Visit 👀]] 中，暂时不做了 = =...
-“dataStore 查询” 的接口似乎还没暴露出来。[[index#Most Visit ❤️‍🔥|尽管另寻他法做表格很容易]]。
+还是 没能实现 直接将 Visitimes 按 value 降序，排列 mypage 成表格，以放在 [[index#Your Last Visit 👀]] 中，暂时不做了 = =...
+“dataStore 查询” 的接口似乎还没暴露出来。[[index#Your Most Visit ❤️‍🔥|尽管另寻他法做表格很容易]]。
 
 ```space-lua
 -- priority: -1
@@ -212,7 +212,7 @@ event.listen{
 2. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=968e4d9470
 3. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/69070e88-48f8-8332-b60c-47f2ab2e1755?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY
 
-==效果== 见 [[CONFIG/Add Fields for Obj/Last Opened/Visit Times]]
+==效果== 见 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times]]
 
 重复造了已有的轮子：https://silverbullet.md/Page%20Picker 
 其中的 page，默认就是按 lastVisit 排序的。
