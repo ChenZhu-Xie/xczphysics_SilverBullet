@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-11-08
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/page%20title/Page%20Link.md"
+tags: meta/library
+pageDecoration.prefix: "📎 "
 ---
 #forward #external #wiki
 

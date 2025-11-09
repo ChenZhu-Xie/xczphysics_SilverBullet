@@ -42,5 +42,5 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder
 ```
 [Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
 
-
+## [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
 

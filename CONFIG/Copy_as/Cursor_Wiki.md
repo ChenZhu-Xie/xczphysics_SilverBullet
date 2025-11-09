@@ -1,3 +1,7 @@
+---
+tags: meta/library
+pageDecoration.prefix: "📎 "
+---
 #forward #wiki
 
 # Generate Ref @ Cursor Position

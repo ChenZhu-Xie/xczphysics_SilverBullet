@@ -1,3 +1,7 @@
+---
+tags: meta/library
+pageDecoration.prefix: "📎 "
+---
 #forward #external #wiki
 
 1. [690f2d31 4b60 8010 9770 eda3e44d845f](https://chatgpt.com/share/690f2d31-4b60-8010-9770-eda3e44d845f) #chatgpt
