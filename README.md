@@ -1,3 +1,4 @@
+
 # How to Fetch the Plugs in this Repo
 
 0. inside your Silverbullet
@@ -12,6 +13,11 @@
   - and all the libs in this Repo, will appear below the HEADER `Available Libraries`.
 8. install any of the libs from this Repo to `Installed libraries`.
 
-# Welcome to Visit xcz's [SilverBullet](https://silverbullet.md/) Instance
+## What you see is what I use
+
+[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) may appear a bit rough,
+but they are exactly what I am using & developing in my daily work.
+
+## Welcome to Visit xcz's [SilverBullet](https://silverbullet.md/) Instance
 
 Take a seat @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/)!
