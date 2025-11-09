@@ -18,7 +18,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 ```
 [Last_Opened Page](https://enlarge-the-percentage.fly.dev/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes%202:%20Client%20level) #enlarge-the-percentage #fly
 
-# 📎Copy as
+# ✂️ Copy as
 
 ## [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
 
@@ -68,25 +68,14 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 ```
 [Page_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Wiki) #enlarge-the-percentage #fly
 
-# 📎Paste as
+# 📎 Paste as
 
-# ⌨️ Key Binding
-
-## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
+## [[CONFIG/Paste_as/Markdown/Image_Url#Paste: Smart URL|Smart URL]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/KeyBinding/Define
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Define.md
+name: ChenZhu-Xie/Nearest_Pattern/Duplicate
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Duplicate.md
 ```
-[Define](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Define#Define%20Commonly-used%20Commands) #enlarge-the-percentage #fly
-
-## [[CONFIG/KeyBinding/Update#Update Commonly used Commands|Update Commands]]
-
-```#meta/library/remote
-name: ChenZhu-Xie/KeyBinding/Update
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Update.md
-```
-[Update](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Update#Update%20Commonly%20used%20Commands) #enlarge-the-percentage #fly
 
 # Nearest Pattern
 
@@ -106,6 +95,23 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 ```
 [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 
+# ⌨️ Key Binding
+
+## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/KeyBinding/Define
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Define.md
+```
+[Define](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Define#Define%20Commonly-used%20Commands) #enlarge-the-percentage #fly
+
+## [[CONFIG/KeyBinding/Update#Update Commonly used Commands|Update Commands]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/KeyBinding/Update
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Update.md
+```
+[Update](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Update#Update%20Commonly%20used%20Commands) #enlarge-the-percentage #fly
 
 
 # Other Custom Configs

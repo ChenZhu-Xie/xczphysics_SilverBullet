@@ -1,6 +1,6 @@
 ---
 tags: meta/library
-pageDecoration.prefix: "👯 "
+pageDecoration.prefix: "📎 "
 ---
 
 # Paste: Smart URL
