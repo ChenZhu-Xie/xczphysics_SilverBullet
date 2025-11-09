@@ -96,6 +96,8 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 ```
 [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 
+
+
 # ⌨️ Key Binding
 
 ## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
