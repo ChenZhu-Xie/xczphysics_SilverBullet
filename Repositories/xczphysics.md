@@ -80,7 +80,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Paste_as/Smart_Url.md
 
 # Nearest Pattern
 
-## [[CONFIG/Nearest_Pattern/Duplicate#Page Version|Duplicate]]
+## 👯 [[CONFIG/Nearest_Pattern/Duplicate#Page Version|Duplicate]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Duplicate
@@ -88,7 +88,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Duplicate
 ```
 [Duplicate](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Duplicate) #enlarge-the-percentage #fly
 
-## [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]]
+## 🪚 [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Delete
