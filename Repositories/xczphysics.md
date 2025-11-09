@@ -8,9 +8,11 @@ pageDecoration.prefix: "📚 "
 > please search for the “space-lua” or “space-style” block,
 > if you want to dig deeper.
 
-# ✂️ Copy as
+# Copy & Paste
 
-## [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
+## ✂️ Copy as
+
+### [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Link
@@ -18,7 +20,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
 ```
 [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]]
+### [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Wiki
@@ -26,7 +28,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Wiki.md
 ```
 [Cursor_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/page_title/Folder_Url@194|Folder Url]]
+### [[CONFIG/Copy_as/page_title/Folder_Url@194|Folder Url]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
@@ -34,7 +36,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder
 ```
 [Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
+### [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Github_Url
@@ -42,7 +44,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Github
 ```
 [Github_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Github_Url) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/page_title/Page_Link|Page Link]]
+### [[CONFIG/Copy_as/page_title/Page_Link|Page Link]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Link
@@ -50,7 +52,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_L
 ```
 [Page_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Link) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]]
+### [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
@@ -58,9 +60,9 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 ```
 [Page_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Wiki) #enlarge-the-percentage #fly
 
-# 📎 Paste as
+## 📎 Paste as
 
-## [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]]
+### [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Smart_Url
@@ -86,7 +88,14 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 ```
 [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 
+# 🛻 Picker
 
+## [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Picker/Heading
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Picker/Heading.md
+```
 
 # Add Field for Page
 
