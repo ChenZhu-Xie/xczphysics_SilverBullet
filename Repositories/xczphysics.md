@@ -44,3 +44,8 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder
 
 ## [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
 
+```#meta/library/remote
+name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder_Url.md
+```
+
