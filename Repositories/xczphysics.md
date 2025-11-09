@@ -116,6 +116,8 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 ```
 [Last_Opened Page](https://enlarge-the-percentage.fly.dev/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes%202:%20Client%20level) #enlarge-the-percentage #fly
 
+# :control
+
 # ⌨️ Key Binding
 
 ## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
