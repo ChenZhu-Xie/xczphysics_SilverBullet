@@ -1,10 +1,9 @@
 ---
-recommend: ⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md"
-udpateDate: 2025-10-27
+tags: meta/library
+pageDecoration.prefix: "⌨️ "
 ---
 
-# Define Common used Commands
+# Define Common [[SB Basics/SB API/editor]]used Commands
 
 ## Line: Move Up
 
