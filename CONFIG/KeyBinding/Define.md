@@ -3,7 +3,7 @@ tags: meta/library
 pageDecoration.prefix: "⌨️ "
 ---
 
-# Define Common [[SB Basics/SB API/editor]]used Commands
+# Define Commonly-used Commands
 
 ## Line: Move Up
 

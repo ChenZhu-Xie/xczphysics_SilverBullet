@@ -70,6 +70,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 
 # ⌨️ Key Binding
 
-## 
+## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
 
+```#meta/library/remote
+name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Define.md
+```
 
