@@ -1,8 +1,3 @@
----
-recommend: ⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Cursor%20Anchor.md"
-udpateDate: 2025-11-08
----
 #forward #object
 
 1. an testing improvement from [[CONFIG/Copy as/Cursor Wiki]] 

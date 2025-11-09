@@ -1,11 +1,3 @@
----
-tags:
-  - forward
-  - wiki
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/Cursor%20Wiki.md"
-udpateDate: 2025-11-08
----
 #forward #wiki
 
 # Generate Ref @ Cursor Position
