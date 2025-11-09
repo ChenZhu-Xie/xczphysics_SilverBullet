@@ -127,7 +127,7 @@ end
 
 ## Style
 
-```space-lua
+```space-style
 :root {
   /* UPDATE (green) */
   --btn-update-bg: oklch(50% 0.25 160);
