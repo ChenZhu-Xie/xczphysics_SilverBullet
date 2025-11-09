@@ -1,3 +1,7 @@
+---
+tags: meta/library
+pageDecoration.prefix: "🎏 "
+---
 
 1. https://community.silverbullet.md/t/vibe-coded-sb-v2-git-plugin/3228?u=chenzhu-xie
 
