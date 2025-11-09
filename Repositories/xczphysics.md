@@ -8,17 +8,21 @@ pageDecoration.prefix: "📚 "
 
 # Add Field for Page
 
-## ⏲ Visit Times
+## 👀 Visit Times
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 ```
 
-# : Copy as: Visit Times
+[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]]
+
+# 📎Copy as
+
+## Cursor Link
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
 ```
 
