@@ -1,6 +1,6 @@
 ---
 tags: meta/library
-pageDecoration.prefix: 🪚
+pageDecoration.prefix: 🛻
 ---
 
 # Pick Headings with CMD-Tree UI

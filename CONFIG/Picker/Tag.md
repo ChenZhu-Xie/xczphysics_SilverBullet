@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md"
-udpateDate: 2025-10-27
+tags: meta/library
+pageDecoration.prefix: 🛻
 ---
 
 # Navigate: Tag Picker
