@@ -52,6 +52,21 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Github
 ```
 [Github_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Github_Url) #enlarge-the-percentage #fly
 
-## [[CONFIG/Copy_as/page_title/Page_Link]]
+## [[CONFIG/Copy_as/page_title/Page_Link|Page Link]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Copy_as/page_title/Page_Link
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_Link.md
+```
+[Page_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Link) #enlarge-the-percentage #fly
+
+## [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_Wiki.md
+```
+[Page_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Wiki) #enlarge-the-percentage #fly
+
 
 
