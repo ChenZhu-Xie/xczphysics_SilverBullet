@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/SB%20approach.md"
-udpateDate: 2025-10-27
+tags: meta/library
+pageDecoration.prefix: ⏲
 ---
 
 ${utilities.RecentlyOpenedPages(12)}

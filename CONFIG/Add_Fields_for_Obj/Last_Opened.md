@@ -1,8 +1,7 @@
 ---
 tags: meta/library
-pageDecoration.prefix: 
+pageDecoration.prefix: ⏲
 ---
-
 
 # SB approach
 
