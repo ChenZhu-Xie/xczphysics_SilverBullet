@@ -78,4 +78,23 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Define.md
 ```
 [Define](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Define#Define%20Commonly-used%20Commands) #enlarge-the-percentage #fly
 
-## 
+## [[CONFIG/KeyBinding/Update#Update Commonly used Commands|Update Commands]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/KeyBinding/Update
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Update.md
+```
+[Update](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Update#Update%20Commonly%20used%20Commands) #enlarge-the-percentage #fly
+
+# Nearest Pattern
+
+## [[CONFIG/Nearest_Pattern/Duplicate#Page Version|Duplicate]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Nearest_Pattern/Duplicate
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Duplicate.md
+```
+[Duplicate](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Duplicate) #enlarge-the-percentage #fly
+
+## Delete
+

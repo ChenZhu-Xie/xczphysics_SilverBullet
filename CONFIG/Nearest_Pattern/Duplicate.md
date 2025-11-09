@@ -1,8 +1,3 @@
----
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest%20Pattern/Duplicate.md"
-udpateDate: 2025-11-08
----
 
 # Copy nearest Format around Cursor
 
