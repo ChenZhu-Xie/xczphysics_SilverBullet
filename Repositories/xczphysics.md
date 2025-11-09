@@ -11,8 +11,8 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 ```
 
 ```#meta/library/remote
-name: ChenZhu-Xie/CONFIG/Add_Fields_for_Obj/Last_Opened
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_Opened.md
+name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened/SB_approach
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_Opened/SB_approach.md
 ```
 
 

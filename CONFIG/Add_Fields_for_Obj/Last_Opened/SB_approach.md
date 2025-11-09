@@ -1,7 +1,3 @@
----
-tags: meta/library
-pageDecoration.prefix: ⏲
----
 
 ${utilities.RecentlyOpenedPages(12)}
 2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
