@@ -87,6 +87,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 
 
+
 # Add Field for Page
 
 ## 👀 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level|Visit Times]]
