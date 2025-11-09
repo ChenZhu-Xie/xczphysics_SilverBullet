@@ -1,4 +1,6 @@
-
+---
+githubUrl_Original: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"
+---
 #style #active
 
 # Base setup
