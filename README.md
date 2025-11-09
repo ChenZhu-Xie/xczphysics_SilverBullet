@@ -10,7 +10,8 @@
 
 `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repository/xczphysics.md`
 
-add any of the libraries from above included in the Repository
+then, all the libraries described inside this file, will appear in "Available Libraries".
+add any of the libraries from above included in the Repository.
 
 # Welcome to Visit my 'Dynamic' Site
 
