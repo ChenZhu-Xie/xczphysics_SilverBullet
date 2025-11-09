@@ -4,7 +4,9 @@ pageDecoration.prefix: "📚 "
 ---
 
 > **warning** Warning
-> There might be a lot of (test) scripts in one page, please search for the “space-lua” block, if you want to dig deeper.
+> There might be a lot of (test) scripts in one lib page,
+> please search for the “space-lua” or “space-style” block,
+> if you want to dig deeper.
 
 # Add Field for Page
 
@@ -45,7 +47,9 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder
 ## [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder_Url.md
+name: ChenZhu-Xie/Copy_as/page_title/Github_Url
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Github_Url.md
 ```
+[Github_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Github_Url) #enlarge-the-percentage #fly
 
+## 
