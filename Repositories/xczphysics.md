@@ -40,6 +40,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Wiki.md
 name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Folder_Url.md
 ```
-[Cursor_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
+[Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
+
 
 

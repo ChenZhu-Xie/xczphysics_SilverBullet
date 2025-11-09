@@ -1,3 +1,7 @@
+---
+tags: meta/library
+pageDecoration.prefix: "👀 "
+---
 #forward #external #wiki
 
 # Generate Link @ Cursor Position

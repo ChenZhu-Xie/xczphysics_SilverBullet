@@ -1,8 +1,3 @@
----
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-11-08
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/page%20title/Github%20Url.md"
----
 #forward #external #wiki
 
 1. [690f2d31 4b60 8010 9770 eda3e44d845f](https://chatgpt.com/share/690f2d31-4b60-8010-9770-eda3e44d845f) #chatgpt
