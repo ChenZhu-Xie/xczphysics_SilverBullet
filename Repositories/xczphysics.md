@@ -5,54 +5,54 @@ pageDecoration.prefix: "📚 "
 
 ## Widgets
 ```#meta/library/remote
-name: Mr-xRed/DayProgressBar
-uri: github:Mr-xRed/silverbullet-libraries/DayProgressBar.md
+name: ChenZhu-Xie/DayProgressBar
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/DayProgressBar.md
 ---
-name: Mr-xRed/EmbedGoogleMapsWidget
-uri: github:Mr-xRed/silverbullet-libraries/EmbedGoogleMapsWidget.md
+name: ChenZhu-Xie/EmbedGoogleMapsWidget
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/EmbedGoogleMapsWidget.md
 ---
-name: Mr-xRed/OpenWeatherMap_Widgets
-uri: github:Mr-xRed/silverbullet-libraries/OpenWeatherMap_Widgets.md
+name: ChenZhu-Xie/OpenWeatherMap_Widgets
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/OpenWeatherMap_Widgets.md
 ```
 
 ## Productivity Shortcuts
 ```#meta/library/remote
-name: Mr-xRed/HeaderLevelToggle
-uri: github:Mr-xRed/silverbullet-libraries/HeaderLevelToggle.md
+name: ChenZhu-Xie/HeaderLevelToggle
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/HeaderLevelToggle.md
 ---
-name: Mr-xRed/SelectionToCodeblockToggle
-uri: github:Mr-xRed/silverbullet-libraries/SelectionToCodeblockToggle.md
+name: ChenZhu-Xie/SelectionToCodeblockToggle
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/SelectionToCodeblockToggle.md
 ```
 
 ## Styles and Visuals
 ```#meta/library/remote
-name: Mr-xRed/Admonitions_multilingual
-uri: github:Mr-xRed/silverbullet-libraries/Admonitions_multilingual.md
+name: ChenZhu-Xie/Admonitions_multilingual
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/Admonitions_multilingual.md
 ---
-name: Mr-xRed/TitleBar_ModernStyle
-uri: github:Mr-xRed/silverbullet-libraries/TitleBar_ModernStyle.md
+name: ChenZhu-Xie/TitleBar_ModernStyle
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/TitleBar_ModernStyle.md
 ---
-name: Mr-xRed/ModalBoxHighlighter
-uri: github:Mr-xRed/silverbullet-libraries/ModalBoxHighlighter.md
+name: ChenZhu-Xie/ModalBoxHighlighter
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/ModalBoxHighlighter.md
 ---
-name: Mr-xRed/Custom_Width_and_Color_Tables
-uri: github:Mr-xRed/silverbullet-libraries/Custom_Width_and_Color_Tables.md
+name: ChenZhu-Xie/Custom_Width_and_Color_Tables
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/Custom_Width_and_Color_Tables.md
 ---
-name: Mr-xRed/TopPageBanner
-uri: github:Mr-xRed/silverbullet-libraries/TopPageBanner.md
+name: ChenZhu-Xie/TopPageBanner
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/TopPageBanner.md
 ---
-name: Mr-xRed/SearchBar_ModernStyle
-uri: github:Mr-xRed/silverbullet-libraries/SearchBar_ModernStyle.md
+name: ChenZhu-Xie/SearchBar_ModernStyle
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/SearchBar_ModernStyle.md
 ---
-name: Mr-xRed/Treeview_Extension_DragAndResize
-uri: github:Mr-xRed/silverbullet-libraries/Treeview_Extension_DragAndResize.md
+name: ChenZhu-Xie/Treeview_Extension_DragAndResize
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/Treeview_Extension_DragAndResize.md
 ---
-name: Mr-xRed/SilverBullet_CSS_Structure_Map
-uri: github:Mr-xRed/silverbullet-libraries/SilverBullet_CSS_Structure_Map.md
+name: ChenZhu-Xie/SilverBullet_CSS_Structure_Map
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/SilverBullet_CSS_Structure_Map.md
 ```
 
 ## Tools
 ```#meta/library/remote
-name: Mr-xRed/PDF_with_Pandoc_and_Weasyprint
-uri: github:Mr-xRed/silverbullet-libraries/PDF_with_Pandoc_and_Weasyprint.md
+name: ChenZhu-Xie/PDF_with_Pandoc_and_Weasyprint
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/PDF_with_Pandoc_and_Weasyprint.md
 ```
