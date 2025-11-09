@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md"
-udpateDate: 2025-10-27
+tags: meta/library
+pageDecoration.prefix: 🪚
 ---
 
 # Pick Headings with CMD-Tree UI

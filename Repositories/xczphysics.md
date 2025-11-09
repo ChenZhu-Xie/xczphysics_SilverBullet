@@ -96,6 +96,15 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Nearest_Pattern/Delete.md
 name: ChenZhu-Xie/Picker/Heading
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Picker/Heading.md
 ```
+[Heading](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Heading#Pick%20Headings%20with%20CMD-Tree%20UI) #enlarge-the-percentage #fly
+
+## [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/Picker/Tag
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Picker/Tag.md
+```
+[Tag](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Tag#Navigate:%20Tag%20Picker) #enlarge-the-percentage #fly
 
 # Add Field for Page
 
