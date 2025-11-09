@@ -1,8 +1,3 @@
----
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-11-09
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy%20as/page%20title/Disk%20Dir.md"
----
 #forward #external #dir
 
 ```space-lua
