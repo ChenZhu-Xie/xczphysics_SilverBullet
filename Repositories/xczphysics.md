@@ -73,10 +73,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 ## [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Paste_as/Markdown/Image_Url
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Paste_as/Markdown/Image_Url.md
+name: ChenZhu-Xie/Paste_as/Smart_Url
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Paste_as/Smart_Url.md
 ```
-
+[Smart_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Smart_Url#Paste:%20Smart%20URL) #enlarge-the-percentage #fly
 
 # Nearest Pattern
 
