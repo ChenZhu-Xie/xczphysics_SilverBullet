@@ -73,7 +73,9 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/page_title/Page_W
 ## [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
+name: ChenZhu-Xie/KeyBinding/Define
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Define.md
 ```
+[Define](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Define#Define%20Commonly-used%20Commands) #enlarge-the-percentage #fly
 
+## 
