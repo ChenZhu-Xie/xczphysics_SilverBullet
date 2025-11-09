@@ -1,4 +1,6 @@
 
+1. [library management](https://community.silverbullet.md/t/library-management/3493/13?u=chenzhu-xie) #community #silverbullet
+
 ## Lua
 
 ```space-lua
