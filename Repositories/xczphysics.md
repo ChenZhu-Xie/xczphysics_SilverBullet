@@ -18,7 +18,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 
 # 📎Copy as
 
-## [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Link]]
+## [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Link
@@ -26,6 +26,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
 ```
 [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 
-## Cursor Wiki
+## [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]]
 
-
+```#meta/library/remote
+name: ChenZhu-Xie/Copy_as/Cursor_Link
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
+```
+[Cursor_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
