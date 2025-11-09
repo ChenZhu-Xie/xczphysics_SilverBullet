@@ -1,4 +1,6 @@
 
+${query[[from index.tag "aspiring-page"]]}
+
 1. https://community.silverbullet.md/t/list-pages-that-have-no-links-to-them-orphan-pages/3360
 
 ```space-lua

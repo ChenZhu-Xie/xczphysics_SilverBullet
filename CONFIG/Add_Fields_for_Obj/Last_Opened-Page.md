@@ -48,7 +48,7 @@ ${query[[
 `${space.listPages()}`
 `${query[[from index.tag "page"]]}`
 
-### Wraping `page.lastOpened` from [[CONFIG/API/Page Navigation]]
+### Wraping `page.lastOpened` from [[CONFIG/API/Page_Navigation]]
 
 ${page.lastOpened()}
 ```space-lua

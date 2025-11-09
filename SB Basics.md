@@ -25,7 +25,7 @@ basic level: kindergarden
 ### Date
   - [Generate a date](https://youtu.be/bb1USz_cEBY?t=573): ${Red("/today")} 2025-10-08
 ## Embed Objects
-  - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of [[SB page]] ~ [[local file.md]] ≈ [[local document.pdf]]
+  - [Transclusion](https://youtu.be/bZ79-RbyNoU?t=639) of `[[SB page]]` ~ `[[local file.md]]` ≈ `[[local document.pdf]]`
      - Example: `![[SB page path]]`, `![[local file path.png]]`
   - Image: `![image name](url)`
   - test: [Objects that are `/query`ed OR `!\[transcluded\]]`, better not have widgets like `${Red("expression")}` in its name or body, otherwise might break the Table format](https://github.com/silverbulletmd/silverbullet/issues/1638#issuecomment-3416408442):
