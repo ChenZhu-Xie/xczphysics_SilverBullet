@@ -12,7 +12,7 @@
    - then, `Repositories/xczphysics` appears below the HEADER `Repositories`
    - libs in `Repositories/xczphysics` appear below the HEADER `Available Libraries`.
 8. below the HEADER `Available libraries`
-   - mouse `Shift + Scroll` a little bit, find the commandButton `Install`
+   - mouse `Shift + Scroll ↓` a little bit, find the commandButton `Install`
 9. install any lib
    - installed libs appear below the HEADER `Installed libraries`.
 
