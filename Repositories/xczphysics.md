@@ -182,12 +182,16 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Inline_CMD.md
 
 # 🖼️ Theme
 
+## [[STYLE/Theme/Doom-Two#Base setup|Doom-Two]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Color/Inline_Text
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Color/Inline_Text.md
+name: ChenZhu-Xie/Theme/Doom-Two
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Theme/Doom-Two.md
 ```
-[Inline_Text](https://enlarge-the-percentage.fly.dev/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
+[Doom Two](https://enlarge-the-percentage.fly.dev/STYLE/Theme/Doom-Two#Base%20setup) #enlarge-the-percentage #fly
+
+## [[STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
+
 
 
 # Other Custom Configs
