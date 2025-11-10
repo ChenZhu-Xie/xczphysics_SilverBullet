@@ -1,5 +1,5 @@
 
-# How to Fetch the Plugs in this Repo
+# How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
 0. inside your Silverbullet
 1. press `ctrl+/`
@@ -23,4 +23,4 @@
 
 # Issues
 
-There might be some issues, feel free to propose.
+Feel free propose issues.
