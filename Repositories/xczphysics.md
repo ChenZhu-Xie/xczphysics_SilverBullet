@@ -256,7 +256,7 @@ name: ChenZhu-Xie/STYLE/Builtin_Formats
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 ```
 [[STYLE/Builtin_Formats#(Missing) Builtin Formats|Missing Formats]], [Builtin_Formats](https://enlarge-the-percentage.fly.dev/STYLE/Builtin_Formats#(Missing)%20Builtin%20Formats) #enlarge-the-percentage #fly
-[Inline_CMD.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
+[Builtin_Formats.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md) #github
 
 # 🖼️ Theme
 
