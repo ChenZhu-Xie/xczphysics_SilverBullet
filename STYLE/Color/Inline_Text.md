@@ -71,6 +71,12 @@ function Blue(text)   return ColorText(text, colors.blue) end
 function Yellow(text) return ColorText(text, colors.yellow) end
 function Purple(text) return ColorText(text, colors.purple) end
 
+local function moveToNewTextPos(suffixText)
+  local pos = editor.getCursor()
+  local newPos = pos - #suffixText
+  editor.moveCursor(newPos, false)
+end
+
 local function wrapWithColor(fnName)
   local text = getSelectedText()
   if text and text ~= "" then
