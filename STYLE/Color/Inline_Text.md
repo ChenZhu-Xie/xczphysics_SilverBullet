@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline%20Text.md"
-udpateDate: 2025-10-27
+tags: meta/library
+pageDecoration.prefix: "🖼️ "
 ---
 
 # Coloring Inline Text

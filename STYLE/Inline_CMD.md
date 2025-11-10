@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-udpateDate: 2025-11-08
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline%20CMD.md"
+tags: meta/library
+pageDecoration.prefix: "🖼️ "
 ---
 
 # (Missing) Inline Commands
