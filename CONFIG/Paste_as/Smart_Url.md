@@ -16,6 +16,19 @@ existing bugs:
 - [69109da1 8724 8010 a291 fbb1c2cc4d9d](https://chatgpt.com/share/69109da1-8724-8010-a291-fbb1c2cc4d9d) #chatgpt
 
 ```space-lua
+local function getSelectedText()
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  local text = editor.getText()
+  return text:sub(sel.from + 1, sel.to)
+end
+
+local function setSelectedText(newText)
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  editor.replaceRange(sel.from, sel.to, newText)
+end
+
 command.define {
   name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",

@@ -15,7 +15,7 @@ pageDecoration.prefix: "🔤 "
 -- =========================
 
 -- acquire current text 获取
-function getSelectedText()
+local function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
   local text = editor.getText()
@@ -23,21 +23,21 @@ function getSelectedText()
 end
 
 -- replace current text
-function setSelectedText(newText)
+local function setSelectedText(newText)
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
 -- cursor pos to center 
-function moveToNewTextPos(suffixText)
+local function moveToNewTextPos(suffixText)
   local pos = editor.getCursor()
   local newPos = pos - #suffixText
   editor.moveCursor(newPos, false)
 end
 
 -- universal wrapper
-function wrapText(prefix, suffix)
+local function wrapText(prefix, suffix)
   local text = getSelectedText()
   if text and text ~= "" then
     setSelectedText(prefix .. text .. suffix)

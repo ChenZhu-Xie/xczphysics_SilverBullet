@@ -37,6 +37,19 @@ end
 ## space-lua
 
 ```space-lua
+local function getSelectedText()
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  local text = editor.getText()
+  return text:sub(sel.from + 1, sel.to)
+end
+
+local function setSelectedText(newText)
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  editor.replaceRange(sel.from, sel.to, newText)
+end
+
 local colors = {
   red    = "#E57373",
   green  = "#81C784",
