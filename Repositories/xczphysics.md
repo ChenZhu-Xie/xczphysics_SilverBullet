@@ -8,11 +8,9 @@ pageDecoration.prefix: "📚 "
 > please search for the “space-lua” or “space-style” block,
 > if you want to dig deeper.
 
-# Copy & Paste
+# ✂️ Copy as
 
-## ✂️ Copy as
-
-### Cursor Link
+## Cursor Link
 
 ==Ctrl-Shift-c==
 - Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Link`
@@ -25,7 +23,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]], [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 [Cursor_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) #github
 
-### Cursor Wiki
+## Cursor Wiki
 
 ==Shift-Alt-c==
 - Copy `[[Repositories/xczphysics#Cursor Wiki]]`
@@ -38,7 +36,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]], [Cursor_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 [Cursor_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) #github
 
-### Folder Url
+## Folder Url
 
 ==Ctrl-Shift-d==
 Copy `F:\path\to\SB_space\Repositories`
@@ -50,7 +48,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/page_title/Folder_Url@194|Folder Url]], [Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
 [Folder_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md) #github
 
-### Github Url
+## Github Url
 
 ==Shift-Alt-g==
 Copy `github:username/repo/lib.md`
@@ -62,7 +60,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]], [Github_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Github_Url) #enlarge-the-percentage #fly
 [Github_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) #github
 
-### Page Link
+## Page Link
 
 ==Shift-Alt-l==
 Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics`
@@ -74,7 +72,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/page_title/Page_Link|Page Link]], [Page_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Link) #enlarge-the-percentage #fly
 [Page_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) #github
 
-### Page Wiki
+## Page Wiki
 
 ==Shift-Alt-w==
 Copy `[[Repositories/xczphysics]]`
@@ -86,9 +84,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]], [Page_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Wiki) #enlarge-the-percentage #fly
 [Page_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) #github
 
-## 📎 Paste as
+# 📎 Paste as
 
-### Smart URL
+## Smart URL
 
 ==Alt-v==
 - Paste `[[Repositories/xczphysics#Smart URL|wiki alias]]`
