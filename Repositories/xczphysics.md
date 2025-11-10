@@ -198,9 +198,6 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Theme/HHH.md
 ```
 [HHH](https://enlarge-the-percentage.fly.dev/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
 
-
-
-
 # Other Custom Configs
 
 ${query[[from index.tag "page" 
