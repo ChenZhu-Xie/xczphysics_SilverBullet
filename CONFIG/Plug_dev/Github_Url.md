@@ -8,7 +8,7 @@ recommend: ⭐⭐⭐⭐⭐
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=8a82458ab0
 2. https://chatgpt.com/share/68fbc115-15c8-8010-a698-fea9877c82e2
-3. Updated from the last space-lua block in [[CONFIG/Add Fields for Obj/Last Opened]]
+3. Updated from the last space-lua block in [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page]]
 4. Referring to the use cases in [[^Library/Std/APIs/Template]]:
 ```lua
 local fm = index.extractFrontmatter(space.readPage(name),  {

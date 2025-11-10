@@ -181,7 +181,7 @@ slashCommand.define {
   - ${shell.run("ls", {"-l"})}
 * ${Green("Win/CMD + click")} the called function will jump on its definition (across pages)
   * if the corresponding particular API is globally accessible and that this has been implemented in space Lua
-    1. ${Yellow("toggleReadOnlyMode()")} inside [[CONFIG/Edit/Read Only Toggle]]
+    1. ${Yellow("toggleReadOnlyMode()")} inside [[CONFIG/Edit/Read_Only_Toggle]]
     2. ${Yellow("slashCommand.define")} in [[SB Basics#Slash command list behave differently inside a code block]]
       - ${Green("Win/CMD + click")} inside ${Yellow("d|e|f|i|n|e|")} is effective
       - but it is of no use to ${Green("Win/CMD + click")} the ${Yellow("slashCommand.")}

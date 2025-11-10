@@ -15,7 +15,7 @@ ${template.each(query[[from index.tag "task" where _.page == currentPage and not
 ]==])}
 
 # LATEST
-[[All pages|Show all]]
+`[[All pages|Show all]]`
 
 ${template.each(query[[from index.tag "page" where not string.find(_.name,"Library") order by created desc limit 15]], home.renderPage)}
 
