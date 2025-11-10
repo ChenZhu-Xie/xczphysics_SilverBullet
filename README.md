@@ -20,3 +20,7 @@
 # What you see is what I use
 
 [These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
+
+# Issues
+
+There might be some issues, feel free to propose.
