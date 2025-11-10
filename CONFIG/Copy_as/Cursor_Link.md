@@ -12,6 +12,19 @@ pageDecoration.prefix: "✂️ "
 -- [[Page#Header]] -> http(s)://host/Page#Header
 -- [[Page@pos]]    -> http(s)://host/Page@pos
 
+local function encode_url(s)
+  local parts = {}
+  for i = 1, #s do
+    local c = s:sub(i, i)
+    if c == " " then
+      parts[#parts+1] = "%20"
+    else
+      parts[#parts+1] = c
+    end
+  end
+  return table.concat(parts)
+end
+
 -- your address:   "https://your-domain"
 -- local BASE_URL = "http://127.0.0.1:3000"
 local BASE_URL = "https://enlarge-the-percentage.fly.dev/"

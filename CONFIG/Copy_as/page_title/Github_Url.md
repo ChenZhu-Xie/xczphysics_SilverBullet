@@ -14,6 +14,19 @@ pageDecoration.prefix: "✂️ "
 ```space-lua
 -- description: Copy the GitHub URL of the current page to clipboard
 
+local function encode_url(s)
+  local parts = {}
+  for i = 1, #s do
+    local c = s:sub(i, i)
+    if c == " " then
+      parts[#parts+1] = "%20"
+    else
+      parts[#parts+1] = c
+    end
+  end
+  return table.concat(parts)
+end
+
 command.define {
   -- name = "Copy: Page Github Url",
   name = "Page: Copy Github",

@@ -9,7 +9,7 @@ pageDecoration.prefix: "✂️ "
 ```space-lua
 -- Page: Copy Link
 
-function encode_url(s)
+local function encode_url(s)
   local parts = {}
   for i = 1, #s do
     local c = s:sub(i, i)
