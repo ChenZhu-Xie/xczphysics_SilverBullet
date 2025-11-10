@@ -15,7 +15,7 @@
 8. below the HEADER `Available libraries`
    - mouse `Shift + Scroll` a little bit, find the commandButton `Install`
 9. install any lib
-   - installed libs appear in `Installed libraries`.
+   - installed libs appear below the HEADER `Installed libraries`.
 
 ## What you see is what I use
 
