@@ -20,7 +20,7 @@
 
 [These scripts ↓↓](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
-| Category | Plug | Description in SilverBullet |
+| Category | Plug.md in Github | Description in SilverBullet |
 |-----------|------|------------|
 | 🟨 **Copy as** | [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) | [Cursor Link](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Link) |
 | 🟨 **Copy as** | [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) | [Cursor Wiki](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Wiki) |
