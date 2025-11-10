@@ -905,10 +905,8 @@ Hierarchically file browser
 ```space-style
 /* priority: 1 */
 
-/* 基础：清空 label 背景，避免残留 */
 .tree__label { background: none; }
 
-/* 当前页（最高优先级） */
 .tree__label:has([data-current-page="true"]) {
   background: linear-gradient(
     to right,
@@ -918,7 +916,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* 父级文件夹（非当前项自身） */
 .tree__node:has([data-current-page="true"])
   > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -929,7 +926,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* 顶层页面（亮色） */
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -940,7 +936,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* 顶层文件夹（亮色） */
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="folder"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -951,7 +946,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* 当前页分支下的子级文件/文件夹（亮色） */
 .tree__node:has(> .tree__label [data-current-page="true"])
   .tree__subnodes .tree__label {
   background: linear-gradient(
@@ -962,7 +956,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* “叶子页面”（不依赖 :empty）：当前页分支下，没有子 .tree__node 的页面 */
 .tree__node:has(> .tree__label > [data-current-page="true"])
   .tree__node:not(:has(> .tree__subnodes > .tree__node))
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -974,7 +967,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* 暗色模式（平铺，不用嵌套） */
 html[data-theme="dark"] #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -1025,9 +1017,7 @@ html[data-theme="dark"] .tree__label:has([data-current-page="true"]) {
   border-radius: 5px 0 0 5px;
 }
 
-/* 你原来针对 span 的透明处理保留，但不影响 label 背景 */
 .tree__label > span { background-color: transparent !important; border: none; }
-/* 可选：节点类型着色 */
 .tree__label > span[data-node-type="page"]   { color: var(--magenta, #d16ba5); }
 .tree__label > span[data-node-type="folder"] { color: var(--green,   #3bb273); }
 .tree__node:has(.tree__subnodes:not(:empty)) > .tree__label > span[data-node-type="page"] {
