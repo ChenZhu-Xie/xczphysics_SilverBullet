@@ -44,8 +44,31 @@
 
 ## Add Field for Page
 
-- [Last_Opened Page.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) #github
+- [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) #github
 
+## BreadCrumbs
+
+- [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) #github
+- [Top](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md) #github
+
+## Version Control
+
+- [Git](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) #github
+
+## Key Binding
+
+- [Define](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md) #github
+- [Update](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md) #github
+
+## Inline
+
+- [Coloring Text](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) #github
+- [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
+
+## Theme
+
+- [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) #github
+- [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) #github
 
 # What you see is what I use
 

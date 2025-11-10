@@ -247,7 +247,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Colo
 [[STYLE/Color/Inline_Text#space-lua|Coloring Text]], [Inline_Text](https://enlarge-the-percentage.fly.dev/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
 [Inline_Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) #github
 
-## Define & Update Formats
+## Builtin Formats
 
 ==Define & Update KeyBinds `for Format CMDs`==
 
