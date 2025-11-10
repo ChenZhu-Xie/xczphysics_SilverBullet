@@ -118,7 +118,7 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 
 # 🎏 Version Control
 
-## [[CONFIG/Sync/Git#Enhanced Git Plug|Git]]
+## [[CONFIG/Sync/Git#Enhanced Git Plug|Enhanced Git]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Sync/Git
