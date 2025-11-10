@@ -1,7 +1,6 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md"
-udpateDate: 2025-10-28
+tags: meta/library
+pageDecoration.prefix: "🖼️ "
 ---
   
 # HierarchyHighlightHeadings - HHH Theme
