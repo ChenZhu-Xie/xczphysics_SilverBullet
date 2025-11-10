@@ -121,10 +121,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 ## [[CONFIG/Sync/Git#Enhanced Git Plug|Git]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
+name: ChenZhu-Xie/Sync/Git
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Sync/Git.md
 ```
-
+[Git](https://enlarge-the-percentage.fly.dev/CONFIG/Sync/Git#Enhanced%20Git%20Plug) #enlarge-the-percentage #fly
 
 # ⌨️ Key Binding
 
