@@ -162,9 +162,9 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/KeyBinding/Update.md
 ```
 [Update](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Update#Update%20Commonly%20used%20Commands) #enlarge-the-percentage #fly
 
-# 🖼️ Style
+# 🖼️ Inline
 
-## Coloring [[STYLE/Color/Inline_Text#space-lua|Inline Text]]
+## Coloring [[STYLE/Color/Inline_Text#space-lua|Text]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Color/Inline_Text
@@ -172,13 +172,15 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Color/Inline_Text.md
 ```
 [Inline_Text](https://enlarge-the-percentage.fly.dev/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
 
-## [[STYLE/Inline_CMD#(Missing) Inline Commands|Inline CMD]]
+## Define & Update [[STYLE/Inline_CMD#(Missing) Inline Commands|CMDs]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/STYLE/Inline_CMD
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Inline_CMD.md
 ```
 [Inline_CMD](https://enlarge-the-percentage.fly.dev/STYLE/Inline_CMD#(Missing)%20Inline%20Commands) #enlarge-the-percentage #fly
+
+
 
 # Other Custom Configs
 

@@ -2,7 +2,7 @@
 githubUrl_Original: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"
 ---
 #style #active
-
+:
 # Base setup
 ## General
 Inspiration: [doom-one](https://github.com/doomemacs/themes/blob/master/themes/doom-one-theme.el)
