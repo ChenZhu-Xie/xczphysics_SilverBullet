@@ -20,12 +20,12 @@ pageDecoration.prefix: "📚 "
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Link
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/Cursor_Link.md
 ```
 [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]], [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
-[Cursor_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) #github
+[Cursor_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/Cursor_Link.md) #github
 
-ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
+ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/Cursor_Link.md
 ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
 
 ### Cursor Wiki
@@ -36,10 +36,10 @@ ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Wiki
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/Cursor_Wiki.md
 ```
 [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]], [Cursor_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
-[Cursor_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) #github
+[Cursor_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/Cursor_Wiki.md) #github
 
 ### Folder Url
 
@@ -48,22 +48,22 @@ Copy `F:\path\to\SB_space\Repositories`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Folder_Url.md
 ```
 [[CONFIG/Copy_as/page_title/Folder_Url@194|Folder Url]], [Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
-[Folder_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md) #github
+[Folder_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Folder_Url.md) #github
 
 ### Github Url
 
 ==Shift-Alt-g==
-Copy `github:username/repo/blob/main/Repositories/user.md`
+Copy `github:username/repo/main/Repositories/user.md`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Github_Url
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Github_Url.md
 ```
 [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]], [Github_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Github_Url) #enlarge-the-percentage #fly
-[Github_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) #github
+[Github_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Github_Url.md) #github
 
 ### Page Link
 
@@ -72,10 +72,10 @@ Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Link
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Page_Link.md
 ```
 [[CONFIG/Copy_as/page_title/Page_Link|Page Link]], [Page_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Link) #enlarge-the-percentage #fly
-[Page_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) #github
+[Page_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Page_Link.md) #github
 
 ### Page Wiki
 
@@ -84,10 +84,10 @@ Copy `[[Repositories/xczphysics]]`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Page_Wiki.md
 ```
 [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]], [Page_Wiki](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Page_Wiki) #enlarge-the-percentage #fly
-[Page_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) #github
+[Page_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Copy_as/page_title/Page_Wiki.md) #github
 
 ## 📎 Paste as
 
@@ -99,10 +99,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_ti
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Smart_Url
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Paste_as/Smart_Url.md
 ```
 [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]], [Smart_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Smart_Url#Paste:%20Smart%20URL) #enlarge-the-percentage #fly
-[Smart_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) #github
+[Smart_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Paste_as/Smart_Url.md) #github
 
 # Nearest Pattern
 
@@ -113,10 +113,10 @@ Duplicate the nearest format `==Alt-c==`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Duplicate
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Nearest_Pattern/Duplicate.md
 ```
 [[CONFIG/Nearest_Pattern/Duplicate#Page Version|Duplicate]], [Duplicate](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Duplicate) #enlarge-the-percentage #fly
-[Duplicate.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md) #github
+[Duplicate.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Nearest_Pattern/Duplicate.md) #github
 
 ## 🪚 Delete
 
@@ -125,10 +125,10 @@ Remove the nearest format `#meta/library/remote`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Delete
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Nearest_Pattern/Delete.md
 ```
 [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]], [Delete](https://enlarge-the-percentage.fly.dev/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
-[Delete.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md) #github
+[Delete.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Nearest_Pattern/Delete.md) #github
 
 # 🛻 Picker
 
@@ -139,10 +139,10 @@ Add `Navigate: Heading Picker` to CMD
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Picker/Heading
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Picker/Heading.md
 ```
 [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading]], [Heading](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Heading#Pick%20Headings%20with%20CMD-Tree%20UI) #enlarge-the-percentage #fly
-[Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) #github
+[Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Picker/Heading.md) #github
 
 ## Tag
 
@@ -151,10 +151,10 @@ Add `Navigate: Tag Picker` to CMD
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Picker/Tag
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Picker/Tag.md
 ```
 [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]], [Tag](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Tag#Navigate:%20Tag%20Picker) #enlarge-the-percentage #fly
-[Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) #github
+[Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Picker/Tag.md) #github
 
 # Add Field for Page
 
@@ -166,10 +166,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 ```
 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level|Visit Times]], [Last_Opened Page](https://enlarge-the-percentage.fly.dev/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes%202:%20Client%20level) #enlarge-the-percentage #fly
-[Last_Opened Page.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) #github
+[Last_Opened Page.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) #github
 
 # 🥖 BreadCrumbs
 
@@ -180,10 +180,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_
 
 ```#meta/library/remote
 name: ChenZhu-Xie/BreadCrumbs/Bottom
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Widget/BreadCrumbs/Bottom.md
 ```
 [[CONFIG/Widget/BreadCrumbs/Bottom#Adaptive Bread Crumb: Bottom|Bottom]], [Bottom](https://enlarge-the-percentage.fly.dev/CONFIG/Widget/BreadCrumbs/Bottom#Adaptive%20Bread%20Crumb:%20Bottom) #enlarge-the-percentage #fly
-[Bottom.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) #github
+[Bottom.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Widget/BreadCrumbs/Bottom.md) #github
 
 ## Top
 
@@ -192,10 +192,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCru
 
 ```#meta/library/remote
 name: ChenZhu-Xie/BreadCrumbs/Top
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Widget/BreadCrumbs/Top.md
 ```
 [[CONFIG/Widget/BreadCrumbs/Top#Adaptive Bread Crumb: Top|Top]], [Top](https://enlarge-the-percentage.fly.dev/CONFIG/Widget/BreadCrumbs/Top#Adaptive%20Bread%20Crumb:%20Top) #enlarge-the-percentage #fly
-[Top.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md) #github
+[Top.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Widget/BreadCrumbs/Top.md) #github
 
 # 🎏 Version Control
 
@@ -209,10 +209,10 @@ Add `Git Force Push`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Sync/Git
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Sync/Git.md
 ```
 [[CONFIG/Sync/Git#Enhanced Git Plug|Enhanced Git]], [Git](https://enlarge-the-percentage.fly.dev/CONFIG/Sync/Git#Enhanced%20Git%20Plug) #enlarge-the-percentage #fly
-[Git.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) #github
+[Git.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/Sync/Git.md) #github
 
 # ⌨️ Key Binding
 
@@ -222,10 +222,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md
 
 ```#meta/library/remote
 name: ChenZhu-Xie/KeyBinding/Define
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/KeyBinding/Define.md
 ```
 [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]], [Define](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Define#Define%20Commonly-used%20Commands) #enlarge-the-percentage #fly
-[Define.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md) #github
+[Define.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/KeyBinding/Define.md) #github
 
 ## Update Commands
 
@@ -233,10 +233,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Defi
 
 ```#meta/library/remote
 name: ChenZhu-Xie/KeyBinding/Update
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/KeyBinding/Update.md
 ```
 [[CONFIG/KeyBinding/Update#Update Commonly used Commands|Update Commands]], [Update](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding/Update#Update%20Commonly%20used%20Commands) #enlarge-the-percentage #fly
-[Update.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md) #github
+[Update.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/CONFIG/KeyBinding/Update.md) #github
 
 # 🔤 Inline
 
@@ -247,10 +247,10 @@ Apply `${Green("Your Text")}`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Color/Inline_Text
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Color/Inline_Text.md
 ```
 [[STYLE/Color/Inline_Text#space-lua|Coloring Text]], [Inline_Text](https://enlarge-the-percentage.fly.dev/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
-[Inline_Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) #github
+[Inline_Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Color/Inline_Text.md) #github
 
 ## Define & Update Formats
 
@@ -258,10 +258,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Tex
 
 ```#meta/library/remote
 name: ChenZhu-Xie/STYLE/Inline_CMD
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Inline_CMD.md
 ```
 [[STYLE/Inline_CMD#(Missing) Inline Commands|Missing Formats]], [Inline_CMD](https://enlarge-the-percentage.fly.dev/STYLE/Inline_CMD#(Missing)%20Inline%20Commands) #enlarge-the-percentage #fly
-[Inline_CMD.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
+[Inline_CMD.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Inline_CMD.md) #github
 
 # 🖼️ Theme
 
@@ -271,10 +271,10 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Theme/Doom-Two
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Theme/Doom-Two.md
 ```
 [[STYLE/Theme/Doom-Two#Base setup|Doom-Two]], [Doom Two](https://enlarge-the-percentage.fly.dev/STYLE/Theme/Doom-Two#Base%20setup) #enlarge-the-percentage #fly
-[Doom Two.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) #github
+[Doom Two.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Theme/Doom-Two.md) #github
 
 ## HHH
 
@@ -284,14 +284,14 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.m
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Theme/HHH
-uri: github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Theme/HHH.md
 ```
 [[STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]], [HHH](https://enlarge-the-percentage.fly.dev/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
-[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) #github
+[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/main/STYLE/Theme/HHH.md) #github
 
 # Other Custom Configs
 
 ${query[[from index.tag "page" 
-  where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/blob/main/.*")
+  where _.githubUrl and string.match(_.githubUrl, "https://github%.com/ChenZhu%-Xie/xczphysics_SilverBullet/main/.*")
   select {ref=_.ref, recommend=_.recommend, githubUrl=_.githubUrl, githubUrl_Original=_.githubUrl_Original}
 ]]}
