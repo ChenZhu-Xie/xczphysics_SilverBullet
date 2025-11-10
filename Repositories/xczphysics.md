@@ -118,6 +118,12 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 
 # BreadCrumbs
 
+## Bottom :bread
+
+```#meta/library/remote
+name: ChenZhu-Xie/BreadCrumbs/Bottom
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Widget/BreadCrumbs/Bottom.md
+```
 
 
 # 🎏 Version Control
