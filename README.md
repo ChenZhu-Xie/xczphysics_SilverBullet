@@ -19,11 +19,4 @@
 
 # What you see is what I use
 
-[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work.
-
-## Welcome to Visit xcz's [SilverBullet](https://silverbullet.md/) Instance
-
-Take a seat @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/)!
-
-# Issues
-
+[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
