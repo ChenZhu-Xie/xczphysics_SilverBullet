@@ -22,27 +22,27 @@
 
 | Category | Plug.md in Github | Description in SilverBullet |
 |-----------|------|------------|
-| 🟨 **Copy as** | [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) | [Description: Cursor Link](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Link) |
-| 🟨 **Copy as** | [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) | [Description: Cursor Wiki](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Wiki) |
-| 🟨 **Copy as** | [Folder Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md) | [Description: Folder Url](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Folder%20Url) |
-| 🟨 **Copy as** | [Github Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) | [Description: Github Url](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Github%20Url) |
-| 🟨 **Copy as** | [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) | [Description: Page Link](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Link) |
-| 🟨 **Copy as** | [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) | [Description: Page Wiki](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Wiki) |
-| 🔴 **Paste as** | [Smart_Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) | [Description: Smart_Url](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Smart%20URL) |
-| 🟦 **Nearest Pattern** | [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md) | [Description: Duplicate](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👯%20Duplicate) |
-| 🟦 **Nearest Pattern** | [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md) | [Description: Delete](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#🪚%20Delete) |
-| 🟢 **Picker** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) | [Description: Heading](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
-| 🟢 **Picker** | [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) | [Description: Tag](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Tag) |
-| 🟪 **Add Field for Page** | [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) | [Description: Visit Times](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👀%20Visit%20Times) |
-| 🟡 **BreadCrumbs** | [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) | [Description: Bottom](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Bottom) |
-| 🟡 **BreadCrumbs** | [Top](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md) | [Description: Top](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Top) |
-| 🟥 **Version Control** | [Enhanced Git](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) | [Description: Enhanced Git](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Enhanced%20Git) |
-| 🔵 **Key Binding** | [Define](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md) | [Description: Define](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Define%20Commands) |
-| 🔵 **Key Binding** | [Update](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md) | [Description: Update](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Update%20Commands) |
-| 🟩 **Inline** | [Coloring Text](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) | Description: [Coloring Text](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Coloring%20Text) |
-| 🟩 **Inline** | [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md) | [Description: Builtin Formats](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Builtin%20Formats) |
-| 🟣 **Theme** | [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) | [Description: Doom Two](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Doom-Two) |
-| 🟣 **Theme** | [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) | [Description: HHH](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#HHH) |
+| 🟨 **Copy as** | [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Link) |
+| 🟨 **Copy as** | [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Wiki) |
+| 🟨 **Copy as** | [Folder Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Folder%20Url) |
+| 🟨 **Copy as** | [Github Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Github%20Url) |
+| 🟨 **Copy as** | [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Link) |
+| 🟨 **Copy as** | [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Wiki) |
+| 🔴 **Paste as** | [Smart_Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Smart%20URL) |
+| 🟦 **Nearest Pattern** | [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👯%20Duplicate) |
+| 🟦 **Nearest Pattern** | [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#🪚%20Delete) |
+| 🟢 **Picker** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
+| 🟢 **Picker** | [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Tag) |
+| 🟪 **Add Field for Page** | [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👀%20Visit%20Times) |
+| 🟡 **BreadCrumbs** | [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Bottom) |
+| 🟡 **BreadCrumbs** | [Top](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Top) |
+| 🟥 **Version Control** | [Enhanced Git](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Enhanced%20Git) |
+| 🔵 **Key Binding** | [Define](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Define%20Commands) |
+| 🔵 **Key Binding** | [Update](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Update%20Commands) |
+| 🟩 **Inline** | [Coloring Text](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Coloring%20Text) |
+| 🟩 **Inline** | [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Builtin%20Formats) |
+| 🟣 **Theme** | [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Doom-Two) |
+| 🟣 **Theme** | [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) | [Description](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#HHH) |
 
 ## Issues
 
