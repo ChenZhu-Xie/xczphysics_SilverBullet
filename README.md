@@ -16,7 +16,9 @@
 9. install any lib
    - installed libs appear below the HEADER `Installed libraries`.
 
----
+## What You See Is What I Use
+
+[These scripts ↓↓](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
 # 📚 Table of Contents
 
@@ -33,8 +35,6 @@
   - [Theme](#theme)
 - [What You See Is What I Use](#what-you-see-is-what-i-use)
 - [Issues](#issues)
-
----
 
 ## All Available Plugs
 
@@ -78,12 +78,6 @@
 ### Theme
 - [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md)
 - [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md)
-
----
-
-## What You See Is What I Use
-
-[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
 ## Issues
 
