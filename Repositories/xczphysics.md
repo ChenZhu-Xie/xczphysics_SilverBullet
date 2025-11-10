@@ -255,7 +255,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Colo
 name: ChenZhu-Xie/STYLE/Inline_CMD
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md
 ```
-[[STYLE/Inline_CMD#(Missing) Inline Commands|Missing Formats]], [Inline_CMD](https://enlarge-the-percentage.fly.dev/STYLE/Inline_CMD#(Missing)%20Inline%20Commands) #enlarge-the-percentage #fly
+[[<../STYLE/Builtin Formats#(Missing>) Inline Commands|Missing Formats]], [Inline_CMD](https://enlarge-the-percentage.fly.dev/STYLE/Inline_CMD#(Missing)%20Inline%20Commands) #enlarge-the-percentage #fly
 [Inline_CMD.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
 
 # 🖼️ Theme

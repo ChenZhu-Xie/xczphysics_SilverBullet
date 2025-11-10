@@ -3,7 +3,7 @@ tags: meta/library
 pageDecoration.prefix: "🔤 "
 ---
 
-# (Missing) Inline Commands
+# (Missing) Builtin Formats
 
 ## Command Define
 

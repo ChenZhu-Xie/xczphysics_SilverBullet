@@ -40,9 +40,9 @@ command.define {
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 - 之所以是 Text: 而不是 Line: ，是因为 可以选中多行，
-  - 类似的还有 [[STYLE/Inline_CMD#Quote Selection: > ...]]
-  - [[STYLE/Inline_CMD#Number Listify Selection: 1. text]]
-  - [[STYLE/Inline_CMD#Listify Selection: * text]]
+  - 类似的还有 [[STYLE/Builtin Formats#Quote Selection: > ...]]
+  - [[STYLE/Builtin Formats#Number Listify Selection: 1. text]]
+  - [[STYLE/Builtin Formats#Listify Selection: * text]]
 
 ```space-lua
 command.define {
