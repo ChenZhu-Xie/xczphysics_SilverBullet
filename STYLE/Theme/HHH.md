@@ -6,7 +6,7 @@ udpateDate: 2025-10-28
   
 # HierarchyHighlightHeadings - HHH Theme
 
-## JS Part (Experimental)
+## JS Part
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 

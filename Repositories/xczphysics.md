@@ -192,6 +192,13 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Theme/Doom-Two.md
 
 ## [[STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
 
+```#meta/library/remote
+name: ChenZhu-Xie/Theme/HHH
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/STYLE/Theme/HHH.md
+```
+[HHH](https://enlarge-the-percentage.fly.dev/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
+
+
 
 
 # Other Custom Configs
