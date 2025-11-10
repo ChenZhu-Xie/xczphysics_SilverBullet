@@ -25,9 +25,6 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]], [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 [Cursor_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) #github
 
-ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
-ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Copy_as/Cursor_Link.md
-
 ### Cursor Wiki
 
 ==Shift-Alt-c==
