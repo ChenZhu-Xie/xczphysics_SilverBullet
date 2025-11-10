@@ -262,7 +262,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Buil
 
 ## Doom-Two
 
-==The theme `you’re looking at`==
+==Current theme `you’re looking at`==
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Theme/Doom-Two
