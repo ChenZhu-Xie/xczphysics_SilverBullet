@@ -21,7 +21,7 @@ command.define {
   run = function()
     -- Construct GitHub URL
     local base = "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/"
-    -- local base = "github:ChenZhu-Xie/xczphysics_SilverBullet/"
+    -- local base = "github:ChenZhu-Xie/xczphysics_SilverBullet/blob/main/"
     local url = base .. encode_url(editor.getCurrentPath())
 
     -- Copy to clipboard
