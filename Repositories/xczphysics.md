@@ -53,7 +53,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 ### Github Url
 
 ==Shift-Alt-g==
-Copy `https://github.com/username/repo/blob/main/Repositories/user.md`
+Copy `github:username/repo/lib.md`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Github_Url
