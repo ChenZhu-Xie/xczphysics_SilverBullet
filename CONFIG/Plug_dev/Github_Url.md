@@ -21,7 +21,7 @@ local fm = index.extractFrontmatter(space.readPage(name),  {
 ```space-lua
 -- Function: If the frontmatter lacks a githubUrl, automatically populate it with a direct GitHub link based on the current note’s path.
 
-local function encode_url(s)
+function encode_url(s)
   local parts = {}
   for i = 1, #s do
     local c = s:sub(i, i)
