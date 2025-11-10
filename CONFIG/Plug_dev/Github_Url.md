@@ -1,7 +1,7 @@
 ---
 udpateDate: 2025-11-07
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Plug%20dev/Github%20Url.md"
-recommend: ⭐⭐⭐⭐⭐
+recommend: ⭐⭐⭐⭐
 ---
 
 # Add githubUrl to frontmatter

@@ -1,5 +1,5 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
+recommend: ⭐⭐⭐⭐
 udpateDate: 2025-11-03
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Dark%20Mode.md"
 ---
