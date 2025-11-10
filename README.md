@@ -1,6 +1,6 @@
 # How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
-> silverbullet.exe upgrade-edge
+> silverbullet upgrade-edge
 
 0. inside your [Silverbullet](https://github.com/silverbulletmd/silverbullet)
 1. press `ctrl+/`
