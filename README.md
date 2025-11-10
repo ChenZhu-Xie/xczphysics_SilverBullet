@@ -1,6 +1,6 @@
 # How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
-0. inside your Silverbullet
+0. inside your [Silverbullet](https://github.com/silverbulletmd/silverbullet)
 1. press `ctrl+/`
 2. input `meta picker` and press `enter`
 3. input `Library Manager` and press `enter`
