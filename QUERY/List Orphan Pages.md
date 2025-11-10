@@ -1,5 +1,5 @@
 
-${query[[from index.tag "aspiring-page"]]}
+${orphanPages()}
 
 1. https://community.silverbullet.md/t/list-pages-that-have-no-links-to-them-orphan-pages/3360
 
@@ -23,5 +23,3 @@ function orphanPages()
   return table.keys(orphans)
 end
 ```
-
-${orphanPages()}
