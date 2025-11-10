@@ -252,10 +252,10 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Colo
 ==Define & Update KeyBinds `for Format CMDs`==
 
 ```#meta/library/remote
-name: ChenZhu-Xie/STYLE/Inline_CMD
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md
+name: ChenZhu-Xie/STYLE/Builtin_Formats
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 ```
-[[<../STYLE/Builtin Formats#(Missing>) Inline Commands|Missing Formats]], [Inline_CMD](https://enlarge-the-percentage.fly.dev/STYLE/Inline_CMD#(Missing)%20Inline%20Commands) #enlarge-the-percentage #fly
+[[STYLE/Builtin_Formats#(Missing) Builtin Formats|Missing Formats]], [Builtin_Formats](https://enlarge-the-percentage.fly.dev/STYLE/Builtin_Formats#(Missing)%20Builtin%20Formats) #enlarge-the-percentage #fly
 [Inline_CMD.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
 
 # 🖼️ Theme
