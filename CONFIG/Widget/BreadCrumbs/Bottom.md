@@ -1,8 +1,7 @@
 ---
-recommend: ⭐⭐⭐⭐⭐
-githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md"
+tags: meta/library
+pageDecoration.prefix: "🥖 "
 githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
-udpateDate: 2025-11-07
 ---
 
 # Adaptive Bread Crumb: Bottom
