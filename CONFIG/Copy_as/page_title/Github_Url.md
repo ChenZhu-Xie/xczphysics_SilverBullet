@@ -8,8 +8,8 @@ pageDecoration.prefix: "✂️ "
 
 # Github Url
 
-1. 使用了 [[CONFIG/Plug dev/Github Url]] 的 `function: encode_url`
-   - [[CONFIG/Copy as/Cursor Link]] 和 [[CONFIG/Copy as/page title/Page Link]] 也用了
+1. 使用了 [[CONFIG/Plug_dev/Github_Url]] 的 `function: encode_url`
+   - [[CONFIG/Copy_as/Cursor_Link]] 和 [[CONFIG/Copy_as/page_title/Page_Link]] 也用了
 
 ```space-lua
 -- description: Copy the GitHub URL of the current page to clipboard

@@ -140,7 +140,7 @@ command.define({
 
 ## 2nd Version
 
-3. [[CONFIG/Paste as/Markdown/Image Url#Navigate Cursor+View Version]]
+3. [[CONFIG/Paste_as/Smart_Url#Navigate Cursor+View Version]]
 
 ```lua
 -- Pick Headings (robust version)

@@ -5,7 +5,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ---
 #forward #object
 
-1. an testing improvement from [[CONFIG/Copy as/Cursor Wiki]] 
+1. an testing improvement from [[CONFIG/Copy_as/Cursor_Wiki]] 
 2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
 
 ```lua
