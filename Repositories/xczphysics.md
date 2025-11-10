@@ -118,13 +118,13 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Add_Fields_for_Obj/Last_O
 
 # 🥖 BreadCrumbs
 
-## Bottom
+## [[CONFIG/Widget/BreadCrumbs/Bottom#Adaptive Bread Crumb: Bottom|Bottom]]
 
 ```#meta/library/remote
 name: ChenZhu-Xie/BreadCrumbs/Bottom
 uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Widget/BreadCrumbs/Bottom.md
 ```
-
+[Bottom](https://enlarge-the-percentage.fly.dev/CONFIG/Widget/BreadCrumbs/Bottom#Adaptive%20Bread%20Crumb:%20Bottom) #enlarge-the-percentage #fly
 
 # 🎏 Version Control
 
