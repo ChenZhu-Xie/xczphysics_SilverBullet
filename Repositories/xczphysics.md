@@ -275,7 +275,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Them
 
 ## HHH
 
-==Highlight the entire `Tree of Headings`your cursor belongs==
+==Highlight the entire `Tree of Headings`where your cursor belongs==
 - Install `HierarchyHighlightHeadings.js` and its `css part`
 - No conflict to [[Repositories/xczphysics#Doom-Two]]
 
