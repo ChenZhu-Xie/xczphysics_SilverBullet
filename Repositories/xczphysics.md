@@ -126,6 +126,14 @@ uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Widget/BreadCrumbs/Bottom
 ```
 [Bottom](https://enlarge-the-percentage.fly.dev/CONFIG/Widget/BreadCrumbs/Bottom#Adaptive%20Bread%20Crumb:%20Bottom) #enlarge-the-percentage #fly
 
+## [[CONFIG/Widget/BreadCrumbs/Top#Adaptive Bread Crumb: Top|Top]]
+
+```#meta/library/remote
+name: ChenZhu-Xie/BreadCrumbs/Top
+uri: github:ChenZhu-Xie/xczphysics_SilverBullet/CONFIG/Widget/BreadCrumbs/Top.md
+```
+[Top](https://enlarge-the-percentage.fly.dev/CONFIG/Widget/BreadCrumbs/Top#Adaptive%20Bread%20Crumb:%20Top) #enlarge-the-percentage #fly
+
 # 🎏 Version Control
 
 ## [[CONFIG/Sync/Git#Enhanced Git Plug|Enhanced Git]]
