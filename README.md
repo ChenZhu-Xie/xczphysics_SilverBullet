@@ -1,4 +1,3 @@
-
 # How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
 0. inside your Silverbullet
@@ -17,63 +16,77 @@
 9. install any lib
    - installed libs appear below the HEADER `Installed libraries`.
 
+---
+
+# 📚 Table of Contents
+
+- [All Available Plugs](#all-available-plugs)
+  - [Copy as](#copy-as)
+  - [Paste as](#paste-as)
+  - [Nearest Pattern](#nearest-pattern)
+  - [Picker](#picker)
+  - [Add Field for Page](#add-field-for-page)
+  - [BreadCrumbs](#breadcrumbs)
+  - [Version Control](#version-control)
+  - [Key Binding](#key-binding)
+  - [Inline](#inline)
+  - [Theme](#theme)
+- [What You See Is What I Use](#what-you-see-is-what-i-use)
+- [Issues](#issues)
+
+---
+
 # All Available Plugs
 
 ## Copy as
-
-- [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) #github
-- [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md) #github
-- [Folder Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md) #github
-- [Github Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) #github
-- [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) #github
-- [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) #github
+- [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md)
+- [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md)
+- [Folder Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md)
+- [Github Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md)
+- [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md)
+- [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md)
 
 ## Paste as
-
-- [Smart_Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) #github
+- [Smart_Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md)
 
 ## Nearest Pattern
-
-- [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md) #github
-- [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md) #github
+- [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md)
+- [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md)
 
 ## Picker
-
-- [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) #github
-- [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) #github
+- [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md)
+- [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md)
 
 ## Add Field for Page
-
-- [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) #github
+- [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md)
 
 ## BreadCrumbs
-
-- [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) #github
-- [Top](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md) #github
+- [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md)
+- [Top](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md)
 
 ## Version Control
-
-- [Git](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) #github
+- [Git](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md)
 
 ## Key Binding
-
-- [Define](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md) #github
-- [Update](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md) #github
+- [Define](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md)
+- [Update](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md)
 
 ## Inline
-
-- [Coloring Text](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) #github
-- [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Inline_CMD.md) #github
+- [Coloring Text](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md)
+- [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md)
 
 ## Theme
+- [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md)
+- [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md)
 
-- [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) #github
-- [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) #github
+---
 
-# What you see is what I use
+# What You See Is What I Use
 
 [These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
+---
+
 # Issues
 
-Feel free propose issues.
+Feel free to propose issues.
