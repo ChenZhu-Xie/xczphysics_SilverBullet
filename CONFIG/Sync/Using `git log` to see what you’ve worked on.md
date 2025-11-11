@@ -1,5 +1,6 @@
 
 
+
 ```space-lua
 virtualPage.define {
   pattern = "log:(.+)",
