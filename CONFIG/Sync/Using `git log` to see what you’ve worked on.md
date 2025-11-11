@@ -1,4 +1,6 @@
 
+[[log:recent]]
+
 ```space-lua
 virtualPage.define {
   pattern = "log:(.+)",
