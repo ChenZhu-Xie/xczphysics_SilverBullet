@@ -1,7 +1,7 @@
 
 1. [git diff as a virtual page](https://community.silverbullet.md/t/git-diff-as-a-virtual-page/3522?u=chenzhu-xie) #community #silverbullet
 
-```
+```space-lua
 virtualPage.define {
   pattern = "gitdiff:(.+)",
   run = function(filename)
