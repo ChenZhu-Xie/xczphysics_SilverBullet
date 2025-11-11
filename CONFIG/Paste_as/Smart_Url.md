@@ -199,16 +199,21 @@ command.define {
 2. https://chatgpt.com/share/690c9ac1-9d8c-8010-a29a-bf35735497d0
 
 ```lua
+function usrPrompt(hinText)
+  local input = editor.prompt(hinText, "")
+  if not input then
+    editor.flashNotification("Cancelled", "warn")
+  end
+  return input
+end
+  
 command.define {
   name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",
   run = function()
     -- Ask the user to paste the URL into a prompt dialog
-    local input = editor.prompt("Enter or paste URL", "")
-    if not input then
-      editor.flashNotification("Cancelled", "warn")
-      return
-    end
+    local input = usrPrompt("Enter or paste URL")
+    if not input then return end
 
     -- Trim whitespace
     local clip = input:match("^%s*(.-)%s*$")
