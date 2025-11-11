@@ -2,7 +2,7 @@
 tags: meta/library
 pageDecoration.prefix: "📎 "
 ---
-
+${Red("")}
 # Paste: Smart URL
 
 ## Support More parsing format/syntax
