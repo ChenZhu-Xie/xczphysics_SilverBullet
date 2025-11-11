@@ -4,7 +4,8 @@ pageDecoration.prefix: "🎏 "
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
 ---
 
-1. https://community.silverbullet.md/t/vibe-coded-sb-v2-git-plugin/3228?u=chenzhu-xie
+1. Official [Git.md](https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md) #github
+2. https://community.silverbullet.md/t/vibe-coded-sb-v2-git-plugin/3228?u=chenzhu-xie
 
 # Enhanced Git Plug
 
@@ -442,7 +443,7 @@ if not GitConfigValidator then
       if exitCode == 0 then
         local function safe_trim(s)
           if not s or s == "" then
-            return ""  -- 空字符串直接返回
+            return ""
           end
           return s:gsub("%s+$", "")
         end
@@ -775,7 +776,6 @@ command.define {
     local success, result = git.commit(message, true, nil)
 
     if success == false then
-      -- 完整错误信息显示
       NotificationManager:showError(result)
     elseif success == "nothing" then
       editor.flashNotification("Nothing to commit: working tree is clean.", "warning")
