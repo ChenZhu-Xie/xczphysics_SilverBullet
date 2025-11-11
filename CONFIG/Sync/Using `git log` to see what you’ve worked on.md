@@ -1,6 +1,4 @@
 
-
-
 ```space-lua
 virtualPage.define {
   pattern = "log:(.+)",
@@ -14,11 +12,7 @@ virtualPage.define {
     local result = shell.run('git', args)
     local result = result .code == 0 and result.stdout or result.stderr
 
-    local outputWithLinks = string.gsub(result, '\n?(.*[.]md)\n', function(path)
-        return '[' .. path .. '](' .. path .. ')\n'
-    end
-
-
+    local outputWithLinks = string.gsub(result, '\n?(.*[.]md)\n', function(path) return '[' .. path .. '](' .. path .. ')\n' end)
     outputWithLinks = string.gsub(outputWithLinks, '\n?(commit.*)\n', function (header)
       return '### ' .. header .. '\n'
     end)
