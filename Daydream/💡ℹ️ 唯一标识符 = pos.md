@@ -6,3 +6,5 @@
 
 页面名肯定是唯一确定的。
 pos 也肯定是唯一确定的。
+
+见：[Objects](https://silverbullet.md/Objects#Object%20representation) #silverbullet
