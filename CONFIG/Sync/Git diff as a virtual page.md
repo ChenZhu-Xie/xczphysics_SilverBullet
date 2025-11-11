@@ -22,7 +22,10 @@ virtualPage.define {
       ).stdout
     )
     table.insert(result, "````")
-    return table.concat(result, "\n")
+    return {
+      text = table.concat(result, "\n"),
+      contentType = "text/markdown"  -- 可选，但推荐
+    }
   end
 }
 
