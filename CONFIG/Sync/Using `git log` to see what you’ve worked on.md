@@ -1,6 +1,8 @@
 
 [[log:recent]]
 
+1. [using git log to see what youve worked on](https://community.silverbullet.md/t/using-git-log-to-see-what-youve-worked-on/3439) #community #silverbullet
+
 ```space-lua
 virtualPage.define {
   pattern = "log:(.+)",

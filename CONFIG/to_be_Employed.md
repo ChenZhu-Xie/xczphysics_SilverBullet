@@ -18,10 +18,6 @@
 1. https://community.silverbullet.md/t/icalendar-query-provider/1594/6
 2. https://github.com/xunleii/silverbullet-icalendar?tab=readme-ov-file
 
-# Using `git log` to see what you’ve worked on
-
-1. https://community.silverbullet.md/t/using-git-log-to-see-what-youve-worked-on/3439
-
 # Floating Widget
 
 1. https://community.silverbullet.md/t/introducing-orbitcal-a-floating-calendar-widget-proof-of-concept/3442
