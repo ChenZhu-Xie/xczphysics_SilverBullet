@@ -1,5 +1,5 @@
 
 ${page.childlink()}
 
-
+${widgets.linkedMentions()}
 
