@@ -42,7 +42,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  return string.trim(template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==]))
+  return template.each(tableBack(Flabel), template.new[==[*${_.thBlabel}*​[[${_.ref}]]​]==])
 end
 
 command.define {
