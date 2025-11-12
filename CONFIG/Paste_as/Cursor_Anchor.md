@@ -90,7 +90,7 @@ command.define {
     local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local forthRef = '${forthRef("' .. Flabel .. '")}'
-    local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
+    local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
     editor.insertAtPos(fullText, editor.getCursor(), true)
   end
 }
