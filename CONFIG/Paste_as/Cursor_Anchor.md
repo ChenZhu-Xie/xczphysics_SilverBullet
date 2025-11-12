@@ -91,7 +91,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabel = "==№==" .. (tableBack(Flabel)).length + 1
+    local thBlabel = (tableBack(Flabel)).length + 1 .. "==^t^=="
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
@@ -104,7 +104,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.snippet, "%*([^%*]+)%*"))
+        return tonumber(string.match(self.snippet, "([%d]+)==^t^=="))
       end
     end
   }
