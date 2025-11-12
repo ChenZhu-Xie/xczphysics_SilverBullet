@@ -10,8 +10,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ${template.each(query[[
     from index.tag "link"
     where toPage and toPage:find(aspiringPageBack, 1, true)
-  ]], template.new[==[[[${_.ref}]]]==])}dd
-
+  ]], template.new[==[[[${_.ref}]]]==]):gsub("\n$", "")}ddd
 
 
 ```space-lua
@@ -45,7 +44,13 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
+  -- return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
+  local result = {}
+  for _, row in ipairs(tableBack(Flabel)) do
+    table.insert(result, "[[" .. row.ref .. "]]")
+  end
+  return table.concat(result, "")
+  
 end
 
 command.define {
