@@ -7,6 +7,10 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
+[[asdf➖|]]${backrefStat("asdf")}==^T^==🔙${backRefs("asdf")}
+
+[[asdf➕|]]1*^t^*🔜${backrefStat("asdf")}==^T^==${forthRef("asdf")}
+
 ```space-lua
 function usrPrompt(hinText)
   local input = editor.prompt(hinText, "")
@@ -38,7 +42,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​${_.thBlabel}*^t^*​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}^t^*​[[${_.ref}]]​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -51,7 +55,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}==^T^=='
+    local backrefStat = '==${backrefStat("' .. Flabel .. '")}^T^=='
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     editor.insertAtPos(fullText, editor.getCursor(), true)
@@ -83,8 +87,8 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabel = (tableBack(Flabel)).length + 1 .. "*^t^*"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}==^T^=='
+    local thBlabel = "*" .. (tableBack(Flabel)).length + 1 .. "^t^*"
+    local backrefStat = '==${backrefStat("' .. Flabel .. '")}^T^=='
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
     editor.insertAtPos(fullText, editor.getCursor(), true)
