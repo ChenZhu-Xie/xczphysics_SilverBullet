@@ -5,6 +5,104 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ---
 #forward #object
 
+## here we go
+
+
+
+```space-lua
+function usrPrompt(hinText)
+  local input = editor.prompt(hinText, "")
+  if not input then
+    editor.flashNotification("Cancelled", "warn")
+  end
+  return input
+end
+
+local suffixFlabel = "➖" -- "🗨"
+local suffixBlabel = "➕" -- "🗯"
+local F = "🔜" -- »
+local B = "🔙" -- «
+
+-- =========== Forth Anchor + Back Refs ==================
+
+local function tableBack(Flabel)
+  local aspiringPageBack = Flabel .. suffixBlabel
+  return query[[
+    from index.tag "link"
+    where toPage:find(aspiringPageBack, 1, true) -- no Regex
+    order by _.thBlabel
+    select {ref=_.ref, thBlabel=_.thBlabel}
+  ]]
+end
+
+function backrefStat(Flabel)
+  return (tableBack(Flabel)).length
+end
+
+function backRefs(Flabel)
+  return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
+end
+
+command.define {
+  name = "insert: Forthanchor + Backrefs",
+  key = "Alt-,",
+  run = function()
+    local Flabel = usrPrompt('Enter: label (to be Referred)')
+    if not Flabel then return end
+    local aspiringPageForth = Flabel .. suffixFlabel
+    local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backrefStat .. B .. backRefs
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+  end
+}
+
+-- =========== Back Anchor + Forth Ref ==================
+
+local function tableForth(Flabel)
+  local aspiringPageForth = Flabel .. suffixFlabel
+  return query[[
+    from index.tag "link"
+    where toPage == aspiringPageForth
+    select {ref=_.ref}
+  ]]
+end
+
+function forthRef(Flabel)
+  return template.each(tableForth(Flabel), template.new[==[​[[${_.ref}]]​]==])
+end
+
+command.define {
+  name = "insert: Backanchor + Forthref",
+  key = "Alt-.",
+  run = function()
+    local Flabel = usrPrompt('Jump to: label')
+    if not Flabel then return end
+    local aspiringPageBack = Flabel .. suffixBlabel
+    local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
+    local thBlabel = "*" .. (tableBack(Flabel)).length + 1 .. "*"
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
+    local forthRef = '${forthRef("' .. Flabel .. '")}'
+    local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+  end
+}
+
+index.defineTag {
+  name = "link",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "thBlabel" then
+        return tonumber(string.match(self.snippet, "%*([^%*]+)%*"))
+      end
+    end
+  }
+}
+```
+
+## first attempt
+
 1. an testing improvement from [[CONFIG/Copy_as/Cursor_Wiki]] 
 2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
 
