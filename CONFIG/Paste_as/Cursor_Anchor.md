@@ -9,7 +9,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 [[asdf➖|]]${backrefStat("asdf")}*ᵀ*🔙${backRefs("asdf")}
 
-[[asdf➕|]]~1~🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
+[[asdf➕|]]1==^t^==🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
 
 ==~t~==1
 
@@ -46,7 +46,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​*№*${_.thBlabel}​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​${_.thBlabel}==^t^==​[[${_.ref}]]​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
