@@ -47,9 +47,9 @@
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
-| Read Only: | [[CONFIG/Edit/Read Only Toggle|Toggle on/off]] | Ctrl | | Alt | t |
+| Read Only: | [[CONFIG/Edit/Read_Only_Toggle|Toggle on/off]] | Ctrl | | Alt | t |
 | Import: | Url | Ctrl | Shift | | i |
-| Import: | [[CONFIG/Plug dev/Update SB Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
+| Import: | [[CONFIG/Plug_dev/Update_SB_Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
 
 # Across Pages
 
@@ -64,7 +64,7 @@
 | Navigate: | Backward History | | | Alt | ← |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | [[CONFIG/Search/全局搜索结果在侧边栏|Global Search]] | Ctrl | | Alt | f |
-| SilverSearch: | [[CONFIG/Search/Silver Search|Panel Search]] | Ctrl | | | s |
+| SilverSearch: | [[CONFIG/Search/Silver_Search|Panel Search]] | Ctrl | | | s |
 
 # System
 
