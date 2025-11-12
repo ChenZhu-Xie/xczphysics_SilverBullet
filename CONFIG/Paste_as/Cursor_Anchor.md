@@ -14,7 +14,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 1==^T^==
 *^t^*
 
-[[asdf➖|]]${backrefStat("asdf")}*^t^* _<<_ ${backRefs("asdf")}
+[[asdf➖|]]${backrefStat("asdf")}*^t^* << ${backRefs("asdf")}
 
 [[asdf➕|]]^2^ >> ${forthRef("asdf")}${backrefStat("asdf")}*^t^*
 
@@ -49,7 +49,8 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​^${_.thBlabel}^​]==])
+  -- local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​^${_.thBlabel}^​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​==${_.thBlabel}==​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -94,7 +95,8 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
+    -- local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
+    local thBlabel = "==" .. (tableBack(Flabel)).length + 1 .. "=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*^t^*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
@@ -107,7 +109,8 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.snippet, "%^([0-9]+)%^"))
+        -- return tonumber(string.match(self.snippet, "%^([0-9]+)%^"))
+        return tonumber(string.match(self.snippet, "==([0-9]+)=="))
       end
     end
   }
