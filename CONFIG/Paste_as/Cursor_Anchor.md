@@ -9,7 +9,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 [[asdf➖|]]${backrefStat("asdf")}*ᵀ*🔙${backRefs("asdf")}
 
-[[asdf➕|]]1==^t^==🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
+[[asdf➕|]]1🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
 
 ==~t~==1
 
