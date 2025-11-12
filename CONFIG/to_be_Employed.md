@@ -28,6 +28,8 @@
 2. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Assistant.md
 
 # Journaling Utilities
+![image](https://community.silverbullet.md/uploads/default/original/2X/0/04a03a36260e6a50e1bdd6a093bfd8030bf16dbe.png)
 
-1. 
+1. [journaling utilities](https://community.silverbullet.md/t/journaling-utilities/3526?u=chenzhu-xie) #community #silverbullet
+2. 
 
