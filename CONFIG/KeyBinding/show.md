@@ -183,6 +183,6 @@ command.define {
   name = "Toggle Keyboard Shortcuts",
   key = "Ctrl-Shift-/",
   mac = "Cmd-Shift-/",
-  run = toggleKeyboardShortcutsPanel()
+  run = toggleKeyboardShortcutsPanel
 }
 ```
