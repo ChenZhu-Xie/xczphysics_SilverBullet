@@ -7,7 +7,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-aasdf${""}aasdf
 
 
 ```space-lua
@@ -41,12 +40,9 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  -- return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
-  local result = {}
-  for _, row in ipairs(tableBack(Flabel)) do
-    table.insert(result, "*" .. tostring(row.thBlabel) .. "*" .. "[[" .. row.ref .. "]]")
-  end
-  return table.concat(result, "")
+  str = template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
+  if #str == 0 then return "No BackRefs" end
+  return str
 end
 
 command.define {
