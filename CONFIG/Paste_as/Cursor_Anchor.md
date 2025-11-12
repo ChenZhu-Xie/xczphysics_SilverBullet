@@ -5,26 +5,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ---
 #forward #object
 
-```space-lua
-function MrRed_reply(context)
-  local buttons = {"save", "cancel", "delete", "panic"}
-  for _, btn in ipairs(buttons) do
-    btn = btn .. "_style"
-    print("Applying questionable style to: " .. btn)
-  end
-
-  if context == "agreed" then
-    print("Mr.Red: Fair enough. Consistency must prevail... for now.")
-    print("Mr.Red: I’ll open a PR so every button can suffer equally.")
-  else
-    print("Mr.Red: Oh? You actually liked the styling? Shocking.")
-  end
-end
-
--- usage
-
-```
-
 ## here we go
 
 [[asdf➖|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
