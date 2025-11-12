@@ -7,10 +7,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-${template.each(query[[
-    from index.tag "link"
-    where toPage and toPage:find(aspiringPageBack, 1, true)
-  ]], template.new[==[[[${_.ref}]]]==]):gsub("\n$", "")}ddd
+
 
 
 ```space-lua
