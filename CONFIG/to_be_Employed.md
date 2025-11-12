@@ -26,3 +26,8 @@
 
 1. https://github.com/justyns/silverbullet-ai
 2. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Assistant.md
+
+# Journaling Utilities
+
+1. 
+
