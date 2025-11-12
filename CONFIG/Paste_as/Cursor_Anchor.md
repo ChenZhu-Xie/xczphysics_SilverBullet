@@ -7,9 +7,11 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-[[asdf➖|]]${backrefStat("asdf")}*~Σ~* ⬅️ ${backRefs("asdf")}
-➪➭➲➪➩➾🡄🢧
-[[asdf➕|]]==1== 🍆 ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
+[[asdf➖|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
+➪➭➲➪➩➾🡄🢧🍆⬅️
+[[asdf➕|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
+
+
 
 ```space-lua
 function usrPrompt(hinText)
@@ -20,10 +22,10 @@ function usrPrompt(hinText)
   return input
 end
 
-local suffixFlabel = "➖" -- ➖ 🗨
-local suffixBlabel = "➕" -- ➕ 🗯
-local F = " >> " -- >> » 🔜
-local B = " ⇦ " -- << « 🔙
+local suffixFlabel = "🔵" -- ➖ 🗨
+local suffixBlabel = "🟣" -- ➕ 🗯
+local F = "➡️" -- >> » 🔜
+local B = "🔙" -- << « 🔙
 
 -- =========== Forth Anchor + Back Refs ==================
 
