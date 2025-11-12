@@ -11,6 +11,10 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 [[asdf➕|]]№1🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
 
+==№==1
+
+1==^t^==
+
 ```space-lua
 function usrPrompt(hinText)
   local input = editor.prompt(hinText, "")
@@ -87,7 +91,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabel = "№" .. (tableBack(Flabel)).length + 1
+    local thBlabel = "==№==" .. (tableBack(Flabel)).length + 1
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
