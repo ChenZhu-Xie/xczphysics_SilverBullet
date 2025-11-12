@@ -20,10 +20,10 @@ function usrPrompt(hinText)
   return input
 end
 
-local suffixFlabel = "➖" -- "➖" "🗨"
-local suffixBlabel = "➕" -- "➕" "🗯"
-local F = " >> " -- » 🔜
-local B = " << " -- « 🔙
+local suffixFlabel = "➖" -- ➖ 🗨
+local suffixBlabel = "➕" -- ➕ 🗯
+local F = " >> " -- >> » 🔜
+local B = " << " -- << « 🔙
 
 -- =========== Forth Anchor + Back Refs ==================
 
