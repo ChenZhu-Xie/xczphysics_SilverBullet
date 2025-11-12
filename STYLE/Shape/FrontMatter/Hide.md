@@ -5,7 +5,7 @@ hide-frontmatter: true
 
 1. [hiding frontmatter](https://community.silverbullet.md/t/hiding-frontmatter/830/13?u=chenzhu-xie) #community #silverbullet
 
-```space-lua
+```
 -- Toggle frontmatter visibility with auto-hide support
 -- Auto-hides if page has hide-frontmatter: true in frontmatter
 
