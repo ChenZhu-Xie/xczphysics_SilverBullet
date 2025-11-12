@@ -7,8 +7,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-[[ui➖|]]${backrefStat("ui")}🔙${backRefs("ui")}
-
 
 
 ```space-lua
@@ -42,7 +40,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  return template.each(tableBack(Flabel), template.new[==[*${_.thBlabel}*​[[${_.ref}]]​]==])
+  return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
 end
 
 command.define {
