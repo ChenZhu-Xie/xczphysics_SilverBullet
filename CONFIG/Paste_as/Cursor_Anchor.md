@@ -47,7 +47,7 @@ end
 
 command.define {
   name = "insert: Forthanchor + Backrefs",
-  key = "Alt-,",
+  key = "Ctrl-,",
   run = function()
     local Flabel = usrPrompt('Enter: label (to be Referred)')
     if not Flabel then return end
@@ -77,7 +77,7 @@ end
 
 command.define {
   name = "insert: Backanchor + Forthref",
-  key = "Alt-.",
+  key = "Ctrl-.",
   run = function()
     local Flabel = usrPrompt('Jump to: label')
     if not Flabel then return end
