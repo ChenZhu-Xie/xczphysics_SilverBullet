@@ -9,11 +9,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 [[asdf➖|]]${backrefStat("asdf")}*ᵀ*🔙${backRefs("asdf")}
 
-[[asdf➕|]]1🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
+[[asdf➕|]]^1^🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
 
-==~t~==1
 
-1==^t^==
 
 ```space-lua
 function usrPrompt(hinText)
@@ -46,7 +44,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​${_.thBlabel}==^t^==​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​^${_.thBlabel}^​[[${_.ref}]]​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -91,7 +89,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabel = (tableBack(Flabel)).length + 1 .. "==^t^=="
+    local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local fullText = backAnchor .. thBlabel .. F .. backrefStat .. forthRef
@@ -104,7 +102,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.snippet, "([%d]+)==^t^=="))
+        return tonumber(string.match(self.snippet, "^([%d]+)^"))
       end
     end
   }
