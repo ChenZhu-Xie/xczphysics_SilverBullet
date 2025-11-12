@@ -77,7 +77,7 @@ end
 
 function forthRef(Flabel)
   local str = template.each(tableForth(Flabel), template.new[==[​[[${_.ref}]]​]==])
-  if #str == 0 then return "No BackRef" end
+  if #str == 0 then return "No such Anchor" end
   return str
 end
 
