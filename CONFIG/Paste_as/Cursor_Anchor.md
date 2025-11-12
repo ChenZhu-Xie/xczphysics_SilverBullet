@@ -11,7 +11,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 ➪➭➲➪➩➾🡄🢧🍆⬅️
 [[asdf➕|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
-
+[[asdf🔵|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
 
 
 ```space-lua
@@ -25,8 +25,8 @@ end
 
 local suffixFlabel = "🔵" -- ➖ 🗨
 local suffixBlabel = "🟣" -- ➕ 🗯
-local F = "➡️" -- >> » 🔜
-local B = "🔙" -- << « 🔙
+local F = " ➡️ " -- >> » 🔜
+local B = " 🔙 " -- << « 🔙
 
 -- =========== Forth Anchor + Back Refs ==================
 
