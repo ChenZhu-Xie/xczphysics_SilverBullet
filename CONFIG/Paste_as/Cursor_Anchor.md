@@ -44,7 +44,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  str = template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -76,7 +76,9 @@ local function tableForth(Flabel)
 end
 
 function forthRef(Flabel)
-  return template.each(tableForth(Flabel), template.new[==[​[[${_.ref}]]​]==])
+  local str = template.each(tableForth(Flabel), template.new[==[​[[${_.ref}]]​]==])
+  if #str == 0 then return "No BackRef" end
+  return str
 end
 
 command.define {
