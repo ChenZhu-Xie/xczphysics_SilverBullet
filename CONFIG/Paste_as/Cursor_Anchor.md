@@ -7,6 +7,8 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
+[[ui➖|]]${backrefStat("ui")}🔙${backRefs("ui")}
+
 
 
 ```space-lua
