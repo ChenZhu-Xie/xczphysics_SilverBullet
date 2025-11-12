@@ -14,7 +14,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 1==^T^==
 *^t^*
 
+[[asdf➖|]]${backrefStat("asdf")}*^t^* << ${backRefs("asdf")}
 
+[[asdf➕|]]^2^ >> ${forthRef("asdf")}${backrefStat("asdf")}*^t^*
 
 ```space-lua
 function usrPrompt(hinText)
