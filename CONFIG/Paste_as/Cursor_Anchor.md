@@ -42,7 +42,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​^${_.thBlabel}^​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​^${_.thBlabel}^​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
