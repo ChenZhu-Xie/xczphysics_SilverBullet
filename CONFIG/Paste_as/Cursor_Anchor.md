@@ -7,9 +7,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-[[asdf➖|]]${backrefStat("asdf")}==^T^==🔙${backRefs("asdf")}
+[[asdf➖|]]==${backrefStat("asdf")}^T^==🔙${backRefs("asdf")}
 
-[[asdf➕|]]1*^t^*🔜${backrefStat("asdf")}==^T^==${forthRef("asdf")}
+[[asdf➕|]]*1*🔜==${backrefStat("asdf")}^T^==${forthRef("asdf")}
 
 ```space-lua
 function usrPrompt(hinText)
