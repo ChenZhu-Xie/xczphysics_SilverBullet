@@ -2,7 +2,6 @@
 hide-frontmatter: true
 ---
 
-
 1. [hiding frontmatter](https://community.silverbullet.md/t/hiding-frontmatter/830/13?u=chenzhu-xie) #community #silverbullet
 
 ```
