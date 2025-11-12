@@ -88,8 +88,8 @@ command.define {
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
     local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local forthRef = '${forthRef("' .. Flabel .. '")}'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
     editor.insertAtPos(fullText, editor.getCursor(), true)
   end
