@@ -31,7 +31,7 @@ local function tableBack(Flabel)
   local aspiringPageBack = Flabel .. suffixBlabel
   return query[[
     from index.tag "link"
-    where toPage:find(aspiringPageBack, 1, true) -- no Regex
+    where toPage and toPage:find(aspiringPageBack, 1, true) -- no Regex
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
