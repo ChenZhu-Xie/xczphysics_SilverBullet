@@ -47,10 +47,9 @@ function backRefs(Flabel)
   -- return template.each(tableBack(Flabel), template.new[==[​*${_.thBlabel}*​[[${_.ref}]]​]==])
   local result = {}
   for _, row in ipairs(tableBack(Flabel)) do
-    table.insert(result, "[[" .. row.ref .. "]]")
+    table.insert(result, "*" .. tostring(row.thBlabel) .. "*" .. "[[" .. row.ref .. "]]")
   end
   return table.concat(result, "")
-  
 end
 
 command.define {
