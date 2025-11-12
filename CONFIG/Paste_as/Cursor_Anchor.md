@@ -45,7 +45,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​№${_.thBlabel}*ᵀ*​[[${_.ref}]]​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​№${_.thBlabel}​[[${_.ref}]]​]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -58,7 +58,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
-    local backrefStat = '==${backrefStat("' .. Flabel .. '")}^T^=='
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}*ᵀ*'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     editor.insertAtPos(fullText, editor.getCursor(), true)
