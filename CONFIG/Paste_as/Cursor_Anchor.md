@@ -7,9 +7,9 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-[[asdf➖|]]${backrefStat("asdf")}*~Σ~* << ${backRefs("asdf")}
+[[asdf➖|]]==Σ==${backrefStat("asdf")} << ${backRefs("asdf")}
 
-[[asdf➕|]]==1== `>>` ${forthRef("asdf")}==~Σ~==${backrefStat("asdf")}
+[[asdf➕|]]==1== `>>` ${forthRef("asdf")}==Σ==${backrefStat("asdf")}
 
 
 ```space-lua
@@ -57,7 +57,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}*^t^*'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     editor.insertAtPos(fullText, editor.getCursor(), true)
@@ -92,7 +92,7 @@ command.define {
     -- local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
     local thBlabel = "==" .. (tableBack(Flabel)).length + 1 .. "=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}*^t^*'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
     editor.insertAtPos(fullText, editor.getCursor(), true)
   end
