@@ -11,8 +11,6 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 [[asdf➕|]]^1^🔜${backrefStat("asdf")}*ᵀ*${forthRef("asdf")}
 
-
-
 ```space-lua
 function usrPrompt(hinText)
   local input = editor.prompt(hinText, "")
@@ -102,7 +100,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.snippet, "^([%d]+)^"))
+        return tonumber(string.match(self.snippet, "^([0~9]+)^"))
       end
     end
   }
