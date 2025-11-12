@@ -57,7 +57,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}^∑^'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     editor.insertAtPos(fullText, editor.getCursor(), true)
