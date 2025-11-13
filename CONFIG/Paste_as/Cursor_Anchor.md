@@ -43,7 +43,8 @@ local function tableBack(Flabel)
 end
 
 function backrefStat(Flabel)
-  return (tableBack(Flabel)).length
+  -- return (tableBack(Flabel)).length
+  return #tableBack(Flabel)
 end
 
 function backRefs(Flabel)
@@ -93,8 +94,8 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    -- local thBlabel = "^" .. (tableBack(Flabel)).length + 1 .. "^"
-    local thBlabel = "==" .. (tableBack(Flabel)).length + 1 .. "=="
+    -- local thBlabel = "^" .. (backrefStat(Flabel) + 1) .. "^"
+    local thBlabel = "==" .. (backrefStat(Flabel) + 1) .. "=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
