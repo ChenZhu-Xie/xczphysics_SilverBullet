@@ -106,6 +106,11 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 [Smart_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Smart_Url#Paste:%20Smart%20URL) #enlarge-the-percentage #fly
 [Smart_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) #github
 
+## Cursor Anchor
+
+==Ctrl-,==
+
+
 # Nearest Pattern
 
 ## 👯 Duplicate
