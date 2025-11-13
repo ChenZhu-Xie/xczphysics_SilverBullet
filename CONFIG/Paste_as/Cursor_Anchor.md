@@ -5,6 +5,8 @@ pageDecoration.prefix: "📎 "
 ---
 #forward #object
 
+# Bi-directional Linking System
+
 ## here we go
 
 test the bidirecional linking system at cursor level, through some forth/back anchor system:

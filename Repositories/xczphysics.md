@@ -118,6 +118,9 @@ name: ChenZhu-Xie/Paste_as/Cursor_Anchor
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 ```
 
+[[CONFIG/Paste_as/Cursor_Anchor#here we go|Cursor_Anchor]]
+[Cursor_Anchor](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Cursor_Anchor#here%20we%20go) #enlarge-the-percentage #fly
+[Cursor_Anchor.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md) #github
 
 # Nearest Pattern
 
