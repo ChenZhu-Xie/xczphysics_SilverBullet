@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Copy_as/Cursor_Link
 tags: meta/library
 pageDecoration.prefix: "✂️ "
 ---
