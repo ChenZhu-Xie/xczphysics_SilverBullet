@@ -7,19 +7,16 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 
 ## here we go
 
-now we are testing the bidirectional refs at cursor level achieved through some anchor mechanism:
+test the bidirecional linking system at cursor level, through some forth/back anchor system:
 
 [[asdf🔵|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
-
-
-
 
 
 [[asdf🟣|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
 [[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
-[[asdf🟣|ffff]]==3== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
+
 
 ```space-lua
 function usrPrompt(hinText)
