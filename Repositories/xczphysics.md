@@ -109,6 +109,14 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 ## Cursor Anchor
 
 ==Ctrl-,==
+`[[test🔵|]]${backrefStat("test")}*~Σ~* 🔙 ${backRefs("test")}`
+==Ctrl-.==
+`[[test🟣|]]==1== ➡️ ${forthRef("test")}${backrefStat("test")}*~Σ~*`
+
+```#meta/library/remote
+name: ChenZhu-Xie/Paste_as/Cursor_Anchor
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
+```
 
 
 # Nearest Pattern
