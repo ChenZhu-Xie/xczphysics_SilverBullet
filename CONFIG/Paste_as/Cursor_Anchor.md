@@ -5,7 +5,7 @@ pageDecoration.prefix: "📎 "
 ---
 #forward #object
 
-# Bi-directional Linking System
+# Bi-directional Linking System @ Cursor
 
 ## here we go
 
