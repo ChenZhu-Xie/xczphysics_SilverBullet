@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Nearest_Pattern/Delete
 tags: meta/library
 pageDecoration.prefix: 🪚
 ---

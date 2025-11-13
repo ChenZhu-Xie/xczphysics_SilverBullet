@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Copy_as/page_title/Github_Url
 tags: meta/library
 pageDecoration.prefix: "✂️ "
 ---

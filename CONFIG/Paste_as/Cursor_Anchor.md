@@ -1,5 +1,7 @@
 ---
-
+name: CONFIG/Paste_as/Cursor_Anchor
+tags: meta/library
+pageDecoration.prefix: "📎 "
 ---
 #forward #object
 

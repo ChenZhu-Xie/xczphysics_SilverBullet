@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Nearest_Pattern/Duplicate
 tags: meta/library
 pageDecoration.prefix: "👯 "
 ---

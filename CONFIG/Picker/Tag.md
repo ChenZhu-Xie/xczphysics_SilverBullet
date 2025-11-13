@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Picker/Tag
 tags: meta/library
 pageDecoration.prefix: 🛻
 ---

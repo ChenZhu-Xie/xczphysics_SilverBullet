@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Copy_as/page_title/Page_Wiki
 tags: meta/library
 pageDecoration.prefix: "✂️ "
 ---

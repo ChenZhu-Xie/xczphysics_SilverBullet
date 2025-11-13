@@ -1,4 +1,5 @@
 ---
+name: STYLE/Theme/HHH
 tags: meta/library
 pageDecoration.prefix: "🖼️ "
 ---

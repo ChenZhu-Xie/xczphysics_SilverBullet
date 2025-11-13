@@ -1,4 +1,5 @@
 ---
+name: STYLE/Color/Inline_Text
 tags: meta/library
 pageDecoration.prefix: "🔤 "
 ---

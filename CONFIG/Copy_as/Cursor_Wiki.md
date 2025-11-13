@@ -1,5 +1,5 @@
 ---
-name: ChenZhu-Xie/Copy_as/Cursor_Wiki
+name: CONFIG/Copy_as/Cursor_Wiki
 tags: meta/library
 pageDecoration.prefix: "✂️ "
 ---

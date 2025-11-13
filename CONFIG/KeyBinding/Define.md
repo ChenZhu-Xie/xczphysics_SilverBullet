@@ -1,4 +1,5 @@
 ---
+name: CONFIG/KeyBinding/Define
 tags: meta/library
 pageDecoration.prefix: "⌨️ "
 ---

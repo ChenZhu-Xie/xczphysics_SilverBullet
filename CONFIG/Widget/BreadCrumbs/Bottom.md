@@ -1,4 +1,5 @@
 ---
+name: CONFIG/Widget/BreadCrumbs/Bottom
 tags: meta/library
 pageDecoration.prefix: "🥖 "
 githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
