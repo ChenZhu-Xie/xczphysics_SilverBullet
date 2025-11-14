@@ -2,8 +2,9 @@
 
 # Understandable
 
-Uncomputable yet understandable, 
-but ultimately incomprehensible at the end.
+==Uncomputable== yet ==understandable==, 
+but ultimately _incomprehensible_,
+for still not possible to perform the complete calculation.
 
 无法计算，但可以理解。
 但最终还是无法理解彻底，因为最终还是无法执行完整计算。
