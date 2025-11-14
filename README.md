@@ -31,6 +31,7 @@
 | 🟨 **Copy as** | [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Link) |
 | 🟨 **Copy as** | [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Wiki) |
 | 🔴 **Paste as** | [Smart Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Smart%20URL) |
+| 🔴 **Paste as** | [Cursor Anchor](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md) | [Usage](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Cursor_Anchor#here%20we%20go) |
 | 🟦 **Nearest Pattern** | [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👯%20Duplicate) |
 | 🟦 **Nearest Pattern** | [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#🪚%20Delete) |
 | 🟢 **Picker** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
