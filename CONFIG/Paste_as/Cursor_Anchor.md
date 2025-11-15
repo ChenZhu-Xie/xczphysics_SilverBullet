@@ -78,10 +78,11 @@ command.define {
   run = function()
     local iniText = getSelectedText()
     -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
+    local Flabel
     if iniText and iniText ~= "" then
-      local Flabel = iniText
+      Flabel = iniText
     else
-      local Flabel = usrPrompt('Enter: label (to be Referred)', "")
+      Flabel = usrPrompt('Enter: label (to be Referred)', "")
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
