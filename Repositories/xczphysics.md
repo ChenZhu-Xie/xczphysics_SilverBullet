@@ -18,6 +18,7 @@ pageDecoration.prefix: "📚 "
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Link
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 ```
 [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
@@ -32,6 +33,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/Cursor_Wiki
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
 ```
 [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Cursor Wiki]]
@@ -45,6 +47,7 @@ Copy `F:\path\to\SB_space\Repositories`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
 ```
 [[CONFIG/Copy_as/page_title/Folder_Url@194|Folder Url]]
@@ -58,6 +61,7 @@ Copy `github:username/repo/lib.md`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Github_Url
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md
 ```
 [[CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
@@ -71,6 +75,7 @@ Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Link
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md
 ```
 [[CONFIG/Copy_as/page_title/Page_Link|Page Link]]
@@ -84,6 +89,7 @@ Copy `[[Repositories/xczphysics]]`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md
 ```
 [[CONFIG/Copy_as/page_title/Page_Wiki|Page Wiki]]
@@ -100,6 +106,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Smart_Url
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md
 ```
 [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart URL]]
@@ -115,6 +122,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Cursor_Anchor
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 ```
 
@@ -131,6 +139,7 @@ Duplicate the nearest format `==Alt-c==`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Duplicate
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
 ```
 [[CONFIG/Nearest_Pattern/Duplicate#Page Version|Duplicate]]
@@ -144,6 +153,7 @@ Remove the nearest format `#meta/library/remote`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Nearest_Pattern/Delete
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
 ```
 [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]]
@@ -159,6 +169,7 @@ Add `Navigate: Heading Picker` to CMD
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Picker/Heading
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md
 ```
 [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading]]
@@ -172,6 +183,7 @@ Add `Navigate: Tag Picker` to CMD
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Picker/Tag
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
 ```
 [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]]

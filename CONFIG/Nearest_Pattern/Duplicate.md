@@ -1,7 +1,6 @@
 ---
 name: CONFIG/Nearest_Pattern/Duplicate
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
 pageDecoration.prefix: "👯 "
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: CONFIG/Paste_as/Cursor_Anchor
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 pageDecoration.prefix: "📎 "
 ---
 #forward #object

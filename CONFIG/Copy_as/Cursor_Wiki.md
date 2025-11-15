@@ -1,7 +1,6 @@
 ---
 name: CONFIG/Copy_as/Cursor_Wiki
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
 pageDecoration.prefix: "✂️ "
 ---
 #forward #wiki
