@@ -25,6 +25,12 @@ function getSelectedText()
   return text:sub(sel.from + 1, sel.to)
 end
 
+function setSelectedText(newText)
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  editor.replaceRange(sel.from, sel.to, newText)
+end
+
 function usrPrompt(hinText, iniText)
   local iniText = iniText or ""
   local input = editor.prompt(hinText, iniText)
@@ -76,7 +82,8 @@ command.define {
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     if iniText and iniText ~= "" then
-      
+      setSelectedText("") -- Delete selected iniText
+    end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
   end
