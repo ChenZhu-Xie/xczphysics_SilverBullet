@@ -236,7 +236,7 @@ Add `Git Force Push`
 name: ChenZhu-Xie/Sync/Git
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md
 ```
-[[CONFIG/Sync/Git#Enhanced Git Plug|Enhanced Git]]
+[[CONFIG/Sync/Enhanced Git#Enhanced Git Plug|Enhanced Git]]
 [Git](https://enlarge-the-percentage.fly.dev/CONFIG/Sync/Git#Enhanced%20Git%20Plug) #enlarge-the-percentage #fly
 [Git.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Git.md) #github
 

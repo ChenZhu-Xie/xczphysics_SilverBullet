@@ -5,7 +5,7 @@ pageDecoration.prefix: "🎏 "
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
 ---
 
-1. Official [Git.md](https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md) #github
+1. Add some additonal functions to Official [Git.md](https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md) #github
 2. https://community.silverbullet.md/t/vibe-coded-sb-v2-git-plugin/3228?u=chenzhu-xie
 
 # Enhanced Git Plug

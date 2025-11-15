@@ -7,12 +7,12 @@
 2. input `meta picker` and press `enter`
 3. input `Library Manager` and press `enter`
 4. below the HEADER `Repositories`
-   - click commandButton `Library: Add Repository`
+   - click commandButton `Add from URI`
 5. input URL `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
-6. input name `xczphysics`
+6. input name `Repositories/xczphysics`
 7. press `Alt + ←` (back to page `Library/Std/Pages/Library Manager`)
    - then, `Repositories/xczphysics` appears below the HEADER `Repositories`
-   - libs in `Repositories/xczphysics` appear below the HEADER `Available Libraries`.
+   - libs in `Repositories/xczphysics` appear below the HEADER `Available libraries`.
 8. below the HEADER `Available libraries`
    - mouse `Shift + Scroll ↓` a little bit, find the commandButton `Install`
 9. install any lib
