@@ -20,8 +20,7 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 [[lkjjhh🔵|]]${backrefStat("lkjjhh")}*~Σ~* 🔙 ${backRefs("lkjjhh")}
 
-okji
-
+[[lkjjhh🟣|]]==1== ➡️ ${forthRef("lkjjhh")}${backrefStat("lkjjhh")}*~Σ~*
 
 ```space-lua
 function getSelectedText()
