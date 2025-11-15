@@ -1,6 +1,7 @@
 ---
 name: CONFIG/Nearest_Pattern/Delete
 tags: meta/library
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
 pageDecoration.prefix: 🪚
 ---
 

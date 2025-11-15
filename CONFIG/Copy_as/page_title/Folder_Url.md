@@ -1,6 +1,7 @@
 ---
 name: CONFIG/Copy_as/page_title/Folder_Url
 tags: meta/library
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
 pageDecoration.prefix: "✂️ "
 ---
 #forward #external #dir
