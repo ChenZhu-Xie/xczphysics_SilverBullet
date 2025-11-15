@@ -1,7 +1,7 @@
 
 1. [space lua addon with missing git commands history diff restore](https://community.silverbullet.md/t/space-lua-addon-with-missing-git-commands-history-diff-restore/3539) #community #silverbullet
 
-```space-lua
+```
 -- ###########################################################################
 -- ## Git History Module (complete, restored)
 -- ## Depends on: Utilities.md (utilities.debug), and environment helpers:
