@@ -122,7 +122,7 @@ command.define {
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
     local alias = getSelectedText()
     if alias and alias ~= "" then
-      setSelectedText("") -- Delete selected iniText
+      setSelectedText("") -- Delete selected alias
     end
     editor.insertAtPos(alias, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
