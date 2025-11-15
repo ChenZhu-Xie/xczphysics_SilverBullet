@@ -52,19 +52,17 @@ local function tableBack(Flabel)
   local aspiringPageBack = Flabel .. suffixBlabel
   return query[[
     from index.tag "link"
-    where toPage and toPage:find(aspiringPageBack, 1, true) -- no Regex
+    where toPage and toPage:find(aspiringPageBack, 1, true)
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
 end
 
 function backrefStat(Flabel)
-  -- return (tableBack(Flabel)).length
   return #tableBack(Flabel)
 end
 
 function backRefs(Flabel)
-  -- local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​^${_.thBlabel}^​]==])
   local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​==${_.thBlabel}==​]==])
   if #str == 0 then return "No BackRef" end
   return str
