@@ -17,8 +17,9 @@ test the bidirecional linking system at cursor level, through some forth/back an
 [[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
 ```space-lua
-function usrPrompt(hinText)
-  local input = editor.prompt(hinText, "")
+function usrPrompt(hinText, iniText)
+  iniText = iniText or ""
+  local input = editor.prompt(hinText, iniText)
   if not input then
     editor.flashNotification("Cancelled", "warn")
   end
@@ -91,7 +92,7 @@ command.define {
   name = "insert: Backanchor + Forthref",
   key = "Ctrl-.",
   run = function()
-    local Flabel = usrPrompt('Jump to: label')
+    local Flabel = usrPrompt('Jump to: label', iniText)
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
