@@ -17,6 +17,7 @@ test the bidirecional linking system at cursor level, through some forth/back an
 [[asdf🟣|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 [[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -126,14 +127,12 @@ command.define {
       Flabel = usrPrompt('Jump to: label', '')
     end
     if not Flabel then return end
-    local aspiringPageBack = Flabel .. suffixBlabel
+    local thBlabel = backrefStat(Flabel) + 1
+    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local thBlabelnum = backrefStat(Flabel) + 1
-    -- local thBlabel = "^" .. thBlabelnum .. "^"
-    local thBlabel = "==" .. thBlabelnum .. "=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
-    local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
+    local fullText = backAnchor .. F .. forthRef .. backrefStat
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
     else
@@ -149,7 +148,6 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        -- return tonumber(string.match(self.snippet, "%^([0-9]+)%^"))
         return tonumber(string.match(self.snippet, "==([0-9]+)=="))
       end
     end
