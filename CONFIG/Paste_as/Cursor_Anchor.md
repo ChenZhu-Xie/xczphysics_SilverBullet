@@ -17,6 +17,10 @@ test the bidirecional linking system at cursor level, through some forth/back an
 [[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
 
+
+[[sadf🔵|]]${backrefStat("sadf")}*~Σ~* 🔙 ${backRefs("sadf")}
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
