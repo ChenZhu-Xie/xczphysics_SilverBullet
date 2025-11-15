@@ -66,6 +66,7 @@ command.define {
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
   end
 }
 
