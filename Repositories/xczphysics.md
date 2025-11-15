@@ -227,10 +227,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Wid
 ## Enhanced Git
 
 ==Enhanced Version `of Official Git`==
-Add `Git Commit`
-Add `Git Event-Driven/Periodical/Manual Sync`
-Add `Git Force Pull`
-Add `Git Force Push`
+Additional `Git Event-Driven/ Sync`
+Additional `Git Force Pull`
+Additional `Git Force Push`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Sync/Git
