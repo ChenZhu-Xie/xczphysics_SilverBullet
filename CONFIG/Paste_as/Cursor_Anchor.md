@@ -73,7 +73,7 @@ command.define {
   name = "insert: Forthanchor + Backrefs",
   key = "Ctrl-,",
   run = function()
-    iniText = getSelectedText()
+    local iniText = getSelectedText()
     local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
