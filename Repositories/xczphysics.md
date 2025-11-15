@@ -118,7 +118,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 ==Ctrl-,==
 `[[test🔵|]]${backrefStat("test")}*~Σ~* 🔙 ${backRefs("test")}`
 ==Ctrl-.==
-`[[test🟣|]]==1== ➡️ ${forthRef("test")}${backrefStat("test")}*~Σ~*`
+`[[test🟣1|test🟣]]==1== ➡️ ${forthRef("test")}${backrefStat("test")}*~Σ~*`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Paste_as/Cursor_Anchor
