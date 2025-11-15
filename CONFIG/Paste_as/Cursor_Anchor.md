@@ -12,15 +12,10 @@ pageDecoration.prefix: "📎 "
 
 test the bidirecional linking system at cursor level, through some forth/back anchor system:
 
-[[asdf🔵|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
+[[label🔵|]]${backrefStat("label")}*~Σ~* 🔙 ${backRefs("label")}
 
-[[asdf🟣1|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
-[[asdf🟣4|]]==4== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
-
-[[asdf🟣3|]]==3== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
-[[asdf🟣2|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
-
-
+[[label🟣1|label🟣]]==1== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
+[[label🟣2|label🟣]]==2== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 
 ```space-lua
 function getSelectedText()
