@@ -67,13 +67,15 @@ command.define {
   name = "insert: Forthanchor + Backrefs",
   key = "Ctrl-,",
   run = function()
-    local Flabel = usrPrompt('Enter: label (to be Referred)', getSelectedText())
+    iniText = getSelectedText()
+    local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
+    if 
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
   end
