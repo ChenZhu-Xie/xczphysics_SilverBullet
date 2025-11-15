@@ -124,6 +124,7 @@ command.define {
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected iniText
     end
+    editor.insertAtPos(alias, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
   end
 }
