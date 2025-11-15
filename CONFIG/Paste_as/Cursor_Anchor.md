@@ -17,6 +17,9 @@ test the bidirecional linking system at cursor level, through some forth/back an
 [[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
 
+
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -110,6 +113,7 @@ command.define {
   name = "insert: Backanchor + Forthref",
   key = "Ctrl-.",
   run = function()
+    local alias = getSelectedText()
     local iniText = js.window.navigator.clipboard.readText()
     local Flabel = usrPrompt('Jump to: label', iniText)
     if not Flabel then return end
@@ -120,7 +124,6 @@ command.define {
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
-    local alias = getSelectedText()
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
     end
