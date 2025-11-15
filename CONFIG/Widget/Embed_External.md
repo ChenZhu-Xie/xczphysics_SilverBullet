@@ -1,6 +1,6 @@
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
 
-```space-lua
+```
 utilities=utilities or {}
 
 -- Embed external resources
@@ -14,7 +14,7 @@ function utilities.embedUrl(specOrUrl,w,h)
 end
 ```
 
-```space-lua
+```
 -- Convert meeting note title
 function utilities.getmeetingTitle()
   local t=string.split(string.split(editor.getCurrentPage(),"/")[#string.split(editor.getCurrentPage(),"/")],"_")
