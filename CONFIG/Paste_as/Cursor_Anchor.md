@@ -120,7 +120,11 @@ command.define {
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
-    editor.insertAtPos(fullText, editor.getCursor(), true)
+    local alias = getSelectedText()
+    if alias and alias ~= "" then
+      setSelectedText("") -- Delete selected iniText
+    end
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
   end
 }
 
