@@ -93,7 +93,6 @@ command.define {
       setSelectedText("") -- Delete selected iniText
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
-    
     editor.copyToClipboard(Flabel)
   end
 }
