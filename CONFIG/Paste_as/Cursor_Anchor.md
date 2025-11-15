@@ -20,7 +20,8 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 [[lkjjhh🔵|]]${backrefStat("lkjjhh")}*~Σ~* 🔙 ${backRefs("lkjjhh")}
 
-[[lkjjhh🟣|]]==1== ➡️ ${forthRef("lkjjhh")}${backrefStat("lkjjhh")}*~Σ~*
+
+[[lkjjhh🟣|]]==2== ➡️ ${forthRef("lkjjhh")}${backrefStat("lkjjhh")}*~Σ~*
 
 ```space-lua
 function getSelectedText()
@@ -140,6 +141,8 @@ command.define {
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
+    else
+      alias = ''
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
