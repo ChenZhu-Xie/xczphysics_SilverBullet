@@ -18,7 +18,7 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 ```space-lua
 function usrPrompt(hinText, iniText)
-  iniText = iniText or ""
+  local iniText = iniText or ""
   local input = editor.prompt(hinText, iniText)
   if not input then
     editor.flashNotification("Cancelled", "warn")
@@ -92,6 +92,7 @@ command.define {
   name = "insert: Backanchor + Forthref",
   key = "Ctrl-.",
   run = function()
+    local iniText = js.window.navigator.clipboard.readText()
     local Flabel = usrPrompt('Jump to: label', iniText)
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
