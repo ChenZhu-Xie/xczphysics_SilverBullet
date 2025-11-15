@@ -1,7 +1,6 @@
 ---
 name: CONFIG/Sync/Enhanced_Git
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Enhanced_Git.md
 pageDecoration.prefix: "🎏 "
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
 ---

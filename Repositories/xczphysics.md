@@ -200,6 +200,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 ```
 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level|Visit Times]]
@@ -215,6 +216,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add
 
 ```#meta/library/remote
 name: ChenZhu-Xie/BreadCrumbs/Bottom
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md
 ```
 [[CONFIG/Widget/BreadCrumbs/Bottom#Adaptive Bread Crumb: Bottom|Bottom]]
@@ -228,6 +230,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Wid
 
 ```#meta/library/remote
 name: ChenZhu-Xie/BreadCrumbs/Top
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md
 ```
 [[CONFIG/Widget/BreadCrumbs/Top#Adaptive Bread Crumb: Top|Top]]
@@ -245,6 +248,7 @@ Additional `Git Force Push`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Sync/Enhanced_Git
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Enhanced_Git.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Enhanced_Git.md
 ```
 [[CONFIG/Sync/Enhanced_Git#Enhanced Git Plug|Enhanced Git]]
@@ -259,6 +263,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Syn
 
 ```#meta/library/remote
 name: ChenZhu-Xie/KeyBinding/Define
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md
 ```
 [[CONFIG/KeyBinding/Define#Define Commonly-used Commands|Define Commands]]
@@ -271,6 +276,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Key
 
 ```#meta/library/remote
 name: ChenZhu-Xie/KeyBinding/Update
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md
 ```
 [[CONFIG/KeyBinding/Update#Update Commonly used Commands|Update Commands]]
@@ -286,6 +292,7 @@ Apply `${Green("Your Text")}`
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Color/Inline_Text
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
 ```
 [[STYLE/Color/Inline_Text#space-lua|Coloring Text]]
@@ -298,6 +305,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Colo
 
 ```#meta/library/remote
 name: ChenZhu-Xie/STYLE/Builtin_Formats
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 ```
 [[STYLE/Builtin_Formats#(Missing) Builtin Formats|Missing Formats]]
@@ -312,6 +320,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Buil
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Theme/Doom-Two
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
 ```
 [[STYLE/Theme/Doom-Two#Base setup|Doom-Two]]
@@ -326,6 +335,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Them
 
 ```#meta/library/remote
 name: ChenZhu-Xie/Theme/HHH
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
 ```
 [[STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]

@@ -1,7 +1,6 @@
 ---
 name: STYLE/Color/Inline_Text
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
 pageDecoration.prefix: "🔤 "
 ---
 

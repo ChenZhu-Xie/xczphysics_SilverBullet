@@ -1,7 +1,6 @@
 ---
 name: STYLE/Theme/Doom-Two
 tags: meta/library
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
 pageDecoration.prefix: "🖼️ "
 githubUrl_Original: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"
 ---
