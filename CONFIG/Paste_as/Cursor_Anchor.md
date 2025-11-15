@@ -17,11 +17,6 @@ pageDecoration.prefix: "📎 "
 [[label🟣4|label🟣]]==4== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 [[label🟣2|label🟣]]==2== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 
-
-
-
-
-
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
