@@ -128,8 +128,9 @@ command.define {
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    -- local thBlabel = "^" .. (backrefStat(Flabel) + 1) .. "^"
-    local thBlabel = "==" .. (backrefStat(Flabel) + 1) .. "=="
+    local thBlabelnum = backrefStat(Flabel) + 1
+    -- local thBlabel = "^" .. thBlabelnum .. "^"
+    local thBlabel = "==" .. thBlabelnum .. "=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
     local fullText = backAnchor .. thBlabel .. F .. forthRef .. backrefStat
