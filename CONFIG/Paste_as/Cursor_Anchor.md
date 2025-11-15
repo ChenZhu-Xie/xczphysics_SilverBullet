@@ -125,10 +125,11 @@ command.define {
     local alias = getSelectedText()
     local iniText = js.window.navigator.clipboard.readText()
     -- local Flabel = usrPrompt('Jump to: label', iniText)
+    local Flabel
     if iniText and iniText ~= "" then
-      local Flabel = iniText
+      Flabel = iniText
     else
-      local Flabel = usrPrompt('Jump to: label', '')
+      Flabel = usrPrompt('Jump to: label', '')
     end
     if not Flabel then return end
     local aspiringPageBack = Flabel .. suffixBlabel
