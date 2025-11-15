@@ -3,7 +3,7 @@
 
 ## Lua
 
-```space-lua
+```
 -- priority: -1
 function widgets.button(text, callback, attrs) --added attrs argument
   local buttonAttrs = {
@@ -129,7 +129,7 @@ end
 
 ## Style
 
-```space-style
+```
 :root {
   /* UPDATE (green) */
   --btn-update-bg: oklch(50% 0.25 160);
