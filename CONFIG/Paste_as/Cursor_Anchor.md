@@ -18,7 +18,7 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 
 [[asdfg🔵|]]${backrefStat("asdfg")}*~Σ~* 🔙 ${backRefs("asdfg")}
-
+ffff
 
 ```space-lua
 function getSelectedText()
