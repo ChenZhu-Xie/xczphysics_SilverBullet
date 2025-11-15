@@ -82,7 +82,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = usrPrompt('Enter: label (to be Referred)', "")
+      Flabel = usrPrompt('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
