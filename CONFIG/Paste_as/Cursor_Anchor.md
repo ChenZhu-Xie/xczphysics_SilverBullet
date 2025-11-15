@@ -18,7 +18,9 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 
 
-[[sadf🔵|]]${backrefStat("sadf")}*~Σ~* 🔙 ${backRefs("sadf")}
+[[lkjjhh🔵|]]${backrefStat("lkjjhh")}*~Σ~* 🔙 ${backRefs("lkjjhh")}
+
+okji
 
 
 ```space-lua
