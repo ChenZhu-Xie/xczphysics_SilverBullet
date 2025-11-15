@@ -66,11 +66,7 @@ command.define {
   name = "insert: Forthanchor + Backrefs",
   key = "Ctrl-,",
   run = function()
-    local selected = getSelectedText()
-    if selected and selected ~= "" then
-      local Flabel = usrPrompt('Enter: label (to be Referred)', selected)
-    else
-      local Flabel = usrPrompt('Enter: label (to be Referred)')
+    local Flabel = usrPrompt('Enter: label (to be Referred)', getSelectedText())
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
