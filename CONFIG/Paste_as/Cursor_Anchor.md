@@ -147,7 +147,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.snippet, "%[%[.+" .. suffixBlabel .. "([0-9]+)|"))
+        return tonumber(string.match(self.toPage, "%[%[.+" .. suffixBlabel .. "([0-9]+)|"))
       end
     end
   }
