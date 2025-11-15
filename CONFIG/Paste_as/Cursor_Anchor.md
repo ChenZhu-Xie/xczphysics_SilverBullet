@@ -125,12 +125,13 @@ command.define {
       Flabel = usrPrompt('Jump to: label', '')
     end
     if not Flabel then return end
-    local thBlabel = backrefStat(Flabel) + 1
-    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabel
+    local thBlabelNum = backrefStat(Flabel) + 1
+    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
+    local theBlabel = "==" .. thBlabelNum .."=="
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
-    local fullText = backAnchor .. F .. forthRef .. backrefStat
+    local fullText = backAnchor .. theBlabel .. F .. forthRef .. backrefStat
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
     else
