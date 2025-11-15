@@ -14,8 +14,11 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 [[label🔵|]]${backrefStat("label")}*~Σ~* 🔙 ${backRefs("label")}
 
+
 [[label🟣1|label🟣]]==1== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
+[[label🟣4|label🟣]]==4== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 [[label🟣2|label🟣]]==2== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
+[[label🟣3|label🟣]]==3== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 
 ```space-lua
 function getSelectedText()
