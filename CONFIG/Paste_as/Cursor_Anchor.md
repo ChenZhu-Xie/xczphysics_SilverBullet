@@ -18,7 +18,6 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 
 [[asdfg🔵|]]${backrefStat("asdfg")}*~Σ~* 🔙 ${backRefs("asdfg")}
-[[ffffff🔵|]]${backrefStat("ffffff")}*~Σ~* 🔙 ${backRefs("ffffff")}
 
 ```space-lua
 function getSelectedText()
@@ -94,6 +93,7 @@ command.define {
       setSelectedText("") -- Delete selected iniText
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
+    
     editor.copyToClipboard(Flabel)
   end
 }
