@@ -14,8 +14,8 @@ test the bidirecional linking system at cursor level, through some forth/back an
 
 [[asdf🔵|]]${backrefStat("asdf")}*~Σ~* 🔙 ${backRefs("asdf")}
 
-[[asdf🟣|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
-[[asdf🟣|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
+[[asdf🟣1|]]==1== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
+[[asdf🟣2|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
 
 ```space-lua
