@@ -20,6 +20,8 @@ test the bidirecional linking system at cursor level, through some forth/back an
 [[asdf🟣3|]]==3== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 [[asdf🟣2|]]==2== ➡️ ${forthRef("asdf")}${backrefStat("asdf")}*~Σ~*
 
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -137,7 +139,7 @@ command.define {
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
     else
-      alias = ''
+      alias = Flabel .. suffixBlabel -- alias = ''
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
