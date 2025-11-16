@@ -16,6 +16,8 @@ pageDecoration.prefix: "📎 "
 [[label🟣4|label🟣]]==4== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 [[label🟣2|label🟣]]==2== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
 
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -39,10 +41,10 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-local suffixFlabel = "🔵" -- 🐳💧 ➖ 🗨
-local suffixBlabel = "🟣" -- 🐈‍⬛🍆 ➕ 🗯
-local F = " ➡️ " -- >> » 🔜 🢧
-local B = " 🔙 " -- << « 🔙 🡄
+local suffixFlabel = "🔵"
+local suffixBlabel = "🟣"
+local F = " ➡️ "
+local B = " 🔙 "
 
 -- =========== Forth Anchor + Back Refs ==================
 
@@ -61,7 +63,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]​==${_.thBlabel}==​]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]*~${_.thBlabel}~*]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -81,7 +83,7 @@ command.define {
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
     local forthAnchor = "[[" .. aspiringPageForth .. "||^|]]"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
     if iniText and iniText ~= "" then
@@ -126,9 +128,9 @@ command.define {
     local thBlabelNum = backrefStat(Flabel) + 1
     local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local theBlabel = "==" .. thBlabelNum .."=="
+    local theBlabel = "*~" .. thBlabelNum .."~*"
     local forthRef = '${forthRef("' .. Flabel .. '")}'
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}*~Σ~*'
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
     local fullText = backAnchor .. theBlabel .. F .. forthRef .. backrefStat
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
