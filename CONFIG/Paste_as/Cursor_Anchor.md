@@ -21,7 +21,6 @@ pageDecoration.prefix: "📎 "
 
 * [ ] [[simpler🟣5|simpler🟣]]~5~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
 
-
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
