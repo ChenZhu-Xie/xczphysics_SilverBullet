@@ -9,14 +9,9 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[label🔵|]]${backrefStat("label")}*~Σ~* 🔙 ${backRefs("label")}
-
-[[label🟣1|label🟣]]==1== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
-[[label🟣3|label🟣]]==3== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
-[[label🟣4|label🟣]]==4== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
-[[label🟣2|label🟣]]==2== ➡️ ${forthRef("label")}${backrefStat("label")}*~Σ~*
-
-
+[[simpler🔵|]]${backrefStat("simpler")} 🔙 ${backRefs("simpler")}
+[[simpler🟣1|simpler🟣]]*~1~* ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+[[simpler🟣2|simpler🟣]]*~2~* ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
 
 ```space-lua
 function getSelectedText()
@@ -63,7 +58,7 @@ function backrefStat(Flabel)
 end
 
 function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]*~${_.thBlabel}~*]==])
+  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}]]~${_.thBlabel}~]==])
   if #str == 0 then return "No BackRef" end
   return str
 end
@@ -128,7 +123,7 @@ command.define {
     local thBlabelNum = backrefStat(Flabel) + 1
     local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
     local backAnchor = "[[" .. aspiringPageBack .. "||^|]]"
-    local theBlabel = "*~" .. thBlabelNum .."~*"
+    local theBlabel = "~" .. thBlabelNum .."~"
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backrefStat = '${backrefStat("' .. Flabel .. '")}'
     local fullText = backAnchor .. theBlabel .. F .. forthRef .. backrefStat
