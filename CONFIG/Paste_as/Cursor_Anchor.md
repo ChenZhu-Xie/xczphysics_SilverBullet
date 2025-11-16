@@ -11,7 +11,7 @@ pageDecoration.prefix: "📎 "
 
 ### backup 2.2
 
-```lua
+```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
@@ -296,7 +296,7 @@ index.defineTag {
 
 * [ ] [[simpler🟣5|simpler🟣]]~5~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
 
-```space-lua
+```lua
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
