@@ -11,7 +11,7 @@ pageDecoration.prefix: "📎 "
 
 ### backup 3
 
-```space-lua
+```lua
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
@@ -146,7 +146,7 @@ index.defineTag {
 }
 ```
 
-### backup 2
+### backup 2.1
 
 ```lua
 function getSelectedText()
@@ -236,7 +236,7 @@ local function tableForth(Flabel)
 end
 
 function forthRef(Flabel)
-  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|" .. backrefStat(Flabel) .. "]]"))
+  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. backrefStat(Flabel) .. "​]]"))
   if #str == 0 then return "No such Anchor" end
   return str
 end
