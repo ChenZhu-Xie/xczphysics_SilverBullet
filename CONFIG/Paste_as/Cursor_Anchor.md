@@ -9,6 +9,144 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
+
+
+```lua
+function getSelectedText()
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  local text = editor.getText()
+  return text:sub(sel.from + 1, sel.to)
+end
+
+function setSelectedText(newText)
+  local sel = editor.getSelection()
+  if not sel or sel.from == sel.to then return nil end
+  editor.replaceRange(sel.from, sel.to, newText)
+end
+
+function usrPrompt(hinText, iniText)
+  local iniText = iniText or ""
+  local input = editor.prompt(hinText, iniText)
+  if not input then
+    editor.flashNotification("Cancelled", "warn")
+  end
+  return input
+end
+
+local suffixFlabel = "🔵"
+local suffixBlabel = "🟣"
+local F = '➡️'
+local B = '🔙'
+
+-- =========== Forth Anchor + Back Refs ==================
+
+local function tableBack(Flabel)
+  local aspiringPageBack = Flabel .. suffixBlabel
+  return query[[
+    from index.tag "link"
+    where toPage and toPage:find(aspiringPageBack, 1, true)
+    order by _.thBlabel
+    select {ref=_.ref, thBlabel=_.thBlabel}
+  ]]
+end
+
+function backrefStat(Flabel)
+  return #tableBack(Flabel)
+end
+
+function backRefs(Flabel)
+  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}|${_.thBlabel}]]​]==])
+  if #str == 0 then return "No BackRef" end
+  return str
+end
+
+command.define {
+  name = "insert: Forthanchor + Backrefs",
+  key = "Ctrl-,",
+  run = function()
+    local iniText = getSelectedText()
+    -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
+    local Flabel
+    if iniText and iniText ~= "" then
+      Flabel = iniText
+    else
+      Flabel = usrPrompt('Enter: label (to be Referred)', '')
+    end
+    if not Flabel then return end
+    local aspiringPageForth = Flabel .. suffixFlabel
+    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixFlabel .. "|^|]]"
+    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backrefStat .. B .. backRefs
+    if iniText and iniText ~= "" then
+      setSelectedText("") -- Delete selected iniText
+    end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
+  end
+}
+
+-- =========== Back Anchor + Forth Ref ==================
+
+local function tableForth(Flabel)
+  local aspiringPageForth = Flabel .. suffixFlabel
+  return query[[
+    from index.tag "link"
+    where toPage == aspiringPageForth
+    select {ref=_.ref}
+  ]]
+end
+
+function forthRef(Flabel)
+  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|" .. backrefStat(Flabel) .. "]]"))
+  if #str == 0 then return "No such Anchor" end
+  return str
+end
+
+command.define {
+  name = "insert: Backanchor + Forthref",
+  key = "Ctrl-.",
+  run = function()
+    local alias = getSelectedText()
+    local iniText = js.window.navigator.clipboard.readText()
+    -- local Flabel = usrPrompt('Jump to: label', iniText)
+    local Flabel
+    if iniText and iniText ~= "" then
+      Flabel = iniText
+    else
+      Flabel = usrPrompt('Jump to: label', '')
+    end
+    if not Flabel then return end
+    local thBlabelNum = backrefStat(Flabel) + 1
+    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
+    local backAnchor = "[[" .. aspiringPageBack .. "||^|" .. suffixBlabel .. "]]"
+    local forthRef = '${forthRef("' .. Flabel .. '")}'
+    local fullText = backAnchor .. thBlabelNum .. F .. forthRef
+    if alias and alias ~= "" then
+      setSelectedText("") -- Delete selected alias
+    else
+      alias = ''
+    end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
+  end
+}
+
+index.defineTag {
+  name = "link",
+  metatable = {
+    __index = function(self, attr)
+      if attr == "thBlabel" then
+        return tonumber(string.match(self.toPage, ".+" .. suffixBlabel .. "([0-9]+)"))
+      end
+    end
+  }
+}
+```
+
+### backup 1
+
 [[simpler🔵|]]${backrefStat("simpler")} 🔙 ${backRefs("simpler")}
 
 [[simpler🟣2|simpler🟣]]~2~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
@@ -139,142 +277,6 @@ command.define {
       setSelectedText("") -- Delete selected alias
     else
       alias = Flabel .. suffixBlabel -- alias = ''
-    end
-    editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.insertAtCursor(alias, false) -- scrollIntoView?
-  end
-}
-
-index.defineTag {
-  name = "link",
-  metatable = {
-    __index = function(self, attr)
-      if attr == "thBlabel" then
-        return tonumber(string.match(self.toPage, ".+" .. suffixBlabel .. "([0-9]+)"))
-      end
-    end
-  }
-}
-```
-
-### backup 1
-
-```lua
-function getSelectedText()
-  local sel = editor.getSelection()
-  if not sel or sel.from == sel.to then return nil end
-  local text = editor.getText()
-  return text:sub(sel.from + 1, sel.to)
-end
-
-function setSelectedText(newText)
-  local sel = editor.getSelection()
-  if not sel or sel.from == sel.to then return nil end
-  editor.replaceRange(sel.from, sel.to, newText)
-end
-
-function usrPrompt(hinText, iniText)
-  local iniText = iniText or ""
-  local input = editor.prompt(hinText, iniText)
-  if not input then
-    editor.flashNotification("Cancelled", "warn")
-  end
-  return input
-end
-
-local suffixFlabel = "🔵"
-local suffixBlabel = "🟣"
-local F = '➡️'
-local B = '🔙'
-
--- =========== Forth Anchor + Back Refs ==================
-
-local function tableBack(Flabel)
-  local aspiringPageBack = Flabel .. suffixBlabel
-  return query[[
-    from index.tag "link"
-    where toPage and toPage:find(aspiringPageBack, 1, true)
-    order by _.thBlabel
-    select {ref=_.ref, thBlabel=_.thBlabel}
-  ]]
-end
-
-function backrefStat(Flabel)
-  return #tableBack(Flabel)
-end
-
-function backRefs(Flabel)
-  local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}|${_.thBlabel}]]​]==])
-  if #str == 0 then return "No BackRef" end
-  return str
-end
-
-command.define {
-  name = "insert: Forthanchor + Backrefs",
-  key = "Ctrl-,",
-  run = function()
-    local iniText = getSelectedText()
-    -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
-    local Flabel
-    if iniText and iniText ~= "" then
-      Flabel = iniText
-    else
-      Flabel = usrPrompt('Enter: label (to be Referred)', '')
-    end
-    if not Flabel then return end
-    local aspiringPageForth = Flabel .. suffixFlabel
-    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixFlabel .. "|^|]]"
-    local backrefStat = '${backrefStat("' .. Flabel .. '")}'
-    local backRefs = '${backRefs("' .. Flabel .. '")}'
-    local fullText = forthAnchor .. backrefStat .. B .. backRefs
-    if iniText and iniText ~= "" then
-      setSelectedText("") -- Delete selected iniText
-    end
-    editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(Flabel)
-  end
-}
-
--- =========== Back Anchor + Forth Ref ==================
-
-local function tableForth(Flabel)
-  local aspiringPageForth = Flabel .. suffixFlabel
-  return query[[
-    from index.tag "link"
-    where toPage == aspiringPageForth
-    select {ref=_.ref}
-  ]]
-end
-
-function forthRef(Flabel)
-  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|" .. backrefStat(Flabel) .. "]]"))
-  if #str == 0 then return "No such Anchor" end
-  return str
-end
-
-command.define {
-  name = "insert: Backanchor + Forthref",
-  key = "Ctrl-.",
-  run = function()
-    local alias = getSelectedText()
-    local iniText = js.window.navigator.clipboard.readText()
-    -- local Flabel = usrPrompt('Jump to: label', iniText)
-    local Flabel
-    if iniText and iniText ~= "" then
-      Flabel = iniText
-    else
-      Flabel = usrPrompt('Jump to: label', '')
-    end
-    if not Flabel then return end
-    local thBlabelNum = backrefStat(Flabel) + 1
-    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
-    local backAnchor = "[[" .. aspiringPageBack .. "||^|" .. suffixBlabel .. "]]"
-    local forthRef = '${forthRef("' .. Flabel .. '")}'
-    local fullText = backAnchor .. thBlabelNum .. F .. forthRef
-    if alias and alias ~= "" then
-      setSelectedText("") -- Delete selected alias
-    else
-      alias = ''
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
