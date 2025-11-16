@@ -11,6 +11,10 @@ pageDecoration.prefix: "📎 "
 
 ### backup 2.2
 
+[[aaa🔵|🔵]]${backrefStat("aaa")}🔙${backRefs("aaa")}
+[[aaa🟣1|🟣]]${forthRef("aaa",1)}➡️${backrefStat("aaa")}
+[[aaa🟣2|🟣]]${forthRef("aaa",2)}➡️${backrefStat("aaa")}
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
