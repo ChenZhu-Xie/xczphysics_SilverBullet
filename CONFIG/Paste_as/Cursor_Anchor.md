@@ -9,7 +9,7 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-### backup 3
+### backup 2.2
 
 ```lua
 function getSelectedText()
@@ -99,7 +99,7 @@ local function tableForth(Flabel)
 end
 
 function forthRef(Flabel, thBlabelNum)
-  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. thBlabelNum .. "]]"))
+  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. thBlabelNum .. "​]]"))
   if #str == 0 then return "No such Anchor" end
   return str
 end
