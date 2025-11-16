@@ -10,8 +10,10 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 [[simpler🔵|]]${backrefStat("simpler")} 🔙 ${backRefs("simpler")}
-[[simpler🟣1|simpler🟣]]*~1~* ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
-[[simpler🟣2|simpler🟣]]*~2~* ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+
+[[simpler🟣1|simpler🟣]]~1~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+[[simpler🟣2|simpler🟣]]~2~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+[[simpler🟣3|simpler🟣]]~3~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
 
 ```space-lua
 function getSelectedText()
