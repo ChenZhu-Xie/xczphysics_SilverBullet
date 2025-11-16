@@ -11,9 +11,16 @@ pageDecoration.prefix: "📎 "
 
 [[simpler🔵|]]${backrefStat("simpler")} 🔙 ${backRefs("simpler")}
 
-[[simpler🟣1|simpler🟣]]~1~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
 [[simpler🟣2|simpler🟣]]~2~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
-[[simpler🟣3|simpler🟣]]~3~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+1. [[simpler🟣3|simpler🟣]]~3~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+[[simpler🟣1|simpler🟣]]~1~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+
+| Header A | Header B |
+|----------|----------|
+| Cell A | [[simpler🟣4|simpler🟣]]~4~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")} Cell B |
+
+* [ ] [[simpler🟣5|simpler🟣]]~5~ ➡️ ${forthRef("simpler")}${backrefStat("simpler")}
+
 
 ```space-lua
 function getSelectedText()
