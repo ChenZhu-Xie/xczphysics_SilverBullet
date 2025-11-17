@@ -6,7 +6,7 @@ githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLe
 
 Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 to Ctrl-6):
 
-# ImplementationImplementation 
+### Implementation# Implementation 
 ```space-lua
 -- function to toggle a specific header level
 -- function to toggle a specific header level (h1-h6) with cursor-aware behavior
