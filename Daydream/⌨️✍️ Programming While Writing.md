@@ -1,3 +1,4 @@
+#logic #code-rendering #code-compiling #code-noting
 
 SilverBullet 这种 online 版 自带 lua 运行环境的 “在线” 可编程 SiYuan/LogSeq 很符合我对 [双链笔记 软件式的 IDE 的幻想](https://youtu.be/eSe6aFzK-uo)。
 
