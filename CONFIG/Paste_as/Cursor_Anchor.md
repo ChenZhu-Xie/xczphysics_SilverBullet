@@ -11,7 +11,9 @@ pageDecoration.prefix: "📎 "
 
 ### backup 3.2
 
-
+[[oiuweqr➡️|🔙]]${backRefs("oiuweqr")}
+[[oiuweqr🔙1|➡️]]${forthRef("oiuweqr",1)}🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",1)}
+[[oiuweqr🔙2|➡️]]${forthRef("oiuweqr",2)}🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",2)}
 
 ```space-lua
 function getSelectedText()
