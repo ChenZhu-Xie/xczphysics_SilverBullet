@@ -7,7 +7,9 @@ share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/Utilit
 share.hash: 0ab50b7f
 share.mode: pull
 ---
+
 # Utilities
+
 ```space-lua
 utilities=utilities or {}
 
@@ -124,4 +126,4 @@ end
 
 
 ${utilities.debug("test")}
-${      utilities.debug("mode:"..true)}
+${      utilities.debug("mode:","true")}
