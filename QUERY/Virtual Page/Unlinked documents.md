@@ -1,6 +1,8 @@
 
 2. [unlinked documents as a virtual page](https://community.silverbullet.md/t/unlinked-documents-as-a-virtual-page/3554) #community #silverbullet
 
+${widgets.button("Unlinked Documents (" .. #unlinked_documents.get() .. ")", function() editor.navigate("udocs:Unlinked Documents") end)}
+
 ```space-lua
 unlinked_documents = {}
 
