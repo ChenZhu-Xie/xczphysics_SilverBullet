@@ -1,4 +1,6 @@
 
+1. [unlinked documents as a virtual page](https://community.silverbullet.md/t/unlinked-documents-as-a-virtual-page/3554) #community #silverbullet
+
 ```space-lua
 virtualPage.define {
   pattern = "udocs:(.+)",
