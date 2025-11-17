@@ -14,6 +14,10 @@ SY + OB = SB -_-|| 都只是 尝试去 解析 .md 文件
 也可以 被其他的 IDE 编辑
 也可以 被神奇的 MCP 操作： [BV1gfa8zTEvq](https://www.bilibili.com/video/BV1gfa8zTEvq?t=350.2) #bilibili
 
+> **note** Note
+> 无语，这个 MCP 生成（的）总结，
+> 怎么那么像 Pieces for Developers...
+
 # 其他 基本操作
 
 ## 列表
