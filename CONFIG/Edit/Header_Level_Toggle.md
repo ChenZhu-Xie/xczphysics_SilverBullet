@@ -14,7 +14,7 @@ local function toggleHead(level)
   local text = line.textWithCursor
   
   -- Detect current header level
-  local currentLevel = string.match(text, "^(#+)(|^|)?%s*")
+  local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
 
   local cleanText = string.gsub(text, "^#+%s*", "")
