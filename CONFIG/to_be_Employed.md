@@ -33,4 +33,14 @@
 1. [journaling utilities](https://community.silverbullet.md/t/journaling-utilities/3526?u=chenzhu-xie) #community #silverbullet
 2. [CBT Journal](https://github.com/thepaperpilot/silverbullet-libraries/tree/main/Library/CBT-Journal) #github
 
+# Echarts
+
+![image](https://community.silverbullet.md/uploads/default/original/2X/7/7275d59865c5c9482af9f4c955e5b0fd438d179c.png)
+1. [plotting plug](https://community.silverbullet.md/t/plotting-plug/3417/3?u=chenzhu-xie) #community #silverbullet
+
+# Config validation helper function 
+
+1. [config validation helper function](https://community.silverbullet.md/t/config-validation-helper-function/3558) #community #silverbullet
+2. [8efbc6b1ee8546b83c9e3fb365d62893](https://gist.github.com/inos-github/8efbc6b1ee8546b83c9e3fb365d62893#file-config_validator-md) #gist #github
+
 
