@@ -11,20 +11,24 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 -- function to toggle a specific header level
 local function toggleHead(level)
   local line = editor.getCurrentLine()
-  local text = line.textWithCursor
+  local text = line.text  -- 关键：不要用 textWithCursor
 
-  -- Detect current header level
-  local currentLevel = string.match(text, "^(#+)%s*")
-  currentLevel = currentLevel and #currentLevel or 0
+  -- 拆出当前的井号前缀和正文
+  local hashes, body = string.match(text, "^(#+)%s*(.*)")
+  local currentLevel = hashes and #hashes or 0
+  local cleanText = body or text  -- 没有标题时 body 为 nil
 
-  local cleanText = string.gsub(text, "^#+%s*", "")
-
-  -- Toggle: remove if same, otherwise set new level
+  local newText
   if currentLevel == level then
-    editor.replaceRange(line.from, line.to, cleanText, true)
+    -- 同级 -> 移除标题前缀
+    newText = cleanText
   else
-    editor.replaceRange(line.from, line.to, string.rep("#", level) .. " " .. cleanText, true)
+    -- 不同级/无标题 -> 设为目标级别
+    -- 若正文为空，仍保留一个空格以保持格式一致
+    newText = string.rep("#", level) .. " " .. cleanText
   end
+
+  editor.replaceRange(line.from, line.to, newText, true)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
@@ -32,8 +36,8 @@ for lvl = 1, 6 do
   command.define {
     name = "Header: Toggle Level " .. lvl,
     key = "Ctrl-" .. lvl,
-    run = function() 
-      toggleHead(lvl) 
+    run = function()
+      toggleHead(lvl)
     end
   }
 end
