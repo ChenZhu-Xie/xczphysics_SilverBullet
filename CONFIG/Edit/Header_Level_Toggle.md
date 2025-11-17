@@ -11,7 +11,8 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 -- function to toggle a specific header level
 local function toggleHead(level)
   local line = editor.getCurrentLine()
-  local text = line.textWithCursor
+  local text = line.text
+  local textC = line.textWithCursor
   
   -- Detect current header level
   local currentLevel = string.match(text, "^(#+)%s*")
