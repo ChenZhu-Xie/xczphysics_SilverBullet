@@ -11,6 +11,8 @@ pageDecoration.prefix: "📎 "
 
 ### backup 3.2
 
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
