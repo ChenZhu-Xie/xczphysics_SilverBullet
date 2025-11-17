@@ -1,5 +1,5 @@
 
-# Obsidian vs SilverBullet
+# Obsidian_vs_SilverBullet
 
 1. [BV1gfa8zTEvq](https://www.bilibili.com/video/BV1gfa8zTEvq?t=252.0) #bilibili
 
