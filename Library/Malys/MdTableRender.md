@@ -36,6 +36,14 @@ It observes table changes in real time and transforms raw text values into style
 
 Just add the renderer as a hashtag tag in your table header:
 
+
+| Product   #wine    | Euro #euro| Percent #percent | Logical #logical | Stars #stars| Evaluation #evaluation | Updated            | Mood #emoji  | Trend #trend |
+|-------------|------|---------|---------|-------|------------|---------------------|--------|-------|
+| Widget      | 12.99| 0.15    | 0       | 3     | 4          | 2025-11-06T14:30:00Z | happy  | +     |
+| Gadget      | 8.50 | 0.23    | false      | 5     | 2          | 2024-12-25T10:00:00Z | neutral| -     |
+| Thingamajig | 5.75 | 0.05    | true    | 4     | 5          | 2023-05-10T08:15:00Z | cool   | =     |
+
+
 ```md
 | Product   #wine    | Euro #euro| Percent #percent | Logical #logical | Stars #stars| Evaluation #evaluation | Updated            | Mood #emoji  | Trend #trend |
 |-------------|------|---------|---------|-------|------------|---------------------|--------|-------|
