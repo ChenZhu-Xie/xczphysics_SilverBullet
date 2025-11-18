@@ -37,7 +37,7 @@ end
 virtualPage.define {
   pattern = "udocs:(.+)",
   run = function(_)
-    editor.flashNotification("ddddddddddddddddddddddddd")
+    -- editor.flashNotification("ddddddddddddddddddddddddd")
     local result = {"# Unlinked documents"}
 
     local unlinked_docs = unlinked_documents.get()
