@@ -8,8 +8,8 @@ share.hash: 6de344ec
 share.mode: pull
 ---
 
-${editor.navigate("git:Library/Malys/GitHistory_930bab41")}
----
+`${editor.navigate("git:Library/Malys/GitHistory_930bab41")}`
+
 # Git History Module
 
 ## 🎯 Description
