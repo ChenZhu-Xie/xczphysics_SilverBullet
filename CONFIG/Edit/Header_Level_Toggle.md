@@ -17,25 +17,25 @@ local function toggleHead(level)
   currentLevel = currentLevel and #currentLevel or 0
   
   local textC = line.textWithCursor
-  local prefixCpos = string.find(textC, "|^|", 1, true)
+  local posC = string.find(textC, "|^|", 1, true)
   
-  local HeadLine
-  if prefixCpos > currentLevel + 1 then
+  local lineHead
+  if posC > currentLevel + 1 then
     local bodyTextC = string.gsub(textC, "^#+%s*", "")
     if currentLevel == level then
-      HeadLine = bodyTextC
+      lineHead = bodyTextC
     else
-      HeadLine = string.rep("#", level) .. " " .. bodyTextC
+      lineHead = string.rep("#", level) .. " " .. bodyTextC
     end
   else
     local bodyText = string.gsub(text, "^#+%s*", "")
     if currentLevel == level then
-      HeadLine = "|^|" .. bodyText
+      lineHead = "|^|" .. bodyText
     else
-      HeadLine = string.rep("#", level) .. " |^|" .. bodyText
+      lineHead = string.rep("#", level) .. " |^|" .. bodyText
     end
   end
-  editor.replaceRange(line.from, line.to, HeadLine, true)
+  editor.replaceRange(line.from, line.to, lineHead, true)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
