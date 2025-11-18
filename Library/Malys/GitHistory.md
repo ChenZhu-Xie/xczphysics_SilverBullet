@@ -259,7 +259,6 @@ end
 -- returns { path=..., hash=..., content=... }
 local function get_content(ref)
   local data = string.split(ref, "_")
-  editor.flashNotification(",,,,,,,,,,,,,,,,")
   if #data > 1 then
     local path = data[1]
     local hash = data[2]
