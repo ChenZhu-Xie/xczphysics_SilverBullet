@@ -33,7 +33,7 @@ local function toggleHead(level)
     else
       local prefixC = string.match(textC, "^(.+)%s*")
       local pos = string.find(prefixC, "|^|", 1, true)
-      editor.flashNotification(pos)
+      -- editor.flashNotification(pos)
       local left  = string.sub(prefixC, 1, pos - 1)
       local right = string.sub(prefixC, pos + 3)
 
