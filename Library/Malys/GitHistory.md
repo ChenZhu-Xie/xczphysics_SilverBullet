@@ -7,6 +7,8 @@ share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/GitHis
 share.hash: 6de344ec
 share.mode: pull
 ---
+
+${editor.navigate("CHANGELOG@123")}
 ---
 # Git History Module
 
