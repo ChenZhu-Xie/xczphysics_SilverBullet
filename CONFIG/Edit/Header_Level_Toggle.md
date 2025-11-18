@@ -57,8 +57,8 @@ local function toggleHead(level)
       prefixC = leftHashes .. "|^|" .. rightHashes
       local cleanTextC = prefixC .. " " .. cleanText
     end
-    editor.replaceRange(line.from, line.to, cleanTextC, true)
   end
+  editor.replaceRange(line.from, line.to, cleanTextC, true)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
