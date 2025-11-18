@@ -11,18 +11,15 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 -- function to toggle a specific header level
 local function toggleHead(level)
   local line = editor.getCurrentLine()
-  local text = line.text
-  local textC = line.textWithCursor
   
-  -- Detect current header level
+  local text = line.text
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
-
+  
+  local textC = line.textWithCursor
   local prefixCpos = string.find(textC, "|^|", 1, true)
+  
   local HeadLine
-  local bodyText = string.gsub(text, "^#+%s*", "")
-
-  -- Toggle: remove header if same level, otherwise adjust to new level
   if prefixCpos > currentLevel + 1 then
     local bodyTextC = string.gsub(textC, "^#+%s*", "")
     if currentLevel == level then
@@ -31,6 +28,7 @@ local function toggleHead(level)
       HeadLine = string.rep("#", level) .. " " .. bodyTextC
     end
   else
+    local bodyText = string.gsub(text, "^#+%s*", "")
     if currentLevel == level then
       HeadLine = "|^|" .. bodyText
     else
