@@ -21,15 +21,14 @@ local function toggleHead(level)
   local prefixCpos = string.find(textC, "|^|", 1, true) -- plain?
   -- editor.flashNotification(prefixCpos)
   if prefixCpos > currentLevel + 1 then
-    local cleanTextC = string.gsub(textC, "^#+%s*", "")
-    local HeadLine = string.rep("#", level) .. " " .. cleanTextC
-    editor.replaceRange(line.from, line.to, HeadLine, true)
+    local bodyTextC = string.gsub(textC, "^#+%s*", "")
+    local HeadLine = string.rep("#", level) .. " " .. bodyTextC
   else
-    local cleanText = string.gsub(text, "^#+%s*", "")
+    local bodyText = string.gsub(text, "^#+%s*", "")
     
     -- Toggle: remove if same, otherwise set new level
     if currentLevel == level then
-      local cleanTextC = "|^|" .. cleanText
+      local HeadLine = "|^|" .. bodyText
     else
       local prefixC = string.match(textC, "^(.+)%s*")
       local pos = string.find(prefixC, "|^|", 1, true)
@@ -55,10 +54,10 @@ local function toggleHead(level)
         end
       end
       prefixC = leftHashes .. "|^|" .. rightHashes
-      local cleanTextC = prefixC .. " " .. cleanText
+      local HeadLine = prefixC .. " " .. bodyText
     end
   end
-  editor.replaceRange(line.from, line.to, cleanTextC, true)
+  editor.replaceRange(line.from, line.to, HeadLine, true)
 end
 
 -- register commands Ctrl-1 → Ctrl-6
