@@ -30,7 +30,7 @@ local function toggleHead(level)
     if currentLevel == level then
       local cleanTextC = "|^|" .. cleanText
     else
-      local prefixC = string.gsub(textC, , "")
+      local prefixC = string.match(text, "^(.+)%s*")
     
   end
   
