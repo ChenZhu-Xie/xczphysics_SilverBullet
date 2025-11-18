@@ -20,13 +20,14 @@ local function toggleHead(level)
 
   local prefixC = string.find(textC, "|^|", 1, true) -- plain?
   editor.flashNotification(prefixC)
-  local is_Cprefix
   if prefixC > currentLevel + 1 then
-    is_Cprefix = false
+    local is_Cprefix = false
     local cleanTextC = string.gsub(textC, "^#+%s*", "")
+    local HeadLine = string.rep("#", level) .. " " .. cleanTextC
   else
-    is_Cprefix = true
-    local cleanTextC = string.gsub(text, "^#+%s*", "")
+    local is_Cprefix = true
+    local cleanText = string.gsub(text, "^#+%s*", "")
+    
   end
   
   
