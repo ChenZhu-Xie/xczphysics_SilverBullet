@@ -278,7 +278,7 @@ end
 virtualPage.define {
   pattern = "git:(.+)",
   run = function(ref)
-    editor.flashNotification("ddddddddddddddddddddddddd")
+    print("ddddddddddddddddddddddddd")
     local result = get_content(ref).content
     if result == nil then
       editor.flashNotification("Path " .. ref .. " corrupted", "error")
