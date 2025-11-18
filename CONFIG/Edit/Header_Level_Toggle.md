@@ -2,7 +2,7 @@
 githubUrl: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLevelToggle.md"
 ---
 
-#### Header: Toggle Level
+### Header: Toggle Level
 
 Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 to Ctrl-6):
 
@@ -18,7 +18,7 @@ local function toggleHead(level)
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
 
-  local prefixCpos = string.find(textC, "|^|", 1, true) -- position of cursor marker
+  local prefixCpos = string.find(textC, "|^|", 1, true)
   local HeadLine
   local bodyText = string.gsub(text, "^#+%s*", "")
 
@@ -37,8 +37,6 @@ local function toggleHead(level)
       HeadLine = string.rep("#", level) .. " |^|" .. bodyText
     end
   end
-
-  -- Replace current line with updated header
   editor.replaceRange(line.from, line.to, HeadLine, true)
 end
 
