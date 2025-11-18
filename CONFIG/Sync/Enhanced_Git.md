@@ -724,7 +724,7 @@ function GitOperations.performForcePushInitial()
   return true, "Force push initial commit successful!"
 end
 
--- Force push without wiping local history
+-- Force push (without wiping local history)
 function GitOperations.performForcePushNoWipe()
   -- 🔒 ACQUIRE LOCK
   local acquireFn = _G and _G.acquireGitLock or acquireGitLock
@@ -734,39 +734,67 @@ function GitOperations.performForcePushNoWipe()
     return false, NotificationManager.messages.GIT_OPERATION_IN_PROGRESS
   end
 
-  editor.flashNotification("Starting force push (no wipe)...", "info")
+  -- Step 1/3: Ensure remote URL (git config → init script → prompt)
+  editor.flashNotification("Step 1/3: Ensuring remote 'origin' URL...", "info")
+  local remoteUrl = nil
 
-  -- Ensure remote origin exists (use existing origin, or init-script fallback)
-  local remoteOk, remoteInfo = GitOperations.getRemoteUrl()
-  if not remoteOk or not remoteInfo or remoteInfo == "" then
-    local scriptUrl = GitConfigValidator:getOriginUrlFromInitScript()
-    if scriptUrl and scriptUrl ~= "" then
-      local addOk, addMsg = GitOperations.addRemoteOrigin(scriptUrl)
+  -- Try existing git config
+  local haveOrigin, originOut = GitOperations.getRemoteUrl()
+  if haveOrigin and originOut and originOut ~= "" then
+    remoteUrl = (type(originOut) == "string") and originOut:gsub("%s+$", "") or originOut
+  end
+
+  -- Fallback to init script
+  if not remoteUrl or remoteUrl == "" then
+    remoteUrl = GitConfigValidator:getOriginUrlFromInitScript()
+    if remoteUrl and remoteUrl ~= "" then
+      local addOk, addMsg = GitOperations.addRemoteOrigin(remoteUrl)
       if not addOk then
         releaseFn() -- 🔓
         return false, "Failed to set remote origin: " .. tostring(addMsg or "(unknown error)")
       end
-    else
-      releaseFn() -- 🔓
-      return false, "No remote 'origin' configured. Aborting force push (no wipe)."
     end
   end
 
-  -- Best-effort commit before force push (continue if nothing to commit)
+  -- Prompt as last resort
+  if not remoteUrl or remoteUrl == "" then
+    NotificationManager:showWarning("No remote URL found in git config or init script. Please enter the remote repository URL.")
+    remoteUrl = editor.prompt("Enter remote repository URL:")
+    if not remoteUrl or remoteUrl == "" then
+      releaseFn() -- 🔓
+      return false, "Force push cancelled: no remote URL provided."
+    end
+    local addOk, addMsg = GitOperations.addRemoteOrigin(remoteUrl)
+    if not addOk then
+      releaseFn() -- 🔓
+      return false, "Failed to set remote origin: " .. tostring(addMsg or "(unknown error)")
+    end
+  end
+
+  editor.flashNotification("Remote URL: " .. remoteUrl, "warning")
+
+  -- Step 2/3: Committing local changes
+  editor.flashNotification("Step 2/3: Committing local changes...", "info")
+  -- Pass showSteps=false to avoid double-notifying; wrapper provides step messages
   local commitOk, commitMsg = GitOperations.performCommitInternal(nil, false, false)
   if commitOk == false then
     releaseFn() -- 🔓
     return false, commitMsg
+  elseif commitOk == "nothing" then
+    NotificationManager:showInfo("NOTHING_TO_COMMIT_CLEAN")
+  else
+    NotificationManager:showInfo("COMMIT_SUCCESS")
   end
-  -- commitOk can also be "nothing" — proceed anyway
 
-  editor.flashNotification("Force pushing local history to remote (no wipe)...", "info")
+  -- Step 3/3: Force pushing to remote
+  editor.flashNotification("Step 3/3: Force pushing to remote...", "info")
   local pushOk, pushMsg = GitOperations.forcePush()
-  releaseFn() -- 🔓
-
   if not pushOk then
+    releaseFn() -- 🔓
     return false, pushMsg
   end
+
+  releaseFn() -- 🔓
   return true, "Force push (no wipe) successful!"
 end
 
