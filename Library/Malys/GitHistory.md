@@ -133,7 +133,7 @@ end
 -- Returns true if a file is tracked by git.
 -- @param file_path string
 local function is_git_tracked(file_path)
-  local stdout = run_shell_command("git", { "status", "--porcelain", "--", file_path:gsub("/", "\\") })
+  local stdout = run_shell_command("git", { "status", "--porcelain", "--", file_path })
   return not string.startsWith(string.trim(stdout), "??")
 end
 
@@ -141,7 +141,7 @@ end
 -- Returns true if a file has uncommitted changes.
 -- @param file_path string
 local function has_uncommitted_changes(file_path)
-  local stdout = run_shell_command("git", { "status", "--porcelain", "--", file_path:gsub("/", "\\") })
+  local stdout = run_shell_command("git", { "status", "--porcelain", "--", file_path })
   return string.trim(stdout) ~= ""
 end
 
@@ -159,7 +159,7 @@ end
 -- Get the newest commit hash for a file.
 -- @param file_path string
 local function get_newest_version(file_path)
-  local stdout = run_shell_command("git", { "log", "-1", "--format=%h", "--", file_path:gsub("/", "\\") })
+  local stdout = run_shell_command("git", { "log", "-1", "--format=%h", "--", file_path })
   return string.trim(stdout)
 end
 
@@ -169,7 +169,7 @@ end
 -- @param hash string commit hash
 local function get_file_contents(file_path, hash)
   log("get_file_contents:", file_path, "at", hash)
-  return run_shell_command("git", { "show", hash .. ":" .. file_path:gsub("/", "\\") })
+  return run_shell_command("git", { "show", hash .. ":" .. file_path })
 end
 
 ---
@@ -236,7 +236,7 @@ end
 -- @param file_path string (path to file in repo)
 local function get_diff_between_commits(hash_old, hash_new, file_path)
   log("get_diff_between_commits:", hash_old, hash_new, file_path)
-  local raw = run_shell_command("git", { "diff", "--no-color", hash_old, hash_new, "--", file_path:gsub("/", "\\") })
+  local raw = run_shell_command("git", { "diff", "--no-color", hash_old, hash_new, "--", file_path })
   raw = string.trim(raw)
   if raw == "" then
     return "### 🟢 No Differences Found"
