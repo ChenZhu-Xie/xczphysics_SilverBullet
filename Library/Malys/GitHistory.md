@@ -327,7 +327,7 @@ command.define {
     end
     local selected = editor.filterBox("📜 Git History", history, "🔍 Select a commit", "Type to search...")
     if selected and selected.ref then
-      editor.flashNotification(selected.ref)
+      -- editor.flashNotification(selected.ref)
       editor.navigate("git:" .. selected.ref)
     end
   end
