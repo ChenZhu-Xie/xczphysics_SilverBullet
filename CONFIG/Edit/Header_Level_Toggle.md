@@ -8,38 +8,89 @@ Toggle header levels (h1-h6) headers with one convenient combo-keypress (Ctrl-1 
 
 ## Implementation 
 ```space-lua
--- function to toggle a specific header level
+------------------------------------------------------------
+-- Adjust the # prefix around "|^|" to targetLevel
+-- prefixC 可能为 "###|^|", "##|^|#", "#|^|##", "|^|###" 等
+------------------------------------------------------------
+local function adjustPrefixC(prefixC, targetLevel)
+  local cur = prefixC
+  local pos = string.find(cur, "|^|", 1, true)
+  if not pos then return prefixC end
+
+  local left  = string.sub(cur, 1, pos - 1)
+  local right = string.sub(cur, pos + 3)
+
+  local leftHashes  = string.match(left,  "^(#+)$")  or ""
+  local rightHashes = string.match(right, "^(#+)$")  or ""
+  local total = #leftHashes + #rightHashes
+
+  local diff = targetLevel - total
+
+  if diff > 0 then
+    -- add to right
+    rightHashes = rightHashes .. string.rep("#", diff)
+  elseif diff < 0 then
+    -- remove from right first, then left
+    diff = -diff
+    if #rightHashes >= diff then
+      rightHashes = string.sub(rightHashes, 1, #rightHashes - diff)
+    else
+      local remain = diff - #rightHashes
+      rightHashes = ""
+      leftHashes = string.sub(leftHashes, 1, #leftHashes - remain)
+    end
+  end
+
+  return leftHashes .. "|^|" .. rightHashes
+end
+
+
+------------------------------------------------------------
+-- Main toggle logic
+------------------------------------------------------------
 local function toggleHead(level)
   local line = editor.getCurrentLine()
   local text = line.text
   local textC = line.textWithCursor
-  
+
   -- Detect current header level
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
 
-  local prefixCpos = string.find(textC, "|^|", 1, true) -- plain?
+  local prefixCpos = string.find(textC, "|^|", 1, true)
   editor.flashNotification(prefixCpos)
+
+  -- Case A: cursor is OUTSIDE header prefix
   if prefixCpos > currentLevel + 1 then
-    local is_Cprefix = false
     local cleanTextC = string.gsub(textC, "^#+%s*", "")
     local HeadLine = string.rep("#", level) .. " " .. cleanTextC
-  else
-    local is_Cprefix = true
-    local cleanText = string.gsub(text, "^#+%s*", "")
-    -- Toggle: remove if same, otherwise set new level
-    if currentLevel == level then
-      local cleanTextC = "|^|" .. cleanText
-    else
-      local prefixC = string.match(text, "^(.+)%s*")
-      -- 在这里，根据 currentLevel 的值，从后往前增减 prefixC 中的 # 数量，直到与 currentLevel 的值一致。注意， prefixC 可能是 "###|^|"、"##|^|#"、"#|^|##" 等等
-      local cleanTextC = prefixC .. cleanText
-    end
-    editor.replaceRange(line.from, line.to, cleanTextC, true)
+    editor.replaceRange(line.from, line.to, HeadLine, true)
+    return
   end
+
+  -- Case B: cursor is INSIDE header prefix
+  local cleanText = string.gsub(text, "^#+%s*", "")
+
+  -- If same level → remove header
+  if currentLevel == level then
+    local cleanTextC = "|^|" .. cleanText
+    editor.replaceRange(line.from, line.to, cleanTextC, true)
+    return
+  end
+
+  -- Build prefixC from textC (only prefix part)
+  local prefixC = string.match(textC, "^(.-)" .. "%|%^%|") or ""
+  prefixC = prefixC .. "|^|" -- ensure the cursor marker is kept
+
+  local prefixC_new = adjustPrefixC(prefixC, level)
+  local cleanTextC = prefixC_new .. cleanText
+  editor.replaceRange(line.from, line.to, cleanTextC, true)
 end
 
--- register commands Ctrl-1 → Ctrl-6
+
+------------------------------------------------------------
+-- Register commands Ctrl-1 → Ctrl-6
+------------------------------------------------------------
 for lvl = 1, 6 do
   command.define {
     name = "Header: Toggle Level " .. lvl,
@@ -49,6 +100,7 @@ for lvl = 1, 6 do
     end
   }
 end
+
 ```
 
 ## Discussions about this widget
