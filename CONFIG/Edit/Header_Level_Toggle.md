@@ -22,8 +22,12 @@ local function toggleHead(level)
   -- editor.flashNotification(prefixCpos)
   local HeadLine
   if prefixCpos > currentLevel + 1 then
-    local bodyTextC = string.gsub(textC, "^#+%s*", "")
-    HeadLine = string.rep("#", level) .. " " .. bodyTextC
+    if currentLevel == level then
+      HeadLine = "|^|" .. bodyText
+    else
+      local bodyTextC = string.gsub(textC, "^#+%s*", "")
+      HeadLine = string.rep("#", level) .. " " .. bodyTextC
+    end
   else
     local bodyText = string.gsub(text, "^#+%s*", "")
     
