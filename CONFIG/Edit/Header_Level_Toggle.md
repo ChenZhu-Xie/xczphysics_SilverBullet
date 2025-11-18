@@ -18,12 +18,11 @@ local function toggleHead(level)
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
 
-  local prefixCpos = string.find(textC, "|^|", 1, true) -- plain?
-  -- editor.flashNotification(prefixCpos)
+  local prefixCpos = string.find(textC, "|^|", 1, true) -- position of cursor marker
   local HeadLine
   local bodyText = string.gsub(text, "^#+%s*", "")
 
-  -- Toggle: remove if same, otherwise set new level
+  -- Toggle: remove header if same level, otherwise adjust to new level
   if currentLevel == level then
     if prefixCpos > currentLevel + 1 then
       HeadLine = string.gsub(textC, "^#+%s*", "")
@@ -37,7 +36,8 @@ local function toggleHead(level)
     else
       local prefixC = string.match(textC, "^(.+)%s*")
       local pos = string.find(prefixC, "|^|", 1, true)
-      -- editor.flashNotification(pos)
+      
+      -- split prefix into left and right of cursor marker
       local left  = string.sub(prefixC, 1, pos - 1)
       local right = string.sub(prefixC, pos + 3)
 
@@ -47,21 +47,29 @@ local function toggleHead(level)
       local diff = level - total
 
       if diff > 0 then
-        rightHashes = rightHashes .. string.rep("#", diff)
+        -- Add # from left to right
+        local addLeft = math.min(diff, 0)
+        local addRight = diff - addLeft
+        leftHashes  = string.rep("#", addLeft) .. leftHashes
+        rightHashes = string.rep("#", addRight) .. rightHashes
       elseif diff < 0 then
+        -- Remove # from left to right
         local needRemove = -diff
-        if #rightHashes >= needRemove then
-          rightHashes = string.sub(rightHashes, 1, #rightHashes - needRemove)
+        if #leftHashes >= needRemove then
+          leftHashes = string.sub(leftHashes, needRemove + 1)
         else
-          local remain = needRemove - #rightHashes
-          rightHashes = ""
-          leftHashes = string.sub(leftHashes, 1, #leftHashes - remain)
+          local remain = needRemove - #leftHashes
+          leftHashes = ""
+          rightHashes = string.sub(rightHashes, remain + 1)
         end
       end
+
       prefixC = leftHashes .. "|^|" .. rightHashes
       HeadLine = prefixC .. " " .. bodyText
     end
   end
+
+  -- Replace current line with updated header
   editor.replaceRange(line.from, line.to, HeadLine, true)
 end
 
