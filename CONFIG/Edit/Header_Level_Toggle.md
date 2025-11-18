@@ -26,8 +26,7 @@ local function toggleHead(level)
   -- Toggle: remove if same, otherwise set new level
   if currentLevel == level then
     if prefixCpos > currentLevel + 1 then
-      local bodyTextC = string.gsub(textC, "^#+%s*", "")
-      HeadLine = bodyTextC
+      HeadLine = string.gsub(textC, "^#+%s*", "")
     else
       HeadLine = "|^|" .. bodyText
     end
