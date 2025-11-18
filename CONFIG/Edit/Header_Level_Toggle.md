@@ -46,7 +46,7 @@ local function toggleHead(level)
       -- 3. 若 total < level → 在右侧追加 #(level - total)
       --    若 total > level → 从右往左删除 #(total - level)
       -------------------------------------------------------------------
-      local pos = string.find(prefixC, "|^|", 1, true)
+      local pos = tonumber(string.find(prefixC, "|^|", 1, true))
       local left  = string.sub(prefixC, 1, pos - 1)
       local right = string.sub(prefixC, pos + 3)
 
