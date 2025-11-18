@@ -171,6 +171,7 @@ end
 -- @param hash string commit hash
 local function get_file_contents(file_path, hash)
   log("get_file_contents:", file_path, "at", hash)
+  editor.flashNotification(hash)
   editor.flashNotification(file_path)
   return run_shell_command("git", { "show", hash .. ":" .. file_path })
 end
