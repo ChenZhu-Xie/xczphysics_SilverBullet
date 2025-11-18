@@ -32,9 +32,10 @@ local function toggleHead(level)
       local cleanTextC = "|^|" .. cleanText
     else
       local prefixC = string.match(text, "^(.+)%s*")
-      -- 在这里，根据 currentLevel 的值，从后往前增减 prefixC 中的 # 数量，直到与 currentLevel 的值一致。
+      -- 在这里，根据 currentLevel 的值，从后往前增减 prefixC 中的 # 数量，直到与 currentLevel 的值一致。注意， prefixC 可能是 "###|^|"、"##|^|#"、"#|^|##" 等等
       local cleanTextC = prefixC .. cleanText
     end
+    editor.replaceRange(line.from, line.to, cleanTextC, true)
   end
 end
 
