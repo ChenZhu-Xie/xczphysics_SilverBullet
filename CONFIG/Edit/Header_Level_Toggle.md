@@ -23,11 +23,13 @@ local function toggleHead(level)
   local is_Cprefix
   if prefixC > currentLevel + 1 then
     is_Cprefix = false
+    local cleanTextC = string.gsub(textC, "^#+%s*", "")
   else
     is_Cprefix = true
+    local cleanTextC = string.gsub(text, "^#+%s*", "")
   end
   
-  local cleanTextC = string.gsub(textC, "^#+%s*", "")
+  
 
   -- Toggle: remove if same, otherwise set new level
   if currentLevel == level then
