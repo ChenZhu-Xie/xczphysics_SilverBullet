@@ -27,20 +27,14 @@ local function toggleHead(level)
   else
     local is_Cprefix = true
     local cleanText = string.gsub(text, "^#+%s*", "")
+    -- Toggle: remove if same, otherwise set new level
     if currentLevel == level then
       local cleanTextC = "|^|" .. cleanText
     else
       local prefixC = string.match(text, "^(.+)%s*")
-    
-  end
-  
-  
-
-  -- Toggle: remove if same, otherwise set new level
-  if currentLevel == level then
-    editor.replaceRange(line.from, line.to, cleanTextC, true)
-  else
-    editor.replaceRange(line.from, line.to, string.rep("#", level) .. " " .. cleanTextC, true)
+      -- 在这里，根据 currentLevel 的值，从后往前增减 prefixC 中的 # 数量，直到与 currentLevel 的值一致。
+      local cleanTextC = prefixC .. cleanText
+    end
   end
 end
 
