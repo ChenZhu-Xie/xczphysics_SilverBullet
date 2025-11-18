@@ -20,6 +20,12 @@ local function toggleHead(level)
 
   local prefixC = string.find(textC, "|^|", 1, true) -- plain?
   editor.flashNotification(prefixC)
+  local is_prefix
+  if prefixC > currentLevel then
+    is_prefix = false
+  else
+    is_prefix = true
+  end
   
   local cleanTextC = string.gsub(textC, "^#+%s*", "")
 
