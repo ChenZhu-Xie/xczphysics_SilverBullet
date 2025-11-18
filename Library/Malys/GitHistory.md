@@ -258,7 +258,7 @@ end
 local function get_content(ref)
   local data = string.split(ref, "_")
   if #data > 1 then
-    local path = data[1]:gsub("/", "\\")
+    local path = data[1]
     local hash = data[2]
     local ok, content = pcall(get_file_contents, path .. ".md", hash)
     if not ok then
