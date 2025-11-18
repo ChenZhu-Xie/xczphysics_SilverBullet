@@ -724,6 +724,52 @@ function GitOperations.performForcePushInitial()
   return true, "Force push initial commit successful!"
 end
 
+-- Force push without wiping local history
+function GitOperations.performForcePushNoWipe()
+  -- 🔒 ACQUIRE LOCK
+  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
+  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+
+  if not acquireFn("Git Force Push (No Wipe)") then
+    return false, NotificationManager.messages.GIT_OPERATION_IN_PROGRESS
+  end
+
+  editor.flashNotification("Starting force push (no wipe)...", "info")
+
+  -- Ensure remote origin exists (use existing origin, or init-script fallback)
+  local remoteOk, remoteInfo = GitOperations.getRemoteUrl()
+  if not remoteOk or not remoteInfo or remoteInfo == "" then
+    local scriptUrl = GitConfigValidator:getOriginUrlFromInitScript()
+    if scriptUrl and scriptUrl ~= "" then
+      local addOk, addMsg = GitOperations.addRemoteOrigin(scriptUrl)
+      if not addOk then
+        releaseFn() -- 🔓
+        return false, "Failed to set remote origin: " .. tostring(addMsg or "(unknown error)")
+      end
+    else
+      releaseFn() -- 🔓
+      return false, "No remote 'origin' configured. Aborting force push (no wipe)."
+    end
+  end
+
+  -- Best-effort commit before force push (continue if nothing to commit)
+  local commitOk, commitMsg = GitOperations.performCommitInternal(nil, false, false)
+  if commitOk == false then
+    releaseFn() -- 🔓
+    return false, commitMsg
+  end
+  -- commitOk can also be "nothing" — proceed anyway
+
+  editor.flashNotification("Force pushing local history to remote (no wipe)...", "info")
+  local pushOk, pushMsg = GitOperations.forcePush()
+  releaseFn() -- 🔓
+
+  if not pushOk then
+    return false, pushMsg
+  end
+  return true, "Force push (no wipe) successful!"
+end
+
 -- Core force pull WITH LOCK
 function GitOperations.performForcePull()
   -- 🔒 ACQUIRE LOCK
