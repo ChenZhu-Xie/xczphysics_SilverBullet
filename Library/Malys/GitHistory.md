@@ -283,7 +283,7 @@ virtualPage.define {
       editor.flashNotification("Path " .. ref .. " corrupted", "error")
     end
     editor.flashNotification("ddddddddddddddddddddddddd")
-    return result
+    return 1
   end
 }
 
