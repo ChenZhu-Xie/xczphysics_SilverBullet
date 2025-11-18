@@ -71,7 +71,6 @@ for lvl = 1, 6 do
     end
   }
 end
-
 ```
 
 ## Discussions about this widget
