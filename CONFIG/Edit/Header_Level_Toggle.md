@@ -34,38 +34,7 @@ local function toggleHead(level)
       local bodyTextC = string.gsub(textC, "^#+%s*", "")
       HeadLine = string.rep("#", level) .. " " .. bodyTextC
     else
-      local prefixC = string.match(textC, "^(.+)%s*")
-      local pos = string.find(prefixC, "|^|", 1, true)
-      
-      -- split prefix into left and right of cursor marker
-      local left  = string.sub(prefixC, 1, pos - 1)
-      local right = string.sub(prefixC, pos + 3)
-
-      local leftHashes  = string.match(left,  "^(#+)$")  or ""
-      local rightHashes = string.match(right, "^(#+)$")  or ""
-      local total = #leftHashes + #rightHashes
-      local diff = level - total
-
-      if diff > 0 then
-        -- Add # from left to right
-        local addLeft = math.min(diff, 0)
-        local addRight = diff - addLeft
-        leftHashes  = string.rep("#", addLeft) .. leftHashes
-        rightHashes = string.rep("#", addRight) .. rightHashes
-      elseif diff < 0 then
-        -- Remove # from left to right
-        local needRemove = -diff
-        if #leftHashes >= needRemove then
-          leftHashes = string.sub(leftHashes, needRemove + 1)
-        else
-          local remain = needRemove - #leftHashes
-          leftHashes = ""
-          rightHashes = string.sub(rightHashes, remain + 1)
-        end
-      end
-
-      prefixC = leftHashes .. "|^|" .. rightHashes
-      HeadLine = prefixC .. " " .. bodyText
+      HeadLine = string.rep("#", level) .. " |^|" .. bodyText
     end
   end
 
