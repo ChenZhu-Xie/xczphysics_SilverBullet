@@ -807,6 +807,22 @@ command.define {
   end
 }
 
+
+command.define {
+  name = "Git: Force Push (No Wipe)",
+  run = function()
+    editor.flashNotification("Starting force push (no wipe)...", "warning")
+    local success, message = GitOperations.performForcePushNoWipe()
+
+    if success then
+      editor.flashNotification(message, "warning")
+    else
+      NotificationManager:showError(message)
+    end
+  end
+}
+
+
 command.define {
   name = "Git: Force Push Initial Commit",
   run = function()
