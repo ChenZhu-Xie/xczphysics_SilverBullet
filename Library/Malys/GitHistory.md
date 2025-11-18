@@ -8,7 +8,7 @@ share.hash: 6de344ec
 share.mode: pull
 ---
 
-${editor.navigate("CHANGELOG@123")}
+${editor.navigate("git:Library/Malys/GitHistory_930bab41")}
 ---
 # Git History Module
 
