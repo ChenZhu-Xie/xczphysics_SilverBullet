@@ -18,9 +18,8 @@ local function toggleHead(level)
   local currentLevel = string.match(text, "^(#+)%s*")
   currentLevel = currentLevel and #currentLevel or 0
 
-  local cleanText = string.gsub(text, "^#+%s*", "")
-  local prefixC = string.find(textC, cleanText)
-  
+  local cleanTextC = string.gsub(textC, "^#+%s*", "")
+  local prefixC = string.find(textC, "|^|", 1, true) -- plain?
 
   -- Toggle: remove if same, otherwise set new level
   if currentLevel == level then
