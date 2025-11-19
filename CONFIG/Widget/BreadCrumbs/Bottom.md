@@ -411,7 +411,7 @@ end
 2. https://community.silverbullet.md/t/abc-adaptive-bread-crumb/3464
 
 ```lua
--- priority: 11
+-- priority: 10
 Yg = Yg or {}
 Bc_folder = template.new[==[/[[${name}]]​]==]
 
