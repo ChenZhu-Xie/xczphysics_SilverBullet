@@ -3,7 +3,7 @@
 event.listen {
   name = 'page:click',
   run = function(e)
-    editor.flash
+    editor.flashNotification
   end
 }
 ```
