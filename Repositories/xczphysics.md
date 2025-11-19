@@ -20,7 +20,7 @@ pageDecoration.prefix: "📚 "
 - Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics@277`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/Cursor_Link
+name: Copy_as/Cursor_Link
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 ```
@@ -35,7 +35,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 - Copy `[[Repositories/xczphysics@814]]`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/Cursor_Wiki
+name: Copy_as/Cursor_Wiki
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Wiki.md
 ```
@@ -49,7 +49,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 Copy `F:\path\to\SB_space\Repositories`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Folder_Url
+name: Copy_as/page_title/Folder_Url
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Folder_Url.md
 ```
@@ -63,7 +63,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 Copy `github:username/repo/lib.md`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Github_Url
+name: Copy_as/page_title/Github_Url
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md
 ```
@@ -77,7 +77,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 Copy `https://enlarge-the-percentage.fly.dev/Repositories/xczphysics`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Page_Link
+name: Copy_as/page_title/Page_Link
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md
 ```
@@ -91,7 +91,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 Copy `[[Repositories/xczphysics]]`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Copy_as/page_title/Page_Wiki
+name: Copy_as/page_title/Page_Wiki
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Wiki.md
 ```
@@ -108,7 +108,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Cop
 - Paste `[xczphysics](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Smart%20URL) #enlarge-the-percentage #fly`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Paste_as/Smart_Url
+name: Paste_as/Smart_Url
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Smart_Url.md
 ```
@@ -124,7 +124,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 `[[test🟣1|test🟣]]==1== ➡️ ${forthRef("test")}${backrefStat("test")}*~Σ~*`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Paste_as/Cursor_Anchor
+name: Paste_as/Cursor_Anchor
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 ```
@@ -141,7 +141,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 Duplicate the nearest format `==Alt-c==`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Nearest_Pattern/Duplicate
+name: Nearest_Pattern/Duplicate
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Duplicate.md
 ```
@@ -155,7 +155,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nea
 Remove the nearest format `#meta/library/remote`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Nearest_Pattern/Delete
+name: Nearest_Pattern/Delete
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nearest_Pattern/Delete.md
 ```
@@ -171,7 +171,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Nea
 Add `Navigate: Heading Picker` to CMD
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Picker/Heading
+name: Picker/Heading
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md
 ```
@@ -185,7 +185,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 Add `Navigate: Tag Picker` to CMD
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Picker/Tag
+name: Picker/Tag
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
 ```
@@ -202,7 +202,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 `datastore.set({"Visitimes", editor.getCurrentPage()}, { value = value + 1 })`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Add_Fields_for_Obj/Last_Opened-Page
+name: Add_Fields_for_Obj/Last_Opened-Page
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
 ```
@@ -218,7 +218,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add
 [.](http://127.0.0.1:3000/Repositories/#)⇦⇨[Repositories](http://127.0.0.1:3000/Repositories)⇦⇨[📚 xczphysics](http://127.0.0.1:3000/Repositories/xczphysics) [👀103](http://127.0.0.1:3000/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/Visit%20Times) 1⃣[Std](http://127.0.0.1:3000/Repositories/Std) ①[Std](http://127.0.0.1:3000/Repositories/Std)
 
 ```#meta/library/remote
-name: ChenZhu-Xie/BreadCrumbs/Bottom
+name: BreadCrumbs/Bottom
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md
 ```
@@ -232,7 +232,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Wid
 [.](http://127.0.0.1:3000/Repositories/#)⬇[Repositories](http://127.0.0.1:3000/Repositories)⬇[📚 xczphysics](http://127.0.0.1:3000/Repositories/xczphysics) [👀103](http://127.0.0.1:3000/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/Visit%20Times) 1️⃣[👯 Duplicate](http://127.0.0.1:3000/CONFIG/Nearest_Pattern/Duplicate) 2️⃣[HHH](http://127.0.0.1:3000/STYLE/Theme/HHH) 3️⃣[🖼️ Doom-Two](http://127.0.0.1:3000/STYLE/Theme/Doom-Two) 4️⃣[🖼️ Inline\_CMD](http://127.0.0.1:3000/STYLE/Inline_CMD) 5️⃣[🖼️ Inline\_Text](http://127.0.0.1:3000/STYLE/Color/Inline_Text) ➊[🥖 Bottom](http://127.0.0.1:3000/CONFIG/Widget/BreadCrumbs/Bottom) ➋[👀 Last\_Opened-Page](http://127.0.0.1:3000/CONFIG/Add_Fields_for_Obj/Last_Opened-Page) ➌[🛻Heading](http://127.0.0.1:3000/CONFIG/Picker/Heading) ➍[🛻Tag](http://127.0.0.1:3000/CONFIG/Picker/Tag) ➎[🎏 Git](http://127.0.0.1:3000/CONFIG/Sync/Git)
 
 ```#meta/library/remote
-name: ChenZhu-Xie/BreadCrumbs/Top
+name: BreadCrumbs/Top
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Top.md
 ```
@@ -250,7 +250,7 @@ Additional `Git Force Pull`
 Additional `Git Force Push`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Sync/Enhanced_Git
+name: Sync/Enhanced_Git
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Enhanced_Git.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Sync/Enhanced_Git.md
 ```
@@ -265,7 +265,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Syn
 ==Defined KeyBinds `for Basic CMDs`==
 
 ```#meta/library/remote
-name: ChenZhu-Xie/KeyBinding/Define
+name: KeyBinding/Define
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Define.md
 ```
@@ -278,7 +278,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Key
 ==Updated KeyBinds `for Basic CMDs`==
 
 ```#meta/library/remote
-name: ChenZhu-Xie/KeyBinding/Update
+name: KeyBinding/Update
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/KeyBinding/Update.md
 ```
@@ -294,7 +294,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Key
 Apply `${Green("Your Text")}`
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Color/Inline_Text
+name: Color/Inline_Text
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
 ```
@@ -307,7 +307,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Colo
 ==Define & Update KeyBinds `for Format CMDs`==
 
 ```#meta/library/remote
-name: ChenZhu-Xie/STYLE/Builtin_Formats
+name: STYLE/Builtin_Formats
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
 ```
@@ -322,7 +322,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Buil
 ==Current theme `you’re looking at`==
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Theme/Doom-Two
+name: Theme/Doom-Two
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
 ```
@@ -337,7 +337,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Them
 - No conflict to [[Repositories/xczphysics#Doom-Two]]
 
 ```#meta/library/remote
-name: ChenZhu-Xie/Theme/HHH
+name: Theme/HHH
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
 ```
