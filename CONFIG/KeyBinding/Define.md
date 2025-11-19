@@ -6,6 +6,37 @@ pageDecoration.prefix: "⌨️ "
 
 # Define Commonly-used Commands
 
+## Scroll
+
+### to Top
+
+```space-lua
+command.define {
+  name = "Scroll: to Top",
+  run = function()
+    editor.moveCursor(0, true)
+  end,
+  key = "Ctrl-ArrowUp",
+  mac = "Ctrl-ArrowUp",
+  priority = 1,
+}
+```
+
+### to Bottom
+
+```space-lua
+command.define {
+  name = "Scroll: to Bottom",
+  run = function()
+    local text = editor.getText()
+    editor.moveCursor(0, true)
+  end,
+  key = "Ctrl-Up",
+  mac = "Ctrl-Up",
+  priority = 1,
+}
+```
+
 ## Line: Move Up
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
