@@ -37,9 +37,9 @@ command.define {
 }
 ```
 
-## 
+## Line
 
-## Line: Move Up
+### Move Up
 
 1. editor.toggleComment() https://silverbullet.md/API/editor
 2. Extracting from [[SB Basics/SB API/editor]]
@@ -56,7 +56,7 @@ command.define {
 }
 ```
 
-## Line: Move Down
+### Move Down
 
 ```space-lua
 command.define {
