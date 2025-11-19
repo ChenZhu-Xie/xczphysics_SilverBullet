@@ -8,6 +8,9 @@ pageDecoration.prefix: "📚 "
 > please search for the “space-lua” or “space-style” block,
 > if you want to dig deeper.
 
+> **note** Note
+> see [[CONFIG/KeyBinding]] for detailed 
+
 # ✂️ Copy as
 
 ## Cursor Link
