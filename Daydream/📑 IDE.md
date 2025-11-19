@@ -1,5 +1,5 @@
-:page
-# Zed Sublime
+
+# Zed Sublime CodeMirror RoamEdit...
 
 Silver Bullet 的大哥 也叫 Zed ...? nono Zef。
 
