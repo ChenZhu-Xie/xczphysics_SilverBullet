@@ -1,7 +1,8 @@
 
 # Markup Languages
 
-事实上，这有点像：[[Language/Input Method]] 对 [[信息论]] 的 极限运用。
+这有点像：[[Language/Input Method]] 对 [[信息论]]/[[顶功]] 的 极限运用：
+- 类似 A 码不是 任何非 A 码的 [[前缀码]] 的问题。
 
 ## djot
 
