@@ -9,7 +9,7 @@ pageDecoration.prefix: "📚 "
 > if you want to dig deeper.
 
 > **note** Note
-> see [[CONFIG/KeyBinding]] for detailed 
+> see [[CONFIG/KeyBinding]] or [KeyBinding](https://enlarge-the-percentage.fly.dev/CONFIG/KeyBinding) for detailed Classification
 
 # ✂️ Copy as
 
