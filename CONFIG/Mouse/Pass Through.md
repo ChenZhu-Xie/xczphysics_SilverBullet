@@ -8,7 +8,7 @@ event.listen {
     if d.ctrlKey then
       local pos = d.pos
       editor.moveCursor(pos, true)
-      return 1
+      return
     end
   end
 }
