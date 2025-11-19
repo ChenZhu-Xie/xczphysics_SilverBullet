@@ -90,7 +90,9 @@ command.define {
 }
 ```
 
-## Page: New Sibling Page
+## Page 
+
+### New Sibling
 
 1. https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/c/68fa0666-93d0-832a-b5cd-7d4d808a0b48
 
@@ -108,7 +110,9 @@ command.define {
 }
 ```
 
-## Page: New Child Page
+## Page
+
+### New Child
 
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
 2. https://community.silverbullet.md/t/folder-auto-complete/686/11?u=chenzhu-xie

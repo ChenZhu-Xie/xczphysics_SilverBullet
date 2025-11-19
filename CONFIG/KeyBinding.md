@@ -23,7 +23,7 @@
 | Text: | [[STYLE/Builtin_Formats#Quote Selection: > ...|Quote]] | | | Alt | . |
 | Text: | [[CONFIG/KeyBinding/Define#Text: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
 | Line: | [[CONFIG/KeyBinding/Define#Move Up|Move Up]] | | Shift | Alt | ↑ |
-| Line: | [[CONFIG/KeyBinding/Define#Line: Move Down|Move Down]] | | Shift | Alt | ↓ |
+| Line: | [[CONFIG/KeyBinding/Define#Move Down|Move Down]] | | Shift | Alt | ↓ |
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
