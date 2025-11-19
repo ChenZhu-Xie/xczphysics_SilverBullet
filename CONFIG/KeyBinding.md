@@ -40,8 +40,8 @@
 | Page: | [[CONFIG/KeyBinding/Define#New Sibling|New Sibling]] | | Ctrl | Alt | s |
 | Page: | Quick Note | | Shift | Alt | n |
 | Page: | Templete | | Shift | Alt | t |
-| Page: | [[CONFIG/KeyBinding/Update#Page: Delete|Delete]] | | Shift | Alt | d |
-| Page: | [[CONFIG/KeyBinding/Update#Page: Copy|Copy]] | Ctrl | | Alt | c |
+| Page: | [[CONFIG/KeyBinding/Update#Delete|Delete]] | | Shift | Alt | d |
+| Page: | [[CONFIG/KeyBinding/Update#Copy|Copy]] | Ctrl | | Alt | c |
 | Page: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy_as/page_title/Page_Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy_as/page_title/Page_Link|Copy Link]] | | Shift | Alt | l |

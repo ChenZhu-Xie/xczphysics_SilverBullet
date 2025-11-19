@@ -20,17 +20,6 @@ command.update {
 }
 ```
 
-## Page: Delete
-
-```space-lua
-command.update {
-  name = "Page: Delete",
-  key = "Shift-Alt-d",
-  mac = "Shift-Alt-d",
-  priority = 1,
-}
-```  
-
 ## Navigate: Page Picker
 
 ```space-lua
@@ -53,7 +42,20 @@ command.update {
 }
 ```
 
-## Page: Copy
+## Page
+
+### Delete
+
+```space-lua
+command.update {
+  name = "Page: Delete",
+  key = "Shift-Alt-d",
+  mac = "Shift-Alt-d",
+  priority = 1,
+}
+```  
+
+### Copy
 
 ```space-lua
 command.update {
