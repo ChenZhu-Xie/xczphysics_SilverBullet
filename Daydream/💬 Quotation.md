@@ -1,6 +1,7 @@
 
 # Learn how to quote & from quotation
 
-- https://www.structuredprocrastination.com/
-  - _quoted by_  
-  - other wonderful stuff from above https://www.structuredprocrastination.com/light.php
+- [structuredprocrastination](https://www.structuredprocrastination.com/) #结构化拖延 [author:John_Perry]
+  - _quoted by_ [tools.html](https://johnmacfarlane.net/tools.html) #johnmacfarlane
+  - other wonderful stuff from above [light.php](https://www.structuredprocrastination.com/light.php) [author:John_Perry]
+
