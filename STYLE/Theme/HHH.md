@@ -185,7 +185,7 @@ command.define {
 }
 ```
 
-1. borrowed `event.listen` from [[CONFIG/Edit/Read Only Toggle]]
+1. borrowed `event.listen` from [[CONFIG/Edit/Read_Only_Toggle]]
 
 ```space-lua
 event.listen {

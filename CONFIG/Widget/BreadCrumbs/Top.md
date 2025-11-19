@@ -42,7 +42,7 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
-## Ver 4: Adapt To [[CONFIG/Add Fields for Obj/Last Opened#Visitimes 2: Client level]] and [[index#Last Visit 👀]]
+## Ver 4: Adapt To [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👀]]
 
 ```space-lua
 -- priority: 10

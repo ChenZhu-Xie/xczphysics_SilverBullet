@@ -13,5 +13,5 @@
 > 然而：汉字 和 emoji 等非 asdf 符号
 > 不被 autocomplete 的检索支持
 
-1. relates to [[CONFIG/Auto Completions]]
+1. relates to [[CONFIG/Auto_Completions]]
 2. [autocomplete page title like autocomplete or](https://community.silverbullet.md/t/autocomplete-page-title-like-autocomplete-or/3511?u=chenzhu-xie) #community #silverbullet

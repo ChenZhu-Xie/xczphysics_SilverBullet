@@ -50,7 +50,7 @@ ${index.getObjectByRef("my page", "mytask", "task1")}
 因为 每次 login SB 后，除了 可能的 reindex，
 Client 它还要把 每一个 space-lua 块 全都 加载一次的嘛！
 
-## 为什么 [[CONFIG/Add Fields for Obj/Last Opened]] 中的 lastVisit 甚至重开 SB 就没了，生命周期 甚至 短于 indexDB
+## 为什么 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page]] 中的 lastVisit 甚至重开 SB 就没了，生命周期 甚至 短于 indexDB
 
 是因为 下述 新增的 attr 重开 SB 就没了么？
 
@@ -74,7 +74,7 @@ index.defineTag {
 ${query[[from index.tag "page" limit 3]]}
 肯定不是呀！你刷新后不还有么。
 ${query[[from index.tag "page" select {name=_.name, loudName=_.loudName} limit 3]]}
-问题在这：每次加载 SB 后，[[CONFIG/Add Fields for Obj/Last Opened]] 中的 
+问题在这：每次加载 SB 后，[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page]] 中的 
 ```space-lua
 local lastVisitStore = lastVisitStore or {}
 ```
