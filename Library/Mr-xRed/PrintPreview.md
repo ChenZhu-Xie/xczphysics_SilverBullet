@@ -10,6 +10,7 @@ share.uri: "github:Mr-xRed/silverbullet-libraries/PrintPreview.md"
 share.hash: a8a5a598
 share.mode: pull
 ---
+
 # PrintPreview Command `Ctrl-Alt-p`
 
 > **warning** Caution

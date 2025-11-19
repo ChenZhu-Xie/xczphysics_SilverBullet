@@ -46,6 +46,7 @@
 | Page: | [[CONFIG/Copy_as/page_title/Page_Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy_as/page_title/Page_Link|Copy Link]] | | Shift | Alt | l |
 | Page: | [[CONFIG/Copy_as/page_title/Folder_Url|Copy Dir]] | Ctrl | Shift | | d |
+| Page: | Print | Ctrl | Alt | | p |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
