@@ -1,7 +1,7 @@
 
 # Markup Languages
 
-事实上，这有点像。
+事实上，这有点像：[[Language/Input Method]]。
 
 ## djot
 
