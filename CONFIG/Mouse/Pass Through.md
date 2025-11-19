@@ -7,6 +7,7 @@ event.listen {
     local d = e.data or {}
     if d.ctrlKey then
       local pos = d.pos
+      editor.flashNotification(pos)
       editor.moveCursor(pos, true)
       return
     end
