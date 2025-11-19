@@ -110,8 +110,6 @@ command.define {
 }
 ```
 
-## Page
-
 ### New Child
 
 1. https://github.com/malys/silverbullet-libraries/blob/main/src/NewChildPage.md
