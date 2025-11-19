@@ -14,5 +14,5 @@ We are thrilled to invite you join us in bringing Raycast to Windows. You now ha
 [从 Raycast 到如快：一个程序员的全平台效率启动器解决方案 - 知乎](https://zhuanlan.zhihu.com/p/14180231937#WCREFX-12174664)
 utools 和开源的 rubick。但是，二者都是基于 Electron 开发的，与启动器的轻量特性似乎不沾边
 
-
+1. https://github.com/ruanyf/weekly/issues/6877
 
