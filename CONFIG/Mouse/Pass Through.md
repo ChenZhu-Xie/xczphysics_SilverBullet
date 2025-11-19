@@ -5,6 +5,7 @@ event.listen {
   name = 'page:click',
   run = function(e)
     local d = e.data or {}
+    editor.flashNotification(d.ctrlKey)
     if d.ctrlKey then
       local pos = d.pos
       editor.flashNotification(pos)
