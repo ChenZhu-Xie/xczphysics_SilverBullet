@@ -29,10 +29,10 @@ command.define {
   name = "Scroll: to Bottom",
   run = function()
     local text = editor.getText()
-    editor.moveCursor(0, true)
+    editor.moveCursor(#text, true)
   end,
-  key = "Ctrl-Up",
-  mac = "Ctrl-Up",
+  key = "Ctrl-ArrowDown",
+  mac = "Ctrl-ArrowDown",
   priority = 1,
 }
 ```
