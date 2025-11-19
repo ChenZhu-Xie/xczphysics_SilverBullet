@@ -3,7 +3,7 @@ name: "Repository/malys Repo"
 tags: meta/repository
 pageDecoration.prefix: "🦩"
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/Repository/malys.md"
-share.hash: 559f8645
+share.hash: 0043361a
 share.mode: pull
 ---
 ```#meta/library/remote
@@ -11,6 +11,16 @@ name: "Bashcode"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/BashCode.md
 website: https://github.com/malys/silverbullet-libraries/blob/main/src/BashCode.md
 description: "Quickly insert bash code."
+---
+name: "Breadcrumb"
+uri: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumb.md
+website: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumb.md
+description: "Generate breadcrumbs for a page"
+---
+name: "Cursorposition"
+uri: https://github.com/malys/silverbullet-libraries/blob/main/src/CursorPosition.md
+website: https://github.com/malys/silverbullet-libraries/blob/main/src/CursorPosition.md
+description: "Generate and copy links to specific cursor positions and headers in markdown documents"
 ---
 name: "Embededitor"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/EmbedEditor.md
@@ -82,6 +92,11 @@ uri: https://github.com/malys/silverbullet-libraries/blob/main/src/ReplacePlaceh
 website: https://github.com/malys/silverbullet-libraries/blob/main/src/ReplacePlaceholders.md
 description: "Replace Placeholders feature allows you to easily replace placeholders in your markdown content with specific values"
 ---
+name: "Riskaudit"
+uri: https://github.com/malys/silverbullet-libraries/blob/main/src/RiskAudit.md
+website: https://github.com/malys/silverbullet-libraries/blob/main/src/RiskAudit.md
+description: "Enhanced Risk Audit for SilverBullet that analyzes scripts for potentially dangerous constructs and API calls."
+---
 name: "Taiga"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/Taiga.md
 website: https://github.com/malys/silverbullet-libraries/blob/main/src/Taiga.md
@@ -96,6 +111,11 @@ name: "Utilities"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
 website: https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md
 description: "List of reusable functions."
+---
+name: "Vikunja"
+uri: https://github.com/malys/silverbullet-libraries/blob/main/src/Vikunja.md
+website: https://github.com/malys/silverbullet-libraries/blob/main/src/Vikunja.md
+description: "Vikunja, open-source project management tool, integration."
 ---
 name: "Vscodepalette"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/VSCodePalette.md
