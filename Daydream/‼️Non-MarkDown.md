@@ -1,5 +1,5 @@
 
-# markup languages
+# Markup Languages
 
 ## djot
 

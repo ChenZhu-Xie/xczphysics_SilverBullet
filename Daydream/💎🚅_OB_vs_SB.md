@@ -27,6 +27,6 @@ OB 和 SiYuan 都 支持 - 创建 Bullets
 
 ## 前进后退
 
-SiYuan 的 前进后退，默认 采用的是 `Ctrl + []`
+SiYuan & LogSeq 的 前进后退，默认 采用的是 `Ctrl + []`
 OB 的前进后退，还没找到
 - 既不是 SY 的，也不是 浏览器/SB 的 `Alt+<>`
