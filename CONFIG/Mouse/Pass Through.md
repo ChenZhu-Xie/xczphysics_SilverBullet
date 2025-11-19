@@ -3,7 +3,12 @@
 event.listen {
   name = 'page:click',
   run = function(e)
-    editor.flashNotification(e.data)
+    local d = e.data or {}
+    if d.shiftKey and not (d.ctrlKey or d.metaKey) then
+      local pos = d.pos
+      editor.moveCursor(pos, false)
+      return 1
+    end
   end
 }
 ```
