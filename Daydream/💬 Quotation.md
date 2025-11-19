@@ -1,7 +1,0 @@
-
-# Learn how to quote & from quotation
-
-- [structuredprocrastination](https://www.structuredprocrastination.com/) #结构化拖延 [author:John Perry]
-  - _quoted by_ [tools.html](https://johnmacfarlane.net/tools.html) [author:John Macfarlane]
-  - other good articles from [light.php](https://www.structuredprocrastination.com/light.php) [author:John Perry]
-

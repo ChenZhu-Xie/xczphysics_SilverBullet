@@ -1,9 +1,0 @@
-
-- [软件幻灭 disenchantment](https://tonsky.me/blog/disenchantment/zh/) #programming #specifications #reflection [author:tonsky] [about:编程（不）规范]
-  - 其他相关话题 other related topic:
-  - [underscores_are_stupid](https://www.reddit.com/r/programming/comments/to86z/underscores_are_stupid/?tl=zh-hans) #reddit 
-  - [why_is_twospace_tab_indent_becoming_the_standard](https://www.reddit.com/r/javascript/comments/5rjrcy/why_is_twospace_tab_indent_becoming_the_standard/?tl=zh-hans) #reddit
-
-- [describe the infinite](https://writingexamples.com/article/describe-the-infinite) #writingexamples 
-
-
