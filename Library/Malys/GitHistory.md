@@ -4,12 +4,10 @@ description: Implement Git commands (log, diff, revert)
 name: "Library/Malys/GitHistory"
 tags: meta/library
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/GitHistory.md"
-share.hash: 6de344ec
+share.hash: 06ccc673
 share.mode: pull
 ---
-
-`${editor.navigate("git:Library/Malys/GitHistory_930bab41")}`
-
+---
 # Git History Module
 
 ## 🎯 Description
@@ -93,9 +91,12 @@ local LOG_ENABLE = false
 
 local function log(...)
   if LOG_ENABLE and utilities and utilities.debug then
-     -- utilities.debug(table.concat({...}, " "))
+     if type(utilities.debug) == "function" then 
+       utilities.debug(table.concat({...}, " "))
+     end  
   end
 end
+
 
 local current_panel_id = "rhs"
 local is_panel_visible = false
@@ -171,8 +172,6 @@ end
 -- @param hash string commit hash
 local function get_file_contents(file_path, hash)
   log("get_file_contents:", file_path, "at", hash)
-  -- editor.flashNotification(hash)
-  -- editor.flashNotification(file_path)
   return run_shell_command("git", { "show", hash .. ":" .. file_path })
 end
 
@@ -278,7 +277,6 @@ end
 virtualPage.define {
   pattern = "git:(.+)",
   run = function(ref)
-    print("ddddddddddddddddddddddddd")
     local result = get_content(ref).content
     if result == nil then
       editor.flashNotification("Path " .. ref .. " corrupted", "error")
@@ -328,7 +326,6 @@ command.define {
     end
     local selected = editor.filterBox("📜 Git History", history, "🔍 Select a commit", "Type to search...")
     if selected and selected.ref then
-      -- editor.flashNotification(selected.ref)
       editor.navigate("git:" .. selected.ref)
     end
   end
