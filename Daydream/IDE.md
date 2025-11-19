@@ -1,4 +1,4 @@
-
+:page
 # Zed Sublime
 
 Silver Bullet 的大哥 也叫 Zed ...? nono Zef。
