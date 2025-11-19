@@ -7,7 +7,7 @@ event.listen {
     local d = e.data or {}
     if d.shiftKey then
       local pos = d.pos
-      editor.moveCursor(pos, false)
+      editor.moveCursor(pos, true)
       return 1
     end
   end
