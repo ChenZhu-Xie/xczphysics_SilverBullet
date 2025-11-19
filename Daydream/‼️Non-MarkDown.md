@@ -1,7 +1,7 @@
 
 # Markup Languages
 
-事实上，这有点像：[[Language/Input Method]]。
+事实上，这有点像：[[Language/Input Method]] 对 [[信息论]] 的 极限运用。
 
 ## djot
 
