@@ -9,8 +9,8 @@
 | Cursor: | [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
-| Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Ctrl | , |
-| Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Ctrl | . |
+| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#backup 3.2|FlBr]] | | | Ctrl | , |
+| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#backup 3.2|BlFr]] | | | Ctrl | . |
 | Text: | [[STYLE/Color/Inline_Text#space-lua|Red]] | | | Alt | r |
 | Text: | [[STYLE/Builtin_Formats#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Builtin_Formats#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
