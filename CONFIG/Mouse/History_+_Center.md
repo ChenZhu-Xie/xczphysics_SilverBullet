@@ -39,7 +39,17 @@ event.listen {
 ```
 
 ```space-lua
-
+command.define {
+  name = "History: Last Click",
+  run = function()
+    local dataT = datastore.get({"ClickTimes", "!"}) or {}
+    local Ctimes = dataT.Ctimes or 0
+    datastore.get({"ClickHistory", tostring(Ctimes)}, { ref = ref })
+  end,
+  key = "Shift-Alt-ArrowUp",
+  mac = "Shift-Alt-ArrowUp",
+  priority = 1,
+}
 ```
 
 1. [Events](https://silverbullet.md/Events) #silverbullet
