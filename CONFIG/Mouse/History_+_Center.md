@@ -44,7 +44,8 @@ command.define {
   run = function()
     local dataT = datastore.get({"ClickTimes", "!"}) or {}
     local Ctimes = dataT.Ctimes or 0
-    datastore.get({"ClickHistory", tostring(Ctimes)}, { ref = ref })
+    local dataC = datastore.get({"ClickHistory", tostring(Ctimes - 1)}) or {}
+    local lastClick = dataC.ref or ""
   end,
   key = "Shift-Alt-ArrowUp",
   mac = "Shift-Alt-ArrowUp",
