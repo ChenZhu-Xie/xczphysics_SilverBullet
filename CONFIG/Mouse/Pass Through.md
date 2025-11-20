@@ -1,4 +1,10 @@
-本来是想做 
+
+本来是想做 鼠标穿透 penetration/pass through 的
+发现这功能实现不了...
+- 可能是被 preview:click 拦截了。
+现在改为了做 ctrl + click 自动带 Navigate: Center Cursor 的功能
+
+
 点击任何行末，都不会触发。#Bug 无论是否是空行。
 
 ```space-lua
