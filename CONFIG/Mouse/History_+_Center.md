@@ -226,24 +226,6 @@ do
 end
 ```
 
-### Get
-
-```space-lua
-command.define {
-  name = "History: Last Click",
-  run = function()
-    local dataT = datastore.get({"ClickTimes", "!"}) or {}
-    local Ctimes = dataT.Ctimes or 0
-    local dataC = datastore.get({"ClickHistory", tostring(Ctimes - 1)}) or {}
-    local lastClick = dataC.ref
-    if lastClick then editor.navigate(lastClick) end
-  end,
-  key = "Shift-Alt-ArrowLeft",
-  mac = "Shift-Alt-ArrowLeft",
-  priority = 1,
-}
-```
-
 ## Other Tests
 
 1. [Events](https://silverbullet.md/Events) #silverbullet
