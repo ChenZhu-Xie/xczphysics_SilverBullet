@@ -210,8 +210,8 @@ command.define {
     resetBrowseSessionToPresent()
     editor.flashNotification("已回到当前位置（退出历史浏览）")
   end,
-  key = "Esc",
-  mac = "Esc",
+  key = "Ctrl-Shift-Alt-ArrowRight",
+  mac = "Ctrl-Shift-Alt-ArrowRight",
   priority = 1,
 }
 
