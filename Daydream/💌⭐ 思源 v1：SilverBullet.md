@@ -46,7 +46,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | RoamResearch | - | Electron |
 | RemNote | - | Electron |
 | Tana | ~ 233 MB | Electron ? |
-| SiYuan | ~ 231 MB | Electron |
+| SiYuan | ~ 231 MB | Electron + Go + TS |
 | AnyType | 170 ~ 330 MB | Electron + TS |
 | LogSeq | ~ 230 MB | Electron + Clojure + TS |
 | Orca | ~ 200 MB | Electron |
