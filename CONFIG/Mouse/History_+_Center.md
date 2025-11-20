@@ -111,12 +111,6 @@ local function ensureBrowseSession()
   return getBrowse()
 end
 
--- 退出浏览会话（回到“当前位置”）
-local function resetBrowseSessionToPresent()
-  local Ctimes = getTimes()
-  setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
-end
-
 ------------------------------------------------------------
 -- 事件：记录点击 -> 写入历史
 ------------------------------------------------------------
@@ -202,28 +196,13 @@ command.define {
   priority = 1,
 }
 
-------------------------------------------------------------
--- 命令：回到当前位置（退出浏览会话）
-------------------------------------------------------------
-command.define {
-  name = "Cursor History: Exit Browse (Present)",
-  run = function()
-    resetBrowseSessionToPresent()
-    editor.flashNotification("已回到当前位置（退出历史浏览）")
-  end,
-  key = "Esc",
-  mac = "Esc",
-  priority = 1,
-}
 
 ------------------------------------------------------------
 -- 启动初始化：把浏览指针初始化为历史最大值（末尾）
 -- 启动时执行一次即可
 ------------------------------------------------------------
-do
   local Ctimes = getTimes()
   setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
-end
 ```
 
 ## Other Tests
