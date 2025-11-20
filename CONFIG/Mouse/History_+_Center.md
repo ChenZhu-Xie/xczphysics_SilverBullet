@@ -27,6 +27,7 @@ event.listen {
     local pos = editor.getCursor()
     local ref = string.format("%s@%d", pageName, pos)
     datastore.set({"ClickHistory", Ctimes}, { ref = ref })
+    editor.flashNotification(Ctimes)
     -- =========================================
     local pos = d.pos
     if d.ctrlKey then
