@@ -116,7 +116,7 @@ local function resetBrowseSessionToPresent()
   local Ctimes = getTimes()
   setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
   if navigateIndex(Ctimes) then
-    editor.flashNotification(string.format("Forward: %d / %d", Ctimes, Ctimes))
+    editor.flashNotification(string.format("Forward: %d / %d", Ctimes, math.max(Ctimes - 1, -1)))
   end
 end
 
