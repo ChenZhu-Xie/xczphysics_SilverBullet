@@ -74,7 +74,7 @@ ${query[[
 ${query[[
     from index.tag "page" 
     where _.name != editor.getCurrentPage() 
-    select {ref=_.ref, lastModified=_.lastModified:gsub("T", " ")} 
+    select {ref=_.ref, lastModified=string.sub(_.lastModified:gsub("T", " "), 1, -5)} 
     order by lastModified 
     desc limit 5
 ]]}
@@ -83,6 +83,5 @@ ${query[[
 ${query[[
     from index.tag "page"
     where _.name:startsWith("Daydream/")
-    select {ref = _.ref, lastModified = _.lastModified}
+    select {ref = _.ref, lastModified = string.sub(_.lastModified:gsub("T", " "), 1, -5)}
 ]]}
-
