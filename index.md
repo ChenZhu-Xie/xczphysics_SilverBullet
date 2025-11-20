@@ -74,7 +74,7 @@ ${query[[
 ${query[[
     from index.tag "page" 
     where _.name != editor.getCurrentPage() 
-    select {ref=_.ref, lastModified=_.lastModified:gsub("%....", ""):gsub("T", " ")} 
+    select {ref=_.ref, lastModified=_.lastModified:gsub("T", " ")} 
     order by lastModified 
     desc limit 5
 ]]}
