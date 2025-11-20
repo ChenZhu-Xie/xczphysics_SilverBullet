@@ -47,7 +47,8 @@
 | Page: | [[CONFIG/Copy_as/page_title/Page_Link|Copy Link]] | | Shift | Alt | l |
 | Page: | [[CONFIG/Copy_as/page_title/Folder_Url|Copy Dir]] | Ctrl | Shift | | d |
 | Page: | [[Library/Mr-xRed/PrintPreview#PrintPreview Command `Ctrl-Alt-p`|Print]] | Ctrl | Alt | | p |
-| Page: | to Top | Ctrl | | | p |
+| Page: | [[CONFIG/KeyBinding/Define#to Top|to Top]] | Ctrl | | | ↑ |
+| Page: | [[CONFIG/KeyBinding/Define#to Bottom|to Bottom]] | Ctrl | | | ↓ |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
