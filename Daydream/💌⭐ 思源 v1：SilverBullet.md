@@ -39,7 +39,9 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 ## SB 有 最小 Kernel 内核
 
 * Tana ~ Core 233 MB + Pages ...
-* SiYuan ~ Core 231 MB + Pages ... 
+* SiYuan ~ Core 231 MB + Pages ...\
+- AnyType ~ 330 MB
+- LogSeq ~ 230 MB
 * SilverBullet ~ 28 MB
 
-- AnyType ~ 
+
