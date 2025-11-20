@@ -111,6 +111,12 @@ local function ensureBrowseSession()
   return getBrowse()
 end
 
+-- 退出浏览会话（回到“当前位置”）
+local function resetBrowseSessionToPresent()
+  local Ctimes = getTimes()
+  setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
+end
+
 ------------------------------------------------------------
 -- 事件：记录点击 -> 写入历史
 ------------------------------------------------------------
@@ -127,13 +133,32 @@ event.listen {
 
     -- Ctrl-点击：直接把光标移动到点击位置（保留你的逻辑）
     if d.ctrlKey then
-      editor.flashNotification(pos)
       editor.moveCursor(pos, true)
       return
     end
   end
 }
 
+------------------------------------------------------------
+-- 命令：查看最近一次点击（你现有命令的健壮化版本）
+------------------------------------------------------------
+command.define {
+  name = "History: Last Click",
+  run = function()
+    local Ctimes = getTimes()
+    local lastIdx = Ctimes - 1
+    if lastIdx < 0 then
+      editor.flashNotification("暂无历史", "warning")
+      return
+    end
+    navigateIndex(lastIdx)
+    -- 进入该命令不算浏览会话，仍保持“当前位置”语义
+    resetBrowseSessionToPresent()
+  end,
+  key = "Shift-Alt-ArrowLeft",
+  mac = "Shift-Alt-ArrowLeft",
+  priority = 1,
+}
 
 ------------------------------------------------------------
 -- 命令：后退（Back，去更旧的历史）——下界 0
@@ -161,8 +186,8 @@ command.define {
       editor.flashNotification(string.format("Back: %d / %d", b.index, b.max))
     end
   end,
-  key = "Shift-Alt-ArrowLeft",
-  mac = "Shift-Alt-ArrowLeft",
+  key = "Alt-ArrowLeft",
+  mac = "Alt-ArrowLeft",
   priority = 1,
 }
 
@@ -191,18 +216,31 @@ command.define {
       editor.flashNotification(string.format("Forward: %d / %d", b.index, b.max))
     end
   end,
-  key = "Shift-Alt-ArrowRight",
-  mac = "Shift-Alt-ArrowRight",
+  key = "Alt-ArrowRight",
+  mac = "Alt-ArrowRight",
   priority = 1,
 }
 
+------------------------------------------------------------
+-- 命令：回到当前位置（退出浏览会话）
+------------------------------------------------------------
+command.define {
+  name = "Cursor History: Exit Browse (Present)",
+  run = function()
+    resetBrowseSessionToPresent()
+    editor.flashNotification("已回到当前位置（退出历史浏览）")
+  end,
+  key = "Esc",
+  mac = "Esc",
+  priority = 1,
+}
 
 ------------------------------------------------------------
 -- 启动初始化：把浏览指针初始化为历史最大值（末尾）
 -- 启动时执行一次即可
 ------------------------------------------------------------
-  local Ctimes = getTimes()
-  setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
+local Ctimes = getTimes()
+setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
 ```
 
 ## Other Tests
