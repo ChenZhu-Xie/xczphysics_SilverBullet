@@ -18,10 +18,11 @@ event.listen {
   run = function(e)
     local d = e.data or {}
     -- editor.flashNotification(d.ctrlKey)
-    editor.flashNotification(d.pos)
+    -- editor.flashNotification(d.pos)
     local dataT = datastore.get({"ClickTimes", "!"}) or {}
     local Ctimes = dataT.Ctimes or 0
     datastore.set({"ClickTimes", "!"}, {Ctimes = Ctimes + 1})
+    editor.flashNotification(Ctimes)
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local ref = string.format("%s@%d", pageName, pos)
