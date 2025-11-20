@@ -1,4 +1,6 @@
 
+神奇，点击任何行末，都不会触发。无论是否是空行。
+
 ```space-lua
 -- priority = -1
 event.listen {
@@ -17,8 +19,7 @@ event.listen {
 }
 ```
 
-asdf`ssadfasdfasdfasdfsda`
-```space-lua
+```lua
 -- priority = -1
 event.listen {
   name = 'preview:click',
