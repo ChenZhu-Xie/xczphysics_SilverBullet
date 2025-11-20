@@ -40,7 +40,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 | App | Core Size | Tech |
 |----------|----------|----------|
-| SilverBullet | 24.5 MB | Server |
+| SilverBullet | ~ 24 MB | Server |
 | RoamEdit | ~ 44 MB | Server ? |
 | Workflowy | ~ 73 MB ? | Electron + TS |
 | RoamResearch | - | Electron |
