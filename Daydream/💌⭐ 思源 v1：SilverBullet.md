@@ -38,16 +38,16 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 ## SB 有 最小 Kernel 内核
 
-| App | Core Size | Tech |
+| App | RAM | Tech |
 |----------|----------|----------|
 | SilverBullet | ~ 24 MB | Server |
 | RoamEdit | ~ 44 MB | Server ? |
-| Workflowy | ~ 73 MB ? | Electron + TS |
+| Workflowy | ~ 73 MB ? | Web ? |
 | RoamResearch | - | Electron |
 | RemNote | - | Electron |
 | Tana | ~ 233 MB | Electron ? |
 | SiYuan | ~ 231 MB | Electron |
-| AnyType | 170 ~ 330 MB | Electron |
+| AnyType | 170 ~ 330 MB | Electron + TS |
 | LogSeq | ~ 230 MB | Electron |
 | Orca | ~ 200 MB | Electron |
 | Obsidian | ~ 160 MB | Electron + JS HTML CSS |
