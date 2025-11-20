@@ -41,8 +41,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | App | Core Size | Tech |
 |----------|----------|----------|
 | SilverBullet | 24.5 MB | Server |
-| RoamEdit | ~ 44 MB | Server |
-| Workflowy | ~ 73 MB ? | Web ? |
+| RoamEdit | ~ 44 MB | Server ? |
+| Workflowy | ~ 73 MB ? | Electron + TS |
 | RoamResearch | - | Electron |
 | RemNote | - | Electron |
 | Tana | ~ 233 MB | Electron ? |
@@ -50,4 +50,4 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | AnyType | 170 ~ 330 MB | Electron |
 | LogSeq | ~ 230 MB | Electron |
 | Orca | ~ 200 MB | Electron |
-| Obsidian | ~ 160 MB | Electron |
+| Obsidian | ~ 160 MB | Electron + JS HTML CSS |
