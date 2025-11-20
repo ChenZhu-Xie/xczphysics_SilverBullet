@@ -4,6 +4,7 @@
 - 可能是被 preview:click 拦截了。
 现在改为了做 ctrl + click 自动带 Navigate: Center Cursor 的功能
 
+此外，在此基础上再新增了：不按 ctrl 的 普通点击 会记录 点击历史。
 
 点击任何行末，都不会触发。#Bug 无论是否是空行。
 
