@@ -141,27 +141,6 @@ event.listen {
 }
 
 ------------------------------------------------------------
--- 命令：查看最近一次点击（你现有命令的健壮化版本）
-------------------------------------------------------------
-command.define {
-  name = "History: Last Click",
-  run = function()
-    local Ctimes = getTimes()
-    local lastIdx = Ctimes - 1
-    if lastIdx < 0 then
-      editor.flashNotification("暂无历史", "warning")
-      return
-    end
-    navigateIndex(lastIdx)
-    -- 进入该命令不算浏览会话，仍保持“当前位置”语义
-    resetBrowseSessionToPresent()
-  end,
-  key = "Shift-Alt-ArrowLeft",
-  mac = "Shift-Alt-ArrowLeft",
-  priority = 1,
-}
-
-------------------------------------------------------------
 -- 命令：后退（Back，去更旧的历史）——下界 0
 ------------------------------------------------------------
 command.define {
@@ -187,8 +166,8 @@ command.define {
       editor.flashNotification(string.format("Back: %d / %d", b.index, b.max))
     end
   end,
-  key = "Alt-ArrowLeft",
-  mac = "Alt-ArrowLeft",
+  key = "Shift-Alt-ArrowLeft",
+  mac = "Shift-Alt-ArrowLeft",
   priority = 1,
 }
 
@@ -217,8 +196,8 @@ command.define {
       editor.flashNotification(string.format("Forward: %d / %d", b.index, b.max))
     end
   end,
-  key = "Alt-ArrowRight",
-  mac = "Alt-ArrowRight",
+  key = "Shift-Alt-ArrowRight",
+  mac = "Shift-Alt-ArrowRight",
   priority = 1,
 }
 
