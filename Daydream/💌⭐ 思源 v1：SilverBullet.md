@@ -38,9 +38,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 ## SB 有 最小 Kernel 内核
 
-
-* SilverBullet ~ 28 MB
-* RoamEdit, Workflowy #web-based
+* SilverBullet ~ 28 MB #Holy
+* RoamEdit, Workflowy #Pure-Web
 - RoamResearch, RemNote #Electron
 * Tana ~ Core 233 MB + Pages ... #Electron
 * SiYuan ~ Core 231 MB + Pages ... #Electron
