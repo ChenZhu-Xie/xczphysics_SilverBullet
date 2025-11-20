@@ -37,6 +37,10 @@ event.listen {
 }
 ```
 
+```space-lua
+
+```
+
 1. [Events](https://silverbullet.md/Events) #silverbullet
 
 ```lua
