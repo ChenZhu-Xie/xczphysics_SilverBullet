@@ -24,12 +24,11 @@ event.listen {
     datastore.set({"ClickTimes", "!"}, {Ctimes = Ctimes + 1})
     -- editor.flashNotification(Ctimes)
     local pageName = editor.getCurrentPage()
-    local pos = editor.getCursor()
+    local pos = d.pos
     local ref = string.format("%s@%d", pageName, pos)
     datastore.set({"ClickHistory", Ctimes}, { ref = ref })
     editor.flashNotification(Ctimes)
     -- =========================================
-    local pos = d.pos
     if d.ctrlKey then
       editor.flashNotification(pos)
       editor.moveCursor(pos, true)
