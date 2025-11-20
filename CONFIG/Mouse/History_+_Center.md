@@ -18,6 +18,11 @@ event.listen {
     local d = e.data or {}
     -- editor.flashNotification(d.ctrlKey)
     -- editor.flashNotification(d.pos)
+    local mypage = editor.getCurrentPage()
+    local data = datastore.get({"Visitimes", mypage}) or {}
+    local value = data.value or 0
+    datastore.set({"Visitimes", mypage}, { value = value + 1 })
+    -- =========================================
     local pos = d.pos
     if d.ctrlKey then
       editor.flashNotification(pos)
