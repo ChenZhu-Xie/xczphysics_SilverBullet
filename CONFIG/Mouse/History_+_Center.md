@@ -10,6 +10,10 @@
 
 点击任何行末，都不会触发。#Bug 无论是否是空行。
 
+## Employed
+
+### Set
+
 ```space-lua
 -- priority = -1
 
@@ -27,7 +31,7 @@ event.listen {
     local pos = d.pos
     local ref = string.format("%s@%d", pageName, pos)
     datastore.set({"ClickHistory", tostring(Ctimes)}, { ref = ref })
-    -- editor.flashNotification(ref)
+    -- editor.flashNotification(Ctimes .. " " .. ref)
     -- =========================================
     if d.ctrlKey then
       editor.flashNotification(pos)
@@ -38,6 +42,8 @@ event.listen {
 }
 ```
 
+### Get
+
 ```space-lua
 command.define {
   name = "History: Last Click",
@@ -45,13 +51,16 @@ command.define {
     local dataT = datastore.get({"ClickTimes", "!"}) or {}
     local Ctimes = dataT.Ctimes or 0
     local dataC = datastore.get({"ClickHistory", tostring(Ctimes - 1)}) or {}
-    local lastClick = dataC.ref or ""
+    local lastClick = dataC.ref
+    if lastClick then editor.navigate(lastClick) end
   end,
-  key = "Shift-Alt-ArrowUp",
-  mac = "Shift-Alt-ArrowUp",
+  key = "Shift-Alt-ArrowLeft",
+  mac = "Shift-Alt-ArrowLeft",
   priority = 1,
 }
 ```
+
+## Other Tests
 
 1. [Events](https://silverbullet.md/Events) #silverbullet
 
