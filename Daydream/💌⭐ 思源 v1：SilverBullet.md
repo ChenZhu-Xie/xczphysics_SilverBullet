@@ -45,7 +45,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | Workflowy | ~ 73 MB ? | Web ? |
 | RoamResearch | - | Electron |
 | RemNote | - | Electron |
-| Tana | ~ 233 MB | Electron |
+| Tana | ~ 233 MB | Electron ? |
 | SiYuan | ~ 231 MB | Electron |
 | AnyType | 170 ~ 330 MB | Electron |
 | LogSeq | ~ 230 MB | Electron |
