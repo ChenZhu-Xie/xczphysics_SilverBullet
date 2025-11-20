@@ -47,7 +47,15 @@ So how should it be done?
 
 Well, let’s start with a logo first.
 
-# Statistics
+# My recent thoughts 💭
+
+${query[[
+    from index.tag "page"
+    where _.name:startsWith("Daydream/")
+    select {ref = _.ref, lastModified = string.sub(_.lastModified:gsub("T", " "), 1, -5)}
+]]}
+
+# Statistics 📊
 
 ## Your Last Visit 👀
 
@@ -77,11 +85,4 @@ ${query[[
     select {ref=_.ref, lastModified=string.sub(_.lastModified:gsub("T", " "), 1, -5)} 
     order by lastModified 
     desc limit 5
-]]}
-# My recent thoughts
-
-${query[[
-    from index.tag "page"
-    where _.name:startsWith("Daydream/")
-    select {ref = _.ref, lastModified = string.sub(_.lastModified:gsub("T", " "), 1, -5)}
 ]]}
