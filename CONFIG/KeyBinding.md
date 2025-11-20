@@ -28,6 +28,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Header: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
+| Mouse: | [[CONFIG/Mouse/History_+_Center#Click History|Center]] or To Define | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
 
