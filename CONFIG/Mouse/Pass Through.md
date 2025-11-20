@@ -1,7 +1,7 @@
 
-神奇，点击任何行末，都不会触发。无论是否是空行。
+点击任何行末，都不会触发。#Bug 无论是否是空行。
 
-```space-lua
+```lua
 -- priority = -1
 event.listen {
   name = 'page:click',
@@ -18,6 +18,8 @@ event.listen {
   end
 }
 ```
+
+1. [Events](https://silverbullet.md/Events) #silverbullet
 
 ```lua
 -- priority = -1
