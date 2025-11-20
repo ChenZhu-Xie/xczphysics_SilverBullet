@@ -12,18 +12,20 @@
 
 ```space-lua
 -- priority = -1
+local dataT = datastore.get({"ClickTimes", "indexDB"}) or {}
+local Ctimes = dataT.Ctimes or 0
+
 event.listen {
   name = 'page:click',
   run = function(e)
     local d = e.data or {}
     -- editor.flashNotification(d.ctrlKey)
     -- editor.flashNotification(d.pos)
-    local data = datastore.get({"ClickHistory", "indexDB"}) or {}
-    local times = data.times or 0
+    Ctimes = Ctimes + 1
     local pageName = editor.getCurrentPage()
     local pos = editor.getCursor()
     local ref = string.format("%s@%d", pageName, pos)
-    datastore.set({"ClickHistory", "indexDB"}, { times = times + 1, ref =  })
+    datastore.set({"ClickHistory", Ctimes}, { ref = ref })
     -- =========================================
     local pos = d.pos
     if d.ctrlKey then
