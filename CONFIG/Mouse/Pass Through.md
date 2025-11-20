@@ -1,6 +1,6 @@
 
 ```space-lua
--- priority = 100
+-- priority = -1
 event.listen {
   name = 'page:click',
   run = function(e)
