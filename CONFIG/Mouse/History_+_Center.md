@@ -134,6 +134,7 @@ event.listen {
     -- Ctrl-点击：直接把光标移动到点击位置（保留你的逻辑）
     if d.ctrlKey then
       editor.moveCursor(pos, true)
+      editor.flashNotification(pos)
       return
     end
   end
