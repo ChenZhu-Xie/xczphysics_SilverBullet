@@ -18,10 +18,12 @@ event.listen {
     local d = e.data or {}
     -- editor.flashNotification(d.ctrlKey)
     -- editor.flashNotification(d.pos)
-    local mypage = editor.getCurrentPage()
-    local data = datastore.get({"Visitimes", mypage}) or {}
-    local value = data.value or 0
-    datastore.set({"Visitimes", mypage}, { value = value + 1 })
+    local data = datastore.get({"ClickHistory", "indexDB"}) or {}
+    local times = data.times or 0
+    local pageName = editor.getCurrentPage()
+    local pos = editor.getCursor()
+    local ref = string.format("%s@%d", pageName, pos)
+    datastore.set({"ClickHistory", "indexDB"}, { times = times + 1, ref =  })
     -- =========================================
     local pos = d.pos
     if d.ctrlKey then
