@@ -38,6 +38,7 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
+local anchorsymbol = "⚓"
 local suffixFlabel = "➡️"
 local suffixBlabel = "🔙"
 local siblings = "🧑‍🤝‍🧑"
@@ -45,10 +46,10 @@ local siblings = "🧑‍🤝‍🧑"
 -- =========== Forth Anchor + Back Refs ==================
 
 local function tableBack(Flabel)
-  local aspiringPageBack = Flabel .. suffixBlabel
+  local aspiringPageBack = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage and toPage:find(aspiringPageBack, 1, true)
+    where toPage == aspiringPageBack
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
