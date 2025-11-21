@@ -217,17 +217,17 @@ command.define {
   run = function()
     local b = ensureBrowseSession()
 
-    if b.max < 0 then
+    if b.max < 1 then
       editor.flashNotification("No history available", "warning")
       return
     end
 
     -- 直接跳转到索引 0
-    b.index = 0
+    b.index = 1
     setBrowse(b)
     
-    if navigateIndex(0) then
-      editor.flashNotification(string.format("Start: 0 / %d", b.max))
+    if navigateIndex(1) then
+      editor.flashNotification(string.format("Start: 1 / %d", b.max))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowLeft", -- 建议快捷键，可自行修改
