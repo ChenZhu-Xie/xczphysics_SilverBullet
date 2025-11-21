@@ -1,5 +1,8 @@
 #💡
 
+[@zef@hachyderm.io](https://mastodon.social/@zef@hachyderm.io) #mastodon #social
+
+
 # 搭积木：像 我的世界 一样
 
 玩 SB 难道不像 玩 MC 么？
