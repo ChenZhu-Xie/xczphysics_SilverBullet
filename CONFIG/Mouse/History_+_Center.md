@@ -111,7 +111,7 @@ event.listen {
 
     if d.ctrlKey then
       editor.moveCursor(pos, true)
-      editor.flashNotification("pos@" .. tostring(pos))
+      editor.flashNotification("pos @ " .. tostring(pos))
       return
     end
   end
