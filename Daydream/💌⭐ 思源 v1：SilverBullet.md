@@ -50,5 +50,5 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | AnyType | 170 ~ 330 MB | Electron + TS |
 | LogSeq | ~ 230 MB | Electron + Clojure + TS |
 | Orca | ~ 200 MB | Electron + ... |
-| Obsidian | ~ 160 MB | Electron + TS + ... |
+| Obsidian | ~ 160 MB | Electron + TS ? |
 
