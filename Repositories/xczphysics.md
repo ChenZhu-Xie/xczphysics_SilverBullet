@@ -119,9 +119,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pas
 ## Cursor Anchor
 
 ==Ctrl-,==
-`[[test🔵|]]${backrefStat("test")}*~Σ~* 🔙 ${backRefs("test")}`
+`[[t⚓|🔙]]${backRefs("t")}`
 ==Ctrl-.==
-`[[test🟣1|test🟣]]==1== ➡️ ${forthRef("test")}${backrefStat("test")}*~Σ~*`
+`[[t⚓|➡️1]]${forthRef("t")}${backRefs_noSelf("t",1)}`
 
 ```#meta/library/remote
 name: "Paste_as/Cursor_Anchor"
