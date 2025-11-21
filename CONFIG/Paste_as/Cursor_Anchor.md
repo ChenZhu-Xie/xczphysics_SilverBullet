@@ -9,9 +9,7 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[ttextt⚓|🔙]]${backRefs("oiuweqr")}
-[[ttextt⚓|➡️1]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",1)}
-[[ttextt⚓|➡️2]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",2)}
+
 
 ### simplified logic 4
 
@@ -154,7 +152,7 @@ index.defineTag {
   metatable = {
     __index = function(self, attr)
       if attr == "thBlabel" then
-        return tonumber(string.match(self.toPage, ".+" .. suffixBlabel .. "([0-9]+)"))
+        return tonumber(string.match(self.alias, suffixFlabel .. "([0-9]+)"))
       end
     end
   }
