@@ -128,7 +128,6 @@ name: "Paste_as/Cursor_Anchor"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md
 ```
-
 [[CONFIG/Paste_as/Cursor_Anchor#here we go|Cursor_Anchor]]
 [Cursor_Anchor](https://enlarge-the-percentage.fly.dev/CONFIG/Paste_as/Cursor_Anchor#here%20we%20go) #enlarge-the-percentage #fly
 [Cursor_Anchor.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Paste_as/Cursor_Anchor.md) #github
@@ -207,9 +206,12 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 
 ```#meta/library/remote
 name: "Mouse/History_+_Center"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Mouse/History_+_Center.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Mouse/History_+_Center.md
 ```
+[[CONFIG/Mouse/History_+_Center#Click History|Click History]]
+[History_+_Center](https://enlarge-the-percentage.fly.dev/CONFIG/Mouse/History_+_Center#Click%20History) #enlarge-the-percentage #fly
+[History_+_Center.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Mouse/History_+_Center.md) #github
 
 # Add Field for Page
 
