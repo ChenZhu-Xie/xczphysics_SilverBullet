@@ -244,8 +244,8 @@ command.define {
   end,
   -- 这是一个破坏性操作，通常不建议绑定太容易误触的快捷键，或者干脆不绑定只通过命令面板调用
   -- 如果需要快捷键，可以取消下面的注释
-  -- key = "Ctrl-Shift-Alt-Delete", 
-  -- mac = "Ctrl-Shift-Alt-Delete",
+  key = "Ctrl-Shift-Alt-Delete", 
+  mac = "Ctrl-Shift-Alt-Delete",
   priority = 1,
 }
 
