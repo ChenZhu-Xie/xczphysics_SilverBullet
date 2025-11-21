@@ -79,7 +79,7 @@ local function navigateIndex(idx)
     return false
   end
   editor.navigate(ref)
-  editor.flashNotification(ref)
+  -- editor.flashNotification(ref)
   editor.moveCursor(tonumber(ref:match("@(.*)")), true)
   return true      
 end
@@ -109,7 +109,7 @@ event.listen {
 
     if d.ctrlKey then
       editor.moveCursor(pos, true)
-      editor.flashNotification("pos@" .. tostring(pos))
+      editor.flashNotification("pos @ " .. tostring(pos))
       return
     end
   end
