@@ -44,6 +44,21 @@ local function setRef(idx, ref)
   datastore.set({"ClickHistory", tostring(idx)}, { ref = ref, ts = os.time() })
 end
 
+-- [新增] 清除所有历史记录的辅助函数
+local function clearAllHistory()
+  local Ctimes = getTimes()
+  -- 清除每一条具体的历史记录
+  for i = 0, Ctimes do
+    datastore.delete({"ClickHistory", tostring(i)})
+  end
+  
+  -- 重置计数器
+  setTimes(0)
+  
+  -- 重置浏览状态
+  setBrowse({ index = 0, max = -1, active = false })
+end
+
 local enableTruncateDuringBrowse = true
 
 local function appendHistory(ref)
@@ -57,6 +72,12 @@ local function appendHistory(ref)
   local browse = getBrowse()
 
   if enableTruncateDuringBrowse and browse.active and browse.index <= browse.max then
+    -- 如果在浏览旧记录时产生了新点击，截断后续历史（类似浏览器的行为）
+    -- 这里需要清理掉被截断的数据，防止残留
+    for i = browse.index + 1, browse.max do
+       datastore.delete({"ClickHistory", tostring(i)})
+    end
+
     Ctimes = browse.index + 1
     setTimes(Ctimes)
     
@@ -80,7 +101,11 @@ local function navigateIndex(idx)
   end
   editor.navigate(ref)
   -- editor.flashNotification(ref)
-  editor.moveCursor(tonumber(ref:match("@(.*)")), true)
+  -- 尝试解析光标位置并移动
+  local pos = tonumber(ref:match("@(.*)"))
+  if pos then
+      editor.moveCursor(pos, true)
+  end
   return true      
 end
 
@@ -186,6 +211,45 @@ command.define {
   priority = 1,
 }
 
+-- [新增功能 1] Goto the beginning
+command.define {
+  name = "Cursor History: Start",
+  run = function()
+    local b = ensureBrowseSession()
+
+    if b.max < 0 then
+      editor.flashNotification("No history available", "warning")
+      return
+    end
+
+    -- 直接跳转到索引 0
+    b.index = 0
+    setBrowse(b)
+    
+    if navigateIndex(0) then
+      editor.flashNotification(string.format("Start: 0 / %d", b.max))
+    end
+  end,
+  key = "Ctrl-Shift-Alt-ArrowLeft", -- 建议快捷键，可自行修改
+  mac = "Ctrl-Shift-Alt-ArrowLeft",
+  priority = 1,
+}
+
+-- [新增功能 2] Clear History
+command.define {
+  name = "Cursor History: Clear",
+  run = function()
+    clearAllHistory()
+    editor.flashNotification("Cursor history cleared.", "info")
+  end,
+  -- 这是一个破坏性操作，通常不建议绑定太容易误触的快捷键，或者干脆不绑定只通过命令面板调用
+  -- 如果需要快捷键，可以取消下面的注释
+  -- key = "Ctrl-Shift-Alt-Delete", 
+  -- mac = "Ctrl-Shift-Alt-Delete",
+  priority = 1,
+}
+
+-- 初始化逻辑
 local Ctimes = getTimes()
 setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
 ```
