@@ -96,7 +96,7 @@ local function navigateIndex(idx)
   end
   editor.navigate(ref)
   editor.moveCursor(0, true)
-  return true
+  return true      
 end
 
 -- 进入一次浏览会话：锁定 max 快照，并把 index 放在“当前位置”（Ctimes）
