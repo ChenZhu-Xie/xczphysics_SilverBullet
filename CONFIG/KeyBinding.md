@@ -67,7 +67,13 @@
 | Navigate: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] | Ctrl | Shift | | t |
 | Navigate: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading Picker]] | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
-| Navigate: | Backward History | | | Alt | ← |
+| Navigate: | Back History | | | Alt | ← |
+| Click History: | Forward | | Shift | Alt | → |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | [[CONFIG/Search/全局搜索结果在侧边栏|Global Search]] | Ctrl | | Alt | f |
 | SilverSearch: | [[CONFIG/Search/Silver_Search|Panel Search]] | Ctrl | | | s |
