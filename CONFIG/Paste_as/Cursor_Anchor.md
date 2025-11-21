@@ -20,6 +20,10 @@ ${query[[
     where toPage and toPage:find("oiuweqr➡️", 1, true)
   ]]}
 
+${query[[
+    from index.tag "aspiring-page"
+  ]]}
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
