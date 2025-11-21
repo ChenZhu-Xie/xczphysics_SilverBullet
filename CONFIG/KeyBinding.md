@@ -36,7 +36,6 @@
 
 | Target: #mint | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Widget: | Refresh All | | | Alt | q |
 | Page: | [[CONFIG/KeyBinding/Define#New Child|New Child]] | | Ctrl | Alt | n |
 | Page: | [[CONFIG/KeyBinding/Define#New Sibling|New Sibling]] | | Ctrl | Alt | s |
 | Page: | Quick Note | | Shift | Alt | n |
@@ -82,6 +81,7 @@
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
-| Widgets: | ReIndex | | | Alt | q |
+| Toggle: | Keyboard Shortcuts | Ctrl | Shift | | / |
+| Widget: | Refresh All | | | Alt | q |
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update all Plugs | Ctrl | Shift | | p |
