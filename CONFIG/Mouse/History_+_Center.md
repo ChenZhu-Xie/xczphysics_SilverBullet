@@ -191,3 +191,53 @@ command.define {
 local Ctimes = getTimes()
 setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
 ```
+
+## 1st hand written ver
+
+### Set
+
+```lua
+-- priority = -1
+
+event.listen {
+  name = 'page:click',
+  run = function(e)
+    local d = e.data or {}
+    -- editor.flashNotification(d.ctrlKey)
+    -- editor.flashNotification(d.pos)
+    local dataT = datastore.get({"ClickTimes", "!"}) or {}
+    local Ctimes = dataT.Ctimes or 0
+    datastore.set({"ClickTimes", "!"}, {Ctimes = Ctimes + 1})
+    -- editor.flashNotification(Ctimes)
+    local pageName = editor.getCurrentPage()
+    local pos = d.pos
+    local ref = string.format("%s@%d", pageName, pos)
+    datastore.set({"ClickHistory", tostring(Ctimes)}, { ref = ref })
+    -- editor.flashNotification(Ctimes .. " " .. ref)
+    -- =========================================
+    if d.ctrlKey then
+      editor.flashNotification(pos)
+      editor.moveCursor(pos, true)
+      return
+    end
+  end
+}
+```
+
+### Get
+
+```lua
+command.define {
+  name = "History: Last Click",
+  run = function()
+    local dataT = datastore.get({"ClickTimes", "!"}) or {}
+    local Ctimes = dataT.Ctimes or 0
+    local dataC = datastore.get({"ClickHistory", tostring(Ctimes - 1)}) or {}
+    local lastClick = dataC.ref
+    if lastClick then editor.navigate(lastClick) end
+  end,
+  key = "Shift-Alt-ArrowLeft",
+  mac = "Shift-Alt-ArrowLeft",
+  priority = 1,
+}
+```
