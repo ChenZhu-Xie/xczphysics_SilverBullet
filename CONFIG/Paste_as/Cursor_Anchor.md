@@ -92,7 +92,7 @@ local function tableBack_noSelf(Flabel, thBlabelNum)
   local aspiringPage = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage == aspiringPage and alias:find(suffixFlabel, 1, true) and thBlabelNum ~= _.thBlabel
+    where toPage == aspiringPage and alias:find(suffixFlabel, 1, true) and thBlabel ~= thBlabelNum
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
