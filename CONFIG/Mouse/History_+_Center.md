@@ -53,7 +53,7 @@ local function clearAllHistory()
   setBrowse({ index = 1, max = 0, active = false })
 end
 
-local enableTruncateDuringBrowse = true
+local enableTruncateDuringBrowse = false
 
 local function appendHistory(ref)
   local Ctimes = getTimes()
