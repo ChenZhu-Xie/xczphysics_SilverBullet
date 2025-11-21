@@ -133,7 +133,7 @@ command.define {
     local b = ensureBrowseSession()
 
     if b.max < 1 then
-      editor.flashNotification("No history available", "warning")
+      editor.flashNotification("No history", "warning")
       return
     end
 
@@ -159,7 +159,7 @@ command.define {
     local b = ensureBrowseSession()
 
     if b.max < 1 then
-      editor.flashNotification("No history available", "warning")
+      editor.flashNotification("No history", "warning")
       return
     end
 
@@ -200,7 +200,7 @@ command.define {
     local b = ensureBrowseSession()
 
     if b.max < 1 then
-      editor.flashNotification("No history available", "warning")
+      editor.flashNotification("No history", "warning")
       return
     end
 
