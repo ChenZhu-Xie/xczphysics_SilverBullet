@@ -22,6 +22,7 @@ ${query[[
 
 ${query[[
     from index.tag "aspiring-page"
+    where name and name:find("oiuweqr➡️", 1, true)
   ]]}
 
 ```space-lua
