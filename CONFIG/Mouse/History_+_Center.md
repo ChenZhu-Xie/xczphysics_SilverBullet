@@ -222,7 +222,7 @@ command.define {
       return
     end
 
-    -- 直接跳转到索引 0
+    -- 直接跳转到索引 1
     b.index = 1
     setBrowse(b)
     
