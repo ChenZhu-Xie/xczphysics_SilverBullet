@@ -38,7 +38,7 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-local anchorsymbol = "⚓"
+local anchorSymbol = "⚓"
 local suffixFlabel = "➡️"
 local suffixBlabel = "🔙"
 local siblings = "🧑‍🤝‍🧑"
@@ -46,7 +46,7 @@ local siblings = "🧑‍🤝‍🧑"
 -- =========== Forth Anchor + Back Refs ==================
 
 local function tableBack(Flabel)
-  local aspiringPage = Flabel .. anchorsymbol
+  local aspiringPage = Flabel .. anchorSymbol
   return query[[
     from index.tag "link"
     where toPage == aspiringPage and alias:find(suffixFlabel, 1, true)
@@ -74,7 +74,7 @@ command.define {
       Flabel = usrPrompt('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
-    local aspiringPage = Flabel .. anchorsymbol
+    local aspiringPage = Flabel .. anchorSymbol
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
@@ -89,7 +89,7 @@ command.define {
 -- =========== Back Anchor + Forth Ref ==================
 
 local function tableBack_noSelf(Flabel, thBlabelNum)
-  local aspiringPage = Flabel .. anchorsymbol
+  local aspiringPage = Flabel .. anchorSymbol
   return query[[
     from index.tag "link"
     where toPage == aspiringPage and alias:find(suffixFlabel, 1, true) and thBlabelNum ~= _.thBlabel
@@ -105,7 +105,7 @@ function backRefs_noSelf(Flabel, thBlabelNum)
 end
 
 local function tableForth(Flabel)
-  local aspiringPage = Flabel .. anchorsymbol
+  local aspiringPage = Flabel .. anchorSymbol
   return query[[
     from index.tag "link"
     where toPage == aspiringPage and alias:find(suffixBlabel, 1, true)
@@ -134,7 +134,7 @@ command.define {
     end
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
-    local aspiringPage = Flabel .. anchorsymbol
+    local aspiringPage = Flabel .. anchorSymbol
     local backAnchor = "[[" .. aspiringPage .. "||^|" .. suffixFlabel .. thBlabelNum .. "]]"
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
