@@ -1,5 +1,5 @@
 
-# Some of my thoughts
+# My recent thoughts
 
 ${query[[
     from index.tag "page"
