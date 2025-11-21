@@ -96,8 +96,7 @@ local function navigateIndex(idx)
   end
   editor.navigate(ref)
   editor.flashNotification(ref)
-  -- local pos = tonumber(string.match(ref, "%@.*"))
-  -- editor.moveCursor(pos, true)
+  editor.moveCursor(tonumber(ref:match("@(.*)")), true)
   return true      
 end
 
