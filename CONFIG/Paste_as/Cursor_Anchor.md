@@ -46,10 +46,10 @@ local siblings = "🧑‍🤝‍🧑"
 -- =========== Forth Anchor + Back Refs ==================
 
 local function tableBack(Flabel)
-  local aspiringPageBack = Flabel .. anchorsymbol
+  local aspiringPage = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage == aspiringPageBack and alias:find(suffixFlabel, 1, true)
+    where toPage == aspiringPage and alias:find(suffixFlabel, 1, true)
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
@@ -74,8 +74,8 @@ command.define {
       Flabel = usrPrompt('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
-    local aspiringPageForth = Flabel .. anchorsymbol
-    local forthAnchor = "[[" .. aspiringPageForth .. "||^|" .. suffixBlabel .. "]]"
+    local aspiringPage = Flabel .. anchorsymbol
+    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if iniText and iniText ~= "" then
@@ -89,10 +89,10 @@ command.define {
 -- =========== Back Anchor + Forth Ref ==================
 
 local function tableBack_noSelf(Flabel, thBlabelNum)
-  local aspiringPageBack = Flabel .. suffixBlabel
+  local aspiringPage = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage and toPage:find(aspiringPageBack, 1, true) and thBlabelNum ~= _.thBlabel
+    where toPage == aspiringPage and alias:find(suffixFlabel, 1, true) and thBlabelNum ~= _.thBlabel
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
