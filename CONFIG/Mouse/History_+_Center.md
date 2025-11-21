@@ -95,7 +95,8 @@ local function navigateIndex(idx)
     return false
   end
   editor.navigate(ref)
-  editor.moveCursor(tonumber(ref:find), true)
+  local pos = tonumber(string.match(ref, "@.*")
+  editor.moveCursor(pos, true)
   return true      
 end
 
