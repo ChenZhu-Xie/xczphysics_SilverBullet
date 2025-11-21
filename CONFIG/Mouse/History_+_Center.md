@@ -209,7 +209,7 @@ command.define {
     end
     setBrowse({ index = max, max = max, active = false })
     if navigateIndex(max) then
-      editor.flashNotification(string.format("Forward: %d / %d", max, max))
+      editor.flashNotification(string.format("End: %d / %d", max, max))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowRight",
