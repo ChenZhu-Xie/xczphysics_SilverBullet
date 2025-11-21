@@ -57,7 +57,7 @@ local function setRef(idx, ref)
 end
 
 -- 可选：是否在“浏览中”产生新点击时截断未来历史（更贴近浏览器）
-local enableTruncateDuringBrowse = false
+local enableTruncateDuringBrowse = true
 
 -- 追加一条历史（遵循你已有的 0 基索引写法：先用旧 Ctimes 作为索引再递增）
 local function appendHistory(ref)
