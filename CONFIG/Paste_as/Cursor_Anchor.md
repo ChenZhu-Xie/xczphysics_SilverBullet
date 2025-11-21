@@ -222,7 +222,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -280,7 +280,7 @@ function forthRef(Flabel, thBlabelNum)
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
@@ -372,7 +372,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -414,7 +414,7 @@ function forthRef(Flabel, thBlabelNum)
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
@@ -511,7 +511,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -554,7 +554,7 @@ function forthRef(Flabel, thBlabelNum)
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
@@ -648,7 +648,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -691,7 +691,7 @@ function forthRef(Flabel)
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
@@ -796,7 +796,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -839,7 +839,7 @@ function forthRef(Flabel)
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
