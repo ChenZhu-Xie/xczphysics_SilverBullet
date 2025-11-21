@@ -35,7 +35,7 @@ At that time — a decade ago, and even now, I feel deeply that I possess a natu
 2. ${Purple("Processing")}: pattern recognize, distill, understand, interweave, compress, and transform known information through original logic into forms comprehensible to the public; 
 3. ${Purple("Output")}: strive for what one believes to be precise and concise expression —
 
-Therefore, I possess value to the outside world, as a automatic info generator/crawler + processor + distributor.
+Therefore, I do possess value to the outside world, as a automatic info generator/crawler + processor + distributor.
 
 However, these thoughts are often incomprehensible to others physically surrounds me (due to the mismatch), and their true worth cannot be accurately assessed.
 
