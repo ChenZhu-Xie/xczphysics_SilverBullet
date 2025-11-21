@@ -75,7 +75,7 @@ command.define {
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. anchorsymbol
-    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixBlabel .. "|^|]]"
+    local forthAnchor = "[[" .. aspiringPageForth .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if iniText and iniText ~= "" then
@@ -385,7 +385,7 @@ command.define {
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
-    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixBlabel .. "|^|]]"
+    local forthAnchor = "[[" .. aspiringPageForth .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if iniText and iniText ~= "" then
@@ -524,7 +524,7 @@ command.define {
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
-    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixFlabel .. "|^|]]"
+    local forthAnchor = "[[" .. aspiringPageForth .. "||^|" .. suffixFlabel .. "]]"
     local backrefStat = '${backrefStat("' .. Flabel .. '")}'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
@@ -661,7 +661,7 @@ command.define {
     end
     if not Flabel then return end
     local aspiringPageForth = Flabel .. suffixFlabel
-    local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixFlabel .. "|^|]]"
+    local forthAnchor = "[[" .. aspiringPageForth .. "||^|" .. suffixFlabel .. "]]"
     local backrefStat = '${backrefStat("' .. Flabel .. '")}'
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backrefStat .. B .. backRefs
