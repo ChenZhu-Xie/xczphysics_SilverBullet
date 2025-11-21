@@ -49,12 +49,6 @@
 | Page: | [[Library/Mr-xRed/PrintPreview#PrintPreview Command `Ctrl-Alt-p`|Print]] | Ctrl | Alt | | p |
 | Page: | [[CONFIG/KeyBinding/Define#to Top|to Top]] | Ctrl | | | ↑ |
 | Page: | [[CONFIG/KeyBinding/Define#to Bottom|to Bottom]] | Ctrl | | | ↓ |
-| Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
-| Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
-| Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
-| Read Only: | [[CONFIG/Edit/Read_Only_Toggle|Toggle on/off]] | Ctrl | | Alt | t |
-| Import: | Url | Ctrl | Shift | | i |
-| Import: | [[CONFIG/Plug_dev/Update_SB_Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
 
 # Across Pages
 
@@ -73,6 +67,9 @@
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
+| Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
+| Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
+| Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
 | SilverSearch: | [[CONFIG/Search/全局搜索结果在侧边栏|Global Search]] | Ctrl | | Alt | f |
 | SilverSearch: | [[CONFIG/Search/Silver_Search|Panel Search]] | Ctrl | | | s |
@@ -82,6 +79,10 @@
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Toggle: | Keyboard Shortcuts | Ctrl | Shift | | / |
-| Widget: | Refresh All | | | Alt | q |
+| Toggle: | [[CONFIG/Edit/Read_Only_Toggle|Read Only]] | Ctrl | | Alt | t |
+| Open: | Console | Ctrl | Shift | | i |
+| Import: | Url | Ctrl | Shift | | i |
+| Import: | [[CONFIG/Plug_dev/Update_SB_Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
+| Widgets: | Refresh All | | | Alt | q |
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update all Plugs | Ctrl | Shift | | p |
