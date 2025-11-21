@@ -49,7 +49,7 @@ local function tableBack(Flabel)
   local aspiringPageBack = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage == aspiringPageBack
+    where toPage == aspiringPageBack and alias:find(suffixFlabel, 1, true)
     order by _.thBlabel
     select {ref=_.ref, thBlabel=_.thBlabel}
   ]]
