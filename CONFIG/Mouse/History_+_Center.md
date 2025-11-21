@@ -12,8 +12,6 @@
 
 ## Employed
 
-### Set
-
 ```space-lua
 local function getTimes()
   local t = datastore.get({"ClickTimes", "!"}) or {}
@@ -111,7 +109,7 @@ event.listen {
 
     if d.ctrlKey then
       editor.moveCursor(pos, true)
-      editor.flashNotification("pos @ " .. tostring(pos))
+      editor.flashNotification("pos@" .. tostring(pos))
       return
     end
   end
@@ -129,9 +127,9 @@ command.define {
 
     if b.index > b.max then
       b.index = b.max
-    else
-      b.index = math.max(b.index - 1, 0)
     end
+    
+    b.index = math.max(b.index - 1, 0)
 
     setBrowse(b)
     if navigateIndex(b.index) then
