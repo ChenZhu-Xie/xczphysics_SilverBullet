@@ -62,7 +62,7 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "insert: Forthanchor + Backrefs",
+  name = "Insert: ForthAnchor + BackRefs",
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
@@ -74,7 +74,7 @@ command.define {
       Flabel = usrPrompt('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
-    local aspiringPageForth = Flabel .. suffixFlabel
+    local aspiringPageForth = Flabel .. anchorsymbol
     local forthAnchor = "[[" .. aspiringPageForth .. "|" .. suffixBlabel .. "|^|]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
