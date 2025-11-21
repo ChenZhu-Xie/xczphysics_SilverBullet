@@ -86,7 +86,6 @@ end
 local function navigateIndex(idx)
   local ref = getRef(idx)
   if not ref then
-    editor.flashNotification("History does not exist (" .. tostring(idx) .. ")", "warning")
     return false
   end
   editor.navigate(ref)
@@ -164,14 +163,11 @@ command.define {
       return
     end
 
-    b.index = b.index + 1
+    b.index = math.min(b.index + 1, b.max)
     setBrowse(b)
 
     if navigateIndex(b.index) then
       editor.flashNotification(string.format("Forward: %d / %d", b.index, b.max))
-    else
-      b.index = b.index - 1
-      setBrowse(b)
     end
   end,
   key = "Shift-Alt-ArrowRight",
@@ -233,7 +229,6 @@ command.define {
 
 local Ctimes = getTimes()
 setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
-
 ```
 
 ## 1st hand written ver
