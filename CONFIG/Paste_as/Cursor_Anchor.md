@@ -105,10 +105,10 @@ function backRefs_noSelf(Flabel, thBlabelNum)
 end
 
 local function tableForth(Flabel)
-  local aspiringPageForth = Flabel .. suffixFlabel
+  local aspiringPage = Flabel .. anchorsymbol
   return query[[
     from index.tag "link"
-    where toPage == aspiringPageForth
+    where toPage == aspiringPage and alias:find(suffixBlabel, 1, true)
     select {ref=_.ref}
   ]]
 end
