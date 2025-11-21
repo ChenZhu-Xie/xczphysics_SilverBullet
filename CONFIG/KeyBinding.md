@@ -82,5 +82,6 @@
 
 | Operation: | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
+| Widgets: | ReIndex | | | Alt | q |
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update all Plugs | Ctrl | Shift | | p |
