@@ -113,14 +113,14 @@ local function tableForth(Flabel)
   ]]
 end
 
-function forthRef(Flabel, thBlabelNum)
-  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. thBlabelNum .. "​]]"))
+function forthRef(Flabel)
+  local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. siblings .. "​]]"))
   if #str == 0 then return "No such Anchor" end
   return str
 end
 
 command.define {
-  name = "insert: Backanchor + Forthref",
+  name = "Insert: BackAnchor + ForthRef",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText()
@@ -134,11 +134,11 @@ command.define {
     end
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
-    local aspiringPageBack = Flabel .. suffixBlabel .. thBlabelNum
-    local backAnchor = "[[" .. aspiringPageBack .. "||^|" .. suffixFlabel .. "]]"
-    local forthRef = '${forthRef("' .. Flabel .. '",' .. thBlabelNum .. ')}'
+    local aspiringPage = Flabel .. anchorsymbol
+    local backAnchor = "[[" .. aspiringPage .. "||^|" .. suffixFlabel .. thBlabelNum .. "]]"
+    local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
-    local fullText = backAnchor .. forthRef .. siblings .. backRefs_noSelf
+    local fullText = backAnchor .. forthRef .. backRefs_noSelf
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
     else
