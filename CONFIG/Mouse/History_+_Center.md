@@ -95,6 +95,7 @@ local function navigateIndex(idx)
     return false
   end
   editor.navigate(ref)
+  editor.moveCursor(0, true)
   return true
 end
 
