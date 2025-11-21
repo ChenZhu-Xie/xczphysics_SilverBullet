@@ -128,7 +128,7 @@ event.listen {
 }
 
 command.define {
-  name = "Cursor History: Back",
+  name = "Click History: Back",
   run = function()
     local b = ensureBrowseSession()
 
@@ -154,7 +154,7 @@ command.define {
 }
 
 command.define {
-  name = "Cursor History: Forward",
+  name = "Click History: Forward",
   run = function()
     local b = ensureBrowseSession()
 
@@ -176,7 +176,7 @@ command.define {
 }
 
 command.define {
-  name = "Cursor History: Exit Browse (Present)",
+  name = "Click History: End",
   run = function()
     local Ctimes = getTimes()
     local max = Ctimes - 1
@@ -195,7 +195,7 @@ command.define {
 }
 
 command.define {
-  name = "Cursor History: Start",
+  name = "Click History: Start",
   run = function()
     local b = ensureBrowseSession()
 
@@ -217,10 +217,10 @@ command.define {
 }
 
 command.define {
-  name = "Cursor History: Clear",
+  name = "Click History: Clear",
   run = function()
     clearAllHistory()
-    editor.flashNotification("Cursor history cleared.", "info")
+    editor.flashNotification("Click History cleared.", "info")
   end,
   key = "Ctrl-Shift-Alt-Delete", 
   mac = "Ctrl-Shift-Alt-Delete",
