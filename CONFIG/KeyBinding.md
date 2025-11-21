@@ -61,7 +61,6 @@
 | Navigate: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading Picker]] | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Back History | | | Alt | ← |
-| Click History: | Forward | | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |

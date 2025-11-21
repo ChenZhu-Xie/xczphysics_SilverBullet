@@ -12,6 +12,8 @@
 
 ## Employed
 
+
+
 ```space-lua
 local function getTimes()
   local t = datastore.get({"ClickTimes", "!"}) or {}
