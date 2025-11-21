@@ -10,8 +10,8 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 [[ttextt⚓|🔙]]${backRefs("oiuweqr")}
-➡️[[ttextt⚓|1]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",1)}
-➡️[[ttextt⚓|2]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",2)}
+[[ttextt⚓|➡️1]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",1)}
+[[ttextt⚓|➡️2]]🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",2)}
 
 ### simplified logic 4
 
