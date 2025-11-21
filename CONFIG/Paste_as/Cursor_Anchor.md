@@ -15,6 +15,11 @@ pageDecoration.prefix: "📎 "
 [[oiuweqr🔙1|➡️]]${forthRef("oiuweqr",1)}🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",1)}
 [[oiuweqr🔙2|➡️]]${forthRef("oiuweqr",2)}🧑‍🤝‍🧑${backRefs_noSelf("oiuweqr",2)}
 
+${query[[
+    from index.tag "link"
+    where toPage and toPage:find("oiuweqr➡️", 1, true)
+  ]]}
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
