@@ -40,7 +40,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 | App | RAM | Tech |
 |----------|----------|----------|
-| SilverBullet | ~ 24 MB | GO + TS + Lua |
+| SilverBullet | ~ 24 MB | Go + TS + Lua |
 | RoamEdit | ~ 44 MB | Custom Web Stack ? |
 | Workflowy | ~ 73 MB ? | Custom Web Stack ? |
 | RoamResearch | - | Electron + ... |
