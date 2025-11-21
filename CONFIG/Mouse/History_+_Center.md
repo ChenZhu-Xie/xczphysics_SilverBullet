@@ -111,12 +111,6 @@ local function ensureBrowseSession()
   return getBrowse()
 end
 
--- 退出浏览会话（回到“当前位置”）
-local function resetBrowseSessionToPresent()
-  local Ctimes = getTimes()
-  setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
-end
-
 ------------------------------------------------------------
 -- 事件：记录点击 -> 写入历史
 ------------------------------------------------------------
@@ -215,7 +209,7 @@ command.define {
     end
     setBrowse({ index = max, max = max, active = false })
     if navigateIndex(max) then
-      editor.flashNotification("Jumped to last history")
+      editor.flashNotification(string.format("Forward: %d / %d", max, max))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowRight",
