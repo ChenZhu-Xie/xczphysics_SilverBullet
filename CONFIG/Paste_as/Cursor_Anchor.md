@@ -9,9 +9,9 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[qwoiejr⚓|no🔙]]${backRefs("qwoiejr")}
-[[qwoiejr⚓|yes➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
-[[qwoiejr⚓|yes➡️2]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",2)}
+[[qwoiejr⚓|🔙]]${backRefs("qwoiejr")}
+[[qwoiejr⚓|➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
+[[qwoiejr⚓|➡️2]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",2)}
 
 ### simplified logic 4
 
