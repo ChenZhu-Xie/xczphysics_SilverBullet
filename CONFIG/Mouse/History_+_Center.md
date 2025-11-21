@@ -103,7 +103,7 @@ event.listen {
     appendHistory(ref)
     if d.ctrlKey then
       editor.moveCursor(pos, true)
-      editor.flashNotification("Cursor moved to " .. tostring(pos))
+      editor.flashNotification("pos @ " .. tostring(pos))
       return
     end
   end
