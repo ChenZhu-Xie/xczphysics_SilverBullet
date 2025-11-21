@@ -15,7 +15,7 @@
 ```space-lua
 local function getTimes()
   local t = datastore.get({"ClickTimes", "!"}) or {}
-  return t.Ctimes or 0
+  return t.Ctimes or 1
 end
 
 local function setTimes(n)
@@ -26,7 +26,7 @@ local function getBrowse()
   local b = datastore.get({"ClickBrowse", "!"})
   if b then return b end
   local ct = getTimes()
-  b = { index = ct, max = math.max(ct - 1, -1), active = false }
+  b = { index = ct, max = ct - 1, active = false }
   datastore.set({"ClickBrowse", "!"}, b)
   return b
 end
@@ -44,27 +44,21 @@ local function setRef(idx, ref)
   datastore.set({"ClickHistory", tostring(idx)}, { ref = ref, ts = os.time() })
 end
 
--- [新增] 清除所有历史记录的辅助函数
 local function clearAllHistory()
   local Ctimes = getTimes()
-  -- 清除每一条具体的历史记录
-  for i = 0, Ctimes do
+  for i = 1, Ctimes do
     datastore.delete({"ClickHistory", tostring(i)})
   end
-  
-  -- 重置计数器
-  setTimes(0)
-  
-  -- 重置浏览状态
-  setBrowse({ index = 0, max = -1, active = false })
+  setTimes(1)
+  setBrowse({ index = 1, max = 0, active = false })
 end
 
 local enableTruncateDuringBrowse = true
 
 local function appendHistory(ref)
   local Ctimes = getTimes()
-
   local lastRef = getRef(Ctimes - 1)
+  
   if lastRef and lastRef == ref then
     return
   end
@@ -72,15 +66,11 @@ local function appendHistory(ref)
   local browse = getBrowse()
 
   if enableTruncateDuringBrowse and browse.active and browse.index <= browse.max then
-    -- 如果在浏览旧记录时产生了新点击，截断后续历史（类似浏览器的行为）
-    -- 这里需要清理掉被截断的数据，防止残留
     for i = browse.index + 1, browse.max do
        datastore.delete({"ClickHistory", tostring(i)})
     end
-
     Ctimes = browse.index + 1
     setTimes(Ctimes)
-    
     browse.index = Ctimes
     browse.max = Ctimes
     setBrowse(browse)
@@ -100,8 +90,6 @@ local function navigateIndex(idx)
     return false
   end
   editor.navigate(ref)
-  -- editor.flashNotification(ref)
-  -- 尝试解析光标位置并移动
   local pos = tonumber(ref:match("@(.*)"))
   if pos then
       editor.moveCursor(pos, true)
@@ -113,7 +101,7 @@ local function ensureBrowseSession()
   local b = getBrowse()
   if not b.active then
     local Ctimes = getTimes()
-    b.max = math.max(Ctimes - 1, -1)
+    b.max = Ctimes - 1
     b.index = Ctimes
     b.active = true
     setBrowse(b)
@@ -145,16 +133,16 @@ command.define {
   run = function()
     local b = ensureBrowseSession()
 
-    if b.max < 0 then
+    if b.max < 1 then
       editor.flashNotification("No history available", "warning")
       return
     end
 
-    if b.index > b.max then
-      b.index = b.max
+    if b.index > b.max + 1 then
+      b.index = b.max + 1
     end
     
-    b.index = math.max(b.index - 1, 0)
+    b.index = math.max(b.index - 1, 1)
 
     setBrowse(b)
     if navigateIndex(b.index) then
@@ -171,20 +159,19 @@ command.define {
   run = function()
     local b = ensureBrowseSession()
 
-    if b.max < 0 then
+    if b.max < 1 then
       editor.flashNotification("No history available", "warning")
       return
     end
 
-    if b.index >= b.max then
-      editor.flashNotification("Reached newest history (session limit)", "warning")
-      return
-    end
-
-    b.index = math.min(b.index + 1, b.max)
+    b.index = b.index + 1
     setBrowse(b)
+
     if navigateIndex(b.index) then
       editor.flashNotification(string.format("Forward: %d / %d", b.index, b.max))
+    else
+      b.index = b.index - 1
+      setBrowse(b)
     end
   end,
   key = "Shift-Alt-ArrowRight",
@@ -196,8 +183,8 @@ command.define {
   name = "Cursor History: Exit Browse (Present)",
   run = function()
     local Ctimes = getTimes()
-    local max = math.max(Ctimes - 1, -1)
-    if max < 0 then
+    local max = Ctimes - 1
+    if max < 1 then
       editor.flashNotification("No history", "warning")
       return
     end
@@ -211,7 +198,6 @@ command.define {
   priority = 1,
 }
 
--- [新增功能 1] Goto the beginning
 command.define {
   name = "Cursor History: Start",
   run = function()
@@ -222,7 +208,6 @@ command.define {
       return
     end
 
-    -- 直接跳转到索引 1
     b.index = 1
     setBrowse(b)
     
@@ -230,28 +215,25 @@ command.define {
       editor.flashNotification(string.format("Start: 1 / %d", b.max))
     end
   end,
-  key = "Ctrl-Shift-Alt-ArrowLeft", -- 建议快捷键，可自行修改
+  key = "Ctrl-Shift-Alt-ArrowLeft",
   mac = "Ctrl-Shift-Alt-ArrowLeft",
   priority = 1,
 }
 
--- [新增功能 2] Clear History
 command.define {
   name = "Cursor History: Clear",
   run = function()
     clearAllHistory()
     editor.flashNotification("Cursor history cleared.", "info")
   end,
-  -- 这是一个破坏性操作，通常不建议绑定太容易误触的快捷键，或者干脆不绑定只通过命令面板调用
-  -- 如果需要快捷键，可以取消下面的注释
   key = "Ctrl-Shift-Alt-Delete", 
   mac = "Ctrl-Shift-Alt-Delete",
   priority = 1,
 }
 
--- 初始化逻辑
 local Ctimes = getTimes()
-setBrowse({ index = Ctimes, max = math.max(Ctimes - 1, -1), active = false })
+setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
+
 ```
 
 ## 1st hand written ver
