@@ -9,8 +9,7 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[asdklfj⚓|🔙]]${backRefs("asdklfj")}
-[[asdklf⚓|➡️1]]${forthRef("asdklfj")}${backRefs_noSelf("asdklfj",1)}
+
 
 ### Less Index Overhead 4
 
@@ -38,9 +37,9 @@ function usrPrompt(hinText, iniText)
 end
 
 local anchorSymbol = "⚓"
-local suffixFlabel = "➡️"
+local suffixFlabel = "🧑‍🤝‍🧑"
 local suffixBlabel = "🔙"
-local siblings = "🧑‍🤝‍🧑"
+local siblings = "➡️"
 
 -- =========== Forth Anchor + Back Refs ==================
 
