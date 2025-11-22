@@ -10,7 +10,7 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 [[qwoiejr⚓|🔙]]${backRefs("qwoiejr")}
-
+[[qwoiej⚓|d➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
 
 ### Less Index Overhead 4
 
@@ -56,7 +56,7 @@ end
 
 function backRefs(Flabel)
   local str = template.each(tableBack(Flabel), template.new[==[​[[${_.ref}|${_.thBlabel}]]​]==])
-  if #str == 0 then return "0" end
+  if #str == 0 then return "" end
   return str
 end
 
