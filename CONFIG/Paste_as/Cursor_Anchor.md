@@ -20,7 +20,7 @@ Update:
 [[taiqwer⚓|🔙]]${backRefs("taiqwer")} | [[taiqwer⚓|🧑‍🤝‍🧑1]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",1)} | [[taiqwer⚓|🧑‍🤝‍🧑2]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",2)} | [[taiqwer⚓|🧑‍🤝‍🧑3]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",3)}
 
 
-
+asdf
 
 ### Less Index Overhead 4.2
 
@@ -74,7 +74,7 @@ command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: label)",
   key = "Ctrl-Alt-,",
   run = function()
-    local iniText = getSelectedText()
+    local iniText = getSelectedText() or ""
     -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
     local Flabel
     if iniText and iniText ~= "" then
