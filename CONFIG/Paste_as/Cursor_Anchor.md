@@ -97,18 +97,19 @@ command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: alias)",
   key = "Ctrl-,",
   run = function()
-    local iniText = getSelectedText()
+    local alias = getSelectedText()
     local Flabel = usrPrompt('Enter: label (to be Referred)', '')
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
-    if iniText and iniText ~= "" then
-      setSelectedText("") -- Delete selected iniText
+    if alias and alias ~= "" then
+      setSelectedText("") -- Delete selected alias
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
 }
