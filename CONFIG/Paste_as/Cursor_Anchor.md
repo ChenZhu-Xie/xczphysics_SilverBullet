@@ -9,9 +9,8 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[lkasjdf⚓|🔙]]${backRefs("lkasjdf")}
-[[lkasjdf⚓|➡️1]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",1)}
-[[lkasjdf⚓|➡️2]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",2)}
+[[lkasjdf⚓|🔙]]${backRefs("lkasjdf")}[[lkasjdf⚓|➡️1]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",1)}[[lkasjdf⚓|➡️2]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",2)}[[lkasjdf⚓|➡️3]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",3)}
+
 
 ### Less Index Overhead 4
 
