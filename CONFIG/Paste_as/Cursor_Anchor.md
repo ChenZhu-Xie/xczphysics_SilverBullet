@@ -98,13 +98,7 @@ command.define {
   key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
-    -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
-    local Flabel
-    if iniText and iniText ~= "" then
-      Flabel = iniText
-    else
-      Flabel = usrPrompt('Enter: label (to be Referred)', '')
-    end
+    local Flabel = usrPrompt('Enter: label (to be Referred)', '')
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
