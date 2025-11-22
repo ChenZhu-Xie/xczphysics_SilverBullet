@@ -21,10 +21,10 @@ pageDecoration.prefix: "📎 "
 3. auto `alt+q` reindex (refresh widgets)
 4. 4 commands for quick input
 
-|  | Header B |
-|----------|----------|
-| Cell A | Cell B |
-
+|     ​    | Ctrl- | Ctrl-Alt- |
+|----------|----------|----------|
+| , (<) | `[[prompt|(selection)]]`, clip | `[[(selection or) prompt|]]`, clip |
+| . (>) | `[[prompt|(selection)]]`, clip | `[[(paste or) prompt|]]`, clip |
 
 ```space-lua
 function getSelectedText()
@@ -189,6 +189,7 @@ command.define {
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
     if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
