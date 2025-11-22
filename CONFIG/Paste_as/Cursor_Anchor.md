@@ -10,9 +10,6 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 
-
-
-
 ### Less Index Overhead 4.2
 
 ==Update==
@@ -20,8 +17,6 @@ pageDecoration.prefix: "📎 "
 2. switch emoji 🧑‍🤝‍🧑,➡️
 3. auto `alt+q` reindex (refresh widgets)
 4. 4 commands for quick input
-
-asdfqwer
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
