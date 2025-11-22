@@ -13,10 +13,12 @@ pageDecoration.prefix: "📎 "
 ### Less Index Overhead 4.2
 
 ==Update==
-1. no text display if no forward label/backrefs/siblings found 
+1. no text display if no forward-label/backrefs/siblings found 
 2. switch emoji 🧑‍🤝‍🧑,➡️
-3. auto `alt+q` reindex (refresh widgets)
-4. 4 commands for quick input
+3. add auto reindex `alt+q` (refresh widgets)
+4. 4 commands for different input
+ - Ctrl-<>       for manual input
+ - Ctrl-Shift-<> for quick  input
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
