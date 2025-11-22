@@ -10,7 +10,7 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 [[qwoiejr⚓|🔙]]${backRefs("qwoiejr")}
-[[qwoiej⚓|d➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
+[[qwoiej⚓|➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
 
 ### Less Index Overhead 4
 
