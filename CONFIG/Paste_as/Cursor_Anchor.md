@@ -11,7 +11,6 @@ pageDecoration.prefix: "📎 "
 
 
 
-
 ### Less Index Overhead 4
 
 ```space-lua
