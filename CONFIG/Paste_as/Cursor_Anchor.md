@@ -73,7 +73,6 @@ command.define {
   key = "Ctrl-Alt-,",
   run = function()
     local iniText = getSelectedText() or ""
-    -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
     local Flabel
     if iniText and iniText ~= "" then
       Flabel = iniText
@@ -85,9 +84,7 @@ command.define {
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
-    if iniText and iniText ~= "" then
-      setSelectedText("") -- Delete selected iniText
-    end
+    if iniText and iniText ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
     editor.invokeCommand("Widgets: Refresh All")
@@ -105,9 +102,7 @@ command.define {
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
-    if alias and alias ~= "" then
-      setSelectedText("") -- Delete selected alias
-    end
+    if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
@@ -161,10 +156,9 @@ command.define {
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
-    if alias and alias ~= "" then
-      setSelectedText("") -- Delete selected alias
-    end
+    if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
@@ -176,7 +170,6 @@ command.define {
   run = function()
     local alias = getSelectedText() or ""
     local iniText = js.window.navigator.clipboard.readText()
-    -- local Flabel = usrPrompt('Jump to: label', iniText)
     local Flabel
     if iniText and iniText ~= "" then
       Flabel = iniText
@@ -190,11 +183,7 @@ command.define {
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
-    if alias and alias ~= "" then
-      setSelectedText("") -- Delete selected alias
-    else
-      alias = ''
-    end
+    if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
