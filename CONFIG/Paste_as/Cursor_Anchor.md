@@ -10,13 +10,9 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 
-[[asdfwq⚓|🔙]]${backRefs("asdfwq")}
 
-[[asdfwq⚓|🧑‍🤝‍🧑1]]${forthRef("asdfwq")}${backRefs_noSelf("asdfwq",1)}
 
-[[asdfwq⚓|🧑‍🤝‍🧑2]]${forthRef("asdfwq")}${backRefs_noSelf("asdfwq",2)}
-
-### Less Index Overhead 4
+### Less Index Overhead 4.2
 
 ```space-lua
 function getSelectedText()
