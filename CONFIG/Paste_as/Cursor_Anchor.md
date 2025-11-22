@@ -21,10 +21,12 @@ pageDecoration.prefix: "📎 "
 3. auto `alt+q` reindex (refresh widgets)
 4. 4 commands for quick input
 
-|     ​    | Ctrl- | Ctrl-Alt- |
+asdfqwer
+
+|     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
-| , (<) | `[[prompt|(selection)]]`, clip | `[[(selection or) prompt|]]`, clip |
-| . (>) | `[[prompt|(selection)]]`, clip | `[[(paste or) prompt|]]`, clip |
+| , (<) | `[[prompt|(select)C]]`, clip | `[[select (or prompt)|C]]`, clip |
+| . (>) | `[[prompt|(select)C]]`, clip | `[[paste (or prompt)|C]]`, clip |
 
 ```space-lua
 function getSelectedText()
@@ -74,7 +76,7 @@ end
 
 command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: label)",
-  key = "Ctrl-Alt-,",
+  key = "Ctrl-Shift-,",
   run = function()
     local iniText = getSelectedText() or ""
     local Flabel
@@ -170,7 +172,7 @@ command.define {
 
 command.define {
   name = "Insert: BackAnchor + ForthRef (label: clip)",
-  key = "Ctrl-Alt-.",
+  key = "Ctrl-Shift-.",
   run = function()
     local alias = getSelectedText() or ""
     local iniText = js.window.navigator.clipboard.readText()
