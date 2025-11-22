@@ -71,8 +71,34 @@ function backRefs(Flabel)
 end
 
 command.define {
-  name = "Insert: ForthAnchor + BackRefs",
+  name = "Insert: ForthAnchor + BackRefs (sel: label)",
   key = "Ctrl-,",
+  run = function()
+    local iniText = getSelectedText()
+    -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
+    local Flabel
+    if iniText and iniText ~= "" then
+      Flabel = iniText
+    else
+      Flabel = usrPrompt('Enter: label (to be Referred)', '')
+    end
+    if not Flabel then return end
+    local aspiringPage = Flabel .. anchorSymbol
+    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backRefs
+    if iniText and iniText ~= "" then
+      setSelectedText("") -- Delete selected iniText
+    end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
+    editor.invokeCommand("Widgets: Refresh All")
+  end
+}
+
+command.define {
+  name = "Insert: ForthAnchor + BackRefs (sel: alias)",
+  key = "Ctrl-Alt-,",
   run = function()
     local iniText = getSelectedText()
     -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
