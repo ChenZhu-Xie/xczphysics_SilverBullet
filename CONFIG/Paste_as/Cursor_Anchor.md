@@ -19,6 +19,8 @@ pageDecoration.prefix: "📎 "
  - Ctrl-<>       for manual input
  - Ctrl-Shift-<> for quick  input
 
+[[asdfqwlkerj⚓|🔙]]${backRefs("asdfqwlkerj")} | [[asdfqwlkerj⚓|🧑‍🤝‍🧑1]]${forthRef("asdfqwlkerj")}${backRefs_noSelf("asdfqwlkerj",1)} | [[asdfqwlkerj⚓|🧑‍🤝‍🧑2]]${forthRef("asdfqwlkerj")}${backRefs_noSelf("asdfqwlkerj",2)} | [[asdfqwlkerj⚓|🧑‍🤝‍🧑3]]${forthRef("asdfqwlkerj")}${backRefs_noSelf("asdfqwlkerj",3)}
+
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
 | , (<) | `[[prompt|(select)C]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
