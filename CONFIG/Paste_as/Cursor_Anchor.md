@@ -152,15 +152,8 @@ command.define {
   name = "Insert: BackAnchor + ForthRef (label: input)",
   key = "Ctrl-.",
   run = function()
-    local alias = getSelectedText()
-    local iniText = js.window.navigator.clipboard.readText()
-    -- local Flabel = usrPrompt('Jump to: label', iniText)
-    local Flabel
-    if iniText and iniText ~= "" then
-      Flabel = iniText
-    else
-      Flabel = usrPrompt('Jump to: label', '')
-    end
+    local alias = getSelectedText() or ""
+    local Flabel = usrPrompt('Jump to: label', '')
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -170,8 +163,6 @@ command.define {
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
     if alias and alias ~= "" then
       setSelectedText("") -- Delete selected alias
-    else
-      alias = ''
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
@@ -183,7 +174,7 @@ command.define {
   name = "Insert: BackAnchor + ForthRef (label: clip)",
   key = "Ctrl-Alt-.",
   run = function()
-    local alias = getSelectedText()
+    local alias = getSelectedText() or ""
     local iniText = js.window.navigator.clipboard.readText()
     -- local Flabel = usrPrompt('Jump to: label', iniText)
     local Flabel
