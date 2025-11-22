@@ -19,9 +19,6 @@ Update:
 
 [[taiqwer⚓|🔙]]${backRefs("taiqwer")} | [[taiqwer⚓|🧑‍🤝‍🧑1]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",1)} | [[taiqwer⚓|🧑‍🤝‍🧑2]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",2)} | [[taiqwer⚓|🧑‍🤝‍🧑3]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",3)}
 
-
-[[ASDFKJWEQR⚓|🔙]]${backRefs("ASDFKJWEQR")}
-
 ### Less Index Overhead 4.2
 
 ```space-lua
@@ -72,7 +69,7 @@ end
 
 command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: label)",
-  key = "Ctrl-,",
+  key = "Ctrl-Alt-,",
   run = function()
     local iniText = getSelectedText()
     -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
@@ -98,7 +95,7 @@ command.define {
 
 command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: alias)",
-  key = "Ctrl-Alt-,",
+  key = "Ctrl-,",
   run = function()
     local iniText = getSelectedText()
     -- local Flabel = usrPrompt('Enter: label (to be Referred)', iniText)
