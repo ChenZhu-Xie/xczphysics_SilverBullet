@@ -20,6 +20,8 @@ Update:
 [[taiqwer⚓|🔙]]${backRefs("taiqwer")} | [[taiqwer⚓|🧑‍🤝‍🧑1]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",1)} | [[taiqwer⚓|🧑‍🤝‍🧑2]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",2)} | [[taiqwer⚓|🧑‍🤝‍🧑3]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",3)}
 
 
+[[sdaf⚓|🔙]]${backRefs("sdaf")}
+
 ### Less Index Overhead 4.2
 
 ```space-lua
@@ -98,7 +100,7 @@ command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: alias)",
   key = "Ctrl-,",
   run = function()
-    local alias = getSelectedText()
+    local alias = getSelectedText() or ""
     local Flabel = usrPrompt('Enter: label (to be Referred)', '')
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
