@@ -19,7 +19,7 @@ pageDecoration.prefix: "📎 "
  - Ctrl-<>       for manual input
  - Ctrl-Shift-<> for quick  input
 
-[[alsdfkj⚓|🔙]]${backRefs("alsdfkj")} | [[alsdfkj⚓|🧑‍🤝‍🧑1]]${forthRef("alsdfkj")}${backRefs_noSelf("alsdfkj",1)} | [[alsdfkj⚓|🧑‍🤝‍🧑2]]${forthRef("alsdfkj")}${backRefs_noSelf("alsdfkj",2)} | [[alsdfkj⚓|🧑‍🤝‍🧑3]]${forthRef("alsdfkj")}${backRefs_noSelf("alsdfkj",3)}
+[[laskdfj⚓|🔙]]${backRefs("laskdfj")} | [[laskdfj⚓|🧑‍🤝‍🧑1]]${forthRef("laskdfj")}${backRefs_noSelf("laskdfj",1)} | [[laskdfj⚓|🧑‍🤝‍🧑2]]${forthRef("laskdfj")}${backRefs_noSelf("laskdfj",2)} | [[laskdfj⚓|🧑‍🤝‍🧑3]]${forthRef("laskdfj")}${backRefs_noSelf("laskdfj",3)}
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
