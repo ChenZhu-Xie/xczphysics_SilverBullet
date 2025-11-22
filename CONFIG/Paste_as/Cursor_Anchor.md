@@ -9,8 +9,9 @@ pageDecoration.prefix: "📎 "
 
 ## here we go
 
-[[qwoiejr⚓|🔙]]${backRefs("qwoiejr")}
-[[qwoiej⚓|➡️1]]${forthRef("qwoiej")}${backRefs_noSelf("qwoiejr",1)}
+[[lkasjdf⚓|🔙]]${backRefs("lkasjdf")}
+[[lkasjdf⚓|➡️1]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",1)}
+[[lkasjdf⚓|➡️2]]${forthRef("lkasjdf")}${backRefs_noSelf("lkasjdf",2)}
 
 ### Less Index Overhead 4
 
