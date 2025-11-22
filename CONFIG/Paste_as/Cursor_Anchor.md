@@ -99,7 +99,7 @@ end
 
 function backRefs_noSelf(Flabel, thBlabelNum)
   local str = template.each(tableBack_noSelf(Flabel, thBlabelNum), template.new[==[​[[${_.ref}|${_.thBlabel}]]​]==])
-  if #str == 0 then return "" end
+  if #str == 0 then return "​" end
   return str
 end
 
