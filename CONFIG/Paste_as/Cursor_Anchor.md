@@ -13,7 +13,7 @@ pageDecoration.prefix: "📎 "
 [[qwoiejr⚓|➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
 [[qwoiejr⚓|➡️2]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",2)}
 
-### simplified logic 4
+### Less Index Overhead 4
 
 ```space-lua
 function getSelectedText()
