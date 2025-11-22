@@ -21,6 +21,8 @@ pageDecoration.prefix: "📎 "
 
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
 
+[[lkasjdoiqw⚓|🔙]]${backRefs("lkasjdoiqw")} [[qwelkrj⚓|sadf🔙]]${backRefs("qwelkrj")} 
+
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
 | , (<) | `[[prompt|(select)C]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
