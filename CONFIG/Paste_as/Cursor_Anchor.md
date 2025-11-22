@@ -11,6 +11,17 @@ pageDecoration.prefix: "📎 "
 
 
 
+Update:
+
+1. no text display if no forward label/backrefs/siblings found 
+2. switch emoji 🧑‍🤝‍🧑,➡️
+3. auto `alt+q` reindex (refresh widgets)
+
+
+
+
+
+
 
 ### Less Index Overhead 4.2
 
