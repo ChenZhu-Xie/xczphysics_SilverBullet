@@ -19,7 +19,9 @@ pageDecoration.prefix: "📎 "
  - Ctrl-<>       for manual input
  - Ctrl-Shift-<> for quick  input
 
-[[asldkfj⚓|🔙]]${backRefs("asldkfj")} | [[asldkfj⚓|🧑‍🤝‍🧑1]]${forthRef("asldkfj")}${backRefs_noSelf("asldkfj",1)} | [[asldkfj⚓|🧑‍🤝‍🧑2]]${forthRef("asldkfj")}${backRefs_noSelf("asldkfj",2)} | [[asldkfj⚓|🧑‍🤝‍🧑3]]${forthRef("asldkfj")}${backRefs_noSelf("asldkfj",3)}
+[[asdfkj⚓|🔙]]${backRefs("asdfkj")} | [[asdfkj⚓|🧑‍🤝‍🧑1]]${forthRef("asdfkj")}${backRefs_noSelf("asdfkj",1)} | [[asdfkj⚓|🧑‍🤝‍🧑2]]${forthRef("asdfkj")}${backRefs_noSelf("asdfkj",2)} |[[asdfkj⚓|🧑‍🤝‍🧑3]]${forthRef("asdfkj")}${backRefs_noSelf("asdfkj",3)}
+
+[[asdfdsqwer⚓|🔙]]${backRefs("asdfdsqwer")} [[qoweirj⚓|asdfasdf🔙]]${backRefs("qoweirj")} 
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
