@@ -82,6 +82,7 @@ command.define {
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
+    editor.invokeCommand("Widgets: Refresh All")
   end
 }
 
@@ -145,6 +146,7 @@ command.define {
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
+    editor.invokeCommand("Widgets: Refresh All")
   end
 }
 
