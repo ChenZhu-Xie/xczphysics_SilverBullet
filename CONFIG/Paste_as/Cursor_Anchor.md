@@ -11,16 +11,20 @@ pageDecoration.prefix: "📎 "
 
 
 
-Update:
-
-1. no text display if no forward label/backrefs/siblings found 
-2. switch emoji 🧑‍🤝‍🧑,➡️
-3. auto `alt+q` reindex (refresh widgets)
-
-[[taiqwer⚓|🔙]]${backRefs("taiqwer")} | [[taiqwer⚓|🧑‍🤝‍🧑1]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",1)} | [[taiqwer⚓|🧑‍🤝‍🧑2]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",2)} | [[taiqwer⚓|🧑‍🤝‍🧑3]]${forthRef("taiqwer")}${backRefs_noSelf("taiqwer",3)}
 
 
 ### Less Index Overhead 4.2
+
+==Update==
+1. no text display if no forward label/backrefs/siblings found 
+2. switch emoji 🧑‍🤝‍🧑,➡️
+3. auto `alt+q` reindex (refresh widgets)
+4. 4 commands for quick input
+
+|  | Header B |
+|----------|----------|
+| Cell A | Cell B |
+
 
 ```space-lua
 function getSelectedText()
