@@ -10,7 +10,7 @@ pageDecoration.prefix: "📎 "
 ## here we go
 
 [[qwoiejr⚓|🔙]]${backRefs("qwoiejr")}
-[[qwoiej⚓|➡️1]]${forthRef("qwoiejr")}${backRefs_noSelf("qwoiejr",1)}
+[[qwoiej⚓|➡️1]]${forthRef("qwoiej")}${backRefs_noSelf("qwoiejr",1)}
 
 ### Less Index Overhead 4
 
@@ -114,7 +114,7 @@ end
 
 function forthRef(Flabel)
   local str = template.each(tableForth(Flabel), template.new("[[${_.ref}|​" .. siblings .. "​]]"))
-  if #str == 0 then return "No such Anchor" end
+  if #str == 0 then return "​" end
   return str
 end
 
