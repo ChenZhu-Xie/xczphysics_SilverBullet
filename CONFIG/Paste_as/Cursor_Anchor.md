@@ -22,8 +22,8 @@ pageDecoration.prefix: "📎 "
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
-| , (<) | `[[prompt|(select)C]]`, clip | `[[select (or prompt)|C]]`, clip |
-| . (>) | `[[prompt|(select)C]]`, clip | `[[paste (or prompt)|C]]`, clip |
+| , (<) | `[[prompt|(select)C]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
+| . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
 ```space-lua
 function getSelectedText()
