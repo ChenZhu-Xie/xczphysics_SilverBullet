@@ -49,11 +49,18 @@ end
 
 function pickerBox(hinText, iniText)
   local iniText = iniText or ""
-  local input = editor.prompt(hinText, iniText)
-  if not input then
+  allLabels = query[[
+    from index.tag "link"
+    where toPage and toPage:find("⚓", 1, true)
+    order by _.ref
+  ]]
+  local labels = query[[from allLabels select {name = _.name}]]
+  local sel = editor.filterBox("Label Search", labels, hinText, iniText)
+  if sel then editor.navigate("tag:" .. sel.name) end
+  if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
-  return input
+  return sel
 end
 
 command.define {
