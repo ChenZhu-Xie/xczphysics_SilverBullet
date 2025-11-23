@@ -101,6 +101,24 @@ command.define {
 }
 
 command.define {
+  name = "Insert: ForthAnchor + BackRefs (pick: label)",
+  key = "Ctrl-Alt-,",
+  run = function()
+    local alias = getSelectedText() or ""
+    local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+    if not Flabel then return end
+    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. suffixBlabel .. "]]"
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backRefs
+    if alias and alias ~= "" then setSelectedText("") end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(alias)
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
+    editor.invokeCommand("Widgets: Refresh All")
+  end
+}
+
+command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: label)",
   key = "Ctrl-Shift-,",
   run = function()
@@ -119,24 +137,6 @@ command.define {
     if iniText and iniText ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
-    editor.invokeCommand("Widgets: Refresh All")
-  end
-}
-
-command.define {
-  name = "Insert: ForthAnchor + BackRefs (pick: label)",
-  key = "Ctrl-Alt-,",
-  run = function()
-    local alias = getSelectedText() or ""
-    local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
-    if not Flabel then return end
-    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. suffixBlabel .. "]]"
-    local backRefs = '${backRefs("' .. Flabel .. '")}'
-    local fullText = forthAnchor .. backRefs
-    if alias and alias ~= "" then setSelectedText("") end
-    editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(alias)
-    editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
 }
@@ -175,7 +175,7 @@ function forthRef(Flabel)
 end
 
 command.define {
-  name = "Insert: BackAnchor + ForthRef (label: input)",
+  name = "Insert: BackAnchor + ForthRef (label: pick)",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
@@ -196,7 +196,7 @@ command.define {
 }
 
 command.define {
-  name = "Insert: BackAnchor + ForthRef (label: input)",
+  name = "Insert: BackAnchor + ForthRef (alias: paste)",
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
@@ -217,7 +217,7 @@ command.define {
 }
 
 command.define {
-  name = "Insert: BackAnchor + ForthRef (label: clip)",
+  name = "Insert: BackAnchor + ForthRef (label: paste)",
   key = "Ctrl-Shift-.",
   run = function()
     local alias = getSelectedText() or ""
