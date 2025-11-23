@@ -16,6 +16,8 @@ pageDecoration.prefix: "📎 "
 | , (<) | `[[promptC|(select)]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
 | . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -237,7 +239,7 @@ ${query[[
     order by _.ref
   ]]}
 
-```space-lua
+```lua
 function getSelectedText()
   local sel = editor.getSelection()
   if not sel or sel.from == sel.to then return nil end
