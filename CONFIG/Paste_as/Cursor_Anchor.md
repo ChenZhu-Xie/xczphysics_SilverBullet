@@ -197,10 +197,11 @@ command.define {
 
 command.define {
   name = "Insert: BackAnchor + ForthRef (alias: paste)",
-  key = "Ctrl-.",
+  key = "Ctrl-Alt-.",
   run = function()
-    local alias = getSelectedText() or ""
-    local Flabel = pickerBox_FlabelName('Jump to: label', js.window.navigator.clipboard.readText())
+    local iniText = getSelectedText() or ""
+    local alias = js.window.navigator.clipboard.readText()
+    local Flabel = pickerBox_FlabelName('Jump to: label', iniText)
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -208,7 +209,7 @@ command.define {
     local forthRef = '${forthRef("' .. Flabel .. '")}'
     local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
-    if alias and alias ~= "" then setSelectedText("") end
+    if iniText and iniText ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(Flabel)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
