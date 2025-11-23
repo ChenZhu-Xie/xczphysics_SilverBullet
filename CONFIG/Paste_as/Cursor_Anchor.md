@@ -60,7 +60,7 @@ function pickerBox(hinText, iniText)
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
-  return sel
+  return ""
 end
 
 command.define {
