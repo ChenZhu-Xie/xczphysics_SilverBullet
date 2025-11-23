@@ -26,6 +26,14 @@ pageDecoration.prefix: "📎 "
 | , (<) | `[[prompt|(select)C]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
 | . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
+${query[[
+    from index.tag "link"
+    where toPage and toPage:find("⚓", 1, true)
+    order by _.thBlabel
+    select {ref=_.ref, thBlabel=_.thBlabel}
+  ]]}
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -48,6 +56,16 @@ function usrPrompt(hinText, iniText)
   end
   return input
 end
+
+command.define {
+  name = "Navigate: Tag Picker",
+  key = "Ctrl-Shift-t",
+  run = function()
+    local tags = query[[from index.tag "link" select {name = _.name}]]
+    local sel = editor.filterBox("Tag Search", tags, "Select a Tag")
+    if sel then editor.navigate("tag:" .. sel.name) end
+  end
+}
 
 local anchorSymbol = "⚓"
 local suffixFlabel = "🧑‍🤝‍🧑"
