@@ -14,7 +14,7 @@ pageDecoration.prefix: "📎 "
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
 | Ctrl- | `[[prompt|(select)C]]` | `[[picker|(select)C]]` |
-| Ctrl-Alt- | `[[pickerC|(select)]]` | `[[prompt|(select)C]]` |
+| Ctrl-Alt- | `[[pickerC|(select)]]` | `[[picker|(paste)C]]` |
 | Ctrl-Shift- | `[[select (or prompt)|C]]` | `[[paste (or picker)|(select)C]]` |
 
 
