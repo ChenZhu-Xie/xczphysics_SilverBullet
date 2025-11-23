@@ -196,6 +196,27 @@ command.define {
 }
 
 command.define {
+  name = "Insert: BackAnchor + ForthRef (label: input)",
+  key = "Ctrl-.",
+  run = function()
+    local alias = getSelectedText() or ""
+    local Flabel = pickerBox_FlabelName('Jump to: label', js.window.navigator.clipboard.readText())
+    if not Flabel then return end
+    local thBlabelNum = #tableBack(Flabel) + 1
+    local aspiringPage = Flabel .. anchorSymbol
+    local backAnchor = "[[" .. aspiringPage .. "||^|" .. suffixFlabel .. thBlabelNum .. "]]"
+    local forthRef = '${forthRef("' .. Flabel .. '")}'
+    local backRefs_noSelf = '${backRefs_noSelf("' .. Flabel .. '",' .. thBlabelNum .. ')}'
+    local fullText = backAnchor .. forthRef .. backRefs_noSelf
+    if alias and alias ~= "" then setSelectedText("") end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
+    editor.invokeCommand("Widgets: Refresh All")
+  end
+}
+
+command.define {
   name = "Insert: BackAnchor + ForthRef (label: clip)",
   key = "Ctrl-Shift-.",
   run = function()
