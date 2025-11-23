@@ -17,8 +17,7 @@ pageDecoration.prefix: "📎 "
 | Ctrl-Alt- | `[[promptC|(select)]]`, copy:L | `[[prompt|(select)C]]`, copy:L |
 | Ctrl-Shift- | `[[select (or prompt)|C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
-[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")}
-
+asdflk;j
 
 
 ```space-lua
@@ -59,16 +58,6 @@ function pickerBox_fLbR(hinText, iniText)
   end
   return nil
 end
-
-command.define {
-  name = "Navigate: Tag Picker",
-  key = "Ctrl-Shift-t",
-  run = function()
-    local tags = query[[from index.tag "tag" select {name = _.name}]]
-    local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "")
-    if sel then editor.navigate("tag:" .. sel.name) end
-  end
-}
 
 local anchorSymbol = "⚓"
 local suffixFlabel = "🧑‍🤝‍🧑"
@@ -136,7 +125,7 @@ command.define {
 }
 
 command.define {
-  name = "Insert: ForthAnchor + BackRefs (sel: alias)",
+  name = "Insert: ForthAnchor + BackRefs (pick: label)",
   key = "Ctrl-Alt-,",
   run = function()
     local alias = getSelectedText() or ""
@@ -291,16 +280,6 @@ function usrPrompt(hinText, iniText)
   end
   return input
 end
-
-command.define {
-  name = "Navigate: Tag Picker",
-  key = "Ctrl-Shift-t",
-  run = function()
-    local tags = query[[from index.tag "tag" select {name = _.name}]]
-    local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "")
-    if sel then editor.navigate("tag:" .. sel.name) end
-  end
-}
 
 local anchorSymbol = "⚓"
 local suffixFlabel = "🧑‍🤝‍🧑"
