@@ -33,6 +33,7 @@ ${query[[
   ]]}
 
 
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
