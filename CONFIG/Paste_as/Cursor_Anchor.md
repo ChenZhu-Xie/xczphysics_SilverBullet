@@ -56,7 +56,7 @@ function pickerBox(hinText, iniText)
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
     order by _.toPage
   ]]
-  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, ""), discription = _.page .. "@" .. _.pos}]]
+  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, ""), description = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Label Search", labels, hinText, iniText)
   if sel then return sel.name end
   if not sel then
