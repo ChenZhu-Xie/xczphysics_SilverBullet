@@ -47,7 +47,7 @@ function setSelectedText(newText)
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
-function usrPrompt(hinText, iniText)
+function pickerBox(hinText, iniText)
   local iniText = iniText or ""
   local input = editor.prompt(hinText, iniText)
   if not input then
@@ -55,6 +55,16 @@ function usrPrompt(hinText, iniText)
   end
   return input
 end
+
+command.define {
+  name = "Navigate: Tag Picker",
+  key = "Ctrl-Shift-t",
+  run = function()
+    local tags = query[[from index.tag "tag" select {name = _.name}]]
+    local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "")
+    if sel then editor.navigate("tag:" .. sel.name) end
+  end
+}
 
 local anchorSymbol = "⚓"
 local suffixFlabel = "🧑‍🤝‍🧑"
