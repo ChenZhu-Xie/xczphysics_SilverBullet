@@ -49,14 +49,14 @@ end
 
 function pickerBox(hinText, iniText)
   local iniText = iniText or ""
-  allLabels = query[[
+  allFlabels = query[[
     from index.tag "link"
-    where toPage and toPage:find("⚓", 1, true) and alias:find("🔙", 1, true)
+    where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
     order by _.topage
   ]]
-  local labels = query[[from allLabels select {name = _.name}]]
+  local labels = query[[from allFlabels select {name = _.topage:gsub(anchorSymbol, ""), pagePos = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Label Search", labels, hinText, iniText)
-  if sel then editor.navigate("tag:" .. sel.name) end
+  if sel then return sel.name end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
