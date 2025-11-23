@@ -11,10 +11,11 @@ pageDecoration.prefix: "📎 "
 
 ### filterBox 5.2
 
-|     ​    | Ctrl- | Ctrl-Shift- |
+|     ​    | , (<) | . (>) |
 |----------|----------|----------|
-| , (<) | `[[promptC|(select)]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
-| . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
+| Ctrl- | `[[prompt|(select)C]]`, copy:L | `[[prompt|(select)C]]`, copy:L |
+| Ctrl-Alt- | `[[promptC|(select)]]`, copy:L | `[[prompt|(select)C]]`, copy:L |
+| Ctrl-Shift- | `[[select (or prompt)|C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")}
 
@@ -32,7 +33,16 @@ function setSelectedText(newText)
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
-function pickerBox(hinText, iniText)
+function usrPrompt(hinText, iniText)
+  local iniText = iniText or ""
+  local input = editor.prompt(hinText, iniText)
+  if not input then
+    editor.flashNotification("Cancelled", "warn")
+  end
+  return input
+end
+
+function pickerBox_fLbR(hinText, iniText)
   local iniText = iniText or ""
   allFlabels = query[[
     from index.tag "link"
@@ -82,6 +92,25 @@ function backRefs(Flabel)
 end
 
 command.define {
+  name = "Insert: ForthAnchor + BackRefs (sel: alias)",
+  key = "Ctrl-,",
+  run = function()
+    local alias = getSelectedText() or ""
+    local Flabel = usrPrompt('Enter: label (to be Referred)', '')
+    if not Flabel then return end
+    local aspiringPage = Flabel .. anchorSymbol
+    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backRefs
+    if alias and alias ~= "" then setSelectedText("") end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(Flabel)
+    editor.insertAtCursor(alias, false) -- scrollIntoView?
+    editor.invokeCommand("Widgets: Refresh All")
+  end
+}
+
+command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: label)",
   key = "Ctrl-Shift-,",
   run = function()
@@ -90,7 +119,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = pickerBox('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+      Flabel = usrPrompt('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
@@ -106,13 +135,12 @@ command.define {
 
 command.define {
   name = "Insert: ForthAnchor + BackRefs (sel: alias)",
-  key = "Ctrl-,",
+  key = "Ctrl-Alt-,",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+    local Flabel = pickerBox_fLbR('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
-    local aspiringPage = Flabel .. anchorSymbol
-    local forthAnchor = "[[" .. aspiringPage .. "|^||" .. suffixBlabel .. "]]"
+    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if alias and alias ~= "" then setSelectedText("") end
