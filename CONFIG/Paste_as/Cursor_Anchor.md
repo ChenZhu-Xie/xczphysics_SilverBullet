@@ -13,9 +13,9 @@ pageDecoration.prefix: "📎 "
 
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
-| Ctrl- | `[[prompt|(select)C]]` | `[[prompt|(select)C]]` |
-| Ctrl-Alt- | `[[promptC|(select)]]` | `[[prompt|(select)C]]` |
-| Ctrl-Shift- | `[[select (or prompt)|C]]` | `[[paste (or prompt)|(select)C]]` |
+| Ctrl- | `[[prompt|(select)C]]` | `[[picker|(select)C]]` |
+| Ctrl-Alt- | `[[pickerC|(select)]]` | `[[prompt|(select)C]]` |
+| Ctrl-Shift- | `[[select (or prompt)|C]]` | `[[paste (or picker)|(select)C]]` |
 
 
 
@@ -42,7 +42,7 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-function pickerBox_fLbR(hinText, iniText)
+function pickerBox_FlabelName(hinText, iniText)
   local iniText = iniText or ""
   allFlabels = query[[
     from index.tag "link"
@@ -128,7 +128,7 @@ command.define {
   key = "Ctrl-Alt-,",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox_fLbR('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+    local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
@@ -179,7 +179,7 @@ command.define {
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox('Jump to: label', '')
+    local Flabel = pickerBox_FlabelName('Jump to: label', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -205,7 +205,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = pickerBox('Jump to: label', '')
+      Flabel = pickerBox_FlabelName('Jump to: label', '')
     end
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
