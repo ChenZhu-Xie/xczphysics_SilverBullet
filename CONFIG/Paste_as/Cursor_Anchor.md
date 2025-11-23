@@ -28,7 +28,7 @@ pageDecoration.prefix: "📎 "
 
 ${query[[
     from index.tag "link"
-    where toPage and toPage:find("⚓", 1, true)
+    where toPage and toPage:find("⚓", 1, true) and alias:find("🔙", 1, true)
     order by _.ref
   ]]}
 
@@ -51,8 +51,8 @@ function pickerBox(hinText, iniText)
   local iniText = iniText or ""
   allLabels = query[[
     from index.tag "link"
-    where toPage and toPage:find("⚓", 1, true)
-    order by _.ref
+    where toPage and toPage:find("⚓", 1, true) and alias:find("🔙", 1, true)
+    order by _.topage
   ]]
   local labels = query[[from allLabels select {name = _.name}]]
   local sel = editor.filterBox("Label Search", labels, hinText, iniText)
