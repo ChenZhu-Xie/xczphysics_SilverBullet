@@ -61,7 +61,7 @@ function pickerBox(hinText, iniText)
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
-  return ""
+  return nil
 end
 
 command.define {
