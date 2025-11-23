@@ -13,11 +13,10 @@ pageDecoration.prefix: "📎 "
 
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
-| Ctrl- | `[[prompt|(select)C]]`, copy:L | `[[prompt|(select)C]]`, copy:L |
-| Ctrl-Alt- | `[[promptC|(select)]]`, copy:L | `[[prompt|(select)C]]`, copy:L |
-| Ctrl-Shift- | `[[select (or prompt)|C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
+| Ctrl- | `[[prompt|(select)C]]` | `[[prompt|(select)C]]` |
+| Ctrl-Alt- | `[[promptC|(select)]]` | `[[prompt|(select)C]]` |
+| Ctrl-Shift- | `[[select (or prompt)|C]]` | `[[paste (or prompt)|(select)C]]` |
 
-asdflk;j
 
 
 ```space-lua
