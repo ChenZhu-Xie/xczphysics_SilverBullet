@@ -16,7 +16,7 @@ pageDecoration.prefix: "📎 "
 | , (<) | `[[promptC|(select)]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
 | . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
 
-
+[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")}
 
 ```space-lua
 function getSelectedText()
