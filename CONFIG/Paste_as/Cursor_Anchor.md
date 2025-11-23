@@ -17,7 +17,8 @@ pageDecoration.prefix: "📎 "
 | Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` No Clip|
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 
-[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")}
+
+
 
 ```space-lua
 function getSelectedText()
