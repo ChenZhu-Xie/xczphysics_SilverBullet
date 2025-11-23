@@ -20,7 +20,7 @@ command.define {
   key = "Ctrl-Shift-t",
   run = function()
     local tags = query[[from index.tag "tag" select {name = _.name}]]
-    local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "Katex")
+    local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "")
     if sel then editor.navigate("tag:" .. sel.name) end
   end
 }
