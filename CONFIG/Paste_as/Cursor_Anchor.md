@@ -14,9 +14,10 @@ pageDecoration.prefix: "📎 "
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
 | Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
-| Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` A|
+| Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` No Clip|
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 
+[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")}
 
 ```space-lua
 function getSelectedText()
@@ -106,7 +107,8 @@ command.define {
     local alias = getSelectedText() or ""
     local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
-    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. suffixBlabel .. "]]"
+    local aspiringPage = Flabel .. anchorSymbol
+    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if alias and alias ~= "" then setSelectedText("") end
@@ -210,7 +212,7 @@ command.define {
     local fullText = backAnchor .. forthRef .. backRefs_noSelf
     if iniText and iniText ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(Flabel)
+    -- editor.copyToClipboard(Flabel)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
