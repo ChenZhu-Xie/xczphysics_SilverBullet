@@ -135,7 +135,7 @@ command.define {
     local fullText = forthAnchor .. backRefs
     if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(Flabel)
+    editor.copyToClipboard(alias)
     editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
