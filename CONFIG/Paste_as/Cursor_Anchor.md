@@ -105,7 +105,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = usrPrompt('Enter: label (to be Referred)', '')
+      Flabel = pickerBox('Enter: label (to be Referred)', '')
     end
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
@@ -124,7 +124,7 @@ command.define {
   key = "Ctrl-,",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = usrPrompt('Enter: label (to be Referred)', '')
+    local Flabel = pickerBox('Enter: label (to be Referred)', '')
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
     local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
@@ -176,7 +176,7 @@ command.define {
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = usrPrompt('Jump to: label', '')
+    local Flabel = pickerBox('Jump to: label', '')
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -202,7 +202,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = usrPrompt('Jump to: label', '')
+      Flabel = pickerBox('Jump to: label', '')
     end
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
