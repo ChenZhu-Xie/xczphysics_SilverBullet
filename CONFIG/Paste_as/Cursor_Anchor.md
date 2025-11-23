@@ -13,10 +13,9 @@ pageDecoration.prefix: "📎 "
 
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
-| Ctrl- | `[[prompt|(select)C]]` | `[[picker|(select)C]]` |
-| Ctrl-Alt- | `[[pickerC|(select)]]` | `[[picker|(paste)C]]` |
-| Ctrl-Shift- | `[[select (or prompt)|C]]` | `[[paste (or picker)|(select)C]]` |
-
+| Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
+| Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` A|
+| Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 
 
 ```space-lua
