@@ -107,14 +107,13 @@ command.define {
     local alias = getSelectedText() or ""
     local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
-    local aspiringPage = Flabel .. anchorSymbol
-    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
+    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if alias and alias ~= "" then setSelectedText("") end
     editor.insertAtPos(fullText, editor.getCursor(), true)
     editor.copyToClipboard(alias)
-    editor.insertAtCursor(alias, false) -- scrollIntoView?
+    -- editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
 }
