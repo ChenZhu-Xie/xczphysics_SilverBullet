@@ -11,6 +11,11 @@ pageDecoration.prefix: "📎 "
 
 ### filterBox 5.2
 
+|     ​    | Ctrl- | Ctrl-Shift- |
+|----------|----------|----------|
+| , (<) | `[[promptC|(select)]]`, copy:L | `[[select (or prompt)|C]]`, copy:L |
+| . (>) | `[[prompt|(select)C]]`, copy:L | `[[paste (or prompt)|(select)C]]`, copy:L |
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -83,7 +88,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = pickerBox('Enter: label (to be Referred)', '')
+      Flabel = pickerBox('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     end
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
@@ -102,10 +107,10 @@ command.define {
   key = "Ctrl-,",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox('Enter: label (to be Referred)', '')
+    local Flabel = pickerBox('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local aspiringPage = Flabel .. anchorSymbol
-    local forthAnchor = "[[" .. aspiringPage .. "||^|" .. suffixBlabel .. "]]"
+    local forthAnchor = "[[" .. aspiringPage .. "|^||" .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
     if alias and alias ~= "" then setSelectedText("") end
