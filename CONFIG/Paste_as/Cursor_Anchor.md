@@ -11,72 +11,6 @@ pageDecoration.prefix: "📎 "
 
 ### filterBox 5.2
 
-```space-lua
-function SelectiondistanceToCursor(startPos, endPos, cursorPos)
-  if cursorPos < startPos then return startPos - cursorPos end
-  if cursorPos > endPos   then return cursorPos - endPos   end
-  return 0
-end
-
-function getCursorPos()
-  local cur = editor.getCursor() 
-  local cursor_pos = (type(cur) == "table" and cur.pos) or cur
-  return cursor_pos
-end
-
-function findNearestWikiLinkOnly()
-  local pageText = editor.getText()
-  local curPos = getCursorPos()
-  
-  local pattern = "%[%[[^\n%]]+%]%]" 
-  local nearest = nil
-
-  local init = 1
-  local ok, err = pcall(function()
-    while true do
-      local s, e = pageText:find(pattern, init)
-      if not s then break end
-      
-      local dist = SelectiondistanceToCursor(s, e, curPos)
-      if not nearest or dist < nearest.dist then
-        nearest = { start = s, stop = e, text = pageText:sub(s, e), dist = dist }
-      end
-      
-      init = (e >= init) and (e + 1) or (init + 1)
-    end
-  end)
-
-  return nearest
-end
-
-command.define{
-  name = "Cursor: Copy Wiki Link ID Clean",
-  description = "Copy the raw page name of the nearest Wiki Link",
-  key = "Alt-m",
-  run = function()
-    local match = findNearestWikiLinkOnly()
-    
-    if not match then
-      editor.flashNotification("No Wiki Link found.")
-      return
-    end
-
-    local inner = match.text:sub(3, -3)
-
-    local pipePos = inner:find("|")
-    local targetText = inner
-    if pipePos then
-      targetText = inner:sub(1, pipePos - 1)
-    end
-
-    targetText = targetText:gsub("⚓", "")
-
-    editor.copyToClipboard(targetText)
-    editor.flashNotification(targetText .. " ✅")
-  end
-}
-```
-
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
 | Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
@@ -390,6 +324,72 @@ index.defineTag {
       end
     end
   }
+}
+
+-- =========== Magneto Copy: Nearest Label ==================
+
+function SelectiondistanceToCursor(startPos, endPos, cursorPos)
+  if cursorPos < startPos then return startPos - cursorPos end
+  if cursorPos > endPos   then return cursorPos - endPos   end
+  return 0
+end
+
+function getCursorPos()
+  local cur = editor.getCursor() 
+  local cursor_pos = (type(cur) == "table" and cur.pos) or cur
+  return cursor_pos
+end
+
+function findNearestWikiLinkOnly()
+  local pageText = editor.getText()
+  local curPos = getCursorPos()
+  
+  local pattern = "%[%[[^\n%]]+%]%]" 
+  local nearest = nil
+
+  local init = 1
+  local ok, err = pcall(function()
+    while true do
+      local s, e = pageText:find(pattern, init)
+      if not s then break end
+      
+      local dist = SelectiondistanceToCursor(s, e, curPos)
+      if not nearest or dist < nearest.dist then
+        nearest = { start = s, stop = e, text = pageText:sub(s, e), dist = dist }
+      end
+      
+      init = (e >= init) and (e + 1) or (init + 1)
+    end
+  end)
+
+  return nearest
+end
+
+command.define{
+  name = "Cursor: Copy Nearest Label",
+  description = "Copy the raw page name of the nearest Wiki Link",
+  key = "Alt-m",
+  run = function()
+    local match = findNearestWikiLinkOnly()
+    
+    if not match then
+      editor.flashNotification("No Wiki Link found.")
+      return
+    end
+
+    local inner = match.text:sub(3, -3)
+
+    local pipePos = inner:find("|")
+    local targetText = inner
+    if pipePos then
+      targetText = inner:sub(1, pipePos - 1)
+    end
+
+    targetText = targetText:gsub(anchorSymbol, "")
+
+    editor.copyToClipboard(targetText)
+    editor.flashNotification(targetText .. " " .. anchorSymbol)
+  end
 }
 ```
 
