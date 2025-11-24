@@ -171,8 +171,10 @@ command.update {
 -- bug: 行末 无法 触发
 command.update {
   name = "Text: Quote Selection",
-  key = "Alt-'",
-  mac = "Alt-'",
+  key = "Alt-\\",
+  mac = "Alt-\\",
   priority = 1,
 }
 ```
+
+d
