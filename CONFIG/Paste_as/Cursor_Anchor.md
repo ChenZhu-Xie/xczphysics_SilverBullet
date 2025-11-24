@@ -81,6 +81,10 @@ command.define {
     if not FlabelRef then return end
     -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
+    local pos = tonumber(ref:match("@(.*)$"))
+    if pos then
+        editor.moveCursor(pos, true)
+    end
   end
 }
 
