@@ -11,6 +11,87 @@ pageDecoration.prefix: "📎 "
 
 ### filterBox 5.2
 
+```space-lua
+-- 辅助函数：计算距离（复用你已有的逻辑）
+function SelectiondistanceToCursor(startPos, endPos, cursorPos)
+  if cursorPos < startPos then return startPos - cursorPos end
+  if cursorPos > endPos   then return cursorPos - endPos   end
+  return 0
+end
+
+function getCursorPos()
+  local cur = editor.getCursor() 
+  local cursor_pos = (type(cur) == "table" and cur.pos) or cur
+  return cursor_pos
+end
+
+-- 专门用于查找最近的 Wiki Link 的函数
+-- 避免 Alt-m 误选到附近的粗体或代码
+function findNearestWikiLinkOnly()
+  local pageText = editor.getText()
+  local curPos = getCursorPos()
+  
+  -- 仅使用 Wiki Link 的正则
+  local pattern = "%[%[[^\n%]]+%]%]" 
+  local nearest = nil
+
+  local init = 1
+  local ok, err = pcall(function()
+    while true do
+      local s, e = pageText:find(pattern, init)
+      if not s then break end
+      
+      local dist = SelectiondistanceToCursor(s, e, curPos)
+      -- 这里只比较距离，不需要优先级
+      if not nearest or dist < nearest.dist then
+        nearest = { start = s, stop = e, text = pageText:sub(s, e), dist = dist }
+      end
+      
+      init = (e >= init) and (e + 1) or (init + 1)
+    end
+  end)
+
+  return nearest
+end
+
+-- 定义命令 Alt-m
+command.define{
+  name = "Cursor: Copy Wiki Link ID",
+  description = "Copy the raw page name (before |) of the nearest Wiki Link",
+  key = "Alt-m",
+  run = function()
+    -- 1. 查找最近的链接
+    local match = findNearestWikiLinkOnly()
+    
+    if not match then
+      editor.flashNotification("No Wiki Link found.")
+      return
+    end
+
+    -- 2. 去除首尾的 [[ 和 ]]
+    -- text: [[sample text⚓|Alias]] -> inner: sample text⚓|Alias
+    local inner = match.text:sub(3, -3)
+
+    -- 3. 处理管道符 |
+    -- 如果包含 |，只取左边的部分
+    local pipePos = inner:find("|")
+    local targetText = inner
+    if pipePos then
+      targetText = inner:sub(1, pipePos - 1)
+    end
+
+    -- 4. 执行复制
+    editor.copyToClipboard(targetText)
+    
+    -- 5. 提示用户 (仅显示复制的内容，不自动插入，避免破坏文本)
+    editor.flashNotification("Copied ID: " .. targetText .. " ✅")
+    
+    -- 如果你需要像 Alt-c 那样立即在光标处插入，请取消下面这行的注释：
+    -- editor.insertAtCursor(targetText, false)
+  end
+}
+```
+
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
 | Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
@@ -21,11 +102,6 @@ pageDecoration.prefix: "📎 "
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
 
 [[test⚓|qwer🔙]]${backRefs("test")} | [[test⚓|emm🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} | [[test⚓|haha🧑‍🤝‍🧑2]]${forthRef("test")}${backRefs_noSelf("test",2)}
-
-
-
-
-
 
 
 ```space-lua
