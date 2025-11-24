@@ -82,9 +82,9 @@ function pickerBox_BlabelRef(hinText, iniText)
   local allBlabels = query[[
     from index.tag "link"
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixFlabel, 1, true)
-    order by _.thBlabel
+    order by _.toPage .. alias
   ]]
-  local Blabels = query[[from allBlabels order by _.toPage select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")}]]
+  local Blabels = query[[from allBlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")}]]
   local sel = editor.filterBox("Blabel Search", Blabels, hinText, iniText)
   if sel then return sel.description, sel.Flabel end
   if not sel then
