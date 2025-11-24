@@ -18,7 +18,6 @@ pageDecoration.prefix: "📎 "
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 
 
-
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
