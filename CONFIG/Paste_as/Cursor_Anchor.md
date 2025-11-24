@@ -20,7 +20,8 @@ pageDecoration.prefix: "📎 "
 
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
 
-[[test⚓|🔙]]${backRefs("test")} | [[test⚓|🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} | [[test⚓|🧑‍🤝‍🧑2]]${forthRef("test")}${backRefs_noSelf("test",2)}
+[[test⚓|qwer🔙]]${backRefs("test")} | [[test⚓|emm🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} | [[test⚓|haha🧑‍🤝‍🧑2]]${forthRef("test")}${backRefs_noSelf("test",2)}
+
 
 ```space-lua
 function getSelectedText()
