@@ -19,7 +19,6 @@ pageDecoration.prefix: "📎 "
 | Alt- | GOTO Flabel | GOTO Blabel |
 
 
-
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
