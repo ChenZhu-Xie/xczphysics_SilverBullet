@@ -23,6 +23,7 @@ pageDecoration.prefix: "📎 "
 
 [[test⚓|qwer🔙]]${backRefs("test")} | [[test⚓|emm🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} | [[test⚓|haha🧑‍🤝‍🧑2]]${forthRef("test")}${backRefs_noSelf("test",2)}
 
+[[aslkjwer⚓|🧑‍🤝‍🧑4]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",4)}
 
 
 
