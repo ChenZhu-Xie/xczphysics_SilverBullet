@@ -23,6 +23,11 @@ pageDecoration.prefix: "📎 "
 [[test⚓|qwer🔙]]${backRefs("test")} | [[test⚓|emm🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} | [[test⚓|haha🧑‍🤝‍🧑2]]${forthRef("test")}${backRefs_noSelf("test",2)}
 
 
+
+
+
+
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
