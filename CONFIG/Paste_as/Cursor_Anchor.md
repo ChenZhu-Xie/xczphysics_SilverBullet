@@ -79,7 +79,22 @@ command.define {
   name = "Go to: Forth Anchor",
   key = "Alt-,",
   run = function()
-    local FlabelRef = pickerBox_FlabelRef('Enter: label (to GOTO)', js.window.navigator.clipboard.readText())
+    local FlabelRef = pickerBox_FlabelRef('Select: Flabel (to GOTO)', js.window.navigator.clipboard.readText())
+    if not FlabelRef then return end
+    -- editor.flashNotification(FlabelRef)
+    editor.navigate(FlabelRef)
+    local pos = tonumber(FlabelRef:match("@(.*)$"))
+    if pos then
+        editor.moveCursor(pos, true)
+    end
+  end
+}
+
+command.define {
+  name = "Go to: Back Anchor",
+  key = "Alt-.",
+  run = function()
+    local FlabelRef = pickerBox_FlabelRef('Select: Blabel (to GOTO)', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
     -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)

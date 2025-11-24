@@ -20,7 +20,7 @@
 | Text: | [[STYLE/Builtin_Formats#Marker: ==text==|Marker]] | | | Alt | = |
 | Text: | [[STYLE/Builtin_Formats#Listify Selection: * text|Listify]] | | | Alt | 8 |
 | Text: | [[STYLE/Builtin_Formats#Number Listify Selection: 1. text|Number Listify]] | | | Alt | n |
-| Text: | [[STYLE/Builtin_Formats#Quote Selection: > ...|Quote]] | | | Alt | . |
+| Text: | [[STYLE/Builtin_Formats#Quote Selection: > ...|Quote]] | | | Alt | \ |
 | Text: | [[CONFIG/KeyBinding/Define#Text: Toggle Comment|Toggle Comment]] | | Shift | Alt | m |
 | Line: | [[CONFIG/KeyBinding/Define#Move Up|Move Up]] | | Shift | Alt | ↑ |
 | Line: | [[CONFIG/KeyBinding/Define#Move Down|Move Down]] | | Shift | Alt | ↓ |
