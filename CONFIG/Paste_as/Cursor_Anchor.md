@@ -57,7 +57,7 @@ function pickerBox_FlabelName(hinText, iniText)
   return nil
 end
 
-function pickerBox_FRef(hinText, iniText)
+function pickerBox_FlabelRef(hinText, iniText)
   local iniText = iniText or ""
   allFlabels = query[[
     from index.tag "link"
