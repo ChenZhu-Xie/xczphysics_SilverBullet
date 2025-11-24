@@ -61,13 +61,31 @@ end
 function pickerBox_FlabelRef(hinText, iniText)
   local iniText = iniText or ""
   local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
-  local sel = editor.filterBox("Label Search", labels, hinText, iniText)
-  if sel then return sel.name end
+  local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
+  if sel then return sel.ref end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
   return nil
 end
+
+command.define {
+  name = "Go to: Forth Anchor",
+  key = "Shift-Alt-,",
+  run = function()
+    local alias = getSelectedText() or ""
+    local Flabel = pickerBox_FlabelRef('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+    if not Flabel then return end
+    local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
+    local backRefs = '${backRefs("' .. Flabel .. '")}'
+    local fullText = forthAnchor .. backRefs
+    if alias and alias ~= "" then setSelectedText("") end
+    editor.insertAtPos(fullText, editor.getCursor(), true)
+    editor.copyToClipboard(alias)
+    -- editor.insertAtCursor(alias, false) -- scrollIntoView?
+    editor.invokeCommand("Widgets: Refresh All")
+  end
+}
 
 local anchorSymbol = "⚓"
 local suffixFlabel = "🧑‍🤝‍🧑"
