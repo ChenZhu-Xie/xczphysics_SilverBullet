@@ -383,8 +383,8 @@ command.define{
     end
 
     local inner = match.text:sub(3, -3)
-    editor.copyToClipboard(targetText)
-    editor.flashNotification(targetText .. anchorSymbol)
+    editor.copyToClipboard(inner)
+    editor.flashNotification(inner .. anchorSymbol)
   end
 }
 ```
