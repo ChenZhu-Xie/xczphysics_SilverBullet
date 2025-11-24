@@ -41,14 +41,13 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-local allFlabels = query[[
-  from index.tag "link"
-  where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
-  order by _.toPage
-]]
-
 function pickerBox_FlabelName(hinText, iniText)
   local iniText = iniText or ""
+  local allFlabels = query[[
+    from index.tag "link"
+    where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
+    order by _.toPage
+  ]]
   local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, ""), description = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Label Search", labels, hinText, iniText)
   if sel then return sel.name end
@@ -60,6 +59,11 @@ end
 
 function pickerBox_FlabelRef(hinText, iniText)
   local iniText = iniText or ""
+  local allFlabels = query[[
+    from index.tag "link"
+    where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
+    order by _.toPage
+  ]]
   local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
   if sel then return sel.ref end
