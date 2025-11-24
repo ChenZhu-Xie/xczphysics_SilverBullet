@@ -19,6 +19,8 @@ pageDecoration.prefix: "📎 "
 | Alt- | GOTO Flabel | GOTO Blabel |
 
 
+[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
@@ -327,8 +329,6 @@ index.defineTag {
 4. 4 commands for different input
  - Ctrl-<>       for manual input
  - Ctrl-Shift-<> for quick  input
-
-[[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
 
 |     ​    | Ctrl- | Ctrl-Shift- |
 |----------|----------|----------|
