@@ -43,7 +43,7 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-function pickerBox_FlabelName(hinText, iniText)
+function pickerBox_labelName(hinText, iniText)
   local iniText = iniText or ""
   local allFlabels = query[[
     from index.tag "link"
@@ -66,8 +66,8 @@ function pickerBox_FlabelRef(hinText, iniText)
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
     order by _.toPage
   ]]
-  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
-  local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
+  local Flabels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
+  local sel = editor.filterBox("Flabel Search", Flabels, hinText, iniText)
   if sel then return sel.description end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
@@ -77,13 +77,13 @@ end
 
 function pickerBox_BlabelRef(hinText, iniText)
   local iniText = iniText or ""
-  local allFlabels = query[[
+  local allBlabels = query[[
     from index.tag "link"
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixFlabel, 1, true)
     order by _.toPage
   ]]
-  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos} order by _.thBlabel]]
-  local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
+  local Blabels = query[[from allBlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos} order by _.thBlabel]]
+  local sel = editor.filterBox("Blabel Search", Blabels, hinText, iniText)
   if sel then return sel.description end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
@@ -168,7 +168,7 @@ command.define {
   key = "Ctrl-Alt-,",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox_FlabelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
+    local Flabel = pickerBox_labelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
@@ -242,7 +242,7 @@ command.define {
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox_FlabelName('Jump to: label', js.window.navigator.clipboard.readText())
+    local Flabel = pickerBox_labelName('Jump to: label', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -264,7 +264,7 @@ command.define {
   run = function()
     local iniText = getSelectedText() or ""
     local alias = js.window.navigator.clipboard.readText()
-    local Flabel = pickerBox_FlabelName('Jump to: label', iniText)
+    local Flabel = pickerBox_labelName('Jump to: label', iniText)
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -290,7 +290,7 @@ command.define {
     if iniText and iniText ~= "" then
       Flabel = iniText
     else
-      Flabel = pickerBox_FlabelName('Jump to: label', '')
+      Flabel = pickerBox_labelName('Jump to: label', '')
     end
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
