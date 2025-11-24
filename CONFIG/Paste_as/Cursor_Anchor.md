@@ -180,9 +180,11 @@ command.define {
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
-    if alias and alias ~= "" then setSelectedText("") end
+    if alias and alias ~= "" then
+      setSelectedText("")
+      editor.copyToClipboard(alias)
+    end
     editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(alias)
     -- editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
