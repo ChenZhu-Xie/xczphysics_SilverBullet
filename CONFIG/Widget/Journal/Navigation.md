@@ -2,6 +2,8 @@
 githubUrl: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/JournalNavigationWidget.md"
 ---
 
+1. [journal previous day and next day navigation](https://community.silverbullet.md/t/journal-previous-day-and-next-day-navigation/1169/14?u=chenzhu-xie) #community #silverbullet
+
 # Journal Navigation Widget
 
 Navigate Weekly/Daily Journals
