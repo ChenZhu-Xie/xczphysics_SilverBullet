@@ -69,9 +69,9 @@ function pickerBox_FlabelRef(hinText, iniText)
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
     order by _.toPage
   ]]
-  local Flabels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
+  local Flabels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")}]]
   local sel = editor.filterBox("Flabel Search", Flabels, hinText, iniText)
-  if sel then return sel.description end
+  if sel then return sel end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
@@ -85,9 +85,9 @@ function pickerBox_BlabelRef(hinText, iniText)
     where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixFlabel, 1, true)
     order by _.toPage
   ]]
-  local Blabels = query[[from allBlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos} order by _.thBlabel]]
+  local Blabels = query[[from allBlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")} order by _.thBlabel]]
   local sel = editor.filterBox("Blabel Search", Blabels, hinText, iniText)
-  if sel then return sel.description end
+  if sel then return sel end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
@@ -98,7 +98,8 @@ command.define {
   name = "Go to: Forth Anchor",
   key = "Alt-,",
   run = function()
-    local FlabelRef = pickerBox_FlabelRef('Select: Flabel (to GOTO)', js.window.navigator.clipboard.readText())
+    local sel = pickerBox_FlabelRef('Select: Flabel (to GOTO)', js.window.navigator.clipboard.readText())
+    local FlabelRef = sel.description
     if not FlabelRef then return end
     -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
@@ -106,6 +107,7 @@ command.define {
     if pos then
         editor.moveCursor(pos, true)
     end
+    editor.copyToClipboard(sel.Flabel)
   end
 }
 
@@ -113,7 +115,8 @@ command.define {
   name = "Go to: Back Anchor",
   key = "Alt-.",
   run = function()
-    local BlabelRef = pickerBox_BlabelRef('GOTO: Blabel', js.window.navigator.clipboard.readText())
+    local sel = pickerBox_BlabelRef('GOTO: Blabel', js.window.navigator.clipboard.readText())
+    local BlabelRef = sel.description
     if not BlabelRef then return end
     -- editor.flashNotification(BlabelRef)
     editor.navigate(BlabelRef)
@@ -121,6 +124,7 @@ command.define {
     if pos then
         editor.moveCursor(pos, true)
     end
+    editor.copyToClipboard(sel.Flabel)
   end
 }
 
