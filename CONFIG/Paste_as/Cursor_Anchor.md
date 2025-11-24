@@ -276,7 +276,7 @@ command.define {
   run = function()
     local FlabelRef = pickerBox_FlabelRef('Enter: label (to GOTO)', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
-  -- editor.flashNotification(FlabelRef)
+    -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
     local pos = tonumber(ref:match("@(.*)$"))
     if pos then
