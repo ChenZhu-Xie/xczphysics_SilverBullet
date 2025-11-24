@@ -345,11 +345,11 @@ function getCursorPos()
   return cursor_pos
 end
 
-function findNearestWikiLinkOnly()
+function findNearestLabel()
   local pageText = editor.getText()
   local curPos = getCursorPos()
-  
-  local pattern = "%[%[[^\n%]]+%]%]" 
+
+  local pattern = "%[%[[^\n%]]+" .. anchorSymbol .. "|"
   local nearest = nil
 
   local init = 1
@@ -375,7 +375,7 @@ command.define{
   description = "Copy the raw page name of the nearest Wiki Link",
   key = "Alt-m",
   run = function()
-    local match = findNearestWikiLinkOnly()
+    local match = findNearestLabel()
     
     if not match then
       editor.flashNotification("No Label found.")
@@ -383,15 +383,6 @@ command.define{
     end
 
     local inner = match.text:sub(3, -3)
-
-    local pipePos = inner:find("|")
-    local targetText = inner
-    if pipePos then
-      targetText = inner:sub(1, pipePos - 1)
-    end
-
-    targetText = targetText:gsub(anchorSymbol, "")
-
     editor.copyToClipboard(targetText)
     editor.flashNotification(targetText .. anchorSymbol)
   end
