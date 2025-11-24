@@ -60,7 +60,7 @@ end
 
 function pickerBox_FlabelRef(hinText, iniText)
   local iniText = iniText or ""
-  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, ""), description = _.page .. "@" .. _.pos}]]
+  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Label Search", labels, hinText, iniText)
   if sel then return sel.name end
   if not sel then
