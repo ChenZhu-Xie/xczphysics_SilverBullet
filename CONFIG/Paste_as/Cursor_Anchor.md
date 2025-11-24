@@ -110,11 +110,11 @@ command.define {
   name = "Go to: Back Anchor",
   key = "Alt-.",
   run = function()
-    local FlabelRef = pickerBox_BlabelRef('GOTO: Blabel', js.window.navigator.clipboard.readText())
-    if not FlabelRef then return end
-    -- editor.flashNotification(FlabelRef)
-    editor.navigate(FlabelRef)
-    local pos = tonumber(FlabelRef:match("@(.*)$"))
+    local BlabelRef = pickerBox_BlabelRef('GOTO: Blabel', js.window.navigator.clipboard.readText())
+    if not BlabelRef then return end
+    -- editor.flashNotification(BlabelRef)
+    editor.navigate(BlabelRef)
+    local pos = tonumber(BlabelRef:match("@(.*)$"))
     if pos then
         editor.moveCursor(pos, true)
     end
