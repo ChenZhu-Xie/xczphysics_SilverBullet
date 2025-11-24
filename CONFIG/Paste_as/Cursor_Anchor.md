@@ -373,7 +373,7 @@ command.define{
     local match = findNearestWikiLinkOnly()
     
     if not match then
-      editor.flashNotification("No Wiki Link found.")
+      editor.flashNotification("No Label found.")
       return
     end
 
