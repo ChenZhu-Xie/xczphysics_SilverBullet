@@ -79,6 +79,7 @@ command.define {
   run = function()
     local FlabelRef = pickerBox_FlabelRef('Enter: label (to GOTO)', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
+    editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
   end
 }
