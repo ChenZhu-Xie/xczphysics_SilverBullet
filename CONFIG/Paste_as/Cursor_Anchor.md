@@ -180,6 +180,7 @@ command.define {
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
+    editor.copyToClipboard(Flabel)
     if alias and alias ~= "" then
       setSelectedText("")
       editor.copyToClipboard(alias)
