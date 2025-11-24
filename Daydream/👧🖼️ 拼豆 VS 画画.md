@@ -5,6 +5,8 @@
 在实物作画中，拼豆 之所以 比 绘画 更有趣的一个原因：有 alpha 通道。
 ![[Daydream/2025-11-03_15-23-39.png|300]]
 
+1. [embedding images and endorphin rush](https://community.silverbullet.md/t/embedding-images-and-endorphin-rush/3575/2?u=chenzhu-xie) #community #silverbullet
+
 ## 她的世界
 
 类似 2D 版的 3D 打印：「==2D 打印==」。
