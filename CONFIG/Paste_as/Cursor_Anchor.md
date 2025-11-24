@@ -12,7 +12,6 @@ pageDecoration.prefix: "📎 "
 ### filterBox 5.2
 
 ```space-lua
--- 辅助函数：计算距离（复用你已有的逻辑）
 function SelectiondistanceToCursor(startPos, endPos, cursorPos)
   if cursorPos < startPos then return startPos - cursorPos end
   if cursorPos > endPos   then return cursorPos - endPos   end
@@ -25,13 +24,10 @@ function getCursorPos()
   return cursor_pos
 end
 
--- 专门用于查找最近的 Wiki Link 的函数
--- 避免 Alt-m 误选到附近的粗体或代码
 function findNearestWikiLinkOnly()
   local pageText = editor.getText()
   local curPos = getCursorPos()
   
-  -- 仅使用 Wiki Link 的正则
   local pattern = "%[%[[^\n%]]+%]%]" 
   local nearest = nil
 
@@ -42,7 +38,6 @@ function findNearestWikiLinkOnly()
       if not s then break end
       
       local dist = SelectiondistanceToCursor(s, e, curPos)
-      -- 这里只比较距离，不需要优先级
       if not nearest or dist < nearest.dist then
         nearest = { start = s, stop = e, text = pageText:sub(s, e), dist = dist }
       end
@@ -54,13 +49,11 @@ function findNearestWikiLinkOnly()
   return nearest
 end
 
--- 定义命令 Alt-m
 command.define{
-  name = "Cursor: Copy Wiki Link ID",
-  description = "Copy the raw page name (before |) of the nearest Wiki Link",
+  name = "Cursor: Copy Wiki Link ID Clean",
+  description = "Copy the raw page name of the nearest Wiki Link",
   key = "Alt-m",
   run = function()
-    -- 1. 查找最近的链接
     local match = findNearestWikiLinkOnly()
     
     if not match then
@@ -68,26 +61,18 @@ command.define{
       return
     end
 
-    -- 2. 去除首尾的 [[ 和 ]]
-    -- text: [[sample text⚓|Alias]] -> inner: sample text⚓|Alias
     local inner = match.text:sub(3, -3)
 
-    -- 3. 处理管道符 |
-    -- 如果包含 |，只取左边的部分
     local pipePos = inner:find("|")
     local targetText = inner
     if pipePos then
       targetText = inner:sub(1, pipePos - 1)
     end
 
-    -- 4. 执行复制
+    targetText = targetText:gsub("⚓", "")
+
     editor.copyToClipboard(targetText)
-    
-    -- 5. 提示用户 (仅显示复制的内容，不自动插入，避免破坏文本)
-    editor.flashNotification("Copied ID: " .. targetText .. " ✅")
-    
-    -- 如果你需要像 Alt-c 那样立即在光标处插入，请取消下面这行的注释：
-    -- editor.insertAtCursor(targetText, false)
+    editor.flashNotification(targetText .. " ✅")
   end
 }
 ```
