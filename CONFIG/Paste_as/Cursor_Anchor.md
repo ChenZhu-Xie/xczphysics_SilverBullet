@@ -66,7 +66,7 @@ function pickerBox_FlabelRef(hinText, iniText)
   ]]
   local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos}]]
   local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
-  if sel then return sel.ref end
+  if sel then return sel.description end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
   end
