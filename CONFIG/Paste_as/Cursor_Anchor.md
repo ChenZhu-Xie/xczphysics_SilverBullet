@@ -41,7 +41,7 @@ function usrPrompt(hinText, iniText)
   return input
 end
 
-allFlabels = query[[
+local allFlabels = query[[
   from index.tag "link"
   where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixBlabel, 1, true)
   order by _.toPage
