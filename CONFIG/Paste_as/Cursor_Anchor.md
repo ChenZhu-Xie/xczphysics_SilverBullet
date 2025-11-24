@@ -14,11 +14,12 @@ pageDecoration.prefix: "📎 "
 |     ​    | , (<) | . (>) |
 |----------|----------|----------|
 | Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
-| Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` No Clip|
+| Ctrl-Alt- | `[[pickerC|(select)]]` LorA| `[[picker|(paste)C]]` No Clip|
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 | Alt- | GOTO Flabel | GOTO Blabel |
 
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
+
 
 
 ```space-lua
