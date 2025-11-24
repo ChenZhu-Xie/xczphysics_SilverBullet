@@ -18,8 +18,10 @@ pageDecoration.prefix: "📎 "
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
 | Alt- | GOTO Flabel | GOTO Blabel |
 
-
 [[aslkjwer⚓|🔙]]${backRefs("aslkjwer")} | [[aslkjwer⚓|🧑‍🤝‍🧑1]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",1)} | [[aslkjwer⚓|🧑‍🤝‍🧑2]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",2)} | [[aslkjwer⚓|🧑‍🤝‍🧑3]]${forthRef("aslkjwer")}${backRefs_noSelf("aslkjwer",3)}
+
+[[test⚓|🔙]]${backRefs("test")} [[test⚓|🧑‍🤝‍🧑1]]${forthRef("test")}${backRefs_noSelf("test",1)} 
+
 
 ```space-lua
 function getSelectedText()
