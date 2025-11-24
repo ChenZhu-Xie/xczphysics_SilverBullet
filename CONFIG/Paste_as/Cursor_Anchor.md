@@ -16,7 +16,9 @@ pageDecoration.prefix: "📎 "
 | Ctrl- | `[[prompt|(select)C]]` L| `[[picker|(select)C]]` L|
 | Ctrl-Alt- | `[[pickerC|(select)]]` A| `[[picker|(paste)C]]` No Clip|
 | Ctrl-Shift- | `[[select (or prompt)|C]]` L| `[[paste (or picker)|(select)C]]` L|
-| Ctr-Shi-Al- | GOTO Flabel | GOTO Blabel |
+| Alt- | GOTO Flabel | GOTO Blabel |
+
+
 
 ```space-lua
 function getSelectedText()
@@ -75,7 +77,7 @@ end
 
 command.define {
   name = "Go to: Forth Anchor",
-  key = "Ctrl-Shift-Alt-,",
+  key = "Alt-,",
   run = function()
     local FlabelRef = pickerBox_FlabelRef('Enter: label (to GOTO)', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
