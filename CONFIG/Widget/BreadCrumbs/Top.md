@@ -5,6 +5,10 @@ pageDecoration.prefix: "🥖 "
 githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
 ---
 
+Related:
+1. [add Buttons to (Top)Widgets](https://community.silverbullet.md/t/is-there-a-navigate-to-page-command-in-v2/3258/7?u=chenzhu-xie) #community #silverbullet
+  - pretty much like: Tana’s botton appied to nodes !!
+
 **① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩**  
 **⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳**  
 **㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚**  
