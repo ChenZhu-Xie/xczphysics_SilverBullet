@@ -75,7 +75,7 @@ end
 
 command.define {
   name = "Go to: Forth Anchor",
-  key = "Ctrl-Shift-Alt-,",
+  key = "Ctrl-Shift-Alt-<",
   run = function()
     local FlabelRef = pickerBox_FlabelRef('Enter: label (to GOTO)', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
