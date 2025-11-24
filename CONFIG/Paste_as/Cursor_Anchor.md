@@ -75,6 +75,22 @@ function pickerBox_FlabelRef(hinText, iniText)
   return nil
 end
 
+function pickerBox_BlabelRef(hinText, iniText)
+  local iniText = iniText or ""
+  local allFlabels = query[[
+    from index.tag "link"
+    where toPage and toPage:find(anchorSymbol, 1, true) and alias:find(suffixFlabel, 1, true)
+    order by _.toPage
+  ]]
+  local labels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos} order by _.thBlabel]]
+  local sel = editor.filterBox("Flabel Search", labels, hinText, iniText)
+  if sel then return sel.description end
+  if not sel then
+    editor.flashNotification("Cancelled", "warn")
+  end
+  return nil
+end
+
 command.define {
   name = "Go to: Forth Anchor",
   key = "Alt-,",
@@ -94,7 +110,7 @@ command.define {
   name = "Go to: Back Anchor",
   key = "Alt-.",
   run = function()
-    local FlabelRef = pickerBox_FlabelRef('Select: Blabel (to GOTO)', js.window.navigator.clipboard.readText())
+    local FlabelRef = pickerBox_BlabelRef('GOTO: Blabel', js.window.navigator.clipboard.readText())
     if not FlabelRef then return end
     -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
