@@ -917,8 +917,8 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-.tree__node:has([data-current-page="true"])
-  > .tree__label:not(:has([data-current-page="true"])) {
+.tree__node:has(> .tree__label [data-current-page="true"])
+  .tree__subnodes .tree__label {
   background: linear-gradient(
     to right,
     color-mix(in srgb, var(--base8, #888) 50%, transparent) 0%,
