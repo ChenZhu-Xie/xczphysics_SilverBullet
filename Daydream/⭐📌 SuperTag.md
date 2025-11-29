@@ -7,9 +7,10 @@ with any object marked by that #Tag functioning as an instance that inherits the
 
 SB is lightweight, and at present its tags and attributes remain decoupled. 
 
-
-
 These ideas certainly invite further discussion.
+![[Daydream/SuperTag1.png]]
 
+![[Daydream/SuperTag2.png]]
 
+![[Daydream/SuperTag3.png]]
 
