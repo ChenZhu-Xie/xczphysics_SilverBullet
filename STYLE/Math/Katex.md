@@ -59,9 +59,3 @@ slashcommand.define {
   end
 }
 ```
-
-```space-style
-.sb-lua-directive-inline:has(.katex-html) {
-  border: none !important;
-}
-```
