@@ -908,7 +908,7 @@ Hierarchically file browser
 
 .tree__label { background: none; }
 
-.tree__label:has([data-current-page="true"]) {
+#treeview-tree > .tree__node > .tree__label:has([data-current-page="true"]) {
   background: linear-gradient(
     to right,
     color-mix(in srgb, var(--base8, #888) 100%, transparent) 0%,
