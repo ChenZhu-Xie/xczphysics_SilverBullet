@@ -948,14 +948,14 @@ Hierarchically file browser
 }
 
 .tree__node:has(> .tree__label [data-current-page="true"])
-  .tree__subnodes .tree__label {
+  .tree__subnodes .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(
     to right,
     color-mix(in srgb, var(--base8, #888) 50%, transparent) 0%,
     transparent 100%
   );
-  border-radius: 5px 0 0 5px;
 }
+
 
 .tree__node:has(> .tree__label > [data-current-page="true"])
   .tree__node:not(:has(> .tree__subnodes > .tree__node))
