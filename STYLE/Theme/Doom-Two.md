@@ -908,7 +908,7 @@ Hierarchically file browser
 
 .tree__label { background: none; }
 
-#treeview-tree > .tree__node > .tree__label:has([data-current-page="true"]) {
+.tree__label:has([data-current-page="true"]) {
   background: linear-gradient(
     to right,
     color-mix(in srgb, var(--base8, #888) 100%, transparent) 0%,
@@ -999,6 +999,15 @@ html[data-theme="dark"] .tree__node:has(> .tree__label > [data-current-page="tru
   border-radius: 5px 0 0 5px;
 }
 
+html[data-theme="dark"] .tree__label:has([data-current-page="true"]) {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) 30%, transparent) 0%,
+    transparent 100%
+  ) !important;
+  border-radius: 5px 0 0 5px;
+}
+
 html[data-theme="dark"] .tree__node:has([data-current-page="true"])
   > .tree__label:not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -1006,15 +1015,6 @@ html[data-theme="dark"] .tree__node:has([data-current-page="true"])
     color-mix(in srgb, var(--base8, #888) 10%, transparent) 0%,
     transparent 100%
   );
-  border-radius: 5px 0 0 5px;
-}
-
-html[data-theme="dark"] .tree__label:has([data-current-page="true"]) {
-  background: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--base8, #888) 30%, transparent) 0%,
-    transparent 100%
-  ) !important;
   border-radius: 5px 0 0 5px;
 }
 
