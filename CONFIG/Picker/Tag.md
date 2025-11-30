@@ -14,7 +14,9 @@ pageDecoration.prefix: 🛻
 
 2. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/15
 
-3. 
+3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
+
+#:
 
 ```lua
 command.define {
