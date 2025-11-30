@@ -56,14 +56,14 @@
 | Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Navigate: | [[CONFIG/KeyBinding/Update#Home|Home]] | Ctrl | | | h |
-| Navigate: | [[CONFIG/KeyBinding/Update#Page Picker|Page Picker]] | Ctrl | | | l |
-| Navigate: | [[CONFIG/KeyBinding/Update#Meta Picker|Page Picker (Meta)]] | Ctrl | Shift | | l |
-| Navigate: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] | Ctrl | | Alt | t |
-| Navigate: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel Picker]] | | | Alt | ,< |
-| Navigate: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel Picker]] | | | Alt | .> |
-| Navigate: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading Picker]] | Ctrl | Shift | | h |
-| Navigate: | Forward History | | | Alt | → |
-| Navigate: | Back History | | | Alt | ← |
+| Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | l |
+| Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Shift | | l |
+| Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
+| Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
+| Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
+| Picker: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading]] | Ctrl | Shift | | h |
+| Page History: | Back | | | Alt | ← |
+| Page History: | Forward | | | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
