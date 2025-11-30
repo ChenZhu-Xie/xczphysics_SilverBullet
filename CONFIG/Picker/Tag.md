@@ -14,6 +14,8 @@ pageDecoration.prefix: 🛻
 
 2. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/15
 
+3. 
+
 ```lua
 command.define {
   name = "Navigate: Tag Picker",
