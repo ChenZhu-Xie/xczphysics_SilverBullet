@@ -83,8 +83,8 @@
 | Toggle: | Keyboard Shortcuts | Ctrl | Shift | | / |
 | Toggle: | [[CONFIG/Edit/Read_Only_Toggle|Read Only]] | Ctrl | | Alt | t |
 | Open: | Console | Ctrl | Shift | | i |
-| ☠ Import: | Url | Ctrl | Shift | | i |
-| ☠ Import: | [[CONFIG/Plug_dev/Update_SB_Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
+| ☠️ Import: | Url | Ctrl | Shift | | i |
+| ☠️ Import: | [[CONFIG/Plug_dev/Update_SB_Libs@112|Update Current Lib]] | Ctrl | | Alt | u |
 | Widgets: | Refresh All | | | Alt | q |
 | System: | Reload | Ctrl | | Alt | r |
 | Plugs: | Update all Plugs | Ctrl | Shift | | p |
