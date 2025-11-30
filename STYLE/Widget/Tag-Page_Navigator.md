@@ -1,8 +1,8 @@
-1. https://community.silverbullet.md/t/super-fast-tag-page-navigator/2203/10?u=chenzhu-xie
-
-竟然是求并集... 服了...
 
 ${fastnav.Widget("CONFIG", { tags = {"SB_itself"}, filterMode = "exclude", matchMode = "prefix", pageSize = 10 })}
+1. https://community.silverbullet.md/t/super-fast-tag-page-navigator/2203/10?u=chenzhu-xie
+
+- 竟然是求并集... 服了...
 
 # space-style
 
