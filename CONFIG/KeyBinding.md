@@ -5,6 +5,7 @@
 |----------|----------|------|-------|-----|--------|
 | Cursor: | [[CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete Nearest Format]] | | | Alt | d |
 | Cursor: | [[CONFIG/Nearest_Pattern/Duplicate#Copy nearest Format around Cursor|Duplicate Nearest Format]] | | | Alt | c |
+| Cursor: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Copy Nearest Flabel]] | | | Alt | m |
 | Cursor: | [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
 | Cursor: | [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
