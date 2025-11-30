@@ -32,7 +32,7 @@ order by githubUrl desc
 ## Implementation 
 
 ### Update GitHub Library (Function)
-```space-lua
+```lua
 -- Function to update a given page from GitHub
 
 function updateLibraryFromGitHub(page)
