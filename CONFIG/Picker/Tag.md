@@ -16,8 +16,8 @@ pageDecoration.prefix: 🛻
 
 3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
 
-4. 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
-   而不是 只 pick 1 tag 或 找并集
+4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
+   而不是 只 pick 1 tag（像下面的 tag picker）或 [[STYLE/Widget/Tag-Page_Navigator|找并集]]
 
 ```lua
 command.define {
