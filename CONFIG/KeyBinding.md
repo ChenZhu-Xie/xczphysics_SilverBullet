@@ -9,8 +9,8 @@
 | Cursor: | [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | Center | | Ctrl | Alt | l |
 | Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
-| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#backup 3.2|FlBr ←]] | | | Ctrl | ,< |
-| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#backup 3.2|BlFr →]] | | | Ctrl | .> |
+| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|FlBr ←]] | Ctrl | (Shift) | (Alt) | ,< |
+| Paste: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|BlFr →]] | Ctrl | (Shift) | (Alt) | .> |
 | Text: | [[STYLE/Color/Inline_Text#space-lua|Red]] | | | Alt | r |
 | Text: | [[STYLE/Builtin_Formats#Inline code: `code`|Inline Code]] | | | Alt | ` |
 | Text: | [[STYLE/Builtin_Formats#Lua widget: `${ ... }`|Lua Widget]] | | | Alt | [ |
@@ -58,6 +58,8 @@
 | Navigate: | [[CONFIG/KeyBinding/Update#Page Picker|Page Picker]] | Ctrl | | | l |
 | Navigate: | [[CONFIG/KeyBinding/Update#Meta Picker|Page Picker (Meta)]] | Ctrl | Shift | | l |
 | Navigate: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] | Ctrl | | Alt | t |
+| Navigate: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel Picker]] | | | Alt | ,< |
+| Navigate: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel Picker]] | | | Alt | .> |
 | Navigate: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading Picker]] | Ctrl | Shift | | h |
 | Navigate: | Forward History | | | Alt | → |
 | Navigate: | Back History | | | Alt | ← |
