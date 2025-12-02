@@ -61,6 +61,7 @@
 | Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | l |
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Shift | | l |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
+| Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
 | Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
 | Page History: | Back | | | Alt | ← |

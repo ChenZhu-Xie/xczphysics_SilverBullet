@@ -8,6 +8,8 @@ order by _.tableref
 
 `${getTables()}`
 
+# Table
+
 ## Picker
 
 ```space-lua
@@ -54,7 +56,7 @@ command.define {
 }
 ```
 
-## Realization 2
+## Query 2
 
 ```space-lua
 function getTables()
@@ -81,7 +83,7 @@ function getTables()
 end
 ```
 
-## Realization 1
+## Query 1
 
 ```lua
 function getTables()
