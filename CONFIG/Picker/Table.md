@@ -1,4 +1,4 @@
 
-${query[[from index.tag "table"]]}
+${query[[]]}
 
 
