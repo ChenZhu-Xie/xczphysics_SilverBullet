@@ -289,7 +289,7 @@ command.define {
         local tstr = getTimeString(i) or ""
         
         if pageName and tstr then
-          displayName = string.format("%d🖱️%s", i, pageName)
+          displayName = string.format("%d 🖱️ %s", i, pageName)
         else
           displayName = string.format("%d. %s", i, ref)
         end
@@ -297,7 +297,7 @@ command.define {
         table.insert(historyItems, {
           id = i,
           name = displayName,
-          description = tstr .. "📍" .. pos,
+          description = tstr .. " 📍 " .. pos,
           ref = ref
         })
       end
