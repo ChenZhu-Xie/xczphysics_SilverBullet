@@ -17,14 +17,14 @@ pageDecoration.prefix: "🖱️ "
 
 ## Employed
 
-| Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
+| Target: #hazel | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Picker]] | Ctrl | | Alt | h |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Pick]] | Ctrl | | Alt | h |
 
 ```space-lua
 local function getTimes()
@@ -249,7 +249,7 @@ setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
 ------------------------------------------------------------
 
 command.define {
-  name = "Click History: Picker",
+  name = "Click History: Pick",
   run = function()
     local Ctimes = getTimes()
     local max = Ctimes - 1
