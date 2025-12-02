@@ -36,13 +36,9 @@ command.define {
 
     local items = {}
     for _, r in ipairs(tables) do
-      local name = r.ref
-      local desc = string.format("%s @ %d", r.page, r.pos)
       table.insert(items, {
-        name = name,              -- 供列表显示/检索
-        description = desc,       -- 次要说明
-        -- 保留原始导航信息，选择后使用
-        ref = r.ref,
+        name = r.ref,
+        description = string.format("%s @ %d", r.page, r.pos),
         page = r.page,
         pos = r.pos
       })
