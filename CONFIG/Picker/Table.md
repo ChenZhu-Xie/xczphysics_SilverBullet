@@ -9,7 +9,6 @@ ${getTables()}
 
 ```space-lua
 function getTables()
-  -- 1) 拉取所有 table 行，取到我们需要的列，并先按 tableref、pos 排序
   local rows = query[[
     from index.tag "table"
     select {
@@ -21,7 +20,6 @@ function getTables()
     order by _.page, _.pos
   ]]
 
-  -- 2) 对每个 tableref 只保留 pos 最小的那一行
   local bestByRef = {}
   for _, r in ipairs(rows) do
     local key = r.tableref
