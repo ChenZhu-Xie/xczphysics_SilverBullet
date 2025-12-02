@@ -61,7 +61,7 @@
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
 | Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
-| Picker: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Heading]] | Ctrl | Shift | | h |
+| Picker: | Document | Ctrl | | | o |
 | Page History: | Back | | | Alt | ← |
 | Page History: | Forward | | | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
