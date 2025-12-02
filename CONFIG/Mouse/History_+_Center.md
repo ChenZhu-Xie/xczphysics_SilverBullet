@@ -255,6 +255,8 @@ command.define {
     -- 1. 获取所有历史记录
     local Ctimes = getTimes()
     local max = Ctimes - 1
+
+    editor.flashNotification("ddddddddd.", "warning")
     
     if max < 1 then
       editor.flashNotification("No click history found.", "warning")
