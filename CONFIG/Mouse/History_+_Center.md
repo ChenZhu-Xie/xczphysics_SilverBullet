@@ -241,13 +241,13 @@ command.define {
 }
 
 command.define {
-  name = "Click Histor: Picker",
+  name = "Click History: Picker",
   run = function()
 
     editor.flashNotification("ddddddddd.", "warning")
     
   end,
-  key = "Alt-Shift-h", -- 你可以根据习惯修改快捷键
+  key = "Ctrl-Alt-h", -- 你可以根据习惯修改快捷键
   priority = 1,
 }
 
