@@ -240,10 +240,16 @@ command.define {
   priority = 1,
 }
 
+local Ctimes = getTimes()
+setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
+
+------------------------------------------------------------
+-- Click History Picker Implementation
+------------------------------------------------------------
+
 command.define {
   name = "Click History: Picker",
   run = function()
-    -- 1. 获取所有历史记录
     local Ctimes = getTimes()
     local max = Ctimes - 1
     
@@ -267,9 +273,9 @@ command.define {
         end
 
         table.insert(historyItems, {
-            id = i,          -- 保存历史记录的索引 ID
-            name = displayName, -- 显示在 FilterBox 中的文本
-            ref = ref        -- 原始引用
+            id = i,
+            name = displayName,
+            ref = ref
         })
       end
     end
@@ -290,16 +296,6 @@ command.define {
   key = "Ctrl-Alt-h",
   priority = 1,
 }
-
-local Ctimes = getTimes()
-setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
-
-------------------------------------------------------------
--- Click History Picker Implementation
-------------------------------------------------------------
-
-
-
 ```
 
 ## 1st hand written ver
