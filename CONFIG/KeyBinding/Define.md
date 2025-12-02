@@ -119,7 +119,7 @@ command.define {
 command.define {
   name = "Page: New",
   description = "New Child Page",
-  key = "Ctrl-Alt-n",
+  key = "Ctrl-Alt-N",
   run = function()
     local pageName = editor.prompt("Page Name",editor.getCurrentPage().."/")
     if pageName then editor.navigate(pageName) end
