@@ -36,7 +36,7 @@ command.define {
     for _, r in ipairs(tables) do
       table.insert(items, {
         name = string.format("%s @ %d", r.page, r.pos),
-        description = "Page where Table @",
+        description = "Page where Table",
         ref = r.ref,
         page = r.page,
         pos = r.pos
