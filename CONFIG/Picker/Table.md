@@ -16,7 +16,7 @@ function getTables()
       pos      = _.pos,
       page     = _.page,
     }
-    order by _.tableref, _.pos
+    order by _.page, _.pos
   ]]
 
   local out, seen = {}, {}
