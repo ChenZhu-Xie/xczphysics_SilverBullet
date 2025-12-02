@@ -287,7 +287,7 @@ command.define {
       end
     end
   end,
-  key = "Ctrl-Shift-h",
+  key = "Ctrl-Alt-h",
   priority = 1,
 }
 
