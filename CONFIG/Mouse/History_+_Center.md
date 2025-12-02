@@ -289,25 +289,31 @@ command.define {
         if pageName and pos then
           displayName = string.format("[%d] %s @ %d", i, pageName, pos)
         else
-           displayName = string.format("%d. %s", i, ref)
+          displayName = string.format("%d. %s", i, ref)
         end
 
+        local tstr = getTimeString(i) or ""
+
         table.insert(historyItems, {
-            id = i,
-            name = displayName,
-            ref = ref
+          id = i,
+          name = displayName,
+          description = tstr,
+          ref = ref
         })
       end
     end
 
-    local sel = editor.filterBox("Back to", historyItems, "Select a History...", "Page @ Pos where you Once Clicked")
+    local sel = editor.filterBox(
+      "Back to",
+      historyItems,
+      "Select a History...",
+      "Page @ Pos where you Once Clicked"
+    )
 
     if sel then
       local b = ensureBrowseSession()
-      
       b.index = sel.id
       setBrowse(b)
-      
       if navigateIndex(sel.id) then
         editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
       end
