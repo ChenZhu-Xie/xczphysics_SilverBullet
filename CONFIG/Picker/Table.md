@@ -11,9 +11,9 @@ order by _.tableref
 
 ```space-lua
 -- 小工具：根据 ref 或 page+pos 跳转
-local function navigateToTable(page, pos)
-  if page then
-    editor.navigate(page)
+local function navigateToTable(ref, pos)
+  if ref then
+    editor.navigate(ref)
     if pos then
       editor.moveCursor(tonumber(pos), true)
     end
@@ -39,6 +39,7 @@ command.define {
       table.insert(items, {
         name = r.ref,
         description = string.format("%s @ %d", r.page, r.pos),
+        ref = r.ref,
         page = r.page,
         pos = r.pos
       })
@@ -47,7 +48,7 @@ command.define {
     local sel = editor.filterBox("Table Picker", items, "Select a table")
     if not sel then return end
 
-    if not navigateToTable(sel.page, sel.pos) then
+    if not navigateToTable(sel.ref, sel.pos) then
       editor.flashNotification("Failed to navigate to selected table.")
     end
   end

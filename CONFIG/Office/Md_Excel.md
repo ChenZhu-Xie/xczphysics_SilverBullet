@@ -12,7 +12,6 @@ The \`F\` function takes two arguments:
 
 Here's an example usage: \${F("SUM(A1:A5)","1")}\`
 
-
 | Header A | Header B |
 | --- | --- |
 | 1.2 | 2   |
