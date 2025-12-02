@@ -13,10 +13,10 @@ function getTables()
   local rows = query[[
     from index.tag "table"
     select {
-      tableref = _.tableref,
-      pos      = _.pos,
       ref      = _.ref,
       page     = _.page,
+      pos      = _.pos,
+      tableref = _.tableref,
     }
     order by _.page, _.pos
   ]]
