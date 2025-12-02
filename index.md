@@ -59,8 +59,7 @@ ${query[[
 
 # Statistics 📊
 
-There’re ${#query[[from tags.page]]} pages in this space ;)
-- see [Tag](https://silverbullet.md/Library/Std/APIs/Tag) #silverbullet for usage.
+There’re ${#query[[from tags.page]]} pages in this space ;) See [Tag](https://silverbullet.md/Library/Std/APIs/Tag) #silverbullet for usage.
 
 ## Your Last Visit 👀
 
