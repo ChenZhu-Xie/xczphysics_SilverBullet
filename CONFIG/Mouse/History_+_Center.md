@@ -288,8 +288,8 @@ command.define {
         local displayName = ref
         local tstr = getTimeString(i) or ""
         
-        if pageName and pos then
-          displayName = string.format("%d 🖱️ %s 🕓 %s", i, pageName, tstr)
+        if pageName and tstr then
+          displayName = string.format("[d%] 🖱️ %s 🕓 %s", i, pageName, tstr)
         else
           displayName = string.format("%d. %s", i, ref)
         end
