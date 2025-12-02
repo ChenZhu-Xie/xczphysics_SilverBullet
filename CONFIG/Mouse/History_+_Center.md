@@ -297,7 +297,7 @@ command.define {
         table.insert(historyItems, {
           id = i,
           name = displayName,
-          description = tstr .. "@" .. pos,
+          description = tstr .. " 📍 " .. pos,
           ref = ref
         })
       end
