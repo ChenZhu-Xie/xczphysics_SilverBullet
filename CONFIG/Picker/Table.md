@@ -31,12 +31,15 @@ function getTables()
     end
   end
 
-  local out = query[[
-    from bestByRef
+  -- 3) 转成数组，并排序一下（可选）
+  local out = {}
+  for _, r in pairs(bestByRef) do
+    table.insert(out, r)
+  end
+
+  return query[[
+    from out
     order by _.page, _.pos
   ]]
-
-  -- 4) 返回列表：将被渲染为一个新的 table
-  return out
 end
 ```
