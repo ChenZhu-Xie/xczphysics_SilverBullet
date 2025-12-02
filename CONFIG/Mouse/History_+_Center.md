@@ -240,13 +240,6 @@ command.define {
   priority = 1,
 }
 
-local Ctimes = getTimes()
-setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
-
-------------------------------------------------------------
--- Click History Picker Implementation
-------------------------------------------------------------
-
 command.define {
   name = "Click History: Picker",
   run = function()
@@ -257,6 +250,15 @@ command.define {
   key = "Alt-Shift-h", -- 你可以根据习惯修改快捷键
   priority = 1,
 }
+
+local Ctimes = getTimes()
+setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
+
+------------------------------------------------------------
+-- Click History Picker Implementation
+------------------------------------------------------------
+
+
 
 ```
 
