@@ -10,7 +10,6 @@ order by _.tableref
 ## Picker
 
 ```space-lua
--- 小工具：根据 ref 或 page+pos 跳转
 local function navigateToTable(ref, pos)
   if ref then
     editor.navigate(ref)
@@ -22,10 +21,9 @@ local function navigateToTable(ref, pos)
   return false
 end
 
--- Table Picker 命令
 command.define {
   name = "Navigate: Table Picker",
-  key = "Ctrl-Shift-b",     -- 可自行改快捷键
+  key = "Ctrl-Shift-b",
   priority = 1,
   run = function()
     local tables = getTables()
