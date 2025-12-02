@@ -14,11 +14,9 @@ git clone --depth 1 https://github.com/rimeinn/rime-JDhe Rime_data
 ## 方案选择
 F4 或 ctrl + ~ 单选方案
 
-
 # IOS 端
-
 https://ihsiao.com/apps/hamster/docs/guides/sync/
-## 
+
 ## icloud
    本来这是对 IOS 端最好的。
    但我没有选择 icloud 方案。
