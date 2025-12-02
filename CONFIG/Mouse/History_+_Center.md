@@ -71,7 +71,7 @@ local function setRef(idx, ref)
     {"ClickHistory", tostring(idx)},
     {
       ref = ref,
-      ts = now,
+      -- ts = now,
       tstr = os.date("%Y-%m-%d %H:%M:%S", now)
     }
   )
