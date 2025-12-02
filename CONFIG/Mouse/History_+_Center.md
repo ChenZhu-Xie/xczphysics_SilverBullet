@@ -241,7 +241,7 @@ command.define {
 }
 
 command.define {
-  name = "Click History: Picker",
+  name = "Click Histor: Picker",
   run = function()
 
     editor.flashNotification("ddddddddd.", "warning")
