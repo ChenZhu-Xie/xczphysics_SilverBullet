@@ -6,8 +6,34 @@ order by _.tableref
 ]]}`
 
 ${getTables()}
-
 ```space-lua
+function getTables()
+  local rows = query[[
+    from index.tag "table"
+    select {
+      ref      = _.ref,
+      tableref = _.tableref,
+      pos      = _.pos,
+      page     = _.page,
+    }
+    order by _.tableref, _.pos
+  ]]
+
+  local out, seen = {}, {}
+  for _, r in ipairs(rows) do
+    local key = r.tableref
+    if not seen[key] then
+      seen[key] = true
+      table.insert(out, r)
+    end
+  end
+  return out  -- 直接返回即可渲染为 table
+end
+```
+
+## Realization 1
+
+```lua
 function getTables()
   local rows = query[[
     from index.tag "table"
