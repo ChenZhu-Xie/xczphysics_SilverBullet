@@ -250,14 +250,11 @@ setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
 command.define {
   name = "Click History: Picker",
   run = function()
-    -- 1. 获取所有历史记录
-    local Ctimes = getTimes()
-    local max = Ctimes - 1
 
     editor.flashNotification("ddddddddd.", "warning")
     
   end,
-  key = "Shift-Alt-h", -- 你可以根据习惯修改快捷键
+  key = "Alt-Shift-h", -- 你可以根据习惯修改快捷键
   priority = 1,
 }
 
