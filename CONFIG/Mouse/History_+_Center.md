@@ -254,19 +254,14 @@ command.define {
 
     local historyItems = {}
     
-    -- 2. 倒序构建列表（最新的在最上面）
     for i = max, 1, -1 do
       local ref = getRef(i)
       if ref then
-        -- ref 的格式通常是 "PageName@Pos"
         local pageName, pos = ref:match("^(.*)@(%d+)$")
         local displayName = ref
         
-        -- 如果解析成功，美化显示名称
         if pageName and pos then
-          displayName = string.format("[%d] %s (Line: approx)", i, pageName)
-          -- 注意：这里无法精确知道行号，只能显示原始 pos 或大致信息
-          -- 或者简单的显示: displayName = string.format("%d. %s", i, ref)
+          displayName = string.format("[%d] %s @ %d", i, pageName, pos)
         else
            displayName = string.format("%d. %s", i, ref)
         end
@@ -279,25 +274,20 @@ command.define {
       end
     end
 
-    -- 3. 显示 Filter Box
     local sel = editor.filterBox("Pick History", historyItems, "Search history...", "")
 
-    -- 4. 处理选择结果
     if sel then
-      -- 确保进入浏览模式
       local b = ensureBrowseSession()
       
-      -- 更新当前浏览索引为用户选择的 ID
       b.index = sel.id
       setBrowse(b)
       
-      -- 执行跳转
       if navigateIndex(sel.id) then
         editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
       end
     end
   end,
-  key = "Ctrl-Alt-h", -- 你可以根据习惯修改快捷键
+  key = "Ctrl-Shift-h",
   priority = 1,
 }
 
