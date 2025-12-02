@@ -43,7 +43,7 @@ command.define {
       })
     end
 
-    local sel = editor.filterBox("Jump to", items, "Select a table", "Page where Table @")
+    local sel = editor.filterBox("Jump to", items, "Select a table", "Page @ Pos where the Table locates")
     if not sel then return end
 
     if not navigateToTable(sel.ref, sel.pos) then
