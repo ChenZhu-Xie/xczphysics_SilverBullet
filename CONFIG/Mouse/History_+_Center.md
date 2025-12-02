@@ -1,3 +1,8 @@
+---
+name: CONFIG/Mouse/History_+_Center
+tags: meta/library
+pageDecoration.prefix: "🖱️ "
+---
 
 本来是想做 鼠标穿透 penetration/pass through 的
 发现这功能实现不了...                                                                             
