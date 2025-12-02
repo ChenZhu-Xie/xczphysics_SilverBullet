@@ -23,7 +23,7 @@ end
 
 command.define {
   name = "Navigate: Table Picker",
-  key = "Ctrl-Shift-b",
+  key = "Ctrl-Shift-t",
   priority = 1,
   run = function()
     local tables = getTables()
