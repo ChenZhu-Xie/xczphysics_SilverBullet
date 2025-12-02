@@ -36,12 +36,11 @@ function getTables()
   for _, r in pairs(bestByRef) do
     table.insert(out, r)
   end
-  table.sort(out, function(a, b)
-    if a.tableref == b.tableref then
-      return (a.pos or 1e18) < (b.pos or 1e18)
-    end
-    return tostring(a.tableref) < tostring(b.tableref)
-  end)
+
+  local out = query[[
+    from out
+    order by _.page, _.pos
+  ]]
 
   -- 4) 返回列表：将被渲染为一个新的 table
   return out
