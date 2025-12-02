@@ -57,12 +57,12 @@
 | Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Navigate: | [[CONFIG/KeyBinding/Update#Home|Home]] | Ctrl | | | h |
+| Picker: | Document | Ctrl | | | o |
 | Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | l |
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Shift | | l |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
-| Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
-| Picker: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
-| Picker: | Document | Ctrl | | | o |
+| Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
+| Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
 | Page History: | Back | | | Alt | ← |
 | Page History: | Forward | | | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
