@@ -17,7 +17,7 @@ function getTables()
       pos      = _.pos,
       tableref = _.tableref,
     }
-    order by _.page, _.pos
+    order by _.tableref, _.pos
   ]]
 
   local bestByRef = {}
