@@ -37,7 +37,7 @@ function getTables()
     table.insert(out, r)
   end
 
-  local out = query[[
+  out = query[[
     from out
     order by _.page, _.pos
   ]]
