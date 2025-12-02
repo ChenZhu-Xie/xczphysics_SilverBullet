@@ -196,14 +196,14 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 
 ## History
 
-| Operation: #hazel | Target | Ctrl | Shift | Alt | letter |
+| Target: #hazel | Operation | Ctrl | Shift | Alt | letter |
 |----------|----------|------|-------|-----|--------|
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Picker]] | Ctrl | | Alt | h |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Pick]] | Ctrl | | Alt | h |
 
 ```#meta/library/remote
 name: "Mouse/History_+_Center"
