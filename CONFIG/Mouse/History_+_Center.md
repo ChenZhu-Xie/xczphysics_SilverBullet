@@ -281,7 +281,7 @@ command.define {
       end
     end
 
-    local sel = editor.filterBox("Pick History", historyItems, "Search history...", "")
+    local sel = editor.filterBox("Back to", historyItems, "Select a history...", "Page @ Pos where you Once Clicked")
 
     if sel then
       local b = ensureBrowseSession()
