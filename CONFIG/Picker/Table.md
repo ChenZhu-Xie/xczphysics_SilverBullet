@@ -29,7 +29,7 @@ function getTables()
       table.insert(out, r)
     end
   end
-  return out  -- 直接返回即可渲染为 table
+  return out
 end
 ```
 
