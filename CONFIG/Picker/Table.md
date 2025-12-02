@@ -39,9 +39,9 @@ function getTables()
     from index.tag "table"
     select {
       ref      = _.ref,
-      page     = _.page,
-      pos      = _.pos,
       tableref = _.tableref,
+      pos      = _.pos,
+      page     = _.page,
     }
     order by _.tableref, _.pos
   ]]
