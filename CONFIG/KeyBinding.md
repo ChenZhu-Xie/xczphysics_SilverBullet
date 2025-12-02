@@ -28,7 +28,8 @@
 | Outine: | Move Up | | | Alt | ↑ |
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
-| Header: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
+| Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
+| Heading: | [[CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Picker]] | Ctrl | Shift | | h |
 | Mouse: | [[CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
