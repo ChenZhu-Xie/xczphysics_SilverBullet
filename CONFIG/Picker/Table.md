@@ -36,14 +36,14 @@ command.define {
     for _, r in ipairs(tables) do
       table.insert(items, {
         name = string.format("%s @ %d", r.page, r.pos),
-        description = "Page where Table",
+        -- description = string.format("%s @ %d", r.page, r.pos),
         ref = r.ref,
         page = r.page,
         pos = r.pos
       })
     end
 
-    local sel = editor.filterBox("Jump to", items, "Select a table")
+    local sel = editor.filterBox("Jump to", items, "Select a table", "Page where Table @")
     if not sel then return end
 
     if not navigateToTable(sel.ref, sel.pos) then
