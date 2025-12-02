@@ -127,8 +127,6 @@ command.define {
 }
 ```
 
-
-
 ## Navigate: CONFIG
 
 1. https://community.silverbullet.md/t/either-key-bindings-or-plugs-in-config-not-working/3184
