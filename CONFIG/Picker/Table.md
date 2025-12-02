@@ -18,7 +18,7 @@ function getTables()
       ref      = _.ref,
       page     = _.page,
     }
-    order by _.tableref, _.pos
+    order by _.page, _.pos
   ]]
 
   -- 2) 对每个 tableref 只保留 pos 最小的那一行
