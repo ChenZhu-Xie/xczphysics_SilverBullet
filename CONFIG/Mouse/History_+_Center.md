@@ -5,7 +5,8 @@ pageDecoration.prefix: "🖱️ "
 ---
 
 本来是想做 鼠标穿透 penetration/pass through 的
-发现这功能实现不了...                                                                             
+发现这功能实现不了...                                                
+
 - 可能是被 preview:click 拦截了。
 现在改为了做 ctrl + click 自动带 Navigate: Center Cursor 的功能
 
@@ -287,7 +288,7 @@ command.define {
         local displayName = ref
         
         if pageName and pos then
-          displayName = string.format("[%d] %s @ %d", i, pageName, pos)
+          displayName = string.format("%d 🖱️ %s @ %d", i, pageName, pos)
         else
           displayName = string.format("%d. %s", i, ref)
         end
@@ -297,7 +298,7 @@ command.define {
         table.insert(historyItems, {
           id = i,
           name = displayName,
-          description = tstr,
+          -- description = tstr,
           ref = ref
         })
       end
