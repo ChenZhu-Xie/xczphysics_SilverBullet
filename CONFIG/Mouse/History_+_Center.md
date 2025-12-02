@@ -54,8 +54,27 @@ local function getRef(idx)
   return rec.ref
 end
 
+local function getTimeString(idx)
+  local rec = datastore.get({"ClickHistory", tostring(idx)}) or {}
+  if rec.tstr and rec.tstr ~= "" then
+    return rec.tstr
+  end
+  if rec.ts then
+    return os.date("%Y-%m-%d %H:%M:%S", rec.ts)
+  end
+  return nil
+end
+
 local function setRef(idx, ref)
-  datastore.set({"ClickHistory", tostring(idx)}, { ref = ref, ts = os.time() })
+  local now = os.time()
+  datastore.set(
+    {"ClickHistory", tostring(idx)},
+    {
+      ref = ref,
+      ts = now,
+      tstr = os.date("%Y-%m-%d %H:%M:%S", now)
+    }
+  )
 end
 
 local function clearAllHistory()
