@@ -31,7 +31,6 @@ function getTables()
     end
   end
 
-  -- 3) 转成数组，并排序一下（可选）
   local out = {}
   for _, r in pairs(bestByRef) do
     table.insert(out, r)
