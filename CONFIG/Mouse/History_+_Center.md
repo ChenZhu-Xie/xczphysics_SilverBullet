@@ -286,19 +286,18 @@ command.define {
       if ref then
         local pageName, pos = ref:match("^(.*)@(%d+)$")
         local displayName = ref
+        local tstr = getTimeString(i) or ""
         
         if pageName and pos then
-          displayName = string.format("%d 🖱️ %s @ %d", i, pageName, pos)
+          displayName = string.format("%d 🖱️ %s 🕓 %s", i, pageName, tstr)
         else
           displayName = string.format("%d. %s", i, ref)
         end
 
-        local tstr = getTimeString(i) or ""
-
         table.insert(historyItems, {
           id = i,
           name = displayName,
-          -- description = tstr,
+          description = tstr .. "@" .. pos,
           ref = ref
         })
       end
