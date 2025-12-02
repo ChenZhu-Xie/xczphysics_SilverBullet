@@ -5,6 +5,8 @@
 order by _.tableref
 ]]}`
 
+${getTables()}
+
 ```space-lua
 function getTables()
   -- 1) 拉取所有 table 行，取到我们需要的列，并先按 tableref、pos 排序
