@@ -72,7 +72,7 @@ local function setRef(idx, ref)
     {
       ref = ref,
       -- ts = now,
-      tstr = os.date("%Y-%m-%d %H:%M:%S", now)
+      tstr = os.date("%Y-%m-%d %H:%M:%S", now),
     }
   )
 end
