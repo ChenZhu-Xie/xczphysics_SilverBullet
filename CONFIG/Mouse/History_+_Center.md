@@ -249,8 +249,6 @@ setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
 
 command.define {
   name = "Click History: Picker",
-  key = "Shift-Alt-h", -- 你可以根据习惯修改快捷键
-  priority = 1,
   run = function()
     -- 1. 获取所有历史记录
     local Ctimes = getTimes()
@@ -307,7 +305,9 @@ command.define {
         editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
       end
     end
-  end
+  end,
+  key = "Shift-Alt-h", -- 你可以根据习惯修改快捷键
+  priority = 1,
 }
 
 ```
