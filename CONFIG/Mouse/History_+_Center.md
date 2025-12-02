@@ -24,6 +24,7 @@ pageDecoration.prefix: "🖱️ "
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Picker]] | Ctrl | | Alt | H |
 
 ```space-lua
 local function getTimes()
