@@ -13,8 +13,8 @@ function getTables()
     select {
       ref      = _.ref,
       tableref = _.tableref,
-      pos      = _.pos,
       page     = _.page,
+      pos      = _.pos,
     }
     order by _.page, _.pos
   ]]
@@ -40,8 +40,8 @@ function getTables()
     select {
       ref      = _.ref,
       tableref = _.tableref,
-      pos      = _.pos,
       page     = _.page,
+      pos      = _.pos,
     }
     order by _.tableref, _.pos
   ]]
