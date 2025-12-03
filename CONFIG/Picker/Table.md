@@ -1,7 +1,7 @@
 ---
 name: CONFIG/Picker/Table
 tags: meta/library
-pageDecoration.prefix: "🖱️ "
+pageDecoration.prefix: "🗓️ "
 ---
 
 1. https://silverbullet.md/Object#table
