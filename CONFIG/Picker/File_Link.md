@@ -22,7 +22,7 @@ end
 
 command.define {
   name = "Navigate: File Link Picker",
-  key = "alt-f",
+  key = "Alt-f",
   priority = 1,
   run = function()
     local tables = getFileLinks()
