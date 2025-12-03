@@ -14,8 +14,8 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 
-## Query
 
+## Query
 
 ```space-lua
 function getTranscludedFiles()
