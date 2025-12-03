@@ -188,6 +188,8 @@ event.listen {
 -- 新增：切换模式的命令
 command.define {
   name = "Click History: Toggle Mode",
+  key = "Ctrl-Alt-m", 
+  priority = 1,
   run = function()
     local currentMode = getRecordMode()
     local newMode = not currentMode
@@ -199,9 +201,6 @@ command.define {
       editor.flashNotification("Mode switched: [Click] to record history.")
     end
   end,
-  -- 你可以根据需要绑定快捷键，例如:
-  key = "Ctrl-Alt-m", 
-  priority = 1,
 }
 
 command.define {
