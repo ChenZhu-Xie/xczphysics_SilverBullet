@@ -9,11 +9,55 @@ pageDecoration.prefix: "📄 "
     where page == _CTX.currentPage.name 
   ]]}`
 
+`getTranscludedFiles()`
+
 # Table
 
 ## Picker
 
+```space-lua
+local function navigateToTranscludedFile(ref, pos)
+  if ref then
+    editor.navigate(ref)
+    if pos then
+      editor.moveCursor(tonumber(pos), true)
+    end
+    return true
+  end
+  return false
+end
 
+command.define {
+  name = "Navigate: Table Picker",
+  key = "Ctrl-Shift-t",
+  priority = 1,
+  run = function()
+    local tables = getTables()
+    if not tables or #tables == 0 then
+      editor.flashNotification("No tables found.")
+      return
+    end
+
+    local items = {}
+    for _, r in ipairs(tables) do
+      table.insert(items, {
+        name = string.format("%s @ %d", r.page, r.pos),
+        -- description = string.format("%s @ %d", r.page, r.pos),
+        ref = r.ref,
+        page = r.page,
+        pos = r.pos
+      })
+    end
+
+    local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
+    if not sel then return end
+
+    if not navigateToTable(sel.ref, sel.pos) then
+      editor.flashNotification("Failed to navigate to selected table.")
+    end
+  end
+}
+```
 
 ## Query
 
