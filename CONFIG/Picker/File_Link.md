@@ -1,15 +1,15 @@
 ---
-name: CONFIG/Picker/File
+name: CONFIG/Picker/File_Link
 tags: meta/library
 pageDecoration.prefix: "📄 "
 ---
 
-# Table
+# File Link
 
 ## Picker
 
 ```space-lua
-function navigateToFileLink(ref, pos)
+function navigateToPos(ref, pos)
   if ref then
     editor.navigate(ref)
     if pos then
@@ -45,7 +45,7 @@ command.define {
     local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
 
-    if not navigateToFileLink(sel.page, sel.pos) then
+    if not navigateTo(sel.page, sel.pos) then
       editor.flashNotification("Failed to navigate to selected File Link.")
     end
   end
@@ -53,7 +53,7 @@ command.define {
 ```
 
 ```lua
-function navigateToFileLink(page, pos)
+function navigateToPos(page, pos)
   if page and pos then
     editor.navigate(page .. "@" .. pos)
     editor.moveCursor(tonumber(pos), true)
