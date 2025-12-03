@@ -1,5 +1,5 @@
 ---
-name: CONFIG/Picker/Transcluded File
+name: CONFIG/Picker/File
 tags: meta/library
 pageDecoration.prefix: "📄 "
 ---
@@ -9,7 +9,7 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 ```space-lua
-local function navigateToTranscludedFile(page, pos)
+local function navigateToFile(page, pos)
   if page and pos then
     editor.navigate(page .. "@" .. pos)
     editor.moveCursor(tonumber(pos), true)
@@ -23,7 +23,7 @@ command.define {
   key = "Ctrl-Shift-t",
   priority = 1,
   run = function()
-    local tables = getTranscludedFiles()
+    local tables = getFiles()
     if not tables or #tables == 0 then
       editor.flashNotification("No tables found.")
       return
@@ -43,8 +43,8 @@ command.define {
     local sel = editor.filterBox("🔍 Select", items, "Choose a File...", "a File to Jump")
     if not sel then return end
 
-    if not navigateToTranscludedFile(sel.page, sel.pos) then
-      editor.flashNotification("Failed to navigate to selected transclution.")
+    if not navigateToFile(sel.page, sel.pos) then
+      editor.flashNotification("Failed to navigate to selected File.")
     end
   end
 }
@@ -57,10 +57,10 @@ command.define {
     where page == _CTX.currentPage.name 
   ]]}`
 
-`getTranscludedFiles()`
+`getFiles()`
 
 ```space-lua
-function getTranscludedFiles()
+function getFiles()
   return query[[
     from index.tag "link"
     where _.toFile
@@ -76,7 +76,7 @@ end
 ```
 
 ```lua
--- 定义命令：Transcluded File Picker
+-- 定义命令：File Picker
 editor.command({
     name = "Transclusion: Picker",
     key = "Alt-t", -- 你可以根据习惯修改快捷键，例如 "Ctrl-Alt-t"
@@ -84,7 +84,7 @@ editor.command({
         -- 1. 查询数据库
         -- 我们查找 Link 表，筛选常见的嵌入文件格式（图片、PDF等）
         -- page: 引用该文件的页面（所在位置）
-        -- name: 被引用的文件名（Transcluded File）
+        -- name: 被引用的文件名（File）
         -- pos: 引用所在的字符位置
         local query = [[
             SELECT page, name, pos
@@ -121,7 +121,7 @@ editor.command({
 
         -- 3. 唤起选择框
         local selection = editor.filterBox({
-            label = "🔍 Select Transcluded File to Jump",
+            label = "🔍 Select File to Jump",
             options = options
         })
 
@@ -144,7 +144,10 @@ editor.command({
 
 
 
-![[Language/Input Method/冰雪清韵・字根图.png]]
+[[Language/Input Method/冰雪清韵・字根图.png]]
+[[Daydream/神经.png|300]]
 
-![[Daydream/神经.png|300]]
-
+${query[[
+    from index.tag "link"
+    where page == _CTX.currentPage.name 
+  ]]}
