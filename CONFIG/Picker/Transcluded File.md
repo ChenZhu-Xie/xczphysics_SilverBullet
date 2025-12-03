@@ -16,12 +16,10 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 ```space-lua
-local function navigateToTranscludedFile(ref, pos)
-  if ref then
-    editor.navigate(ref)
-    if pos then
-      editor.moveCursor(tonumber(pos), true)
-    end
+local function navigateToTranscludedFile(page, pos)
+  if page and pos then
+    editor.navigate(page .. "@" .. pos)
+    editor.moveCursor(tonumber(pos), true)
     return true
   end
   return false
@@ -52,8 +50,8 @@ command.define {
     local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
     if not sel then return end
 
-    if not navigateToTable(sel.ref, sel.pos) then
-      editor.flashNotification("Failed to navigate to selected table.")
+    if not navigateToTranscludedFile(sel.page, sel.pos) then
+      editor.flashNotification("Failed to navigate to selected transclution.")
     end
   end
 }
