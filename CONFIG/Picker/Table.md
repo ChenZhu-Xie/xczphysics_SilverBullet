@@ -1,3 +1,8 @@
+---
+name: CONFIG/Picker/Table
+tags: meta/library
+pageDecoration.prefix: "🖱️ "
+---
 
 1. https://silverbullet.md/Object#table
 2. [tags from tables not indexed in tag object](https://community.silverbullet.md/t/tags-from-tables-not-indexed-in-tag-object/1690?u=chenzhu-xie) #community #silverbullet
