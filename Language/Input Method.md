@@ -130,6 +130,9 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 5. 简单鹤（词）
  - z_ dhjb xbxi uehv , womf dajx d x  y_  uiys urf. v_ y_ vsyc gsju
 
+6. 清韵
+ - 
+
 ## 对比
 > - z\_dijrxrxzsnehu,w\_mrdejodvxveyxsreyuscurpfdzly\_zvuyxghjbi.
 > - d\_iv\_wynbwy\_thn\_py\_wf\_,q\_wu\_dd\_pe\_ftjbfdm\_s\_wgkqet\_lwg\_ty\_if\_p\_g\_tgj\_s\_a\_hw\_.
@@ -139,6 +142,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 墨奇 z_dhjbxbxiuehv,womfdajxdzxuyc_uiysurf.v_y.vsycgsju
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
+ - 清韵 
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
@@ -148,6 +152,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 墨奇 uh de xi la   zi mu  h_ uu xt fu hc  zfme daf_
 - 万象 uh de xi la   zi mu  he uu xt fu hc  zfme da    词 2 码长
 - 简单 u; d_ xi la   zi mu  h_ uu xt fu hc  zfme daj_
+- 清韵 
 
 # 整句 3 对比
 >- 充满希望的跋涉比到达目的地更能给人乐趣。
