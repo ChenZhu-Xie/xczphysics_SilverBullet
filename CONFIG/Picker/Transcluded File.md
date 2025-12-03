@@ -1,5 +1,60 @@
+---
+name: CONFIG/Picker/Transcluded File
+tags: meta/library
+pageDecoration.prefix: "📄 "
+---
 
 
+`${query[[
+    from index.tag "link"
+    where page == _CTX.currentPage.name 
+  ]]}`
+
+
+# Table
+
+## Picker
+
+
+## Query
+
+
+```space-lua
+function getTranscludedFiles()
+  local rows = query[[
+    from index.tag "table"
+    select {
+      ref      = _.ref,
+      tableref = _.tableref,
+      page     = _.page,
+      pos      = _.pos,
+    }
+    order by _.page, _.pos
+  ]]
+
+  local out, seen = {}, {}
+  for _, r in ipairs(rows) do
+    local key = r.tableref
+    if not seen[key] then
+      seen[key] = true
+      table.insert(out, r)
+    end
+  end
+  return out
+end
+
+query[[
+    from index.tag "link"
+    where _.toFile
+    select{
+      ref = _.ref,
+      snippet = _.snippet,
+      page = _.page,
+      pos = _.pos,
+    }
+    order by _.page
+  ]]
+```
 
 ```lua
 -- 定义命令：Transcluded File Picker
@@ -67,13 +122,8 @@ editor.command({
 
 ```
 
-${query[[from index.tag "link" where page == _CTX.currentPage.name limit 5]]}
 
-${query[[
-    from index.tag "link" 
-    where _.toFile
-    order by _.page
-  ]]}
+
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
 
