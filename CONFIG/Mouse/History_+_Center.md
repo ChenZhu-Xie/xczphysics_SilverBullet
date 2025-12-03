@@ -4,6 +4,8 @@ tags: meta/library
 pageDecoration.prefix: "🖱️ "
 ---
 
+1. [click history](https://community.silverbullet.md/t/click-history/3569/8?u=chenzhu-xie) #community #silverbullet
+
 本来是想做 鼠标穿透 penetration/pass through 的
 发现这功能实现不了...                                                
 
