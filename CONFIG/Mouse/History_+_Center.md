@@ -146,7 +146,7 @@ end
 -- nil/false: 普通 Click 记录 (默认)
 -- true: Ctrl + Click 记录
 local function getRecordMode()
-  return datastore.get("ClickHistoryMode", "!") or false
+  return datastore.get({"ClickHistoryMode", "!"}) or false
 end
 
 -- 修改：监听器逻辑
@@ -190,7 +190,7 @@ command.define {
   run = function()
     local currentMode = getRecordMode()
     local newMode = not currentMode
-    datastore.set({"ClickHistory", "!"}, newMode)
+    datastore.set({"ClickHistoryMode", "!"}, {newMode = newMode})
     
     if newMode then
       editor.flashNotification("Mode switched: [Ctrl + Click] to record history.")
