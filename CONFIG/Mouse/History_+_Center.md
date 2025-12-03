@@ -201,7 +201,7 @@ command.define {
   end,
   -- 你可以根据需要绑定快捷键，例如:
   key = "Ctrl-Alt-m", 
-  priority = 2,
+  priority = 1,
 }
 
 command.define {
