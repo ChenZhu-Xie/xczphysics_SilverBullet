@@ -121,7 +121,7 @@ local function headingsPicker(options)
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Heading Search:", items, "Select a Header")
+  local result = editor.filterBox("Search:", items, "Select a Header...", "Heading")
   local page = editor.getCurrentPage()
 
   if result and result.selected and result.selected.value then
@@ -129,6 +129,7 @@ local function headingsPicker(options)
     if item.pos then editor.navigate({ page = page, pos = item.pos }) end
   elseif result and result.pos then
     editor.navigate({ page = page, pos = result.pos })
+    editor.moveCursor({ page = page, pos = result.pos }, true)
   end
 end
 
