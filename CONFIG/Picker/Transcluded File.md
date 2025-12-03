@@ -67,7 +67,7 @@ editor.command({
 
 ```
 
-${query[[from index.tag "page"]]}
+${query[[from index.tag "link" where string.endsWith(_.toPage, ".png")]]}
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
 
