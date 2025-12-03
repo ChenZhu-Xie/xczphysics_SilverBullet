@@ -9,10 +9,12 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 ```space-lua
-local function navigateToFile(page, pos)
-  if page and pos then
-    editor.navigate(page .. "@" .. pos)
-    editor.moveCursor(tonumber(pos), true)
+function navigateToTable(ref, pos)
+  if ref then
+    editor.navigate(ref)
+    if pos then
+      editor.moveCursor(tonumber(pos), true)
+    end
     return true
   end
   return false
@@ -20,7 +22,7 @@ end
 
 command.define {
   name = "Navigate: File Picker",
-  key = "Ctrl-Shift-t",
+  key = "alt-f",
   priority = 1,
   run = function()
     local tables = getFiles()
@@ -48,6 +50,17 @@ command.define {
     end
   end
 }
+```
+
+```lua
+function navigateToFile(page, pos)
+  if page and pos then
+    editor.navigate(page .. "@" .. pos)
+    editor.moveCursor(tonumber(pos), true)
+    return true
+  end
+  return false
+end
 ```
 
 ## Query
@@ -140,9 +153,6 @@ editor.command({
 })
 
 ```
-
-
-
 
 [[Language/Input Method/冰雪清韵・字根图.png]]
 [[Daydream/神经.png|300]]
