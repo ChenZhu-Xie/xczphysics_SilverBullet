@@ -3,7 +3,9 @@ recommend: ⭐⭐⭐
 udpateDate: 2025-11-10
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Query.md"
 ---
+
 ${utilities.RecentlyOpenedPages(12)}
+1. [expose page picker s hidden attr lastopened](https://community.silverbullet.md/t/expose-page-picker-s-hidden-attr-lastopened/3487/2?u=chenzhu-xie) #community #silverbullet
 2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
 
 ```space-lua
