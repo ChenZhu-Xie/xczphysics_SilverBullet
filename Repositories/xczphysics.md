@@ -180,7 +180,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 
 ## Tag
 
-==Ctrl-Shift-t==
+==Ctrl-Alt-t==
 Add `Navigate: Tag Picker` to CMD
 
 ```#meta/library/remote
@@ -191,6 +191,20 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]]
 [Tag](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Tag#Navigate:%20Tag%20Picker) #enlarge-the-percentage #fly
 [Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) #github
+
+## Table
+
+==Ctrl-Shift-t==
+Add `Navigate: Table Picker` to CMD
+
+```#meta/library/remote
+name: "Picker/Table"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+```
+[[CONFIG/Picker/Table#Table|Table]]
+[Table](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
+[Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) #github
 
 # 🖱️ Click
 

@@ -22,7 +22,7 @@ pageDecoration.prefix: 🛻
 ```lua
 command.define {
   name = "Navigate: Tag Picker",
-  key = "Ctrl-Shift-t",
+  key = "Ctrl-Alt-t",
   run = function()
     local tags = query[[from index.tag "tag" select {name = _.name}]]
     local sel = editor.filterBox("Tag Search", tags, "Select a Tag", "")
