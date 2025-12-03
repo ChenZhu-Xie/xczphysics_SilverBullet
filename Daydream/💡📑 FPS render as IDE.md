@@ -3,6 +3,6 @@
 既然：==这么多== 索引需要 ==频繁== 实时更新
 那么：为什么不直接 ==全局变量== + ==immediate mode UI== 呢？
 
-ST4 似乎 已经 混合 了 GPU 渲染 文字   
-    s hu y j/ h h2 a      x r; wzi>_
+ST4 和 Zed 似乎 已经 混合 了 GPU 渲染 文字   
+           s hu y j/ h h2 a      x r; wzi>_
 
