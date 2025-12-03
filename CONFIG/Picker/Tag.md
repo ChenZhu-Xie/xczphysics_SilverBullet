@@ -1,7 +1,7 @@
 ---
 name: CONFIG/Picker/Tag
 tags: meta/library
-pageDecoration.prefix: 🛻
+pageDecoration.prefix: "🔖 "
 ---
 
 # Navigate: Tag Picker
