@@ -8,6 +8,7 @@ pageDecoration.prefix: "✂️ "
 # Generate Link @ Cursor Position
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=a2cb4ea0b8
+2. [generate link cursor position](https://community.silverbullet.md/t/generate-link-cursor-position/3372/8?u=chenzhu-xie) #community #silverbullet
 
 ```space-lua
 -- [[Page#Header]] -> http(s)://host/Page#Header
