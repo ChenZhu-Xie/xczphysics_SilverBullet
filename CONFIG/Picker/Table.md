@@ -10,6 +10,8 @@ pageDecoration.prefix: "🗓️ "
 
 # Table
 
+- [ ] 
+
 ## Picker
 
 ```space-lua
