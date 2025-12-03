@@ -33,7 +33,7 @@ command.define {
     for _, r in ipairs(tables) do
       table.insert(items, {
         name = string.format("%s @ %d", r.page, r.pos),
-        -- description = string.format("%s @ %d", r.page, r.pos),
+        description = r.snippet,
         ref = r.ref,
         page = r.page,
         pos = r.pos
@@ -57,7 +57,7 @@ command.define {
     where page == _CTX.currentPage.name 
   ]]}`
 
-`getFiles()`
+`${getFiles()}`
 
 ```space-lua
 function getFiles()

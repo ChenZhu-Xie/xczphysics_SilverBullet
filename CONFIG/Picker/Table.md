@@ -13,7 +13,7 @@ pageDecoration.prefix: "🗓️ "
 ## Picker
 
 ```space-lua
-local function navigateToTable(ref, pos)
+function navigateToTable(ref, pos)
   if ref then
     editor.navigate(ref)
     if pos then
