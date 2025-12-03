@@ -19,7 +19,7 @@ local function navigateToFile(page, pos)
 end
 
 command.define {
-  name = "Navigate: Table Picker",
+  name = "Navigate: File Picker",
   key = "Ctrl-Shift-t",
   priority = 1,
   run = function()
