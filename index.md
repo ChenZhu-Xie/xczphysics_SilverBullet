@@ -70,6 +70,7 @@ ${query[[
     order by _.lastOpened desc
     limit 5
 ]]}
+
 ## Your Most Visit ❤️‍🔥
 
 ${query[[
