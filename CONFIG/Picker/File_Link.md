@@ -34,8 +34,8 @@ command.define {
     local items = {}
     for _, r in ipairs(tables) do
       table.insert(items, {
-        name = string.format("%s @ %d", r.page, r.pos),
-        description = r.snippet,
+        name = r.snippet,
+        description = string.format("%s @ %d", r.page, r.pos),
         ref = r.ref,
         page = r.page,
         pos = r.pos
