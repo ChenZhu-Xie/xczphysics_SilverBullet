@@ -71,7 +71,7 @@ ${query[[from index.tag "link" where page == _CTX.currentPage.name limit 5]]}
 
 ${query[[
     from index.tag "link" 
-    where _.toFile and string.endsWith(_.toFile, ".png")
+    where _.toFile
     ]]}
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
