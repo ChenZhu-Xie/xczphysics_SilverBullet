@@ -4,12 +4,10 @@ tags: meta/library
 pageDecoration.prefix: "📄 "
 ---
 
-
 `${query[[
     from index.tag "link"
     where page == _CTX.currentPage.name 
   ]]}`
-
 
 # Table
 
@@ -21,29 +19,7 @@ pageDecoration.prefix: "📄 "
 
 ```space-lua
 function getTranscludedFiles()
-  local rows = query[[
-    from index.tag "table"
-    select {
-      ref      = _.ref,
-      tableref = _.tableref,
-      page     = _.page,
-      pos      = _.pos,
-    }
-    order by _.page, _.pos
-  ]]
-
-  local out, seen = {}, {}
-  for _, r in ipairs(rows) do
-    local key = r.tableref
-    if not seen[key] then
-      seen[key] = true
-      table.insert(out, r)
-    end
-  end
-  return out
-end
-
-query[[
+  return query[[
     from index.tag "link"
     where _.toFile
     select{
@@ -52,8 +28,9 @@ query[[
       page = _.page,
       pos = _.pos,
     }
-    order by _.page
+    order by _.page, _.pos
   ]]
+end
 ```
 
 ```lua
