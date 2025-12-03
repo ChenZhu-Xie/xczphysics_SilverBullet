@@ -142,6 +142,14 @@ local function ensureBrowseSession()
   return getBrowse()
 end
 
+-- 新增：获取当前记录模式
+-- nil/false: 普通 Click 记录 (默认)
+-- true: Ctrl + Click 记录
+local function getRecordMode()
+  return datastore.get("ClickHistoryMode") or false
+end
+
+-- 修改：监听器逻辑
 event.listen {
   name = "page:click",
   run = function(e)
@@ -151,14 +159,48 @@ event.listen {
     if not pageName or not pos then return end
 
     local ref = string.format("%s@%d", pageName, pos)
-    appendHistory(ref)
+    local ctrlRecordMode = getRecordMode()
 
-    if d.ctrlKey then
-      editor.moveCursor(pos, true)
-      editor.flashNotification("pos @ " .. tostring(pos))
-      return
+    if ctrlRecordMode then
+      -- 模式 B: 只有 Ctrl + Click 记录历史
+      if d.ctrlKey then
+        appendHistory(ref)
+        -- 保持 Ctrl + Click 原有功能
+        editor.moveCursor(pos, true)
+        editor.flashNotification("pos @ " .. tostring(pos))
+      end
+      -- 普通 Click 不做任何事
+    else
+      -- 模式 A (默认): 普通 Click 记录历史
+      if d.ctrlKey then
+        -- Ctrl + Click 仅执行原有功能，不记录历史
+        editor.moveCursor(pos, true)
+        editor.flashNotification("pos @ " .. tostring(pos))
+      else
+        -- 普通 Click 记录
+        appendHistory(ref)
+      end
     end
   end
+}
+
+-- 新增：切换模式的命令
+command.define {
+  name = "Click History: Toggle Mode",
+  run = function()
+    local currentMode = getRecordMode()
+    local newMode = not currentMode
+    datastore.set("ClickHistoryMode", newMode)
+    
+    if newMode then
+      editor.flashNotification("Mode switched: [Ctrl + Click] to record history.")
+    else
+      editor.flashNotification("Mode switched: [Click] to record history.")
+    end
+  end,
+  -- 你可以根据需要绑定快捷键，例如:
+  -- key = "Ctrl-Alt-m", 
+  priority = 2,
 }
 
 command.define {
