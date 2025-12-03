@@ -10,7 +10,11 @@ pageDecoration.prefix: "🗓️ "
 
 # Table
 
-- [ ] 
+- [ ] 或许 不采用 index.tag 中的 table 来获取 table
+  -       而采用 index.tag 中的 link  来获取 table
+  - 额外的好处是：有上下文：snipet 作为 name 而把 page@pos 放在 description
+  - 但 table 的 上下文太...table 了，以至于根本没法用...
+  - 所以 这个 提议/task 暂时 不了了之。
 
 ## Picker
 
