@@ -142,15 +142,14 @@ local function ensureBrowseSession()
   return getBrowse()
 end
 
--- 新增：获取当前记录模式
--- nil/false: 普通 Click 记录 (默认)
--- true: Ctrl + Click 记录
+-- add：Get/Set Record Mode
+-- nil/false: `Click` to record (default)
+-- true: `Ctrl + Click` to record
 local function getRecordMode()
   local ClickHistoryMode = datastore.get({"ClickHistoryMode", "!"}) or {}
   return ClickHistoryMode.currentMode or false
 end
 
--- 修改：监听器逻辑
 event.listen {
   name = "page:click",
   run = function(e)
@@ -163,29 +162,22 @@ event.listen {
     local ctrlRecordMode = getRecordMode()
 
     if ctrlRecordMode then
-      -- 模式 B: 只有 Ctrl + Click 记录历史
       if d.ctrlKey then
         appendHistory(ref)
-        -- 保持 Ctrl + Click 原有功能
         editor.moveCursor(pos, true)
         editor.flashNotification("pos @ " .. tostring(pos))
       end
-      -- 普通 Click 不做任何事
     else
-      -- 模式 A (默认): 普通 Click 记录历史
       if d.ctrlKey then
-        -- Ctrl + Click 仅执行原有功能，不记录历史
         editor.moveCursor(pos, true)
         editor.flashNotification("pos @ " .. tostring(pos))
       else
-        -- 普通 Click 记录
         appendHistory(ref)
       end
     end
   end
 }
 
--- 新增：切换模式的命令
 command.define {
   name = "Click History: Toggle Mode",
   key = "Ctrl-Shift-m", 
