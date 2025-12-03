@@ -72,6 +72,7 @@
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Pick]] | Ctrl | | Alt | h |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |

@@ -204,6 +204,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Pick]] | Ctrl | | Alt | h |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
 
 ```#meta/library/remote
 name: "Mouse/History_+_Center"
