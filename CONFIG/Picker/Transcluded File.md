@@ -67,7 +67,12 @@ editor.command({
 
 ```
 
-${query[[from index.tag "link" where string.endsWith(_.toPage, ".png")]]}
+${query[[from index.tag "link" where page == _CTX.currentPage.name limit 5]]}
+
+${query[[
+    from index.tag "link" 
+    where _.toFile and string.endsWith(_.toFile, ".png")
+    ]]}
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
 
