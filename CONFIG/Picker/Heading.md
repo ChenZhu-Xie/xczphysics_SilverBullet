@@ -129,7 +129,7 @@ local function headingsPicker(options)
     if item.pos then editor.navigate({ page = page, pos = item.pos }) end
   elseif result and result.pos then
     editor.navigate({ page = page, pos = result.pos })
-    editor.moveCursor({ page = page, pos = result.pos }, true)
+    editor.moveCursor(page .. "@" .. result.pos, true)
   end
 end
 
