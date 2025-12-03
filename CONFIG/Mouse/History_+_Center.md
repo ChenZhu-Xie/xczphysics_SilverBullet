@@ -188,7 +188,7 @@ event.listen {
 -- 新增：切换模式的命令
 command.define {
   name = "Click History: Toggle Mode",
-  key = "Ctrl-Alt-m", 
+  key = "Ctrl-Shift-m", 
   priority = 1,
   run = function()
     local currentMode = getRecordMode()
