@@ -153,8 +153,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 >- 充满希望的跋涉比到达目的地更能给人乐趣。
 - 小鹤 ismjxiwhd_bauebi_dcdamddiggnggwrflequ
 - 简单 im;xw_d_baueb;dcdamdd;ggnggwrflequ
-- 冰雪 ymxs;bveaaebiddaemdd\_gneegreolqaa.
-  
+- 四拼 ymxs;bveaaebiddaemdd\_gneegreolqaa.
+- 清韵 cmxwebseA2beddamddGn/2gr0lq8
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
 
 # 整句 4 对比
