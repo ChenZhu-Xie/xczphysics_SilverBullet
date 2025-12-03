@@ -8,12 +8,6 @@ pageDecoration.prefix: "🗓️ "
 2. [tags from tables not indexed in tag object](https://community.silverbullet.md/t/tags-from-tables-not-indexed-in-tag-object/1690?u=chenzhu-xie) #community #silverbullet
 3. [table picker](https://community.silverbullet.md/t/table-picker/3603?u=chenzhu-xie) #community #silverbullet
 
-`${query[[from index.tag "table"
-order by _.tableref
-]]}`
-
-`${getTables()}`
-
 # Table
 
 ## Picker
@@ -63,6 +57,12 @@ command.define {
 ```
 
 ## Query 2
+
+`${query[[from index.tag "table"
+order by _.tableref
+]]}`
+
+`${getTables()}`
 
 ```space-lua
 function getTables()

@@ -4,13 +4,6 @@ tags: meta/library
 pageDecoration.prefix: "📄 "
 ---
 
-`${query[[
-    from index.tag "link"
-    where page == _CTX.currentPage.name 
-  ]]}`
-
-`getTranscludedFiles()`
-
 # Table
 
 ## Picker
@@ -30,7 +23,7 @@ command.define {
   key = "Ctrl-Shift-t",
   priority = 1,
   run = function()
-    local tables = getTables()
+    local tables = getTranscludedFiles()
     if not tables or #tables == 0 then
       editor.flashNotification("No tables found.")
       return
@@ -46,8 +39,8 @@ command.define {
         pos = r.pos
       })
     end
-
-    local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
+    
+    local sel = editor.filterBox("🔍 Select", items, "Choose a File...", "a File to Jump")
     if not sel then return end
 
     if not navigateToTranscludedFile(sel.page, sel.pos) then
@@ -58,6 +51,13 @@ command.define {
 ```
 
 ## Query
+
+`${query[[
+    from index.tag "link"
+    where page == _CTX.currentPage.name 
+  ]]}`
+
+`getTranscludedFiles()`
 
 ```space-lua
 function getTranscludedFiles()
