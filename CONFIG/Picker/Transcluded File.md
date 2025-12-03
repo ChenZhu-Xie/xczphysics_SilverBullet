@@ -67,7 +67,7 @@ editor.command({
 
 ```
 
-
+${query[[from index.tag "page"]]}
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
 
