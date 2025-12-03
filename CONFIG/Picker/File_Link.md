@@ -9,7 +9,7 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 ```space-lua
-function navigateToTable(ref, pos)
+function navigateToFileLink(ref, pos)
   if ref then
     editor.navigate(ref)
     if pos then
@@ -21,13 +21,13 @@ function navigateToTable(ref, pos)
 end
 
 command.define {
-  name = "Navigate: File Picker",
+  name = "Navigate: File Link Picker",
   key = "alt-f",
   priority = 1,
   run = function()
-    local tables = getFiles()
+    local tables = getFileLinks()
     if not tables or #tables == 0 then
-      editor.flashNotification("No tables found.")
+      editor.flashNotification("No File Links found.")
       return
     end
 
@@ -42,18 +42,18 @@ command.define {
       })
     end
     
-    local sel = editor.filterBox("🔍 Select", items, "Choose a File...", "a File to Jump")
+    local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
 
-    if not navigateToFile(sel.page, sel.pos) then
-      editor.flashNotification("Failed to navigate to selected File.")
+    if not navigateToFileLink(sel.page, sel.pos) then
+      editor.flashNotification("Failed to navigate to selected File Link.")
     end
   end
 }
 ```
 
 ```lua
-function navigateToFile(page, pos)
+function navigateToFileLink(page, pos)
   if page and pos then
     editor.navigate(page .. "@" .. pos)
     editor.moveCursor(tonumber(pos), true)
@@ -70,10 +70,10 @@ end
     where page == _CTX.currentPage.name 
   ]]}`
 
-`${getFiles()}`
+`${getFileLinks()}`
 
 ```space-lua
-function getFiles()
+function getFileLinks()
   return query[[
     from index.tag "link"
     where _.toFile
