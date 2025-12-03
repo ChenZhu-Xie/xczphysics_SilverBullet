@@ -1,5 +1,7 @@
 
-```space-lua
+
+
+```lua
 -- 定义命令：Transcluded File Picker
 editor.command({
     name = "Transclusion: Picker",
@@ -64,6 +66,7 @@ editor.command({
 })
 
 ```
+
 
 
 ![[Language/Input Method/冰雪清韵・字根图.png]]
