@@ -1,5 +1,5 @@
 
-![[Language/Input Method/冰雪清韵・字根图.png]]
-![[Daydream/神经.png|300]]
+
+![](https://aituyaa.com/assets/Pasted%20image%2020250110153326.png)
 
 
