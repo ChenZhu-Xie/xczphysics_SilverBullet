@@ -79,7 +79,7 @@ The module converts raw Git output to readable Markdown:
 
 ```space-lua
 -- ###########################################################################
--- ## Git History Module (complete, restored)
+-- ## Git History Module (Fixed for paths with underscores)
 -- ## Depends on: Utilities.md (utilities.debug), and environment helpers:
 -- ##   string.trim, string.split, string.startsWith, shell.run, editor.*, virtualPage.*, command.*
 -- ###########################################################################
@@ -96,10 +96,6 @@ local function log(...)
      end  
   end
 end
-
-
-local current_panel_id = "rhs"
-local is_panel_visible = false
 
 -- ===========================================================================
 -- == Shell Helpers
@@ -201,6 +197,7 @@ local function get_history(file_path)
         table.insert(commits, {
           name        = hash,
           description = msg .. " - " .. format_git_timestamp(ts),
+          -- Note: The ref format is "path_hash". We rely on get_content to parse this correctly.
           ref         = string.gsub(file_path, "%.md$", "") .. "_" .. hash,
           type        = "commits",
           prefix      = "⚡",
@@ -257,10 +254,14 @@ end
 -- Parse a virtual ref "path_hash" and fetch content.
 -- returns { path=..., hash=..., content=... }
 local function get_content(ref)
-  local data = string.split(ref, "_")
-  if #data > 1 then
-    local path = data[1]
-    local hash = data[2]
+  -- FIX: Use string.match instead of string.split.
+  -- Pattern "^(.*)_(.*)$":
+  --   ^(.*) : Greedily matches everything from the start (swallowing underscores in filenames).
+  --   _     : Matches the LAST underscore (because the first capture was greedy).
+  --   (.*)$ : Matches everything after the last underscore (the hash).
+  local path, hash = string.match(ref, "^(.*)_(.*)$")
+  
+  if path and hash then
     local ok, content = pcall(get_file_contents, path .. ".md", hash)
     if not ok then
       log("get_content error for", ref, content)
@@ -268,6 +269,8 @@ local function get_content(ref)
     end
     return { path = path, hash = hash, content = content }
   end
+  
+  -- Fallback for safety, though likely not needed with the regex above
   return { path = nil, hash = nil, content = nil }
 end
 
@@ -295,6 +298,9 @@ virtualPage.define {
 virtualPage.define {
   pattern = "diff:(.+)",
   run = function(ref)
+    -- Note: This splits by comma to separate the two commit refs.
+    -- If your FILENAME contains a comma, this will still break.
+    -- But the underscore issue is fixed by get_content.
     local data = string.split(ref, ",")
     if #data > 1 then
       local from = get_content(data[1])
@@ -383,7 +389,6 @@ command.define {
     editor.navigate("git status")
   end
 }
-
 ```
 
 ## Renderers
