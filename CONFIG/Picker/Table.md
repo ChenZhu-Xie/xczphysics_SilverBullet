@@ -40,7 +40,7 @@ command.define {
       return
     end
 
-    local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
+    local sel = editor.filterBox("Jump to", tables, "Select a Table...", "Page @ Pos where the Table locates")
     editor.navigate(ref)
     editor.invokeCommand("Navigate: Center Cursor")
   end
