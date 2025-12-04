@@ -63,6 +63,7 @@
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
+| Picker: | [[CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
 | Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
 | Page History: | Back | | | Alt | ← |
