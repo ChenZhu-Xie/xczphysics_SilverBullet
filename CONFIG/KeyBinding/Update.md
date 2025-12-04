@@ -44,6 +44,17 @@ command.update {
 }
 ```
 
+### Center Cursor
+
+```space-lua
+command.update {
+  name = "Navigate: Center Cursor",
+  key = "Ctrl-Shift-l",
+  mac = "Cmd-Shift-l",
+  priority = 1,
+}
+```
+
 ## Page
 
 ### Delete
