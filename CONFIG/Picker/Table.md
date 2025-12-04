@@ -16,12 +16,12 @@ pageDecoration.prefix: "🗓️ "
   - 但 table 的 snippet 太...table 了，以至于根本没法用...
     - 所以 这个 提议/task 暂时 不了了之。
     - 哦，我试了下，snippet 当 name 确实 没法用 (query)
-      - 但 snippet 当 description 可以用。
+      - 但 snippet 当 description 可以用！
 
 `${query[[
     from index.tag "link"
     where page == _CTX.currentPage.name 
-  ]]}`
+  ]]}` 作用于 [[CONFIG/KeyBinding]]
 
 ## Picker
 
