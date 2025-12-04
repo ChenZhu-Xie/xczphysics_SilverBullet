@@ -4,6 +4,8 @@ tags: meta/library
 pageDecoration.prefix: "📄 "
 ---
 
+1. [files link picker](https://community.silverbullet.md/t/files-link-picker/3608/3?u=chenzhu-xie) #community #silverbullet
+
 # File Link
 
 ## Picker
