@@ -21,7 +21,7 @@ command.define {
       return
     end
     
-    local sel = editor.filterBox("🤏 Pick", VisitHistory, "Order by _.lastOpened desc...", "a Page")
+    local sel = editor.filterBox("🤏 Pick", VisitHistory, "Order by _.lastOpened desc", "a Page")
     if not sel then return end
     editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
