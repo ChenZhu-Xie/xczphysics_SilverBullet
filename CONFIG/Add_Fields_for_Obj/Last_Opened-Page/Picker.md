@@ -44,8 +44,8 @@ end
 ```space-lua
 command.update {
   name = "Share: Page",
-  key = "Ctrl-Shift-s",
-  mac = "Cmd-Shift-s",
+  key = "Shift-Alt-s",
+  mac = "Shift-Alt-s",
   priority = 1,
 }
 ```
