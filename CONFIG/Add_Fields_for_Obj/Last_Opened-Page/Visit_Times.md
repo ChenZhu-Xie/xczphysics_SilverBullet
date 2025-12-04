@@ -1,6 +1,6 @@
 
 ${query[[
-    from getVisitHistory()
+    from getVisitStat()
     limit 5
 ]]}
 
