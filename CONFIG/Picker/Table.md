@@ -26,12 +26,9 @@ pageDecoration.prefix: "🗓️ "
 ## Picker
 
 ```space-lua
-function navigateToPos(ref, pos)
+function navigateToPos(ref)
   if ref then
     editor.navigate(ref)
-    if pos then
-      editor.moveCursor(tonumber(pos), true)
-    end
     editor.invokeCommand("Navigate: Center Cursor")
     return true
   end
@@ -63,7 +60,7 @@ command.define {
     local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
     if not sel then return end
 
-    if not navigateToPos(sel.ref, sel.pos) then
+    if not navigateToPos(sel.ref) then
       editor.flashNotification("Failed to navigate to selected table.")
     end
   end
