@@ -24,7 +24,7 @@ command.update {
 
 ### Page Picker
 
-```space-lua
+```lua
 command.update {
   name = "Navigate: Page Picker",
   key = "Ctrl-l",
@@ -35,7 +35,7 @@ command.update {
 
 ### Meta Picker
 
-```space-lua
+```lua
 command.update {
   name = "Navigate: Meta Picker",
   key = "Ctrl-Shift-l",
