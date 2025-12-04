@@ -428,6 +428,7 @@ command.define {
 2. 原则上还可以使用 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times]] 中的：
    - 将 datastore 的 get 取值 过程，放进 query 的 select 中，来提速
    - 但我不知道 `if not seen[pageName] then` 还能用不
+   - 当然，最限制的是 `query [[ from ...]]` 中的 from 接什么的问题：只有个 getRef(i)，没有现成的 table 可 query
 
 ## 1st hand written ver
 
