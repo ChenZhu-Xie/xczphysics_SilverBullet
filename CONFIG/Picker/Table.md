@@ -33,8 +33,7 @@ pageDecoration.prefix: "🗓️ "
 #💡 似乎 Picker 可以不只是 1 维的 List，也可以是 2 维的表：
 比如：表的每一行 不作为一个 snippet 整体，塞进 picker 的一个 sel
 而是：表的每一行 按其原有的 列单元格，作为 picker 的一个 selection
-      这样一来，就可以像 日历那样 ←→↑↓ 地 选择 棋盘方格 i,j 了
-      
+      这样一来，就可以像 [[STYLE/Widget/Journal/Calendar#Example:|日历]] 那样 ←→↑↓ 地 选择 棋盘方格 i,j 了
 
 ## Picker
 
