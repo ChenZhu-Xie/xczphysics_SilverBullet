@@ -9,19 +9,6 @@
     - 也不是 [[CONFIG/Mouse/History_+_Center#Click History|Click History]] 的 降序...
 - 我也没搞清楚 `[[` 所触发的 排序规则...不是 上述顺序 中的 任何一个。
 
-
-# Update `Ctrl+P`'s Original KeyBind
-
-```space-lua
-command.update {
-  name = "Share: Page",
-  key = "Shift-Alt-s",
-  mac = "Shift-Alt-s",
-  priority = 1,
-}
-```
-
-
 # Implementation
 
 ```space-lua
@@ -52,4 +39,15 @@ local function queryVisitHistory()
     order by _.lastOpened desc
 ]]
 end
+```
+
+# Update `Ctrl+p`'s Original KeyBind
+
+```space-lua
+command.update {
+  name = "Share: Page",
+  key = "Shift-Alt-s",
+  mac = "Shift-Alt-s",
+  priority = 1,
+}
 ```
