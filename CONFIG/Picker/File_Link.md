@@ -121,6 +121,8 @@ end
 
 ### Inplementation 2
 
+1. 采用了 [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] ：从第一个 query 开始，就 创建 name 属性
+
 ```space-lua
 function getFileLinks()
   return query[[
