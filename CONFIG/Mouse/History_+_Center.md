@@ -424,6 +424,8 @@ command.define {
 }
 ```
 
+1. 用了点 
+
 ## 1st hand written ver
 
 ### Set
