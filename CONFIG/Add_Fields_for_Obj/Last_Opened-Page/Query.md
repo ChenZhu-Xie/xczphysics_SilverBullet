@@ -4,6 +4,23 @@ udpateDate: 2025-11-10
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Query.md"
 ---
 
+
+## 3rd try
+
+```space-lua
+function getVisitHistory()
+  return query[[
+    -- from editor.getRecentlyOpenedPages "page"
+    from editor.getRecentlyOpenedPages()
+    where _.lastOpened
+    select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
+    order by _.lastOpened desc
+]]
+end
+```
+
+## 2nd try
+
 ${utilities.RecentlyOpenedPages(12)}
 1. [expose page picker s hidden attr lastopened](https://community.silverbullet.md/t/expose-page-picker-s-hidden-attr-lastopened/3487/2?u=chenzhu-xie) #community #silverbullet
 2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
@@ -43,6 +60,8 @@ function utilities.RecentlyOpenedPages(limit)
   return table.concat(lines, "\n")
 end
 ```
+
+## 1 st try
 
 1. https://chatgpt.com/share/68fa59ac-2e88-8010-aa2c-12021dda94fb
 
