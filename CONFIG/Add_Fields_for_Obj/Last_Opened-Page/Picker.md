@@ -15,7 +15,7 @@ command.define {
   key = "Shift-Alt-p",
   priority = 1,
   run = function()
-    local VisitHistory = getVisitHistory()
+    local VisitHistory = queryVisitHistory()
     if not VisitHistory or #VisitHistory == 0 then
       editor.flashNotification("No Visit History found.")
       return
