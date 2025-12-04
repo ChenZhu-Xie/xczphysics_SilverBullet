@@ -33,9 +33,7 @@ function navigateToPos(ref)
   if ref then
     editor.navigate(ref)
     editor.invokeCommand("Navigate: Center Cursor")
-    return true
   end
-  return false
 end
 
 command.define {
@@ -49,30 +47,15 @@ command.define {
       return
     end
 
-    local items = {}
-    for _, r in ipairs(tables) do
-      table.insert(items, {
-        name = string.format("%s @ %d", r.page, r.pos),
-        -- description = string.format("%s @ %d", r.page, r.pos),
-        ref = r.ref,
-        page = r.page,
-        pos = r.pos
-      })
-    end
-
     local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
-    if not sel then return end
-
-    if not navigateToPos(sel.ref) then
-      editor.flashNotification("Failed to navigate to selected table.")
-    end
+    navigateToPos(sel.ref)
   end
 }
 ```
 
 ### Implementation 1
 
-```space-lua
+```lua
 function navigateToPos(ref, pos)
   if ref then
     editor.navigate(ref)
@@ -134,8 +117,6 @@ function getTables()
       name = string.format("%s @ %d", _.page, _.pos),
       ref      = _.ref,
       tableref = _.tableref,
-      page     = _.page,
-      pos      = _.pos,
     }
     order by _.page, _.pos
   ]]
