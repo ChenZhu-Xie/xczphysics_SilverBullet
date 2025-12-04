@@ -375,27 +375,30 @@ command.define {
       return
     end
 
-    local historyItems = {}
-    
+    local historyItems, seen = {}, {}
     for i = max, 1, -1 do
       local ref = getRef(i)
       if ref then
         local pageName, pos = ref:match("^(.*)@(%d+)$")
-        local displayName = ref
-        local tstr = getTimeString(i) or ""
-        
-        if pageName and tstr then
-          displayName = string.format("%d 🖱️ %s", i, pageName)
-        else
-          displayName = string.format("%d. %s", i, ref)
-        end
 
-        table.insert(historyItems, {
-          id = i,
-          name = displayName,
-          description = tstr .. " 📍 " .. pos,
-          ref = ref
-        })
+        if not seen[pageName] then
+          seen[pageName] = true
+          local displayName = ref
+          local tstr = getTimeString(i) or ""
+          
+          if pageName and tstr then
+            displayName = string.format("%d 🖱️ %s", i, pageName)
+          else
+            displayName = string.format("%d. %s", i, ref)
+          end
+  
+          table.insert(historyItems, {
+            id = i,
+            name = displayName,
+            description = tstr .. " 📍 " .. pos,
+            ref = ref
+          })
+        end
       end
     end
 
