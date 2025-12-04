@@ -9,7 +9,7 @@
 | Cursor: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Copy Nearest Flabel]] | | | Alt | m |
 | Cursor: | [[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
 | Cursor: | [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
-| Cursor: | Center | | Ctrl | Alt | l |
+| Cursor: | [[CONFIG/KeyBinding/Update#Center Cursor|Center]] | | Ctrl | | l |
 | Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Paste: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|FlBr ←]] | Ctrl | (Shift) | (Alt) | ,< |
 | Paste: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|BlFr →]] | Ctrl | (Shift) | (Alt) | .> |
@@ -59,8 +59,8 @@
 |----------|----------|------|-------|-----|--------|
 | Navigate: | [[CONFIG/KeyBinding/Update#Home|Home]] | Ctrl | | | h |
 | Picker: | Document | Ctrl | | | o |
-| Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | l |
-| Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Shift | | l |
+| Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
+| Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Go To: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
