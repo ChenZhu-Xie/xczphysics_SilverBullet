@@ -74,6 +74,7 @@ command.define {
 }
 ```
 
+---
 ```lua
 function navigateToPos(ref)
   if ref then
