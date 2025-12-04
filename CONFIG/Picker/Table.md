@@ -102,6 +102,11 @@ order by _.tableref
 
 `${getTables()}`
 
+${query[[
+    from index.tag "table"
+    order by _.page, _.pos
+  ]]}
+
 ### Implementation 3
 
 1. 采用了 [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] ：从第一个 query 开始，就 创建 name 属性
