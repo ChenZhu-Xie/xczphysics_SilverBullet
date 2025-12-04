@@ -21,19 +21,8 @@ command.define {
       editor.flashNotification("No File Links found.")
       return
     end
-
-    local items = {}
-    for _, r in ipairs(FileLinks) do
-      table.insert(items, {
-        name = r.snippet,
-        description = string.format("%s @ %d", r.page, r.pos),
-        ref = r.ref,
-        page = r.page,
-        pos = r.pos
-      })
-    end
     
-    local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
+    local sel = editor.filterBox("🔍 Select", FileLinks, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
     editor.navigate(sel.ref)
     editor.invokeCommand("Navigate: Center Cursor")
@@ -63,8 +52,19 @@ command.define {
       editor.flashNotification("No File Links found.")
       return
     end
+
+    local items = {}
+    for _, r in ipairs(FileLinks) do
+      table.insert(items, {
+        name = r.snippet,
+        description = string.format("%s @ %d", r.page, r.pos),
+        ref = r.ref,
+        page = r.page,
+        pos = r.pos
+      })
+    end
     
-    local sel = editor.filterBox("🔍 Select", FileLinks, "Choose a File Link...", "a File Link to GoTo")
+    local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
 
     if not navigateToPos(sel.ref) then
