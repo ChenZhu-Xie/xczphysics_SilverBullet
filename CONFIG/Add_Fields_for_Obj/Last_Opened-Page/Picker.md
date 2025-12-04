@@ -9,6 +9,8 @@
     - 也不是 [[CONFIG/Mouse/History_+_Center#Click History|Click History]] 的 降序...
 - 我也没搞清楚 `[[` 所触发的 排序规则...不是 上述顺序 中的 任何一个。
 
+# Implementation
+
 ```space-lua
 command.define {
   name = "Page Picker: LastOpened",
