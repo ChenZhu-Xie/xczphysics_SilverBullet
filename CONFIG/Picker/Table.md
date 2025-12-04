@@ -29,7 +29,6 @@ pageDecoration.prefix: "🗓️ "
 ### Implementation 2
 
 ```space-lua
-
 command.define {
   name = "Navigate: Table Picker",
   key = "Ctrl-Shift-t",
