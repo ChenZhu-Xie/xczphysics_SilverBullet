@@ -418,7 +418,7 @@ command.define {
       end
     end
   end,
-  key = "Ctrl-Alt-h",
+  key = "Shift-Alt-p",
   priority = 1,
 }
 ```
