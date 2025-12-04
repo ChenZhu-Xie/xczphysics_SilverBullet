@@ -28,7 +28,7 @@ command.define {
   end
 }
 
-function queryVisitHistory()
+local function queryVisitHistory()
   return query[[
     -- from editor.getRecentlyOpenedPages "page"
     from editor.getRecentlyOpenedPages()
