@@ -9,7 +9,7 @@ command.define {
   run = function()
     local ModifyHistory = queryModifyHistory()
     if not ModifyHistory or #ModifyHistory == 0 then
-      editor.flashNotification("No Visit History found.")
+      editor.flashNotification("No Modify History found.")
       return
     end
     
