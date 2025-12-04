@@ -9,12 +9,9 @@ pageDecoration.prefix: "📄 "
 ## Picker
 
 ```space-lua
-function navigateToPos(ref, pos)
+function navigateToPos(ref)
   if ref then
     editor.navigate(ref)
-    if pos then
-      editor.moveCursor(tonumber(pos), true)
-    end
     editor.invokeCommand("Navigate: Center Cursor")
     return true
   end
@@ -46,7 +43,7 @@ command.define {
     local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
 
-    if not navigateToPos(sel.ref, sel.pos) then
+    if not navigateToPos(sel.ref) then
       editor.flashNotification("Failed to navigate to selected File Link.")
     end
   end
@@ -54,6 +51,18 @@ command.define {
 ```
 
 ```lua
+function navigateToPos(ref, pos)
+  if ref then
+    editor.navigate(ref)
+    if pos then
+      editor.moveCursor(tonumber(pos), true)
+    end
+    editor.invokeCommand("Navigate: Center Cursor")
+    return true
+  end
+  return false
+end
+
 function navigateToPos(page, pos)
   if page and pos then
     editor.navigate(page .. "@" .. pos)
