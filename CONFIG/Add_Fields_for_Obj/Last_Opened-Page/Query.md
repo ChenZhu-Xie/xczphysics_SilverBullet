@@ -12,7 +12,7 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CON
 function getVisitHistory()
   return query[[
     -- from editor.getRecentlyOpenedPages "page"
-    from editor.getRecentlyOpenedPages
+    from editor.getRecentlyOpenedPages()
     where _.lastOpened
     select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
     order by _.lastOpened desc
