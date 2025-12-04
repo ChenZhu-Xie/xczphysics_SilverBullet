@@ -12,7 +12,7 @@
 ```space-lua
 command.define {
   name = "Pick: Last Opened",
-  key = "Alt-",
+  key = "Shift-Alt-p",
   priority = 1,
   run = function()
     local VisitHistory = getVisitHistory()
