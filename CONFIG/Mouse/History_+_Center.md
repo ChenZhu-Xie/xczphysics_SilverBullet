@@ -424,7 +424,7 @@ command.define {
 }
 ```
 
-1. 用了点 
+1. 用了点 [[^CONFIG/Picker/Table]]
 
 ## 1st hand written ver
 
