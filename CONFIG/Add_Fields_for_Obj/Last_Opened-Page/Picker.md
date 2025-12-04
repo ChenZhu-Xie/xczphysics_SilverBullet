@@ -48,6 +48,6 @@ command.update {
   name = "Share: Page",
   key = "Shift-Alt-s",
   mac = "Shift-Alt-s",
-  priority = 2,
+  priority = 1,
 }
 ```
