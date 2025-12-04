@@ -206,6 +206,21 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 [Table](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
 [Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) #github
 
+## File Link
+
+==Alt-f==
+Add `Navigate: File Link Picker` to CMD
+
+```#meta/library/remote
+name: "Picker/Table"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+```
+[[CONFIG/Picker/Table#Table|Table]]
+[Table](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
+[Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) #github
+
+
 # 🖱️ Click
 
 ## History
