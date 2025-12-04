@@ -29,12 +29,6 @@ pageDecoration.prefix: "🗓️ "
 ### Implementation 2
 
 ```space-lua
-function navigateToPos(ref)
-  if ref then
-    editor.navigate(ref)
-    editor.invokeCommand("Navigate: Center Cursor")
-  end
-end
 
 command.define {
   name = "Navigate: Table Picker",
@@ -48,7 +42,8 @@ command.define {
     end
 
     local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
-    navigateToPos(sel.ref)
+    editor.navigate(ref)
+    editor.invokeCommand("Navigate: Center Cursor")
   end
 }
 ```
