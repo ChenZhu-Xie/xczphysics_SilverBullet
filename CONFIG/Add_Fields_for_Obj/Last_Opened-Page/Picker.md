@@ -13,7 +13,7 @@
 command.define {
   name = "Page Picker: LastOpened",
   key = "Ctrl-p",
-  priority = 1,
+  priority = 100,
   run = function()
     local VisitHistory = queryVisitHistory()
     if not VisitHistory or #VisitHistory == 0 then
