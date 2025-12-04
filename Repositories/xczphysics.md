@@ -212,14 +212,13 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 Add `Navigate: File Link Picker` to CMD
 
 ```#meta/library/remote
-name: "Picker/Table"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+name: "Picker/File_Link"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/File_Link.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/File_Link.md
 ```
-[[CONFIG/Picker/Table#Table|Table]]
-[Table](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
-[Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) #github
-
+[[CONFIG/Picker/File_Link#File Link|File Link]]
+[File_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/File_Link#File%20Link) #enlarge-the-percentage #fly
+[File_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/File_Link.md) #github
 
 # 🖱️ Click
 
