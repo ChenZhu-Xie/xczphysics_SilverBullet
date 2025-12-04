@@ -78,8 +78,7 @@ ${query[[
 ## My Last Modified ✏️
 
 ${query[[
-    from index.tag "page" 
-    where _.name != editor.getCurrentPage() 
+    from index.tag "page"
     select {ref=_.ref, lastModified=string.sub(_.lastModified:gsub("T", " "), 1, -5)} 
     order by lastModified 
     desc limit 5
