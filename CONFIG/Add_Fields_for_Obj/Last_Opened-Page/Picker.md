@@ -28,7 +28,7 @@ command.define {
   end
 }
 
-function getVisitHistory()
+function queryVisitHistory()
   return query[[
     -- from editor.getRecentlyOpenedPages "page"
     from editor.getRecentlyOpenedPages()
@@ -36,5 +36,18 @@ function getVisitHistory()
     select {name=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
     order by _.lastOpened desc
 ]]
+end
+
+function getFileLinks()
+  return query[[
+    from index.tag "link"
+    where _.toFile
+    select{
+      name = _.snippet,
+      description = string.format("%s @ %d", _.page, _.pos),
+      ref = _.ref,
+    }
+    order by _.page, _.pos
+  ]]
 end
 ```
