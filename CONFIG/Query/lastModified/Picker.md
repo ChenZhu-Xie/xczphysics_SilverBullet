@@ -11,20 +11,18 @@ command.define {
       return
     end
     
-    local sel = editor.filterBox("🤏 Pick", VisitHistory, "order by _.lastOpened desc", "a Page")
+    local sel = editor.filterBox("🤏 Pick", VisitHistory, "order by _.lastModified desc", "a Page")
     if not sel then return end
     editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
   end
 }
 
-local function queryVisitHistory()
+local function queryModifyHistory()
   return query[[
-    -- from editor.getRecentlyOpenedPages "page"
-    from editor.getRecentlyOpenedPages()
-    where _.lastOpened
-    select {name=_.ref, description=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
-    order by _.lastOpened desc
+    from index.tag "page"
+    select {name=_.ref, description=string.sub(_.lastModified:gsub("T", " "), 1, -5)} 
+    order by lastModified desc
 ]]
 end
 ```
