@@ -24,22 +24,22 @@ command.update {
 
 ### Page Picker
 
-```lua
+```space-lua
 command.update {
   name = "Navigate: Page Picker",
-  key = "Ctrl-l",
-  mac = "Cmd-l",
+  key = "Ctrl-k",
+  mac = "Cmd-k",
   priority = 1,
 }
 ```
 
 ### Meta Picker
 
-```lua
+```space-lua
 command.update {
   name = "Navigate: Meta Picker",
-  key = "Ctrl-Shift-l",
-  mac = "Cmd-Shift-l",
+  key = "Ctrl-Shift-k",
+  mac = "Cmd-Shift-k",
   priority = 1,
 }
 ```
