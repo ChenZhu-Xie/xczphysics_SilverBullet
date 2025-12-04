@@ -38,8 +38,8 @@ command.update {
 ```space-lua
 command.update {
   name = "Navigate: Meta Picker",
-  key = "Ctrl-Shift-k",
-  mac = "Cmd-Shift-k",
+  key = "Ctrl-Alt-k",
+  mac = "Cmd-Alt-k",
   priority = 1,
 }
 ```
