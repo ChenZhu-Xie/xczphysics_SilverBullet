@@ -302,11 +302,70 @@ local Ctimes = getTimes()
 setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
 
 ------------------------------------------------------------
--- Click History Picker Implementation
+-- Click History: Cursor Picker Implementation
 ------------------------------------------------------------
 
 command.define {
-  name = "Click History: Pick",
+  name = "Click History: Cursor Picker",
+  run = function()
+    local Ctimes = getTimes()
+    local max = Ctimes - 1
+    
+    if max < 1 then
+      editor.flashNotification("No click history found.", "warning")
+      return
+    end
+
+    local historyItems = {}
+    
+    for i = max, 1, -1 do
+      local ref = getRef(i)
+      if ref then
+        local pageName, pos = ref:match("^(.*)@(%d+)$")
+        local displayName = ref
+        local tstr = getTimeString(i) or ""
+        
+        if pageName and tstr then
+          displayName = string.format("%d 🖱️ %s", i, pageName)
+        else
+          displayName = string.format("%d. %s", i, ref)
+        end
+
+        table.insert(historyItems, {
+          id = i,
+          name = displayName,
+          description = tstr .. " 📍 " .. pos,
+          ref = ref
+        })
+      end
+    end
+
+    local sel = editor.filterBox(
+      "Back to",
+      historyItems,
+      "Select a Click History...",
+      "Page @ Pos where you Once Clicked"
+    )
+
+    if sel then
+      local b = ensureBrowseSession()
+      b.index = sel.id
+      setBrowse(b)
+      if navigateIndex(sel.id) then
+        editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
+      end
+    end
+  end,
+  key = "Ctrl-Alt-h",
+  priority = 1,
+}
+
+------------------------------------------------------------
+-- Click History: Page Picker Implementation
+------------------------------------------------------------
+
+command.define {
+  name = "Click History: Page Picker",
   run = function()
     local Ctimes = getTimes()
     local max = Ctimes - 1
