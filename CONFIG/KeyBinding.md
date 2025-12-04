@@ -59,6 +59,8 @@
 |----------|----------|------|-------|-----|--------|
 | Navigate: | [[CONFIG/KeyBinding/Update#Home|Home]] | Ctrl | | | h |
 | Picker: | Document | Ctrl | | | o |
+| Page Picker | [[CONFIG/Query/lastModified/Picker#Implementation|Last Modified]] | | Shift | Alt | p |
+| Page Picker | [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
