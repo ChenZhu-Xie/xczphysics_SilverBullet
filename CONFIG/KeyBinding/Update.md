@@ -49,8 +49,8 @@ command.update {
 ```space-lua
 command.update {
   name = "Navigate: Center Cursor",
-  key = "Ctrl-l",
-  mac = "Cmd-l",
+  key = "Ctrl-j",
+  mac = "Cmd-j",
   priority = 1,
 }
 ```
