@@ -73,10 +73,12 @@ command.define {
 ### Implementation 1
 
 ```space-lua
-function navigateToPos(ref)
+function navigateToPos(ref, pos)
   if ref then
     editor.navigate(ref)
-    editor.invokeCommand("Navigate: Center Cursor")
+    if pos then
+      editor.moveCursor(tonumber(pos), true)
+    end
     return true
   end
   return false
@@ -107,7 +109,7 @@ command.define {
     local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
     if not sel then return end
 
-    if not navigateToPos(sel.ref) then
+    if not navigateToPos(sel.ref, sel.pos) then
       editor.flashNotification("Failed to navigate to selected table.")
     end
   end
@@ -129,6 +131,7 @@ function getTables()
   local rows = query[[
     from index.tag "table"
     select {
+      name = string.format("%s @ %d", _.page, _.pos),
       ref      = _.ref,
       tableref = _.tableref,
       page     = _.page,
