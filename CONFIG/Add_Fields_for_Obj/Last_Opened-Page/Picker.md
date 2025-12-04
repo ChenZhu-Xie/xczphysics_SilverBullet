@@ -12,7 +12,7 @@
 ```space-lua
 command.define {
   name = "Page Picker: LastOpened",
-  key = "Shift-Alt-p",
+  key = "Ctrl-p",
   priority = 1,
   run = function()
     local VisitHistory = queryVisitHistory()
