@@ -25,14 +25,14 @@ command.define {
   key = "Alt-f",
   priority = 1,
   run = function()
-    local tables = getFileLinks()
-    if not tables or #tables == 0 then
+    local FileLinks = getFileLinks()
+    if not FileLinks or #FileLinks == 0 then
       editor.flashNotification("No File Links found.")
       return
     end
 
     local items = {}
-    for _, r in ipairs(tables) do
+    for _, r in ipairs(FileLinks) do
       table.insert(items, {
         name = r.snippet,
         description = string.format("%s @ %d", r.page, r.pos),
