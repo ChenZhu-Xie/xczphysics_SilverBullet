@@ -79,5 +79,5 @@ ${query[[
 
 ${query[[
     from getModifyHistory()
-    limit 5
+    limit 10
 ]]}
