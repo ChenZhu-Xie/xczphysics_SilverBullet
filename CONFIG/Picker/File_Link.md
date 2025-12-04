@@ -45,7 +45,7 @@ command.define {
     local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
 
-    if not navigateToPos(sel.page, sel.pos) then
+    if not navigateToPos(sel.ref, sel.pos) then
       editor.flashNotification("Failed to navigate to selected File Link.")
     end
   end
