@@ -11,7 +11,7 @@
 
 ```space-lua
 command.define {
-  name = "Pick: Last Opened",
+  name = "Page Picker: LastOpened",
   key = "Shift-Alt-p",
   priority = 1,
   run = function()
