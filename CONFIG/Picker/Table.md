@@ -21,7 +21,8 @@ pageDecoration.prefix: "🗓️ "
 `${query[[
     from index.tag "link"
     where page == _CTX.currentPage.name 
-  ]]}` 作用于 [[CONFIG/KeyBinding]]
+  ]]}` 放在 [[Language/Input Method/冰雪清韵]] 发现... 
+  - table 不属于 link，所以... 无法使用 link 的 snippet
 
 ## Picker
 
