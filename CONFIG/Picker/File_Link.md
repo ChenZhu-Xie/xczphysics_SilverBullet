@@ -8,7 +8,44 @@ pageDecoration.prefix: "📄 "
 
 ## Picker
 
+### Inplementation 2
+
 ```space-lua
+command.define {
+  name = "Navigate: File Link Picker",
+  key = "Alt-f",
+  priority = 1,
+  run = function()
+    local FileLinks = getFileLinks()
+    if not FileLinks or #FileLinks == 0 then
+      editor.flashNotification("No File Links found.")
+      return
+    end
+
+    local items = {}
+    for _, r in ipairs(FileLinks) do
+      table.insert(items, {
+        name = r.snippet,
+        description = string.format("%s @ %d", r.page, r.pos),
+        ref = r.ref,
+        page = r.page,
+        pos = r.pos
+      })
+    end
+    
+    local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
+    if not sel then return end
+
+    if not navigateToPos(sel.ref) then
+      editor.flashNotification("Failed to navigate to selected File Link.")
+    end
+  end
+}
+```
+
+### Inplementation 1
+
+```lua
 function navigateToPos(ref)
   if ref then
     editor.navigate(ref)
@@ -51,13 +88,22 @@ command.define {
 ```
 
 ```lua
+function navigateToPos(ref)
+  if ref then
+    editor.navigate(ref)
+    editor.invokeCommand("Navigate: Center Cursor")
+    return true
+  end
+  return false
+end
+
 function navigateToPos(ref, pos)
   if ref then
     editor.navigate(ref)
     if pos then
       editor.moveCursor(tonumber(pos), true)
     end
-    editor.invokeCommand("Navigate: Center Cursor")
+    -- editor.invokeCommand("Navigate: Center Cursor")
     return true
   end
   return false
@@ -85,7 +131,27 @@ end
 
 `${getFileLinks()}`
 
+### Inplementation 2
+
 ```space-lua
+function getFileLinks()
+  return query[[
+    from index.tag "link"
+    where _.toFile
+    select{
+      ref = _.ref,
+      snippet = _.snippet,
+      page = _.page,
+      pos = _.pos,
+    }
+    order by _.page, _.pos
+  ]]
+end
+```
+
+### Inplementation 1
+
+```lua
 function getFileLinks()
   return query[[
     from index.tag "link"
