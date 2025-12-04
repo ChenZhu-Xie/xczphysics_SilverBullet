@@ -10,6 +10,12 @@ pageDecoration.prefix: "🗓️ "
 
 # Table
 
+- table 拿不到 snippet：
+  - 能拿到 每个 table 的 每一行 的 attr/property 及其 value，但太乱了
+  - 它们不属于统一的同一个 property（即 snippet） 旗下。
+- link 只能拿到含有 table 中某一含有 link 的 行 的 snippet
+  - 因为都在同一行.
+
 - [ ] 或许 不采用 index.tag 中的 table 来获取 table
   -       而采用 index.tag 中的 link  来获取 table
   - 额外的好处是：有上下文：snippet 作为 name 而把 page@pos 放在 description
@@ -101,11 +107,6 @@ order by _.tableref
 ]]}`
 
 `${getTables()}`
-
-${query[[
-    from index.tag "table"
-    order by _.page, _.pos
-  ]]}
 
 ### Implementation 3
 
