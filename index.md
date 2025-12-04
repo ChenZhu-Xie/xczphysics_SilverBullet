@@ -64,10 +64,7 @@ There’re ${#query[[from tags.page]]} pages in this space ;) See [Tag](https://
 ## Your Last Visit 👀
 
 ${query[[
-    from editor.getRecentlyOpenedPages "page"
-    where _.lastOpened
-    select {ref=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
-    order by _.lastOpened desc
+    from getVisitHistory()
     limit 5
 ]]}
 
