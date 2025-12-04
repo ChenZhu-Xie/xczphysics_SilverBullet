@@ -37,6 +37,7 @@
 | 🟢 **Picker** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Heading.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
 | 🟢 **Picker** | [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Tag) |
 | 🟢 **Picker** | [Table](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Table) |
+| 🟢 **Picker** | [File Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Table) |
 | 🟪 **Click** | [History](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Mouse/History_+_Center.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#History) |
 | 🟪 **Add Field for Page** | [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👀%20Visit%20Times) |
 | 🟡 **BreadCrumbs** | [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Bottom) |
