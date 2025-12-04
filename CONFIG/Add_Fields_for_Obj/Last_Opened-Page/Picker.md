@@ -6,7 +6,7 @@
     - 到现在为止，我也没搞清楚 [[CONFIG/KeyBinding/Update#Page Picker|Page Picker]] 的排序规则：
     - 既不是 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Query#3rd try|lastOpened]] 的 降序
     - 也不是 [[CONFIG/Query/lastModified]] 的 降序
-    - 也不是 [[CONFIG/Mouse/History_+_Center#Click History|Click History]] 的 降序
+    - 也不是 [[CONFIG/Mouse/History_+_Center#Click History|Click History]] 的 降序...
 
 ```space-lua
 
