@@ -32,6 +32,7 @@ function navigateToPos(ref, pos)
     if pos then
       editor.moveCursor(tonumber(pos), true)
     end
+    editor.invokeCommand("Navigate: Center Cursor")
     return true
   end
   return false
