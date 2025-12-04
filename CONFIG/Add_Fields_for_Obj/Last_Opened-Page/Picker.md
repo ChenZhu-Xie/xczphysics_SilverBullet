@@ -33,21 +33,8 @@ function queryVisitHistory()
     -- from editor.getRecentlyOpenedPages "page"
     from editor.getRecentlyOpenedPages()
     where _.lastOpened
-    select {name=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
+    select {name=_.ref, description=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
     order by _.lastOpened desc
 ]]
-end
-
-function getFileLinks()
-  return query[[
-    from index.tag "link"
-    where _.toFile
-    select{
-      name = _.snippet,
-      description = string.format("%s @ %d", _.page, _.pos),
-      ref = _.ref,
-    }
-    order by _.page, _.pos
-  ]]
 end
 ```
