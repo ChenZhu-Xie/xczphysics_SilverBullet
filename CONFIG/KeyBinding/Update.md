@@ -55,15 +55,6 @@ command.update {
 }
 ```
 
-```space-lua
-command.update {
-  name = "Share: Page",
-  key = "Shift-Alt-s",
-  mac = "Shift-Alt-s",
-  priority = 1,
-}
-```
-
 ## Page
 
 ### Delete
