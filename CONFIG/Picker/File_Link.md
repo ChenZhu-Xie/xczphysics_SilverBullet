@@ -35,10 +35,8 @@ command.define {
     
     local sel = editor.filterBox("🔍 Select", items, "Choose a File Link...", "a File Link to GoTo")
     if not sel then return end
-
-    if not navigateToPos(sel.ref) then
-      editor.flashNotification("Failed to navigate to selected File Link.")
-    end
+    editor.navigate(sel.ref)
+    editor.invokeCommand("Navigate: Center Cursor")
   end
 }
 ```
@@ -139,10 +137,9 @@ function getFileLinks()
     from index.tag "link"
     where _.toFile
     select{
+      name = _.snippet,
+      description = string.format("%s @ %d", _.page, _.pos),
       ref = _.ref,
-      snippet = _.snippet,
-      page = _.page,
-      pos = _.pos,
     }
     order by _.page, _.pos
   ]]
