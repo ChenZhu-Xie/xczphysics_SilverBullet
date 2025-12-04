@@ -12,9 +12,7 @@ pageDecoration.prefix: "📄 "
 function navigateToPos(ref, pos)
   if ref then
     editor.navigate(ref)
-    if pos then
-      editor.moveCursor(tonumber(pos), true)
-    end
+    editor.invokeCommand("Navigate: Center Cursor") 
     return true
   end
   return false
