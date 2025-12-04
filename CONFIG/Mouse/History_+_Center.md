@@ -425,6 +425,9 @@ command.define {
 ```
 
 1. 用了点 [[CONFIG/Picker/Table#Implementation 3|Table Query]] 的 `if not seen[pageName] then` 技巧来做 上述 `Click History: Page Picker`
+2. 原则上还可以使用 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times]] 中的：
+   - 将 datastore 的 get 取值 过程，放进 query 的 select 中，来提速
+
 
 ## 1st hand written ver
 
