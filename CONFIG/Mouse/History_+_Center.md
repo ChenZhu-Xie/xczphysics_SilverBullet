@@ -424,7 +424,7 @@ command.define {
 }
 ```
 
-1. 用了点 [[^CONFIG/Picker/Table]]
+1. 用了点 [[CONFIG/Picker/Table#Implementation 3|Table Query]] 的 `if not seen[pageName] then` 技巧来做 上述 `Click History: Page Picker`
 
 ## 1st hand written ver
 
