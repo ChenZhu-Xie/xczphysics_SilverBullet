@@ -429,7 +429,6 @@ command.define {
    - 将 datastore 的 get 取值 过程，放进 query 的 select 中，来提速
    - 但我不知道 `if not seen[pageName] then` 还能用不
 
-
 ## 1st hand written ver
 
 ### Set
