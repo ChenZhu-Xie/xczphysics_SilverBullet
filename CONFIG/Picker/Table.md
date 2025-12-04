@@ -26,6 +26,8 @@ pageDecoration.prefix: "🗓️ "
 
 ## Picker
 
+### Implementation 2
+
 ```space-lua
 function navigateToPos(ref)
   if ref then
@@ -68,13 +70,59 @@ command.define {
 }
 ```
 
-## Query 2
+### Implementation 1
+
+```space-lua
+function navigateToPos(ref)
+  if ref then
+    editor.navigate(ref)
+    editor.invokeCommand("Navigate: Center Cursor")
+    return true
+  end
+  return false
+end
+
+command.define {
+  name = "Navigate: Table Picker",
+  key = "Ctrl-Shift-t",
+  priority = 1,
+  run = function()
+    local tables = getTables()
+    if not tables or #tables == 0 then
+      editor.flashNotification("No tables found.")
+      return
+    end
+
+    local items = {}
+    for _, r in ipairs(tables) do
+      table.insert(items, {
+        name = string.format("%s @ %d", r.page, r.pos),
+        -- description = string.format("%s @ %d", r.page, r.pos),
+        ref = r.ref,
+        page = r.page,
+        pos = r.pos
+      })
+    end
+
+    local sel = editor.filterBox("Jump to", items, "Select a Table...", "Page @ Pos where the Table locates")
+    if not sel then return end
+
+    if not navigateToPos(sel.ref) then
+      editor.flashNotification("Failed to navigate to selected table.")
+    end
+  end
+}
+```
+
+## Query
 
 `${query[[from index.tag "table"
 order by _.tableref
 ]]}`
 
 `${getTables()}`
+
+### Implementation 3
 
 ```space-lua
 function getTables()
@@ -101,7 +149,34 @@ function getTables()
 end
 ```
 
-## Query 1
+### Implementation 2
+
+```lua
+function getTables()
+  local rows = query[[
+    from index.tag "table"
+    select {
+      ref      = _.ref,
+      tableref = _.tableref,
+      page     = _.page,
+      pos      = _.pos,
+    }
+    order by _.page, _.pos
+  ]]
+
+  local out, seen = {}, {}
+  for _, r in ipairs(rows) do
+    local key = r.tableref
+    if not seen[key] then
+      seen[key] = true
+      table.insert(out, r)
+    end
+  end
+  return out
+end
+```
+
+### Implementation 1
 
 ```lua
 function getTables()
