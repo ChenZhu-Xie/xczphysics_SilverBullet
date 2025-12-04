@@ -28,7 +28,7 @@ pageDecoration.prefix: "🖱️ "
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Ctrl | | Alt | h |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Shift | | Alt | h |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
 
 ```space-lua
