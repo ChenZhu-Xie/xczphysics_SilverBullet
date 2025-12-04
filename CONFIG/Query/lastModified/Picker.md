@@ -1,17 +1,17 @@
 
 ```space-lua
 command.define {
-  name = "Page Picker: LastOpened",
+  name = "Page Picker: Last Modified",
   key = "Shift-Alt-p",
   priority = 1,
   run = function()
-    local VisitHistory = queryVisitHistory()
-    if not VisitHistory or #VisitHistory == 0 then
+    local ModifyHistory = queryModifyHistory()
+    if not ModifyHistory or #ModifyHistory == 0 then
       editor.flashNotification("No Visit History found.")
       return
     end
     
-    local sel = editor.filterBox("🤏 Pick", VisitHistory, "order by _.lastModified desc", "a Page")
+    local sel = editor.filterBox("🤏 Pick", ModifyHistory, "order by _.lastModified desc", "a Page")
     if not sel then return end
     editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
