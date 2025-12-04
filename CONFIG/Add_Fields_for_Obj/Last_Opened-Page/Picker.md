@@ -13,7 +13,7 @@
 command.define {
   name = "Page Picker: LastOpened",
   key = "Ctrl-p",
-  priority = -1,
+  priority = 1,
   run = function()
     local VisitHistory = queryVisitHistory()
     if not VisitHistory or #VisitHistory == 0 then
@@ -37,4 +37,15 @@ local function queryVisitHistory()
     order by _.lastOpened desc
 ]]
 end
+```
+
+# Update `Ctrl+P`'s Original KeyBind
+
+```space-lua
+command.update {
+  name = "Share: Page",
+  key = "Ctrl-Shift-s",
+  mac = "Cmd-Shift-s",
+  priority = 1,
+}
 ```
