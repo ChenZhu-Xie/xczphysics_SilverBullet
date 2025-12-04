@@ -23,8 +23,18 @@ command.define {
     
     local sel = editor.filterBox("🤏 Pick", VisitHistory, "Pick a Page...", "a Page")
     if not sel then return end
-    editor.navigate(sel.ref)
+    editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
   end
 }
+
+function getVisitHistory()
+  return query[[
+    -- from editor.getRecentlyOpenedPages "page"
+    from editor.getRecentlyOpenedPages()
+    where _.lastOpened
+    select {name=_.ref, lastVisit=os.date("%Y-%m-%d %H:%M:%S", _.lastOpened/1000)} 
+    order by _.lastOpened desc
+]]
+end
 ```
