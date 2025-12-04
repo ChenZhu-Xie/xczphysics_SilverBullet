@@ -7,8 +7,24 @@
     - 既不是 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Query#3rd try|lastOpened]] 的 降序
     - 也不是 [[CONFIG/Query/lastModified]] 的 降序
     - 也不是 [[CONFIG/Mouse/History_+_Center#Click History|Click History]] 的 降序...
-- 我也没搞清楚 `[[` 所触发的 排序规则
+- 我也没搞清楚 `[[` 所触发的 排序规则...不是 上述顺序 中的 任何一个。
 
 ```space-lua
-
+command.define {
+  name = "Pick: Last Opened",
+  key = "Alt-f",
+  priority = 1,
+  run = function()
+    local VisitHistory = getVisitHistory()
+    if not VisitHistory or #VisitHistory == 0 then
+      editor.flashNotification("No Visit History found.")
+      return
+    end
+    
+    local sel = editor.filterBox("🤏 Pick", VisitHistory, "Pick a Page...", "a Page")
+    if not sel then return end
+    editor.navigate(sel.ref)
+    editor.invokeCommand("Navigate: Center Cursor")
+  end
+}
 ```
