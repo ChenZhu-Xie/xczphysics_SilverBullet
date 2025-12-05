@@ -429,7 +429,7 @@ command.define {
       setBrowse(b)
       if navigateIndex(sel.id) then
         local page = extractPageName(sel.id)
-        editor.flashNotification(string.format("Jumped to history: %s 🖱️ %d / %d", page, sel.id, max))
+        editor.flashNotification(string.format("Jumped to history: 📃 %s 🕒 %d / %d", page, sel.id, max))
       end
     end
   end,
