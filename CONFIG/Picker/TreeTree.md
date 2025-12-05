@@ -4,14 +4,12 @@
 ## Page + Heading (double return)
 
 ```space-lua
--- 1. 前置声明，这样 pickHeadings 才能调用它
 local pageTreePicker 
 
 local function pickHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then
     editor.flashNotification("Could not read page: " .. pageName)
-    -- 这里读取失败，也许也应该返回上一级？或者保持原样返回
     return
   end
 
@@ -63,7 +61,6 @@ local function pickHeadings(pageName)
     end
   end
 
-  -- 如果没有标题，直接跳转页面，不涉及“返回”逻辑
   if #nodes == 0 then
     editor.navigate({ page = pageName })
     editor.invokeCommand("Navigate: Center Cursor")
@@ -150,12 +147,10 @@ local function pickHeadings(pageName)
     end
     editor.invokeCommand("Navigate: Center Cursor")
   else
-    -- 2. 如果 result 为空（用户按了 ESC），则重新调用 pageTreePicker
     return pageTreePicker()
   end
 end
 
--- 3. 这里去掉 local，直接给最上面声明的变量赋值
 pageTreePicker = function()
   local pages = space.listPages()
   
