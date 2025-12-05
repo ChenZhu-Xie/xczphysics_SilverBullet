@@ -1,4 +1,7 @@
 
+
+# Space-Lua
+
 ```space-lua
 local colors = { "#fcf", "#ffc", "#cff", "#fcc", "#9cf", "#c9f", "#fcd", "#ff9", "#cf9", "#9fc", "#fc6", "#f9f", "#fc9", "#cfc", "#9f9", "#ccf", "#f9c", "#9ff" }
 
@@ -47,6 +50,7 @@ function widgets.stickyNotes(tasks)
 end
 ```
 
+# Space-Style
 
 ```space-style
 .sticky-notes {
