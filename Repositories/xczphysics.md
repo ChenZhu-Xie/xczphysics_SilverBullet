@@ -236,6 +236,21 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add
 [Picker](https://enlarge-the-percentage.fly.dev/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation) #enlarge-the-percentage #fly
 [Picker.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md) #github
 
+### Last Modified
+
+==Ctrl-p==
+Add `Page Picker: Last Opened` to CMD
+
+```#meta/library/remote
+name: "Add_Fields_for_Obj/Last_Opened-Page/Picker"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md
+```
+[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|lastOpened]]
+[Picker](https://enlarge-the-percentage.fly.dev/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation) #enlarge-the-percentage #fly
+[Picker.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md) #github
+
+
 # 🖱️ Click
 
 ## History
