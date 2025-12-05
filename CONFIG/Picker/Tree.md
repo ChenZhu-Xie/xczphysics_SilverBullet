@@ -1,6 +1,4 @@
 
-
-
 # Implementation
 
 ## Page + Heading Ver
