@@ -1,5 +1,6 @@
 
 1. https://silverbullet.md/API/index
+2. DataStore vs ClientStore [how pass values input to a widget](https://community.silverbullet.md/t/how-pass-values-input-to-a-widget/3588/8?u=chenzhu-xie) #community #silverbullet
 
 # Client level
 
