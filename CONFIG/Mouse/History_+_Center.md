@@ -272,8 +272,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🛑End: %d / %d", page, max, max))
     end
   end,
-  key = "Ctrl-Alt-ArrowUp",
-  mac = "Ctrl-Alt-ArrowDown",
+  key = "Shift-Alt-ArrowUp",
+  mac = "Shift-Alt-ArrowUp",
   priority = 1,
 }
 
@@ -295,8 +295,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🟢Start: 1 / %d", page, b.max))
     end
   end,
-  key = "Ctrl-Shift-Alt-ArrowLeft",
-  mac = "Ctrl-Shift-Alt-ArrowLeft",
+  key = "Shift-Alt-ArrowDown",
+  mac = "Shift-Alt-ArrowDown",
   priority = 1,
 }
 
