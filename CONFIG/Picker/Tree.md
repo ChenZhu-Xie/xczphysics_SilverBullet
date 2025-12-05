@@ -1,7 +1,219 @@
 
 
-
 ```space-lua
+-- Pick Pages (from query[[from index.tag "page"]]) with CMD-Tree UI
+local function pagesPicker(options)
+  options = options or {}
+  local TAG = options.tag or "page"
+
+  -- 统一的树形前缀符号（与 headingsPicker 保持一致的风格）
+  local VERT = "│ 　　"
+  local BLNK = "　　　"
+  local TEE  = "├───　"
+  local ELB  = "└───　"
+
+  -- 工具：字符串分割（按 / 目录分隔）
+  local function split_path(p)
+    p = (p or ""):gsub("\\", "/")
+    local parts = {}
+    for seg in string.gmatch(p, "[^/]+") do
+      table.insert(parts, seg)
+    end
+    return parts
+  end
+
+  -- 工具：去扩展名
+  local function strip_ext(name)
+    return name:gsub("%.[^%.]+$", "")
+  end
+
+  -- 工具：标准化页面列表
+  -- 接受多种形态：字符串路径，或包含 path/file/title/name 的表
+  local function normalizePages(res)
+    local pages = {}
+    if not res then return pages end
+
+    -- 兼容：如果是 map 形式，拉平成数组
+    local function iter(container)
+      if #container > 0 then
+        return ipairs(container)
+      else
+        local i = 0
+        return function(_, _)
+          i = i + 1
+          local k, v = next(container, (i == 1) and nil or select(1, next(container, nil)))
+          if not k then return nil end
+          return i, v
+        end
+      end
+    end
+
+    for _, p in iter(res) do
+      local path, title
+      if type(p) == "string" then
+        path = p
+      elseif type(p) == "table" then
+        path = p.path or p.file or p.name or p.id
+        title = p.title or p.name
+      end
+      if path then
+        path = path:gsub("\\", "/"):gsub("^%./", "")
+        local base = path:match("([^/]+)$") or path
+        title = title or strip_ext(base)
+        table.insert(pages, { path = path, title = title })
+      end
+    end
+
+    table.sort(pages, function(a, b) return a.path < b.path end)
+    return pages
+  end
+
+  -- 数据获取：优先调用 index.tag("page")
+  local function fetchPagesByTag(tag)
+    -- 你们环境若有全局 index 且支持 index.tag("page")
+    if type(index) == "table" then
+      local tagGetter = index.tag or index.tags
+      if type(tagGetter) == "function" then
+        local ok, res = pcall(tagGetter, tag)
+        if ok then return normalizePages(res) end
+      elseif type(tagGetter) == "table" then
+        local res = tagGetter[tag] or (tagGetter.get and tagGetter:get(tag))
+        if res then return normalizePages(res) end
+      end
+    end
+
+    -- 可选：fallback（按需实现）
+    -- 若你们有 workspace/listPages 之类 API，可在这里补充：
+    -- if workspace and workspace.listPages then
+    --   local res = workspace.listPages(function(meta)
+    --     if not meta then return false end
+    --     if meta.tags then
+    --       for _, t in ipairs(meta.tags) do if t == tag then return true end end
+    --     end
+    --     return false
+    --   end)
+    --   return normalizePages(res)
+    -- end
+
+    return {}
+  end
+
+  -- 构建树结构
+  local function buildTree(pages)
+    local root = { name = "", children = {}, isPage = false }
+    local function ensureChild(node, key, display)
+      if not node.children[key] then
+        node.children[key] = { name = display or key, children = {}, isPage = false }
+      end
+      return node.children[key]
+    end
+    for _, pg in ipairs(pages) do
+      local parts = split_path(pg.path)
+      local cur = root
+      for i, seg in ipairs(parts) do
+        local child = ensureChild(cur, seg, seg)
+        cur = child
+        if i == #parts then
+          cur.isPage = true
+          cur.title = pg.title
+          cur.path  = pg.path
+        end
+      end
+    end
+    return root
+  end
+
+  -- 将树拍平成可供 filterBox 使用的 items
+  local function treeToItems(root)
+    local items = {}
+
+    local function sortedKeys(t)
+      local ks = {}
+      for k, _ in pairs(t) do table.insert(ks, k) end
+      table.sort(ks)
+      return ks
+    end
+
+    local function dfs(node, prefixStack)
+      local keys = sortedKeys(node.children)
+      for idx, k in ipairs(keys) do
+        local child = node.children[k]
+        local is_last = (idx == #keys)
+
+        -- 构造前缀
+        local prefix = ""
+        for _, parentIsLast in ipairs(prefixStack) do
+          prefix = prefix .. (parentIsLast and BLNK or VERT)
+        end
+        local elbow = is_last and ELB or TEE
+        local labelText = child.isPage and (child.title or child.name) or child.name
+        local label = prefix .. elbow .. labelText
+
+        if child.isPage then
+          table.insert(items, {
+            name = label,
+            description = child.path,
+            page = child.path     -- 用于导航
+          })
+        else
+          -- 文件夹节点（仅展示，不导航）
+          table.insert(items, {
+            name = label,
+            description = "",
+            folder = true
+          })
+        end
+
+        table.insert(prefixStack, is_last)
+        dfs(child, prefixStack)
+        table.remove(prefixStack)
+      end
+    end
+
+    dfs(root, {})
+    return items
+  end
+
+  -- 主流程
+  local pages = fetchPagesByTag(TAG)
+  if #pages == 0 then
+    editor.flashNotification(string.format("No pages found for tag: %s", TAG))
+    return
+  end
+
+  local tree  = buildTree(pages)
+  local items = treeToItems(tree)
+
+  if #items == 0 then
+    editor.flashNotification("No items to display")
+    return
+  end
+
+  local result = editor.filterBox("Search Pages:", items, "Select a Page...", "Page")
+  if not result then return end
+
+  -- 与 headingsPicker 相同的选择处理分支
+  if result.selected and result.selected.value then
+    local item = result.selected.value
+    if item.page then
+      editor.navigate({ page = item.page })
+    end
+  elseif result.page then
+    editor.navigate({ page = result.page })
+  end
+end
+
+-- 绑定命令
+command.define({
+  name = "Navigate: Page Picker (index.tag 'page')",
+  key  = "Shift-Alt-b",
+  run  = function() pagesPicker({ tag = "page" }) end
+})
+```
+
+
+
+```lua
 -- Page Tree Picker with CMD-Tree UI (Fixed Sorting)
 local function pageTreePicker()
   -- 1. 获取所有页面
