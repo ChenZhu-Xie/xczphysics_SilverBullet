@@ -24,10 +24,10 @@ pageDecoration.prefix: "🖱️ "
 |----------|----------|------|-------|-----|--------|
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | End |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | | Shift | Alt | Home |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | End |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start (Page)]] | Ctrl | Shift | Alt | → |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Ctrl | | Alt | h |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
