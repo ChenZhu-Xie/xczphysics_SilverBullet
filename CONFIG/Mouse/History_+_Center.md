@@ -272,8 +272,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🛑End: %d / %d", page, max, max))
     end
   end,
-  key = "Shift-Alt-PageDown",
-  mac = "Shift-Alt-PageDown",
+  key = "Shift-Alt-End",
+  mac = "Shift-Alt-End",
   priority = 1,
 }
 
