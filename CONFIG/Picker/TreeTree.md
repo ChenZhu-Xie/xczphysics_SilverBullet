@@ -403,6 +403,7 @@ local function pickHeadings(pageName)
     elseif pos then
         editor.navigate({ page = pageName, pos = pos })
     end
+    editor.invokeCommand("Navigate: Center Cursor")
   end
 end
 
