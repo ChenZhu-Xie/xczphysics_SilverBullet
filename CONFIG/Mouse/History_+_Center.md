@@ -199,11 +199,9 @@ command.define {
   end,
 }
 
--- 辅助函数：从 ref 中提取页面名称
 local function extractPageName(idx)
     local ref = getRef(idx)
     if not ref then return "" end
-    -- 匹配 @ 之前的所有内容作为页面名称
     return ref:match("^(.*)@") or ref
 end
 
@@ -366,7 +364,7 @@ command.define {
       setBrowse(b)
       if navigateIndex(sel.id) then
         local page = extractPageName(sel.id)
-        editor.flashNotification(string.format("Jumped to history: %d / %d [%s]", sel.id, max, page))
+        editor.flashNotification(string.format("📃%s📍Rewind: %d / %d", page, sel.id, max))
       end
     end
   end,
