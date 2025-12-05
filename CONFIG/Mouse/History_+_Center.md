@@ -295,8 +295,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🟢Start: 1 / %d", page, b.max))
     end
   end,
-  key = "Shift-Alt-PageUp",
-  mac = "Shift-Alt-PageUp",
+  key = "Shift-Alt-Start",
+  mac = "Shift-Alt-Start",
   priority = 1,
 }
 
