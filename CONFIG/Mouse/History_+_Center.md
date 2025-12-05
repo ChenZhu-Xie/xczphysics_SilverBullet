@@ -458,7 +458,7 @@ command.define {
 }
 
 ------------------------------------------------------------
--- Click History: Page Picker Implementation
+-- Click History: Page Picker Implementation (Refactored)
 ------------------------------------------------------------
 
 command.define {
@@ -472,14 +472,18 @@ command.define {
       return
     end
 
-    local historyItems, seen = {}, {}
+    local historyItems = {}
+    local nextIndexPageName = nil 
+
     for i = max, 1, -1 do
       local ref = getRef(i)
       if ref then
         local pageName, pos = ref:match("^(.*)@(%d+)$")
+        if not pageName then pageName = ref end
 
-        if not seen[pageName] then
-          seen[pageName] = true
+        if pageName ~= nextIndexPageName then
+          nextIndexPageName = pageName
+          
           local displayName = ref
           local tstr = getTimeString(i) or ""
           
@@ -492,7 +496,7 @@ command.define {
           table.insert(historyItems, {
             id = i,
             name = displayName,
-            description = tstr .. " 📍 " .. pos,
+            description = tstr .. " 📍 " .. tostring(pos or "N/A"),
             ref = ref
           })
         end
@@ -500,10 +504,10 @@ command.define {
     end
 
     local sel = editor.filterBox(
-      "Back to",
+      "Back to (Page Blocks)",
       historyItems,
-      "Select a Click History...",
-      "Page @ Pos where you Once Clicked"
+      "Select a Page Jump Point...",
+      "Jumps to the last cursor position of each page visit session"
     )
 
     if sel then
@@ -522,7 +526,10 @@ command.define {
 ```
 
 1. 用了点 [[CONFIG/Picker/Table#Implementation 3|Table Query]] 的 `if not seen[pageName] then` 技巧来做 上述 `Click History: Page Picker`
-2. 原则上还可以使用 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times]] 中的：
+   - 但这使得 page name 在历史记录中 不重复，不能真实地还原 page 历史
+     - 
+   - 就又修改成了 现在的版本：align with 按页浏览 ctrl shift alt ←→ 
+3. 原则上还可以使用 [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times]] 中的：
    - 将 datastore 的 get 取值 过程，放进 query 的 select 中，来提速
    - 但我不知道 `if not seen[pageName] then` 还能用不
    - 当然，最限制的是 `query [[ from ...]]` 中的 from 接什么的问题：只有个 getRef(i)，没有现成的 table 可 query
