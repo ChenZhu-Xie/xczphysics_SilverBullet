@@ -24,6 +24,8 @@ pageDecoration.prefix: "🖱️ "
 |----------|----------|------|-------|-----|--------|
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | | Alt | ↑ |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | | Alt | ↓ |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
