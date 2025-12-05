@@ -66,6 +66,7 @@ local function pickHeadings(pageName)
   -- 如果没有标题，直接跳转页面，不涉及“返回”逻辑
   if #nodes == 0 then
     editor.navigate({ page = pageName })
+    editor.invokeCommand("Navigate: Center Cursor")
     return
   end
   
@@ -147,6 +148,7 @@ local function pickHeadings(pageName)
     elseif pos then
         editor.navigate({ page = pageName, pos = pos })
     end
+    editor.invokeCommand("Navigate: Center Cursor")
   else
     -- 2. 如果 result 为空（用户按了 ESC），则重新调用 pageTreePicker
     return pageTreePicker()
