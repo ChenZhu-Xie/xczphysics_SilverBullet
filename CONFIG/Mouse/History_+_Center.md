@@ -507,7 +507,7 @@ command.define {
       "Back to (Page Blocks)",
       historyItems,
       "Select a Page Jump Point...",
-      "Jumps to the last cursor position of each page visit session"
+      "Jumps to each page's last click"
     )
 
     if sel then
