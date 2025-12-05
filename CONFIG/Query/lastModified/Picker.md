@@ -1,3 +1,8 @@
+---
+name: CONFIG/Query/lastModified/Picker
+tags: meta/library
+pageDecoration.prefix: "🕘 "
+---
 
 # Implementation
 

@@ -1,4 +1,6 @@
 
+# Public Query func
+
 `${getModifyHistory()}`
 
 ```space-lua
