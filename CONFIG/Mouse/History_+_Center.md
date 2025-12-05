@@ -147,8 +147,8 @@ local function ensureBrowseSession()
 end
 
 -- add：Get/Set Record Mode
--- nil/false: `Click` to record (default)
 -- true: `Ctrl + Click` to record
+-- nil/false: `Click` to record (default)
 local function getRecordMode()
   local ClickHistoryMode = datastore.get({"ClickHistoryMode", "!"}) or {}
   return ClickHistoryMode.currentMode or false
@@ -270,8 +270,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🛑End: %d / %d", page, max, max))
     end
   end,
-  key = "Shift-Alt-ArrowUp",
-  mac = "Shift-Alt-ArrowDown",
+  key = "Ctrl-Alt-ArrowUp",
+  mac = "Ctrl-Alt-ArrowDown",
   priority = 1,
 }
 
