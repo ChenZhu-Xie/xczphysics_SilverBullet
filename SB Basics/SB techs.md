@@ -1,6 +1,8 @@
 
 # Space-Script --> Space-Lua
 
+space-script ~ JS
+space-lua ~ 
 1. [space lua making space script safer simpler and unifying all the things](https://community.silverbullet.md/t/space-lua-making-space-script-safer-simpler-and-unifying-all-the-things/970/3?u=chenzhu-xie) #community #silverbullet
 
 # Sync Engine
