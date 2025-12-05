@@ -1,6 +1,9 @@
 
 
-### Page + Heading Ver
+
+# Implementation
+
+## Page + Heading Ver
 
 ```space-lua
 local function pickHeadings(pageName)
@@ -249,7 +252,7 @@ command.define({
 })
 ```
 
-### Page Ver
+## Page Ver
 
 ```lua
 -- Page Tree Picker with CMD-Tree UI
