@@ -35,6 +35,7 @@ ${query[[
   where _.tag == "page" and _.name == editor.getCurrentPage()
   select ({lastOpened = _.lastOpened})
 ]]}
+
 ## Simplest way of getting lastOpened attr?
 
 ### Some equivalences
