@@ -129,7 +129,7 @@ local function pickHeadings(pageName)
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Jump to in " .. pageName .. ":", items, "Select a Header...", "Heading Picker")
+  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
     local pos = result.pos
