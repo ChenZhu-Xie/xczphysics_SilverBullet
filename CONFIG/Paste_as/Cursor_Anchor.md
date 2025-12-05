@@ -8,7 +8,7 @@ pageDecoration.prefix: "📎 "
 # Bi-directional Linking System @ Cursor
 
 1. [cross references](https://community.silverbullet.md/t/cross-references/1109/7?u=chenzhu-xie) #community #silverbullet
-2. 
+2. [abc accurate bi directional cursor level linking system](https://community.silverbullet.md/t/abc-accurate-bi-directional-cursor-level-linking-system/3536?u=chenzhu-xie) #community #silverbullet
 
 ## here we go
 
