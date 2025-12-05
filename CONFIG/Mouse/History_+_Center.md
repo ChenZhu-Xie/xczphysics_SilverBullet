@@ -458,7 +458,7 @@ command.define {
 }
 
 ------------------------------------------------------------
--- Click History: Page Picker Implementation (Refactored)
+-- Click History: Page Picker (Refactored)
 ------------------------------------------------------------
 
 command.define {
