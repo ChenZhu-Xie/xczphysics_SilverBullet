@@ -249,7 +249,7 @@ command.define {
 
     if navigateIndex(b.index) then
       local page = extractPageName(b.index)
-      editor.flashNotification(string.format("Forward: %d / %d [%s]", b.index, b.max, page))
+      editor.flashNotification(string.format("Forward📃%s🕒%d / %d", page, b.index, b.max))
     end
   end,
   key = "Shift-Alt-ArrowRight",
