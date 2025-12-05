@@ -96,7 +96,7 @@ end
 
 command.define({
   name = "Navigate: Page Tree Picker",
-  key = "Shift-Alt-b",
+  key = "Shift-Alt-e",
   run = function() pageTreePicker() end
 })
 ```
