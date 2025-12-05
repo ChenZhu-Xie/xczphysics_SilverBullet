@@ -7,4 +7,6 @@
 
 1. https://community.silverbullet.md/t/discrepancy-between-item-and-task-and-the-need-for-their-union/1686/2?u=chenzhu-xie
 
+# Full Page Name as Wiki Link
 
+- [issues](https://github.com/silverbulletmd/silverbullet/issues/1615) #github

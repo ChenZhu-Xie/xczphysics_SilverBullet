@@ -9,6 +9,8 @@ pageDecoration.prefix: "📎 "
 
 1. [cross references](https://community.silverbullet.md/t/cross-references/1109/7?u=chenzhu-xie) #community #silverbullet
 2. [abc accurate bi directional cursor level linking system](https://community.silverbullet.md/t/abc-accurate-bi-directional-cursor-level-linking-system/3536?u=chenzhu-xie) #community #silverbullet
+3. [issues](https://github.com/silverbulletmd/silverbullet/issues/1690) #github
+4. [issues](https://github.com/silverbulletmd/silverbullet/issues/1652) #github
 
 ## here we go
 
