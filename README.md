@@ -38,6 +38,8 @@
 | 🟢 **Picker** | [Tag](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Tag) |
 | 🟢 **Picker** | [Table](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Table) |
 | 🟢 **Picker** | [File Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/File_Link.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#File%20Link) |
+| 🟢 **Page Picker** | [Last Opened](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Last%20Opened) |
+| 🟢 **Page Picker** | [Last Modified](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Query/lastModified/Picker.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Last%20Modified) |
 | 🟪 **Click** | [History](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Mouse/History_+_Center.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#History) |
 | 🟪 **Add Field for Page** | [Visit Times](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👀%20Visit%20Times) |
 | 🟡 **BreadCrumbs** | [Bottom](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Widget/BreadCrumbs/Bottom.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Bottom) |
