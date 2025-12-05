@@ -72,9 +72,9 @@ local function headingsPicker(options)
   -- 2. (新) 计算最小层级，用于标准化缩进
   -- 这样如果文档从 H2 开始，树形图会靠左显示，而不是缩进一格
   local min_level = 10
-  for _, n in ipairs(nodes) do
-    if n.level < min_level then min_level = n.level end
-  end
+  -- for _, n in ipairs(nodes) do
+  --   if n.level < min_level then min_level = n.level end
+  -- end
 
   -- 3. 计算是否是同级中的最后一个节点
   local last_flags = {}
