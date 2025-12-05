@@ -186,7 +186,7 @@ event.listen {
 
 command.define {
   name = "Click History: Toggle Mode",
-  key = "Ctrl-Shift-m", 
+  key = "Ctrl-Alt-m", 
   priority = 1,
   run = function()
     local currentMode = getRecordMode()
