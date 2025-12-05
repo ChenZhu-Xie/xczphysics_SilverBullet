@@ -269,7 +269,7 @@ command.define {
     setBrowse({ index = max, max = max, active = false })
     if navigateIndex(max) then
       local page = extractPageName(max)
-      editor.flashNotification(string.format("📃%s🕒End: %d / %d", max, max, page))
+      editor.flashNotification(string.format("📃%s🛑End: %d / %d", page, max, max))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowRight",
@@ -292,7 +292,7 @@ command.define {
     
     if navigateIndex(1) then
       local page = extractPageName(1)
-      editor.flashNotification(string.format("Start: 1 / %d [%s]", b.max, page))
+      editor.flashNotification(string.format("📃%s🟢Start: 1 / %d", page, b.max))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowLeft",
