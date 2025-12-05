@@ -199,6 +199,14 @@ command.define {
   end,
 }
 
+-- 辅助函数：从 ref 中提取页面名称
+local function extractPageName(idx)
+    local ref = getRef(idx)
+    if not ref then return "" end
+    -- 匹配 @ 之前的所有内容作为页面名称
+    return ref:match("^(.*)@") or ref
+end
+
 command.define {
   name = "Click History: Back",
   run = function()
@@ -217,7 +225,8 @@ command.define {
 
     setBrowse(b)
     if navigateIndex(b.index) then
-      editor.flashNotification(string.format("Back: %d / %d", b.index, b.max))
+      local page = extractPageName(b.index)
+      editor.flashNotification(string.format("Back: %d / %d [%s]", b.index, b.max, page))
     end
   end,
   key = "Shift-Alt-ArrowLeft",
@@ -239,7 +248,8 @@ command.define {
     setBrowse(b)
 
     if navigateIndex(b.index) then
-      editor.flashNotification(string.format("Forward: %d / %d", b.index, b.max))
+      local page = extractPageName(b.index)
+      editor.flashNotification(string.format("Forward: %d / %d [%s]", b.index, b.max, page))
     end
   end,
   key = "Shift-Alt-ArrowRight",
@@ -258,7 +268,8 @@ command.define {
     end
     setBrowse({ index = max, max = max, active = false })
     if navigateIndex(max) then
-      editor.flashNotification(string.format("End: %d / %d", max, max))
+      local page = extractPageName(max)
+      editor.flashNotification(string.format("End: %d / %d [%s]", max, max, page))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowRight",
@@ -280,7 +291,8 @@ command.define {
     setBrowse(b)
     
     if navigateIndex(1) then
-      editor.flashNotification(string.format("Start: 1 / %d", b.max))
+      local page = extractPageName(1)
+      editor.flashNotification(string.format("Start: 1 / %d [%s]", b.max, page))
     end
   end,
   key = "Ctrl-Shift-Alt-ArrowLeft",
@@ -353,7 +365,8 @@ command.define {
       b.index = sel.id
       setBrowse(b)
       if navigateIndex(sel.id) then
-        editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
+        local page = extractPageName(sel.id)
+        editor.flashNotification(string.format("Jumped to history: %d / %d [%s]", sel.id, max, page))
       end
     end
   end,
@@ -415,7 +428,8 @@ command.define {
       b.index = sel.id
       setBrowse(b)
       if navigateIndex(sel.id) then
-        editor.flashNotification(string.format("Jumped to history: %d / %d", sel.id, max))
+        local page = extractPageName(sel.id)
+        editor.flashNotification(string.format("Jumped to history: %d / %d [%s]", sel.id, max, page))
       end
     end
   end,
