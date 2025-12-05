@@ -50,8 +50,8 @@ command.define {
   run = function()
     editor.moveLineUp()
   end,
-  key = "Ctrl-Alt-ArrowUp",
-  mac = "Ctrl-Alt-ArrowUp",
+  key = "Shift-Alt-ArrowUp",
+  mac = "Shift-Alt-ArrowUp",
   priority = 1,
 }
 ```
@@ -64,8 +64,8 @@ command.define {
   run = function()
     editor.moveLineDown()
   end,
-  key = "Ctrl-Alt-ArrowDown",
-  mac = "Ctrl-Alt-ArrowDown",
+  key = "Shift-Alt-ArrowDown",
+  mac = "Shift-Alt-ArrowDown",
   priority = 1,
 }
 ```
