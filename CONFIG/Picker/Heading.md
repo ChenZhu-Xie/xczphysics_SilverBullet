@@ -12,7 +12,6 @@ pageDecoration.prefix: "🔎 "
 5. https://community.silverbullet.md/t/headings-picker/1745/8
 
 ```space-lua
--- Pick Headings with CMD-Tree UI
 local function headingsPicker(options)
   local text = editor.getText()
   local parsed = markdown.parseMarkdown(text)
@@ -35,6 +34,7 @@ local function headingsPicker(options)
     return node.from or node.pos or node.name
   end
 
+  -- 1. 提取节点
   for _, n in ipairs(parsed.children or {}) do
     local level = detect_level(n)
     if level then
@@ -69,6 +69,14 @@ local function headingsPicker(options)
     return
   end
 
+  -- 2. (新) 计算最小层级，用于标准化缩进
+  -- 这样如果文档从 H2 开始，树形图会靠左显示，而不是缩进一格
+  local min_level = 10
+  for _, n in ipairs(nodes) do
+    if n.level < min_level then min_level = n.level end
+  end
+
+  -- 3. 计算是否是同级中的最后一个节点
   local last_flags = {}
   for i = 1, #nodes do
     local L = nodes[i].level
@@ -92,19 +100,26 @@ local function headingsPicker(options)
   local ELB  = "└───　"
 
   local items = {}
-  local stack = {}
+  local stack = {} -- stack 结构: { level = number, last = boolean }
 
   for i = 1, #nodes do
-    local L = nodes[i].level
+    -- 标准化层级：将最小层级视为 1
+    local L = nodes[i].level - min_level + 1
     local is_last = last_flags[i]
 
-    while #stack >= L do table.remove(stack) end
+    -- [核心修复]
+    -- 只要栈顶元素的层级 >= 当前层级，就说明该分支结束了，需要弹出
+    -- 之前是 #stack >= L，这是错误的
+    while #stack > 0 and stack[#stack].level >= L do 
+      table.remove(stack) 
+    end
 
     local prefix = ""
     for d = 1, #stack do
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
     
+    -- 填充跨层级的空白 (例如从 H1 直接跳到 H3)
     for d = #stack + 1, L - 1 do
       prefix = prefix .. BLNK
     end
@@ -118,6 +133,7 @@ local function headingsPicker(options)
       pos = nodes[i].pos
     })
 
+    -- 将当前节点入栈，记录其标准化后的层级
     table.insert(stack, { level = L, last = is_last })
   end
 
