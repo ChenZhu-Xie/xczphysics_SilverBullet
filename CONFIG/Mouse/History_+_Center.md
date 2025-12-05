@@ -315,6 +315,89 @@ local Ctimes = getTimes()
 setBrowse({ index = Ctimes, max = Ctimes - 1, active = false })
 
 ------------------------------------------------------------
+-- Click History: Jump By Page (Last Position)
+------------------------------------------------------------
+
+command.define {
+  name = "Click History: Page Back",
+  run = function()
+    local b = ensureBrowseSession()
+    if b.max < 1 then return end
+
+    local currentPage = extractPageName(b.index)
+    local targetIndex = nil
+
+    for i = b.index - 1, 1, -1 do
+      local page = extractPageName(i)
+      if page ~= "" and page ~= currentPage then
+        targetIndex = i
+        break
+      end
+    end
+
+    if targetIndex then
+      b.index = targetIndex
+      setBrowse(b)
+      if navigateIndex(b.index) then
+        local page = extractPageName(b.index)
+        editor.flashNotification(string.format("📃%s⏮️Page Back: %d / %d", page, b.index, b.max))
+      end
+    else
+      editor.flashNotification("No previous page found", "warning")
+    end
+  end,
+  key = "Ctrl-Shift-Alt-ArrowLeft",
+  mac = "Ctrl-Shift-Alt-ArrowLeft",
+  priority = 1,
+}
+
+command.define {
+  name = "Click History: Page Forward",
+  run = function()
+    local b = ensureBrowseSession()
+    if b.max < 1 then return end
+
+    local currentPage = extractPageName(b.index)
+    local nextPageIndexStart = nil
+    local nextPageName = nil
+
+    for i = b.index + 1, b.max do
+      local page = extractPageName(i)
+      if page ~= "" and page ~= currentPage then
+        nextPageIndexStart = i
+        nextPageName = page
+        break
+      end
+    end
+
+    if not nextPageIndexStart then
+      editor.flashNotification("No next page found", "warning")
+      return
+    end
+
+    local targetIndex = nextPageIndexStart
+    for i = nextPageIndexStart + 1, b.max do
+      local page = extractPageName(i)
+      if page == nextPageName then
+        targetIndex = i
+      else
+        break
+      end
+    end
+
+    b.index = targetIndex
+    setBrowse(b)
+    if navigateIndex(b.index) then
+      local page = extractPageName(b.index)
+      editor.flashNotification(string.format("📃%s⏭️Page Forward: %d / %d", page, b.index, b.max))
+    end
+  end,
+  key = "Ctrl-Shift-Alt-ArrowRight",
+  mac = "Ctrl-Shift-Alt-ArrowRight",
+  priority = 1,
+}
+
+------------------------------------------------------------
 -- Click History: Cursor Picker Implementation
 ------------------------------------------------------------
 
