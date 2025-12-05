@@ -24,8 +24,8 @@ pageDecoration.prefix: "🖱️ "
 |----------|----------|------|-------|-----|--------|
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back]] | | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | | Shift | Alt | ↑ |
-| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | ↓ |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start]] | | Shift | Alt | Home |
+| Click History: | [[CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | End |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Start (Page)]] | Ctrl | Shift | Alt | → |
 | Click History: | [[CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
@@ -295,8 +295,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🟢Start: 1 / %d", page, b.max))
     end
   end,
-  key = "Shift-Alt-Home",
   mac = "Shift-Alt-Home",
+  key = "Shift-Alt-Home",
   priority = 1,
 }
 
