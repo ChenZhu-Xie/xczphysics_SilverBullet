@@ -340,7 +340,7 @@ command.define {
       setBrowse(b)
       if navigateIndex(b.index) then
         local page = extractPageName(b.index)
-        editor.flashNotification(string.format("📃%s⏮️Page Back: %d / %d", page, b.index, b.max))
+        editor.flashNotification(string.format("📃%s🔚Page Back: %d / %d", page, b.index, b.max))
       end
     else
       editor.flashNotification("No previous page found", "warning")
