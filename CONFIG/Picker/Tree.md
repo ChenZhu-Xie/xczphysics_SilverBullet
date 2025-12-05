@@ -116,7 +116,7 @@ end
 
 command.define({
   name = "Navigate: Page Tree Picker",
-  key = "Ctrl-Shift-p", -- 你可以自定义快捷键
+  key = "Ctrl-Alt-h", -- 你可以自定义快捷键
   run = function() pageTreePicker() end
 })
 
