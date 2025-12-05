@@ -1,3 +1,8 @@
+---
+name: CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker
+tags: meta/library
+pageDecoration.prefix: "🕘 "
+---
 
 1. [click history](https://community.silverbullet.md/t/click-history/3569/10?u=chenzhu-xie) #community #silverbullet
  - 浏览器历史记录 ==等于== `alt + ←→`
