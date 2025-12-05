@@ -6,10 +6,6 @@ local function pageTreePicker()
   -- 1. 获取所有页面 (相当于 query[[from index.tag "page"]])
   local pages = space.listPages()
 
-  -- 2. 按名称排序，这对构建正确的树形结构至关重要
-  table.sort(pages, function(a, b)
-    return a.name < b.name
-  end)
 
   local nodes = {}
 
