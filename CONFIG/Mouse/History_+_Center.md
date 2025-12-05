@@ -270,8 +270,8 @@ command.define {
       editor.flashNotification(string.format("📃%s🛑End: %d / %d", page, max, max))
     end
   end,
-  key = "Ctrl-Shift-Alt-ArrowRight",
-  mac = "Ctrl-Shift-Alt-ArrowRight",
+  key = "Shift-Alt-ArrowUp",
+  mac = "Shift-Alt-ArrowDown",
   priority = 1,
 }
 
