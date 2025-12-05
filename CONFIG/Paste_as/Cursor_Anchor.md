@@ -7,6 +7,9 @@ pageDecoration.prefix: "📎 "
 
 # Bi-directional Linking System @ Cursor
 
+1. [cross references](https://community.silverbullet.md/t/cross-references/1109/7?u=chenzhu-xie) #community #silverbullet
+2. 
+
 ## here we go
 
 ### filterBox 5.2
