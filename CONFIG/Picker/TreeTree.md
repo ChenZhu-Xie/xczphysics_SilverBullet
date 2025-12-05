@@ -321,6 +321,7 @@ local function pickHeadings(pageName)
 
   if #nodes == 0 then
     editor.navigate({ page = pageName })
+    editor.invokeCommand("Navigate: Center Cursor")
     return
   end
   
@@ -607,6 +608,7 @@ local function pageTreePicker()
     end
     if page_name then
         editor.navigate({ page = page_name })
+        editor.invokeCommand("Navigate: Center Cursor")
     end
   end
 end
