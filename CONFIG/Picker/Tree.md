@@ -5,8 +5,6 @@
 local function pageTreePicker()
   -- 1. 获取所有页面 (相当于 query[[from index.tag "page"]])
   local pages = space.listPages()
-
-
   local nodes = {}
 
   -- 辅助函数：计算层级和获取显示名称
