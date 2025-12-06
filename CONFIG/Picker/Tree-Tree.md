@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Tree-Tree (header path)
 
-```space-lua
+```lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
