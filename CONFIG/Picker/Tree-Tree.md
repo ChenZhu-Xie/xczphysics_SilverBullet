@@ -158,20 +158,16 @@ local function pickHeadings(pageName)
   end
 end
 
--- 重写的 pageTreePicker 逻辑 --
 pageTreePicker = function()
   local pages = space.listPages()
   
-  -- 1. 构建完整路径图 (补全缺失的父节点)
   local path_map = {}
   local real_pages = {}
   
-  -- 标记真实存在的页面
   for _, page in ipairs(pages) do
     real_pages[page.name] = true
   end
 
-  -- 遍历所有页面，生成所有层级的节点
   for _, page in ipairs(pages) do
     local parts = {}
     for part in string.gmatch(page.name, "[^/]+") do
@@ -181,28 +177,25 @@ pageTreePicker = function()
       if not path_map[current_path] then
         path_map[current_path] = {
           name = current_path,
-          text = part, -- 只取最后一段作为显示名称
+          text = part,
           level = #parts,
-          is_real = false -- 默认为虚拟节点
+          is_real = false
         }
       end
     end
   end
 
-  -- 更新真实页面的状态
   for path, _ in pairs(real_pages) do
     if path_map[path] then
       path_map[path].is_real = true
     end
   end
 
-  -- 2. 转换为列表并排序 (这是绘制树的关键)
   local nodes = {}
   for _, node in pairs(path_map) do
     table.insert(nodes, node)
   end
 
-  -- 按字母顺序排序，确保 a 在 a/b 之前
   table.sort(nodes, function(a, b) 
     return a.name < b.name 
   end)
@@ -212,7 +205,6 @@ pageTreePicker = function()
     return
   end
 
-  -- 3. 计算树状连接线 (Last Flags Logic)
   local last_flags = {}
   for i = 1, #nodes do
     local L = nodes[i].level
@@ -222,18 +214,16 @@ pageTreePicker = function()
       local next_L = nodes[j].level
       
       if next_L == L then
-        is_last = false -- 同级还有节点，不是最后一个
+        is_last = false
         break
       elseif next_L < L then
-        is_last = true -- 下一个节点层级更浅，说明当前子树结束
+        is_last = true
         break
       end
-      -- 如果 next_L > L，说明是子节点，继续往后找同级节点
     end
     last_flags[i] = is_last
   end
 
-  -- 4. 绘制树
   local VERT = "│ 　　"
   local BLNK = "　　　"
   local TEE  = "├───　"
@@ -246,7 +236,6 @@ pageTreePicker = function()
     local L = nodes[i].level
     local is_last = last_flags[i]
 
-    -- 栈维护缩进
     while #stack >= L do 
       table.remove(stack) 
     end
@@ -256,19 +245,17 @@ pageTreePicker = function()
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
     
-    -- 补齐中间的空白
     for d = #stack + 1, L - 1 do
       prefix = prefix .. BLNK
     end
 
     local elbow = is_last and ELB or TEE
     
-    -- 视觉优化：如果是虚拟文件夹，加上 "/" 后缀，或者颜色变淡(如果有颜色支持)
     local display_text = nodes[i].text
     local desc = nodes[i].name
     
     if not nodes[i].is_real then
-        display_text = display_text .. "/" -- 虚拟节点加斜杠区分
+        display_text = display_text .. "/"
         desc = desc .. "/"
     end
 
@@ -286,15 +273,12 @@ pageTreePicker = function()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  -- 5. 显示选择框
   local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
     
-    -- 处理 filterBox 可能返回不同结构的情况
     if type(selection) ~= "table" then
-       -- 兼容旧逻辑或异常情况
        if selection then pickHeadings(selection) end
        return
     end
@@ -304,16 +288,10 @@ pageTreePicker = function()
 
     if page_name then
         if is_real then
-            -- 如果是真实页面，进入标题选择
             pickHeadings(page_name)
         else
-            -- 如果选择了虚拟文件夹，通常有两个选择：
-            -- 1. 什么都不做，重新打开选择器
-            -- 2. 直接跳转（这会创建一个新页面）
-            -- 这里我们选择方案1：提示用户并重新打开，或者你可以选择方案2直接 navigate
             editor.flashNotification("Folder selected. Creating page: " .. page_name)
             editor.navigate({ page = page_name })
-            -- 如果不想允许创建，可以使用 return pageTreePicker()
         end
     end
   end
