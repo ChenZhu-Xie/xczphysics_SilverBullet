@@ -9,26 +9,13 @@ pageDecoration.prefix: "🌲🌲 "
 # Implementation
 
 ```space-lua
-local pageTreePicker 
-local pickHeadings
-
--- 定义通用的树形符号，确保两个 Picker 视觉一致
-local VERT = "│ 　　"
-local BLNK = "　　　"
-local TEE  = "├───　"
-local ELB  = "└───　"
-
-pickHeadings = function(pageName, rootLabel, parentIsLast)
+local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
-  if not text then
-    editor.flashNotification("Could not read page: " .. pageName)
-    return
-  end
+  if not text then return {} end
 
   local parsed = markdown.parseMarkdown(text)
   local nodes = {}
 
-  -- 辅助函数：检测标题级别
   local function detect_level(node)
     if node.tag then
       local m = string.match(node.tag, "ATXHeading%s*(%d+)")
@@ -45,7 +32,6 @@ pickHeadings = function(pageName, rootLabel, parentIsLast)
     return node.from or node.pos or node.name
   end
 
-  -- 解析 Markdown 提取标题
   for _, n in ipairs(parsed.children or {}) do
     local level = detect_level(n)
     if level then
@@ -74,113 +60,13 @@ pickHeadings = function(pageName, rootLabel, parentIsLast)
       end
     end
   end
-
-  -- 如果没有标题，直接跳转到页面
-  if #nodes == 0 then
-    editor.navigate({ page = pageName })
-    editor.invokeCommand("Navigate: Center Cursor")
-    return
-  end
   
-  local min_level = 10
-  for _, n in ipairs(nodes) do
-    if n.level < min_level then min_level = n.level end
-  end
-
-  -- 计算每个节点是否是同级中的最后一个
-  local last_flags = {}
-  for i = 1, #nodes do
-    local L = nodes[i].level
-    local is_last = true
-    for j = i + 1, #nodes do
-      if nodes[j].level <= L then
-        if nodes[j].level == L then
-          is_last = false
-        else
-          is_last = true
-        end
-        break
-      end
-    end
-    last_flags[i] = is_last
-  end
-
-  local items = {}
-  
-  -- [关键修改] 处理根节点
-  -- 如果没有传入 rootLabel（直接调用时），则使用页面名，且默认它是最后一个节点
-  if not rootLabel then 
-      rootLabel = pageName 
-      parentIsLast = true
-  end
-
-  -- 添加第一行：直接显示 Folder Tree 的末梢
-  table.insert(items, {
-    name = rootLabel,
-    pos = 0 -- 0 表示跳转到页面顶部
-  })
-
-  -- [关键修改] 计算子节点的缩进前缀
-  -- 如果父节点是 Folder Tree 的最后一个 (└──)，子节点前缀应为空白
-  -- 如果父节点是 Folder Tree 的中间项 (├──)，子节点前缀应为竖线
-  local parent_prefix = (parentIsLast) and BLNK or VERT
-
-  local stack = {} 
-
-  for i = 1, #nodes do
-    local L = nodes[i].level - min_level + 1
-    local is_last = last_flags[i]
-
-    while #stack > 0 and stack[#stack].level >= L do 
-      table.remove(stack) 
-    end
-
-    local prefix = ""
-    for d = 1, #stack do
-      prefix = prefix .. (stack[d].last and BLNK or VERT)
-    end
-    
-    for d = #stack + 1, L - 1 do
-      prefix = prefix .. BLNK
-    end
-
-    local elbow = is_last and ELB or TEE
-    -- 将父级前缀加到当前生成的树形结构前，实现视觉嵌套
-    local label = parent_prefix .. prefix .. elbow .. nodes[i].text
-
-    table.insert(items, {
-      name = label,
-      description = "", 
-      pos = nodes[i].pos
-    })
-
-    table.insert(stack, { level = L, last = is_last })
-  end
-
-  -- 显示 FilterBox
-  local result = editor.filterBox(pageName .. " > Headers", items, "Select a Header (ESC to back)", "Tree Navigator")
-
-  if result then
-    local pos = result.pos
-    if not pos and result.value and result.value.pos then
-        pos = result.value.pos
-    end
-    
-    if pos == 0 then
-        editor.navigate({ page = pageName })
-    elseif pos then
-        editor.navigate({ page = pageName, pos = pos })
-    end
-    editor.invokeCommand("Navigate: Center Cursor")
-  else
-    -- ESC 返回上一级 Picker
-    return pageTreePicker()
-  end
+  return nodes
 end
 
-pageTreePicker = function()
+local function unifiedTreePicker()
+  -- 1. 获取所有页面并构建基础目录结构
   local pages = space.listPages()
-  
   local path_map = {}
   local real_pages = {}
   
@@ -199,7 +85,8 @@ pageTreePicker = function()
           name = current_path,
           text = part,
           level = #parts,
-          is_real = false
+          is_real = false,
+          type = "folder"
         }
       end
     end
@@ -208,30 +95,72 @@ pageTreePicker = function()
   for path, _ in pairs(real_pages) do
     if path_map[path] then
       path_map[path].is_real = true
+      path_map[path].type = "page"
     end
   end
 
-  local nodes = {}
+  -- 2. 对基础节点进行排序
+  local sorted_nodes = {}
   for _, node in pairs(path_map) do
-    table.insert(nodes, node)
+    table.insert(sorted_nodes, node)
   end
 
-  table.sort(nodes, function(a, b) 
+  table.sort(sorted_nodes, function(a, b) 
     return a.name < b.name 
   end)
 
-  if #nodes == 0 then
+  if #sorted_nodes == 0 then
     editor.flashNotification("No pages found")
     return
   end
 
+  -- 3. 构建最终的扁平化列表（插入标题节点）
+  local final_nodes = {}
+  
+  for _, node in ipairs(sorted_nodes) do
+    -- 插入页面/文件夹节点
+    table.insert(final_nodes, node)
+    
+    -- 如果是真实页面，读取并插入标题
+    if node.is_real then
+      local headings = getPageHeadings(node.name)
+      
+      if #headings > 0 then
+        -- 计算该页面内标题的最小层级，用于归一化
+        local min_level = 10
+        for _, h in ipairs(headings) do
+          if h.level < min_level then min_level = h.level end
+        end
+
+        -- 将标题作为子节点插入
+        for _, h in ipairs(headings) do
+          -- 关键逻辑：标题的层级 = 页面层级 + (标题相对层级)
+          -- 相对层级从 1 开始 (h.level - min_level + 1)
+          local relative_level = h.level - min_level + 1
+          local absolute_level = node.level + relative_level
+          
+          table.insert(final_nodes, {
+            name = node.name, -- 保持页面名称用于上下文
+            text = h.text,
+            level = absolute_level,
+            is_real = false, -- 标题本身不是页面
+            type = "heading",
+            pos = h.pos,
+            page_name = node.name
+          })
+        end
+      end
+    end
+  end
+
+  -- 4. 计算树状连线逻辑 (Last Flags)
   local last_flags = {}
-  for i = 1, #nodes do
-    local L = nodes[i].level
+  for i = 1, #final_nodes do
+    local L = final_nodes[i].level
     local is_last = true
     
-    for j = i + 1, #nodes do
-      local next_L = nodes[j].level
+    for j = i + 1, #final_nodes do
+      local next_L = final_nodes[j].level
       
       if next_L == L then
         is_last = false
@@ -244,11 +173,18 @@ pageTreePicker = function()
     last_flags[i] = is_last
   end
 
+  -- 5. 生成渲染列表
+  local VERT = "│ 　　"
+  local BLNK = "　　　"
+  local TEE  = "├───　"
+  local ELB  = "└───　"
+
   local items = {}
   local stack = {}
 
-  for i = 1, #nodes do
-    local L = nodes[i].level
+  for i = 1, #final_nodes do
+    local node = final_nodes[i]
+    local L = node.level
     local is_last = last_flags[i]
 
     while #stack >= L do 
@@ -266,12 +202,17 @@ pageTreePicker = function()
 
     local elbow = is_last and ELB or TEE
     
-    local display_text = nodes[i].text
-    local desc = nodes[i].name
+    local display_text = node.text
+    local desc = ""
     
-    if not nodes[i].is_real then
+    if node.type == "folder" then
         display_text = display_text .. "/"
-        desc = desc .. "/"
+        desc = node.name .. "/"
+    elseif node.type == "page" then
+        desc = node.name
+    elseif node.type == "heading" then
+        -- 标题不需要特殊后缀
+        desc = node.page_name .. " > " .. node.text
     end
 
     local label = prefix .. elbow .. display_text
@@ -280,47 +221,45 @@ pageTreePicker = function()
       name = label,
       description = desc,
       value = { 
-          page = nodes[i].name, 
-          is_real = nodes[i].is_real,
-          -- [关键修改] 传递视觉信息给下一个 Picker
-          label = label,
-          is_last = is_last
+          page = node.page_name or node.name, 
+          pos = node.pos,
+          type = node.type
       }
     })
 
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Pick:", items, "Select a Page...", "Tree Navigator")
+  -- 6. 显示合并后的 Picker
+  local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
 
   if result then
     local selection = result.value or result
     
-    if type(selection) ~= "table" then
-       -- 兼容非 table 情况，虽然上面的逻辑保证了是 table
-       if selection then pickHeadings(selection) end
-       return
-    end
+    if type(selection) ~= "table" then return end
 
     local page_name = selection.page
-    local is_real = selection.is_real
+    local pos = selection.pos
+    local node_type = selection.type
 
-    if page_name then
-        if is_real then
-            -- [关键修改] 传递页面名、视觉标签、以及是否为末项
-            pickHeadings(page_name, selection.label, selection.is_last)
+    if node_type == "folder" then
+        editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
+        editor.navigate({ page = page_name })
+    elseif node_type == "page" or node_type == "heading" then
+        if pos and pos > 0 then
+            editor.navigate({ page = page_name, pos = pos })
         else
-            editor.flashNotification("Folder selected. Creating page: " .. page_name)
             editor.navigate({ page = page_name })
         end
+        editor.invokeCommand("Navigate: Center Cursor")
     end
   end
 end
 
 command.define({
-  name = "Navigate: Tree-Tree Picker",
+  name = "Navigate: Unified Tree Picker",
   key = "Shift-Alt-e",
-  run = function() pageTreePicker() end
+  run = function() unifiedTreePicker() end
 })
 
 ```
