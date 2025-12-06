@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Tree-Tree (header path)
 
-```lua
+```space-lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
@@ -492,7 +492,7 @@ command.define({
 
 ## Page + Heading (Full-Path Description)
 
-```space-lua
+```lua
 local pageTreePicker 
 
 local function pickHeadings(pageName)
