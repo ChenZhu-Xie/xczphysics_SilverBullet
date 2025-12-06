@@ -15,183 +15,209 @@ local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
 
-  -- 根节点，用于存放顶级标题
-  local root = { children = {}, level = 0 } 
-  local stack = { root }
-  local current_pos = 0
+  local nodes = {}
   local in_code_block = false
-
-  -- 优化：使用 find 替代 match，并在一次遍历中完成层级构建
+  local current_pos = 0
+  
   for line, newline in string.gmatch(text, "([^\r\n]*)(\r?\n?)") do
-    if line == "" and newline == "" then break end -- EOF
+    if line == "" and newline == "" then break end
 
-    -- 处理代码块，避免解析代码块内的注释为标题
-    if line:find("^```") then 
+    if line:match("^```") then 
       in_code_block = not in_code_block 
     end
 
     if not in_code_block then
-      -- 快速检测是否可能是标题
-      local first_char = line:sub(1, 1)
-      if first_char == "#" then
-        local hashes, title = line:match("^(#+)%s+(.*)")
-        if hashes then
-          title = title:match("^(.-)%s*$") -- trim right
-          local level = #hashes
-          
-          local node = {
-            text = title,
-            level = level,
-            pos = current_pos,
-            type = "heading",
-            page_name = pageName,
-            children = {}
-          }
-
-          -- 栈逻辑：找到当前标题的正确父节点
-          while #stack > 1 and stack[#stack].level >= level do
-            table.remove(stack)
-          end
-          
-          local parent = stack[#stack]
-          table.insert(parent.children, node)
-          table.insert(stack, node)
-        end
+      local hashes, title = line:match("^(#+)%s+(.*)")
+      if hashes then
+        title = title:match("^(.-)%s*$")
+        table.insert(nodes, {
+          level = #hashes,
+          text  = title,
+          pos   = current_pos
+        })
       end
     end
 
     current_pos = current_pos + #line + #newline
   end
   
-  return root.children
+  return nodes
 end
 
 local function unifiedTreePicker()
   local pages = space.listPages()
-  if not pages or #pages == 0 then
+  local path_map = {}
+  local real_pages = {}
+  
+  for _, page in ipairs(pages) do
+    real_pages[page.name] = true
+  end
+
+  for _, page in ipairs(pages) do
+    local parts = {}
+    for part in string.gmatch(page.name, "[^/]+") do
+      table.insert(parts, part)
+      local current_path = table.concat(parts, "/")
+      
+      if not path_map[current_path] then
+        path_map[current_path] = {
+          name = current_path,
+          text = part,
+          level = #parts,
+          is_real = false,
+          type = "folder"
+        }
+      end
+    end
+  end
+
+  for path, _ in pairs(real_pages) do
+    if path_map[path] then
+      path_map[path].is_real = true
+      path_map[path].type = "page"
+    end
+  end
+
+  local sorted_nodes = {}
+  for _, node in pairs(path_map) do
+    table.insert(sorted_nodes, node)
+  end
+
+  table.sort(sorted_nodes, function(a, b) 
+    return a.name < b.name 
+  end)
+
+  if #sorted_nodes == 0 then
     editor.flashNotification("No pages found")
     return
   end
 
-  -- 1. 构建文件系统树 (File System Tree)
-  local fs_root = { children = {}, map = {} }
+  local final_nodes = {}
   
-  -- 辅助函数：获取或创建节点
-  local function getOrCreateNode(parent, name, is_folder)
-    if not parent.map[name] then
-      local new_node = {
-        name = name, -- 仅当前部分名称
-        full_path = "", -- 稍后填充
-        text = name,
-        type = is_folder and "folder" or "page",
-        children = {},
-        map = {}, -- 用于快速查找子节点
-        is_real = not is_folder
-      }
-      table.insert(parent.children, new_node)
-      parent.map[name] = new_node
-      return new_node
-    else
-      local node = parent.map[name]
-      if not is_folder then node.is_real = true; node.type = "page" end
-      return node
-    end
-  end
-
-  for _, page in ipairs(pages) do
-    local current_node = fs_root
-    local parts = {}
-    for part in string.gmatch(page.name, "[^/]+") do
-      table.insert(parts, part)
-    end
+  for _, node in ipairs(sorted_nodes) do
+    table.insert(final_nodes, node)
     
-    for i, part in ipairs(parts) do
-      local is_last = (i == #parts)
-      current_node = getOrCreateNode(current_node, part, not is_last)
-      -- 更新完整路径
-      current_node.full_path = table.concat(parts, "/", 1, i)
-    end
-  end
-
-  -- 2. 递归排序并注入标题 (Sort & Inject Headings)
-  -- 这是一个递归函数，用于处理排序和读取标题
-  local function processNode(node)
-    -- 对子节点按名称排序（文件夹和页面）
-    table.sort(node.children, function(a, b) return a.name < b.name end)
-    
-    for _, child in ipairs(node.children) do
-      -- 如果是页面，读取并解析标题
-      if child.type == "page" and child.is_real then
-        -- 这里直接把解析好的标题树挂载到 children 的末尾
-        -- 注意：标题不需要排序，必须保持文档顺序
-        local headings = getPageHeadings(child.full_path)
+    if node.is_real then
+      local headings = getPageHeadings(node.name)
+      
+      if #headings > 0 then
+        local min_level = 10
         for _, h in ipairs(headings) do
-            table.insert(child.children, h)
+          if h.level < min_level then min_level = h.level end
+        end
+
+        local heading_stack = {}
+
+        for _, h in ipairs(headings) do
+          while #heading_stack > 0 and heading_stack[#heading_stack].level >= h.level do
+            table.remove(heading_stack)
+          end
+          
+          table.insert(heading_stack, {level = h.level, text = h.text})
+
+          local path_parts = { node.name }
+          for _, stack_item in ipairs(heading_stack) do
+            table.insert(path_parts, stack_item.text)
+          end
+          local full_path_desc = table.concat(path_parts, ">")
+
+          local relative_level = h.level - min_level + 1
+          local absolute_level = node.level + relative_level
+          
+          table.insert(final_nodes, {
+            name = node.name,
+            text = h.text,
+            level = absolute_level,
+            is_real = false,
+            type = "heading",
+            pos = h.pos,
+            page_name = node.name,
+            full_desc = full_path_desc
+          })
         end
       end
-      
-      -- 递归处理子文件夹
-      if child.type == "folder" or child.type == "page" then
-        processNode(child)
-      end
     end
   end
 
-  processNode(fs_root)
+  local last_flags = {}
+  for i = 1, #final_nodes do
+    local L = final_nodes[i].level
+    local is_last = true
+    
+    for j = i + 1, #final_nodes do
+      local next_L = final_nodes[j].level
+      
+      if next_L == L then
+        is_last = false
+        break
+      elseif next_L < L then
+        is_last = true
+        break
+      end
+    end
+    last_flags[i] = is_last
+  end
 
-  -- 3. 递归扁平化渲染 (Flatten & Render)
-  -- 这一步将树形结构转换为列表，同时生成缩进线条
-  local items = {}
   local VERT = "│ 　　"
   local BLNK = "　　　"
   local TEE  = "├───　"
   local ELB  = "└───　"
 
-  local function render(nodes, prefix, path_desc)
-    for i, node in ipairs(nodes) do
-      local is_last = (i == #nodes)
-      local elbow = is_last and ELB or TEE
-      local child_prefix = prefix .. (is_last and BLNK or VERT)
-      
-      -- 构建显示文本和描述
-      local display_text = node.text
-      local new_desc = path_desc
-      
-      if new_desc ~= "" then
-        new_desc = new_desc .. " > " .. node.text
-      else
-        new_desc = node.text
-      end
+  local items = {}
+  local stack = {}
 
-      if node.type == "folder" then
+  for i = 1, #final_nodes do
+    local node = final_nodes[i]
+    local L = node.level
+    local is_last = last_flags[i]
+
+    while #stack >= L do 
+      table.remove(stack) 
+    end
+
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or VERT)
+    end
+    
+    for d = #stack + 1, L - 1 do
+      prefix = prefix .. BLNK
+    end
+
+    local elbow = is_last and ELB or TEE
+    
+    local display_text = node.text
+    local desc = ""
+    
+    if node.type == "folder" then
         display_text = display_text .. "/"
-      end
+        desc = node.name .. "/"
+    elseif node.type == "page" then
+        desc = node.name
+    elseif node.type == "heading" then
+        desc = node.full_desc
+    end
 
-      -- 添加到结果列表
-      table.insert(items, {
-        name = prefix .. elbow .. display_text,
-        description = new_desc,
-        value = {
-          page = node.page_name or node.full_path,
+    local label = prefix .. elbow .. display_text
+
+    table.insert(items, {
+      name = label,
+      description = desc,
+      value = { 
+          page = node.page_name or node.name, 
           pos = node.pos,
           type = node.type
-        }
-      })
+      }
+    })
 
-      -- 递归渲染子节点（文件夹内容 或 页面内的标题）
-      if node.children and #node.children > 0 then
-        render(node.children, child_prefix, new_desc)
-      end
-    end
+    table.insert(stack, { level = L, last = is_last })
   end
 
-  render(fs_root.children, "", "")
-
-  -- 4. 显示选择框
   local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
 
   if result then
     local selection = result.value or result
+    
     if type(selection) ~= "table" then return end
 
     local page_name = selection.page
@@ -199,7 +225,7 @@ local function unifiedTreePicker()
     local node_type = selection.type
 
     if node_type == "folder" then
-        editor.flashNotification("Folder selected. Going to: " .. page_name)
+        editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
         editor.navigate({ page = page_name })
     elseif node_type == "page" or node_type == "heading" then
         if pos and pos > 0 then
@@ -217,7 +243,6 @@ command.define({
   key = "Shift-Alt-e",
   run = function() unifiedTreePicker() end
 })
-
 ```
 
 ## Tree-Tree (header name)
