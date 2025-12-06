@@ -134,7 +134,7 @@ local function unifiedTreePicker()
           for _, stack_item in ipairs(heading_stack) do
             table.insert(path_parts, stack_item.text)
           end
-          local full_path_desc = table.concat(path_parts, " > ")
+          local full_path_desc = table.concat(path_parts, ">")
 
           -- 计算树形缩进层级
           local relative_level = h.level - min_level + 1
