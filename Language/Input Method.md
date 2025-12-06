@@ -82,12 +82,12 @@ https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 #### 任意 (BP)
-  墨奇 双拼+辅码 混搭 + 大词库
+  墨奇 双拼+辅码 混搭 + 大词库，也可以 四码上屏，但是反编译的旧码表
        https://github.com/gaboolic/rime-shuangpin-fuzhuma
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-gao-ji-gong-neng/u-zhi-jie-shu-ru-unicode-zi-fu
        https://github.com/gaboolic/rime-shuangpin-fuzhuma/wiki/%E5%A2%A8%E5%A5%87%E7%A0%81%E6%8B%86%E5%88%86%E8%A7%84%E5%88%99
-  飞鹤快拼 专注 小鹤 双拼+辅码 大词库
+  飞鹤快拼 专注 小鹤 双拼+辅码 大词库，但似乎没有 四码上屏 选项。
        https://github.com/boomker/rime-fast-xhup
   *   词组的双拼部分输入完成后，可用 `` ` `` 键逐字追加辅助码。例如，想输入「林纳斯」， 可以敲 ``lb`m na`sn si`q``，这与直接敲 `lb[m na[sn si[q` 是等价的。
   *   这也能用于重码太多的词库已有词。例如，希望输入「适时 」一词，敲 `uiui` 发现候选太多，补上最后一个字的形码 后 `uiui[oc` 还是没在第一页看到它。此时按 `Tab[`，输入框成为 `ui[ 光标 ui[oc`。补充敲下第一个字的形码部分 `z`， 然后按 `Control+e` (或者 `End`) 把光标移动到最后，即可看到想要的「适时 」一词出现在候选中。
