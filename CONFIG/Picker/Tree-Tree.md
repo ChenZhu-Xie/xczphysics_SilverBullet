@@ -8,7 +8,270 @@ pageDecoration.prefix: "🌲🌲 "
 
 # Implementation
 
+
+## Tree-Tree (header path)
+
 ```space-lua
+-- 性能优化版：使用字符串扫描代替 AST 解析
+local function getPageHeadings(pageName)
+  local text = space.readPage(pageName)
+  if not text then return {} end
+
+  local nodes = {}
+  local in_code_block = false
+  local current_pos = 0
+  
+  -- 逐行扫描，同时捕获换行符以准确计算 pos
+  for line, newline in string.gmatch(text, "([^\r\n]*)(\r?\n?)") do
+    -- 如果读到文件末尾
+    if line == "" and newline == "" then break end
+
+    -- 检测代码块标记，防止代码内的 # 被识别为标题
+    if line:match("^```") then 
+      in_code_block = not in_code_block 
+    end
+
+    if not in_code_block then
+      -- 匹配 ATX 标题 (例如: ## Title)
+      local hashes, title = line:match("^(#+)%s+(.*)")
+      if hashes then
+        -- 去除标题尾部的空格
+        title = title:match("^(.-)%s*$")
+        table.insert(nodes, {
+          level = #hashes,
+          text  = title,
+          pos   = current_pos -- 记录行首位置
+        })
+      end
+    end
+
+    -- 更新位置指针 (当前行长 + 换行符长)
+    current_pos = current_pos + #line + #newline
+  end
+  
+  return nodes
+end
+
+local function unifiedTreePicker()
+  -- 1. 获取所有页面并构建基础目录结构
+  local pages = space.listPages()
+  local path_map = {}
+  local real_pages = {}
+  
+  for _, page in ipairs(pages) do
+    real_pages[page.name] = true
+  end
+
+  for _, page in ipairs(pages) do
+    local parts = {}
+    for part in string.gmatch(page.name, "[^/]+") do
+      table.insert(parts, part)
+      local current_path = table.concat(parts, "/")
+      
+      if not path_map[current_path] then
+        path_map[current_path] = {
+          name = current_path,
+          text = part,
+          level = #parts,
+          is_real = false,
+          type = "folder"
+        }
+      end
+    end
+  end
+
+  for path, _ in pairs(real_pages) do
+    if path_map[path] then
+      path_map[path].is_real = true
+      path_map[path].type = "page"
+    end
+  end
+
+  -- 2. 对基础节点进行排序
+  local sorted_nodes = {}
+  for _, node in pairs(path_map) do
+    table.insert(sorted_nodes, node)
+  end
+
+  table.sort(sorted_nodes, function(a, b) 
+    return a.name < b.name 
+  end)
+
+  if #sorted_nodes == 0 then
+    editor.flashNotification("No pages found")
+    return
+  end
+
+  -- 3. 构建最终的扁平化列表（插入标题节点）
+  local final_nodes = {}
+  
+  for _, node in ipairs(sorted_nodes) do
+    -- 插入页面/文件夹节点
+    table.insert(final_nodes, node)
+    
+    -- 如果是真实页面，读取并插入标题
+    if node.is_real then
+      local headings = getPageHeadings(node.name)
+      
+      if #headings > 0 then
+        local min_level = 10
+        for _, h in ipairs(headings) do
+          if h.level < min_level then min_level = h.level end
+        end
+
+        -- 用于追踪当前标题路径的栈: { {level=1, text="Title"}, ... }
+        local heading_stack = {}
+
+        for _, h in ipairs(headings) do
+          -- 维护栈：弹出所有层级 >= 当前层级的节点
+          -- 这样栈里剩下的就是当前标题的父级链
+          while #heading_stack > 0 and heading_stack[#heading_stack].level >= h.level do
+            table.remove(heading_stack)
+          end
+          
+          -- 将当前标题推入栈
+          table.insert(heading_stack, {level = h.level, text = h.text})
+
+          -- 构建完整路径描述 (Page > H1 > H2 > Current)
+          local path_parts = { node.name } -- 起始为页面名
+          for _, stack_item in ipairs(heading_stack) do
+            table.insert(path_parts, stack_item.text)
+          end
+          local full_path_desc = table.concat(path_parts, ">")
+
+          -- 计算树形缩进层级
+          local relative_level = h.level - min_level + 1
+          local absolute_level = node.level + relative_level
+          
+          table.insert(final_nodes, {
+            name = node.name,
+            text = h.text,
+            level = absolute_level,
+            is_real = false,
+            type = "heading",
+            pos = h.pos,
+            page_name = node.name,
+            full_desc = full_path_desc -- 存储构建好的完整路径
+          })
+        end
+      end
+    end
+  end
+
+  -- 4. 计算树状连线逻辑
+  local last_flags = {}
+  for i = 1, #final_nodes do
+    local L = final_nodes[i].level
+    local is_last = true
+    
+    for j = i + 1, #final_nodes do
+      local next_L = final_nodes[j].level
+      
+      if next_L == L then
+        is_last = false
+        break
+      elseif next_L < L then
+        is_last = true
+        break
+      end
+    end
+    last_flags[i] = is_last
+  end
+
+  -- 5. 生成渲染列表
+  local VERT = "│ 　　"
+  local BLNK = "　　　"
+  local TEE  = "├───　"
+  local ELB  = "└───　"
+
+  local items = {}
+  local stack = {}
+
+  for i = 1, #final_nodes do
+    local node = final_nodes[i]
+    local L = node.level
+    local is_last = last_flags[i]
+
+    while #stack >= L do 
+      table.remove(stack) 
+    end
+
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or VERT)
+    end
+    
+    for d = #stack + 1, L - 1 do
+      prefix = prefix .. BLNK
+    end
+
+    local elbow = is_last and ELB or TEE
+    
+    local display_text = node.text
+    local desc = ""
+    
+    if node.type == "folder" then
+        display_text = display_text .. "/"
+        desc = node.name .. "/"
+    elseif node.type == "page" then
+        desc = node.name
+    elseif node.type == "heading" then
+        -- 使用刚才构建的完整层级描述
+        desc = node.full_desc
+    end
+
+    local label = prefix .. elbow .. display_text
+
+    table.insert(items, {
+      name = label,
+      description = desc,
+      value = { 
+          page = node.page_name or node.name, 
+          pos = node.pos,
+          type = node.type
+      }
+    })
+
+    table.insert(stack, { level = L, last = is_last })
+  end
+
+  -- 6. 显示合并后的 Picker
+  local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
+
+  if result then
+    local selection = result.value or result
+    
+    if type(selection) ~= "table" then return end
+
+    local page_name = selection.page
+    local pos = selection.pos
+    local node_type = selection.type
+
+    if node_type == "folder" then
+        editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
+        editor.navigate({ page = page_name })
+    elseif node_type == "page" or node_type == "heading" then
+        if pos and pos > 0 then
+            editor.navigate({ page = page_name, pos = pos })
+        else
+            editor.navigate({ page = page_name })
+        end
+        editor.invokeCommand("Navigate: Center Cursor")
+    end
+  end
+end
+
+command.define({
+  name = "Navigate: Unified Tree Picker",
+  key = "Shift-Alt-e",
+  run = function() unifiedTreePicker() end
+})
+
+```
+
+## Tree-Tree (header name)
+
+```lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
