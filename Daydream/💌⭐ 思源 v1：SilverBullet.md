@@ -32,6 +32,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 有了（像这样自定义的）Heading 的颜色区分、Tree 状高亮，不必因 “只有 Heading 的 字体大小，所以无法像 缩进 那样 区分 层级结构”
 而无奈只好被迫选择 Lists/Bullets 列表/大纲，作为 页面内视图。
 
+# SB 的 优缺点
+
 ## SB 缺乏 页面以外对象 的 反链自动更新
 
 比如，SiYuan 中的 Heading 可以自动更新其反链。
@@ -52,3 +54,10 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 | Orca | ~ 200 MB | Electron + ... |
 | Obsidian | ~ 160 MB | Electron + TS ? |
 
+# SiYuan 的 优缺点
+
+## 思源 缺乏 live query
+
+比如
+- SB 的 query `${}` 或
+- Tana 的 command node 
