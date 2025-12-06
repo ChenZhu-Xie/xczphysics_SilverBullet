@@ -269,7 +269,7 @@ pageTreePicker = function()
     
     if not nodes[i].is_real then
         display_text = display_text .. "/" -- 虚拟节点加斜杠区分
-        desc = desc .. "/ 📂 [Virtual Folder]"
+        desc = desc .. "/ [Virtual Folder📂]"
     end
 
     local label = prefix .. elbow .. display_text
