@@ -8,11 +8,9 @@ pageDecoration.prefix: "🌲🌲 "
 
 # Implementation
 
-
 ## Tree-Tree (header path)
 
 ```space-lua
--- 性能优化版：使用字符串扫描代替 AST 解析
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
@@ -21,31 +19,25 @@ local function getPageHeadings(pageName)
   local in_code_block = false
   local current_pos = 0
   
-  -- 逐行扫描，同时捕获换行符以准确计算 pos
   for line, newline in string.gmatch(text, "([^\r\n]*)(\r?\n?)") do
-    -- 如果读到文件末尾
     if line == "" and newline == "" then break end
 
-    -- 检测代码块标记，防止代码内的 # 被识别为标题
     if line:match("^```") then 
       in_code_block = not in_code_block 
     end
 
     if not in_code_block then
-      -- 匹配 ATX 标题 (例如: ## Title)
       local hashes, title = line:match("^(#+)%s+(.*)")
       if hashes then
-        -- 去除标题尾部的空格
         title = title:match("^(.-)%s*$")
         table.insert(nodes, {
           level = #hashes,
           text  = title,
-          pos   = current_pos -- 记录行首位置
+          pos   = current_pos
         })
       end
     end
 
-    -- 更新位置指针 (当前行长 + 换行符长)
     current_pos = current_pos + #line + #newline
   end
   
@@ -53,7 +45,6 @@ local function getPageHeadings(pageName)
 end
 
 local function unifiedTreePicker()
-  -- 1. 获取所有页面并构建基础目录结构
   local pages = space.listPages()
   local path_map = {}
   local real_pages = {}
@@ -87,7 +78,6 @@ local function unifiedTreePicker()
     end
   end
 
-  -- 2. 对基础节点进行排序
   local sorted_nodes = {}
   for _, node in pairs(path_map) do
     table.insert(sorted_nodes, node)
@@ -102,14 +92,11 @@ local function unifiedTreePicker()
     return
   end
 
-  -- 3. 构建最终的扁平化列表（插入标题节点）
   local final_nodes = {}
   
   for _, node in ipairs(sorted_nodes) do
-    -- 插入页面/文件夹节点
     table.insert(final_nodes, node)
     
-    -- 如果是真实页面，读取并插入标题
     if node.is_real then
       local headings = getPageHeadings(node.name)
       
@@ -119,27 +106,21 @@ local function unifiedTreePicker()
           if h.level < min_level then min_level = h.level end
         end
 
-        -- 用于追踪当前标题路径的栈: { {level=1, text="Title"}, ... }
         local heading_stack = {}
 
         for _, h in ipairs(headings) do
-          -- 维护栈：弹出所有层级 >= 当前层级的节点
-          -- 这样栈里剩下的就是当前标题的父级链
           while #heading_stack > 0 and heading_stack[#heading_stack].level >= h.level do
             table.remove(heading_stack)
           end
           
-          -- 将当前标题推入栈
           table.insert(heading_stack, {level = h.level, text = h.text})
 
-          -- 构建完整路径描述 (Page > H1 > H2 > Current)
           local path_parts = { node.name } -- 起始为页面名
           for _, stack_item in ipairs(heading_stack) do
             table.insert(path_parts, stack_item.text)
           end
           local full_path_desc = table.concat(path_parts, ">")
 
-          -- 计算树形缩进层级
           local relative_level = h.level - min_level + 1
           local absolute_level = node.level + relative_level
           
@@ -151,14 +132,13 @@ local function unifiedTreePicker()
             type = "heading",
             pos = h.pos,
             page_name = node.name,
-            full_desc = full_path_desc -- 存储构建好的完整路径
+            full_desc = full_path_desc
           })
         end
       end
     end
   end
 
-  -- 4. 计算树状连线逻辑
   local last_flags = {}
   for i = 1, #final_nodes do
     local L = final_nodes[i].level
@@ -178,7 +158,6 @@ local function unifiedTreePicker()
     last_flags[i] = is_last
   end
 
-  -- 5. 生成渲染列表
   local VERT = "│ 　　"
   local BLNK = "　　　"
   local TEE  = "├───　"
@@ -216,7 +195,6 @@ local function unifiedTreePicker()
     elseif node.type == "page" then
         desc = node.name
     elseif node.type == "heading" then
-        -- 使用刚才构建的完整层级描述
         desc = node.full_desc
     end
 
@@ -235,7 +213,6 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  -- 6. 显示合并后的 Picker
   local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
 
   if result then
@@ -328,7 +305,6 @@ local function getPageHeadings(pageName)
 end
 
 local function unifiedTreePicker()
-  -- 1. 获取所有页面并构建基础目录结构
   local pages = space.listPages()
   local path_map = {}
   local real_pages = {}
@@ -362,7 +338,6 @@ local function unifiedTreePicker()
     end
   end
 
-  -- 2. 对基础节点进行排序
   local sorted_nodes = {}
   for _, node in pairs(path_map) do
     table.insert(sorted_nodes, node)
@@ -377,36 +352,29 @@ local function unifiedTreePicker()
     return
   end
 
-  -- 3. 构建最终的扁平化列表（插入标题节点）
   local final_nodes = {}
   
   for _, node in ipairs(sorted_nodes) do
-    -- 插入页面/文件夹节点
     table.insert(final_nodes, node)
     
-    -- 如果是真实页面，读取并插入标题
     if node.is_real then
       local headings = getPageHeadings(node.name)
       
       if #headings > 0 then
-        -- 计算该页面内标题的最小层级，用于归一化
         local min_level = 10
         for _, h in ipairs(headings) do
           if h.level < min_level then min_level = h.level end
         end
 
-        -- 将标题作为子节点插入
         for _, h in ipairs(headings) do
-          -- 关键逻辑：标题的层级 = 页面层级 + (标题相对层级)
-          -- 相对层级从 1 开始 (h.level - min_level + 1)
           local relative_level = h.level - min_level + 1
           local absolute_level = node.level + relative_level
           
           table.insert(final_nodes, {
-            name = node.name, -- 保持页面名称用于上下文
+            name = node.name,
             text = h.text,
             level = absolute_level,
-            is_real = false, -- 标题本身不是页面
+            is_real = false,
             type = "heading",
             pos = h.pos,
             page_name = node.name
@@ -416,7 +384,6 @@ local function unifiedTreePicker()
     end
   end
 
-  -- 4. 计算树状连线逻辑 (Last Flags)
   local last_flags = {}
   for i = 1, #final_nodes do
     local L = final_nodes[i].level
@@ -436,7 +403,6 @@ local function unifiedTreePicker()
     last_flags[i] = is_last
   end
 
-  -- 5. 生成渲染列表
   local VERT = "│ 　　"
   local BLNK = "　　　"
   local TEE  = "├───　"
@@ -474,7 +440,6 @@ local function unifiedTreePicker()
     elseif node.type == "page" then
         desc = node.name
     elseif node.type == "heading" then
-        -- 标题不需要特殊后缀
         desc = node.page_name .. " > " .. node.text
     end
 
@@ -493,7 +458,6 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  -- 6. 显示合并后的 Picker
   local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
 
   if result then
