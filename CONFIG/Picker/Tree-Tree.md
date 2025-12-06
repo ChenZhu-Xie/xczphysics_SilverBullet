@@ -782,7 +782,12 @@ pageTreePicker = function()
     local is_real = selection.is_real
 
     if page_name then
-        pickHeadings(page_name)
+        if is_real then
+            pickHeadings(page_name)
+        else
+            -- editor.flashNotification("Folder selected. Creating page: " .. page_name)
+            editor.navigate({ page = page_name })
+        end
     end
   end
 end
