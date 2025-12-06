@@ -492,7 +492,7 @@ command.define({
 
 ## Page + Heading (Full-Path Description)
 
-```lua
+```space-lua
 local pageTreePicker 
 
 local function pickHeadings(pageName)
