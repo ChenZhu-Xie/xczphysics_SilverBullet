@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Tree-Tree (header path)
 
-```lua
+```space-lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
@@ -495,7 +495,7 @@ command.define({
 
 1. fix empty folder’s wrong indent -_-||
 
-```space-lua
+```lua
 local pageTreePicker 
 
 local function pickHeadings(pageName)
