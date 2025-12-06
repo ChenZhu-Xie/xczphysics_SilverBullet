@@ -1,3 +1,10 @@
+---
+name: CONFIG/Picker/Tree-Tree
+tags: meta/library
+pageDecoration.prefix: "🌲🌲 "
+---
+
+1. [headings picker](https://community.silverbullet.md/t/headings-picker/1745/10?u=chenzhu-xie) #community #silverbullet
 
 # Implementation
 
