@@ -491,7 +491,7 @@ command.define({
 
 ```
 
-## Page + Heading (Complete Path Description)
+## Page + Heading (Full-Path Description)
 
 ```space-lua
 local function pickHeadings(pageName)
