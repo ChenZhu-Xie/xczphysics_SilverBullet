@@ -587,7 +587,7 @@ local function pickHeadings(pageName)
 
   table.insert(items, {
     name = ".",
-    description = pageName, -- 显示页面名称作为根描述
+    description = pageName,
     pos = 0
   })
 
@@ -595,22 +595,16 @@ local function pickHeadings(pageName)
     local L = nodes[i].level - min_level + 1
     local is_last = last_flags[i]
 
-    -- 弹出层级更深或相等的节点，保留当前节点的父级
     while #stack > 0 and stack[#stack].level >= L do 
       table.remove(stack) 
     end
 
-    -- --- 新增逻辑开始：生成完整路径 ---
     local path_parts = {}
-    -- 1. 添加父级标题
     for _, s in ipairs(stack) do
         table.insert(path_parts, s.text)
     end
-    -- 2. 添加当前标题
     table.insert(path_parts, nodes[i].text)
-    -- 3. 拼接成字符串 (例如: Heading 1 > Heading 2)
     local full_path = table.concat(path_parts, " > ")
-    -- --- 新增逻辑结束 ---
 
     local prefix = ""
     for d = 1, #stack do
@@ -626,11 +620,10 @@ local function pickHeadings(pageName)
 
     table.insert(items, {
       name = label,
-      description = full_path, -- 这里填入生成的完整路径
+      description = full_path,
       pos = nodes[i].pos
     })
 
-    -- 注意：这里将 text 也存入 stack，供子节点使用
     table.insert(stack, { level = L, last = is_last, text = nodes[i].text })
   end
 
