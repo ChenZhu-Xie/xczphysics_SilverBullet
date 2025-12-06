@@ -13,10 +13,7 @@ pageDecoration.prefix: "🌲🌲 "
 ```space-lua
 local pageTreePicker 
 
--- pickHeadings 函数保持不变，这里省略以节省篇幅，请保留你原有的 pickHeadings 代码 --
 local function pickHeadings(pageName)
-  -- ... (保留你原有的 pickHeadings 代码) ...
-  -- 为了完整性，请确保这里使用的是你提供的原始代码
   local text = space.readPage(pageName)
   if not text then
     editor.flashNotification("Could not read page: " .. pageName)
