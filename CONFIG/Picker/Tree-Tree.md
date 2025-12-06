@@ -153,7 +153,7 @@ local function unifiedTreePicker()
             
             table.insert(items, {
               name = child_prefix .. h_elbow .. indent_spaces .. h.text,
-              description = node.full_path .. " > " .. h.text,
+              description = node.full_path .. ">" .. h.text,
               value = {
                 page = node.full_path,
                 pos = h.pos,
