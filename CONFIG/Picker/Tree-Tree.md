@@ -493,8 +493,11 @@ command.define({
 
 ## Page + Heading (Full-Path Description)
 
-```lua
-local function pickHeadings(pageName)
+```space-lua
+local pageTreePicker
+local pickHeadings
+
+pickHeadings = function(pageName)
   local text = space.readPage(pageName)
   if not text then
     editor.flashNotification("Could not read page: " .. pageName)
@@ -586,7 +589,13 @@ local function pickHeadings(pageName)
   local stack = {} 
 
   table.insert(items, {
-    name = ".",
+    name = "Wait, go back to Page List",
+    description = "Return to page picker",
+    value = { go_back = true }
+  })
+  
+  table.insert(items, {
+    name = ". (Top of Page)",
     description = pageName,
     pos = 0
   })
@@ -598,13 +607,6 @@ local function pickHeadings(pageName)
     while #stack > 0 and stack[#stack].level >= L do 
       table.remove(stack) 
     end
-
-    local path_parts = {}
-    for _, s in ipairs(stack) do
-        table.insert(path_parts, s.text)
-    end
-    table.insert(path_parts, nodes[i].text)
-    local full_path = table.concat(path_parts, " > ")
 
     local prefix = ""
     for d = 1, #stack do
@@ -620,19 +622,25 @@ local function pickHeadings(pageName)
 
     table.insert(items, {
       name = label,
-      description = full_path,
+      description = "", 
       pos = nodes[i].pos
     })
 
-    table.insert(stack, { level = L, last = is_last, text = nodes[i].text })
+    table.insert(stack, { level = L, last = is_last })
   end
 
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
+    local val = result.value or result
+    
+    if type(val) == "table" and val.go_back then
+        return pageTreePicker()
+    end
+
     local pos = result.pos
-    if not pos and result.value and result.value.pos then
-        pos = result.value.pos
+    if not pos and type(val) == "table" and val.pos then
+        pos = val.pos
     end
     
     if pos == 0 then
@@ -641,31 +649,51 @@ local function pickHeadings(pageName)
         editor.navigate({ page = pageName, pos = pos })
     end
     editor.invokeCommand("Navigate: Center Cursor")
+  else
   end
 end
 
-local function pageTreePicker()
+pageTreePicker = function()
   local pages = space.listPages()
   
-  local nodes = {}
-
-  local function parse_page_info(page_name)
-    local level = 1
-    for _ in string.gmatch(page_name, "/") do
-      level = level + 1
-    end
-    local text = page_name:match(".*/(.*)") or page_name
-    return level, text
+  local path_map = {}
+  local real_pages = {}
+  
+  for _, page in ipairs(pages) do
+    real_pages[page.name] = true
   end
 
   for _, page in ipairs(pages) do
-    local level, text = parse_page_info(page.name)
-    table.insert(nodes, {
-      level = level,
-      text  = text,
-      pos   = page.name
-    })
+    local parts = {}
+    for part in string.gmatch(page.name, "[^/]+") do
+      table.insert(parts, part)
+      local current_path = table.concat(parts, "/")
+      
+      if not path_map[current_path] then
+        path_map[current_path] = {
+          name = current_path, 
+          text = part,         
+          level = #parts,      
+          is_real = false      
+        }
+      end
+    end
   end
+
+  for path, _ in pairs(real_pages) do
+    if path_map[path] then
+      path_map[path].is_real = true
+    end
+  end
+
+  local nodes = {}
+  for _, node in pairs(path_map) do
+    table.insert(nodes, node)
+  end
+
+  table.sort(nodes, function(a, b) 
+    return a.name < b.name 
+  end)
 
   if #nodes == 0 then
     editor.flashNotification("No pages found")
@@ -717,12 +745,24 @@ local function pageTreePicker()
     end
 
     local elbow = is_last and ELB or TEE
-    local label = prefix .. elbow .. nodes[i].text
+    
+    local display_text = nodes[i].text
+    local desc = nodes[i].name
+    
+    if not nodes[i].is_real then
+        display_text = display_text .. "/"
+        desc = desc .. "/"
+    end
+
+    local label = prefix .. elbow .. display_text
 
     table.insert(items, {
       name = label,
-      description = nodes[i].pos,
-      value = nodes[i].pos
+      description = desc,
+      value = { 
+          page = nodes[i].name, 
+          is_real = nodes[i].is_real 
+      }
     })
 
     table.insert(stack, { level = L, last = is_last })
@@ -731,11 +771,16 @@ local function pageTreePicker()
   local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
 
   if result then
-    local page_name = result.value or result
-    if type(page_name) == "table" and page_name.value then
-        page_name = page_name.value
-    end
+    local selection = result.value or result
     
+    if type(selection) ~= "table" then
+       if selection then pickHeadings(selection) end
+       return
+    end
+
+    local page_name = selection.page
+    local is_real = selection.is_real
+
     if page_name then
         pickHeadings(page_name)
     end
@@ -747,7 +792,6 @@ command.define({
   key = "Shift-Alt-e",
   run = function() pageTreePicker() end
 })
-
 ```
 
 ## Page + Heading (double return)
