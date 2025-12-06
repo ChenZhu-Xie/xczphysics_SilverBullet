@@ -115,11 +115,11 @@ local function unifiedTreePicker()
           
           table.insert(heading_stack, {level = h.level, text = h.text})
 
-          local path_parts = { node.name } -- 起始为页面名
+          local path_parts = { node.name }
           for _, stack_item in ipairs(heading_stack) do
             table.insert(path_parts, stack_item.text)
           end
-          local full_path_desc = table.concat(path_parts, ">")
+          local full_path_desc = table.concat(path_parts, ">>")
 
           local relative_level = h.level - min_level + 1
           local absolute_level = node.level + relative_level
