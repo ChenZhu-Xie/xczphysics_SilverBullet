@@ -493,7 +493,7 @@ command.define({
 
 ## Page + Heading (Full-Path Description)
 
-```space-lua
+```lua
 local function pickHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then
@@ -754,7 +754,7 @@ command.define({
 
 1. fix empty folder’s wrong indent -_-||
 
-```lua
+```space-lua
 local pageTreePicker 
 
 local function pickHeadings(pageName)
