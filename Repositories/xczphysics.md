@@ -228,7 +228,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Pic
 Add `Page Picker: Last Opened` to CMD
 
 ```#meta/library/remote
-name: "Add_Fields_for_Obj/Last_Opened-Page/Picker"
+name: "Last_Opened-Page/Picker"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker.md
 ```
@@ -242,7 +242,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Add
 Add `Page Picker: Last Modified` to CMD
 
 ```#meta/library/remote
-name: "Query/lastModified/Picker"
+name: "lastModified/Picker"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Query/lastModified/Picker.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Query/lastModified/Picker.md
 ```
@@ -261,8 +261,8 @@ website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tree-Tree.md
 ```
 [[CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]]
-[File_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/File_Link#File%20Link) #enlarge-the-percentage #fly
-[File_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/File_Link.md) #github
+[Tree Tree](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Tree-Tree#Implementation) #enlarge-the-percentage #fly
+[Tree Tree.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tree-Tree.md) #github
 
 # 🖱️ Click
 
