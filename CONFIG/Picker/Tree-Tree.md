@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Page + Heading (double return)
 
-1. fix empty wrong indent folder problem -_-||
+1. fix empty folder’s wrong indent -_-||
 
 ```space-lua
 local pageTreePicker 
