@@ -11,6 +11,39 @@ pageDecoration.prefix: "🌲🌲 "
 ## Tree-Tree (header path)
 
 ```space-lua
+local function getPageHeadings(pageName)
+  local text = space.readPage(pageName)
+  if not text then return {} end
+
+  local nodes = {}
+  local in_code_block = false
+  local current_pos = 0
+  
+  for line, newline in string.gmatch(text, "([^\r\n]*)(\r?\n?)") do
+    if line == "" and newline == "" then break end
+
+    if line:match("^```") then 
+      in_code_block = not in_code_block 
+    end
+
+    if not in_code_block then
+      local hashes, title = line:match("^(#+)%s+(.*)")
+      if hashes then
+        title = title:match("^(.-)%s*$")
+        table.insert(nodes, {
+          level = #hashes,
+          text  = title,
+          pos   = current_pos
+        })
+      end
+    end
+
+    current_pos = current_pos + #line + #newline
+  end
+  
+  return nodes
+end
+
 local function unifiedTreePicker()
   local pages = space.listPages()
   local path_map = {}
@@ -65,11 +98,7 @@ local function unifiedTreePicker()
     table.insert(final_nodes, node)
     
     if node.is_real then
-      local headings = query[[
-      from index.tag "header"
-      where _.page == node.name
-      order by _.pos
-    ]]
+      local headings = getPageHeadings(node.name)
       
       if #headings > 0 then
         local min_level = 10
@@ -84,7 +113,7 @@ local function unifiedTreePicker()
             table.remove(heading_stack)
           end
           
-          table.insert(heading_stack, {level = h.level, text = h.name})
+          table.insert(heading_stack, {level = h.level, text = h.text})
 
           local path_parts = { node.name }
           for _, stack_item in ipairs(heading_stack) do
@@ -97,7 +126,7 @@ local function unifiedTreePicker()
           
           table.insert(final_nodes, {
             name = node.name,
-            text = h.name,
+            text = h.text,
             level = absolute_level,
             is_real = false,
             type = "heading",
@@ -157,7 +186,7 @@ local function unifiedTreePicker()
 
     local elbow = is_last and ELB or TEE
     
-    local display_text = node.name
+    local display_text = node.text
     local desc = ""
     
     if node.type == "folder" then
