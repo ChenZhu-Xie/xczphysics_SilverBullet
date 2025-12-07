@@ -14,7 +14,7 @@ pageDecoration.prefix: "🌲🌲 "
    - 看上去是每次只 query 了每个 page 的，但实际上 where 之前仍 query 了所有的 headers
    - 所以如果每次都只 query 一页，速度反而会变慢。
 
-```space-lua
+```lua
 local VERT = "│ 　　"
 local BLNK = "　　　"
 local TEE  = "├───　"
@@ -737,7 +737,7 @@ command.define({
 
 ## Query Version
 
-```lua
+```space-lua
 local pageTreePicker
 
 local VERT = "│ 　　"
