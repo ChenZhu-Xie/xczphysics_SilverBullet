@@ -564,8 +564,18 @@ local function pickHeadings(pageName)
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
 
-    for _ = #stack + 1, L - 1 do
-      prefix = prefix .. BLNK
+    for k = #stack + 1, L - 1 do
+      local has_deeper = false
+      for j = i + 1, #nodes do
+        local next_L = nodes[j].level - min_level + 1
+        if next_L == k then
+          has_deeper = true
+          break
+        elseif next_L < k then
+          break
+        end
+      end
+      prefix = prefix .. (has_deeper and VERT or BLNK)
     end
 
     local path_parts = {}
@@ -695,7 +705,7 @@ pageTreePicker = function()
 
     local elbow = is_last and ELB or TEE
 
-    local display_text = node.name
+    local display_text = node.text
     local desc = node.name
 
     if not node.is_real then
@@ -746,6 +756,7 @@ command.define({
   key  = "Shift-Alt-e",
   run  = function() pageTreePicker() end,
 })
+
 ```
 
 ## Page + Heading (Full-Path Description)
