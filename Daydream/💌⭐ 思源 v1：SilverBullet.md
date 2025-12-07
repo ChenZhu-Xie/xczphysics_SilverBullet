@@ -56,7 +56,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 # SiYuan 的 优缺点
 
-## 思源 缺乏 live query
+## 思源 缺乏 live query?
 
 比如
 - SB 的 query `${}` 或
@@ -65,3 +65,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 本体确实是缺乏的，但...有插件（准确地说是挂件）
 - [widget query](https://github.com/Zuoqiu-Yingyi/widget-query) #github
 - [dg0ln8](https://www.yuque.com/siyuannote/docs/dg0ln8) #yuque
+
+## 也可以 部署到 fly.io !
+
+1. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
+   - [README.md](https://github.com/siyuan-note/siyuan/blob/master/README.md#docker-hosting) #github
