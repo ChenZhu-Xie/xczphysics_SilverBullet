@@ -85,7 +85,7 @@ command.define({
 
     local selection = editor.filterBox("🤏 Pick", items, "Select a Header...", "a Header")
     if selection then
-      editor.navigate({ ref=selection.ref })
+      editor.navigate(selection.ref)
     end
   end
 })
