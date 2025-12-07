@@ -8,12 +8,12 @@ githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STY
 
 ## There is another JS-added Version
 
-see [[STYLE/Theme/HHH|JS Version]]
+see [[Library/xczphysics/STYLE/Theme/HHH|JS Version]]
 
 ## This is the Pure CSS Version
 
 1. https://chatgpt.com/share/68fd2061-4ba0-8010-bf3a-842e67fb243e
-2. if you activate the [[STYLE/Theme/HHH|JS Version]], comment out the 1st block below
+2. if you activate the [[Library/xczphysics/STYLE/Theme/HHH|JS Version]], comment out the 1st block below
 3. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
 ```

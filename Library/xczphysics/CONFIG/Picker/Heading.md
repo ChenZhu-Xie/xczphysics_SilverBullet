@@ -13,7 +13,7 @@ ${query[[
 
 # Across pages
 
-1. coming from [[^CONFIG/Picker/Tree-Tree]]
+1. coming from [[Library/xczphysics/CONFIG/Picker/Tree-Treee]]
 
 ```space-lua
 -- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
