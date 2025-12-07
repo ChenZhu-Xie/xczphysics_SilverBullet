@@ -67,8 +67,11 @@ command.define({
       for k = #stack + 1, rel_level - 1 do
         local has_deeper = false
         for j = i + 1, #headers do
-          if headers[j].level >= min_level + k - 1 then
+          local target_level = min_level + k - 1
+          if headers[j].level == target_level then
             has_deeper = true
+            break
+          elseif headers[j].level < target_level then
             break
           end
         end
@@ -90,6 +93,7 @@ command.define({
     end
   end
 })
+
 ```
 
 ## 3rd Version
