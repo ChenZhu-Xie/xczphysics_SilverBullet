@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Giant-Tree: Query Version
 
-1. 如果不一次性 Query all header，
+1. 如果不一次性 Query all header，像 [[#Tree-Tree: Query Version]]
    - 看上去是每次只 query 了每个 page 的，但实际上 where 之前仍 query 了所有的 headers
    - 所以如果每次都只 query 一页，速度反而会变慢。
 
