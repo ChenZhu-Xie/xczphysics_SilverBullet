@@ -103,7 +103,7 @@ command.define({
 5. https://community.silverbullet.md/t/headings-picker/1745/8
 
 下述 代码 6级→4级→2级 时，
-6级标题左侧加的竖线多加了一条： 
+6级标题左侧加的竖线多加了一条：
 ||| |_ 
 | |_ 
 |-
