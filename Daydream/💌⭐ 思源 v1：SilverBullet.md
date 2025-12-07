@@ -73,7 +73,15 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 3. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
    - [README.md](https://github.com/siyuan-note/siyuan/blob/master/README.md#docker-hosting) #github
 
+- 部署后，它暂时 不能被 只读地 查看
+- 内存占用 也很高（相对其自己的本地）
+  - 相对 SB 应该超过了 fly.io 的免费 tier。
+
 ## 也有 git
 
 1. [sy git sync plugin](https://github.com/xstarling/sy-git-sync-plugin/) #github
 
+## 思源的 json 格式，尽管可以翻译为 md，但...
+
+由于天生不是 .md，原样、实时地翻译为 html 的支持，没有 .md 好？ 
+尽管 数据库 和 属性结构 层面，json 的表达能力和丰富程度要比 .md 好。
