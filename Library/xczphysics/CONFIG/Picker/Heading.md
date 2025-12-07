@@ -241,7 +241,7 @@ end
 
 command.define({
   name = "Navigate: Header across Pages",
-  key  = "Ctrl-Alt-a",
+  key  = "Shift-Alt-a",
   run  = function() unifiedTreePicker() end
 })
 ```
