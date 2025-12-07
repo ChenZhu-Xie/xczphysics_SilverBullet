@@ -16,8 +16,10 @@ pageDecoration.prefix: "⌨️ "
 ```space-lua
 command.update {
   name = "Navigate: Home",
-  key = "Ctrl-h",
-  mac = "Cmd-h",
+  key = "",
+  mac = "",
+  -- key = "Ctrl-h",
+  -- mac = "Cmd-h",
   priority = 1,
 }
 ```
