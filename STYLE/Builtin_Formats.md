@@ -1,5 +1,6 @@
 ---
-name: STYLE/Builtin_Formats
+author: Chenzhu-Xie
+name: Library/xczphysics/STYLE/Builtin_Formats
 tags: meta/library
 pageDecoration.prefix: "🔤 "
 ---

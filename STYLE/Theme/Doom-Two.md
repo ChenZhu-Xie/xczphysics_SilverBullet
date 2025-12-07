@@ -1,5 +1,6 @@
 ---
-name: STYLE/Theme/Doom-Two
+author: Chenzhu-Xie
+name: Library/xczphysics/STYLE/Theme/Doom-Two
 tags: meta/library
 pageDecoration.prefix: "🖼️ "
 githubUrl_Original: "https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/theme.md"

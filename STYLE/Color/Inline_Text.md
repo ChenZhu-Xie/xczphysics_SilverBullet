@@ -1,5 +1,6 @@
 ---
-name: STYLE/Color/Inline_Text
+author: Chenzhu-Xie
+name: Library/xczphysics/STYLE/Color/Inline_Text
 tags: meta/library
 pageDecoration.prefix: "🔤 "
 ---

@@ -1,5 +1,6 @@
 ---
-name: CONFIG/KeyBinding/Define
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/KeyBinding/Define
 tags: meta/library
 pageDecoration.prefix: "⌨️ "
 ---

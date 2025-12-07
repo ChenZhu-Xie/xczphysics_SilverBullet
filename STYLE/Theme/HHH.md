@@ -1,5 +1,6 @@
 ---
-name: STYLE/Theme/HHH
+author: Chenzhu-Xie
+name: Library/xczphysics/STYLE/Theme/HHH
 tags: meta/library
 pageDecoration.prefix: "🖼️ "
 ---
