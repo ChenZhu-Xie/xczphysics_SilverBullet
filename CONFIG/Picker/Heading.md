@@ -14,7 +14,8 @@ ${query[[
 
 ### Lua Query Version
 
-1. [Object](https://silverbullet.md/Object#header) #silverbullet 
+1. headers are indexed -_-||
+   - [Object](https://silverbullet.md/Object#header) #silverbullet 
 
 ```space-lua
 command.define({
