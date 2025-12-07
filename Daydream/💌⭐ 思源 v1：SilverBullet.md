@@ -68,6 +68,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 ## 也可以 部署到 fly.io !
 
-1. [20210725124311 ssp7qk4](https://www.yuque.com/siyuannote/docs/20210725124311-ssp7qk4) #yuque
-2. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
+1. [siyuan](https://hub.docker.com/r/b3log/siyuan) #hub #docker
+2. [20210725124311 ssp7qk4](https://www.yuque.com/siyuannote/docs/20210725124311-ssp7qk4) #yuque
+3. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
    - [README.md](https://github.com/siyuan-note/siyuan/blob/master/README.md#docker-hosting) #github
