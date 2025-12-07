@@ -62,4 +62,6 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 - SB 的 query `${}` 或
 - Tana 的 command node 
 
-本体确实是缺乏的，但...有插件（准确地说是挂件）：[widget query](https://github.com/Zuoqiu-Yingyi/widget-query) #github
+本体确实是缺乏的，但...有插件（准确地说是挂件）
+- [widget query](https://github.com/Zuoqiu-Yingyi/widget-query) #github
+- [dg0ln8](https://www.yuque.com/siyuannote/docs/dg0ln8) #yuque
