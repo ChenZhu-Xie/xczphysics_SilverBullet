@@ -72,3 +72,8 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 2. [20210725124311 ssp7qk4](https://www.yuque.com/siyuannote/docs/20210725124311-ssp7qk4) #yuque
 3. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
    - [README.md](https://github.com/siyuan-note/siyuan/blob/master/README.md#docker-hosting) #github
+
+## 也有 git
+
+1. [sy git sync plugin](https://github.com/xstarling/sy-git-sync-plugin/) #github
+
