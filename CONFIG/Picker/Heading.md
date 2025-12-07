@@ -77,7 +77,7 @@ command.define({
 
       table.insert(items, {
         name = prefix .. (is_last and ELB or TEE) .. h.name,
-        pos  = h.pos
+        ref  = h.ref
       })
 
       table.insert(stack, { level = rel_level, last = is_last })
