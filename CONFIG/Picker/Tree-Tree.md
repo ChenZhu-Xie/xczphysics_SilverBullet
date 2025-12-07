@@ -10,6 +10,10 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Query Version
 
+1. 如果不一次性 Query all header，
+   - 看上去是每次只 query 了每个 page 的，但实际上 where 之前仍 query 了所有的 headers
+   - 所以如果每次都只 query 一页，速度反而会变慢。
+
 ```space-lua
 local VERT = "│ 　　"
 local BLNK = "　　　"
@@ -63,13 +67,11 @@ local function unifiedTreePicker()
     return
   end
 
-  -- 一次性 query 全部 headers
   local all_headers = query[[
     from index.tag "header"
     order by _.page, _.pos
   ]]
 
-  -- Lua 分桶：按 page 分组
   local headers_by_page = {}
   for _, h in ipairs(all_headers or {}) do
     local p = h.page
