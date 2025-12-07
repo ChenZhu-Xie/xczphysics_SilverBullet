@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Paste_as/Smart_Url
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Paste_as/Smart_Url
 tags: meta/library
 pageDecoration.prefix: "📎 "
 ---

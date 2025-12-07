@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Query/lastModified/Picker
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Query/lastModified/Picker
 tags: meta/library
 pageDecoration.prefix: "🕘 "
 ---

@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Picker/Tree-Tree
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Picker/Tree-Tree
 tags: meta/library
 pageDecoration.prefix: "🌲🌲 "
 ---

@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Copy_as/page_title/Folder_Url
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url
 tags: meta/library
 pageDecoration.prefix: "✂️ "
 ---

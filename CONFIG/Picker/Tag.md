@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Picker/Tag
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Picker/Tag
 tags: meta/library
 pageDecoration.prefix: "🔖 "
 ---

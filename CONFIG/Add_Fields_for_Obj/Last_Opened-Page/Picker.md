@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker
 tags: meta/library
 pageDecoration.prefix: "🕘 "
 ---

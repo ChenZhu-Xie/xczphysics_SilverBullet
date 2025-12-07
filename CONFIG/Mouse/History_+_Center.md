@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Mouse/History_+_Center
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Mouse/History_+_Center
 tags: meta/library
 pageDecoration.prefix: "🖱️ "
 ---

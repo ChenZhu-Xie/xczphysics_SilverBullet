@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Picker/Table
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Picker/Table
 tags: meta/library
 pageDecoration.prefix: "🗓️ "
 ---

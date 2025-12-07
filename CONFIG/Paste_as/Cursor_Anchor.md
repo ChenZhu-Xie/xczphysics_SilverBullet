@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Paste_as/Cursor_Anchor
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor
 tags: meta/library
 pageDecoration.prefix: "📎 "
 ---

@@ -1,5 +1,6 @@
 ---
-name: CONFIG/Nearest_Pattern/Duplicate
+author: Chenzhu-Xie
+name: Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate
 tags: meta/library
 pageDecoration.prefix: "👯 "
 ---
