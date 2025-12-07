@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Query Version
 
-```lua
+```space-lua
 local VERT = "│ 　　"
 local BLNK = "　　　"
 local TEE  = "├───　"
@@ -63,22 +63,41 @@ local function unifiedTreePicker()
     return
   end
 
+  -- 一次性 query 全部 headers
+  local all_headers = query[[
+    from index.tag "header"
+    order by _.page, _.pos
+  ]]
+
+  -- Lua 分桶：按 page 分组
+  local headers_by_page = {}
+  for _, h in ipairs(all_headers or {}) do
+    local p = h.page
+    if p and h.name and h.name ~= "" then
+      local bucket = headers_by_page[p]
+      if not bucket then
+        bucket = {}
+        headers_by_page[p] = bucket
+      end
+      table.insert(bucket, {
+        level = h.level or 1,
+        text  = h.name,
+        pos   = h.pos or 0
+      })
+    end
+  end
+
   local final_nodes = {}
 
   for _, node in ipairs(sorted_nodes) do
     table.insert(final_nodes, node)
 
     if node.is_real then
-      local pageName = node.name
-      local headers = query[[
-        from index.tag "header"
-        where _.page == pageName
-        order by _.pos
-      ]]
+      local headings = headers_by_page[node.name]
 
-      if headers and #headers > 0 then
+      if headings and #headings > 0 then
         local min_level = 10
-        for _, h in ipairs(headers) do
+        for _, h in ipairs(headings) do
           if h.level and h.level < min_level then
             min_level = h.level
           end
@@ -86,13 +105,13 @@ local function unifiedTreePicker()
 
         local heading_stack = {}
 
-        for _, h in ipairs(headers) do
+        for _, h in ipairs(headings) do
           local hlevel = h.level or min_level
           while #heading_stack > 0 and heading_stack[#heading_stack].level >= hlevel do
             table.remove(heading_stack)
           end
 
-          table.insert(heading_stack, { level = hlevel, text = h.name })
+          table.insert(heading_stack, { level = hlevel, text = h.text })
 
           local path_parts = { node.name }
           for _, stack_item in ipairs(heading_stack) do
@@ -104,12 +123,12 @@ local function unifiedTreePicker()
           local absolute_level = node.level + relative_level
 
           table.insert(final_nodes, {
-            name = node.name,
-            text = h.name,
-            level = absolute_level,
-            is_real = false,
-            type = "heading",
-            pos = h.pos,
+            name      = node.name,
+            text      = h.text,
+            level     = absolute_level,
+            is_real   = false,
+            type      = "heading",
+            pos       = h.pos,
             page_name = node.name,
             full_desc = full_path_desc
           })
@@ -143,8 +162,8 @@ local function unifiedTreePicker()
   local stack = {}
 
   for i = 1, total do
-    local node = final_nodes[i]
-    local L = node.level
+    local node   = final_nodes[i]
+    local L      = node.level
     local is_last = last_flags[i]
 
     while #stack > 0 and stack[#stack].level >= L do
@@ -187,11 +206,11 @@ local function unifiedTreePicker()
     local label = prefix .. elbow .. display_text
 
     table.insert(items, {
-      name = label,
+      name        = label,
       description = desc,
-      value = {
+      value       = {
         page = node.page_name or node.name,
-        pos = node.pos,
+        pos  = node.pos,
         type = node.type
       }
     })
@@ -208,7 +227,7 @@ local function unifiedTreePicker()
     end
 
     local page_name = selection.page
-    local pos = selection.pos
+    local pos       = selection.pos
     local node_type = selection.type
 
     if node_type == "folder" then
@@ -234,7 +253,7 @@ command.define({
 
 ### Tree-Tree (header path)
 
-```space-lua
+```lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
