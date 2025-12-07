@@ -14,6 +14,8 @@ ${query[[
 
 ## Lua Query Version
 
+1. [Object](https://silverbullet.md/Object#header) #silverbullet 
+
 ```space-lua
 command.define({
   name = "Navigate: Heading Picker",
