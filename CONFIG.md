@@ -46,9 +46,9 @@ config.set(
   "plugs", {
     -- `config.set()`|`config.set{}` will cover each other ( for specific "key":table )
     -- {} is a Lua Table as a list, array, map... here's a list
-    "github:joekrill/silverbullet-treeview/treeview.plug.js",
+    -- "github:joekrill/silverbullet-treeview/treeview.plug.js",
     -- "ghr:deepkn/silverbullet-graphview",
-    "ghr:MrMugame/silversearch",
+    -- "ghr:MrMugame/silversearch",
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
     -- "page-meta.plug.js",
     -- "https://raw.githubusercontent.com/ChenZhu-Xie/xczphysics_SilverBullet/main/Library/HierarchyHighlightHeadings.plug.js", -- related to [[STYLE/Theme]]
