@@ -30,7 +30,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
-| Heading: | [[Library/xczphysics/CONFIG/Picker/Heading#Pick Headings with CMD-Tree UI|Picker]] | Ctrl | Shift | | h |
+| Heading: | [[Library/xczphysics/CONFIG/Picker/Heading#In page|Picker (in Page)]] | Ctrl | Shift | | h |
 | Mouse: | [[CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
@@ -65,6 +65,7 @@
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
+| Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
 | Picker: | [[CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Picker: | [[CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]] | | Shift | Alt | e |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
