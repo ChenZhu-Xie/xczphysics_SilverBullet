@@ -795,6 +795,10 @@ local BLNK = "　　　"
 local TEE  = "├───　"
 local ELB  = "└───　"
 
+local H_VERT = "┊ 　　"
+local H_TEE  = "┊┈┈🔹 "
+local H_ELB  = "╰┈┈🔸 "
+
 local function pickHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then
