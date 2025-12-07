@@ -10,7 +10,7 @@ ${query[[
       order by _.pos
     ]]}
 
-# Pick Headings with CMD-Tree UI
+## Pick Headings with CMD-Tree UI
 
 ## Lua Query Version
 
