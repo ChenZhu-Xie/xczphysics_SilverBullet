@@ -4,6 +4,12 @@ tags: meta/library
 pageDecoration.prefix: "🔎 "
 ---
 
+${query[[
+      from index.tag "header"
+      where _.page == _CTX.currentPage.name
+      order by _.pos
+    ]]}
+
 # Pick Headings with CMD-Tree UI
 
 ## Lua Query Version
