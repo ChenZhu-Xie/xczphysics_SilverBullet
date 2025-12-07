@@ -860,7 +860,7 @@ local function pickHeadings(pageName)
 
     local prefix = ""
     for d = 1, #stack do
-      prefix = prefix .. (stack[d].last and BLNK or VERT)
+      prefix = prefix .. (stack[d].last and BLNK or H_VERT)
     end
 
     for k = #stack + 1, L - 1 do
@@ -874,7 +874,7 @@ local function pickHeadings(pageName)
           break
         end
       end
-      prefix = prefix .. (has_deeper and VERT or BLNK)
+      prefix = prefix .. (has_deeper and H_VERT or BLNK)
     end
 
     local path_parts = {}
@@ -884,7 +884,7 @@ local function pickHeadings(pageName)
     table.insert(path_parts, node.name)
     local full_path = table.concat(path_parts, " > ")
 
-    local elbow = is_last and ELB or TEE
+    local elbow = is_last and H_ELB or H_TEE
     local label = prefix .. elbow .. node.name
 
     table.insert(items, {
