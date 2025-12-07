@@ -49,6 +49,10 @@ command.define({
     local ELB  = "└───　"
 
     local VERT = "┊ 　　"
+    local TEE  = "┊┈🔹┈ "
+    local ELB  = "╰┈🔸┈ "
+
+    local VERT = "┊ 　　"
     local TEE  = "┊┈┈🔹 "
     local ELB  = "╰┈┈🔸 "
 
