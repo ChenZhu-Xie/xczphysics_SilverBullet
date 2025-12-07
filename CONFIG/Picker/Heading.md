@@ -17,7 +17,7 @@ command.define({
     -- 结果已包含 ref, level, name, page, pos 等属性，且通常按文档顺序排列
     local headers = query[[
       from index.tag "header"
-      where page == _CTX.currentPage.name
+      where page = _CTX.currentPage.name
       order by pos
     ]]
 
