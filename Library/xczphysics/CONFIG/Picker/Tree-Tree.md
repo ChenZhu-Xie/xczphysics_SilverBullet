@@ -1114,8 +1114,8 @@ command.define({
 ------------------------------------------------------------------
 
 command.define({
-  name = "Navigate: Page ",
-  key  = "Shift-Alt-e",
+  name = "Page Picker: ",
+  key  = "Shift-Alt-k",
   run  = function() pageOnlyPicker() end,
 })
 ```
