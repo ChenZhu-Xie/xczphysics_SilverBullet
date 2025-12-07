@@ -240,7 +240,7 @@ local function unifiedTreePicker()
 end
 
 command.define({
-  name = "Navigate: Header across Pages",
+  name = "Heading Picker: across Pages",
   key  = "Shift-Alt-a",
   run  = function() unifiedTreePicker() end
 })
@@ -257,7 +257,7 @@ command.define({
 
 ```space-lua
 command.define({
-  name = "Navigate: Heading Picker",
+  name = "Heading Picker: in Page",
   key = "Ctrl-Shift-h",
   run = function()
     local headers = query[[

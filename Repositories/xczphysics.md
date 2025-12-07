@@ -166,24 +166,10 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## Heading
 
-### In page
-
-==Ctrl-Shift-h==
-Add `Navigate: Heading Picker` to CMD
-
-```#meta/library/remote
-name: "Picker/Heading"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
-```
-[[Library/xczphysics/CONFIG/Picker/Heading#In page|Heading]]
-[Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
-[Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
-
-### Across pages
-
-==Ctrl-Shift-h==
-Add `Navigate: Heading Picker` to CMD
+==Ctrl-Shift-h== in page
+==Shift-Alt-a== across pages
+Add `Heading Picker: in Page` to CMD
+Add `Heading Picker: across Pages` to CMD
 
 ```#meta/library/remote
 name: "Picker/Heading"
@@ -193,8 +179,6 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [[Library/xczphysics/CONFIG/Picker/Heading#In page|Heading]]
 [Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
 [Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
-
-
 
 ## Tag
 
