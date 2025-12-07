@@ -12,7 +12,7 @@ ${query[[
 
 # Pick Headings with CMD-Tree UI
 
-## Lua Query Version
+## Query Version
 
 1. headers are indexed -_-||
    - [Object](https://silverbullet.md/Object#header) #silverbullet 
