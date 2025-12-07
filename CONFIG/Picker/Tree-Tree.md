@@ -8,7 +8,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 # Implementation
 
-## Query Version
+## Giant-Tree: Query Version
 
 1. 如果不一次性 Query all header，
    - 看上去是每次只 query 了每个 page 的，但实际上 where 之前仍 query 了所有的 headers
@@ -735,7 +735,7 @@ command.define({
 
 ```
 
-## Query Version
+## Tree-Tree: Query Version
 
 ```lua
 local pageTreePicker
