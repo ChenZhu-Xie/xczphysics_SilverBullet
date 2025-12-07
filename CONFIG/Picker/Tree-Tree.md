@@ -492,7 +492,7 @@ command.define({
 
 ## Query Version
 
-```space-lua
+```lua
 local pageTreePicker
 
 local VERT = "│ 　　"
@@ -750,7 +750,7 @@ command.define({
 
 ## Page + Heading (Full-Path Description)
 
-```lua
+```space-lua
 local pageTreePicker 
 
 local function pickHeadings(pageName)
