@@ -495,7 +495,6 @@ command.define({
 ```space-lua
 local pageTreePicker
 
--- 统一的树形字符（和原逻辑一致）
 local VERT = "│ 　　"
 local BLNK = "　　　"
 local TEE  = "├───　"
@@ -508,39 +507,23 @@ local function pickHeadings(pageName)
     return
   end
 
-  -- 用索引查询该页面所有 header，而不是自己解析 Markdown
-  local q = string.format('from index.tag "header" where page == "%s"', pageName)
-  local headers = query(q) or {}
+  local nodes = query[[
+      from index.tag "header"
+      where _.page == pageName
+      order by _.pos
+    ]]
 
-  -- 转成和原来 nodes 结构兼容的列表：{ level, text, pos }
-  local nodes = {}
-  for _, h in ipairs(headers) do
-    -- name 就是标题文本，pos 是跳转位置，level 是等级
-    if h.name and h.name ~= "" then
-      table.insert(nodes, {
-        level = h.level or 1,
-        text  = h.name,
-        pos   = h.pos or 0,
-      })
-    end
-  end
-
-  -- 没有任何 header：保持原行为，跳到页面开头并居中
   if #nodes == 0 then
     editor.navigate({ page = pageName })
     editor.invokeCommand("Navigate: Center Cursor")
     return
   end
 
-  -- 下面这部分：几乎原样保留，用 level 生成树状前缀和路径描述
-
-  -- 归一化 level：找最小层级
   local min_level = 10
   for _, n in ipairs(nodes) do
     if n.level < min_level then min_level = n.level end
   end
 
-  -- 计算每个节点在其层级上是不是最后一个（画 └/├ 用）
   local last_flags = {}
   for i = 1, #nodes do
     local L = nodes[i].level
@@ -561,45 +544,39 @@ local function pickHeadings(pageName)
   local items = {}
   local stack = {}
 
-  -- 根项：代表页面本身（pos = 0）
   table.insert(items, {
     name        = ".",
     description = pageName,
     pos         = 0,
   })
 
-  -- 按顺序构建每个 heading 项
   for i = 1, #nodes do
     local node = nodes[i]
     local L = node.level - min_level + 1
     local is_last = last_flags[i]
 
-    -- 回退 stack 至当前层级的父节点
     while #stack > 0 and stack[#stack].level >= L do
       table.remove(stack)
     end
 
-    -- 前缀：根据祖先是否为 last 决定画竖线还是空格
     local prefix = ""
     for d = 1, #stack do
       prefix = prefix .. (stack[d].last and BLNK or VERT)
     end
 
-    -- 处理跳级层（比如从 H1 直接到 H3）
     for _ = #stack + 1, L - 1 do
       prefix = prefix .. BLNK
     end
 
-    -- 构造「H1 > H2 > 当前」的路径描述
     local path_parts = {}
     for _, s in ipairs(stack) do
-      table.insert(path_parts, s.text)
+      table.insert(path_parts, s.name)
     end
-    table.insert(path_parts, node.text)
+    table.insert(path_parts, node.name)
     local full_path = table.concat(path_parts, " > ")
 
     local elbow = is_last and ELB or TEE
-    local label = prefix .. elbow .. node.text
+    local label = prefix .. elbow .. node.name
 
     table.insert(items, {
       name        = label,
@@ -607,10 +584,9 @@ local function pickHeadings(pageName)
       pos         = node.pos,
     })
 
-    table.insert(stack, { level = L, last = is_last, text = node.text })
+    table.insert(stack, { level = L, last = is_last, text = node.name })
   end
 
-  -- 显示 Heading Picker
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
@@ -620,14 +596,12 @@ local function pickHeadings(pageName)
     end
 
     if pos == 0 then
-      -- 选择了根项 "."
       editor.navigate({ page = pageName })
     elseif pos then
       editor.navigate({ page = pageName, pos = pos })
     end
     editor.invokeCommand("Navigate: Center Cursor")
   else
-    -- 取消时回到 Page Tree
     return pageTreePicker()
   end
 end
@@ -642,7 +616,6 @@ pageTreePicker = function()
     real_pages[page.name] = true
   end
 
-  -- 构造所有中间路径（父“目录”）
   for _, page in ipairs(pages) do
     local parts = {}
     for part in string.gmatch(page.name, "[^/]+") do
@@ -660,14 +633,12 @@ pageTreePicker = function()
     end
   end
 
-  -- 标记真实存在的页面
   for path, _ in pairs(real_pages) do
     if path_map[path] then
       path_map[path].is_real = true
     end
   end
 
-  -- 转成数组并排序
   local nodes = {}
   for _, node in pairs(path_map) do
     table.insert(nodes, node)
@@ -682,7 +653,6 @@ pageTreePicker = function()
     return
   end
 
-  -- 计算每个路径在其 level 上是否为最后一个
   local last_flags = {}
   for i = 1, #nodes do
     local L = nodes[i].level
@@ -725,7 +695,7 @@ pageTreePicker = function()
 
     local elbow = is_last and ELB or TEE
 
-    local display_text = node.text
+    local display_text = node.name
     local desc = node.name
 
     if not node.is_real then
@@ -762,10 +732,8 @@ pageTreePicker = function()
 
     if page_name then
       if is_real then
-        -- 真正的页面：进入该页的 Heading 选择
         pickHeadings(page_name)
       else
-        -- 目录：和原逻辑一样，创建/跳转
         editor.flashNotification("Folder selected. Creating page: " .. page_name)
         editor.navigate({ page = page_name })
       end
@@ -901,13 +869,13 @@ local function pickHeadings(pageName)
 
     local path_parts = {}
     for _, s in ipairs(stack) do
-      table.insert(path_parts, s.text)
+      table.insert(path_parts, s.name)
     end
-    table.insert(path_parts, nodes[i].text)
+    table.insert(path_parts, nodes[i].name)
     local full_path = table.concat(path_parts, " > ")
 
     local elbow = is_last and ELB or TEE
-    local label = prefix .. elbow .. nodes[i].text
+    local label = prefix .. elbow .. nodes[i].name
 
     table.insert(items, {
       name = label,
@@ -915,7 +883,7 @@ local function pickHeadings(pageName)
       pos = nodes[i].pos
     })
 
-    table.insert(stack, { level = L, last = is_last, text = nodes[i].text })
+    table.insert(stack, { level = L, last = is_last, text = nodes[i].name })
   end
 
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
