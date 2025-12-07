@@ -252,7 +252,7 @@ command.define({
 2. fixed 6级 → 4级 → 2级 problem,  2级 → 4级 → 6级 problem
       -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
-```lua
+```space-lua
 command.define({
   name = "Navigate: Heading Picker",
   key = "Ctrl-Shift-h",
