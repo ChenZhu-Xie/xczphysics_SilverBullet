@@ -83,7 +83,7 @@ command.define({
       table.insert(stack, { level = rel_level, last = is_last })
     end
 
-    local selection = editor.filterBox("Heading Picker", items, "Select a Header...")
+    local selection = editor.filterBox(" Pick", items, "Select a Header...", "eee")
     if selection then
       editor.navigate({ pos = selection.pos })
     end
