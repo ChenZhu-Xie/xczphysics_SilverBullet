@@ -15,20 +15,28 @@ pageDecoration.prefix: "🌲🌲 "
    - 所以如果每次都只 query 一页，速度反而会变慢。
 
 ```space-lua
-local VERT = "│ 　　"
-local BLNK = "　　　"
-local TEE  = "├───　"
-local ELB  = "└───　"
+-- 1. 定义两套样式：Standard (Folder/Page) 和 Heading (虚线风格)
+local VERT   = "│ 　　"
+local BLNK   = "　　　"
+local TEE    = "├───　"
+local ELB    = "└───　"
+
+-- Heading 专用样式 (使用虚线/点状)
+local H_VERT = "┊ 　　" 
+local H_TEE  = "├···　"
+local H_ELB  = "└···　"
 
 local function unifiedTreePicker()
   local pages = space.listPages()
   local path_map = {}
   local real_pages = {}
 
+  -- 标记真实存在的页面
   for _, page in ipairs(pages) do
     real_pages[page.name] = true
   end
 
+  -- 构建文件树结构
   for _, page in ipairs(pages) do
     local parts = {}
     for part in string.gmatch(page.name, "[^/]+") do
@@ -46,6 +54,7 @@ local function unifiedTreePicker()
     end
   end
 
+  -- 修正真实页面的类型
   for path, _ in pairs(real_pages) do
     if path_map[path] then
       path_map[path].is_real = true
@@ -53,6 +62,7 @@ local function unifiedTreePicker()
     end
   end
 
+  -- 排序节点
   local sorted_nodes = {}
   for _, node in pairs(path_map) do
     table.insert(sorted_nodes, node)
@@ -67,6 +77,7 @@ local function unifiedTreePicker()
     return
   end
 
+  -- 获取所有标题
   local all_headers = query[[
     from index.tag "header"
     order by _.page, _.pos
@@ -89,6 +100,7 @@ local function unifiedTreePicker()
     end
   end
 
+  -- 合并节点（将标题插入到对应页面下方）
   local final_nodes = {}
 
   for _, node in ipairs(sorted_nodes) do
@@ -129,7 +141,7 @@ local function unifiedTreePicker()
             text      = h.text,
             level     = absolute_level,
             is_real   = false,
-            type      = "heading",
+            type      = "heading", -- 关键标识
             pos       = h.pos,
             page_name = node.name,
             full_desc = full_path_desc
@@ -139,6 +151,7 @@ local function unifiedTreePicker()
     end
   end
 
+  -- 计算每一层是否为最后一个节点
   local last_flags = {}
   local total = #final_nodes
 
@@ -160,23 +173,38 @@ local function unifiedTreePicker()
     last_flags[i] = is_last
   end
 
+  -- 生成显示列表
   local items = {}
-  local stack = {}
+  local stack = {} -- stack 现在存储 { level, last, type }
 
   for i = 1, total do
     local node   = final_nodes[i]
     local L      = node.level
     local is_last = last_flags[i]
 
+    -- 弹出层级过深的 stack
     while #stack > 0 and stack[#stack].level >= L do
       table.remove(stack)
     end
 
     local prefix = ""
+    
+    -- 2. 绘制父级垂直线 (Vertical Lines)
     for d = 1, #stack do
-      prefix = prefix .. (stack[d].last and BLNK or VERT)
+      local parent = stack[d]
+      if parent.last then
+        prefix = prefix .. BLNK
+      else
+        -- 如果父级是 heading，垂直线用虚线；如果是 folder/page，用实线
+        if parent.type == "heading" then
+          prefix = prefix .. H_VERT
+        else
+          prefix = prefix .. VERT
+        end
+      end
     end
 
+    -- 补齐层级差 (通常发生在标题跳级时，如 H1 -> H3)
     for k = #stack + 1, L - 1 do
       local has_deeper = false
       for j = i + 1, total do
@@ -188,10 +216,18 @@ local function unifiedTreePicker()
           break
         end
       end
-      prefix = prefix .. (has_deeper and VERT or BLNK)
+      -- 如果当前节点是 heading，中间的补齐线也用虚线风格
+      local v_char = (node.type == "heading") and H_VERT or VERT
+      prefix = prefix .. (has_deeper and v_char or BLNK)
     end
 
-    local elbow = is_last and ELB or TEE
+    -- 3. 绘制当前节点的连接符 (Elbow/Tee)
+    local elbow = ""
+    if node.type == "heading" then
+        elbow = is_last and H_ELB or H_TEE
+    else
+        elbow = is_last and ELB or TEE
+    end
 
     local display_text = node.text
     local desc = ""
@@ -217,7 +253,8 @@ local function unifiedTreePicker()
       }
     })
 
-    table.insert(stack, { level = L, last = is_last })
+    -- 将当前节点压入栈，记录 type 以便子节点判断样式
+    table.insert(stack, { level = L, last = is_last, type = node.type })
   end
 
   local result = editor.filterBox("🤏 Pick:", items, "Select Page or Heading...", "Unified Tree")
