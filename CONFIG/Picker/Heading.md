@@ -10,7 +10,7 @@ ${query[[
       order by _.pos
     ]]}
 
-## Pick Headings with CMD-Tree UI
+# Pick Headings with CMD-Tree UI
 
 ## Lua Query Version
 
@@ -19,8 +19,6 @@ command.define({
   name = "Navigate: Heading Picker",
   key = "Ctrl-Shift-h",
   run = function()
-    -- 1. 使用 Query 直接获取当前页面的所有 Header
-    -- 结果已包含 ref, level, name, page, pos 等属性，且通常按文档顺序排列
     local headers = query[[
       from index.tag "header"
       where _.page == editor.getCurrentPage()
