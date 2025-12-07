@@ -869,13 +869,13 @@ local function pickHeadings(pageName)
 
     local path_parts = {}
     for _, s in ipairs(stack) do
-      table.insert(path_parts, s.name)
+      table.insert(path_parts, s.text)
     end
-    table.insert(path_parts, nodes[i].name)
+    table.insert(path_parts, nodes[i].text)
     local full_path = table.concat(path_parts, " > ")
 
     local elbow = is_last and ELB or TEE
-    local label = prefix .. elbow .. nodes[i].name
+    local label = prefix .. elbow .. nodes[i].text
 
     table.insert(items, {
       name = label,
@@ -883,7 +883,7 @@ local function pickHeadings(pageName)
       pos = nodes[i].pos
     })
 
-    table.insert(stack, { level = L, last = is_last, text = nodes[i].name })
+    table.insert(stack, { level = L, last = is_last, text = nodes[i].text })
   end
 
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
@@ -1049,7 +1049,6 @@ command.define({
   key = "Shift-Alt-e",
   run = function() pageTreePicker() end
 })
-
 ```
 
 ## Page + Heading (double return)
