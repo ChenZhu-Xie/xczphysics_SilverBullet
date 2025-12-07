@@ -785,7 +785,7 @@ command.define({
 
 ```
 
-## Tree-Tree + Page-Paste
+## Tree-Tree (along with Page-Paste)
 
 ```space-lua
 local pageTreePicker
@@ -915,123 +915,6 @@ local function pickHeadings(pageName)
   end
 end
 
-----------------------------------------------------------------------
--- 抽取：构建 page 树的 items（供两个命令共用）
-----------------------------------------------------------------------
-
-local function buildPageTreeItems()
-  local pages = space.listPages()
-
-  local path_map  = {}
-  local real_pages = {}
-
-  for _, page in ipairs(pages) do
-    real_pages[page.name] = true
-  end
-
-  for _, page in ipairs(pages) do
-    local parts = {}
-    for part in string.gmatch(page.name, "[^/]+") do
-      table.insert(parts, part)
-      local current_path = table.concat(parts, "/")
-
-      if not path_map[current_path] then
-        path_map[current_path] = {
-          name    = current_path,
-          text    = part,
-          level   = #parts,
-          is_real = false,
-        }
-      end
-    end
-  end
-
-  for path, _ in pairs(real_pages) do
-    if path_map[path] then
-      path_map[path].is_real = true
-    end
-  end
-
-  local nodes = {}
-  for _, node in pairs(path_map) do
-    table.insert(nodes, node)
-  end
-
-  table.sort(nodes, function(a, b)
-    return a.name < b.name
-  end)
-
-  if #nodes == 0 then
-    return nil, "No pages found"
-  end
-
-  local last_flags = {}
-  for i = 1, #nodes do
-    local L = nodes[i].level
-    local is_last = true
-
-    for j = i + 1, #nodes do
-      local next_L = nodes[j].level
-
-      if next_L == L then
-        is_last = false
-        break
-      elseif next_L < L then
-        is_last = true
-        break
-      end
-    end
-    last_flags[i] = is_last
-  end
-
-  local items = {}
-  local stack = {}
-
-  for i = 1, #nodes do
-    local node = nodes[i]
-    local L = node.level
-    local is_last = last_flags[i]
-
-    while #stack >= L do
-      table.remove(stack)
-    end
-
-    local prefix = ""
-    for d = 1, #stack do
-      prefix = prefix .. (stack[d].last and BLNK or VERT)
-    end
-
-    for _ = #stack + 1, L - 1 do
-      prefix = prefix .. BLNK
-    end
-
-    local elbow = is_last and ELB or TEE
-
-    local display_text = node.text
-    local desc = node.name
-
-    if not node.is_real then
-      display_text = display_text .. "/"
-      desc = desc .. "/"
-    end
-
-    local label = prefix .. elbow .. display_text
-
-    table.insert(items, {
-      name        = label,
-      description = desc,
-      value       = {
-        page    = node.name,
-        is_real = node.is_real,
-      },
-    })
-
-    table.insert(stack, { level = L, last = is_last })
-  end
-
-  return items
-end
-
 ------------------------------------------------------------------
 -- page + heading
 ------------------------------------------------------------------
@@ -1068,36 +951,6 @@ pageTreePicker = function()
 end
 
 ------------------------------------------------------------------
--- page
-------------------------------------------------------------------
-
-local function pageOnlyPicker()
-  local items, err = buildPageTreeItems()
-  if not items then
-    editor.flashNotification(err)
-    return
-  end
-
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
-
-  if not result then return end
-
-  local selection = result.value or result
-  local page_name
-
-  if type(selection) ~= "table" then
-    page_name = selection
-  else
-    page_name = selection.page
-  end
-
-  if page_name then
-    editor.navigate({ page = page_name })
-    editor.invokeCommand("Navigate: Center Cursor")
-  end
-end
-
-------------------------------------------------------------------
 -- page + heading
 ------------------------------------------------------------------
 
@@ -1105,16 +958,6 @@ command.define({
   name = "Navigate: Tree-Tree Picker",
   key  = "Shift-Alt-e",
   run  = function() pageTreePicker() end,
-})
-
-------------------------------------------------------------------
--- page
-------------------------------------------------------------------
-
-command.define({
-  name = "Page Picker: Paste",
-  key  = "Shift-Alt-k",
-  run  = function() pageOnlyPicker() end,
 })
 ```
 
@@ -2241,6 +2084,168 @@ command.define({
   name = "Navigate: Page Tree & Heading Picker",
   key = "Shift-Alt-e",
   run = function() pageTreePicker() end
+})
+```
+
+## Page-Paste (along with Tree-Tree)
+
+```space-lua
+
+------------------------------------------------------------------
+-- public: buildPageTreeItems
+------------------------------------------------------------------
+
+function buildPageTreeItems()
+  local pages = space.listPages()
+
+  local path_map  = {}
+  local real_pages = {}
+
+  for _, page in ipairs(pages) do
+    real_pages[page.name] = true
+  end
+
+  for _, page in ipairs(pages) do
+    local parts = {}
+    for part in string.gmatch(page.name, "[^/]+") do
+      table.insert(parts, part)
+      local current_path = table.concat(parts, "/")
+
+      if not path_map[current_path] then
+        path_map[current_path] = {
+          name    = current_path,
+          text    = part,
+          level   = #parts,
+          is_real = false,
+        }
+      end
+    end
+  end
+
+  for path, _ in pairs(real_pages) do
+    if path_map[path] then
+      path_map[path].is_real = true
+    end
+  end
+
+  local nodes = {}
+  for _, node in pairs(path_map) do
+    table.insert(nodes, node)
+  end
+
+  table.sort(nodes, function(a, b)
+    return a.name < b.name
+  end)
+
+  if #nodes == 0 then
+    return nil, "No pages found"
+  end
+
+  local last_flags = {}
+  for i = 1, #nodes do
+    local L = nodes[i].level
+    local is_last = true
+
+    for j = i + 1, #nodes do
+      local next_L = nodes[j].level
+
+      if next_L == L then
+        is_last = false
+        break
+      elseif next_L < L then
+        is_last = true
+        break
+      end
+    end
+    last_flags[i] = is_last
+  end
+
+  local items = {}
+  local stack = {}
+
+  for i = 1, #nodes do
+    local node = nodes[i]
+    local L = node.level
+    local is_last = last_flags[i]
+
+    while #stack >= L do
+      table.remove(stack)
+    end
+
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or VERT)
+    end
+
+    for _ = #stack + 1, L - 1 do
+      prefix = prefix .. BLNK
+    end
+
+    local elbow = is_last and ELB or TEE
+
+    local display_text = node.text
+    local desc = node.name
+
+    if not node.is_real then
+      display_text = display_text .. "/"
+      desc = desc .. "/"
+    end
+
+    local label = prefix .. elbow .. display_text
+
+    table.insert(items, {
+      name        = label,
+      description = desc,
+      value       = {
+        page    = node.name,
+        is_real = node.is_real,
+      },
+    })
+
+    table.insert(stack, { level = L, last = is_last })
+  end
+
+  return items
+end
+
+------------------------------------------------------------------
+-- page
+------------------------------------------------------------------
+
+local function pageOnlyPicker()
+  local items, err = buildPageTreeItems()
+  if not items then
+    editor.flashNotification(err)
+    return
+  end
+
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
+
+  if not result then return end
+
+  local selection = result.value or result
+  local page_name
+
+  if type(selection) ~= "table" then
+    page_name = selection
+  else
+    page_name = selection.page
+  end
+
+  if page_name then
+    editor.navigate({ page = page_name })
+    editor.invokeCommand("Navigate: Center Cursor")
+  end
+end
+
+------------------------------------------------------------------
+-- page
+------------------------------------------------------------------
+
+command.define({
+  name = "Page Picker: Paste",
+  key  = "Shift-Alt-k",
+  run  = function() pageOnlyPicker() end,
 })
 ```
 
