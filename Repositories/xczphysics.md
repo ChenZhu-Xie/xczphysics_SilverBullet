@@ -328,7 +328,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ## Top
 
 ==Top `BreadCrumbs`==
-[.](http://127.0.0.1:3000/Repositories/#)⬇[Repositories](http://127.0.0.1:3000/Repositories)⬇[📚 xczphysics](http://127.0.0.1:3000/Repositories/xczphysics) [👀103](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/Visit%20Times) 1️⃣[👯 Duplicate](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate) 2️⃣[HHH](http://127.0.0.1:3000/STYLE/Theme/HHH) 3️⃣[🖼️ Doom-Two](http://127.0.0.1:3000/STYLE/Theme/Doom-Two) 4️⃣[🖼️ Inline\_CMD](http://127.0.0.1:3000/STYLE/Inline_CMD) 5️⃣[🖼️ Inline\_Text](http://127.0.0.1:3000/STYLE/Color/Inline_Text) ➊[🥖 Bottom](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Widget/BreadCrumbs/Bottom) ➋[👀 Last\_Opened-Page](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page) ➌[🛻Heading](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Picker/Heading) ➍[🛻Tag](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Picker/Tag) ➎[🎏 Git](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Sync/Git)
+[.](http://127.0.0.1:3000/Repositories/#)⬇[Repositories](http://127.0.0.1:3000/Repositories)⬇[📚 xczphysics](http://127.0.0.1:3000/Repositories/xczphysics) [👀103](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Add%20Fields%20for%20Obj/Last%20Opened/Visit%20Times) 1️⃣[👯 Duplicate](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate) 2️⃣[HHH](http://127.0.0.1:3000/Library/xczphysics/STYLE/Theme/HHH) 3️⃣[🖼️ Doom-Two](http://127.0.0.1:3000/Library/xczphysics/STYLE/Theme/Doom-Two) 4️⃣[🖼️ Inline\_CMD](http://127.0.0.1:3000/Library/xczphysics/STYLE/Inline_CMD) 5️⃣[🖼️ Inline\_Text](http://127.0.0.1:3000/Library/xczphysics/STYLE/Color/Inline_Text) ➊[🥖 Bottom](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Widget/BreadCrumbs/Bottom) ➋[👀 Last\_Opened-Page](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page) ➌[🛻Heading](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Picker/Heading) ➍[🛻Tag](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Picker/Tag) ➎[🎏 Git](http://127.0.0.1:3000/Library/xczphysics/CONFIG/Sync/Git)
 
 ```#meta/library/remote
 name: "BreadCrumbs/Top"
@@ -394,25 +394,25 @@ Apply `${Green("Your Text")}`
 
 ```#meta/library/remote
 name: "Color/Inline_Text"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Color/Inline_Text.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Color/Inline_Text.md
 ```
 [[Library/xczphysics/STYLE/Color/Inline_Text#space-lua|Coloring Text]]
-[Inline_Text](https://enlarge-the-percentage.fly.dev/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
-[Inline_Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Inline_Text.md) #github
+[Inline_Text](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Color/Inline_Text#space-lua) #enlarge-the-percentage #fly
+[Inline_Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Color/Inline_Text.md) #github
 
 ## Builtin Formats
 
 ==Define & Update KeyBinds `for Format CMDs`==
 
 ```#meta/library/remote
-name: "STYLE/Builtin_Formats"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md
+name: "Builtin_Formats"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Builtin_Formats.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Builtin_Formats.md
 ```
 [[Library/xczphysics/STYLE/Builtin_Formats#(Missing) Builtin Formats|Missing Formats]]
-[Builtin_Formats](https://enlarge-the-percentage.fly.dev/STYLE/Builtin_Formats#(Missing)%20Builtin%20Formats) #enlarge-the-percentage #fly
-[Builtin_Formats.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Builtin_Formats.md) #github
+[Builtin_Formats](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Builtin_Formats#(Missing)%20Builtin%20Formats) #enlarge-the-percentage #fly
+[Builtin_Formats.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Builtin_Formats.md) #github
 
 # 🖼️ Theme
 
@@ -422,12 +422,12 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Buil
 
 ```#meta/library/remote
 name: "Theme/Doom-Two"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/Doom-Two.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/Doom-Two.md
 ```
 [[Library/xczphysics/STYLE/Theme/Doom-Two#Base setup|Doom-Two]]
-[Doom Two](https://enlarge-the-percentage.fly.dev/STYLE/Theme/Doom-Two#Base%20setup) #enlarge-the-percentage #fly
-[Doom Two.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/Doom-Two.md) #github
+[Doom Two](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/Doom-Two#Base%20setup) #enlarge-the-percentage #fly
+[Doom Two.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/Doom-Two.md) #github
 
 ## HHH
 
@@ -437,12 +437,12 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Them
 
 ```#meta/library/remote
 name: "Theme/HHH"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
 ```
 [[Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
-[HHH](https://enlarge-the-percentage.fly.dev/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
-[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Theme/HHH.md) #github
+[HHH](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
+[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md) #github
 
 # Other Custom Configs
 
