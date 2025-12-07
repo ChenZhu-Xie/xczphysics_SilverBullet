@@ -4,18 +4,94 @@ tags: meta/library
 pageDecoration.prefix: "🔎 "
 ---
 
-
-
-${query[[from index.tag "header" where page == _CTX.currentPage.name]]}
-
 # Pick Headings with CMD-Tree UI
 
-## Final Version
+## Lua Query Version
+
+```space-lua
+command.define({
+  name = "Navigate: Heading Picker",
+  key = "Ctrl-Shift-h",
+  run = function()
+    -- 1. 使用 Query 直接获取当前页面的所有 Header
+    -- 结果已包含 ref, level, name, page, pos 等属性，且通常按文档顺序排列
+    local headers = query[[
+      from index.tag "header"
+      where page == _CTX.currentPage.name
+      order by pos
+    ]]
+
+    if #headers == 0 then
+      editor.flashNotification("No headings found")
+      return
+    end
+
+    -- 2. 计算最小层级 (用于处理文档从 H2 或 H3 开始的情况)
+    local min_level = 10
+    for _, h in ipairs(headers) do
+      if h.level < min_level then min_level = h.level end
+    end
+
+    -- 3. 构建 UI 列表（保留原本的树形 ASCII 视觉效果）
+    local items = {}
+    local stack = {} -- 记录层级状态 { level, is_last }
+    
+    local VERT = "│ 　　"
+    local BLNK = "　　　"
+    local TEE  = "├───　"
+    local ELB  = "└───　"
+
+    for i, h in ipairs(headers) do
+      -- 判断当前节点是否是同级中的最后一个（用于决定使用 └ 还是 ├）
+      local is_last = true
+      for j = i + 1, #headers do
+        if headers[j].level <= h.level then
+          if headers[j].level == h.level then is_last = false end
+          break
+        end
+      end
+
+      -- 计算相对层级并调整栈
+      local rel_level = h.level - min_level + 1
+      while #stack > 0 and stack[#stack].level >= rel_level do
+        table.remove(stack)
+      end
+
+      -- 生成前缀字符
+      local prefix = ""
+      for _, s in ipairs(stack) do
+        prefix = prefix .. (s.last and BLNK or VERT)
+      end
+      -- 补齐跳级产生的空隙 (如 H1 直接到 H3)
+      for k = #stack + 1, rel_level - 1 do
+        prefix = prefix .. BLNK
+      end
+
+      -- 生成最终显示文本
+      table.insert(items, {
+        name = prefix .. (is_last and ELB or TEE) .. h.name,
+        pos  = h.pos
+      })
+
+      table.insert(stack, { level = rel_level, last = is_last })
+    end
+
+    -- 4. 显示并跳转
+    local selection = editor.filterBox("Heading Picker", items, "Select a Header...")
+    if selection then
+      editor.navigate({ pos = selection.pos })
+    end
+  end
+})
+
+```
+
+## 3rd Version
 
 4. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=9647438d39
 5. https://community.silverbullet.md/t/headings-picker/1745/8
 
-```space-lua
+```lua
 local function headingsPicker(options)
   local text = editor.getText()
   local parsed = markdown.parseMarkdown(text)
