@@ -262,7 +262,7 @@ name: "Picker/Tree-Tree"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md
 ```
-[[Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]], [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Giant-Tree]]
+[[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree: Query Version|Tree-Tree]], [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Giant-Tree]]
 [Tree Tree](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation) #enlarge-the-percentage #fly
 [Tree Tree.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md) #github
 
