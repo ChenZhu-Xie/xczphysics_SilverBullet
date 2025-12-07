@@ -22,8 +22,7 @@ command.define{
       return
     end
 
-    -- 通过 selection 替换为空字符串
-    local sel = { from = match.start - 1, to = match.stop }  -- editor API 多为0基，减1安全
+    local sel = { from = match.start - 1, to = match.stop }
     editor.replaceRange(sel.from, sel.to, "")
     editor.flashNotification(match.name .. ": removed ✅")
     editor.flashNotification(match.text)
