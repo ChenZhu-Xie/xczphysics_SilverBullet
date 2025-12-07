@@ -63,7 +63,7 @@
 | Page Picker: | [[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
-| Picker: | [[CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
+| Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
 | Picker: | [[CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
