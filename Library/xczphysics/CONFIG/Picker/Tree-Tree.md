@@ -785,7 +785,7 @@ command.define({
 
 ```
 
-## Page + Tree-Tree
+## Page-Paste + Tree-Tree
 
 ```space-lua
 local pageTreePicker
