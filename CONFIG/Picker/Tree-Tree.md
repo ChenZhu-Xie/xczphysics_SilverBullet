@@ -30,9 +30,13 @@ local ELB    = "└───　"
 -- local H_TEE  = "┊┈💠┈ "
 -- local H_ELB  = "╰┈💎┈ "
 
+-- local H_VERT = "┊ 　　"
+-- local H_TEE  = "┊┈🔹┈ "
+-- local H_ELB  = "╰┈🔸┈ "
+
 local H_VERT = "┊ 　　"
-local H_TEE  = "┊┈🔹┈ "
-local H_ELB  = "╰┈🔸┈ "
+local H_TEE  = "┊┈┈🔹 "
+local H_ELB  = "╰┈┈🔸 "
 
 local function unifiedTreePicker()
   local pages = space.listPages()
