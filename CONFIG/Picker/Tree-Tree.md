@@ -8,9 +8,15 @@ pageDecoration.prefix: "🌲🌲 "
 
 # Implementation
 
-## Tree-Tree (header path)
+## Query Version
 
 ```space-lua
+
+```
+
+### Tree-Tree (header path)
+
+```lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
@@ -245,7 +251,7 @@ command.define({
 })
 ```
 
-## Tree-Tree (header name)
+### Tree-Tree (header name)
 
 ```lua
 local function getPageHeadings(pageName)
@@ -759,7 +765,7 @@ command.define({
 
 ```
 
-## Page + Heading (Full-Path Description)
+### Page + Heading (Full-Path Description)
 
 ```lua
 local pageTreePicker 
@@ -1062,7 +1068,7 @@ command.define({
 })
 ```
 
-## Page + Heading (double return)
+### Page + Heading (double return)
 
 1. fix empty folder’s wrong indent -_-||
 
@@ -1361,7 +1367,7 @@ command.define({
 
 ```
 
-## Page + Heading (direct return)
+### Page + Heading (direct return)
 
 ```lua
 local function pickHeadings(pageName)
