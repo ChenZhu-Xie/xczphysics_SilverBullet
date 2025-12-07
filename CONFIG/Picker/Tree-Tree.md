@@ -11,39 +11,6 @@ pageDecoration.prefix: "🌲🌲 "
 ## Tree-Tree (header path)
 
 ```lua
-local function getPageHeadings(pageName)
-  local text = space.readPage(pageName)
-  if not text then return {} end
-
-  local nodes = {}
-  local in_code_block = false
-  local current_pos = 0
-  
-  for line, newline in string.gmatch(text, "([^\r\n]*)(\r?\n?)") do
-    if line == "" and newline == "" then break end
-
-    if line:match("^```") then 
-      in_code_block = not in_code_block 
-    end
-
-    if not in_code_block then
-      local hashes, title = line:match("^(#+)%s+(.*)")
-      if hashes then
-        title = title:match("^(.-)%s*$")
-        table.insert(nodes, {
-          level = #hashes,
-          text  = title,
-          pos   = current_pos
-        })
-      end
-    end
-
-    current_pos = current_pos + #line + #newline
-  end
-  
-  return nodes
-end
-
 local function unifiedTreePicker()
   local pages = space.listPages()
   local path_map = {}
@@ -98,7 +65,11 @@ local function unifiedTreePicker()
     table.insert(final_nodes, node)
     
     if node.is_real then
-      local headings = getPageHeadings(node.name)
+      local headings = query[[
+      from index.tag "header"
+      where _.page == node.name
+      order by _.pos
+    ]]
       
       if #headings > 0 then
         local min_level = 10
@@ -113,11 +84,11 @@ local function unifiedTreePicker()
             table.remove(heading_stack)
           end
           
-          table.insert(heading_stack, {level = h.level, text = h.text})
+          table.insert(heading_stack, {level = h.level, text = h.name})
 
           local path_parts = { node.name }
           for _, stack_item in ipairs(heading_stack) do
-            table.insert(path_parts, stack_item.text)
+            table.insert(path_parts, stack_item.name)
           end
           local full_path_desc = table.concat(path_parts, ">")
 
@@ -126,7 +97,7 @@ local function unifiedTreePicker()
           
           table.insert(final_nodes, {
             name = node.name,
-            text = h.text,
+            text = h.name,
             level = absolute_level,
             is_real = false,
             type = "heading",
@@ -186,7 +157,7 @@ local function unifiedTreePicker()
 
     local elbow = is_last and ELB or TEE
     
-    local display_text = node.text
+    local display_text = node.name
     local desc = ""
     
     if node.type == "folder" then
