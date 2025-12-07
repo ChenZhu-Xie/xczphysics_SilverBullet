@@ -54,7 +54,7 @@ website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Librar
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md
 ```
 [[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url|Folder Url]]
-[Folder_Url](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
+[Folder_Url](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
 [Folder_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md) #github
 
 ## Github Url
