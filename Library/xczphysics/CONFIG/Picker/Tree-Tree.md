@@ -1080,9 +1080,7 @@ local function pageOnlyPicker()
 
   local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
 
-  if not result then
-    return
-  end
+  if not result then return end
 
   local selection = result.value or result
   local page_name
