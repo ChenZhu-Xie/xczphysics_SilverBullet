@@ -78,6 +78,7 @@ command.define({
       table.insert(items, {
         name = prefix .. (is_last and ELB or TEE) .. h.name,
         ref  = h.ref
+        pos = h.pos
       })
 
       table.insert(stack, { level = rel_level, last = is_last })
@@ -86,7 +87,8 @@ command.define({
     local selection = editor.filterBox("🤏 Pick", items, "Select a Header...", "a Header")
     if selection then
       editor.navigate(selection.ref)
-      editor.invokeCommand("Navigate: Center Cursor")
+      editor.moveCursor(result.pos, true)
+      -- editor.invokeCommand("Navigate: Center Cursor")
     end
   end
 })
