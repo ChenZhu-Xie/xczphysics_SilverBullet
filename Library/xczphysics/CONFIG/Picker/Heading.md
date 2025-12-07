@@ -240,7 +240,7 @@ local function unifiedTreePicker()
 end
 
 command.define({
-  name = "Navigate: Tree-Tree Picker",
+  name = "Navigate: Header across Pages",
   key  = "Ctrl-Alt-a",
   run  = function() unifiedTreePicker() end
 })
