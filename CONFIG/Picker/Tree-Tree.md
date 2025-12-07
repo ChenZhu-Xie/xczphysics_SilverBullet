@@ -22,9 +22,14 @@ local TEE    = "├───　"
 local ELB    = "└───　"
 
 -- Heading 专用样式 (使用虚线/点状)
-local H_VERT = "┊ 　　" 
-local H_TEE  = "┊┈•┈• "
-local H_ELB  = "╰┈•┈• "
+-- local H_VERT = "┊ 　　" 
+-- local H_TEE  = "┊┈•┈• "
+-- local H_ELB  = "╰┈•┈• "
+
+-- 🧬 虚线连接风格
+local H_VERT = "┊ 　　"
+local H_TEE  = "┊┈💠┈ "   -- 中间夹一个亮色宝石
+local H_ELB  = "╰┈💎┈ "
 
 local function unifiedTreePicker()
   local pages = space.listPages()
