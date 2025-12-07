@@ -64,7 +64,7 @@
 | Picker: | [[CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
 | Picker: | [[CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
-| Picker: | [[CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
+| Picker: | [[Library/xczphysics/CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
 | Picker: | [[CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Picker: | [[CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]] | | Shift | Alt | e |

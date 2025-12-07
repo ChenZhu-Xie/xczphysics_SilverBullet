@@ -187,12 +187,12 @@ Add `Navigate: Tag Picker` to CMD
 
 ```#meta/library/remote
 name: "Picker/Tag"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md
 ```
 [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]]
 [Tag](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Tag#Navigate:%20Tag%20Picker) #enlarge-the-percentage #fly
-[Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Tag.md) #github
+[Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md) #github
 
 ## Table
 
@@ -201,12 +201,12 @@ Add `Navigate: Table Picker` to CMD
 
 ```#meta/library/remote
 name: "Picker/Table"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Table.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Table.md
 ```
-[[CONFIG/Picker/Table#Table|Table]]
-[Table](https://enlarge-the-percentage.fly.dev/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
-[Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Picker/Table.md) #github
+[[Library/xczphysics/CONFIG/Picker/Table#Table|Table]]
+[Table](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Table#Table) #enlarge-the-percentage #fly
+[Table.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Table.md) #github
 
 ## File Link
 
