@@ -24,7 +24,7 @@ name: "Copy_as/Cursor_Link"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md
 ```
-[[CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
+[[Library/xczphysics/CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Cursor Link]]
 [Cursor_Link](https://enlarge-the-percentage.fly.dev/CONFIG/Copy_as/Cursor_Link#Generate%20Link%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 [Cursor_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/Cursor_Link.md) #github
 
