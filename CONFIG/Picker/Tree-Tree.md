@@ -786,7 +786,7 @@ command.define({
 
 ## Tree-Tree: Query Version
 
-```lua
+```space-lua
 local pageTreePicker
 
 local VERT = "│ 　　"
