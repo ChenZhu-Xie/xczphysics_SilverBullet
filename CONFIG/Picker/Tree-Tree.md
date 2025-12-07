@@ -492,7 +492,6 @@ command.define({
 
 ## Query Version
 
-
 ```lua
 local pageTreePicker
 
