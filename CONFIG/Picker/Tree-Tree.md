@@ -11,7 +11,225 @@ pageDecoration.prefix: "🌲🌲 "
 ## Query Version
 
 ```space-lua
+local VERT = "│ 　　"
+local BLNK = "　　　"
+local TEE  = "├───　"
+local ELB  = "└───　"
 
+local function unifiedTreePicker()
+  local pages = space.listPages()
+  local path_map = {}
+  local real_pages = {}
+
+  for _, page in ipairs(pages) do
+    real_pages[page.name] = true
+  end
+
+  for _, page in ipairs(pages) do
+    local parts = {}
+    for part in string.gmatch(page.name, "[^/]+") do
+      table.insert(parts, part)
+      local current_path = table.concat(parts, "/")
+      if not path_map[current_path] then
+        path_map[current_path] = {
+          name = current_path,
+          text = part,
+          level = #parts,
+          is_real = false,
+          type = "folder"
+        }
+      end
+    end
+  end
+
+  for path, _ in pairs(real_pages) do
+    if path_map[path] then
+      path_map[path].is_real = true
+      path_map[path].type = "page"
+    end
+  end
+
+  local sorted_nodes = {}
+  for _, node in pairs(path_map) do
+    table.insert(sorted_nodes, node)
+  end
+
+  table.sort(sorted_nodes, function(a, b)
+    return a.name < b.name
+  end)
+
+  if #sorted_nodes == 0 then
+    editor.flashNotification("No pages found")
+    return
+  end
+
+  local final_nodes = {}
+
+  for _, node in ipairs(sorted_nodes) do
+    table.insert(final_nodes, node)
+
+    if node.is_real then
+      local pageName = node.name
+      local headers = query[[
+        from index.tag "header"
+        where _.page == pageName
+        order by _.pos
+      ]]
+
+      if headers and #headers > 0 then
+        local min_level = 10
+        for _, h in ipairs(headers) do
+          if h.level and h.level < min_level then
+            min_level = h.level
+          end
+        end
+
+        local heading_stack = {}
+
+        for _, h in ipairs(headers) do
+          local hlevel = h.level or min_level
+          while #heading_stack > 0 and heading_stack[#heading_stack].level >= hlevel do
+            table.remove(heading_stack)
+          end
+
+          table.insert(heading_stack, { level = hlevel, text = h.name })
+
+          local path_parts = { node.name }
+          for _, stack_item in ipairs(heading_stack) do
+            table.insert(path_parts, stack_item.text)
+          end
+          local full_path_desc = table.concat(path_parts, ">")
+
+          local relative_level = hlevel - min_level + 1
+          local absolute_level = node.level + relative_level
+
+          table.insert(final_nodes, {
+            name = node.name,
+            text = h.name,
+            level = absolute_level,
+            is_real = false,
+            type = "heading",
+            pos = h.pos,
+            page_name = node.name,
+            full_desc = full_path_desc
+          })
+        end
+      end
+    end
+  end
+
+  local last_flags = {}
+  local total = #final_nodes
+
+  for i = 1, total do
+    local L = final_nodes[i].level
+    local is_last = true
+
+    for j = i + 1, total do
+      local next_L = final_nodes[j].level
+      if next_L == L then
+        is_last = false
+        break
+      elseif next_L < L then
+        is_last = true
+        break
+      end
+    end
+
+    last_flags[i] = is_last
+  end
+
+  local items = {}
+  local stack = {}
+
+  for i = 1, total do
+    local node = final_nodes[i]
+    local L = node.level
+    local is_last = last_flags[i]
+
+    while #stack > 0 and stack[#stack].level >= L do
+      table.remove(stack)
+    end
+
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or VERT)
+    end
+
+    for k = #stack + 1, L - 1 do
+      local has_deeper = false
+      for j = i + 1, total do
+        local next_L = final_nodes[j].level
+        if next_L == k then
+          has_deeper = true
+          break
+        elseif next_L < k then
+          break
+        end
+      end
+      prefix = prefix .. (has_deeper and VERT or BLNK)
+    end
+
+    local elbow = is_last and ELB or TEE
+
+    local display_text = node.text
+    local desc = ""
+
+    if node.type == "folder" then
+      display_text = display_text .. "/"
+      desc = node.name .. "/"
+    elseif node.type == "page" then
+      desc = node.name
+    elseif node.type == "heading" then
+      desc = node.full_desc
+    end
+
+    local label = prefix .. elbow .. display_text
+
+    table.insert(items, {
+      name = label,
+      description = desc,
+      value = {
+        page = node.page_name or node.name,
+        pos = node.pos,
+        type = node.type
+      }
+    })
+
+    table.insert(stack, { level = L, last = is_last })
+  end
+
+  local result = editor.filterBox("Jump to:", items, "Select Page or Heading...", "Unified Tree")
+
+  if result then
+    local selection = result.value or result
+    if type(selection) ~= "table" then
+      return
+    end
+
+    local page_name = selection.page
+    local pos = selection.pos
+    local node_type = selection.type
+
+    if node_type == "folder" then
+      editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
+      editor.navigate({ page = page_name })
+    elseif node_type == "page" or node_type == "heading" then
+      if pos and pos > 0 then
+        editor.navigate({ page = page_name, pos = pos })
+      else
+        editor.navigate({ page = page_name })
+      end
+      editor.invokeCommand("Navigate: Center Cursor")
+    end
+  end
+end
+
+command.define({
+  name = "Navigate: Tree-Tree Picker",
+  key  = "Shift-Alt-e",
+  run  = function() unifiedTreePicker() end
+})
 ```
 
 ### Tree-Tree (header path)
