@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Tree-Tree (header path)
 
-```lua
+```space-lua
 local function unifiedTreePicker()
   local pages = space.listPages()
   local path_map = {}
@@ -464,7 +464,7 @@ command.define({
 ## Query Version
 
 
-```space-lua
+```lua
 local pageTreePicker
 
 local VERT = "│ 　　"
