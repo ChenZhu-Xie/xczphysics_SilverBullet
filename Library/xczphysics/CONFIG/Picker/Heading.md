@@ -241,7 +241,7 @@ end
 
 command.define({
   name = "Navigate: Tree-Tree Picker",
-  key  = "Shift-Alt-e",
+  key  = "Ctrl-Alt-a",
   run  = function() unifiedTreePicker() end
 })
 ```
