@@ -25,7 +25,7 @@ command.define{
     local sel = { from = match.start - 1, to = match.stop }
     editor.replaceRange(sel.from, sel.to, "")
     editor.flashNotification(match.name .. ": removed ✅")
-    -- editor.flashNotification(match.text)
+    if not match.name == "Inline Code" then editor.flashNotification(match.text)
   end
 }
 ```
