@@ -4,6 +4,7 @@ tags: meta/library
 pageDecoration.prefix: "🔎 "
 ---
 
+
 # Pick Headings with CMD-Tree UI
 
 ## Lua Query Version
@@ -17,7 +18,7 @@ command.define({
     -- 结果已包含 ref, level, name, page, pos 等属性，且通常按文档顺序排列
     local headers = query[[
       from index.tag "header"
-      where _.page == _CTX.currentPage.name
+      where _.page and _.page == _CTX.currentPage.name
       order by _.pos
     ]]
 
