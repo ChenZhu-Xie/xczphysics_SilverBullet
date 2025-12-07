@@ -85,8 +85,8 @@ command.define{
     editor.copyToClipboard(match.text)
     editor.insertAtCursor(match.text, false)
     -- editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
-    -- editor.flashNotification(match.name .. " ✅")
-    editor.flashNotification(match.text)
+    editor.flashNotification(match.name .. " ✅")
+    -- editor.flashNotification(match.text)
   end
 }
 ```
