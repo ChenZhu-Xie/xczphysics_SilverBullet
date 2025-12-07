@@ -12,7 +12,7 @@ ${query[[
 
 # Pick Headings with CMD-Tree UI
 
-## Lua Query Version
+### Lua Query Version
 
 1. [Object](https://silverbullet.md/Object#header) #silverbullet 
 
