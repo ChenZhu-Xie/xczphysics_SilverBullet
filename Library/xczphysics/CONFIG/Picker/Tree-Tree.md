@@ -1114,7 +1114,7 @@ command.define({
 ------------------------------------------------------------------
 
 command.define({
-  name = "Page Picker: ",
+  name = "Page Picker: Paste",
   key  = "Shift-Alt-k",
   run  = function() pageOnlyPicker() end,
 })
