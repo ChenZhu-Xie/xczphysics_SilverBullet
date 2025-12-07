@@ -88,7 +88,7 @@ local function unifiedTreePicker()
 
           local path_parts = { node.name }
           for _, stack_item in ipairs(heading_stack) do
-            table.insert(path_parts, stack_item.name)
+            table.insert(path_parts, stack_item.text)
           end
           local full_path_desc = table.concat(path_parts, ">")
 
