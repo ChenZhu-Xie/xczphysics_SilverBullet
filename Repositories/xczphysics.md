@@ -69,7 +69,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ```
 [[Library/xczphysics/CONFIG/Copy_as/page_title/Github_Url@197|Github Url]]
 [Github_Url](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/page_title/Github_Url#Github%20Url) #enlarge-the-percentage #fly
-[Github_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Github_Url.md) #github
+[Github_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Github_Url.md) #github
 
 ## Page Link
 
@@ -83,7 +83,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ```
 [[Library/xczphysics/CONFIG/Copy_as/page_title/Page_Link|Page Link]]
 [Page_Link](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/page_title/Page_Link) #enlarge-the-percentage #fly
-[Page_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Copy_as/page_title/Page_Link.md) #github
+[Page_Link.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Page_Link.md) #github
 
 ## Page Wiki
 
@@ -250,7 +250,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ```
 [[Library/xczphysics/CONFIG/Query/lastModified/Picker#Implementation|lastModified]]
 [Picker](https://enlarge-the-percentage.fly.dev/CONFIG/Query/lastModified/Picker#Implementation) #enlarge-the-percentage #fly
-[Picker.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/CONFIG/Query/lastModified/Picker.md) #github
+[Picker.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Query/lastModified/Picker.md) #github
 
 ## Tree-Tree
 
