@@ -10,9 +10,9 @@ ${query[[
       order by _.pos
     ]]}
 
-# Pick Headings with CMD-Tree UI
+###### Pick Headings with CMD-Tree UI
 
-## Lua Query Version
+#### Lua Query Version
 
 1. headers are indexed -_-||
    - [Object](https://silverbullet.md/Object#header) #silverbullet 
