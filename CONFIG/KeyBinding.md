@@ -8,7 +8,7 @@
 | Cursor: | [[CONFIG/Nearest_Pattern/Duplicate#Copy nearest Format around Cursor|Duplicate Nearest Format]] | | | Alt | c |
 | Cursor: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|Copy Nearest Flabel]] | | | Alt | m |
 | Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
-| Cursor: | [[CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
+| Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | [[CONFIG/KeyBinding/Update#Center Cursor|Center]] | | Ctrl | | l |
 | Paste: | [[CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
 | Paste: | [[CONFIG/Paste_as/Cursor_Anchor#here we go|FlBr ←]] | Ctrl | (Shift) | (Alt) | ,< |
@@ -48,7 +48,7 @@
 | Page: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[CONFIG/Copy_as/page_title/Page_Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[CONFIG/Copy_as/page_title/Page_Link|Copy Link]] | | Shift | Alt | l |
-| Page: | [[CONFIG/Copy_as/page_title/Folder_Url|Copy Dir]] | Ctrl | Shift | | d |
+| Page: | [[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url|Copy Dir]] | Ctrl | Shift | | d |
 | Page: | [[Library/Mr-xRed/PrintPreview#PrintPreview Command `Ctrl-Alt-p`|Print]] | Ctrl | Alt | | p |
 | Page: | [[CONFIG/KeyBinding/Define#to Top|to Top]] | Ctrl | | | ↑ |
 | Page: | [[CONFIG/KeyBinding/Define#to Bottom|to Bottom]] | Ctrl | | | ↓ |

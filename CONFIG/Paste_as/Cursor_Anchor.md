@@ -1316,7 +1316,7 @@ index.defineTag {
 
 ## first attempt
 
-1. an testing improvement from [[CONFIG/Copy_as/Cursor_Wiki]] 
+1. an testing improvement from [[Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki]] 
 2. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
 
 ```lua
