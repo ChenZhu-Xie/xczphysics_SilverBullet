@@ -12,7 +12,7 @@ ${query[[
 
 # Across pages
 
-```lua
+```space-lua
 -- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
 local VERT   = "│ 　　"
 local BLNK   = "　　　"
