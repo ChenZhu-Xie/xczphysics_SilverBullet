@@ -972,7 +972,7 @@ pageTreePicker = function()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
