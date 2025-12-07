@@ -570,7 +570,7 @@ local function pickHeadings(pageName)
 
     local path_parts = {}
     for _, s in ipairs(stack) do
-      table.insert(path_parts, s.name)
+      table.insert(path_parts, s.text)
     end
     table.insert(path_parts, node.name)
     local full_path = table.concat(path_parts, " > ")
