@@ -21,8 +21,8 @@ local ELB    = "└───　"
 
 -- 子标题专用样式 (虚线/点状)
 local H_VERT = "┊ 　　"
-local H_TEE  = "┊┈┈🔹 "
-local H_ELB  = "╰┈┈🔸 "
+local H_TEE  = "┊┈┈🔹"
+local H_ELB  = "╰┈┈🔸"
 
 local function unifiedTreePicker()
   local pages = space.listPages()
