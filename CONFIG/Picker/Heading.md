@@ -4,6 +4,10 @@ tags: meta/library
 pageDecoration.prefix: "🔎 "
 ---
 
+
+
+${query[[from index.tag "header" where page == _CTX.currentPage.name]]}
+
 # Pick Headings with CMD-Tree UI
 
 ## Final Version
