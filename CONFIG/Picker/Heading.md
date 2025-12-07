@@ -77,7 +77,7 @@ command.define({
 
       table.insert(items, {
         name = prefix .. (is_last and ELB or TEE) .. h.name,
-        ref  = h.ref
+        ref  = h.ref,
         pos = h.pos
       })
 
