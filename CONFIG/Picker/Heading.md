@@ -10,12 +10,14 @@ ${query[[
       order by _.pos
     ]]}
 
-###### Pick Headings with CMD-Tree UI
+# Pick Headings with CMD-Tree UI
 
-#### Lua Query Version
+## Lua Query Version
 
 1. headers are indexed -_-||
    - [Object](https://silverbullet.md/Object#header) #silverbullet 
+2. fixed 6级 → 4级 → 2级 problem,  2级 → 4级 → 6级 problem
+      -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
 ```space-lua
 command.define({
@@ -100,6 +102,12 @@ command.define({
 
 4. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=9647438d39
 5. https://community.silverbullet.md/t/headings-picker/1745/8
+
+下述 代码 6级→4级→2级 时，
+6级标题左侧加的竖线多加了一条： 
+||| |_ 
+| |_ 
+|-
 
 ```lua
 local function headingsPicker(options)
