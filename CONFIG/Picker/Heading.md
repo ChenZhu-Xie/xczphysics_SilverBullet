@@ -87,7 +87,7 @@ command.define({
     local selection = editor.filterBox("🤏 Pick", items, "Select a Header...", "a Header")
     if selection then
       editor.navigate(selection.ref)
-      editor.moveCursor(result.pos, true)
+      editor.moveCursor(selection.pos, true)
       -- editor.invokeCommand("Navigate: Center Cursor")
     end
   end
