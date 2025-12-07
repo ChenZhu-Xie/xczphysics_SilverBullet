@@ -48,6 +48,10 @@ command.define({
     local TEE  = "├───　"
     local ELB  = "└───　"
 
+    local VERT = "┊ 　　"
+    local TEE  = "┊┈🔹┈ "
+    local ELB  = "╰┈🔸┈ "
+
     for i, h in ipairs(headers) do
       local is_last = true
       for j = i + 1, #headers do
