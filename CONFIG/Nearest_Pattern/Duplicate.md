@@ -86,7 +86,9 @@ command.define{
     editor.insertAtCursor(match.text, false)
     -- editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
     editor.flashNotification(match.name .. " ✅")
-    if not match.name == "Inline Code" then editor.flashNotification(match.text)
+    if not match.name == "Inline Code" then 
+      editor.flashNotification(match.text)
+    end
   end
 }
 ```
