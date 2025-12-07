@@ -10,7 +10,7 @@ pageDecoration.prefix: "🌲🌲 "
 
 ## Query Version
 
-```space-lua
+```lua
 local VERT = "│ 　　"
 local BLNK = "　　　"
 local TEE  = "├───　"
@@ -234,7 +234,7 @@ command.define({
 
 ### Tree-Tree (header path)
 
-```lua
+```space-lua
 local function getPageHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then return {} end
