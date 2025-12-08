@@ -948,6 +948,11 @@ command.define({
 
 1. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
+${query[[
+      from index.tag "header"
+      order by _.pos
+    ]]}
+
 ```space-lua
 local pageTreePicker
 
