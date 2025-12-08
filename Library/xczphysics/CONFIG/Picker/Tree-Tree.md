@@ -882,7 +882,7 @@ local function pickHeadings(pageName)
     table.insert(items, {
       name        = label,
       description = full_path,
-      ref         = node.ref,
+      ref         = pageName .. "#" .. node.name,
     })
 
     table.insert(stack, { level = L, last = is_last, text = node.name })
