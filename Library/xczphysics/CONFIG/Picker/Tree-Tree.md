@@ -837,7 +837,6 @@ local function pickHeadings(pageName)
   table.insert(items, {
     name        = ".",
     description = pageName,
-    pos         = 0,
   })
 
   for i = 1, #nodes do
@@ -881,7 +880,7 @@ local function pickHeadings(pageName)
     table.insert(items, {
       name        = label,
       description = full_path,
-      pos         = node.pos,
+      ref         = node.ref,
     })
 
     table.insert(stack, { level = L, last = is_last, text = node.name })
@@ -890,24 +889,15 @@ local function pickHeadings(pageName)
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
-    local pos = result.pos
-    if not pos and result.value and result.value.pos then
-      pos = result.value.pos
-    end
-
-    if pos == 0 then
-      aliasPaste(pageName)
-    elseif pos then
-      editor.flashNotification(pos)
-      -- aliasPaste(page .. "#" .. pos)
-    end
+    aliasPaste(result.ref)
+    editor.invokeCommand("Navigate: Center Cursor")
   else
     return pageTreePicker()
   end
 end
 
 ------------------------------------------------------------------
--- page + heading
+-- page( + heading)
 ------------------------------------------------------------------
 
 pageTreePicker = function()
@@ -942,7 +932,7 @@ pageTreePicker = function()
 end
 
 ------------------------------------------------------------------
--- page + heading
+-- page + heading: Insert
 ------------------------------------------------------------------
 
 command.define({
