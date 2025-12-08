@@ -7,6 +7,146 @@ pageDecoration.prefix: "🔖 "
 
 # Navigate: Tag Picker
 
+## Multiple Tags
+
+4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
+   而不是 只 pick 1 tag（像下面的 tag picker）或 [[STYLE/Widget/Tag-Page_Navigator|找并集]]
+
+```space-lua
+-- priority: 10
+virtualPage.define {
+  pattern = "tag:(.+)",
+  run = function(inputString)
+    -- 1. 解析标签：按逗号分割并去除首尾空格
+    local rawTags = inputString:split(",")
+    local tags = {}
+    for _, t in ipairs(rawTags) do
+      local cleanTag = t:trim()
+      if cleanTag ~= "" then
+        table.insert(tags, cleanTag)
+      end
+    end
+
+    if #tags == 0 then return "No tags specified." end
+
+    local text = ""
+    local allObjects = {}
+
+    -- 2. 根据标签数量决定查询逻辑
+    if #tags == 1 then
+      -- === 单标签逻辑 (保持原有功能) ===
+      local tagName = tags[1]
+      text = "# Objects tagged with " .. tagName .. "\n"
+      
+      -- 查询该标签下的所有对象
+      allObjects = query("from index.tag('" .. tagName .. "') order by ref")
+
+      -- 父标签导航 (Parent tags)
+      local tagParts = tagName:split("/")
+      local parentTags = {}
+      for i in ipairs(tagParts) do
+        local slice = table.pack(table.unpack(tagParts, 1, i))
+        if i ~= #tagParts then
+          table.insert(parentTags, {name=table.concat(slice, "/")})
+        end
+      end
+      if #parentTags > 0 then
+        text = text .. "## Parent tags\n"
+          .. template.each(parentTags, templates.tagItem)
+      end
+
+      -- 子标签导航 (Child tags)
+      local subTags = query[[
+        from index.tag "tag"
+        where string.startsWith(_.name, "]] .. tagName .. [[/")
+        select {name=_.name}
+      ]]
+      if #subTags > 0 then
+        text = text .. "## Child tags\n"
+          .. template.each(subTags, templates.tagItem)
+      end
+
+    else
+      -- === 多标签交集逻辑 (新功能) ===
+      text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
+      
+      -- 动态构建查询语句
+      -- 基础：从第一个标签的索引中获取
+      local queryString = "from index.tag('" .. tags[1] .. "')"
+      
+      -- 过滤：要求对象必须同时也包含后续的所有标签
+      -- 使用 itags (inherited tags) 确保包含继承的标签
+      for i = 2, #tags do
+        queryString = queryString .. " where table.includes(itags, '" .. tags[i] .. "')"
+      end
+      
+      queryString = queryString .. " order by ref"
+      
+      -- 执行查询
+      allObjects = query(queryString)
+    end
+
+    -- 3. 分类展示结果 (通用逻辑)
+    -- 以下代码复用原逻辑，将 allObjects 分类展示
+    
+    local taggedPages = {}
+    local taggedTasks = {}
+    local taggedItems = {}
+    local taggedData = {}
+    local taggedParagraphs = {}
+
+    -- 在 Lua 中进行分类过滤，避免多次数据库查询，提高性能
+    for _, obj in ipairs(allObjects) do
+      if obj.itags and table.includes(obj.itags, "page") then
+        table.insert(taggedPages, obj)
+      end
+      if obj.itags and table.includes(obj.itags, "task") then
+        table.insert(taggedTasks, obj)
+      end
+      if obj.itags and table.includes(obj.itags, "item") then
+        table.insert(taggedItems, obj)
+      end
+      if obj.itags and table.includes(obj.itags, "data") then
+        table.insert(taggedData, obj)
+      end
+      if obj.itags and table.includes(obj.itags, "paragraph") then
+        table.insert(taggedParagraphs, obj)
+      end
+    end
+
+    if #taggedPages > 0 then
+      text = text .. "## Pages\n"
+        .. template.each(taggedPages, templates.pageItem)
+    end
+    
+    if #taggedTasks > 0 then
+      text = text .. "## Tasks\n"
+        .. template.each(taggedTasks, templates.taskItem)
+    end
+    
+    if #taggedItems > 0 then
+      text = text .. "## Items\n"
+        .. template.each(taggedItems, templates.itemItem)
+    end
+    
+    if #taggedData > 0 then
+      text = text .. "## Data\n"
+        .. markdown.objectsToTable(taggedData) .. "\n"
+    end
+    
+    if #taggedParagraphs > 0 then
+      text = text .. "## Paragraphs\n"
+        .. template.each(taggedParagraphs, templates.paragraphItem)
+    end
+
+    return text
+  end
+}
+
+```
+
+## Single Tag
+
 1. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/2?u=chenzhu-xie
 
 `${query[[from index.tag "tag" select {name = _.name}]]}` 中的 name 不含重复元素, 是个 set 集合。
@@ -16,9 +156,6 @@ pageDecoration.prefix: "🔖 "
 2. https://community.silverbullet.md/t/quickly-search-open-tag-virtual-page/1104/15
 
 3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
-
-4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
-   而不是 只 pick 1 tag（像下面的 tag picker）或 [[STYLE/Widget/Tag-Page_Navigator|找并集]]
 
 ```space-lua
 command.define {
