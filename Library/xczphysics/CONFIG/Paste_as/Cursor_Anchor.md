@@ -261,7 +261,7 @@ command.define {
   key = "Ctrl-.",
   run = function()
     local alias = getSelectedText() or ""
-    local Flabel = pickerBox_labelName('Jump to: label', js.window.navigator.clipboard.readText())
+    local Flabel = pickerBox_labelName('Pick: a label', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
@@ -283,7 +283,7 @@ command.define {
   run = function()
     local iniText = getSelectedText() or ""
     local alias = js.window.navigator.clipboard.readText()
-    local Flabel = pickerBox_labelName('Jump to: label', iniText)
+    local Flabel = pickerBox_labelName('Pick: a label', iniText)
     if not Flabel then return end
     local thBlabelNum = #tableBack(Flabel) + 1
     local aspiringPage = Flabel .. anchorSymbol
