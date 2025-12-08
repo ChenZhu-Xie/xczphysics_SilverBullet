@@ -2078,7 +2078,7 @@ command.define({
 })
 ```
 
-## Page-Paste (depend on Pure-Pge)
+## Page-Paste (depend on Pure-Page)
 
 ```space-lua
 local function pageOnlyPicker()
@@ -2115,7 +2115,7 @@ end
 
 command.define({
   name = "Page Picker: Paste",
-  key  = "Shift-Alt-k",
+  key  = "Alt-k",
   run  = function() pageOnlyPicker() end,
 })
 ```
