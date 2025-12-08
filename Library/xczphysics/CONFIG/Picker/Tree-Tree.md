@@ -785,6 +785,10 @@ command.define({
 
 ```
 
+## Tree-Tree: Insert
+
+
+
 ## Tree-Tree (depend on Pure-Page)
 
 ```space-lua
@@ -2078,7 +2082,7 @@ command.define({
 })
 ```
 
-## Page-Paste (depend on Pure-Page)
+## Page-Insert (depend on Pure-Page)
 
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 
@@ -2090,7 +2094,7 @@ local function pageOnlyPicker()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
 
   if not result then return end
 
@@ -2116,7 +2120,7 @@ end
 ------------------------------------------------------------------
 
 command.define({
-  name = "Page Picker: Paste",
+  name = "Page Picker: Insert",
   key  = "Alt-k",
   run  = function() pageOnlyPicker() end,
 })
@@ -2265,7 +2269,7 @@ local function pageOnlyPicker()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
 
   if not result then return end
 
