@@ -9,6 +9,11 @@ pageDecoration.prefix: "🌲🌲 "
 
 # Implementation
 
+## Giant-Tree: Insert
+
+1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
+
+
 ## Giant-Tree: Query Version
 
 1. 如果不一次性 Query all header，像 [[#Tree-Tree: Query Version]]
@@ -1042,7 +1047,7 @@ local function pickHeadings(pageName)
       name        = label,
       description = full_path,
       -- ref         = node.ref,
-      ref         = node.,
+      ref         = pageName .. "#" .. node.name,
     })
 
     table.insert(stack, { level = L, last = is_last, text = node.name })
