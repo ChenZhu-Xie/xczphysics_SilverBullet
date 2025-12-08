@@ -20,6 +20,8 @@ function(obj)
 ]==], obj)
 end)}`
 
+${AlphabeticTagList()}
+
 ```space-lua
 function AlphabeticTagList()
 
