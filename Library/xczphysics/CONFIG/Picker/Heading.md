@@ -446,7 +446,7 @@ local function unifiedTreePicker()
 end
 
 command.define({
-  name = "Heading Picker: across Pages",
+  name = "Heading Picker: Across Pages",
   key  = "Shift-Alt-a",
   run  = function() unifiedTreePicker() end
 })
