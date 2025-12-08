@@ -59,7 +59,8 @@ local function unifiedTreePicker()
       table.insert(bucket, {
         level = h.level or 1,
         text  = h.name,
-        pos   = h.pos or 0
+        -- ref  = h.ref,
+        ref  = h.page .. "#" .. h.name,
       })
     end
   end
@@ -107,8 +108,7 @@ local function unifiedTreePicker()
           text      = h.text,
           level     = relative_level, 
           type      = "heading",
-          -- ref       = h.ref,
-          ref  = h.page .. "#" .. h.name,
+          ref       = h.ref,
           page_name = page.name,
           full_desc = full_path_desc
         })
