@@ -11,7 +11,7 @@ pageDecoration.prefix: 🪚
 
 ## Page Version
 
-1. need `findNearestInlinePattern` from 
+1. need `findNearestInlinePattern` from [[^Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate]]
 
 ```space-lua
 command.define{
