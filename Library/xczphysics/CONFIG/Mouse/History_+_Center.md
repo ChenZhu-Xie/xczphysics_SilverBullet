@@ -508,7 +508,7 @@ command.define {
       "🕘 Back to:",
       historyItems,
       "Select a Page...",
-      "Jumps to each page's last click"
+      "each page's last click"
     )
 
     if sel then
