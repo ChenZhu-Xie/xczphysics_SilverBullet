@@ -1032,7 +1032,7 @@ command.define({
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 2. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
-```lua
+```space-lua
 local pageTreePicker
 
 local function pickHeadings(pageName)
@@ -1191,7 +1191,7 @@ command.define({
 
 1. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
-```lua
+```space-lua
 local pageTreePicker
 
 local function pickHeadings(pageName)
