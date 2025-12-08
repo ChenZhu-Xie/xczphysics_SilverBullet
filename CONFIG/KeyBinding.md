@@ -62,7 +62,7 @@
 | Page Picker: | [[Library/xczphysics/CONFIG/Query/lastModified/Picker#Implementation|Last Modified]] | | Shift | Alt | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
-| Picker: | [[../Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
+| Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
@@ -76,8 +76,8 @@
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Start]] | | Shift | Alt | Home |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | End |
-| Click History: | [[../Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
-| Click History: | [[../Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
+| Click History: | [[/Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
+| Click History: | [[/Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Ctrl | | Alt | h |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
