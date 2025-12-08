@@ -794,7 +794,7 @@ command.define({
 ```space-lua
 local pageTreePicker
 
-local function pickHeadings(pageName)
+function pickHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then
     editor.flashNotification("Could not read page: " .. pageName)
