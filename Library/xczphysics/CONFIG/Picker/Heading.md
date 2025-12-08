@@ -239,16 +239,16 @@ command.define({
 1. headers are indexed -_-||
    - [Object](https://silverbullet.md/Object#header) #silverbullet 
 2. fixed 6级 → 4级 → 2级 problem,  2级 → 4级 → 6级 problem
-      -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
+        -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
 ```space-lua
-H_VERT = "│ 　　"
-H_TEE  = "├───　"
-H_ELB  = "└───　"
+-- H_VERT = "│ 　　"
+-- H_TEE  = "├───　"
+-- H_ELB  = "└───　"
 
-H_VERT = "┊ 　　"
-H_TEE  = "┊┈🔹┈ "
-H_ELB  = "╰┈🔸┈ "
+-- H_VERT = "┊ 　　"
+-- H_TEE  = "┊┈🔹┈ "
+-- H_ELB  = "╰┈🔸┈ "
 
 H_VERT = "┊ 　　"
 H_TEE  = "┊┈┈🔹 "
