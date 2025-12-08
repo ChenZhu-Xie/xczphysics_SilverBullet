@@ -63,9 +63,9 @@ command.define {
              path:match("%.svg$")
     end
 
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
     -- ✨ add: Wiki detect + Alias paste
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
     if not isUrl(clip) then
       local wiki_content = clip:match("%[%[([^%]]+)%]%]")
       if wiki_content then
@@ -93,7 +93,7 @@ command.define {
       editor.flashNotification("Not a URL or wiki link", "warn")
       return
     end
-    ----------------------------------------------------------------
+    --------------------------------------------------------------
 
     -- Helpers
     local function urldecode(s)
