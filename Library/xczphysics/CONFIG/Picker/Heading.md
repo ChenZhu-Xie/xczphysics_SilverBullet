@@ -453,7 +453,7 @@ command.define({
 ```
 
 # Heading Inserter: in Page
-[[Library/xczphysics/CONFIG/Picker/Heading#Query Version|]]
+
 ```space-lua
 command.define({
   name = "Heading Inserter: In Page",
@@ -513,7 +513,8 @@ command.define({
       table.insert(items, {
         name = prefix .. (is_last and H_ELB or H_TEE) .. h.name,
         -- ref  = h.ref,
-        ref  = h.page .. "#" .. h.name,
+        -- ref  = h.page .. "#" .. h.name,
+        ref  = "#" .. h.name,
       })
 
       table.insert(stack, { level = rel_level, last = is_last })
