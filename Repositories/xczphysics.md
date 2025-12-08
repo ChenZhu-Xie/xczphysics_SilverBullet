@@ -172,7 +172,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ### in Page
 
 ==Shift-Alt-h==
-Add `Heading Picker: in Page` to CMD
+Add `Heading Picker: In Page` to CMD
 ==Alt-h==
 Add `Heading Inserter: In Page` to CMD
 
