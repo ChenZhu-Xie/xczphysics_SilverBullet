@@ -453,7 +453,7 @@ command.define({
 ```
 
 # Heading Inserter: in Page
-
+[[Library/xczphysics/CONFIG/Picker/Heading#Query Version|]]
 ```space-lua
 command.define({
   name = "Heading Inserter: In Page",
