@@ -269,7 +269,7 @@ local function unifiedTreePicker()
 end
 
 command.define({
-  name = "Navigate: Tree-Tree Picker",
+  name = "Giant-Tree: ",
   key  = "Alt-e",
   run  = function() unifiedTreePicker() end
 })
