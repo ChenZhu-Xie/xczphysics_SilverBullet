@@ -30,7 +30,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
-| Heading: | [[Library/xczphysics/CONFIG/Picker/Heading#In page|Picker (in Page)]] | Ctrl | Shift | | h |
+| Heading: | [[Library/xczphysics/CONFIG/Picker/Heading#In page|Picker (in Page)]] | | Shift | Alt | h |
 | Mouse: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
@@ -80,8 +80,8 @@
 | Click History: | [[/Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Ctrl | | Alt | h |
-| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
-| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
+| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Ctrl | Shift | | h |
+| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift | | m |
 | Tree View: | [[CONFIG/View/Tree#TreeView.ini|Toggle on/off]] | Ctrl | | Alt | b |
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |

@@ -550,7 +550,7 @@ H_ELB  = "╰┈┈🔸 "
 
 command.define({
   name = "Heading Picker: In Page",
-  key = "Ctrl-Shift-h",
+  key = "Shift-Alt-h",
   run = function()
     local headers = query[[
       from index.tag "header"
@@ -762,7 +762,7 @@ end
 
 command.define({
   name = "Navigate: Heading Picker",
-  key = "Ctrl-Shift-h",
+  key = "Shift-Alt-h",
   run = function() headingsPicker({}) end
 })
 ```
@@ -858,7 +858,7 @@ end
 
 command.define({
   name = "Pick Headings",
-  key = "Ctrl-Shift-h",
+  key = "Shift-Alt-h",
   run = function() headingsPicker({}) end
 })
 ```
@@ -948,7 +948,7 @@ end
 
 command.define({
   name = "Pick Headings",
-  key = "Ctrl-Shift-h",
+  key = "Shift-Alt-h",
   run = function() headingsPicker({}) end
 })
 ```
@@ -996,7 +996,7 @@ end
 
 command.define {
   name = "Pick Headings",
-  key = "Ctrl-Shift-h",
+  key = "Shift-Alt-h",
   run = function() headingsPicker({}) end
 }
 ```
