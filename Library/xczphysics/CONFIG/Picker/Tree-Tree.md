@@ -514,7 +514,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, type = node.type })
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select Page or Heading...", "Unified Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select Page or Heading...", "Unified Tree")
 
   if result then
     local selection = result.value or result
@@ -1151,7 +1151,7 @@ pageTreePicker = function()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
@@ -1311,7 +1311,7 @@ pageTreePicker = function()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
@@ -1587,7 +1587,7 @@ pageTreePicker = function()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
@@ -1891,7 +1891,7 @@ pageTreePicker = function()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
@@ -2189,7 +2189,7 @@ pageTreePicker = function()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local selection = result.value or result
@@ -2451,7 +2451,7 @@ local function pageTreePicker()
     table.insert(stack, { level = L, last = is_last })
   end
 
-  local result = editor.filterBox("Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("Pick", items, "Select a Page...", "Page Tree")
 
   if result then
     local page_name = result.value or result
@@ -2673,7 +2673,7 @@ local function pageOnlyPicker()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "Page Tree")
 
   if not result then return end
 
