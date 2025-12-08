@@ -469,7 +469,7 @@ H_ELB  = "╰┈┈🔸 "
 
 command.define({
   name = "Heading Picker: In Page",
-  key = "Ctrl-Shift-h",
+  key = "alt-h",
   run = function()
     local headers = query[[
       from index.tag "header"
