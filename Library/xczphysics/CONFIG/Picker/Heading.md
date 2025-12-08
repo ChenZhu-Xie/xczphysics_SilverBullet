@@ -220,8 +220,7 @@ local function unifiedTreePicker()
   if result then
     local selection = result.value or result
     if type(selection) ~= "table" then return end
-    editor.navigate(selection.ref)
-    editor.invokeCommand("Navigate: Center Cursor")
+    aliasPaste(selection.ref)
   end
 end
 
