@@ -2200,6 +2200,7 @@ function buildPageTreeItems()
         page    = node.name,
         is_real = node.is_real,
       },
+      ref = node.ref,
     })
 
     table.insert(stack, { level = L, last = is_last })
@@ -2233,8 +2234,10 @@ local function pageOnlyPicker()
   end
 
   if page_name then
-    editor.navigate({ page = page_name })
-    editor.invokeCommand("Navigate: Center Cursor")
+    -- editor.navigate({ page = page_name })
+    -- editor.invokeCommand("Navigate: Center Cursor")
+    editor.copyToClipboard(.ref)
+    editor.invokeCommand("Paste: Smart URL (via Prompt)")
   end
 end
 
