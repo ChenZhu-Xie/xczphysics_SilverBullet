@@ -27,10 +27,11 @@ INLINE_PATTERNS = {
   { "Sup",           "%^[^ \n%^]+%^",             55  }, -- ^sup^
   { "Strikethrough", "~~[^\n]+~~",                50  }, -- ~~?~~
   { "Sub",           "~[^ \n~]+~",                45  }, -- ^sub^
-  { "Tag",           "#[^\n, <>%?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
+  { "Tag",           "#[^\n, %?%.:|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
   { "Marker",        "==[^\n]+==",                35  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
-  { "Code Block",    "```[(space%-)(lua)][^`]-```",          25 }, -- ```...```
+  { "Header",        "",                 25  }, -- 
+  { "Code Block",    "```[(space%-)(lua)][^`]-```",          20 }, -- ```...```
 }
 
 function SelectiondistanceToCursor(startPos, endPos, cursorPos)

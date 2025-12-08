@@ -215,7 +215,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, is_top_level = is_top })
   end
 
-  local result = editor.filterBox("🔌 Insert", items, "Select Heading...", "🌳 Global Heading Tree")
+  local result = editor.filterBox("🔌 Insert", items, "Select a Heading (across Pages)...", "🌲 Global Heading Tree")
 
   if result then
     local selection = result.value or result
@@ -435,7 +435,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, is_top_level = is_top })
   end
 
-  local result = editor.filterBox("🤏 Pick", items, "Select Heading...", "Global Heading Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Heading (across Pages)...", "🌲 Global Heading Tree")
 
   if result then
     local selection = result.value or result
@@ -451,6 +451,8 @@ command.define({
   run  = function() unifiedTreePicker() end
 })
 ```
+
+# Heading Inserter: in Page
 
 # Heading Picker: In Page
 
@@ -538,7 +540,7 @@ command.define({
       table.insert(stack, { level = rel_level, last = is_last })
     end
 
-    local selection = editor.filterBox("🤏 Pick", items, "Select a Header...", "a Header")
+    local selection = editor.filterBox("🤏 Pick", items, "Select a Header (in Page)...", "🤕 a Header")
     if selection then
       editor.navigate(selection.ref)
       editor.invokeCommand("Navigate: Center Cursor")
