@@ -489,7 +489,7 @@ command.define {
           local tstr = getTimeString(i) or ""
           
           if pageName and tstr then
-            displayName = string.format("%d 🕘 %s", i, pageName)
+            displayName = string.format("%d 🖱️ %s", i, pageName)
           else
             displayName = string.format("%d. %s", i, ref)
           end
@@ -508,7 +508,7 @@ command.define {
       "🤏 Back to",
       historyItems,
       "Select a Page...",
-      "📃🖱️ a Page's last Click"
+      "📃 a Page's last Click"
     )
 
     if sel then
