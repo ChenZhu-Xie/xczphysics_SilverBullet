@@ -107,7 +107,8 @@ local function unifiedTreePicker()
           text      = h.text,
           level     = relative_level, 
           type      = "heading",
-          pos       = h.pos,
+          -- ref       = h.ref,
+          ref  = h.page .. "#" .. h.name,
           page_name = page.name,
           full_desc = full_path_desc
         })
@@ -227,14 +228,8 @@ local function unifiedTreePicker()
       return
     end
 
-    local page_name = selection.page
-    local pos       = selection.pos
-
-    if pos and pos > 0 then
-      editor.navigate({ page = page_name, pos = pos })
-    else
-      editor.navigate(ref)
-    end
+    local ref = selection.ref
+    editor.navigate(ref)
     editor.invokeCommand("Navigate: Center Cursor")
   end
 end
