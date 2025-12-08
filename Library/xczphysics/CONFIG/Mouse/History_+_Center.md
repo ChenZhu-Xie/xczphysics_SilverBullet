@@ -440,7 +440,7 @@ command.define {
     local sel = editor.filterBox(
       "🕘 Back to",
       historyItems,
-      "Select a Click History...",
+      "Select a Click...",
       "a previous Click"
     )
 
