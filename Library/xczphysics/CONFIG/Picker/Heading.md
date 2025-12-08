@@ -219,7 +219,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, is_top_level = is_top })
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select Heading...", "Unified Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select Heading...", "Unified Tree")
 
   if result then
     local selection = result.value or result
