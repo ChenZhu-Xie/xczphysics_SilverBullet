@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker
 tags: meta/library
-pageDecoration.prefix: "👀 "
+pageDecoration.prefix: "📃👀 "
 ---
 
 1. [click history](https://community.silverbullet.md/t/click-history/3569/10?u=chenzhu-xie) #community #silverbullet
@@ -29,7 +29,7 @@ command.define {
       return
     end
     
-    local sel = editor.filterBox("🤏 Pick", VisitHistory, "order by _.lastOpened desc", "👀 a Page")
+    local sel = editor.filterBox("🤏 Pick", VisitHistory, "order by _.lastOpened desc", "📃👀 a Page")
     if not sel then return end
     editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
