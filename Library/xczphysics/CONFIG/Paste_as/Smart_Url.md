@@ -31,6 +31,29 @@ local function setSelectedText(newText)
   editor.replaceRange(sel.from, sel.to, newText)
 end
 
+function aliasPaste(wiki_content)
+  local selected = getSelectedText()
+  if selected and selected ~= "" then
+    -- selected：[[content|selected]]
+    setSelectedText(string.format("[[%s|%s]]", wiki_content, selected))
+    editor.flashNotification("Inserted wiki alias link")
+    return
+  else
+    -- no selection：[[content|]]
+    local snippet = string.format("[[%s|]]", wiki_content)
+    local pos = editor.getCursor()
+    editor.insertAtCursor(snippet, false)
+    if editor.moveCursor then
+      editor.moveCursor((pos + #string.format("[[%s|", wiki_content)), false)
+    elseif editor.setSelection then
+      local target = pos + #string.format("[[%s|", wiki_content)
+      editor.setSelection(target, target)
+    end
+    editor.flashNotification("Inserted wiki link placeholder")
+    return
+  end
+end
+
 command.define {
   name = "Paste: Smart URL (via Prompt)",
   key = "Alt-v",
@@ -68,28 +91,7 @@ command.define {
     --------------------------------------------------------------
     if not isUrl(clip) then
       local wiki_content = clip:match("%[%[([^%]]+)%]%]")
-      if wiki_content then
-        local selected = getSelectedText()
-        if selected and selected ~= "" then
-          -- selected：[[content|selected]]
-          setSelectedText(string.format("[[%s|%s]]", wiki_content, selected))
-          editor.flashNotification("Inserted wiki alias link")
-          return
-        else
-          -- no selection：[[content|]]
-          local snippet = string.format("[[%s|]]", wiki_content)
-          local pos = editor.getCursor()
-          editor.insertAtCursor(snippet, false)
-          if editor.moveCursor then
-            editor.moveCursor((pos + #string.format("[[%s|", wiki_content)), false)
-          elseif editor.setSelection then
-            local target = pos + #string.format("[[%s|", wiki_content)
-            editor.setSelection(target, target)
-          end
-          editor.flashNotification("Inserted wiki link placeholder")
-          return
-        end
-      end
+      if wiki_content then aliasPaste(wiki_content) end
       editor.flashNotification("Not a URL or wiki link", "warn")
       return
     end
