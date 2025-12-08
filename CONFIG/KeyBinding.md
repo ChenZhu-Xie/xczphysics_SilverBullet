@@ -31,7 +31,7 @@
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: In Page|In Page]] | | Shift | Alt | h |
-| Heading Inserter: | In Page | | | Alt | h |
+| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: In Page|In Page]] | | | Alt | h |
 | Mouse: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
@@ -66,7 +66,8 @@
 | Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |
 | Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
 | Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
-| Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
+| Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: Across Pages|Across Pages]] | | Shift | Alt | a |
+| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | Shift | Alt | a |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]] | | Shift | Alt | e |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
