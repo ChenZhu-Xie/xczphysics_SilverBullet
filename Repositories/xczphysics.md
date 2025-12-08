@@ -301,11 +301,11 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward]] | | Shift | Alt | → |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Start]] | | Shift | Alt | Home |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|End]] | | Shift | Alt | End |
-| Click History: | [[../Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
-| Click History: | [[../Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
+| Click History: | [[/Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Back (Page)]] | Ctrl | Shift | Alt | ← |
+| Click History: | [[/Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Forward (Page)]] | Ctrl | Shift | Alt | → |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Delete]] | Ctrl | Shift | Alt | Delete |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Cursor Picker]] | Ctrl | | Alt | h |
-| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
+| Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Ctrl | Shift | | h |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
 
 ```#meta/library/remote
