@@ -13,7 +13,7 @@ ${query[[
 
 # Heading Inserter: Across Pages
 
-1. coming from [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|]]
+1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 
 ```space-lua
 -- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
@@ -215,7 +215,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, is_top_level = is_top })
   end
 
-  local result = editor.filterBox("🔌 Insert", items, "Select Heading...", "Global Heading Tree")
+  local result = editor.filterBox("🔌 Insert", items, "Select Heading...", "🌳 Global Heading Tree")
 
   if result then
     local selection = result.value or result
