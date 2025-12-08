@@ -169,10 +169,19 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## Heading
 
-==Ctrl-Shift-h== in page
-==Shift-Alt-a== across pages
+### in Page
+
+==Ctrl-Shift-h==
 Add `Heading Picker: in Page` to CMD
-Add `Heading Picker: across Pages` to CMD
+==Alt-h==
+Add `Heading Inserter: In Page` to CMD
+
+### across Pages
+
+==Shift-Alt-a==
+Add `Heading Picker: Across Pages` to CMD
+==Alt-a==
+Add `Heading Inserter: Across Pages` to CMD
 
 ```#meta/library/remote
 name: "Picker/Heading"
@@ -257,15 +266,28 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## Tree-Tree
 
+### Page-Heading
+
 ==Shift-Alt-e==
-Add `Navigate: Tree-Tree Picker` to CMD
+Add `Giant-Tree: Pick` to CMD
+ Or  `Tree-Tree: Pick` to CMD
+==Alt-e==
+Add `Giant-Tree: Insert` to CMD
+ Or  `Tree-Tree: Insert` to CMD
+
+### Page
+
+==Shift-Alt-k==
+Add `Page Picker: Tree` to CMD
+==Alt-k==
+Add `Page Picker: Insert` to CMD
 
 ```#meta/library/remote
 name: "Picker/Tree-Tree"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md
 ```
-[[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree: Query Version|Tree-Tree]], [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Giant-Tree]]
+[[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree (depend on Pure-Page)|Tree-Tree]], [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Giant-Tree]]
 [Tree Tree](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation) #enlarge-the-percentage #fly
 [Tree Tree.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tree-Tree.md) #github
 
