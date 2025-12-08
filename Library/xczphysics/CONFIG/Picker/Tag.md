@@ -26,7 +26,7 @@ command.define {
   key = "Ctrl-Alt-t",
   run = function()
     local tags = query[[from index.tag "tag" select {name = _.name}]]
-    local sel = editor.filterBox("🤏 Pick", tags, "Select a Tag", "🔖")
+    local sel = editor.filterBox("🤏 Pick", tags, "Select a Tag", "🔖 a Tag")
     if sel then editor.navigate("tag:" .. sel.name) end
   end
 }
