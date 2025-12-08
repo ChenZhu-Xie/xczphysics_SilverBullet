@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Picker/File_Link
 tags: meta/library
-pageDecoration.prefix: "📄 "
+pageDecoration.prefix: "📄🔗 "
 ---
 
 1. [files link picker](https://community.silverbullet.md/t/files-link-picker/3608/3?u=chenzhu-xie) #community #silverbullet
@@ -25,7 +25,7 @@ command.define {
       return
     end
     
-    local sel = editor.filterBox("🔍 Select", FileLinks, "Choose a File Link...", "a File Link to GoTo")
+    local sel = editor.filterBox("🔍 Select", FileLinks, "Choose a File Link...", "📄🔗 a File Link to GoTo")
     if not sel then return end
     editor.navigate(sel.ref)
     editor.invokeCommand("Navigate: Center Cursor")

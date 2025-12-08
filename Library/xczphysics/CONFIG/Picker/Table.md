@@ -52,7 +52,7 @@ command.define {
       return
     end
 
-    local sel = editor.filterBox("🤏 Pick", tables, "Select a Table...", "Table position")
+    local sel = editor.filterBox("🤏 Pick", tables, "Select a Table...", "🗓️ Table position")
     if not sel then return end
     editor.navigate(sel.ref)
     editor.invokeCommand("Navigate: Center Cursor")
