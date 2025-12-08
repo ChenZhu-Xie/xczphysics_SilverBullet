@@ -2239,6 +2239,7 @@ local function pageOnlyPicker()
   if page_name then
     -- editor.navigate({ page = page_name })
     -- editor.invokeCommand("Navigate: Center Cursor")
+    editor.flashNotification
     editor.copyToClipboard(selection.ref)
     editor.invokeCommand("Paste: Smart URL (via Prompt)")
   end
