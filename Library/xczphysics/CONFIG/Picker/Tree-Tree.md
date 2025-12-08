@@ -2095,7 +2095,7 @@ H_ELB  = "╰┈┈🔸 "
 
 ------------------------------------------------------------------
 -- public: buildPageTreeItems
-------------------------------------------------------------------
+                                  ------------------------------------------------------------------
 
 function buildPageTreeItems()
   local pages = space.listPages()
@@ -2119,7 +2119,7 @@ function buildPageTreeItems()
           text    = part,
           level   = #parts,
           is_real = false,
-          ref     = page.ref,
+          -- ref     = page.ref,
         }
       end
     end
@@ -2202,7 +2202,7 @@ function buildPageTreeItems()
       value       = {
         page    = node.name,
         is_real = node.is_real,
-        ref = node.ref,
+        -- ref = node.ref,
       },
     })
 
@@ -2239,8 +2239,8 @@ local function pageOnlyPicker()
   if page_name then
     -- editor.navigate({ page = page_name })
     -- editor.invokeCommand("Navigate: Center Cursor")
-    editor.flashNotification
-    editor.copyToClipboard(selection.ref)
+    -- editor.copyToClipboard(selection.ref)
+    editor.copyToClipboard("[[" .. selection.name .. "]]")
     editor.invokeCommand("Paste: Smart URL (via Prompt)")
   end
 end
