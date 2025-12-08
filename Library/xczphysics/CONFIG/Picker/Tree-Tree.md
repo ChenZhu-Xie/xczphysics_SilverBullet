@@ -927,7 +927,6 @@ pageTreePicker = function()
       if is_real then
         pickHeadings(page_name)
       else
-        editor.flashNotification("Folder selected. Creating page: " .. page_name)
         aliasPaste(page_name)
       end
     end
