@@ -452,7 +452,7 @@ command.define({
 })
 ```
 
-# Heading Inserter: in Page
+# Heading Inserter: In Page
 
 ```space-lua
 command.define({
