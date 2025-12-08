@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Query/lastModified/Picker
 tags: meta/library
-pageDecoration.prefix: "🕘 "
+pageDecoration.prefix: "✍🏻 "
 ---
 
 # Implementation
@@ -19,7 +19,7 @@ command.define {
       return
     end
     
-    local sel = editor.filterBox("🤏 Pick", ModifyHistory, "order by _.lastModified desc", "a Page")
+    local sel = editor.filterBox("🤏 Pick", ModifyHistory, "order by _.lastModified desc", "✍🏻 a Page")
     if not sel then return end
     editor.navigate(sel.name)
     editor.invokeCommand("Navigate: Center Cursor")
