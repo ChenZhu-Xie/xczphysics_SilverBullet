@@ -245,19 +245,6 @@ command.define({
       -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
 ```space-lua
-VERT = "│ 　　"
-BLNK = "　　　"
-TEE  = "├───　"
-ELB  = "└───　"
-
-VERT = "┊ 　　"
-TEE  = "┊┈🔹┈ "
-ELB  = "╰┈🔸┈ "
-
-VERT = "┊ 　　"
-TEE  = "┊┈┈🔹 "
-ELB  = "╰┈┈🔸 "
-
 command.define({
   name = "Heading Picker: in Page",
   key = "Ctrl-Shift-h",
