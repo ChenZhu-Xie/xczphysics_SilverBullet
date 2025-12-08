@@ -153,6 +153,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ==Alt-d==
 Remove the nearest format `#meta/library/remote`
 
+> **warning** Warning
+> need `func() findNearestInlinePattern` from [[#👯 Duplicate]]
+
 ```#meta/library/remote
 name: "Nearest_Pattern/Delete"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md

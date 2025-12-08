@@ -2078,8 +2078,49 @@ command.define({
 })
 ```
 
-## Page-Paste (along with Tree-Tree)
- 
+## Page-Paste (depend on Pure-Pge)
+
+```space-lua
+local function pageOnlyPicker()
+  local items, err = buildPageTreeItems()
+  if not items then
+    editor.flashNotification(err)
+    return
+  end
+
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree (Page Only)")
+
+  if not result then return end
+
+  local selection = result.value or result
+  local page_name
+
+  if type(selection) ~= "table" then
+    page_name = selection
+  else
+    page_name = selection.page
+  end
+
+  if page_name then
+    -- editor.copyToClipboard(selection.ref)
+    -- editor.copyToClipboard("[[" .. page_name .. "]]")
+    -- editor.invokeCommand("Paste: Smart URL (via Prompt)")
+    
+  end
+end
+
+------------------------------------------------------------------
+-- page
+------------------------------------------------------------------
+
+command.define({
+  name = "Page Picker: Paste",
+  key  = "Shift-Alt-k",
+  run  = function() pageOnlyPicker() end,
+})
+```
+
+## Pure-Page (along with Tree-Tree)
 
 ```space-lua
 
@@ -2236,11 +2277,8 @@ local function pageOnlyPicker()
   end
 
   if page_name then
-    -- editor.navigate({ page = page_name })
-    -- editor.invokeCommand("Navigate: Center Cursor")
-    -- editor.copyToClipboard(selection.ref)
-    editor.copyToClipboard("[[" .. page_name .. "]]")
-    editor.invokeCommand("Paste: Smart URL (via Prompt)")
+    editor.navigate({ page = page_name })
+    editor.invokeCommand("Navigate: Center Cursor")
   end
 end
 
@@ -2253,8 +2291,6 @@ command.define({
   key  = "Shift-Alt-k",
   run  = function() pageOnlyPicker() end,
 })
-
-
 ```
 
 ## Page Ver
