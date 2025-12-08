@@ -2202,8 +2202,8 @@ function buildPageTreeItems()
       value       = {
         page    = node.name,
         is_real = node.is_real,
+        ref = node.ref,
       },
-      ref = node.ref,
     })
 
     table.insert(stack, { level = L, last = is_last })
