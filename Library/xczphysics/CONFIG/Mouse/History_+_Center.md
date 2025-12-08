@@ -507,8 +507,8 @@ command.define {
     local sel = editor.filterBox(
       "🕘 Back to",
       historyItems,
-      "Select a Page History...",
-      "page's last click"
+      "Select a Page...",
+      "a Page's last Click"
     )
 
     if sel then
