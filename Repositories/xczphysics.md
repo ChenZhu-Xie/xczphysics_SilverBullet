@@ -43,19 +43,19 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Cursor_Wiki](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki#Generate%20Ref%20@%20Cursor%20Position) #enlarge-the-percentage #fly
 [Cursor_Wiki.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki.md) #github
 
-## Folder Url
+## Folder Path
 
 ==Ctrl-Shift-d==
 Copy `F:\path\to\SB_space\Repositories`
 
 ```#meta/library/remote
-name: "Copy_as/page_title/Folder_Url"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md
+name: "Copy_as/page_title/Folder_Path"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path.md
 ```
-[[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url|Folder Url]]
-[Folder_Url](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url) #enlarge-the-percentage #fly
-[Folder_Url.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md) #github
+[[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path|Folder Path]]
+[Folder_Path](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path) #enlarge-the-percentage #fly
+[Folder_Path.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path.md) #github
 
 ## Github Url
 

@@ -53,7 +53,7 @@
 | Page: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
 | Page: | [[Library/xczphysics/CONFIG/Copy_as/page_title/Page_Wiki|Copy Wiki]] | | Shift | Alt | w |
 | Page: | [[Library/xczphysics/CONFIG/Copy_as/page_title/Page_Link|Copy Link]] | | Shift | Alt | l |
-| Page: | [[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url|Copy Dir]] | Ctrl | Shift | | d |
+| Page: | [[Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path|Copy Dir]] | Ctrl | Shift | | d |
 | Page: | [[Library/Mr-xRed/PrintPreview#PrintPreview Command `Ctrl-Alt-p`|Print]] | Ctrl | Alt | | p |
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Define#to Top|to Top]] | Ctrl | | | ↑ |
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Define#to Bottom|to Bottom]] | Ctrl | | | ↓ |
