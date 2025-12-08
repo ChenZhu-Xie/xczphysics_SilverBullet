@@ -507,7 +507,7 @@ command.define {
     local sel = editor.filterBox(
       "🕘 Back to:",
       historyItems,
-      "Select a Page Jump Point...",
+      "Select a Page...",
       "Jumps to each page's last click"
     )
 
