@@ -184,6 +184,7 @@ command.define {
     local Flabel = pickerBox_labelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
     Flabel = usrPrompt('Enter: label (to be Referred)', Flabel)
+    if not Flabel then return end
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
