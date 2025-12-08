@@ -454,8 +454,88 @@ command.define({
 
 # Heading Inserter: in Page
 
+```space-lua
+-- H_VERT = "│ 　　"
+-- H_TEE  = "├───　"
+-- H_ELB  = "└───　"
 
+-- H_VERT = "┊ 　　"
+-- H_TEE  = "┊┈🔹┈ "
+-- H_ELB  = "╰┈🔸┈ "
 
+H_VERT = "┊ 　　"
+H_TEE  = "┊┈┈🔹 "
+H_ELB  = "╰┈┈🔸 "
+
+command.define({
+  name = "Heading Picker: In Page",
+  key = "Ctrl-Shift-h",
+  run = function()
+    local headers = query[[
+      from index.tag "header"
+      where _.page == editor.getCurrentPage()
+      order by _.pos
+    ]]
+
+    if #headers == 0 then
+      editor.flashNotification("No headings found")
+      return
+    end
+
+    local min_level = 10
+    for _, h in ipairs(headers) do
+      if h.level < min_level then min_level = h.level end
+    end
+
+    local items = {}
+    local stack = {}
+
+    for i, h in ipairs(headers) do
+      local is_last = true
+      for j = i + 1, #headers do
+        if headers[j].level <= h.level then
+          if headers[j].level == h.level then is_last = false end
+          break
+        end
+      end
+
+      local rel_level = h.level - min_level + 1
+      while #stack > 0 and stack[#stack].level >= rel_level do
+        table.remove(stack)
+      end
+
+      local prefix = ""
+      for _, s in ipairs(stack) do
+        prefix = prefix .. (s.last and BLNK or H_VERT)
+      end
+      for k = #stack + 1, rel_level - 1 do
+        local has_deeper = false
+        for j = i + 1, #headers do
+          local target_level = min_level + k - 1
+          if headers[j].level == target_level then
+            has_deeper = true
+            break
+          elseif headers[j].level < target_level then
+            break
+          end
+        end
+        prefix = prefix .. (has_deeper and H_VERT or BLNK)
+      end
+
+      table.insert(items, {
+        name = prefix .. (is_last and H_ELB or H_TEE) .. h.name,
+        -- ref  = h.ref,
+        ref  = h.page .. "#" .. h.name,
+      })
+
+      table.insert(stack, { level = rel_level, last = is_last })
+    end
+
+    local selection = editor.filterBox("🔌 Insert", items, "Select a Header (in Page)...", "🤕 a Header")
+    if selection then aliasPaste(selection.ref) end
+  end
+})
+```
 
 # Heading Picker: In Page
 
