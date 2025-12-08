@@ -790,58 +790,7 @@ command.define({
 ```space-lua
 local pageTreePicker
 
-------------------------------------------------------------------
--- page + heading
-------------------------------------------------------------------
-
-pageTreePicker = function()
-  local items, err = buildPageTreeItems()
-  if not items then
-    editor.flashNotification(err)
-    return
-  end
-
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
-
-  if result then
-    local selection = result.value or result
-
-    if type(selection) ~= "table" then
-      if selection then pickHeadings(selection) end
-      return
-    end
-
-    local page_name = selection.page
-    local is_real   = selection.is_real
-
-    if page_name then
-      if is_real then
-        pickHeadings(page_name)
-      else
-        editor.flashNotification("Folder selected. Creating page: " .. page_name)
-        editor.navigate({ page = page_name })
-      end
-    end
-  end
-end
-
-------------------------------------------------------------------
--- page + heading
-------------------------------------------------------------------
-
-command.define({
-  name = "Navigate: Tree-Tree Picker",
-  key  = "Shift-Alt-e",
-  run  = function() pageTreePicker() end,
-})
-```
-
-## Tree-Tree (depend on Pure-Page)
-
-```space-lua
-local pageTreePicker
-
-function pickHeadings(pageName)
+local function pickHeadings(pageName)
   local text = space.readPage(pageName)
   if not text then
     editor.flashNotification("Could not read page: " .. pageName)
@@ -997,7 +946,174 @@ end
 ------------------------------------------------------------------
 
 command.define({
-  name = "Navigate: Tree-Tree Picker",
+  name = "Tree-Tree Picker: Insert",
+  key  = "Alt-e",
+  run  = function() pageTreePicker() end,
+})
+```
+
+## Tree-Tree (depend on Pure-Page)
+
+```space-lua
+local pageTreePicker
+
+local function pickHeadings(pageName)
+  local text = space.readPage(pageName)
+  if not text then
+    editor.flashNotification("Could not read page: " .. pageName)
+    return
+  end
+
+  local nodes = query[[
+      from index.tag "header"
+      where _.page == pageName
+      order by _.pos
+    ]]
+
+  if #nodes == 0 then
+    editor.navigate({ page = pageName })
+    editor.invokeCommand("Navigate: Center Cursor")
+    return
+  end
+
+  local min_level = 10
+  for _, n in ipairs(nodes) do
+    if n.level < min_level then min_level = n.level end
+  end
+
+  local last_flags = {}
+  for i = 1, #nodes do
+    local L = nodes[i].level
+    local is_last = true
+    for j = i + 1, #nodes do
+      if nodes[j].level <= L then
+        if nodes[j].level == L then
+          is_last = false
+        else
+          is_last = true
+        end
+        break
+      end
+    end
+    last_flags[i] = is_last
+  end
+
+  local items = {}
+  local stack = {}
+
+  table.insert(items, {
+    name        = ".",
+    description = pageName,
+    pos         = 0,
+  })
+
+  for i = 1, #nodes do
+    local node = nodes[i]
+    local L = node.level - min_level + 1
+    local is_last = last_flags[i]
+
+    while #stack > 0 and stack[#stack].level >= L do
+      table.remove(stack)
+    end
+
+    local prefix = ""
+    for d = 1, #stack do
+      prefix = prefix .. (stack[d].last and BLNK or H_VERT)
+    end
+
+    for k = #stack + 1, L - 1 do
+      local has_deeper = false
+      for j = i + 1, #nodes do
+        local next_L = nodes[j].level - min_level + 1
+        if next_L == k then
+          has_deeper = true
+          break
+        elseif next_L < k then
+          break
+        end
+      end
+      prefix = prefix .. (has_deeper and H_VERT or BLNK)
+    end
+
+    local path_parts = {}
+    for _, s in ipairs(stack) do
+      table.insert(path_parts, s.text)
+    end
+    table.insert(path_parts, node.name)
+    local full_path = table.concat(path_parts, " > ")
+
+    local elbow = is_last and H_ELB or H_TEE
+    local label = prefix .. elbow .. node.name
+
+    table.insert(items, {
+      name        = label,
+      description = full_path,
+      pos         = node.pos,
+    })
+
+    table.insert(stack, { level = L, last = is_last, text = node.name })
+  end
+
+  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
+
+  if result then
+    local pos = result.pos
+    if not pos and result.value and result.value.pos then
+      pos = result.value.pos
+    end
+
+    if pos == 0 then
+      editor.navigate({ page = pageName })
+    elseif pos then
+      editor.navigate({ page = pageName, pos = pos })
+    end
+    editor.invokeCommand("Navigate: Center Cursor")
+  else
+    return pageTreePicker()
+  end
+end
+
+------------------------------------------------------------------
+-- page + heading
+------------------------------------------------------------------
+
+pageTreePicker = function()
+  local items, err = buildPageTreeItems()
+  if not items then
+    editor.flashNotification(err)
+    return
+  end
+
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+
+  if result then
+    local selection = result.value or result
+
+    if type(selection) ~= "table" then
+      if selection then pickHeadings(selection) end
+      return
+    end
+
+    local page_name = selection.page
+    local is_real   = selection.is_real
+
+    if page_name then
+      if is_real then
+        pickHeadings(page_name)
+      else
+        editor.flashNotification("Folder selected. Creating page: " .. page_name)
+        editor.navigate({ page = page_name })
+      end
+    end
+  end
+end
+
+------------------------------------------------------------------
+-- page + heading
+------------------------------------------------------------------
+
+command.define({
+  name = "Tree-Tree Picker: Navigate",
   key  = "Shift-Alt-e",
   run  = function() pageTreePicker() end,
 })
