@@ -34,7 +34,7 @@ pageDecoration.prefix: "🖱️ "
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Page Picker]] | Shift | | Alt | h |
 | Click History: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Toggle Mode]] | Ctrl | Shift |  | m |
 
-```space-lua
+```lua
 local function getTimes()
   local t = datastore.get({"ClickTimes", "!"}) or {}
   return t.Ctimes or 1

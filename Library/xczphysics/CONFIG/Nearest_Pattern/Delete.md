@@ -11,6 +11,8 @@ pageDecoration.prefix: 🪚
 
 ## Page Version
 
+1. need `findNearestInlinePattern` from 
+
 ```space-lua
 command.define{
   name = "Cursor: Delete Nearest Pattern",
