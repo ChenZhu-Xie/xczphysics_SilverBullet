@@ -259,17 +259,15 @@ local function unifiedTreePicker()
     local node_type = selection.type
 
     if node_type == "folder" then
-      editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
-      editor.navigate({ page = page_name })
+      aliasPaste(page_name)
     elseif node_type == "page" or node_type == "heading" then
-      editor.navigate(ref)
-      editor.invokeCommand("Navigate: Center Cursor")
+      aliasPaste(ref)
     end
   end
 end
 
 command.define({
-  name = "Giant-Tree: ",
+  name = "Giant-Tree: Insert",
   key  = "Alt-e",
   run  = function() unifiedTreePicker() end
 })
