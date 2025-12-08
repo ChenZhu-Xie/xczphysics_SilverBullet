@@ -454,7 +454,6 @@ command.define({
 
 # Heading Inserter: in Page
 
-
 ```space-lua
 command.define({
   name = "Heading Inserter: In Page",
