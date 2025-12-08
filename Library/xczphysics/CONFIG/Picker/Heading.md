@@ -211,7 +211,7 @@ local function unifiedTreePicker()
       description = desc,
       value       = {
         page = node.page_name,
-        pos  = node.pos
+        ref  = h.ref,
       }
     })
 
@@ -233,7 +233,7 @@ local function unifiedTreePicker()
     if pos and pos > 0 then
       editor.navigate({ page = page_name, pos = pos })
     else
-      editor.navigate({ page = page_name })
+      editor.navigate(ref)
     end
     editor.invokeCommand("Navigate: Center Cursor")
   end
@@ -326,7 +326,8 @@ command.define({
 
       table.insert(items, {
         name = prefix .. (is_last and H_ELB or H_TEE) .. h.name,
-        ref  = h.ref
+        -- ref  = h.ref,
+        ref  = h.page .. "#" .. h.name,
       })
 
       table.insert(stack, { level = rel_level, last = is_last })
