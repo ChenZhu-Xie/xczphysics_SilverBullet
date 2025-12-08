@@ -248,7 +248,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, type = node.type })
   end
 
-  local result = editor.filterBox("🔌 Insert", items, "Select Page or Heading...", "Unified Tree")
+  local result = editor.filterBox("🔌 Insert", items, "Select Page or Heading...", "🌳🌲Unified Tree")
 
   if result then
     local selection = result.value or result
@@ -516,7 +516,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, type = node.type })
   end
 
-  local result = editor.filterBox("🤏 Pick", items, "Select Page or Heading...", "Unified Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select Page or Heading...", "🌳🌲Unified Tree")
 
   if result then
     local selection = result.value or result
