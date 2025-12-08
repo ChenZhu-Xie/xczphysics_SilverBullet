@@ -2080,7 +2080,7 @@ command.define({
 
 ## Page-Paste (depend on Pure-Page)
 
-1. needs `func() aliasPaste` from [[]]
+1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 
 ```space-lua
 local function pageOnlyPicker()
