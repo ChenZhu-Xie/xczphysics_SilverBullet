@@ -898,7 +898,7 @@ local function pickHeadings(pageName)
     if pos == 0 then
       aliasPaste(pageName)
     elseif pos then
-      no
+      editor.flashNotification(pos)
       -- aliasPaste(page .. "#" .. pos)
     end
   else
@@ -1004,7 +1004,6 @@ local function pickHeadings(pageName)
   table.insert(items, {
     name        = ".",
     description = pageName,
-    pos         = 0,
   })
 
   for i = 1, #nodes do
@@ -1048,7 +1047,7 @@ local function pickHeadings(pageName)
     table.insert(items, {
       name        = label,
       description = full_path,
-      pos         = node.pos,
+      ref         = node.ref,
     })
 
     table.insert(stack, { level = L, last = is_last, text = node.name })
