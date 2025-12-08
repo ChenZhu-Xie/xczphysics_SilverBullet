@@ -847,6 +847,7 @@ local function pickHeadings(pageName)
   table.insert(items, {
     name        = ".",
     description = pageName,
+    ref         = pageName,
   })
 
   for i = 1, #nodes do
@@ -1006,6 +1007,7 @@ local function pickHeadings(pageName)
   table.insert(items, {
     name        = ".",
     description = pageName,
+    ref         = pageName,
   })
 
   for i = 1, #nodes do
