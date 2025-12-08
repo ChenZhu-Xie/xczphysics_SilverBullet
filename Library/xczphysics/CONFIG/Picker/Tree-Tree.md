@@ -1056,7 +1056,7 @@ local function pickHeadings(pageName)
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
-    editor.navigate({ page ..  })
+    editor.navigate(result.ref)
     editor.invokeCommand("Navigate: Center Cursor")
   else
     return pageTreePicker()
