@@ -212,7 +212,7 @@ local function unifiedTreePicker()
       description = desc,
       value       = {
         page = node.page_name,
-        ref  = h.ref,
+        ref  = node.ref,
       }
     })
 
