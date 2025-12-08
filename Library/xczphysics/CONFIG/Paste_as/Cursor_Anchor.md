@@ -62,7 +62,7 @@ function pickerBox_labelName(hinText, iniText)
     order by _.toPage
   ]]
   local labels = query[[from allLabels select {name = _.toPage:gsub(anchorSymbol, ""), description = _.page .. "@" .. _.pos}]]
-  local sel = editor.filterBox("Label Search", labels, hinText, iniText)
+  local sel = editor.filterBox("🔌 Insert", labels, hinText, iniText)
   if sel then return sel.name end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
@@ -183,6 +183,7 @@ command.define {
     local alias = getSelectedText() or ""
     local Flabel = pickerBox_labelName('Enter: label (to be Referred)', js.window.navigator.clipboard.readText())
     if not Flabel then return end
+    
     local forthAnchor = "[[" .. Flabel .. "|^|" .. anchorSymbol .. "|" .. alias .. suffixBlabel .. "]]"
     local backRefs = '${backRefs("' .. Flabel .. '")}'
     local fullText = forthAnchor .. backRefs
