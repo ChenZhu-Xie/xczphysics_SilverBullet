@@ -441,7 +441,7 @@ command.define {
       "🤏 Back to",
       historyItems,
       "Select a Click...",
-      "a previous Click"
+      "🕘 a previous Click"
     )
 
     if sel then
