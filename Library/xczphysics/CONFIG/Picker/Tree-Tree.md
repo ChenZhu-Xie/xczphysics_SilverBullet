@@ -304,7 +304,8 @@ local function unifiedTreePicker()
           text = part,
           level = #parts,
           is_real = false,
-          type = "folder"
+          type = "folder",
+          ref = current_path,
         }
       end
     end
