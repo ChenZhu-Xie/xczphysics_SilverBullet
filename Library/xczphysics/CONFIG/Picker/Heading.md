@@ -11,7 +11,7 @@ ${query[[
       order by _.pos
     ]]}
 
-# Across pages
+# Heading Picker: Across Pages
 
 1. coming from [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|]]
 
@@ -232,7 +232,7 @@ command.define({
 })
 ```
 
-# In page
+# Heading Picker: In Page
 
 ## Query Version
 
