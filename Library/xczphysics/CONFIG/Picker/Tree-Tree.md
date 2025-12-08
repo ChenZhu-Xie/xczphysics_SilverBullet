@@ -787,7 +787,54 @@ command.define({
 
 ## Tree-Tree: Insert
 
+```space-lua
+local pageTreePicker
 
+------------------------------------------------------------------
+-- page + heading
+------------------------------------------------------------------
+
+pageTreePicker = function()
+  local items, err = buildPageTreeItems()
+  if not items then
+    editor.flashNotification(err)
+    return
+  end
+
+  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+
+  if result then
+    local selection = result.value or result
+
+    if type(selection) ~= "table" then
+      if selection then pickHeadings(selection) end
+      return
+    end
+
+    local page_name = selection.page
+    local is_real   = selection.is_real
+
+    if page_name then
+      if is_real then
+        pickHeadings(page_name)
+      else
+        editor.flashNotification("Folder selected. Creating page: " .. page_name)
+        editor.navigate({ page = page_name })
+      end
+    end
+  end
+end
+
+------------------------------------------------------------------
+-- page + heading
+------------------------------------------------------------------
+
+command.define({
+  name = "Navigate: Tree-Tree Picker",
+  key  = "Shift-Alt-e",
+  run  = function() pageTreePicker() end,
+})
+```
 
 ## Tree-Tree (depend on Pure-Page)
 
