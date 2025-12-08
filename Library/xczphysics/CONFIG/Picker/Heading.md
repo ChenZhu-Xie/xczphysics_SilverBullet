@@ -455,22 +455,9 @@ command.define({
 # Heading Inserter: in Page
 
 
-
 ```space-lua
--- H_VERT = "│ 　　"
--- H_TEE  = "├───　"
--- H_ELB  = "└───　"
-
--- H_VERT = "┊ 　　"
--- H_TEE  = "┊┈🔹┈ "
--- H_ELB  = "╰┈🔸┈ "
-
-H_VERT = "┊ 　　"
-H_TEE  = "┊┈┈🔹 "
-H_ELB  = "╰┈┈🔸 "
-
 command.define({
-  name = "Heading Picker: In Page",
+  name = "Heading Inserter: In Page",
   key = "alt-h",
   run = function()
     local headers = query[[
