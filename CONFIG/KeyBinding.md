@@ -67,7 +67,7 @@
 | Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
 | Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: Across Pages|Across Pages]] | | Shift | Alt | a |
-| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | Shift | Alt | a |
+| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | | Alt | a |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]] | | Shift | Alt | e |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
