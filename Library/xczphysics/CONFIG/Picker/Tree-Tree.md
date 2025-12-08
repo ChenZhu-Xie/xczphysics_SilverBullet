@@ -2105,7 +2105,26 @@ local function pageOnlyPicker()
     -- editor.copyToClipboard(selection.ref)
     -- editor.copyToClipboard("[[" .. page_name .. "]]")
     -- editor.invokeCommand("Paste: Smart URL (via Prompt)")
-    
+    local selected = getSelectedText()
+    if selected and selected ~= "" then
+      -- selected：[[content|selected]]
+      setSelectedText(string.format("[[%s|%s]]", wiki_content, selected))
+      editor.flashNotification("Inserted wiki alias link")
+      return
+    else
+      -- no selection：[[content|]]
+      local snippet = string.format("[[%s|]]", wiki_content)
+      local pos = editor.getCursor()
+      editor.insertAtCursor(snippet, false)
+      if editor.moveCursor then
+        editor.moveCursor((pos + #string.format("[[%s|", wiki_content)), false)
+      elseif editor.setSelection then
+        local target = pos + #string.format("[[%s|", wiki_content)
+        editor.setSelection(target, target)
+      end
+      editor.flashNotification("Inserted wiki link placeholder")
+      return
+    end
   end
 end
 
