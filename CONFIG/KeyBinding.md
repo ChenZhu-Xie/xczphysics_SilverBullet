@@ -7,7 +7,7 @@
 | Cursor: | [[Library/xczphysics/CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete Nearest Format]] | | | Alt | d |
 | Cursor: | [[Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate#Copy nearest Format around Cursor|Duplicate Nearest Format]] | | | Alt | c |
 | Cursor: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Copy Nearest Flabel]] | | | Alt | m |
-| Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | | Alt | c |
+| Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | Shift | | c |
 | Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
 | Cursor: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Center Cursor|Center]] | | Ctrl | | l |
 | Paste: | [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Smart Url]] | | | Alt | v |
@@ -32,6 +32,10 @@
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: In Page|In Page]] | | Shift | Alt | h |
 | Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: In Page|In Page]] | | | Alt | h |
+| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | | Alt | a |
+| Page Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Pure-Page: Insert (depend on Pure-Page)|Insert]] | | | Alt | k |
+| Giant-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Insert|Insert]] | | | Alt | e |
+| Tree-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree: Insert|Insert]] | | | Alt | e |
 | Mouse: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
@@ -65,16 +69,12 @@
 | Page Picker: | [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |
 | Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
-| Page Picker: | Tree | | Shift | Alt | k |
-| Page Picker: | Insert | | | Alt | k |
-| Giant-Tree: | Insert | | | Alt | e |
+| Page Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Pure-Page (along with Tree-Tree)|Tree]] | | Shift | Alt | k |
 | Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: Across Pages|Across Pages]] | | Shift | Alt | a |
-| Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | | Alt | a |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
-| Giant-Tree: | Pick | | Shift | Alt | e |
-| Tree-Tree: | Pick | | Shift | Alt | e |
-| Tree-Tree: | Insert | | | Alt | e |
+| Giant-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Pick]] | | Shift | Alt | e |
+| Tree-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree (depend on Pure-Page)|Pick]] | | Shift | Alt | e |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
 | Page History: | Back | | | Alt | ← |
