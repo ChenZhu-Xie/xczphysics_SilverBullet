@@ -1132,7 +1132,7 @@ local function pickHeadings(pageName)
     table.insert(stack, { level = L, last = is_last, text = node.name })
   end
 
-  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
+  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "🤕 a Header")
 
   if result then
     aliasPaste(result.ref)
@@ -1292,7 +1292,7 @@ local function pickHeadings(pageName)
     table.insert(stack, { level = L, last = is_last, text = node.name })
   end
 
-  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
+  local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "🤕 a Header")
 
   if result then
     editor.navigate(result.ref)
