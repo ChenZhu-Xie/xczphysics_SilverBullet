@@ -13,6 +13,9 @@ pageDecoration.prefix: "🌲🌲 "
 
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 
+```space-lua
+
+```
 
 ## Giant-Tree: Query Version
 
