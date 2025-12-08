@@ -30,7 +30,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
-| Heading: | [[Library/xczphysics/CONFIG/Picker/Heading#In page|Picker (in Page)]] | | Shift | Alt | h |
+| Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#In page|Picker (in Page)]] | | Shift | Alt | h |
 | Mouse: | [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Click History|Center]] or [[^Library/Std/Editor/Lua#Navigation|To def]] | Ctrl | | | Click |
 | Code Block: | [[CONFIG/Edit/Selection_To_Codeblock_Toggle#Selection to custom CodeBlock|Space-Lua Format]] | Ctrl | | Alt | 1 |
 | Frontmatter: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Add Github Url]] | Ctrl | | Alt | g |
