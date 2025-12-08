@@ -54,8 +54,8 @@ local function unifiedTreePicker()
       table.insert(bucket, {
         level = h.level or 1,
         text  = h.name,
-        -- ref  = h.ref,
-        ref  = h.page .. "#" .. h.name,
+        ref  = h.ref,
+        -- ref  = h.page .. "#" .. h.name,
       })
     end
   end
@@ -311,8 +311,8 @@ command.define({
 
       table.insert(items, {
         name = prefix .. (is_last and H_ELB or H_TEE) .. h.name,
-        -- ref  = h.ref,
-        ref  = h.page .. "#" .. h.name,
+        ref  = h.ref,
+        -- ref  = h.page .. "#" .. h.name,
       })
 
       table.insert(stack, { level = rel_level, last = is_last })
