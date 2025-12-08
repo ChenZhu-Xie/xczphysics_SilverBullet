@@ -78,7 +78,7 @@ function pickerBox_FlabelRef(hinText, iniText)
     order by _.toPage
   ]]
   local Flabels = query[[from allFlabels select {name = _.toPage:gsub(anchorSymbol, "") .. suffixBlabel .. _.alias:gsub(suffixBlabel, ""), description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")}]]
-  local sel = editor.filterBox("Flabel Search", Flabels, hinText, iniText)
+  local sel = editor.filterBox("🔎 Flabel", Flabels, hinText, iniText)
   if sel then return sel.description, sel.Flabel end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
@@ -94,7 +94,7 @@ function pickerBox_BlabelRef(hinText, iniText)
     order by _.toPage .. alias
   ]]
   local Blabels = query[[from allBlabels select {name = _.toPage:gsub(anchorSymbol, "") .. siblings .. _.alias, description = _.page .. "@" .. _.pos, Flabel = _.toPage:gsub(anchorSymbol, "")}]]
-  local sel = editor.filterBox("Blabel Search", Blabels, hinText, iniText)
+  local sel = editor.filterBox("🔎 Blabel", Blabels, hinText, iniText)
   if sel then return sel.description, sel.Flabel end
   if not sel then
     editor.flashNotification("Cancelled", "warn")
