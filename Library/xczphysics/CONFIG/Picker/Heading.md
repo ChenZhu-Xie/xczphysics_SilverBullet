@@ -17,15 +17,15 @@ ${query[[
 
 ```space-lua
 -- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
-local H_VERT   = "│ 　　"
+local VERT   = "│ 　　"
 local BLNK   = "　　　"
-local H_TEE    = "├───　"
-local H_ELB    = "└───　"
+local TEE    = "├───　"
+local ELB    = "└───　"
 
 -- 子标题专用样式 (虚线/点状)
-local H_H_VERT = "┊ 　　"
-local H_H_TEE  = "┊┈┈🔹"
-local H_H_ELB  = "╰┈┈🔸"
+local H_VERT = "┊ 　　"
+local H_TEE  = "┊┈┈🔹"
+local H_ELB  = "╰┈┈🔸"
 
 local function unifiedTreePicker()
   local pages = space.listPages()
@@ -167,9 +167,9 @@ local function unifiedTreePicker()
       else
         -- 样式逻辑：如果父级是顶级(Level 1)，它的延伸线用实线；如果是子级，用虚线
         if parent.is_top_level then
-          prefix = prefix .. H_VERT
+          prefix = prefix .. VERT
         else
-          prefix = prefix .. H_H_VERT
+          prefix = prefix .. H_VERT
         end
       end
     end
@@ -187,24 +187,24 @@ local function unifiedTreePicker()
         end
       end
       -- 如果当前节点是顶级，使用实线；否则使用虚线 (逻辑上这里通常是虚线，因为已经在 Level > 1 了)
-      local v_char = is_top and H_VERT or H_H_VERT
+      local v_char = is_top and VERT or H_VERT
       prefix = prefix .. (has_deeper and v_char or BLNK)
     end
 
-    -- 绘制当前节点的连接符 (H_ELBow/H_TEE)
-    local H_ELBow = ""
+    -- 绘制当前节点的连接符 (ELBow/TEE)
+    local ELBow = ""
     if is_top then
         -- 顶级标题使用实线连接符
-        H_ELBow = is_last and H_ELB or H_TEE
+        ELBow = is_last and ELB or TEE
     else
         -- 子标题使用虚线连接符
-        H_ELBow = is_last and H_H_ELB or H_H_TEE
+        ELBow = is_last and H_ELB or H_TEE
     end
 
     local display_text = node.text
     local desc = node.full_desc
 
-    local label = prefix .. H_ELBow .. display_text
+    local label = prefix .. ELBow .. display_text
 
     table.insert(items, {
       name        = label,
@@ -256,6 +256,19 @@ command.define({
       -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
 ```space-lua
+H_VERT = "│ 　　"
+BLNK = "　　　"
+H_TEE  = "├───　"
+H_ELB  = "└───　"
+
+H_VERT = "┊ 　　"
+H_TEE  = "┊┈🔹┈ "
+H_ELB  = "╰┈🔸┈ "
+
+H_VERT = "┊ 　　"
+H_TEE  = "┊┈┈🔹 "
+H_ELB  = "╰┈┈🔸 "
+
 command.define({
   name = "Heading Picker: in Page",
   key = "Ctrl-Shift-h",
