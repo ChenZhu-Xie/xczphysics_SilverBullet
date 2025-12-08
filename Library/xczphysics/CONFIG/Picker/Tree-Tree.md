@@ -807,8 +807,7 @@ local function pickHeadings(pageName)
     ]]
 
   if #nodes == 0 then
-    editor.navigate({ page = pageName })
-    editor.invokeCommand("Navigate: Center Cursor")
+    aliasPaste(pageName)
     return
   end
 
@@ -947,11 +946,6 @@ command.define({
 ## Tree-Tree (depend on Pure-Page)
 
 1. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
-
-${query[[
-      from index.tag "header"
-      order by _.pos
-    ]]}
 
 ```space-lua
 local pageTreePicker
