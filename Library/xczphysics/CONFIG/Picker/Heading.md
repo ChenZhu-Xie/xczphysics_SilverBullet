@@ -454,6 +454,8 @@ command.define({
 
 # Heading Inserter: in Page
 
+
+
 ```space-lua
 -- H_VERT = "│ 　　"
 -- H_TEE  = "├───　"
