@@ -13,7 +13,7 @@ pageDecoration.prefix: "🌳🌲 "
 
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 
-```lua
+```space-lua
 -- 1. 定义两套样式：Standard (Folder/Page) 和 Heading (虚线风格)
 local function unifiedTreePicker()
   local pages = space.listPages()
@@ -281,7 +281,7 @@ command.define({
    - 看上去是每次只 query 了每个 page 的，但实际上 where 之前仍 query 了所有的 headers
    - 所以如果每次都只 query 一页，速度反而会变慢。
 
-```lua
+```space-lua
 -- 1. 定义两套样式：Standard (Folder/Page) 和 Heading (虚线风格)
 local function unifiedTreePicker()
   local pages = space.listPages()
@@ -1032,7 +1032,7 @@ command.define({
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
 2. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
-```space-lua
+```lua
 local pageTreePicker
 
 local function pickHeadings(pageName)
@@ -1191,7 +1191,7 @@ command.define({
 
 1. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
-```space-lua
+```lua
 local pageTreePicker
 
 local function pickHeadings(pageName)
