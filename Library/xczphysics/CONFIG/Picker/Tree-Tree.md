@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Picker/Tree-Tree
 tags: meta/library
-pageDecoration.prefix: "🌲🌲 "
+pageDecoration.prefix: "🌳🌲 "
 ---
 
 1. [headings picker](https://community.silverbullet.md/t/headings-picker/1745/10?u=chenzhu-xie) #community #silverbullet
@@ -248,7 +248,7 @@ local function unifiedTreePicker()
     table.insert(stack, { level = L, last = is_last, type = node.type })
   end
 
-  local result = editor.filterBox("🔌 Insert", items, "Select Page or Heading...", "🌳🌲Unified Tree")
+  local result = editor.filterBox("🔌 Insert", items, "Select Page or Heading...", "🌳🌲 Unified Tree")
 
   if result then
     local selection = result.value or result
@@ -1153,7 +1153,7 @@ pageTreePicker = function()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "📃 Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "🌳 Page Tree")
 
   if result then
     local selection = result.value or result
@@ -1313,7 +1313,7 @@ pageTreePicker = function()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "📃 Page Tree")
+  local result = editor.filterBox("🤏 Pick", items, "Select a Page...", "🌳 Page Tree")
 
   if result then
     local selection = result.value or result
