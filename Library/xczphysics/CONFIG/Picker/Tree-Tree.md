@@ -898,9 +898,9 @@ local function pickHeadings(pageName)
     if pos == 0 then
       aliasPaste(pageName)
     elseif pos then
-      aliasPaste(page .. "#" .. pos)
+      no
+      -- aliasPaste(page .. "#" .. pos)
     end
-    editor.invokeCommand("Navigate: Center Cursor")
   else
     return pageTreePicker()
   end
