@@ -16,17 +16,6 @@ ${query[[
 1. coming from [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|]]
 
 ```space-lua
--- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
-local VERT   = "│ 　　"
-local BLNK   = "　　　"
-local TEE    = "├───　"
-local ELB    = "└───　"
-
--- 子标题专用样式 (虚线/点状)
-local H_VERT = "┊ 　　"
-local H_TEE  = "┊┈┈🔹"
-local H_ELB  = "╰┈┈🔸"
-
 local function unifiedTreePicker()
   local pages = space.listPages()
   
@@ -256,6 +245,19 @@ command.define({
       -  2级 → 4级 → 2级 problem,  6级 → 4级 → 6级 problem
 
 ```space-lua
+VERT = "│ 　　"
+BLNK = "　　　"
+TEE  = "├───　"
+ELB  = "└───　"
+
+VERT = "┊ 　　"
+TEE  = "┊┈🔹┈ "
+ELB  = "╰┈🔸┈ "
+
+VERT = "┊ 　　"
+TEE  = "┊┈┈🔹 "
+ELB  = "╰┈┈🔸 "
+
 command.define({
   name = "Heading Picker: in Page",
   key = "Ctrl-Shift-h",
@@ -278,19 +280,6 @@ command.define({
 
     local items = {}
     local stack = {}
-    
-    local VERT = "│ 　　"
-    local BLNK = "　　　"
-    local TEE  = "├───　"
-    local ELB  = "└───　"
-
-    local VERT = "┊ 　　"
-    local TEE  = "┊┈🔹┈ "
-    local ELB  = "╰┈🔸┈ "
-
-    local VERT = "┊ 　　"
-    local TEE  = "┊┈┈🔹 "
-    local ELB  = "╰┈┈🔸 "
 
     for i, h in ipairs(headers) do
       local is_last = true
