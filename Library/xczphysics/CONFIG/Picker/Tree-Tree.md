@@ -787,6 +787,9 @@ command.define({
 
 ## Tree-Tree: Insert
 
+1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
+2. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
+
 ```space-lua
 local pageTreePicker
 
@@ -925,7 +928,7 @@ pageTreePicker = function()
         pickHeadings(page_name)
       else
         editor.flashNotification("Folder selected. Creating page: " .. page_name)
-        editor.navigate({ page = page_name })
+        aliasPaste(page_name)
       end
     end
   end
@@ -943,6 +946,8 @@ command.define({
 ```
 
 ## Tree-Tree (depend on Pure-Page)
+
+1. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
 ```space-lua
 local pageTreePicker
@@ -2225,9 +2230,10 @@ command.define({
 })
 ```
 
-## Page-Insert (depend on Pure-Page)
+## Pure-Page: Insert (depend on Pure-Page)
 
 1. needs `func() aliasPaste` from [[Library/xczphysics/CONFIG/Paste_as/Smart_Url#Paste: Smart URL|Paste: Smart URL]]
+2. need `func() buildPageTreeItems` from [[#Pure-Page (along with Tree-Tree)]]
 
 ```space-lua
 local function pageOnlyPicker()
