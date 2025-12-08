@@ -65,12 +65,16 @@
 | Page Picker: | [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |
 | Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
+| Page Picker: | Tree | | Shift | Alt | k |
+| Page Picker: | Insert | | | Alt | k |
+| Giant-Tree: | Insert | | | Alt | e |
 | Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: Across Pages|Across Pages]] | | Shift | Alt | a |
 | Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | | Alt | a |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Giant-Tree: | Pick | | Shift | Alt | e |
-| Giant-Tree: | Insert | | | Alt | e |
+| Tree-Tree: | Pick | | Shift | Alt | e |
+| Tree-Tree: | Insert | | | Alt | e |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Flabel]] | | | Alt | ,< |
 | Go To: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Blabel]] | | | Alt | .> |
 | Page History: | Back | | | Alt | ← |
