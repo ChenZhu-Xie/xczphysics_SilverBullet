@@ -39,7 +39,10 @@ virtualPage.define {
       text = "# Objects tagged with " .. tagName .. "\n"
       
       -- 查询该标签下的所有对象
-      allObjects = query("from index.tag('" .. tagName .. "') order by ref")
+      allObjects = query[[
+        from index.tag('" .. tagName .. "')
+        order by ref
+      ]]
 
       -- 父标签导航 (Parent tags)
       local tagParts = tagName:split("/")
@@ -83,7 +86,7 @@ virtualPage.define {
       queryString = queryString .. " order by ref"
       
       -- 执行查询
-      allObjects = query(queryString)
+      query(queryString)
     end
 
     -- 3. 分类展示结果 (通用逻辑)
