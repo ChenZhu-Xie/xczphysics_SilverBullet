@@ -116,7 +116,7 @@ local function unifiedTreePicker()
       table.insert(bucket, {
         level = h.level or 1,
         text  = h.name,
-        pos   = h.pos or 0
+        ref   = h.page .. "#" .. h.name
       })
     end
   end
@@ -163,7 +163,7 @@ local function unifiedTreePicker()
             level     = absolute_level,
             is_real   = false,
             type      = "heading", -- 关键标识
-            pos       = h.pos,
+            ref       = h.ref,
             page_name = node.name,
             full_desc = full_path_desc
           })
@@ -269,7 +269,7 @@ local function unifiedTreePicker()
       description = desc,
       value       = {
         page = node.page_name or node.name,
-        pos  = node.pos,
+        ref  = node.ref,
         type = node.type
       }
     })
@@ -287,18 +287,14 @@ local function unifiedTreePicker()
     end
 
     local page_name = selection.page
-    local pos       = selection.pos
+    local ref       = selection.ref
     local node_type = selection.type
 
     if node_type == "folder" then
       editor.flashNotification("Folder selected. Creating/Going to page: " .. page_name)
       editor.navigate({ page = page_name })
     elseif node_type == "page" or node_type == "heading" then
-      if pos and pos > 0 then
-        editor.navigate({ page = page_name, pos = pos })
-      else
-        editor.navigate({ page = page_name })
-      end
+      editor.navigate(ref)
       editor.invokeCommand("Navigate: Center Cursor")
     end
   end
