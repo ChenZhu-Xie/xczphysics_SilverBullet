@@ -52,7 +52,7 @@ command.define {
       return
     end
 
-    local sel = editor.filterBox("Jump to", tables, "Select a Table...", "Page @ Pos where the Table locates")
+    local sel = editor.filterBox("🤏 Pick", tables, "Select a Table...", "a Table location")
     if not sel then return end
     editor.navigate(sel.ref)
     editor.invokeCommand("Navigate: Center Cursor")
