@@ -896,8 +896,9 @@ local function pickHeadings(pageName)
     end
 
     if pos == 0 then
-      editor.navigate({ page = pageName })
+      aliasPaste(pageName)
     elseif pos then
+      aliasPaste(page .. "#" .. pos)
       editor.navigate({ page = pageName, pos = pos })
     end
     editor.invokeCommand("Navigate: Center Cursor")
