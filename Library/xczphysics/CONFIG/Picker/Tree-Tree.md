@@ -2485,7 +2485,7 @@ local function pageOnlyPicker()
     return
   end
 
-  local result = editor.filterBox("🤏 Pick:", items, "Select a Page...", "Page Tree")
+  local result = editor.filterBox("🔌 Insert:", items, "Select a Page...", "Page Tree")
 
   if not result then return end
 
