@@ -1056,16 +1056,7 @@ local function pickHeadings(pageName)
   local result = editor.filterBox(pageName .. "#", items, "Select a Header...", "Heading Picker")
 
   if result then
-    local pos = result.pos
-    if not pos and result.value and result.value.pos then
-      pos = result.value.pos
-    end
-
-    if pos == 0 then
-      editor.navigate({ page = pageName })
-    elseif pos then
-      editor.navigate({ page = pageName, pos = pos })
-    end
+    editor.navigate({ page ..  })
     editor.invokeCommand("Navigate: Center Cursor")
   else
     return pageTreePicker()
