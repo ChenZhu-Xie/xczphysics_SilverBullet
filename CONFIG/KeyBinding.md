@@ -59,12 +59,12 @@
 |----------|----------|------|-------|-----|--------|
 | Navigate: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Home|Home]] | Ctrl | | | h |
 | Picker: | Document | Ctrl | | | o |
+| Picker: | [[Library/xczphysics/CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Page Picker: | [[Library/xczphysics/CONFIG/Query/lastModified/Picker#Implementation|Last Modified]] | | Shift | Alt | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
-| Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Page]] | Ctrl | | | k |
-| Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Page (Meta)]] | Ctrl | Alt | | k |
-| Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]] | Ctrl | | Alt | t |
-| Picker: | [[Library/xczphysics/CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
+| Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |
+| Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
+| Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Across pages|Across Pages]] | | Shift | Alt | a |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Implementation|Tree-Tree]] | | Shift | Alt | e |
