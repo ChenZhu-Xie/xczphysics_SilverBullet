@@ -191,10 +191,10 @@ command.define {
     editor.copyToClipboard(Flabel)
     if alias and alias ~= "" then
       setSelectedText("")
-      -- editor.copyToClipboard(alias)
+      editor.copyToClipboard(alias)
     end
     editor.insertAtPos(fullText, editor.getCursor(), true)
-    editor.copyToClipboard(Flabel)
+    -- editor.copyToClipboard(Flabel)
     -- editor.insertAtCursor(alias, false) -- scrollIntoView?
     editor.invokeCommand("Widgets: Refresh All")
   end
