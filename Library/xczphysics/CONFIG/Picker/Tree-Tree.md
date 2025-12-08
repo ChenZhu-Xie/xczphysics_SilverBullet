@@ -2289,7 +2289,7 @@ end
 ------------------------------------------------------------------
 
 command.define({
-  name = "Page Picker: Paste",
+  name = "Page Picker: Tree",
   key  = "Shift-Alt-k",
   run  = function() pageOnlyPicker() end,
 })
