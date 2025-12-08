@@ -439,7 +439,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Builtin_Formats](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Builtin_Formats#(Missing)%20Builtin%20Formats) #enlarge-the-percentage #fly
 [Builtin_Formats.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Builtin_Formats.md) #github
 
-# 🖼️ Theme
+# 🎇 Theme
 
 ## Doom-Two
 

@@ -2,9 +2,9 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/STYLE/Theme/HHH
 tags: meta/library
-pageDecoration.prefix: "🖼️ "
+pageDecoration.prefix: "🎇 "
 ---
-  
+
 # HierarchyHighlightHeadings - HHH Theme
 
 ## JS Part
