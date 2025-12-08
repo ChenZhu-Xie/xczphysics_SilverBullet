@@ -2119,6 +2119,7 @@ function buildPageTreeItems()
           text    = part,
           level   = #parts,
           is_real = false,
+          ref     = page.ref,
         }
       end
     end
