@@ -17,15 +17,10 @@ ${query[[
 
 ```space-lua
 -- 1. 定义两套样式：Standard (用于顶级标题) 和 Sub-Heading (用于子标题)
-local VERT   = "│ 　　"
-local BLNK   = "　　　"
-local TEE    = "├───　"
-local ELB    = "└───　"
-
--- 子标题专用样式 (虚线/点状)
-local H_VERT = "┊ 　　"
-local H_TEE  = "┊┈┈🔹"
-local H_ELB  = "╰┈┈🔸"
+VERT   = "│ 　　"
+BLNK   = "　　　"
+TEE    = "├───　"
+ELB    = "└───　"
 
 local function unifiedTreePicker()
   local pages = space.listPages()
@@ -248,7 +243,6 @@ command.define({
 
 ```space-lua
 H_VERT = "│ 　　"
-BLNK = "　　　"
 H_TEE  = "├───　"
 H_ELB  = "└───　"
 
