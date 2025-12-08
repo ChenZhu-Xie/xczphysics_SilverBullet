@@ -1059,7 +1059,7 @@ local function pickHeadings(pageName)
 end
 
 ------------------------------------------------------------------
--- page + heading
+-- page( + heading)
 ------------------------------------------------------------------
 
 pageTreePicker = function()
