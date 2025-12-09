@@ -12,17 +12,12 @@ pageDecoration.prefix: "🔖 "
 4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
    而不是 只 pick 1 tag（像下面的 tag picker）或 [[QUERY/Tags/Tag-Page_Navigator|找并集]]
 
-${query[[
-        from index.tag("silverbullet")
-        order by ref
-      ]]}
 
-```lua
+```space-lua
 -- priority: 10
 virtualPage.define {
   pattern = "tag:(.+)",
   run = function(inputString)
-    -- 1. 解析标签：按逗号分割并去除首尾空格
     local rawTags = inputString:split(",")
     local tags = {}
     for _, t in ipairs(rawTags) do
@@ -37,14 +32,14 @@ virtualPage.define {
     local text = ""
     local allObjects = {}
 
-    if #tags == 1 then
-      local tagName = tags[1]
-      text = "# Objects tagged with " .. tagName .. "\n"
-      
-      allObjects = query[[
+    allObjects = query[[
         from index.tag(tagName)
         order by ref
       ]]
+    
+    if #tags == 1 then
+      local tagName = tags[1]
+      text = "# Objects tagged with " .. tagName .. "\n"
 
       local tagParts = tagName:split("/")
       local parentTags = {}
@@ -70,20 +65,14 @@ virtualPage.define {
     else
       text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
       
-      -- 动态构建查询语句
-      -- 基础：从第一个标签的索引中获取
-      local queryString = "from index.tag('" .. tags[1] .. "')"
-      
       -- 过滤：要求对象必须同时也包含后续的所有标签
       -- 使用 itags (inherited tags) 确保包含继承的标签
       for i = 2, #tags do
-        queryString = queryString .. " where table.includes(itags, '" .. tags[i] .. "')"
+        allObjects = query[[
+            from allObjects
+            where table.includes(_.tags, tags[i])
+          ]]
       end
-      
-      queryString = queryString .. " order by ref"
-      
-      -- 执行查询
-      query(queryString)
     end
 
     -- 3. 分类展示结果 (通用逻辑)
