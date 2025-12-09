@@ -49,7 +49,7 @@ command.define {
         end
       end
     end
-    local targetPage = "tag:" .. table.concat(selectedNames, ",")
+    local targetPage = "tags:" .. table.concat(selectedNames, ",")
     editor.navigate(targetPage)
   end
 }
@@ -61,7 +61,7 @@ command.define {
 ```space-lua
 -- priority: 11
 virtualPage.define {
-  pattern = "tag:(.+)",
+  pattern = "tags:(.+)",
   run = function(inputString)
     local rawTags = inputString:split(",")
     local tags = {}
