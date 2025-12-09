@@ -20,14 +20,38 @@ command.define {
   name = "Navigate: Tags Picker",
   key = "Shift-Alt-t",
   run = function()
-    local tags = query[[from index.tag "tag" select {name = _.name}]]
-    local sel1 = editor.filterBox("🤏 Pick", tags, "Select a Tag", "🔖 a Tag")
-    if sel1 then
-      
-      editor.navigate("tag:" .. sel1.name .. "," ..)
+    local allTags = query[[from index.tag "tag" select {name = _.name}]]
+    local selectedNames = {}
+    while true do
+      local availableOptions = {}
+      for _, tagObj in ipairs(allTags) do
+        if not table.includes(selectedNames, tagObj.name) then
+          table.insert(availableOptions, tagObj)
+        end
+      end
+      if #availableOptions == 0 then
+        break
+      end
+      local promptTitle = "🤏 Pick a Tag"
+      if #selectedNames > 0 then
+        promptTitle = "➕ Intersection with (ESC to Go): " .. table.concat(selectedNames, ", ")
+      end
+      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag", "🔖 Tag")
+      if selection then
+        table.insert(selectedNames, selection.name)
+      else
+        if #selectedNames == 0 then
+          return
+        else
+          break
+        end
+      end
     end
+    local targetPage = "tag:" .. table.concat(selectedNames, ",")
+    editor.navigate(targetPage)
   end
 }
+
 ```
 
 ### Virtual Page
