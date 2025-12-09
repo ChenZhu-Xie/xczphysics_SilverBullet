@@ -65,8 +65,6 @@ virtualPage.define {
     else
       text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
       
-      -- 过滤：要求对象必须同时也包含后续的所有标签
-      -- 使用 itags (inherited tags) 确保包含继承的标签
       for i = 2, #tags do
         allObjects = query[[
             from allObjects
@@ -74,9 +72,6 @@ virtualPage.define {
           ]]
       end
     end
-
-    -- 3. 分类展示结果 (通用逻辑)
-    -- 以下代码复用原逻辑，将 allObjects 分类展示
     
     local taggedPages = {}
     local taggedTasks = {}
@@ -84,7 +79,7 @@ virtualPage.define {
     local taggedData = {}
     local taggedParagraphs = {}
 
-    -- 在 Lua 中进行分类过滤，避免多次数据库查询，提高性能
+    -- improve performance 
     for _, obj in ipairs(allObjects) do
       if obj.itags and table.includes(obj.itags, "page") then
         table.insert(taggedPages, obj)
