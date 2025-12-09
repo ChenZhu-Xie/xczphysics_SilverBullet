@@ -34,7 +34,7 @@ command.define {
       end
       local description = "Select a Tag (ESC to Go)"
       if #selectedNames > 0 then
-        description = "➕ " .. table.concat(selectedNames, ", ") .. "(ESC to Go)"
+        description = "➕ " .. table.concat(selectedNames, ", ") .. " (ESC to Go)"
       end
       local selection = editor.filterBox("🤏 Pick", availableOptions, description, "🔖🔖 Tags")
       if selection then
