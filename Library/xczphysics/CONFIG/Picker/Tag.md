@@ -5,6 +5,16 @@ tags: meta/library
 pageDecoration.prefix: "🔖 "
 ---
 
+Practical tag search handles multi-tag intersections, which is both the advantage and the drawbacks (not one-to-one) of tags (Webs) over file systems (Trees).
+
+One item can have many tags, and one tag can match many items.
+
+Both are Webs, yet 
+Tag is Star-like Set-theory, good at Filtering, Intersection, Classification
+Wiki is Mesh-like Graph-theory, good at Navigation, Association, 
+
+Set Theory
+
 # Multiple Tags
 
 4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
