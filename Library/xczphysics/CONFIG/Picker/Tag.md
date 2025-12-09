@@ -32,19 +32,15 @@ virtualPage.define {
     local text = ""
     local allObjects = {}
 
-    -- 2. 根据标签数量决定查询逻辑
     if #tags == 1 then
-      -- === 单标签逻辑 (保持原有功能) ===
       local tagName = tags[1]
       text = "# Objects tagged with " .. tagName .. "\n"
       
-      -- 查询该标签下的所有对象
       allObjects = query[[
-        from index.tag('" .. tagName .. "')
+        from index.tag(tagName)
         order by ref
       ]]
 
-      -- 父标签导航 (Parent tags)
       local tagParts = tagName:split("/")
       local parentTags = {}
       for i in ipairs(tagParts) do
@@ -58,7 +54,6 @@ virtualPage.define {
           .. template.each(parentTags, templates.tagItem)
       end
 
-      -- 子标签导航 (Child tags)
       local subTags = query[[
         from index.tag "tag"
         where string.startsWith(_.name, "]] .. tagName .. [[/")
@@ -70,7 +65,6 @@ virtualPage.define {
       end
 
     else
-      -- === 多标签交集逻辑 (新功能) ===
       text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
       
       -- 动态构建查询语句
