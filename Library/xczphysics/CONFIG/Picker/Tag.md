@@ -59,7 +59,7 @@ command.define {
 ### Virtual Page
 
 ```space-lua
--- priority: 10
+-- priority: 11
 virtualPage.define {
   pattern = "tag:(.+)",
   run = function(inputString)
