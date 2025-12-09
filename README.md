@@ -26,7 +26,7 @@
 |-----------|------|------------|
 | 🟨 **Copy as** | [Cursor Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/Cursor_Link.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Link) |
 | 🟨 **Copy as** | [Cursor Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Cursor%20Wiki) |
-| 🟨 **Copy as** | [Folder Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Url.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Folder%20Url) |
+| 🟨 **Copy as** | [Folder Path](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Folder_Path.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Folder%20Path) |
 | 🟨 **Copy as** | [Github Url](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Github_Url.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Github%20Url) |
 | 🟨 **Copy as** | [Page Link](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Page_Link.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Link) |
 | 🟨 **Copy as** | [Page Wiki](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Copy_as/page_title/Page_Wiki.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Page%20Wiki) |
