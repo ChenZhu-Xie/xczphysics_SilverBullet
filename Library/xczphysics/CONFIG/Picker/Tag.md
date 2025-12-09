@@ -12,6 +12,11 @@ pageDecoration.prefix: "🔖 "
 4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
    而不是 只 pick 1 tag（像下面的 tag picker）或 [[QUERY/Tags/Tag-Page_Navigator|找并集]]
 
+${query[[
+        from index.tag("silverbullet")
+        order by ref
+      ]]}
+
 ```lua
 -- priority: 10
 virtualPage.define {
