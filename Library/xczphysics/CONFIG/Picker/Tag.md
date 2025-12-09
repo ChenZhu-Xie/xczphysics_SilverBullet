@@ -13,7 +13,6 @@ Both are Webs, yet
 Tag is Star-like Set-theory, good at Filtering, Intersection, Classification
 Wiki is Mesh-like Graph-theory, good at Navigation, Association, 
 
-Set Theory
 
 # Multiple Tags
 
