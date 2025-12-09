@@ -110,10 +110,11 @@ command.define {
     if not FlabelRef then return end
     -- editor.flashNotification(FlabelRef)
     editor.navigate(FlabelRef)
-    local pos = tonumber(FlabelRef:match("@(.*)$"))
-    if pos then
-        editor.moveCursor(pos, true)
-    end
+    -- local pos = tonumber(FlabelRef:match("@(.*)$"))
+    -- if pos then
+    --     editor.moveCursor(pos, true)
+    -- end
+    editor.invokeCommand("Navigate: Center Cursor")
     editor.copyToClipboard(Flabel)
   end
 }
@@ -126,10 +127,11 @@ command.define {
     if not BlabelRef then return end
     -- editor.flashNotification(BlabelRef)
     editor.navigate(BlabelRef)
-    local pos = tonumber(BlabelRef:match("@(.*)$"))
-    if pos then
-        editor.moveCursor(pos, true)
-    end
+    -- local pos = tonumber(BlabelRef:match("@(.*)$"))
+    -- if pos then
+    --     editor.moveCursor(pos, true)
+    -- end
+    editor.invokeCommand("Navigate: Center Cursor")
     editor.copyToClipboard(Flabel)
   end
 }
