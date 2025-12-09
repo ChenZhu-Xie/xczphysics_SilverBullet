@@ -181,6 +181,7 @@ virtualPage.define {
 3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
 
 ```space-lua
+-- priority: 10
 command.define {
   name = "Navigate: Tag Picker",
   key = "Ctrl-Alt-t",
