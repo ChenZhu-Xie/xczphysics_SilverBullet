@@ -35,7 +35,7 @@ command.define {
       local description = "Select a Tag"
       local placeholder = "🔖 a Tag"
       if #selectedNames > 0 then
-        description = "Selected Tags ⏺️:" .. table.concat(selectedNames, ", ") .. " ➕ (ESC to Go)"
+        description = "Selected Tags ⏺️：" .. table.concat(selectedNames, ", ") .. " ➕ (ESC to Go)"
         placeholder = string.rep("🔖", #selectedNames) .. " a Tag"
       end
       local selection = editor.filterBox("🤏 Pick", availableOptions, description, placeholder)
