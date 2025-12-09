@@ -16,8 +16,8 @@ pageDecoration.prefix: "🔖 "
 
 ```space-lua
 command.define {
-  name = "Navigate: Tag Picker",
-  key = "Ctrl-Alt-t",
+  name = "Navigate: Tags Picker",
+  key = "Shift-Alt-t",
   run = function()
     local tags = query[[from index.tag "tag" select {name = _.name}]]
     local sel = editor.filterBox("🤏 Pick", tags, "Select a Tag", "🔖 a Tag")
@@ -152,7 +152,7 @@ virtualPage.define {
 
 3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
 
-```lua
+```space-lua
 command.define {
   name = "Navigate: Tag Picker",
   key = "Ctrl-Alt-t",
