@@ -18,7 +18,7 @@ pageDecoration.prefix: "🔖 "
 -- priority: 10
 command.define {
   name = "Navigate: Tags Picker",
-  key = "Shift-Alt-s",
+  key = "Ctrl-Alt-a",
   run = function()
     local allTags = query[[from index.tag "tag" select {name = _.name}]]
     local selectedNames = {}
