@@ -97,4 +97,4 @@ function AlphabeticTagList()
 end
 ```
 
-2. related: [[CONFIG/Widget/Tag-Page_Navigator]]
+2. related: [[QUERY/Tags/Tag-Page_Navigator]]
