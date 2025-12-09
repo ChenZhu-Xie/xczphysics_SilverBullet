@@ -32,7 +32,7 @@ command.define {
       if #availableOptions == 0 then
         break
       end
-      local description = "Select a Tag (``ESC`` to Go)"
+      local description = "Select a Tag (ESC to Go)"
       if #selectedNames > 0 then
         description = "➕ " .. table.concat(selectedNames, ", ") .. "(`ESC` to Go)"
       end
