@@ -12,6 +12,22 @@ pageDecoration.prefix: "🔖 "
 4. 实用的 标签检索 应 自带多选 找交集 https://marijnhaverbeke.nl/blog #💡
    而不是 只 pick 1 tag（像下面的 tag picker）或 [[QUERY/Tags/Tag-Page_Navigator|找并集]]
 
+### Tags Picker 
+
+```space-lua
+command.define {
+  name = "Navigate: Tag Picker",
+  key = "Ctrl-Alt-t",
+  run = function()
+    local tags = query[[from index.tag "tag" select {name = _.name}]]
+    local sel = editor.filterBox("🤏 Pick", tags, "Select a Tag", "🔖 a Tag")
+    if sel then editor.navigate("tag:" .. sel.name) end
+  end
+}
+```
+
+### Virtual Page
+
 ```space-lua
 -- priority: 10
 virtualPage.define {
@@ -136,7 +152,7 @@ virtualPage.define {
 
 3. official one: [silverbullet 2 3 released share libraries library manager and repositories](https://community.silverbullet.md/t/silverbullet-2-3-released-share-libraries-library-manager-and-repositories/3580?u=chenzhu-xie) #community #silverbullet
 
-```space-lua
+```lua
 command.define {
   name = "Navigate: Tag Picker",
   key = "Ctrl-Alt-t",
