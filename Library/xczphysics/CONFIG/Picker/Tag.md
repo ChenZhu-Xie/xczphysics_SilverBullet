@@ -32,7 +32,7 @@ command.define {
       if #availableOptions == 0 then
         break
       end
-      local promptTitle = "🤏 Pick a Tag"
+      local promptTitle = "🤏 Pick Tags"
       if #selectedNames > 0 then
         promptTitle = "➕ " .. table.concat(selectedNames, ", ")
       end
