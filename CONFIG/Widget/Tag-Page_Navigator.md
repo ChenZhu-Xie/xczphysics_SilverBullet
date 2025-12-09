@@ -524,4 +524,4 @@ end
 ```
 
 
-[[STYLE/Widget/Tag-Page_Navigator@3172]] has some problem
+[[CONFIG/Widget/Tag-Page_Navigator@3172]] has some problem
