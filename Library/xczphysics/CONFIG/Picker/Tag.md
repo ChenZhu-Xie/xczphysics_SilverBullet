@@ -82,7 +82,7 @@ virtualPage.define {
     ]]
     
     if #tags == 1 then
-      text = "# Objects tagged with " .. tagName .. "\n"
+      text = "# Objects tagged with: " .. tagName .. "\n"
       local tagParts = tagName:split("/")
       local parentTags = {}
       for i in ipairs(tagParts) do
@@ -105,7 +105,7 @@ virtualPage.define {
           .. template.each(subTags, templates.tagItem)
       end
     else
-      text = "# Objects tagged with " .. '"' .. table.concat(tags, ", ") .. '"' .. "\n"
+      text = "# Objects tagged with: " .. table.concat(tags, ", ") .. "\n"
       for i = 2, #tags do
         allObjects = query[[
           from allObjects
