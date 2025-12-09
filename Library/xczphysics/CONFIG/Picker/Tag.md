@@ -32,11 +32,11 @@ command.define {
       if #availableOptions == 0 then
         break
       end
-      local promptTitle = "🤏 Pick Tags"
+      local description = "Select a Tag (`ESC` to Go)"
       if #selectedNames > 0 then
-        promptTitle = "➕ " .. table.concat(selectedNames, ", ")
+        description = "➕ " .. table.concat(selectedNames, ", ") .. "(`ESC` to Go)"
       end
-      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag (ESC to Go)", "🔖🔖 Tags")
+      local selection = editor.filterBox("🤏 Pick", availableOptions, description, "🔖🔖 Tags")
       if selection then
         table.insert(selectedNames, selection.name)
       else
