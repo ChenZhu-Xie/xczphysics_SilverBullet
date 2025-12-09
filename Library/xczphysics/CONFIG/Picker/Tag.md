@@ -60,7 +60,7 @@ virtualPage.define {
           .. template.each(subTags, templates.tagItem)
       end
     else
-      text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
+      text = "# Objects tagged with " .. table.concat(tags, ", ") .. "\n"
       
       for i = 2, #tags do
         allObjects = query[[
