@@ -30,15 +30,13 @@ virtualPage.define {
     if #tags == 0 then return "No tags specified." end
 
     local text = ""
-    local allObjects = {}
-
-    allObjects = query[[
-        from index.tag(tagName)
-        order by ref
-      ]]
+    local tagName = tags[1]
+    local allObjects = query[[
+      from index.tag(tagName)
+      order by ref
+    ]]
     
     if #tags == 1 then
-      local tagName = tags[1]
       text = "# Objects tagged with " .. tagName .. "\n"
 
       local tagParts = tagName:split("/")
@@ -67,9 +65,9 @@ virtualPage.define {
       
       for i = 2, #tags do
         allObjects = query[[
-            from allObjects
-            where table.includes(_.tags, tags[i])
-          ]]
+          from allObjects
+          where table.includes(_.tags, tags[i])
+        ]]
       end
     end
     
