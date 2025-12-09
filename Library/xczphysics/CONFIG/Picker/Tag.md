@@ -36,7 +36,7 @@ command.define {
       if #selectedNames > 0 then
         promptTitle = "➕ " .. table.concat(selectedNames, ", ")
       end
-      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag (ESC to Go)", "🔖 Tag")
+      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag (ESC to Go)", "🔖🔖 Tags")
       if selection then
         table.insert(selectedNames, selection.name)
       else
