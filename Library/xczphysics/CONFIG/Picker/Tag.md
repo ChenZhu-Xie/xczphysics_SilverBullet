@@ -34,9 +34,9 @@ command.define {
       end
       local promptTitle = "🤏 Pick a Tag"
       if #selectedNames > 0 then
-        promptTitle = "➕ Intersection with (ESC to Go): " .. table.concat(selectedNames, ", ")
+        promptTitle = "➕ Intersection with: " .. table.concat(selectedNames, ", ")
       end
-      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag", "🔖 Tag")
+      local selection = editor.filterBox(promptTitle, availableOptions, "Select a Tag (ESC to Go)", "🔖 Tag")
       if selection then
         table.insert(selectedNames, selection.name)
       else
