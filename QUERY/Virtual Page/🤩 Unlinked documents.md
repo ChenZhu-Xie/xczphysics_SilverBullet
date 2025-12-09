@@ -1,3 +1,4 @@
+#virtualPage
 
 2. [unlinked documents as a virtual page](https://community.silverbullet.md/t/unlinked-documents-as-a-virtual-page/3554) #community #silverbullet
 
