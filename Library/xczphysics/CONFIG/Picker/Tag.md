@@ -15,6 +15,7 @@ pageDecoration.prefix: "🔖 "
 ### Tags Picker 
 
 ```space-lua
+-- priority: 10
 command.define {
   name = "Navigate: Tags Picker",
   key = "Shift-Alt-t",
