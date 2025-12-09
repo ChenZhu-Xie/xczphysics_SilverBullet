@@ -53,17 +53,15 @@ virtualPage.define {
         text = text .. "## Parent tags\n"
           .. template.each(parentTags, templates.tagItem)
       end
-
       local subTags = query[[
         from index.tag "tag"
-        where string.startsWith(_.name, "]] .. tagName .. [[/")
+        where string.startsWith(_.name, tagName .. "/")
         select {name=_.name}
       ]]
       if #subTags > 0 then
         text = text .. "## Child tags\n"
           .. template.each(subTags, templates.tagItem)
       end
-
     else
       text = "# Intersection of tags: " .. table.concat(tags, ", ") .. "\n"
       
