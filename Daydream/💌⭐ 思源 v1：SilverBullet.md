@@ -92,7 +92,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 关于 ee2.. 加密的问题 [[github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了⚓|github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了🧑‍🤝‍🧑1]]${forthRef("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了")}${backRefs_noSelf("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了",1)}
 
-Dinox 群里有提到 indexedDB viewer <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
+Dinox 群里有提到 indexedDB viewer #crx <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
 
 ## 思源的 查询条件 “可保存” #类比
 
