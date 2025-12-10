@@ -85,7 +85,7 @@ function yg.bc(path)
       local siblings = query[[
         from index.tag 'page'
         where _.name:startsWith(prefix) and _.name != current
-        select name
+        select {name = _.name}
       ]]
       
       -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
