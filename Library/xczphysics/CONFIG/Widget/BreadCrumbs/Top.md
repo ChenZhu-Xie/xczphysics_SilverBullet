@@ -62,7 +62,8 @@ end
 function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
   -- 仅决定视觉符号，不再直接拼接字符串
-  local arrow_symbol = has_children(mypage) and {"🧑‍🤝‍🧑", "⇩"} or {"👩🏼‍🤝‍👩", "⬇"}
+  local arrow_symbol_1 = has_children(mypage) and "🧑‍🤝‍🧑" or "👩🏼‍🤝‍👩"
+  local arrow_symbol_2 = has_children(mypage) and "⇩" or "⬇"
   
   local parts = string.split(mypage, "/")
   local current = ""
@@ -107,7 +108,7 @@ function yg.bc(path)
 
     if #options == 0 then
       -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
-      table.insert(dom_list, arrow_symbol)
+      table.insert(dom_list, arrow_symbol_1)
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options
       local function pick_sibling()
@@ -116,7 +117,7 @@ function yg.bc(path)
         editor.navigate(opt.name)
       end
 
-      local buto = widgets.button(arrow_symbol .. #options, pick_sibling)
+      local buto = widgets.button(arrow_symbol_2 .. #options, pick_sibling)
       table.insert(dom_list, buto)
     end
     table.insert(dom_list, "[[" .. current .. "]]")
