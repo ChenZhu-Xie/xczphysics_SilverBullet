@@ -36,10 +36,12 @@ function multiButtonWidget()
     end)
 
   return widget.new {
-     html = dom.span {item1, item1} 
+     html = dom.span {item1, item2} 
   }
 end
 ```
+
+${multiButtonWidget()}
 
 1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
 2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
