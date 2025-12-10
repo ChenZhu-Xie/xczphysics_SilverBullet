@@ -92,6 +92,6 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 关于 ee2.. 加密的问题 [[github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了⚓|github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了🧑‍🤝‍🧑1]]${forthRef("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了")}${backRefs_noSelf("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了",1)}
 
-## 思源的 查询条件 “可保存”
+## 思源的 查询条件 “可保存” #类比
 
 类似于 Orca、Logseq、SB、Tana、Anytype 的 查询块/节点
