@@ -25,5 +25,21 @@ ${myButton("Button 2")}
    - pretty much like: Tana’s botton appied to nodes !!
    - [is there a navigate to page command in v2](https://community.silverbullet.md/t/is-there-a-navigate-to-page-command-in-v2/3258/18?u=chenzhu-xie) #community #silverbullet
 
+```space-lua
+function multiButtonWidget()
+  -- Create individual widgets for the items
+  local item1 = widgets.button("All1", function()
+      editor.navigate("Journals")
+    end)
+  local item2 = widgets.button("All2", function()
+      editor.navigate("Journals2")
+    end)
+
+  return widget.new {
+     html = dom.span {item1, item1} 
+  }
+end
+```
+
 1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
 2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
