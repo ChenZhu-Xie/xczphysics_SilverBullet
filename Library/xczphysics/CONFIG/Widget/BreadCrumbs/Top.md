@@ -119,9 +119,9 @@ function yg.bc(path)
     local buto = widgets.button(arrow_symbol, pick_sibling)
     
     -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
-    dom_list = table.insert(dom_list, bc)
-    dom_list = table.insert(dom_list, buto)
-    dom_list = table.insert(dom_list, "[[" .. current .. "]]")
+    table.insert(dom_list, bc)
+    table.insert(dom_list, buto)
+    table.insert(dom_list, "[[" .. current .. "]]")
   end
 
   -- 最近修改/访问徽章
@@ -134,9 +134,9 @@ function yg.bc(path)
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
   -- return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
-  dom_list = table.insert(dom_list, " " .. visitsSuffix)
-  dom_list = table.insert(dom_list, "\n" .. lastMs)
-  dom_list = table.insert(dom_list, "\n" .. lastVs)
+  table.insert(dom_list, " " .. visitsSuffix)
+  table.insert(dom_list, "\n" .. lastMs)
+  table.insert(dom_list, "\n" .. lastVs)
   return dom_list
 end
 

@@ -11,7 +11,7 @@
 5. input name `Repositories/xczphysics`
 6. press `Alt + ←` (back to page `Library/Std/Pages/Library Manager`)
    - then, `Repositories/xczphysics` appears below the HEADER `Repositories`
-   - libs in `Repositories/xczphysics` appear below the HEADER `Available libraries`.
+   - libraries in `Repositories/xczphysics` appear below the HEADER `Available libraries`.
 7. below the HEADER `Available libraries`
    - mouse `Shift + Scroll ↓` a little bit, find the commandButton `Install`
 8. install any lib
