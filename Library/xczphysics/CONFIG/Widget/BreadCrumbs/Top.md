@@ -63,66 +63,64 @@ function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
   -- 仅决定视觉符号，不再直接拼接字符串
   local arrow_symbol = has_children(mypage) and "⇩" or "⬇"
-  
-  --- local bc = "[[.]]"
+
   local parts = string.split(mypage, "/")
   local current = ""
   local dom_list = {"[[.]]"}
-  
-  for i, part in ipairs(parts) do
+
+  -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
+  local function collect_sibling_options(parent_path, current_page)
+    -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
+    local prefix = parent_path == "" and "" or (parent_path .. "/")
+
+    -- 使用 API 查询
+    local siblings = query[[
+      from index.tag 'page'
+      where _.name:startsWith(prefix) and _.name != current_page
+      select {name = _.name}
+    ]]
+
+    -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
+    local options = {}
+    for _, item in ipairs(siblings) do
+      local p_name = item.name
+      -- 获取相对路径
+      local rel_path = p_name:sub(#prefix + 1)
+
+      -- 如果相对路径中没有 "/"，说明是直接同级
+      if not rel_path:find("/") then
+        table.insert(options, { name = p_name })
+      end
+    end
+    return options
+  end
+
+  for _, part in ipairs(parts) do
     -- 记录当前层级的父路径（用于查询同级页面）
-    local parent_path = current 
-    
+    local parent_path = current
+
     if current ~= "" then current = current .. "/" end
     current = current .. part
-    
-    -- 定义点击箭头时的行为：弹出同级页面选择器
-    local function pick_sibling()
-      -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
-      local prefix = parent_path == "" and "" or (parent_path .. "/")
-      
-      -- 使用 API 查询
-      local siblings = query[[
-        from index.tag 'page'
-        where _.name:startsWith(prefix) and _.name != current
-        select {name = _.name}
-      ]]
-      
-      -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
-      local options = {}
-      for _, item in ipairs(siblings) do
-        local p_name = item.name
-        -- 获取相对路径
-        local rel_path = p_name:sub(#prefix + 1)
-        
-        -- 如果相对路径中没有 "/"，说明是直接同级
-        if not rel_path:find("/") then
-          table.insert(options, { name = p_name })
-        end
-      end
-      
-      -- 4. 弹出选择框
-      if #options == 0 then
-        editor.flashNotification("No siblings found", "info")
-      else
-        opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🔖 a Tag")
+
+    -- 先预查一次 siblings
+    local options = collect_sibling_options(parent_path, current)
+
+    if #options == 0 then
+      -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
+      table.insert(dom_list, arrow_symbol)
+      table.insert(dom_list, "[[" .. current .. "]]")
+    else
+      -- 有 siblings：生成按钮，点击时直接用预先算好的 options
+      local function pick_sibling()
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🔖 a Tag")
         if not opt then return end
         editor.navigate(opt.name)
       end
+
+      local buto = widgets.button(arrow_symbol, pick_sibling)
+      table.insert(dom_list, buto)
+      table.insert(dom_list, "[[" .. current .. "]]")
     end
-
-    -- 生成按钮 Widget
-    -- function arrow_btn()
-    --   return widgets.button(arrow_symbol, pick_sibling)
-    -- end
-    -- bc = bc .. " ${arrow_btn()} [[" .. current .. "]]"
-
-    local buto = widgets.button(arrow_symbol, pick_sibling)
-    
-    -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
-    -- table.insert(dom_list, bc)
-    table.insert(dom_list, buto)
-    table.insert(dom_list, "[[" .. current .. "]]")
   end
 
   -- 最近修改/访问徽章
@@ -132,12 +130,12 @@ function yg.bc(path)
   -- 访问次数
   local data = datastore.get({"Visitimes", mypage}) or {}
   local visits = data.value or 0
-  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
+  local visitsSuffix = "[[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page|" .. "👀" .. tostring(visits) .. "]]"
 
-  -- return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
   table.insert(dom_list, " " .. visitsSuffix)
   table.insert(dom_list, "\n" .. lastMs)
   table.insert(dom_list, "\n" .. lastVs)
+
   return dom_list
 end
 
