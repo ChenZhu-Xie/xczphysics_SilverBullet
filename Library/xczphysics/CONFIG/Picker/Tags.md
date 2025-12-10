@@ -78,7 +78,7 @@ command.define {
         placeholder = string.rep("🔖", #selectedNames) .. " Filter next tag..."
       end
 
-      local selection = editor.filterBox("🤏 Pick (Faceted)", availableOptions, description, placeholder)
+      local selection = editor.filterBox("🤏 Pick", availableOptions, description, placeholder)
       
       if selection then
         table.insert(selectedNames, selection.name)
