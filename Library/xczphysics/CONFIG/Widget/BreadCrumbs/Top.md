@@ -64,10 +64,10 @@ function yg.bc(path)
   -- 仅决定视觉符号，不再直接拼接字符串
   local arrow_symbol = has_children(mypage) and "⇩" or "⬇"
   
-  local bc = "[[.]]"
+  --- local bc = "[[.]]"
   local parts = string.split(mypage, "/")
   local current = ""
-  local dom_list = {}
+  local dom_list = {"[[.]]"}
   
   for i, part in ipairs(parts) do
     -- 记录当前层级的父路径（用于查询同级页面）
@@ -119,7 +119,6 @@ function yg.bc(path)
     local buto = widgets.button(arrow_symbol, pick_sibling)
     
     -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
-    table.insert(dom_list, bc)
     table.insert(dom_list, buto)
     table.insert(dom_list, "[[" .. current .. "]]")
   end
