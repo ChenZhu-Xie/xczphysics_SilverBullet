@@ -55,12 +55,16 @@ ${widget.new{
   dom.strong { "I am strong" },
   widget.html "<b>Bold</b>",
   widgets.button("All1", function()
-      editor.navigate("Journals") end),
+      editor.navigate("Journals") end)
   widget.html(dom.marquee { "nested widget" })
 }
 }}
 
 # HTML DOM
+
+HTML 
+
+Document Object Model:
 
 ${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
 
