@@ -99,7 +99,7 @@ command.define {
     end
 
     -- 跳转到我们在上一个问题中定义的 virtual page
-    local targetPage = "tag:" .. table.concat(selectedNames, ",")
+    local targetPage = "tags:" .. table.concat(selectedNames, ",")
     editor.navigate(targetPage)
   end
 }
