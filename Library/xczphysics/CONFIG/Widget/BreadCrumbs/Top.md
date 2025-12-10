@@ -131,9 +131,11 @@ function yg.bc(path)
   local visits = data.value or 0
   -- local visitsSuffix = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👀" .. tostring(visits) .. "]]"
   local visiTimes = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. tostring(visits) .. "]]"
-
   
-
+  local options = query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")
+         order by _.name desc
+         limit max_num]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
