@@ -52,7 +52,7 @@ command.define {
           end
         end
         
-        -- 将 Set 转换回 list 供 picker 使用
+        -- convert Set to list for Picker
         for tagName, _ in pairs(tagSet) do
           table.insert(potentialTags, {name = tagName})
         end
