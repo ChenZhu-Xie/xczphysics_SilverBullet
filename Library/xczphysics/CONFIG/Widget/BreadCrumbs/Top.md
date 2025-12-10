@@ -203,7 +203,7 @@ end
 function widgets.breadcrumbs()
   return widget.new {
     -- markdown = yg.bc()
-    html = yg.bc()
+    html = dom.span{yg.bc()}
   }
 end
 ```
