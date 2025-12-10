@@ -119,10 +119,12 @@ function yg.bc(path)
 
     -- 生成按钮 Widget
     -- 这里的空格是为了 UI 不会太挤
-    local arrow_btn = widgets.button(arrow_symbol, pick_sibling)
-    
+    local function arrow_btn()
+      return widgets.button(arrow_symbol, pick_sibling)
+    end
+      
     -- 拼接到面包屑
-    bc = bc .. " " .. arrow_btn .. " [[" .. current .. "]]"
+    bc = bc .. " ${" .. arrow_btn() .. "} [[" .. current .. "]]"
   end
 
   -- 最近修改/访问徽章
