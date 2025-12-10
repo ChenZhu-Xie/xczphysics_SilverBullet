@@ -96,30 +96,22 @@ function yg.bc(path)
         
         -- 如果相对路径中没有 "/"，说明是直接同级
         if not rel_path:find("/") then
-          table.insert(options, {
-            name = p_name,
-            description = p_name -- 或者只显示 rel_path 保持简洁
-          })
+          table.insert(options, { name = p_name })
         end
       end
       
       -- 4. 弹出选择框
       if #options == 0 then
-        editor.flashNotification("没有找到同级页面 (No siblings found)", "info")
+        editor.flashNotification("No siblings found", "info")
       else
-        editor.filterBox({
-          label = "跳转到同级页面 (Go to sibling)",
-          options = options,
-          onSelect = function(opt)
-            editor.navigate(opt.name)
-          end
-        })
+        opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🔖 a Tag")
+        editor.navigate(opt.name)
       end
     end
 
     -- 生成按钮 Widget
     -- 这里的空格是为了 UI 不会太挤
-    local function arrow_btn()
+    function arrow_btn()
       return widgets.button(arrow_symbol, pick_sibling)
     end
       
