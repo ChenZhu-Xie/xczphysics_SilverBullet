@@ -134,7 +134,10 @@ function yg.bc(path)
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
   -- return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
-  return dom_list, visitsSuffix, lastMs, lastVs
+  dom_list = table.insert(dom_list, " " .. visitsSuffix)
+  dom_list = table.insert(dom_list, "\n" .. lastMs)
+  dom_list = table.insert(dom_list, "\n" .. lastVs)
+  return dom_list
 end
 
 -- 支持最多 9 个（对应 1~9）
