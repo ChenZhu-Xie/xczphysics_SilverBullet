@@ -63,9 +63,8 @@ ${widget.new{
 
 # HTML DOM
 
-HTML 
-
-Document Object Model:
+HTML = HyperText Markup Language
+DOM  = Document Object Model
 
 ${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
 
