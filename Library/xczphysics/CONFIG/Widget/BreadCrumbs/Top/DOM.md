@@ -65,8 +65,8 @@ ${widget.new{
 
 DOM  = Document Object Model
 它是 HTML 和 XML 等 磁盘显式文件 在 浏览器解析后的内存中的树状结构
-DOM 将二者 暴露给 JS、Lua 等语言 进行操作，
-         而不是让 JS、Lua 直接操作 HTML 和 XML 文本
+DOM 将二者（的结构）暴露给 JS、Lua 等语言 动态地修改和交互这个网页，
+                  而不是让 JS、Lua 直接操作 HTML 和 XML 文本
 
 ${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
 
