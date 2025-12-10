@@ -116,7 +116,7 @@ function yg.bc(path)
         editor.navigate(opt.name)
       end
 
-      local buto = widgets.button(arrow_symbol, pick_sibling)
+      local buto = widgets.button(arrow_symbol .. #options, pick_sibling)
       table.insert(dom_list, buto)
     end
     table.insert(dom_list, "[[" .. current .. "]]")
@@ -144,7 +144,7 @@ function yg.bc(path)
       if not opt then return end
       editor.navigate(opt.name)
     end
-    local buto = widgets.button("👀", pick_child)
+    local buto = widgets.button("👀" .. #options, pick_child)
     table.insert(dom_list, buto)
   end
   table.insert(dom_list, visiTimes)
