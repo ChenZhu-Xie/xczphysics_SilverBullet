@@ -43,6 +43,17 @@ end
 
 ${multiButtonWidget()}
 
+${widget.new{
+  html = dom.span {
+  class = "my-class",
+  id = "my-id",
+  "Span content",
+  dom.strong { "I am strong" },
+  widget.html "<b>Bold</b>",
+  widget.html(dom.marquee { "nested widget" })
+}
+}}
+
 1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
 2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
 3. [DOM](https://silverbullet.md/Library/Std/APIs/DOM) #silverbullet
