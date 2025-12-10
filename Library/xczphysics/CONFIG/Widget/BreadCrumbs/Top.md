@@ -47,9 +47,170 @@ Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchica
 > **example** Example
 > /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
-## Ver 4: Adapt To [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👀]]
+## Ver 5: add Picker widgets
 
 ```space-lua
+-- priority: 10
+yg = yg or {}
+
+-- 模板改为使用 ${badge}，具体符号在数据阶段注入
+local function bc_last()
+  return template.new([==[${badge}[[${name}]]​]==])
+end
+
+-- 面包屑：根据是否有子页面，使用 ⇩ 或 ⬇ 拼接
+function yg.bc(path)
+  local mypage = path or editor.getCurrentPage()
+  -- 仅决定视觉符号，不再直接拼接字符串
+  local arrow_symbol = has_children(mypage) and "⇩" or "⬇"
+  
+  local bc = "[[.]]"
+  local parts = string.split(mypage, "/")
+  local current = ""
+  
+  for i, part in ipairs(parts) do
+    -- 记录当前层级的父路径（用于查询同级页面）
+    local parent_path = current 
+    
+    if current ~= "" then current = current .. "/" end
+    current = current .. part
+    
+    -- 定义点击箭头时的行为：弹出同级页面选择器
+    local function pick_sibling()
+      -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
+      local prefix = parent_path == "" and "" or (parent_path .. "/")
+      
+      -- 2. 查询：所有以父路径开头，且不是当前页面的 Page
+      -- 注意：SilverBullet 的 query 语法中，字符串拼接需要小心
+      local q_prefix = prefix:gsub('"', '\\"') -- 简单转义
+      local q_current = current:gsub('"', '\\"')
+      
+      -- 使用 API 查询
+      local siblings = query[[
+        from index.tag 'page'
+        where _.name:startsWith("\\" .. q_prefix .. "\\") and _.name != "\\" .. q_current .. "\\"
+      ]]
+      
+      query("from index.tag 'page' where _.name:startsWith(\"" .. q_prefix .. "\") and _.name != \"" .. q_current .. "\" select name")
+      
+      -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
+      local options = {}
+      for _, item in ipairs(siblings) do
+        local p_name = item.name
+        -- 获取相对路径
+        local rel_path = p_name:sub(#prefix + 1)
+        
+        -- 如果相对路径中没有 "/"，说明是直接同级
+        if not rel_path:find("/") then
+          table.insert(options, {
+            name = p_name,
+            description = p_name -- 或者只显示 rel_path 保持简洁
+          })
+        end
+      end
+      
+      -- 4. 弹出选择框
+      if #options == 0 then
+        editor.flashNotification("没有找到同级页面 (No siblings found)", "info")
+      else
+        editor.filterBox({
+          label = "跳转到同级页面 (Go to sibling)",
+          options = options,
+          onSelect = function(opt)
+            editor.navigate(opt.name)
+          end
+        })
+      end
+    end
+
+    -- 生成按钮 Widget
+    -- 这里的空格是为了 UI 不会太挤
+    local arrow_btn = widgets.button(arrow_symbol, pick_sibling)
+    
+    -- 拼接到面包屑
+    bc = bc .. " " .. arrow_btn .. " [[" .. current .. "]]"
+  end
+
+  -- 最近修改/访问徽章
+  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
+  local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
+
+  -- 访问次数
+  local data = datastore.get({"Visitimes", mypage}) or {}
+  local visits = data.value or 0
+  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
+
+  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+end
+
+-- 支持最多 9 个（对应 1~9）
+local max_num = 5
+
+-- 辅助：判断是否有子页面
+local function has_children(mypage)
+  local children = query[[from index.tag "page"
+         where _.name:find("^" .. mypage .. "/")
+         limit 1]]
+  return #children > 0
+end
+
+function yg.lastM(mypage)
+  local hasChild = has_children(mypage)
+
+  -- 选择数据源：有子页面时选子页面最近修改，否则全局最近修改（排除当前页）
+  local list = hasChild and query[[from index.tag "page" 
+         where _.name:find("^" .. mypage .. "/")
+         order by _.lastModified desc
+         limit max_num]]
+       or query[[from index.tag "page"
+         where _.name != mypage
+         order by _.lastModified desc
+         limit max_num]]
+
+  -- 序号徽章（bc_lastM）
+  local M_hasCHILD  = {"1⃣","2⃣","3⃣","4⃣","5⃣","6⃣","7⃣","8⃣","9⃣"}
+  local M_noCHILD   = {"1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"}
+  local badges = hasChild and M_hasCHILD or M_noCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function yg.lastV(mypage)
+  local hasChild = has_children(mypage)
+
+  -- 选择数据源：有子页面时选子页面最近访问，否则全局最近访问（排除当前页）
+  local list = hasChild and 
+  query[[from editor.getRecentlyOpenedPages "page" 
+         where _.lastOpened and _.name:find("^" .. mypage .. "/")
+         order by _.lastOpened desc
+         limit max_num]]
+       or query[[from editor.getRecentlyOpenedPages "page" 
+         where _.lastOpened and _.name != mypage
+         order by _.lastOpened desc
+         limit max_num]]
+  
+  -- 序号徽章（bc_lastV）
+  local V_hasCHILD  = {"①","②","③","④","⑤","⑥","⑦","⑧","⑨"}
+  local V_noCHILD   = {"➊","➋","➌","➍","➎","➏","➐","➑","➒"}
+  local badges = hasChild and V_hasCHILD or V_noCHILD
+
+  for i, item in ipairs(list) do
+    item.badge = badges[i] or ""
+  end
+  return list
+end
+
+function widgets.breadcrumbs()
+  return widget.new {markdown = yg.bc()}
+end
+```
+
+## Ver 4: Adapt To [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👀]]
+
+```lua
 -- priority: 10
 yg = yg or {}
 
