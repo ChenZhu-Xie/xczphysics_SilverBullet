@@ -77,6 +77,10 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 - 内存占用 也很高（相对其自己的本地）
   - 相对 SB 应该超过了 fly.io 的免费 tier。
 
+- 即这个不行：游客可以只读模式公开访问 (Siyuan 不行？RE 可以)
+- 完整的内核功能，特别是反链（Siyuan RE 均可）
+- 不同 node 不同 url (Siyuan 不行？RE 可以)
+
 ## 也有 git
 
 1. [sy git sync plugin](https://github.com/xstarling/sy-git-sync-plugin/) #github
@@ -85,3 +89,5 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 由于天生不是 .md，原样、实时地翻译为 html 的支持，没有 .md 好？ 
 尽管 数据库 和 属性结构 层面，json 的表达能力和丰富程度要比 .md 好。
+
+关于 ee2.. 加密的问题 [[Daydream/🌴📁 树形文件夹 分类：提高下限]]
