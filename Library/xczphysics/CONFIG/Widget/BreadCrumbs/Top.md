@@ -192,7 +192,9 @@ function yg.lastV(mypage)
 end
 
 function widgets.breadcrumbs()
-  return widget.new {markdown = yg.bc()}
+  return widget.new {
+    html = dom.span {yg.bc()}
+    }
 end
 ```
 
