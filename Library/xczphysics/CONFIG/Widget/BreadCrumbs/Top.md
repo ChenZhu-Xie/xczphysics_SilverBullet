@@ -80,18 +80,12 @@ function yg.bc(path)
       -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
       local prefix = parent_path == "" and "" or (parent_path .. "/")
       
-      -- 2. 查询：所有以父路径开头，且不是当前页面的 Page
-      -- 注意：SilverBullet 的 query 语法中，字符串拼接需要小心
-      local q_prefix = prefix:gsub('"', '\\"') -- 简单转义
-      local q_current = current:gsub('"', '\\"')
-      
       -- 使用 API 查询
       local siblings = query[[
         from index.tag 'page'
-        where _.name:startsWith("\\" .. q_prefix .. "\\") and _.name != "\\" .. q_current .. "\\"
+        where _.name:startsWith(q_prefix) and _.name != q_current
+        select name
       ]]
-      
-      query("from index.tag 'page' where _.name:startsWith(\"" .. q_prefix .. "\") and _.name != \"" .. q_current .. "\" select name")
       
       -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
       local options = {}
