@@ -137,7 +137,7 @@ function yg.bc(path)
          order by _.name desc]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
-    table.insert(dom_list, #options .. "👀")
+    table.insert(dom_list, "👀")
   else
     local function pick_child()
       local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
