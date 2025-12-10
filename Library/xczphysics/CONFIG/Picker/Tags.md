@@ -19,9 +19,82 @@ Wiki is Mesh-like Graph-theory, good at Navigation, Association,
    而不是 只 pick 1 tag（像下面的 tag picker）或 [[QUERY/Tags/Tag-Page_Navigator|找并集]]
 
 
+
+
 ## CMD: Tags Picker 2
 
+### 2.2
+
 ```space-lua
+-- priority: 11
+command.define {
+  name = "Navigate: Tags Picker",
+  key = "Ctrl-Alt-T",
+  run = function()
+    local selected = {}
+
+    while true do
+      local tagSet = {}
+      
+      if #selected == 0 then
+        for _, t in ipairs(query[[from index.tag select name]]) do
+          tagSet[t.name] = true 
+        end
+      else
+        -- B. 筛选状态：查找包含所有已选 Tag 的页面，提取这些页面上的其他 Tag
+        -- 构造查询: from page where tags = 'tag1' and tags = 'tag2' select tags
+        local conditions = {}
+        for _, tag in ipairs(selected) do
+          table.insert(conditions, "tags = '" .. tag .. "'")
+        end
+        local whereStr = table.concat(conditions, " and ")
+        
+        -- 执行查询，只获取相关页面的 tags 属性
+        local pages = query("from page where " .. whereStr .. " select tags")
+        
+        for _, p in ipairs(pages) do
+          if p.tags then
+            local pTags = type(p.tags) == "table" and p.tags or {p.tags}
+            for _, t in ipairs(pTags) do
+              tagSet[t] = true
+            end
+          end
+        end
+      end
+
+      local options = {}
+      for tagName, _ in pairs(tagSet) do
+        if not table.includes(selected, tagName) then
+          table.insert(options, {name = tagName})
+        end
+      end
+
+      if #options == 0 then break end
+
+      table.sort(options, function(a, b) return a.name < b.name end)
+
+      local prompt = #selected == 0 and "Select a Tag" or 
+                     ("Selected: " .. table.concat(selected, ", ") .. " (ESC to Go)")
+      
+      local placeholder = string.rep("🔖", #selected) .. " Filter next tag..."
+      
+      local choice = editor.filterBox("🤏 Pick Tags (Faceted)", options, prompt, placeholder)
+
+      if choice then
+        table.insert(selected, choice.name)
+      else
+        if #selected > 0 then break else return end
+      end
+    end
+
+    editor.navigate("tags:" .. table.concat(selected, ","))
+  end
+}
+```
+
+### 2.1
+
+```lua
 -- priority: 11
 command.define {
   name = "Navigate: Tags Picker",
@@ -58,25 +131,20 @@ command.define {
           table.insert(potentialTags, {name = tagName})
         end
         
-        -- 对结果进行排序，方便查找
         table.sort(potentialTags, function(a, b) return a.name < b.name end)
       end
-      -- === 核心逻辑修改结束 ===
 
       local availableOptions = {}
       for _, tagObj in ipairs(potentialTags) do
-        -- 排除已经选过的标签
         if not table.includes(selectedNames, tagObj.name) then
           table.insert(availableOptions, tagObj)
         end
       end
 
-      -- 如果没有可选的标签了（说明没有更多交集），直接跳转
       if #availableOptions == 0 then
         break
       end
 
-      -- UI 显示逻辑
       local description = "Select a Tag"
       local placeholder = "🔖 a Tag"
       if #selectedNames > 0 then
@@ -89,16 +157,14 @@ command.define {
       if selection then
         table.insert(selectedNames, selection.name)
       else
-        -- 用户按 ESC
         if #selectedNames == 0 then
-          return -- 没选任何东西，直接退出
+          return
         else
-          break -- 选了东西按 ESC，开始跳转
+          break
         end
       end
     end
 
-    -- 跳转到我们在上一个问题中定义的 virtual page
     local targetPage = "tags:" .. table.concat(selectedNames, ",")
     editor.navigate(targetPage)
   end
