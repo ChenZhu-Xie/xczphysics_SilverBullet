@@ -118,6 +118,8 @@ function yg.bc(path)
     local buto = widgets.button(arrow_symbol, pick_sibling)
     
     -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
+    bc, buto, "[[" .. current .. "]]"
+    bc = table.insert(bc, 
   end
 
   -- 最近修改/访问徽章
