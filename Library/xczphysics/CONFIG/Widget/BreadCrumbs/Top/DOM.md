@@ -45,3 +45,4 @@ ${multiButtonWidget()}
 
 1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
 2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
+3. [DOM](https://silverbullet.md/Library/Std/APIs/DOM) #silverbullet
