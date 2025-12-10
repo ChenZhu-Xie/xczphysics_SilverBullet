@@ -1,5 +1,5 @@
 
-
+# Collect info
 
 1. [edge lua widgets now require using widget new](https://community.silverbullet.md/t/edge-lua-widgets-now-require-using-widget-new/1971?u=chenzhu-xie) #community #silverbullet
 ```space-lua
@@ -43,6 +43,10 @@ end
 
 ${multiButtonWidget()}
 
+1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
+2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
+3. [DOM](https://silverbullet.md/Library/Std/APIs/DOM) #silverbullet
+
 ${widget.new{
   html = dom.span {
   class = "my-class",
@@ -54,6 +58,10 @@ ${widget.new{
 }
 }}
 
-1. [Library](https://silverbullet.md/Library/Std/Infrastructure/Library) #silverbullet
-2. [Widgets](https://silverbullet.md/Library/Std/Widgets/Widgets) #silverbullet
-3. [DOM](https://silverbullet.md/Library/Std/APIs/DOM) #silverbullet
+# HTML DOM
+
+${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
+
+${embed.youtube "https://www.youtube.com/watch?v=VkWJQe_EsjQ"}
+
+
