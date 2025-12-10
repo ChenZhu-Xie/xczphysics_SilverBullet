@@ -202,7 +202,8 @@ end
 function widgets.breadcrumbs()
   return widget.new {
     -- markdown = yg.bc()
-    html = dom.div(yg.bc())
+    html = dom.div(yg.bc()),
+    display = "block",
   }
 end
 ```
