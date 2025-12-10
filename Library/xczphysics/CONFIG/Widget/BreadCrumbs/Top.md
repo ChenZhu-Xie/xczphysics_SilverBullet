@@ -58,7 +58,7 @@ local function bc_last()
   return template.new([==[${badge}[[${name}]]​]==])
 end
 
--- 面包屑：根据是否有子页面，使用 ⇩ 或 ⬇ 拼接
+-- 面包屑：根据是否有子页面，使用 🧑‍🤝‍🧑 或 ⬇ 拼接
 function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
   -- 仅决定视觉符号，不再直接拼接字符串
