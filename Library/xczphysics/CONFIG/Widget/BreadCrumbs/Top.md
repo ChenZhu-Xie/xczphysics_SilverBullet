@@ -128,7 +128,8 @@ function yg.bc(path)
   local visits = data.value or 0
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
-  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+  -- return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
+  return bc, visitsSuffix, lastMs, lastVs
 end
 
 -- 支持最多 9 个（对应 1~9）
