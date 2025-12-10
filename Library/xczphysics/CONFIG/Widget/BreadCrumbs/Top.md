@@ -129,7 +129,7 @@ function yg.bc(path)
   -- 访问次数
   local data = datastore.get({"Visitimes", mypage}) or {}
   local visits = data.value or 0
-  -- local visitsSuffix = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👀" .. tostring(visits) .. "]]"
+  -- local visitsSuffix = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👶🏻" .. tostring(visits) .. "]]"
   local visiTimes = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. tostring(visits) .. "]]"
   
   local options = query[[from index.tag "page" 
@@ -137,14 +137,14 @@ function yg.bc(path)
          order by _.name desc]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
-    table.insert(dom_list, "👀")
+    table.insert(dom_list, "👶🏻")
   else
     local function pick_child()
       local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
       if not opt then return end
       editor.navigate(opt.name)
     end
-    local buto = widgets.button("👀" .. #options, pick_child)
+    local buto = widgets.button("👶🏻" .. #options, pick_child)
     table.insert(dom_list, buto)
   end
   table.insert(dom_list, visiTimes)
@@ -223,7 +223,7 @@ function widgets.breadcrumbs()
 end
 ```
 
-## Ver 4: Adapt To [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👀]]
+## Ver 4: Adapt To [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👶🏻]]
 
 ```lua
 -- priority: 10
@@ -256,7 +256,7 @@ function yg.bc(path)
   -- 访问次数
   local data = datastore.get({"Visitimes", mypage}) or {}
   local visits = data.value or 0
-  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
+  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👶🏻" .. tostring(visits) .. "]]"
 
   return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
@@ -326,9 +326,9 @@ function widgets.breadcrumbs()
 end
 ```
 
-## Ver 3: 👀lastVisit added
+## Ver 3: 👶🏻lastVisit added
 
-.⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 👀lastVisit
+.⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 👶🏻lastVisit
 
 ```lua
 -- priority: 10
@@ -475,7 +475,7 @@ function yg.bc(path)
 
   -- 访问次数（来自 Visit Times 表，带秒级缓存 + 快速路径）
   local visits = getVisitTimesFor(mypage)
-  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
+  local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👶🏻" .. tostring(visits) .. "]]"
 
   return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
