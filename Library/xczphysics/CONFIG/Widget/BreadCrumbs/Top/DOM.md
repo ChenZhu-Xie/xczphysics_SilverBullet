@@ -61,10 +61,10 @@ ${widget.new{
 }
 }}
 
-# HTML DOM
+# DOM
 
-HTML = HyperText Markup Language
 DOM  = Document Object Model
+它是 HTML 和 XML 等 
 
 ${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
 
