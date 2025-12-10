@@ -116,7 +116,7 @@ order by _.tableref
 
 ### Implementation 3
 
-1. 采用了 [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag Picker]] ：从第一个 query 开始，就 创建 name 属性
+1. 采用了 [[Library/xczphysics/CONFIG/Picker/Tags#Navigate: Tag Picker|Tag Picker]] ：从第一个 query 开始，就 创建 name 属性
 
 ```space-lua
 function getTables()

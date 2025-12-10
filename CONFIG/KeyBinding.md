@@ -66,7 +66,7 @@
 | Picker: | Document | Ctrl | | | o |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/Table#Table|Table]] | Ctrl | Shift | | t |
 | Picker: | [[Library/xczphysics/CONFIG/Picker/File_Link#Picker|File Link]] | | | Alt | f |
-| Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
+| Tag Picker: | [[Library/xczphysics/CONFIG/Picker/Tags#Navigate: Tag Picker|One]] | Ctrl | | Alt | t |
 | Page Picker: | [[Library/xczphysics/CONFIG/Query/lastModified/Picker#Implementation|Last Modified]] | | Shift | Alt | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Picker#Implementation|Last Opened]] | Ctrl | | | p |
 | Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |

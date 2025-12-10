@@ -192,19 +192,21 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
 [Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
 
-## Tag
+## Tags
 
 ==Ctrl-Alt-t==
 Add `Navigate: Tag Picker` to CMD
+==Ctrl-Shift-Alt-t==
+Add `Navigate: Tags Picker` to CMD
 
 ```#meta/library/remote
-name: "Picker/Tag"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md
+name: "Picker/Tags"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tags.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tags.md
 ```
-[[Library/xczphysics/CONFIG/Picker/Tag#Navigate: Tag Picker|Tag]]
-[Tag](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Tag#Navigate:%20Tag%20Picker) #enlarge-the-percentage #fly
-[Tag.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tag.md) #github
+[[Library/xczphysics/CONFIG/Picker/Tags#Multiple Tags|Tags]]
+[Tags](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Tags#Multiple%20Tags) #enlarge-the-percentage #fly
+[Tags.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tags.md) #github
 
 ## Table
 
