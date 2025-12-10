@@ -54,8 +54,9 @@ ${widget.new{
   "Span content",
   dom.strong { "I am strong" },
   widget.html "<b>Bold</b>",
+  "\n",
   widgets.button("All1", function()
-      editor.navigate("Journals") end)
+      editor.navigate("Journals") end),
   widget.html(dom.marquee { "nested widget" })
 }
 }}
