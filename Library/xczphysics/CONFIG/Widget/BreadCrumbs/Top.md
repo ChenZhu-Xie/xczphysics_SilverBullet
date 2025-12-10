@@ -193,7 +193,7 @@ end
 
 function widgets.breadcrumbs()
   return widget.new {
-    html = dom.span {yg.bc()}
+    html = yg.bc()
     }
 end
 ```
