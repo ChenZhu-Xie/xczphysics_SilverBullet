@@ -32,30 +32,20 @@ command.define {
     while true do
       local potentialTags = {}
       
-      -- === 核心逻辑修改开始 ===
       if #selectedNames == 0 then
-        -- 1. 初始状态：获取所有标签
         potentialTags = query[[from index.tag "tag" select {name = _.name}]]
       else
-        -- 2. 筛选状态：找出包含“所有已选标签”的对象，并提取它们身上的其他标签
         
-        -- 构建动态查询：
-        -- 基础：从第一个选中标签的索引中查找 (效率最高)
-        local q = "from index.tag('" .. selectedNames[1] .. "')"
+        local q = query[[from index.tag(selectedNames[1])]]
         
-        -- 过滤：必须包含后续所有已选标签
         for i = 2, #selectedNames do
-          q = q .. " where table.includes(tags, '" .. selectedNames[i] .. "')"
+          q = query[[
+            from q where table.includes(_.tags, selectedNames[i])
+          ]]
         end
         
-        -- 只需取回 tags 字段即可
-        q = q .. " select {tags}"
-        
-        local matchingObjects = query(q)
-        
-        -- 收集标签并去重 (使用 table 作为 Set)
         local tagSet = {}
-        for _, obj in ipairs(matchingObjects) do
+        for _, obj in ipairs(q) do
           if obj.tags and type(obj.tags) == "table" then
             for _, t in ipairs(obj.tags) do
               tagSet[t] = true
