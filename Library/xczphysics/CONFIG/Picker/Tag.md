@@ -25,7 +25,7 @@ Wiki is Mesh-like Graph-theory, good at Navigation, Association,
 -- priority: 11
 command.define {
   name = "Navigate: Tags Picker",
-  key = "Ctrl-Alt-a",
+  key = "Ctrl-Shift-Alt-t",
   run = function()
     local allTags = query[[from index.tag "tag" select {name = _.name}]]
     local selectedNames = {}
