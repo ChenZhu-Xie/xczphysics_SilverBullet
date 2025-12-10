@@ -130,7 +130,7 @@ function yg.bc(path)
   -- 访问次数
   local data = datastore.get({"Visitimes", mypage}) or {}
   local visits = data.value or 0
-  local visitsSuffix = "[[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👀" .. tostring(visits) .. "]]"
+  local visitsSuffix = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👀" .. tostring(visits) .. "]]"
 
   table.insert(dom_list, " " .. visitsSuffix)
   table.insert(dom_list, "\n" .. lastMs)
