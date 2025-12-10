@@ -20,7 +20,7 @@ Wiki is Mesh-like Graph-theory, good at Navigation, Association,
 
 ## CMD: Tags Picker 2
 
-```lua
+```space-lua
 -- priority: 11
 command.define {
   name = "Navigate: Tags Picker",
