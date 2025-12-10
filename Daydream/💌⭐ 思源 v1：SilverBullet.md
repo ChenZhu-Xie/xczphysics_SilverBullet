@@ -73,9 +73,9 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 3. [how_to_create_self_hosted_siyuan_to_enable_sync](https://www.reddit.com/r/selfhosted/comments/1fyepza/how_to_create_self_hosted_siyuan_to_enable_sync/) #reddit
    - [README.md](https://github.com/siyuan-note/siyuan/blob/master/README.md#docker-hosting) #github
 
-- 部署后，它暂时 不能被 只读地 查看
 - 内存占用 也很高（相对其自己的本地）
   - 相对 SB 应该超过了 fly.io 的免费 tier。
+- 部署后，它暂时 不能被 只读地 查看
 
 - 即这个不行：游客可以只读模式公开访问 (Siyuan 不行？RE 可以)
 - 完整的内核功能，特别是反链（Siyuan RE 均可）
@@ -90,4 +90,6 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 由于天生不是 .md，原样、实时地翻译为 html 的支持，没有 .md 好？ 
 尽管 数据库 和 属性结构 层面，json 的表达能力和丰富程度要比 .md 好。
 
-关于 ee2.. 加密的问题 [[Daydream/🌴📁 树形文件夹 分类：提高下限]]
+关于 ee2.. 加密的问题 [[github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了⚓|github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了🧑‍🤝‍🧑1]]${forthRef("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了")}${backRefs_noSelf("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了",1)}
+
+思源的 保存查询条件
