@@ -112,7 +112,7 @@ function yg.bc(path)
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options
       local function pick_sibling()
-        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🔖 a Tag")
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
         if not opt then return end
         editor.navigate(opt.name)
       end
