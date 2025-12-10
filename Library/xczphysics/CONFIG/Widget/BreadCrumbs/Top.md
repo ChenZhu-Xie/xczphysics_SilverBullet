@@ -116,7 +116,8 @@ function yg.bc(path)
     -- bc = bc .. " ${arrow_btn()} [[" .. current .. "]]"
 
     local buto = widgets.button(arrow_symbol, pick_sibling)
-    bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
+    
+    -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
   end
 
   -- 最近修改/访问徽章
