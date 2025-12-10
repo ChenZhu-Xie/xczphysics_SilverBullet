@@ -67,6 +67,7 @@ function yg.bc(path)
   local bc = "[[.]]"
   local parts = string.split(mypage, "/")
   local current = ""
+  local dom_list = {}
   
   for i, part in ipairs(parts) do
     -- 记录当前层级的父路径（用于查询同级页面）
@@ -118,8 +119,9 @@ function yg.bc(path)
     local buto = widgets.button(arrow_symbol, pick_sibling)
     
     -- bc = bc .. dom.span{buto} .. "[[" .. current .. "]]"
-    bc, buto, "[[" .. current .. "]]"
-    bc = table.insert(bc, 
+    dom_list = table.insert(dom_list, bc)
+    dom_list = table.insert(dom_list, buto)
+    dom_list = table.insert(dom_list, "[[" .. current .. "]]")
   end
 
   -- 最近修改/访问徽章
@@ -132,7 +134,7 @@ function yg.bc(path)
   local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
 
   -- return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
-  return bc, visitsSuffix, lastMs, lastVs
+  return dom_list, visitsSuffix, lastMs, lastVs
 end
 
 -- 支持最多 9 个（对应 1~9）
