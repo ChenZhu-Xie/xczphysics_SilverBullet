@@ -134,8 +134,7 @@ function yg.bc(path)
   
   local options = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
-         order by _.name desc
-         limit max_num]]
+         order by _.name desc]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
