@@ -6,6 +6,22 @@ pageDecoration.prefix: "🥖 "
 githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/src/Breadcrumbs.md
 ---
 
+```space-lua
+function myButton(text)
+  return widget.new {
+    html = "<button>" .. text .. "</button>",
+    events = {
+      click = function()
+        editor.flashNotification("Clicked " .. text)
+      end
+    }
+  }
+end
+```
+
+${myButton("Button 1")}
+${myButton("Button 2")}
+
 Related:
 1. [add Buttons to (Top)Widgets](https://community.silverbullet.md/t/is-there-a-navigate-to-page-command-in-v2/3258/7?u=chenzhu-xie) #community #silverbullet
   - pretty much like: Tana’s botton appied to nodes !!
