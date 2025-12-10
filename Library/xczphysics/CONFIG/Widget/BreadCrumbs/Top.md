@@ -106,7 +106,7 @@ function yg.bc(path)
         editor.flashNotification("No siblings found", "info")
       else
         opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🔖 a Tag")
-        
+        if not opt then return end
         editor.navigate(opt.name)
       end
     end
