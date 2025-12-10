@@ -64,9 +64,13 @@ ${widget.new{
 # DOM
 
 DOM  = Document Object Model
-它是 HTML 和 XML 等 
+它是 HTML 和 XML 等 磁盘显式文件 在 浏览器解析后的内存中的树状结构
+DOM 将二者 暴露给 JS、Lua 等语言 进行操作，
+         而不是让 JS、Lua 直接操作 HTML 和 XML 文本
 
 ${embed.youtube "https://www.youtube.com/watch?v=ok-plXXHlWw"}
+
+HTML 是网页的**骨架 (Skeleton)**，JavaScript 是驱动这个骨架的**肌肉 (Muscles)**，而 CSS 则是负责其**外观和样式 (Hair, eye color, clothes)**。DOM 就是让 JavaScript 这些“肌肉”能够理解和控制 HTML“骨架”的**神经系统**或**操作手册**。
 
 ${embed.youtube "https://www.youtube.com/watch?v=VkWJQe_EsjQ"}
 
