@@ -63,6 +63,8 @@ function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
   local arrow = has_children(mypage) and "⇩" or "⬇"
 
+  widgets.commandButton(text, "⇩")
+  
   -- 构建类似 .⇩CONFIG⇩Widget⇩BreadCrumbs⇩Top 的链接串
   local bc = "[[.]]"
   local parts = string.split(mypage, "/")
