@@ -83,7 +83,7 @@ function yg.bc(path)
       -- 使用 API 查询
       local siblings = query[[
         from index.tag 'page'
-        where _.name:startsWith(q_prefix) and _.name != q_current
+        where _.name:startsWith(prefix) and _.name != current
         select name
       ]]
       
