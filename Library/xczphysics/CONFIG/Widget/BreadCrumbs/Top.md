@@ -124,7 +124,7 @@ function yg.bc(path)
     end
       
     -- 拼接到面包屑
-    bc = bc .. " ${" .. arrow_btn() .. "} [[" .. current .. "]]"
+    bc = bc .. " ${arrow_btn()} [[" .. current .. "]]"
   end
 
   -- 最近修改/访问徽章
