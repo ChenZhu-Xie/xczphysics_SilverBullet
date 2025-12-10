@@ -108,7 +108,6 @@ function yg.bc(path)
     if #options == 0 then
       -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
       table.insert(dom_list, arrow_symbol)
-      table.insert(dom_list, "[[" .. current .. "]]")
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options
       local function pick_sibling()
@@ -119,8 +118,8 @@ function yg.bc(path)
 
       local buto = widgets.button(arrow_symbol, pick_sibling)
       table.insert(dom_list, buto)
-      table.insert(dom_list, "[[" .. current .. "]]")
     end
+    table.insert(dom_list, "[[" .. current .. "]]")
   end
 
   -- 最近修改/访问徽章
