@@ -929,13 +929,9 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-/* === 新增：当前选中为 folder 时，路径上的祖先（非最顶层）也浅灰 === */
-/* 说明：
- * - 只匹配“其子树中包含 当前选中 folder 的节点”的 .tree__node
- * - 并且这些 .tree__node 自己不是根层（有上级 .tree__node），避免盖掉顶层蓝/绿高亮
- */
+/* 祖先路径（非最顶层）浅灰 —— 已取消 node-type 限制，文件/文件夹通用 */
 #treeview-tree .tree__node .tree__node:has(
-    .tree__subnodes .tree__label > [data-current-page="true"][data-node-type="folder"]
+    .tree__subnodes .tree__label > [data-current-page="true"]
   )
   > .tree__label {
   background: linear-gradient(
@@ -945,8 +941,8 @@ Hierarchically file browser
   );
   border-radius: 5px 0 0 5px;
 }
-/* === 新增结束 === */
 
+/* 根级：兄弟 folder/page 的蓝/绿 背景 */
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
   background: linear-gradient(
@@ -967,6 +963,7 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
+/* 子树中最底层 page（叶子）用品红色 */
 .tree__node:has(> .tree__label > [data-current-page="true"])
   .tree__node:not(:has(> .tree__subnodes > .tree__node))
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -1000,26 +997,6 @@ html[data-theme="dark"] #treeview-tree > .tree__node:has([data-current-page="tru
   border-radius: 5px 0 0 5px;
 }
 
-html[data-theme="dark"] .tree__node:has(> .tree__label > [data-current-page="true"])
-  .tree__node:not(:has(> .tree__subnodes > .tree__node))
-  > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
-  background: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--magenta, #d16ba5) 30%, transparent) 0%,
-    transparent 100%
-  );
-  border-radius: 5px 0 0 5px;
-}
-
-html[data-theme="dark"] .tree__label:has([data-current-page="true"]) {
-  background: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--base8, #888) 30%, transparent) 0%,
-    transparent 100%
-  ) !important;
-  border-radius: 5px 0 0 5px;
-}
-
 html[data-theme="dark"] .tree__node:has(> .tree__label [data-current-page="true"])
   .tree__subnodes .tree__label {
   background: linear-gradient(
@@ -1030,9 +1007,9 @@ html[data-theme="dark"] .tree__node:has(> .tree__label [data-current-page="true"
   border-radius: 5px 0 0 5px;
 }
 
-/* === 新增：dark 主题下的祖先浅灰 === */
+/* dark 主题下，祖先路径浅灰（同样取消类型限制） */
 html[data-theme="dark"] #treeview-tree .tree__node .tree__node:has(
-    .tree__subnodes .tree__label > [data-current-page="true"][data-node-type="folder"]
+    .tree__subnodes .tree__label > [data-current-page="true"]
   )
   > .tree__label {
   background: linear-gradient(
@@ -1042,8 +1019,8 @@ html[data-theme="dark"] #treeview-tree .tree__node .tree__node:has(
   );
   border-radius: 5px 0 0 5px;
 }
-/* === 新增结束 === */
 
+/* 文本颜色：page / folder 区分，但只是前景色，不影响背景逻辑 */
 .tree__label > span { background-color: transparent !important; border: none; }
 .tree__label > span[data-node-type="page"]   { color: var(--magenta, #d16ba5); }
 .tree__label > span[data-node-type="folder"] { color: var(--green,   #3bb273); }
