@@ -133,7 +133,11 @@ function Yg.bc(path)
   -- local visitsSuffix = "[[CONFIG/Add Fields for Obj/Last Opened/Visit Times|" .. "👀" .. tostring(visits) .. "]]"
   local visiTimes = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. tostring(visits) .. "]]"
 
-  local options = query[[from index.tag "page"
+  -- pick siblings
+  local options = query[[from index.tag "page" 
+         where _.name ~= thisPage and _.name:find(pattern(mypath))
+         order by _.lastModified desc
+         limit max_num]] query[[from index.tag "page"
          -- where _.name:startsWith(mypage .. "/")
          where _.name:find("^" .. mypage .. "/")
          select {name = _.name}]]
