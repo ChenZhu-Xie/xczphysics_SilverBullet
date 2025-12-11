@@ -7,6 +7,8 @@ githubUrl_Original: https://github.com/malys/silverbullet-libraries/blob/main/sr
 
 # Adaptive Bread Crumb: Bottom
 
+1. depend on 
+
 ## Ver 5: add Picker widgets
 
 ```space-lua
