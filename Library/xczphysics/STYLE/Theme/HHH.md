@@ -134,23 +134,24 @@ function renderFrozenBranch(container, branchHeadings) {
   }
 
   fc.style.display = "flex";
+  fc.style.flexDirection = "column";
+  fc.style.alignItems = "flex-start";
   fc.innerHTML = "";
 
-  // 克隆每一级标题
   for (const h of branchHeadings) {
     const clone = h.cloneNode(true);
     clone.classList.add("sb-frozen-clone");
-    // 可选：去掉编辑器内部的小部件，只保留文字
     clone
       .querySelectorAll(".cm-widgetBuffer, .cm-cursorLayer, .cm-selectionLayer")
       .forEach((n) => n.remove());
     fc.appendChild(clone);
   }
 
-  // 宽度 / 位置跟随主编辑区域
+  // 只同步编辑区的左边界，让整个冻结列贴到编辑区左上角
   const rect = container.getBoundingClientRect();
-  fc.style.width = rect.width + "px";
   fc.style.left = rect.left + "px";
+  // 不再强行设置宽度，让 CSS 决定自适应宽度
+  fc.style.removeProperty("width");
 }
 
 // ---------- 主逻辑 ----------
@@ -225,9 +226,7 @@ export function enableHighlight(opts = {}) {
     function onPointerOver(e) {
       if (!e.target || !container.contains(e.target)) return;
 
-      const groupRoot = pickGroupRoot(e.target, container, groupSelector);
-      const headings = listHeadings(groupRoot, headingSelector);
-      if (!headings.length) return;
+      const headings = listHeadings(container, headingSelector);
 
       const h = findHeadingForElement(e.target, headings);
       if (!h) return;
@@ -257,42 +256,36 @@ export function enableHighlight(opts = {}) {
       const headings = listHeadings(container, headingSelector);
       if (!headings.length) {
         clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
-
+    
       const triggerY = 40; // 视口内判定「当前标题」的参考线 (px)
       let currentIndex = -1;
-
+    
       for (let i = 0; i < headings.length; i++) {
         const rect = headings[i].getBoundingClientRect();
         if (rect.top <= triggerY) {
           currentIndex = i;
         } else {
-          // 一旦超过 triggerY，且已经有一个 currentIndex，就可以退出
           if (currentIndex !== -1) break;
         }
       }
-
+    
       if (currentIndex === -1) {
         // 还没滚到任何标题
         clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
-
-      // 注意：这里我们只更新「冻结 branch」，不强制改 hover 高亮
-      // 否则在你用鼠标在底部 explore 时，滚动会抢过控制权。
-      const startHeading = headings[currentIndex];
-      const level = getLevel(startHeading);
-      const ancestors = collectAncestors(currentIndex, headings, level);
-      const branchHeadings = [...ancestors, startHeading];
-
-      renderFrozenBranch(container, branchHeadings);
-
-      // 你如果希望「滚动决定的 branch」也更新 .sb-active，可以打开下面这行：
-      // setActiveBranch(headings, currentIndex);
-
+    
+      // 统一走 setActiveBranch：既算出完整祖先链，又更新冻结栏
+      setActiveBranch(headings, currentIndex);
+    
       isScrolling = false;
     }
 
