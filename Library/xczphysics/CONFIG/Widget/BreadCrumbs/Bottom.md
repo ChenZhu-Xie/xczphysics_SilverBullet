@@ -90,8 +90,8 @@ function Yg.bc(path)
   local function collect_children(current_page)
     return query[[
       from index.tag 'page'
-      where _.name:find("^" .. current_page .. "/")
-      -- where _.name:startsWith(current_page .. "/")
+      -- where _.name:find("^" .. current_page .. "/")
+      where _.name:startsWith(current_page .. "/")
       select {name = _.name}
     ]]
   end
