@@ -79,7 +79,7 @@ function Yg.bc(path)
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
   local arrow_symbol_1 = choose("⇦⇨", "⬅⮕", mypath)
-  local arrow_symbol_2 = choose("🧑‍🤝‍🧑", "👩🏼‍🤝‍👩", mypath)
+  local arrow_symbol_2 = choose("👶🏻", "🧒🏻", mypath)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local dom_list = {"[[.]]"}
@@ -111,13 +111,13 @@ function Yg.bc(path)
       table.insert(dom_list, arrow_symbol_1)
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options
-      local function pick_sibling()
+      local function pick_child()
         local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
         if not opt then return end
         editor.navigate(opt.name)
       end
 
-      local buto = widgets.button(arrow_symbol_2 .. #options, pick_sibling)
+      local buto = widgets.button(arrow_symbol_2 .. #options, pick_child)
       table.insert(dom_list, buto)
     end
     table.insert(dom_list, "[[" .. current .. "]]")
