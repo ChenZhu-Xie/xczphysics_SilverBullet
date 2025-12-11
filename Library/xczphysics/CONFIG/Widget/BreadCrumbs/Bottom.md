@@ -78,16 +78,66 @@ end
 function Yg.bc(path)
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
-  local arrow = choose("⇦⇨", "⬅⮕", mypath)
+  local arrow_1 = choose("⇦⇨", "⬅⮕", mypath)
+  local arrow_2 = choose("🧑‍🤝‍🧑", "👩🏼‍🤝‍👩", mypath)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
-  local bc = "[[.]]"
+  local dom_list = {"[[.]]"}
   local parts = string.split(thisPage, "/")
   local current = ""
-  for i, part in ipairs(parts) do
+  
+  -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
+  local function collect_sibling_options(parent_path, current_page)
+    -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
+    local prefix = parent_path == "" and "" or (parent_path .. "/")
+
+    -- 使用 API 查询
+    local siblings = query[[
+      from index.tag 'page'
+      where _.name:startsWith(prefix) and _.name != current_page
+      select {name = _.name}
+    ]]
+
+    -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
+    local options = {}
+    for _, item in ipairs(siblings) do
+      local p_name = item.name
+      -- 获取相对路径
+      local rel_path = p_name:sub(#prefix + 1)
+
+      -- 如果相对路径中没有 "/"，说明是直接同级
+      if not rel_path:find("/") then
+        table.insert(options, { name = p_name })
+      end
+    end
+    return options
+  end
+
+  for _, part in ipairs(parts) do
+    -- 记录当前层级的父路径（用于查询同级页面）
+    local parent_path = current
+
     if current ~= "" then current = current .. "/" end
     current = current .. part
-    bc = bc .. arrow .. "[[" .. current .. "]]"
+
+    -- 先预查一次 siblings
+    local options = collect_sibling_options(parent_path, current)
+
+    if #options == 0 then
+      -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
+      table.insert(dom_list, arrow_symbol_1)
+    else
+      -- 有 siblings：生成按钮，点击时直接用预先算好的 options
+      local function pick_sibling()
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
+        if not opt then return end
+        editor.navigate(opt.name)
+      end
+
+      local buto = widgets.button(arrow_symbol_2 .. #options, pick_sibling)
+      table.insert(dom_list, buto)
+    end
+    table.insert(dom_list, "[[" .. current .. "]]")
   end
 
   -- 最近修改 / 最近访问（带序号徽章）
