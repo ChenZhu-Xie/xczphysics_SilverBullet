@@ -110,9 +110,9 @@ function Yg.bc(path)
       -- 没有 children：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
       table.insert(dom_list, arrow_symbol_1)
     else
-      -- 有 siblings：生成按钮，点击时直接用预先算好的 options
+      -- 有 children：生成按钮，点击时直接用预先算好的 options
       local function pick_child()
-        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
         if not opt then return end
         editor.navigate(opt.name)
       end
