@@ -42,10 +42,6 @@ Related:
 0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
 
 # Adaptive Bread Crumb: Top
-Fork of [source](https://community.silverbullet.md/t/breadcrumbs-for-hierarchical-pages/737) to improve breadcrumbs with last updated children pages.
-
-> **example** Example
-> /[z-custom](https://silverbullet.l.malys.ovh/z-custom)/[breadcrumbs](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs) -[template](https://silverbullet.l.malys.ovh/z-custom/breadcrumbs/template)
 
 ## Ver 5: add Picker widgets
 
@@ -798,5 +794,3 @@ event.listen {
   end
 }
 ```
-
-See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)

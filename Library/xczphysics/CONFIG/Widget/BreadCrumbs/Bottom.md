@@ -643,5 +643,3 @@ event.listen {
   end
 }
 ```
-
-See [flex table](https://community.silverbullet.md/t/space-lua-flexbox-columns/2017)
