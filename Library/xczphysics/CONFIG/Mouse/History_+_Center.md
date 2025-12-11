@@ -526,6 +526,8 @@ command.define {
 }
 ```
 
+### Logic behind
+
 1. 用了点 [[Library/xczphysics/CONFIG/Picker/Table#Implementation 3|Table Query]] 的 `if not seen[pageName] then` 技巧来做 上述 `Click History: Page Picker`
    - 但这使得 page name 在历史记录中 不重复，不能真实地还原 page 历史
      - [click history](https://community.silverbullet.md/t/click-history/3569/12?u=chenzhu-xie) #community #silverbullet
