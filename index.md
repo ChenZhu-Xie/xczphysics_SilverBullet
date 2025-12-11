@@ -17,7 +17,7 @@ _[One of us!](https://community.silverbullet.md/)_
 
 In the same spirit as [SilverBullet](https://silverbullet.md/) and [this website](https://enlarge-the-percentage.fly.dev/) built upon it — the logo above is meant to _enlarge the percentage_.
 
-But what percentage? The percentage of **us** —— those who admire, employ, and enhance these inventions.
+But what percentage? The percentage of **us** —— those who admire, employ, enhance and eventually reinvent these inventions.
 
 These individuals define the boundaries and frontiers between the explored and the yet unexplored worlds.
 

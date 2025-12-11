@@ -904,7 +904,137 @@ Hierarchically file browser
 
 1. https://5113916f-2a63-4b56-a1bd-3cb9d938cbb7.pieces.cloud/?p=70f344baec
 
+```space-style
+/* priority: 1 */
 
+/* -------- 统一控制高亮强度（light / dark 只改这里） -------- */
+html {
+  --tree-selected-strength:      100%;
+  --tree-subtree-strength:        50%;
+  --tree-ancestor-strength:       50%;
+  --tree-root-page-strength:      20%;
+  --tree-root-folder-strength:    20%;
+  --tree-leaf-strength:           20%;
+}
+
+html[data-theme="dark"] {
+  --tree-selected-strength:      30%;
+  --tree-subtree-strength:       10%;
+  --tree-ancestor-strength:      10%;
+  --tree-root-page-strength:     30%;
+  --tree-root-folder-strength:   30%;
+  --tree-leaf-strength:          30%;
+}
+
+/* -------- 基础：清空背景 -------- */
+.tree__label {
+  background: none;
+}
+
+/* 给所有“有背景高亮”的 label 统一加圆角 */
+.tree__label:has([data-current-page="true"]),
+.tree__node:has(> .tree__label [data-current-page="true"]) .tree__subnodes .tree__label,
+#treeview-tree > .tree__node:has([data-current-page="true"])
+  > .tree__label:has([data-node-type]),
+#treeview-tree > .tree__node .tree__node:has(
+    .tree__subnodes .tree__label > [data-current-page="true"]
+  )
+  > .tree__label,
+.tree__node:has(> .tree__label > [data-current-page="true"])
+  .tree__node:not(:has(> .tree__subnodes > .tree__node))
+  > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
+  border-radius: 5px 0 0 5px;
+}
+
+/* -------- 当前节点：强灰色 -------- */
+.tree__label:has([data-current-page="true"]) {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) var(--tree-selected-strength), transparent) 0%,
+    transparent 100%
+  ) !important;
+}
+
+/* -------- 子树：所有后代节点浅灰 -------- */
+/* 当前节点所在 .tree__node 的 .tree__subnodes 里所有 label */
+.tree__node:has(> .tree__label [data-current-page="true"])
+  .tree__subnodes .tree__label {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) var(--tree-subtree-strength), transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* -------- 祖先路径（非最顶层）：浅灰 -------- */
+/* root 之下的任意 .tree__node，只要“子树中”包含 current-page，就高亮它自己的 label */
+/* 由于只从 .tree__subnodes 查找，当前节点本身不会被算作祖先 */
+#treeview-tree > .tree__node .tree__node:has(
+    .tree__subnodes .tree__label > [data-current-page="true"]
+  )
+  > .tree__label {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) var(--tree-ancestor-strength), transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* -------- 顶层兄弟：蓝/绿 -------- */
+/* 当前顶层节点为 page 时，其他顶层 page 兄弟：蓝色背景 */
+#treeview-tree > .tree__node:has([data-current-page="true"])
+  > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--blue, #4aa3ff) var(--tree-root-page-strength), transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* 当前顶层节点为 folder 时，其他顶层 folder 兄弟：绿色背景 */
+#treeview-tree > .tree__node:has([data-current-page="true"])
+  > .tree__label:has([data-node-type="folder"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--green, #3bb273) var(--tree-root-folder-strength), transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* -------- 子树中的叶子 page：品红色 -------- */
+/* 只在当前节点子树中，且“无子节点”的 page 用品红色背景 */
+.tree__node:has(> .tree__label > [data-current-page="true"])
+  .tree__node:not(:has(> .tree__subnodes > .tree__node))
+  > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--magenta, #d16ba5) var(--tree-leaf-strength), transparent) 0%,
+    transparent 100%
+  );
+}
+
+/* -------- 文本前景色：区分 page / folder -------- */
+.tree__label > span {
+  background-color: transparent !important;
+  border: none;
+}
+
+/* 普通 page 默认品红色 */
+.tree__label > span[data-node-type="page"] {
+  color: var(--magenta, #d16ba5);
+}
+
+/* folder 默认绿色 */
+.tree__label > span[data-node-type="folder"] {
+  color: var(--green, #3bb273);
+}
+
+/* 有子节点的 page（非叶子 page）改为蓝色，和顶层 page 颜色一致 */
+.tree__node:has(.tree__subnodes:not(:empty))
+  > .tree__label > span[data-node-type="page"] {
+  color: var(--blue, #4aa3ff);
+}
+```
 
 ```space-style
 /* Top buttons */
