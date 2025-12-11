@@ -405,53 +405,56 @@ event.listen {
   --title-opacity: 0.4; /* 默认让标题淡一点，凸显高亮 */
 }
 
-/* --- 1. 冻结容器 (新加) --- */
+/* 冻结容器：悬浮在编辑器顶部左侧的一列小牌子 */
 #sb-frozen-container {
   position: fixed;
-  top: 0; /* 如果有顶部顶栏，JS会自动计算偏移，或者这里写 30px */
-  left: 0;
-  width: 100%;
-  pointer-events: none; /* 让鼠标穿透容器，不影响下方操作 */
-  z-index: var(--frozen-z-index);
+  top: 4px;          /* 距离顶部留一点空 */
+  left: 0;           /* 实际 left 由 JS 用编辑区 rect.left 覆盖 */
+  z-index: 1000;
+  pointer-events: none;     /* 整个容器鼠标可穿透 */
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 靠左对齐 */
+  gap: 2px;
+  align-items: flex-start;
 }
 
-/* --- 2. 克隆标题的样式 --- */
+/* 克隆出来的标题样式：窄、贴左、自适应宽度 */
 .sb-frozen-clone {
-  /* 恢复鼠标事件，允许点击（如需跳转可扩展） */
-  pointer-events: auto; 
-  width: 100%;
-  margin: 0;
-  padding-left: 10px; /* 稍微调整内边距 */
-  
-  /* 强制样式：不透明、有背景、有阴影 */
-  opacity: 1 !important;
-  background-color: var(--frozen-bg-light);
-  box-shadow: var(--frozen-shadow);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  
-  /* 保持字体排版 */
-  box-sizing: border-box;
-  overflow: hidden;
+  display: inline-block;
+  width: auto;
+  max-width: 40vw;          /* 最多占 40% 视口宽度，防止太长 */
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+
+  pointer-events: none;     /* 单个标题也不截获鼠标事件 */
+
+  margin: 0 !important;
+  padding: 0.1em 0.5em;
+
+  opacity: 1 !important;
+  background-color: var(--bg-color, #ffffff);
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-family: inherit;
+  box-sizing: border-box;
 }
 
-/* 隐藏克隆体里的光标辅助元素，只留文字 */
-.sb-frozen-clone .cm-widgetBuffer,
+/* 暗色模式：只调背景颜色即可 */
+@media (prefers-color-scheme: dark) {
+  .sb-frozen-clone {
+    background-color: var(--bg-color-dark, #1f2023);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+}
+
+/* 隐藏克隆体内部的光标辅助元素，只保留文字 */
+.sb-frozen-clone .cm-widgetBuffer, 
 .sb-frozen-clone img {
   display: none;
 }
 
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-  .sb-frozen-clone {
-    background-color: var(--frozen-bg-dark);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-}
 html[data-theme="dark"] .sb-frozen-clone {
   background-color: var(--frozen-bg-dark);
 }
