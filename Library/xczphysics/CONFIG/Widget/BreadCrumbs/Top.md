@@ -133,7 +133,8 @@ function yg.bc(path)
   -- local visitsSuffix = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. "👀" .. tostring(visits) .. "]]"
   local visiTimes = "[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Visit_Times|" .. tostring(visits) .. "]]"
   
-  local options = query[[from index.tag "page" 
+  local options = query[[from index.tag "page"
+         -- where _.name:startsWith(mypage .. "/")
          where _.name:find("^" .. mypage .. "/")
          select {name = _.name}]]
   -- table.insert(dom_list, " " .. visitsSuffix)

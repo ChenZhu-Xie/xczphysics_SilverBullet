@@ -88,29 +88,12 @@ function Yg.bc(path)
   
   -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
   local function collect_children(parent_path, current_page)
-    -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
-    local prefix = parent_path == "" and "" or (parent_path .. "/")
-
-    -- 使用 API 查询
-    local children = query[[
+    return query[[
       from index.tag 'page'
-      where _.name:startsWith(prefix .. current .. "/")
+      -- where _.name:find("^" .. current_page .. "/")
+      where _.name:startsWith(current_page .. "/")
       select {name = _.name}
     ]]
-
-    -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
-    local options = {}
-    for _, item in ipairs(siblings) do
-      local p_name = item.name
-      -- 获取相对路径
-      local rel_path = p_name:sub(#prefix + 1)
-
-      -- 如果相对路径中没有 "/"，说明是直接同级
-      if not rel_path:find("/") then
-        table.insert(options, { name = p_name })
-      end
-    end
-    return options
   end
 
   for _, part in ipairs(parts) do
