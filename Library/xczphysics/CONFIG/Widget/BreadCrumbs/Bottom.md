@@ -78,16 +78,16 @@ end
 function Yg.bc(path)
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
-  local arrow_1 = choose("⇦⇨", "⬅⮕", mypath)
-  local arrow_2 = choose("🧑‍🤝‍🧑", "👩🏼‍🤝‍👩", mypath)
+  local arrow_symbol_1 = choose("⇦⇨", "⬅⮕", mypath)
+  local arrow_symbol_2 = choose("🧑‍🤝‍🧑", "👩🏼‍🤝‍👩", mypath)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local dom_list = {"[[.]]"}
   local parts = string.split(thisPage, "/")
   local current = ""
   
-  -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
-  local function collect_children(parent_path, current_page)
+  -- 抽出来一个辅助函数：给定 current，算出可用的 Children options
+  local function collect_children(current_page)
     return query[[
       from index.tag 'page'
       -- where _.name:find("^" .. current_page .. "/")
@@ -103,11 +103,11 @@ function Yg.bc(path)
     if current ~= "" then current = current .. "/" end
     current = current .. part
 
-    -- 先预查一次 siblings
-    local options = collect_children(parent_path, current)
+    -- 先预查一次 children
+    local options = collect_children(current)
 
     if #options == 0 then
-      -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
+      -- 没有 children：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
       table.insert(dom_list, arrow_symbol_1)
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options

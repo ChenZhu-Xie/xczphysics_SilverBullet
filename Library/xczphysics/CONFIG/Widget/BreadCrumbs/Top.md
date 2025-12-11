@@ -74,7 +74,6 @@ function yg.bc(path)
     -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
     local prefix = parent_path == "" and "" or (parent_path .. "/")
 
-    -- 使用 API 查询
     local siblings = query[[
       from index.tag 'page'
       where _.name:startsWith(prefix) and _.name != current_page
