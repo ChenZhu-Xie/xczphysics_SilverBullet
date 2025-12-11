@@ -136,32 +136,30 @@ function Yg.bc(path)
   -- pick siblings
   local options = query[[from index.tag "page" 
          where _.name ~= thisPage and _.name:find(pattern(mypath))
-         order by _.lastModified desc
-         limit max_num]] query[[from index.tag "page"
-         -- where _.name:startsWith(mypage .. "/")
-         where _.name:find("^" .. mypage .. "/")
          select {name = _.name}]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
   else
-    local function pick_child()
+    local function pick_sibling()
       local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
       if not opt then return end
       editor.navigate(opt.name)
     end
-    local buto = widgets.button("🧑‍🤝‍🧑" .. #options, pick_child)
+    local buto = widgets.button("🧑‍🤝‍🧑" .. #options, pick_sibling)
     table.insert(dom_list, buto)
   end
   table.insert(dom_list, visiTimes)
   table.insert(dom_list, "\n" .. lastMs)
   table.insert(dom_list, "\n" .. lastVs)
-
-  return bc .. " " .. visitsSuffix .. " " .. lastMs .. " " .. lastVs
 end
 
 function widgets.breadcrumbs_B()
-  return widget.new {markdown = Yg.bc()}
+  return widget.new {
+    -- markdown = Yg.bc()
+    html = dom.div(Yg.bc()),
+    display = "block",
+  }
 end
 ```
 
