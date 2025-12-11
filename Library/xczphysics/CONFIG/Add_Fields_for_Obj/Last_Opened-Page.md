@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page
 tags: meta/library
-pageDecoration.prefix: "👀 "
+pageDecoration.prefix: "📃👀 "
 ---
 
 # SB approach

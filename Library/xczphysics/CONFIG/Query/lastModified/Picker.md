@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Query/lastModified/Picker
 tags: meta/library
-pageDecoration.prefix: "📃✍🏻 "
+pageDecoration.prefix: "🤏📃✍🏻 "
 ---
 
 # Implementation
