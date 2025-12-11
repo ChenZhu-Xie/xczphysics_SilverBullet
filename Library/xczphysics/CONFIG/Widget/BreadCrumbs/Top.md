@@ -59,7 +59,7 @@ function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
   -- 仅决定视觉符号，不再直接拼接字符串
   local arrow_symbol_1 = has_children(mypage) and "⇩" or "⬇"
-  local arrow_symbol_2 = has_children(mypage) and "🧑‍🤝‍🧑" or "👩🏼‍🤝‍👩"
+  local arrow_symbol_2 = has_children(mypage) and "🧑‍🤝‍🧑" or "👬🏼"
   
   local parts = string.split(mypage, "/")
   local current = ""

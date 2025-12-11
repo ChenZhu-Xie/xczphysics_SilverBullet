@@ -75,7 +75,7 @@ function Yg.bc(path)
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
   local arrow_symbol_1 = choose("⇦⇨", "⬅⮕", mypath)
-  local arrow_symbol_2 = choose("👶🏻", "🧒🏻", mypath)
+  local arrow_symbol_2 = choose("👶🏻", "👼🏻", mypath)
 
   -- 构建 .⇦⇨CONFIG⇦⇨Widget... 或 .⬅⮕CONFIG⬅⮕Widget...
   local dom_list = {"[[.]]"}
