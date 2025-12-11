@@ -91,7 +91,7 @@ function Yg.bc(path)
       from index.tag 'page'
       -- where _.name:find("^" .. current_page .. "/")
       where _.name:startsWith(current_page .. "/")
-      select {name = _.name}
+      select {name = string.match(_.name, "([^/]+)$")}
     ]]
   end
 
