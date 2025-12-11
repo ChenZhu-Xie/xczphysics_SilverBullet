@@ -19,7 +19,9 @@ function pickGroupRoot(start, container, groupSelector) {
 }
 
 function listHeadings(root, headingSelector) {
-  return Array.from(root.querySelectorAll(headingSelector));
+  const all = Array.from(root.querySelectorAll(headingSelector));
+  // 排除掉位于 .sb-widget-array (如 query 表格/列表) 内部的标题
+  return all.filter(el => !el.closest(".sb-widget-array"));
 }
 
 // 所有后代标题（比当前层级更深，直到遇到 <= 当前层级为止）
