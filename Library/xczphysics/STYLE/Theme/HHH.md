@@ -20,6 +20,7 @@ pageDecoration.prefix: "🎇 "
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
+
 ```space-lua
 local jsCode = [[
 const STATE_KEY = "__xhHighlightState_v2";
