@@ -70,7 +70,7 @@ function yg.bc(path)
   local dom_list = {"[[.]]"}
 
   -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
-  local function collect_sibling_options(parent_path, current_page)
+  local function collect_siblings(parent_path, current_page)
     -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
     local prefix = parent_path == "" and "" or (parent_path .. "/")
 
@@ -104,7 +104,7 @@ function yg.bc(path)
     current = current .. part
 
     -- 先预查一次 siblings
-    local options = collect_sibling_options(parent_path, current)
+    local options = collect_siblings(parent_path, current)
 
     if #options == 0 then
       -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
@@ -135,8 +135,7 @@ function yg.bc(path)
   
   local options = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
-         select {name = _.name}
-         order by _.name desc]]
+         select {name = _.name}]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")

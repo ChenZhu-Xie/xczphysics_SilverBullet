@@ -87,12 +87,12 @@ function Yg.bc(path)
   local current = ""
   
   -- 抽出来一个辅助函数：给定 parent_path/current，算出可用的 sibling options
-  local function collect_child_options(parent_path, current_page)
+  local function collect_children(parent_path, current_page)
     -- 1. 确定查询前缀：如果是根目录则为空，否则加 /
     local prefix = parent_path == "" and "" or (parent_path .. "/")
 
     -- 使用 API 查询
-    local siblings = query[[
+    local children = query[[
       from index.tag 'page'
       where _.name:startsWith(prefix)
       select {name = _.name}
@@ -121,7 +121,7 @@ function Yg.bc(path)
     current = current .. part
 
     -- 先预查一次 siblings
-    local options = collect_child_options(parent_path, current)
+    local options = collect_children(parent_path, current)
 
     if #options == 0 then
       -- 没有 siblings：只渲染一个箭头符号字符串，避免“点了也没用”的按钮
