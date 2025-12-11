@@ -135,6 +135,7 @@ function yg.bc(path)
   
   local options = query[[from index.tag "page" 
          where _.name:find("^" .. mypage .. "/")
+         select {name = _.name}
          order by _.name desc]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
