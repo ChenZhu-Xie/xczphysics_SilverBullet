@@ -789,7 +789,7 @@ end
 ```
 
 ```space-lua
--- priority: -1
+-- priority: 20
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
