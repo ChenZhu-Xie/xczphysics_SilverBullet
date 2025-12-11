@@ -638,7 +638,7 @@ end
 ```
 
 ```space-lua
--- priority: 100
+-- priority: 20
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function(e)
