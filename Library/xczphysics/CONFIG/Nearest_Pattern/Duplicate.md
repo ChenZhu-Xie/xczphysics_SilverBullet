@@ -31,7 +31,7 @@ INLINE_PATTERNS = {
   { "Marker",        "==[^\n]+==",                35  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
   { "Header",        "(#+ [^\n]+)\n",             25  }, -- # header
-  { "Code Block",    "```[(space%-)(lua)][^`]-```", 20 }, -- ```...```
+  { "Code Block",    "```[(space%-)(lua)][^`]-```", 105 }, -- ```...```
 }
 
 function SelectiondistanceToCursor(startPos, endPos, cursorPos)
