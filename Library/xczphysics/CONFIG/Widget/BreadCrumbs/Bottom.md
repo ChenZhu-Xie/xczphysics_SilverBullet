@@ -94,7 +94,7 @@ function Yg.bc(path)
     -- 使用 API 查询
     local children = query[[
       from index.tag 'page'
-      where _.name:startsWith(prefix)
+      where _.name:startsWith(prefix .. current .. "/")
       select {name = _.name}
     ]]
 
