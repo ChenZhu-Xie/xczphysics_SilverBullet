@@ -328,7 +328,6 @@ event.listen {
 
 1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
 
-
 ```space-style
 /* --- 冻结窗格核心样式 --- */
 
