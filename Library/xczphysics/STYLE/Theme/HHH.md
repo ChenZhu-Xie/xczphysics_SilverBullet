@@ -332,50 +332,49 @@ event.listen {
 1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
 
 ```space-style
-/* --- 冻结窗格核心样式 --- */
-
-/* 定义冻结标题的背景色变量 */
-/* 自动适配深色/浅色模式，使用 Canvas 关键字或 SB 默认变量 */
-:root {
-  --frozen-header-bg: var(--editor-bg-color, var(--bg-color, canvas));
+/* 冻结容器：悬浮在编辑器顶部的独立层 */
+#sb-frozen-container {
+  position: fixed; /* 固定在视口 */
+  top: 0;          /* 视情况调整，如果有顶部导航栏，这里可能需要设为 30px 或 var(--top-bar-height) */
+  left: 0;
+  width: 100%;     /* 脚本会自动调整宽度 */
+  z-index: 1000;   /* 确保在编辑器内容之上 */
+  pointer-events: none; /* 让鼠标事件穿透容器，避免挡住滚动条 */
+  display: flex;
+  flex-direction: column;
 }
 
-.sb-frozen {
-  position: sticky !important;
-  /* 宽度占满，防止布局塌陷 */
+/* 克隆出来的标题样式 */
+.sb-frozen-clone {
+  pointer-events: auto; /* 克隆的标题本身可以阻挡鼠标（可选） */
   width: 100%;
-  /* 必须不透明，否则文字重叠 */
-  opacity: 1 !important;
-  /* 背景色：使用不透明背景遮挡下方滚动的文字 */
-  background-color: var(--frozen-header-bg);
-  /* 底部加一点阴影或边框，增加层次感（可选） */
-  box-shadow: 0 1px 0px rgba(0,0,0,0.05);
-  /* 过渡动画：让吸顶时的位置变化更自然 */
-  transition: top 0.1s ease-out;
+  margin: 0 !important; /* 移除多余边距 */
+  padding-left: 20px;   /* 稍微修正一点内边距以对齐 */
+  padding-right: 20px;
   
-  /* 确保边框和内边距包含在宽度内 */
+  /* 强制不透明，并添加背景色，防止透视 */
+  opacity: 1 !important;
+  background-color: var(--bg-color, #ffffff); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* 加个细微分割线 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  
+  /* 保持原有字体样式 */
+  font-family: inherit;
   box-sizing: border-box;
 }
 
-/* 针对深色模式微调阴影 */
-html[data-theme="dark"] .sb-frozen {
-  box-shadow: 0 1px 0px rgba(255,255,255,0.05);
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .sb-frozen-clone {
+    background-color: var(--bg-color-dark, #1f2023); /* 确保和你的编辑器背景一致 */
+  }
 }
 
-/* 修复：当标题被冻结时，不仅要不透明，还要应用高亮颜色 */
-/* 这里复用你之前的 .sb-active 逻辑，确保冻结的标题看起来也是“激活”的 */
-.sb-frozen {
-    /* 强制应用高亮背景色，叠加在不透明底色之上 */
-    /* 注意：由于 background-color 只能有一个，我们需要用 background-image 模拟叠加，或者依赖 JS 添加 .sb-active 类 */
-    /* JS 中已经处理了：如果鼠标悬浮，会添加 .sb-active。单纯滚动冻结时，保持原色即可，或者你可以取消下面的注释来强制高亮冻结项 */
-    /* color: var(--h1-color-light); */ 
+/* 隐藏克隆体内部的光标辅助元素，只保留文字 */
+.sb-frozen-clone .cm-widgetBuffer, 
+.sb-frozen-clone img {
+  display: none;
 }
-
-/* 确保冻结标题的层级最高 */
-.sb-frozen.sb-line-h1 { z-index: 110; }
-.sb-frozen.sb-line-h2 { z-index: 109; }
-.sb-frozen.sb-line-h3 { z-index: 108; }
-/* ... JS 中已经动态计算了 z-index，这里作为保底 */
 ```
 
 
