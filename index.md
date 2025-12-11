@@ -21,7 +21,7 @@ But what percentage? The percentage of **us** —— those who admire, employ, e
 
 These individuals define the boundaries and frontiers between the explored and the yet unexplored worlds.
 
-The mutual dynamics among this small group, as well as between them and the world they build, propel the the world’s shared evolution forward, ultimately shaping the course of the future.
+The mutual dynamics among these small groups, together with the world they build, propels the the world’s shared evolution forward, ultimately shaping the course of the future.
 
 ## ETP.logo History
 
