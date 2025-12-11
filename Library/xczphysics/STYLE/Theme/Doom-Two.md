@@ -918,6 +918,7 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
+/* 当前节点的子孙（子树）统一浅灰 */
 .tree__node:has(> .tree__label [data-current-page="true"])
   .tree__subnodes .tree__label {
   background: linear-gradient(
@@ -927,6 +928,24 @@ Hierarchically file browser
   );
   border-radius: 5px 0 0 5px;
 }
+
+/* === 新增：当前选中为 folder 时，路径上的祖先（非最顶层）也浅灰 === */
+/* 说明：
+ * - 只匹配“其子树中包含 当前选中 folder 的节点”的 .tree__node
+ * - 并且这些 .tree__node 自己不是根层（有上级 .tree__node），避免盖掉顶层蓝/绿高亮
+ */
+#treeview-tree .tree__node .tree__node:has(
+    .tree__subnodes .tree__label > [data-current-page="true"][data-node-type="folder"]
+  )
+  > .tree__label {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) 50%, transparent) 0%,
+    transparent 100%
+  );
+  border-radius: 5px 0 0 5px;
+}
+/* === 新增结束 === */
 
 #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -948,7 +967,6 @@ Hierarchically file browser
   border-radius: 5px 0 0 5px;
 }
 
-
 .tree__node:has(> .tree__label > [data-current-page="true"])
   .tree__node:not(:has(> .tree__subnodes > .tree__node))
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -959,6 +977,8 @@ Hierarchically file browser
   );
   border-radius: 5px 0 0 5px;
 }
+
+/* -------------------- Dark theme -------------------- */
 
 html[data-theme="dark"] #treeview-tree > .tree__node:has([data-current-page="true"])
   > .tree__label:has([data-node-type="page"]):not(:has([data-current-page="true"])) {
@@ -1009,6 +1029,20 @@ html[data-theme="dark"] .tree__node:has(> .tree__label [data-current-page="true"
   );
   border-radius: 5px 0 0 5px;
 }
+
+/* === 新增：dark 主题下的祖先浅灰 === */
+html[data-theme="dark"] #treeview-tree .tree__node .tree__node:has(
+    .tree__subnodes .tree__label > [data-current-page="true"][data-node-type="folder"]
+  )
+  > .tree__label {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--base8, #888) 10%, transparent) 0%,
+    transparent 100%
+  );
+  border-radius: 5px 0 0 5px;
+}
+/* === 新增结束 === */
 
 .tree__label > span { background-color: transparent !important; border: none; }
 .tree__label > span[data-node-type="page"]   { color: var(--magenta, #d16ba5); }
