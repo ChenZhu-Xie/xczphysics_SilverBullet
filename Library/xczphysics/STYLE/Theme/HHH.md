@@ -43,7 +43,9 @@ function pickGroupRoot(start, container, groupSelector) {
 }
 
 function listHeadings(root, headingSelector) {
-  return Array.from(root.querySelectorAll(headingSelector));
+  const all = Array.from(root.querySelectorAll(headingSelector));
+  // 排除掉位于 .sb-widget-array (如 query 表格/列表) 内部的标题
+  return all.filter(el => !el.closest(".sb-widget-array"));
 }
 
 // 所有后代标题（比当前层级更深，直到遇到 <= 当前层级为止）
@@ -359,7 +361,6 @@ command.define {
     editor.flashNotification("HierarchyHighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
   end
 }
-
 ```
 
 
@@ -434,7 +435,8 @@ event.listen {
 
   opacity: 1 !important;
   background-color: var(--bg-color, #ffffff);
-  border-radius: 4px;
+  /* 修改：去掉圆角，使下划线平直 */
+  border-radius: 0; 
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   font-family: inherit;
