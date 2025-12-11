@@ -152,6 +152,8 @@ function Yg.bc(path)
   table.insert(dom_list, visiTimes)
   table.insert(dom_list, "\n" .. lastMs)
   table.insert(dom_list, "\n" .. lastVs)
+  
+  return dom_list
 end
 
 function widgets.breadcrumbs_B()
