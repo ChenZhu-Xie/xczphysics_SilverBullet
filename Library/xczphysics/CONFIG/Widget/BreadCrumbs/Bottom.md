@@ -135,7 +135,7 @@ function Yg.bc(path)
   -- pick siblings
   local options = query[[from index.tag "page" 
          where _.name ~= thisPage and _.name:find(pattern(mypath))
-         select {name = _.name}]]
+         select {name = string.match(_.name, "([^/]+)$")}]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")

@@ -76,7 +76,7 @@ function yg.bc(path)
     local siblings = query[[
       from index.tag 'page'
       where _.name:startsWith(prefix) and _.name != current_page
-      select {name = _.name}
+      select {name = string.match(_.name, "([^/]+)$")}
     ]]
 
     -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
@@ -135,7 +135,7 @@ function yg.bc(path)
   local options = query[[from index.tag "page"
          -- where _.name:startsWith(mypage .. "/")
          where _.name:find("^" .. mypage .. "/")
-         select {name = _.name}]]
+         select {name = string.match(_.name, "([^/]+)$")}]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
