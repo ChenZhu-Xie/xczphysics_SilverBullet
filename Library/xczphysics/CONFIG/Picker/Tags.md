@@ -20,6 +20,13 @@ Wiki is Mesh-like Graph-theory, good at Navigation, Association,
 
 ## CMD: Tags Picker 2
 
+关于去重：
+- 下面的代码是：收集完标签后，再一次性去重的
+  - 可以收集一次、去重一次，这样 效率会更高些（储存、处理得均更少）
+  - 像  一样
+- 当然，我们更需要的是 [Ah_LMYqd2CE](https://www.youtube.com/shorts/Ah_LMYqd2CE) #youtube SQL 中的 DUPLICATE 关键字
+  - `SELECT DUPLICATE ssn FROM payments;`
+
 ```space-lua
 -- priority: 11
 command.define {
