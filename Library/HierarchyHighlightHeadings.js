@@ -1,13 +1,12 @@
 // Library/HierarchyHighlightHeadings.js
-// HHH v9 - Fix: Code Block Interference & Persistent Highlight (Typing/Clicking)
+// HHH v8 - Fix: Widget Support via Index Mapping & Clean Display
 
-const STATE_KEY = "__xhHighlightState_v9_HHH_Final";
+const STATE_KEY = "__xhHighlightState_v8_HHH_WidgetFix";
 
-// ---------- 1. 获取全文与源码解析 ----------
+// ---------- 1. 获取全文 ----------
 
 function getFullTextFromCodeMirror() {
   try {
-    // 尝试获取最新的编辑器状态
     if (window.client && client.editorView && client.editorView.state) {
       return client.editorView.state.sliceDoc();
     }
@@ -16,6 +15,8 @@ function getFullTextFromCodeMirror() {
   }
   return "";
 }
+
+// ---------- 2. 基于正则构建 FULL_HEADINGS ----------
 
 let FULL_HEADINGS = [];
 
@@ -27,84 +28,70 @@ function rebuildHeadingsSync() {
   }
 
   const list = [];
-  // 正则匹配：行首的 # 标题
-  // 注意：这仍然可能匹配到代码块内部的 #，所以后续必须通过文本比对来剔除
+  // 匹配行首标题
   const regex = /^(#{1,6})\s+([^\n]*)$/gm;
+  
+  // 匹配 Widget 语法的正则，用于生成干净的显示文本
+  // 例如：Step 3: ${widgets.btn()} -> Step 3:
+  const widgetRegex = /\$\{.*?\}/g; 
   
   let match;
   while ((match = regex.exec(text)) !== null) {
     let rawText = match[2].trim();
-    // 简单的清理，用于显示
     let displayText = rawText;
 
     list.push({
       level: match[1].length,
-      text: rawText,        // 源码中的原始文本（用于比对）
-      displayText: displayText // 冻结栏显示的文本
+      text: rawText,        // 源码文本
+      displayText: displayText // 冻结栏显示的干净文本
     });
   }
 
   FULL_HEADINGS = list;
 }
 
-// ---------- 2. 核心修复：智能索引映射 ----------
-
-// 目标：找到 DOM 元素 (domH) 在 FULL_HEADINGS 源码列表中的正确位置
-// 解决了代码块中包含 # 导致索引错位的问题
-function findFullIndexForDomHeading(domH, domIndexHint) {
+// 核心修复：使用索引映射而不是文本匹配
+// domIndex: 该元素在 DOM 标题列表中的索引
+function findFullIndexForDomHeading(domH, domIndex) {
+  // 1. 确保数据同步
   if (FULL_HEADINGS.length === 0) rebuildHeadingsSync();
 
-  const domLevel = getLevel(domH);
-  // 获取 DOM 标题的纯文本，去除可能的伪元素干扰
-  const domText = domH.innerText.replace(/^#+\s*/, "").trim(); 
-
-  // 辅助函数：判断源码标题和 DOM 标题是否看起来是同一个
-  const isMatch = (srcItem) => {
-    if (!srcItem) return false;
-    if (srcItem.level !== domLevel) return false;
-    // 文本包含检查：源码包含DOM文本，或DOM包含源码文本
-    // 这种双向检查能兼容 Widget 渲染前后长度不一致的情况
-    return srcItem.text.includes(domText) || domText.includes(srcItem.text);
-  };
-
-  // 策略 1: 优先检查 hint 索引 (假设没有代码块干扰的理想情况)
-  if (domIndexHint >= 0 && domIndexHint < FULL_HEADINGS.length) {
-    if (isMatch(FULL_HEADINGS[domIndexHint])) {
-      return domIndexHint;
+  // 2. 优先使用索引匹配 (假设 DOM 渲染顺序与源码一致)
+  // 只有当 DOM 标题数量与源码标题数量一致时，索引才绝对可靠
+  // SilverBullet 通常是一致的，只要 selector 准确
+  if (domIndex >= 0 && domIndex < FULL_HEADINGS.length) {
+    const candidate = FULL_HEADINGS[domIndex];
+    const domLevel = getLevel(domH);
+    // 双重检查：层级必须一致。如果不一致，说明 DOM 和 源码 没对齐（极其罕见）
+    if (candidate.level === domLevel) {
+      return domIndex;
     }
   }
 
-  // 策略 2: 局部搜索 (Sliding Window)
-  // 因为代码块通常只会导致索引偏移一点点，或者偏移一段
-  // 我们以 hint 为中心，向前后搜索最近的匹配项
-  const searchRadius = 20; // 向前后搜20个标题
-  for (let offset = 1; offset <= searchRadius; offset++) {
-    // 向后搜
-    if (isMatch(FULL_HEADINGS[domIndexHint + offset])) return domIndexHint + offset;
-    // 向前搜
-    if (isMatch(FULL_HEADINGS[domIndexHint - offset])) return domIndexHint - offset;
+  // 3. 降级方案：如果索引对不上，回退到模糊文本匹配
+  // (这是旧逻辑，作为 fallback)
+  const text = domH.innerText.trim(); 
+  const level = getLevel(domH);
+  
+  for (let i = FULL_HEADINGS.length - 1; i >= 0; i--) {
+    const h = FULL_HEADINGS[i];
+    // 检查源码文本是否包含 DOM 文本（处理 widget 收缩情况）
+    // 或者 DOM 文本包含源码文本
+    if (h.level === level) {
+        if (h.text.includes(text) || text.includes(h.text)) return i;
+    }
   }
-
-  // 策略 3: 全局搜索 (Fallback)
-  // 如果偏移太远，只好遍历整个数组
-  for (let i = 0; i < FULL_HEADINGS.length; i++) {
-    if (isMatch(FULL_HEADINGS[i])) return i;
-  }
-
   return -1;
 }
 
-// 构建面包屑路径 (父级链)
 function getBranchFromFullHeadings(idx) {
   if (idx < 0 || idx >= FULL_HEADINGS.length) return null;
   const leaf = FULL_HEADINGS[idx];
   const ancestors = [];
   let currentLevel = leaf.level;
 
-  // 向前回溯寻找父级
   for (let i = idx - 1; i >= 0; i--) {
     const h = FULL_HEADINGS[i];
-    // 严格小于当前层级才算父级 (标准 Markdown 逻辑)
     if (h.level < currentLevel) {
       ancestors.unshift(h);
       currentLevel = h.level;
@@ -117,11 +104,9 @@ function getBranchFromFullHeadings(idx) {
 // ---------- 3. DOM 工具函数 ----------
 
 function getLevel(el) {
-  // SilverBullet 这里的类名通常是 sb-line-h1 到 sb-line-h6
   for (let i = 1; i <= 6; i++) {
     if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
   }
-  // Fallback check
   const tag = el.tagName ? el.tagName.toLowerCase() : "";
   if (/^h[1-6]$/.test(tag)) return Number(tag[1]);
   return 0;
@@ -155,6 +140,35 @@ function collectDescendants(startIndex, headings, startLevel) {
   return res;
 }
 
+function findHeadingForElement(el, headings) {
+  if (!el) return null;
+  if (headings.includes(el)) return el;
+  
+  let current = el;
+  while(current && current !== document.body) {
+      for(let h of headings) {
+          if (h === current) return h;
+      }
+      if (current.previousElementSibling) {
+          current = current.previousElementSibling;
+          for(let h of headings) {
+              if (h === current) return h;
+          }
+      } else {
+          current = current.parentElement;
+      }
+  }
+  
+  // 备用位置查找
+  for (let i = headings.length - 1; i >= 0; i--) {
+    const h = headings[i];
+    if (h.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      return h;
+    }
+  }
+  return null;
+}
+
 // ---------- 4. 界面渲染 ----------
 
 function clearClasses(root) {
@@ -167,17 +181,20 @@ function getFrozenContainer() {
   if (!fc) {
     fc = document.createElement("div");
     fc.id = "sb-frozen-container";
+    // 初始样式，具体由 CSS 控制
     fc.style.display = "none";
     document.body.appendChild(fc);
   }
   return fc;
 }
 
+// 核心修复：接受 domIndex 参数
 function updateFrozenBar(domHeading, domIndex) {
   const fc = getFrozenContainer();
-  rebuildHeadingsSync(); // 确保数据最新
-
-  // 使用智能索引查找，修复层级错误
+  
+  rebuildHeadingsSync(); 
+  
+  // 传入 domIndex 进行精确查找
   const idx = findFullIndexForDomHeading(domHeading, domIndex);
 
   if (idx === -1) {
@@ -194,14 +211,16 @@ function updateFrozenBar(domHeading, domIndex) {
   fc.innerHTML = "";
   fc.style.display = "flex";
   
+  // 渲染逻辑：使用 clean 的 displayText
   [...branch.ancestors, branch.leaf].forEach(h => {
     const div = document.createElement("div");
     div.className = `sb-frozen-item sb-frozen-l${h.level}`;
+    // 这里使用 displayText (去除 ${...} 后的文本)
     div.textContent = h.displayText || h.text; 
     fc.appendChild(div);
   });
   
-  // 定位调整
+  // 定位
   const container = document.querySelector("#sb-main");
   if(container) {
       const cRect = container.getBoundingClientRect();
@@ -209,42 +228,12 @@ function updateFrozenBar(domHeading, domIndex) {
   }
 }
 
-// ---------- 5. 查找当前上下文标题 (修复打字/点击无高亮) ----------
-
-// 从当前 DOM 节点向上查找最近的标题行
-function findClosestHeadingPreceding(startNode, headingSelector) {
-  if (!startNode) return null;
-  
-  // 1. 找到该节点所属的行 (cm-line)
-  let currentLine = startNode;
-  if (startNode.nodeType === 3) currentLine = startNode.parentElement; // 文本节点 -> 父级
-  
-  while (currentLine && (!currentLine.classList || !currentLine.classList.contains("cm-line"))) {
-    currentLine = currentLine.parentElement;
-    if (!currentLine || currentLine === document.body) return null;
-  }
-
-  if (!currentLine) return null;
-
-  // 2. 如果当前行本身就是标题，直接返回
-  if (currentLine.matches(headingSelector)) return currentLine;
-
-  // 3. 否则，向前遍历兄弟节点查找最近的标题
-  let prev = currentLine.previousElementSibling;
-  while (prev) {
-    if (prev.matches && prev.matches(headingSelector)) {
-      return prev;
-    }
-    prev = prev.previousElementSibling;
-  }
-  
-  return null; // 到了文档顶部还没找到标题
-}
-
-// ---------- 6. 主逻辑 ----------
+// ---------- 5. 主逻辑 ----------
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
+  
+  // 修改选择器：更严格，只选 SB 原生标题行，避免 Widget 内部的 h1-h6 干扰索引计数
   const headingSelector = opts.headingSelector || ".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
 
   const bind = () => {
@@ -256,10 +245,8 @@ export function enableHighlight(opts = {}) {
 
     if (window[STATE_KEY] && window[STATE_KEY].cleanup) window[STATE_KEY].cleanup();
 
-    // 核心渲染函数
     function render(targetHeading) {
       if (!targetHeading) {
-        // 如果找不到标题（比如在文档最开头且没有H1），清除所有高亮
         clearClasses(container);
         const fc = document.getElementById("sb-frozen-container");
         if(fc) fc.style.display = "none";
@@ -268,7 +255,6 @@ export function enableHighlight(opts = {}) {
 
       const headings = listHeadings(container, headingSelector);
       const idx = headings.indexOf(targetHeading);
-      // 注意：idx === -1 也要处理吗？通常意味着 targetHeading 不在当前列表中（可能是脏数据），忽略即可
       if (idx === -1) return;
 
       const level = getLevel(targetHeading);
@@ -276,94 +262,67 @@ export function enableHighlight(opts = {}) {
       const descendants = collectDescendants(idx, headings, level);
 
       clearClasses(container);
-      
-      // 添加类名
       targetHeading.classList.add("sb-active", "sb-active-current");
       ancestors.forEach(el => el.classList.add("sb-active", "sb-active-anc"));
       descendants.forEach(el => el.classList.add("sb-active", "sb-active-desc"));
 
-      // 更新顶部冻结栏
+      // 传入 idx (DOM 列表中的位置)
       updateFrozenBar(targetHeading, idx);
     }
 
-    // --- 事件监听器 ---
+    // --- 事件监听 ---
 
-    // 1. 鼠标移动 (Hover)
     function onPointerOver(e) {
       if (!e.target) return;
-      // 检查鼠标是否直接指在标题上
-      let target = e.target;
-      // 向上找几层以防指在 span 上
-      while(target && target !== container && (!target.matches || !target.matches(headingSelector))) {
-          target = target.parentElement;
-      }
-      if (target && target.matches && target.matches(headingSelector)) {
-          render(target);
+      const headings = listHeadings(container, headingSelector);
+      const h = findHeadingForElement(e.target, headings);
+      if (h) {
+        render(h);
       }
     }
     
-    // 2. 滚动 (Scroll)
     let isScrolling = false;
     function onScroll() {
       if (!isScrolling) {
         requestAnimationFrame(() => {
           const headings = listHeadings(container, headingSelector);
-          const triggerY = 150; // 判定线
+          const triggerY = 120; // 稍微增加一点判定区域
           let current = null;
           
+          // 查找策略：找到最后一个“头部已经滚出屏幕”或者“在屏幕顶部”的标题
           for (let h of headings) {
             const rect = h.getBoundingClientRect();
+            // 如果标题在触发线之上，它就是当前的“上下文”标题
             if (rect.top < triggerY) {
                current = h; 
             } else {
                break; 
             }
           }
-          if (current) render(current);
+          
+          if (current) {
+             render(current);
+          }
           isScrolling = false;
         });
         isScrolling = true;
       }
     }
 
-    // 3. 点击与打字 (Click & Type) - 修复持久化高亮
-    function onInteract(e) {
-        // 使用 requestAnimationFrame 确保 DOM 更新后再查找
-        requestAnimationFrame(() => {
-            const selection = window.getSelection();
-            if (selection.rangeCount > 0) {
-                const node = selection.anchorNode; // 光标所在节点
-                const h = findClosestHeadingPreceding(node, headingSelector);
-                if (h) {
-                    render(h);
-                }
-            }
-        });
-    }
-
-    // 绑定事件
     container.addEventListener("pointerover", onPointerOver);
     window.addEventListener("scroll", onScroll, { passive: true });
-    
-    // 新增：监听鼠标抬起（覆盖点击定位）和键盘抬起（覆盖打字）
-    container.addEventListener("mouseup", onInteract);
-    container.addEventListener("keyup", onInteract);
 
-    // 注册清理函数
     window[STATE_KEY] = {
       cleanup() {
         container.removeEventListener("pointerover", onPointerOver);
         window.removeEventListener("scroll", onScroll);
-        container.removeEventListener("mouseup", onInteract);
-        container.removeEventListener("keyup", onInteract);
-        
         clearClasses(container);
         const fc = document.getElementById("sb-frozen-container");
         if (fc) fc.remove();
       }
     };
     
-    console.log("[HHH] v9 Enabled: Smart Indexing + Persistent Interaction");
+    console.log("[HHH] v8 Enabled: Widget Fix + Clean Display");
   };
 
   bind();
