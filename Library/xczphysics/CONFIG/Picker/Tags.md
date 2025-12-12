@@ -157,24 +157,24 @@ virtualPage.define {
   pattern = "tags:(.+)",
   run = function(inputString)
     local rawTags = inputString:split(",")
-    local tags = {}
+    local Tags = {}
     for _, t in ipairs(rawTags) do
       local cleanTag = t:trim()
       if cleanTag ~= "" then
-        table.insert(tags, cleanTag)
+        table.insert(Tags, cleanTag)
       end
     end
 
-    if #tags == 0 then return "No tags specified." end
+    if #Tags == 0 then return "No tags specified." end
 
     local text = ""
-    local tagName = tags[1]
+    local tagName = Tags[1]
     local allObjects = query[[
       from index.tag(tagName)
       order by ref
     ]]
     
-    if #tags == 1 then
+    if #Tags == 1 then
       text = "# Objects tagged with: " .. tagName .. "\n"
       local tagParts = tagName:split("/")
       local parentTags = {}
@@ -198,11 +198,11 @@ virtualPage.define {
           .. template.each(subTags, templates.tagItem)
       end
     else
-      text = "# Objects tagged with: " .. table.concat(tags, ", ") .. "\n"
-      for i = 2, #tags do
+      text = "# Objects tagged with: " .. table.concat(Tags, ", ") .. "\n"
+      for i = 2, #Tags do
         allObjects = query[[
           from allObjects
-          where table.includes(_.tags, tags[i])
+          where table.includes(_.tags, Tags[i])
         ]]
       end
     end
