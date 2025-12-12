@@ -25,61 +25,66 @@ pageDecoration.prefix: "🎇 "
 
 ```space-lua
 local jsCode = [[
-// Library/HierarchyHighlightHeadings.js
-// HHH v6 — JS 侧解析全文标题 + 左上角冻结 branch
+const STATE_KEY = "__xhHighlightState_v6_HHH_JSMarkdown";
 
-const STATE_KEY = "__xhHighlightState_v6_HHH_JSParse";
+let FULL_HEADINGS = null; // [{ level, text }]
+let FULL_HEADINGS_VERSION = 0;
 
-let FULL_HEADINGS = null;
+// ---------------------- 获取全文 markdown ----------------------
 
-// ========== 1. 全文标题解析（不依赖 index.query，直接解析 Markdown 文本） ==========
+function getFullTextFromCodeMirror() {
+  // 尝试从 CodeMirror 6 的视图对象拿全文
+  // 通常根节点是 .cm-editor 或 .cm-content 所在的 DOM 上挂了 cmView
+  const cmRoot =
+    document.querySelector(".cm-editor") ||
+    document.querySelector(".cm-content");
+  const view = cmRoot && cmRoot.cmView;
+  if (view && view.state && view.state.doc) {
+    return view.state.doc.toString();
+  }
+  return null;
+}
 
-async function buildFullHeadings() {
-  try {
-    const ed = window.editor;
-    if (!ed || typeof ed.getText !== "function") {
-      console.warn("[HHH] editor.getText() 不可用，FULL_HEADINGS 功能禁用");
-      FULL_HEADINGS = null;
-      return;
-    }
-    const text = String(await ed.getText());
-    const lines = text.split(/\r?\n/);
-    const list = [];
+// 用简单正则从 markdown 文本里提取所有 # 开头的标题
+function buildFullHeadingsFromMarkdown(text) {
+  const lines = text.split(/\r?\n/);
+  const res = [];
+  for (const line of lines) {
+    const m = /^(#{1,6})\s+(.*)$/.exec(line);
+    if (!m) continue;
+    const level = m[1].length;
+    let txt = m[2].trim();
+    // 去掉末尾成对的 #（ATX 样式）: "Title ###"
+    txt = txt.replace(/\s+#+\s*$/, "").trim();
+    if (!txt) continue;
+    res.push({ level, text: txt });
+  }
+  FULL_HEADINGS = res;
+  FULL_HEADINGS_VERSION++;
+}
 
-    for (const line of lines) {
-      // 只处理 ATX 标题：# .. ###### ..
-      const m = /^(#{1,6})\s+(.+?)\s*$/.exec(line);
-      if (!m) continue;
-      const level = m[1].length;
-      const titleText = m[2].trim();
-      if (!titleText) continue;
-      list.push({ level, text: titleText });
-    }
-
-    FULL_HEADINGS = list;
-  } catch (e) {
-    console.error("[HHH] buildFullHeadings 出错", e);
+// 确保 FULL_HEADINGS 已构建；失败则返回 false
+function ensureFullHeadings() {
+  if (FULL_HEADINGS) return true;
+  const text = getFullTextFromCodeMirror();
+  if (!text) {
+    console.warn("[HHH] 无法从 CodeMirror 获取全文，FULL_HEADINGS 功能暂时禁用");
     FULL_HEADINGS = null;
+    return false;
   }
+  buildFullHeadingsFromMarkdown(text);
+  return true;
 }
 
-async function ensureFullHeadings() {
-  if (!FULL_HEADINGS) {
-    await buildFullHeadings();
-  }
-  return FULL_HEADINGS;
-}
-
-async function getBranchFromFullHeadingsByDomHeading(domH) {
-  if (!domH) return null;
-  await ensureFullHeadings();
-  if (!FULL_HEADINGS || !FULL_HEADINGS.length) return null;
+// 给一个 DOM heading，去 FULL_HEADINGS 里找对应项，并算出完整祖先链
+function getBranchFromFullHeadingsByDomHeading(domH) {
+  if (!ensureFullHeadings() || !domH) return null;
 
   const level = getLevel(domH);
   const text = domH.innerText.trim();
   if (!text) return null;
 
-  // 从后往前找：匹配 level + text
+  // 从后往前找最后一个 level+text 匹配的 heading
   let idx = -1;
   for (let i = FULL_HEADINGS.length - 1; i >= 0; i--) {
     const h = FULL_HEADINGS[i];
@@ -92,22 +97,23 @@ async function getBranchFromFullHeadingsByDomHeading(domH) {
 
   const leaf = FULL_HEADINGS[idx];
   const ancestors = [];
-  let currLevel = leaf.level;
+  let currentLevel = leaf.level;
+
   for (let i = idx - 1; i >= 0; i--) {
     const h = FULL_HEADINGS[i];
-    if (h.level < currLevel) {
+    if (h.level < currentLevel) {
       ancestors.unshift(h);
-      currLevel = h.level;
-      if (currLevel === 1) break;
+      currentLevel = h.level;
+      if (currentLevel === 1) break;
     }
   }
+
   return { ancestors, leaf };
 }
 
-// ========== 2. DOM 工具函数 ==========
+// ---------------------- DOM 工具函数（和之前类似） ----------------------
 
 function getLevel(el) {
-  // 优先 SilverBullet 的 sb-line-hN
   for (let i = 1; i <= 6; i++) {
     if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
   }
@@ -148,7 +154,6 @@ function findHeadingForElement(el, headings) {
   if (!el) return null;
   if (headings.includes(el)) return el;
 
-  // 从后往前找「在 el 之前」的最后一个标题
   for (let i = headings.length - 1; i >= 0; i--) {
     const h = headings[i];
     const pos = h.compareDocumentPosition(el);
@@ -174,6 +179,8 @@ function clearClasses(root) {
     );
 }
 
+// ---------------------- 冻结栏（左上角窄列） ----------------------
+
 function getFrozenContainer() {
   let fc = document.getElementById("sb-frozen-container");
   if (!fc) {
@@ -192,8 +199,8 @@ function clearFrozen() {
   }
 }
 
-// 基于 FULL_HEADINGS 的 branch 渲染左上角冻结栏
-function renderFrozenBranchFromAst(container, branch) {
+// 使用 FULL_HEADINGS 信息渲染左上角冻结栏
+function renderFrozenBranchFromIndex(container, branch) {
   const fc = getFrozenContainer();
 
   if (!branch || !branch.leaf) {
@@ -221,7 +228,7 @@ function renderFrozenBranchFromAst(container, branch) {
   fc.style.removeProperty("width");
 }
 
-// ========== 3. 主入口 ==========
+// ---------------------- 主入口 ----------------------
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
@@ -241,7 +248,6 @@ export function enableHighlight(opts = {}) {
     if (prev && prev.cleanup) prev.cleanup();
 
     let currentBranchInfo = null;
-    let isScrolling = false;
 
     async function setActiveBranch(headings, startIndex) {
       if (
@@ -270,7 +276,7 @@ export function enableHighlight(opts = {}) {
         descendants,
       };
 
-      // 1. 正文高亮（仅对视口内 DOM 起作用）
+      // 1. 正文高亮（只对视口中有 DOM 的标题）
       clearClasses(container);
 
       startHeading.classList.add("sb-active", "sb-active-current");
@@ -281,13 +287,13 @@ export function enableHighlight(opts = {}) {
         el.classList.add("sb-active", "sb-active-desc")
       );
 
-      // 2. 冻结栏（用 FULL_HEADINGS 计算完整链）
-      const branch = await getBranchFromFullHeadingsByDomHeading(startHeading);
-      renderFrozenBranchFromAst(container, branch);
+      // 2. 冻结栏：基于 FULL_HEADINGS 计算全局完整链
+      const branch = getBranchFromFullHeadingsByDomHeading(startHeading);
+      renderFrozenBranchFromIndex(container, branch);
     }
 
     // ---------- hover ----------
-    async function onPointerOver(e) {
+    function onPointerOver(e) {
       if (!e.target || !container.contains(e.target)) return;
 
       const headings = listHeadings(container, headingSelector);
@@ -299,24 +305,26 @@ export function enableHighlight(opts = {}) {
       const startIndex = headings.indexOf(h);
       if (startIndex === -1) return;
 
-      setActiveBranch(headings, startIndex);
+      // 不需要等它完成，高亮 + 冻结晚一帧无所谓
+      void setActiveBranch(headings, startIndex);
     }
 
     function onPointerOut(e) {
       const to = e.relatedTarget;
       if (!to || !container.contains(to)) {
         clearClasses(container);
-        // 冻结栏可以保留（不调用 clearFrozen）
+        // 如果希望移出编辑区也保留冻结栏，可以注释掉下一行
+        // clearFrozen();
       }
     }
 
-    // ---------- scroll ----------
-    async function handleScroll() {
+    // ---------- 滚动 ----------
+    let isScrolling = false;
+
+    function handleScroll() {
       const headings = listHeadings(container, headingSelector);
       if (!headings.length) {
         clearFrozen();
-        clearClasses(container);
-        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
@@ -335,31 +343,30 @@ export function enableHighlight(opts = {}) {
 
       if (currentIndex === -1) {
         clearFrozen();
-        clearClasses(container);
-        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
 
-      // 滚动也走统一的 setActiveBranch 逻辑
-      setActiveBranch(headings, currentIndex);
+      // 统一用 setActiveBranch：滚动也更新正文高亮 + 冻结栏
+      void setActiveBranch(headings, currentIndex);
+
       isScrolling = false;
     }
 
     function onScroll() {
       if (!isScrolling) {
-        isScrolling = true;
         window.requestAnimationFrame(handleScroll);
+        isScrolling = true;
       }
     }
 
-    // ---------- DOM 变更：失效 FULL_HEADINGS 并恢复当前 branch ----------
+    // ---------- DOM 变化 ----------
     const mo = new MutationObserver(() => {
-      // 文本可能发生变化，标记 FULL_HEADINGS 失效
+      // 文本可能改了，标题列表也可能变，标记 FULL_HEADINGS 失效
       FULL_HEADINGS = null;
       if (currentBranchInfo && currentBranchInfo.headings) {
         const { headings, startIndex } = currentBranchInfo;
-        setActiveBranch(headings, startIndex);
+        void setActiveBranch(headings, startIndex);
       } else {
         handleScroll();
       }
@@ -370,10 +377,9 @@ export function enableHighlight(opts = {}) {
     container.addEventListener("pointerout", onPointerOut);
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // 初始试一次：如果打开时已经有滚动/内容
-    handleScroll();
-    // 同时预构建一次 FULL_HEADINGS（不阻塞）
+    // 初始先构建一次 FULL_HEADINGS（如果拿不到就延后到第一次触发）
     ensureFullHeadings();
+    handleScroll();
 
     window[STATE_KEY] = {
       cleanup() {
@@ -392,7 +398,9 @@ export function enableHighlight(opts = {}) {
     };
 
     if (debug) {
-      console.log("[HHH] enabled (v6, JS-parse FULL_HEADINGS)");
+      console.log(
+        "[HHH] enabled (v6, JS-side markdown headings via CodeMirror)"
+      );
     }
   };
 
@@ -456,9 +464,128 @@ event.listen {
 
 ## CSS part
 
-### test
+### split
 
 ```space-style
+/* 冻结栏容器：左上角窄列，鼠标可穿透 */
+#sb-frozen-container {
+  position: fixed;
+  top: 4px;
+  left: 0;                    /* 真正的 left 由 JS 用编辑区 rect.left 覆盖 */
+  z-index: 1000;
+  pointer-events: none;       /* 整个容器鼠标穿透 */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+/* 冻结项：按内容自适应宽度的一小块 */
+.sb-frozen-item {
+  display: inline-block;
+  width: auto;
+  max-width: 40vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: none;       /* 单个标题也不截获鼠标事件 */
+
+  margin: 0 !important;
+  padding: 0.1em 0.5em;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  opacity: 1 !important;
+  background-color: var(--bg-color, #ffffff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-family: inherit;
+}
+
+/* 暗色模式：只调背景 / 边线 */
+@media (prefers-color-scheme: dark) {
+  .sb-frozen-item {
+    background-color: var(--bg-color-dark, #1f2023);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+}
+
+/* 不同级别的颜色，复用 H1–H6 的变量 */
+html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
+html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
+html[data-theme="dark"] .sb-frozen-l3 { color: var(--h3-color-dark); }
+html[data-theme="dark"] .sb-frozen-l4 { color: var(--h4-color-dark); }
+html[data-theme="dark"] .sb-frozen-l5 { color: var(--h5-color-dark); }
+html[data-theme="dark"] .sb-frozen-l6 { color: var(--h6-color-dark); }
+
+html[data-theme="light"] .sb-frozen-l1 { color: var(--h1-color-light); }
+html[data-theme="light"] .sb-frozen-l2 { color: var(--h2-color-light); }
+html[data-theme="light"] .sb-frozen-l3 { color: var(--h3-color-light); }
+html[data-theme="light"] .sb-frozen-l4 { color: var(--h4-color-light); }
+html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
+html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
+```
+
+```space-style
+:root {
+  /* Dark theme 颜色变量 */
+  --h1-color-dark: #e6c8ff;
+  --h2-color-dark: #a0d8ff;
+  --h3-color-dark: #98ffb3;
+  --h4-color-dark: #fff3a8;
+  --h5-color-dark: #ffb48c;
+  --h6-color-dark: #ffa8ff;
+
+  /* Light theme 颜色变量 */
+  --h1-color-light: #6b2e8c;
+  --h2-color-light: #1c4e8b;
+  --h3-color-light: #1a6644;
+  --h4-color-light: #a67c00;
+  --h5-color-light: #b84c1c;
+  --h6-color-light: #993399;
+
+  --title-opacity: 0.7;
+}
+
+/* 公共 H1–H6 行样式（编辑区内） */
+.sb-line-h1, .sb-line-h2, .sb-line-h3,
+.sb-line-h4, .sb-line-h5, .sb-line-h6 {
+  position: relative;
+  opacity: var(--title-opacity);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+/* Dark Theme */
+html[data-theme="dark"] {
+  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
+  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
+  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-dark)!important; }
+  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-dark)!important; }
+  .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-dark)!important; }
+  .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-dark)!important; }
+}
+
+/* Light Theme */
+html[data-theme="light"] {
+  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
+  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
+  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-light)!important; }
+  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-light)!important; }
+  .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-light)!important; }
+  .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-light)!important; }
+}
+
+/* 高亮类：让激活的标题不透明 */
+.sb-active {
+  opacity: 1 !important;
+}
+```
+
+### unified
+
+```style
 /* HHH v6 主题 CSS：标题配色 + hover 高亮 + 左上角冻结 branch */
 
 /* 颜色变量 */
@@ -651,7 +778,7 @@ html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
 html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
 ```
 
-### Previous parts
+### Previous
 
 1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
 
