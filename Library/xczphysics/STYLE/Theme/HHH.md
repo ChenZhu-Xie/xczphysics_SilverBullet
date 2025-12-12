@@ -20,13 +20,17 @@ pageDecoration.prefix: "🎇 "
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
+> **danger** Danger
+> for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
+
 ```space-lua
 local jsCode = [[
-const STATE_KEY = "__xhHighlightState_v3_Frozen";
+const STATE_KEY = "__xhHighlightState_v4_HHH";
 
-// --- 基础工具函数 ---
+// ---------- 工具函数 ----------
 
 function getLevel(el) {
+  // 优先用 sb-line-hN
   for (let i = 1; i <= 6; i++) {
     if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
   }
@@ -42,12 +46,12 @@ function pickGroupRoot(start, container, groupSelector) {
 }
 
 function listHeadings(root, headingSelector) {
-  // 获取所有标题，按 DOM 顺序排列
-  return Array.from(root.querySelectorAll(headingSelector));
+  const all = Array.from(root.querySelectorAll(headingSelector));
+  // 排除掉位于 .sb-widget-array (如 query 表格/列表) 内部的标题
+  return all.filter(el => !el.closest(".sb-widget-array"));
 }
 
-// --- 核心逻辑：查找祖先和后代 ---
-
+// 所有后代标题（比当前层级更深，直到遇到 <= 当前层级为止）
 function collectDescendants(startIndex, headings, startLevel) {
   const res = [];
   for (let i = startIndex + 1; i < headings.length; i++) {
@@ -58,13 +62,14 @@ function collectDescendants(startIndex, headings, startLevel) {
   return res;
 }
 
+// 所有祖先标题（H1 → H2 → …，保持从外到内的顺序）
 function collectAncestors(startIndex, headings, startLevel) {
   const res = [];
   let minLevel = startLevel;
   for (let i = startIndex - 1; i >= 0; i--) {
     const lvl = getLevel(headings[i]);
     if (lvl < minLevel) {
-      res.unshift(headings[i]); // 注意：这里用 unshift 保持 H1, H2, H3 的顺序
+      res.unshift(headings[i]);
       minLevel = lvl;
       if (minLevel === 1) break;
     }
@@ -72,23 +77,18 @@ function collectAncestors(startIndex, headings, startLevel) {
   return res;
 }
 
-// --- 新增逻辑：根据任意元素找到其所属的标题 ---
-
+// 给任意元素，找到它「所属的最近上方标题」
+// headings 必须是按 DOM 顺序的数组
 function findHeadingForElement(el, headings) {
-  // 1. 如果自己就是标题，直接返回
+  if (!el) return null;
   if (headings.includes(el)) return el;
 
-  // 2. 二分查找或遍历，找到 el 之前的最后一个标题
-  // 由于 headings 是有序的，我们倒序查找效率较高
-  // Node.compareDocumentPosition: 2 (Preceding), 4 (Following)
-  // 如果 h 在 el 之前，el 和 h 的关系包含 Following (4)
-  
-  // 简单遍历策略：找到第一个“在 el 之后”的标题，它的前一个就是目标
-  // 或者直接倒序找第一个“在 el 之前”的标题
+  // 从后往前找，找到「在 el 之前」的最后一个标题
   for (let i = headings.length - 1; i >= 0; i--) {
     const h = headings[i];
-    // 如果 h 在 el 之前 (h.compareDocumentPosition(el) & 4)
-    if (h.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) {
+    const pos = h.compareDocumentPosition(el);
+    // h 在 el 之前（h -> el）或就是同一个节点
+    if (pos & Node.DOCUMENT_POSITION_FOLLOWING || pos === 0) {
       return h;
     }
   }
@@ -96,167 +96,234 @@ function findHeadingForElement(el, headings) {
 }
 
 function clearClasses(root) {
-  // 清除高亮类
-  root.querySelectorAll(".sb-active, .sb-active-anc, .sb-active-desc, .sb-active-current")
-      .forEach(el => el.classList.remove("sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"));
+  root
+    .querySelectorAll(
+      ".sb-active, .sb-active-anc, .sb-active-desc, .sb-active-current"
+    )
+    .forEach((el) =>
+      el.classList.remove(
+        "sb-active",
+        "sb-active-anc",
+        "sb-active-desc",
+        "sb-active-current"
+      )
+    );
 }
 
-function clearFrozen(root) {
-  // 清除冻结状态
-  root.querySelectorAll(".sb-frozen").forEach(el => {
-    el.classList.remove("sb-frozen");
-    el.style.top = "";
-    el.style.zIndex = "";
-  });
+function getFrozenContainer() {
+  let fc = document.getElementById("sb-frozen-container");
+  if (!fc) {
+    fc = document.createElement("div");
+    fc.id = "sb-frozen-container";
+    document.body.appendChild(fc);
+  }
+  return fc;
 }
 
-// --- 主入口 ---
+function clearFrozen() {
+  const fc = document.getElementById("sb-frozen-container");
+  if (fc) {
+    fc.innerHTML = "";
+    fc.style.display = "none";
+  }
+}
+
+// 根据当前 branch（只包括祖先 + 当前标题，不包括后代）渲染顶部冻结栏
+function renderFrozenBranch(container, branchHeadings) {
+  const fc = getFrozenContainer();
+
+  if (!branchHeadings || branchHeadings.length === 0) {
+    fc.innerHTML = "";
+    fc.style.display = "none";
+    return;
+  }
+
+  fc.style.display = "flex";
+  fc.style.flexDirection = "column";
+  fc.style.alignItems = "flex-start";
+  fc.innerHTML = "";
+
+  for (const h of branchHeadings) {
+    const clone = h.cloneNode(true);
+    clone.classList.add("sb-frozen-clone");
+    clone
+      .querySelectorAll(".cm-widgetBuffer, .cm-cursorLayer, .cm-selectionLayer")
+      .forEach((n) => n.remove());
+    fc.appendChild(clone);
+  }
+
+  // 只同步编辑区的左边界，让整个冻结列贴到编辑区左上角
+  const rect = container.getBoundingClientRect();
+  fc.style.left = rect.left + "px";
+  // 不再强行设置宽度，让 CSS 决定自适应宽度
+  fc.style.removeProperty("width");
+}
+
+// ---------- 主逻辑 ----------
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
-  // 包含标准 H 标签和 SB 特有类名
-  const headingSelector = opts.headingSelector ||
+  const headingSelector =
+    opts.headingSelector ||
     "h1, h2, h3, h4, h5, h6, .sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
   const groupSelector = opts.groupSelector || ".sb-title-group";
   const debug = !!opts.debug;
 
   const bind = () => {
     const container = document.querySelector(containerSelector);
-    if (!container) { requestAnimationFrame(bind); return; }
+    if (!container) {
+      requestAnimationFrame(bind);
+      return;
+    }
 
+    // 如果之前有旧状态，先清理
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
-    // --- 功能 1: 鼠标悬浮高亮 (包含正文查找) ---
-    
+    let currentBranchInfo = null; // { headings, startIndex, startHeading, ancestors, descendants }
+
+    // 将「某个标题索引」变成完整 branch，并应用高亮 + 冻结
+    function setActiveBranch(headings, startIndex) {
+      if (
+        !headings ||
+        headings.length === 0 ||
+        startIndex == null ||
+        startIndex < 0 ||
+        startIndex >= headings.length
+      ) {
+        currentBranchInfo = null;
+        clearClasses(container);
+        clearFrozen();
+        return;
+      }
+
+      const startHeading = headings[startIndex];
+      const level = getLevel(startHeading);
+      const ancestors = collectAncestors(startIndex, headings, level);
+      const descendants = collectDescendants(startIndex, headings, level);
+      const branchHeadings = [...ancestors, startHeading];
+
+      currentBranchInfo = {
+        headings,
+        startIndex,
+        startHeading,
+        ancestors,
+        descendants,
+      };
+
+      // 1. 文本高亮
+      clearClasses(container);
+
+      startHeading.classList.add("sb-active", "sb-active-current");
+      ancestors.forEach((el) =>
+        el.classList.add("sb-active", "sb-active-anc")
+      );
+      descendants.forEach((el) =>
+        el.classList.add("sb-active", "sb-active-desc")
+      );
+
+      // 2. 顶部冻结栏
+      renderFrozenBranch(container, branchHeadings);
+    }
+
+    // ========== 1. 鼠标悬浮：基于 hover 的层级高亮 ==========
+
     function onPointerOver(e) {
       if (!e.target || !container.contains(e.target)) return;
 
-      // 确定搜索范围（处理分栏情况）
-      const groupRoot = pickGroupRoot(e.target, container, groupSelector);
-      const headings = listHeadings(groupRoot, headingSelector);
-      
-      // 核心修改：如果 hover 的是文本，找到它上面的标题
+      const headings = listHeadings(container, headingSelector);
+
       const h = findHeadingForElement(e.target, headings);
-      
-      if (!h) return; // 没找到对应标题（可能在文档最开头）
+      if (!h) return;
 
       const startIndex = headings.indexOf(h);
       if (startIndex === -1) return;
 
-      // 清除旧的高亮（不清除冻结状态，两者独立）
-      clearClasses(container);
-
-      const startLevel = getLevel(h);
-      const descendants = collectDescendants(startIndex, headings, startLevel);
-      const ancestors = collectAncestors(startIndex, headings, startLevel); // [H1, H2...]
-
-      h.classList.add("sb-active", "sb-active-current");
-      descendants.forEach(el => el.classList.add("sb-active", "sb-active-desc"));
-      ancestors.forEach(el => el.classList.add("sb-active", "sb-active-anc"));
+      setActiveBranch(headings, startIndex);
     }
 
     function onPointerOut(e) {
-        // 简单的防抖或逻辑判断，避免频繁闪烁
-        const to = e.relatedTarget;
-        if (!to || !container.contains(to)) {
-             clearClasses(container);
-        }
+      // 仅当真的离开整个主容器时，才清除高亮
+      const to = e.relatedTarget;
+      if (!to || !container.contains(to)) {
+        clearClasses(container);
+        // 冻结栏可以保留，也可以一起清空，看个人喜好
+        // 如果你希望离开编辑器后仍然看到当前 branch，可以删掉下一行：
+        // clearFrozen();
+      }
     }
 
-    // --- 功能 2: 滚动冻结窗格 (Sticky Headers) ---
+    // ========== 2. 滚动：基于视口顶部的粘性标题 ==========
 
     let isScrolling = false;
-    
+
     function handleScroll() {
-        const headings = listHeadings(container, headingSelector);
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const offsetBuffer = 50; // 偏移缓冲，判定可视区域
-
-        // 1. 找到当前视口最上方的那个标题（或者刚刚滚过去的那个标题）
-        // 我们找最后一个 offsetTop <= scrollTop + buffer 的标题
-        let currentHeaderIndex = -1;
-        for (let i = 0; i < headings.length; i++) {
-            if (headings[i].offsetTop > scrollTop + offsetBuffer) {
-                break;
-            }
-            currentHeaderIndex = i;
-        }
-
-        // 如果还没滚动到任何标题，清除所有冻结
-        if (currentHeaderIndex === -1) {
-            clearFrozen(container);
-            isScrolling = false;
-            return;
-        }
-
-        const currentHeader = headings[currentHeaderIndex];
-        const currentLevel = getLevel(currentHeader);
-        
-        // 2. 找到这个标题的祖先链 (H1 -> H2 -> ...)
-        // 注意：collectAncestors 返回的是 [H1, H2...] 顺序
-        const ancestors = collectAncestors(currentHeaderIndex, headings, currentLevel);
-        
-        // 当前分支包括祖先 + 自己
-        // 如果当前标题已经滚出视口很远被下一个同级标题顶替了怎么办？
-        // 其实只需要冻结“祖先”即可，因为“自己”如果还在视口内，自然会显示；如果滚出去了，就不该冻结（除非它是更深层内容的父级）
-        // 修正逻辑：冻结的是“当前视口内内容”所属的标题路径。
-        // 所以，currentHeader 就是当前内容的直接父级，它和它的祖先都应该被冻结。
-        
-        const activeBranch = [...ancestors, currentHeader];
-
-        // 3. 应用冻结样式
-        // 先清除不在 activeBranch 中的冻结状态
-        const allFrozen = container.querySelectorAll(".sb-frozen");
-        allFrozen.forEach(el => {
-            if (!activeBranch.includes(el)) {
-                el.classList.remove("sb-frozen");
-                el.style.top = "";
-                el.style.zIndex = "";
-            }
-        });
-
-        // 4. 堆叠计算 top
-        let cumulativeHeight = 0; // 这里的 0 可以改成你的顶部导航栏高度
-        
-        // 如果有顶部导航栏，可能需要获取其高度，例如：
-        // const topBar = document.querySelector("#sb-top");
-        // if (topBar) cumulativeHeight += topBar.offsetHeight;
-
-        activeBranch.forEach((h, index) => {
-            h.classList.add("sb-frozen");
-            h.style.top = `${cumulativeHeight}px`;
-            h.style.zIndex = 100 + index; // 保证层级正确
-            
-            // 累加高度，让下一个标题排在下面
-            cumulativeHeight += h.getBoundingClientRect().height;
-        });
-
+      const headings = listHeadings(container, headingSelector);
+      if (!headings.length) {
+        clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
         isScrolling = false;
+        return;
+      }
+    
+      const triggerY = 40; // 视口内判定「当前标题」的参考线 (px)
+      let currentIndex = -1;
+    
+      for (let i = 0; i < headings.length; i++) {
+        const rect = headings[i].getBoundingClientRect();
+        if (rect.top <= triggerY) {
+          currentIndex = i;
+        } else {
+          if (currentIndex !== -1) break;
+        }
+      }
+    
+      if (currentIndex === -1) {
+        // 还没滚到任何标题
+        clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
+        isScrolling = false;
+        return;
+      }
+    
+      // 统一走 setActiveBranch：既算出完整祖先链，又更新冻结栏
+      setActiveBranch(headings, currentIndex);
+    
+      isScrolling = false;
     }
 
     function onScroll() {
-        if (!isScrolling) {
-            window.requestAnimationFrame(handleScroll);
-            isScrolling = true;
-        }
+      if (!isScrolling) {
+        window.requestAnimationFrame(handleScroll);
+        isScrolling = true;
+      }
     }
 
-    // --- 绑定事件 ---
+    // ========== 3. DOM 变化：保持冻结栏和高亮不被编辑动作破坏 ==========
 
-    container.addEventListener("pointerover", onPointerOver);
-    container.addEventListener("pointerout", onPointerOut);
-    // 监听 window 滚动
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // 监听 DOM 变化（动态加载内容时刷新）
-    const mo = new MutationObserver(() => { 
-        clearClasses(container);
-        handleScroll(); 
+    const mo = new MutationObserver(() => {
+      // 原代码这里会 clearClasses，导致一编辑高亮就没了
+      // 我们改为：如果当前有 branch，就重新应用一次；顺便刷新冻结栏宽度
+      if (currentBranchInfo && currentBranchInfo.headings) {
+        const { headings, startIndex } = currentBranchInfo;
+        setActiveBranch(headings, startIndex);
+      } else {
+        // 没有 branch 的情况下，至少要保证冻结栏宽度正确
+        handleScroll();
+      }
     });
     mo.observe(container, { childList: true, subtree: true });
 
-    // --- 清理函数 ---
+    // 绑定事件
+    container.addEventListener("pointerover", onPointerOver);
+    container.addEventListener("pointerout", onPointerOut);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // 初始执行一次：如果页面一打开就有滚动位置，先算一遍冻结栏
+    handleScroll();
+
     window[STATE_KEY] = {
       cleanup() {
         try {
@@ -264,16 +331,19 @@ export function enableHighlight(opts = {}) {
           container.removeEventListener("pointerout", onPointerOut);
           window.removeEventListener("scroll", onScroll);
         } catch {}
-        try { mo.disconnect(); } catch {}
+        try {
+          mo.disconnect();
+        } catch {}
         clearClasses(container);
-        clearFrozen(container);
-      }
+        clearFrozen();
+        currentBranchInfo = null;
+      },
     };
 
-    if (debug) console.log("[HHH] enabled with Sticky Headers & Text Context");
-    
-    // 初始化执行一次 scroll 逻辑以设定初始状态
-    handleScroll();
+    if (debug)
+      console.log(
+        "[HHH] enabled: persistent branch highlight + frozen branch clones"
+      );
   };
 
   bind();
@@ -294,7 +364,17 @@ command.define {
     editor.flashNotification("HierarchyHighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
   end
 }
+
+command.define {
+  name = "Delete: HierarchyHighlightHeadings.js",
+  hide = true,
+  run = function()
+    local jsFile = space.deleteDocument("Library/HierarchyHighlightHeadings.js")
+    editor.flashNotification("JS-File deleted")
+  end
+}
 ```
+
 
 ```space-lua
 command.define {
@@ -328,52 +408,89 @@ event.listen {
 
 1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
 
-
 ```space-style
-/* --- 冻结窗格核心样式 --- */
-
-/* 定义冻结标题的背景色变量 */
-/* 自动适配深色/浅色模式，使用 Canvas 关键字或 SB 默认变量 */
+/* --- 基础变量 --- */
 :root {
-  --frozen-header-bg: var(--editor-bg-color, var(--bg-color, canvas));
+  --frozen-z-index: 1000;
+  --frozen-bg-light: rgba(255, 255, 255, 0.98);
+  --frozen-bg-dark: rgba(30, 30, 30, 0.98);
+  --frozen-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --title-opacity: 0.4; /* 默认让标题淡一点，凸显高亮 */
 }
 
-.sb-frozen {
-  position: sticky !important;
-  /* 宽度占满，防止布局塌陷 */
-  width: 100%;
-  /* 必须不透明，否则文字重叠 */
+/* 冻结容器：悬浮在编辑器顶部左侧的一列小牌子 */
+#sb-frozen-container {
+  position: fixed;
+  top: 4px;          /* 距离顶部留一点空 */
+  left: 0;           /* 实际 left 由 JS 用编辑区 rect.left 覆盖 */
+  z-index: 1000;
+  pointer-events: none;     /* 整个容器鼠标可穿透 */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+/* 克隆出来的标题样式：窄、贴左、自适应宽度 */
+.sb-frozen-clone {
+  display: inline-block;
+  width: auto;
+  max-width: 40vw;          /* 最多占 40% 视口宽度，防止太长 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: none;     /* 单个标题也不截获鼠标事件 */
+
+  margin: 0 !important;
+  padding: 0.1em 0.5em;
+
   opacity: 1 !important;
-  /* 背景色：使用不透明背景遮挡下方滚动的文字 */
-  background-color: var(--frozen-header-bg);
-  /* 底部加一点阴影或边框，增加层次感（可选） */
-  box-shadow: 0 1px 0px rgba(0,0,0,0.05);
-  /* 过渡动画：让吸顶时的位置变化更自然 */
-  transition: top 0.1s ease-out;
-  
-  /* 确保边框和内边距包含在宽度内 */
+  background-color: var(--bg-color, #ffffff);
+  /* 修改：去掉圆角，使下划线平直 */
+  border-radius: 0; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-family: inherit;
   box-sizing: border-box;
 }
 
-/* 针对深色模式微调阴影 */
-html[data-theme="dark"] .sb-frozen {
-  box-shadow: 0 1px 0px rgba(255,255,255,0.05);
+/* 暗色模式：只调背景颜色即可 */
+@media (prefers-color-scheme: dark) {
+  .sb-frozen-clone {
+    background-color: var(--bg-color-dark, #1f2023);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
 }
 
-/* 修复：当标题被冻结时，不仅要不透明，还要应用高亮颜色 */
-/* 这里复用你之前的 .sb-active 逻辑，确保冻结的标题看起来也是“激活”的 */
-.sb-frozen {
-    /* 强制应用高亮背景色，叠加在不透明底色之上 */
-    /* 注意：由于 background-color 只能有一个，我们需要用 background-image 模拟叠加，或者依赖 JS 添加 .sb-active 类 */
-    /* JS 中已经处理了：如果鼠标悬浮，会添加 .sb-active。单纯滚动冻结时，保持原色即可，或者你可以取消下面的注释来强制高亮冻结项 */
-    /* color: var(--h1-color-light); */ 
+/* 隐藏克隆体内部的光标辅助元素，只保留文字 */
+.sb-frozen-clone .cm-widgetBuffer, 
+.sb-frozen-clone img {
+  display: none;
 }
 
-/* 确保冻结标题的层级最高 */
-.sb-frozen.sb-line-h1 { z-index: 110; }
-.sb-frozen.sb-line-h2 { z-index: 109; }
-.sb-frozen.sb-line-h3 { z-index: 108; }
-/* ... JS 中已经动态计算了 z-index，这里作为保底 */
+html[data-theme="dark"] .sb-frozen-clone {
+  background-color: var(--frozen-bg-dark);
+}
+
+/* --- 3. 原地标题的样式 --- */
+/* 默认半透明 */
+.sb-line-h1, .sb-line-h2, .sb-line-h3,
+.sb-line-h4, .sb-line-h5, .sb-line-h6 {
+  opacity: var(--title-opacity);
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+/* 高亮状态 (JS 控制) */
+.sb-active {
+  opacity: 1 !important;
+}
+
+/* 鼠标 Hover 高亮 (CSS 辅助) */
+.sb-line-h1:hover, .sb-line-h2:hover, .sb-line-h3:hover,
+.sb-line-h4:hover, .sb-line-h5:hover, .sb-line-h6:hover {
+  opacity: 1 !important;
+}
 ```
 
 
