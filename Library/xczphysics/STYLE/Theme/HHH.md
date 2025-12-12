@@ -56,7 +56,7 @@ function rebuildHeadingsSync() {
 
   const list = [];
   // 匹配行首标题
-  const regex = /^(#{1,6})\s+(.*)$/gm;
+  const regex = /^(#{1,6})\s+([^\n]*)$/gm;
   
   // 匹配 Widget 语法的正则，用于生成干净的显示文本
   // 例如：Step 3: ${widgets.btn()} -> Step 3:
