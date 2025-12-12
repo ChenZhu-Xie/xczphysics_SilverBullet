@@ -20,6 +20,9 @@ pageDecoration.prefix: "🎇 "
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
+> **danger** Danger
+> for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
+
 ```space-lua
 local jsCode = [[
 const STATE_KEY = "__xhHighlightState_v4_HHH";
@@ -363,12 +366,12 @@ command.define {
 }
 
 command.define {
-  name = "Delete HierarchyHighlightHeadings.js",
+  name = "Delete: HierarchyHighlightHeadings.js",
   hide = true,
   run = function()
-          local jsFile = space.deleteDocument("Library/PanelDragResize.js")
-          editor.flashNotification("JS-File deleted")
-    end
+    local jsFile = space.deleteDocument("Library/HierarchyHighlightHeadings.js")
+    editor.flashNotification("JS-File deleted")
+  end
 }
 ```
 
