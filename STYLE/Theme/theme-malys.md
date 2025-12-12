@@ -65,9 +65,7 @@ Dark theme thought for readibility and productivity.
 
 ###### 2341234
 
-
-d
-asdfjasdkfjdd
+asdf
 
 
 ```style
