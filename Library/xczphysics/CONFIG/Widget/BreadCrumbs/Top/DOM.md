@@ -66,7 +66,8 @@ ${widget.new{
 
 DOM  = Document Object Model
 它是 HTML 和 XML 等 磁盘显式文件 在 浏览器解析后的内存中的树状结构
->     - F12 后滚动下本页，看看 Code Mirror 是 动态更新 DOM 的 
+>     - F12 后滚动下本页，看看 Code Mirror 是 动态更新 DOM 的
+>     如此地“动态”...那应该是“内存”行为了！（Open AI 使其涨价了）
 DOM 将二者（的结构）暴露给 JS、Lua 等语言 动态地修改和交互这个网页，
                   而不是让 JS、Lua 直接操作 HTML 和 XML 文本
 
