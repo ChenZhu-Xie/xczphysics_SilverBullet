@@ -56,7 +56,9 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 # SiYuan 的 优缺点
 
-## 思源 缺乏 live query?
+## 思源的 Query
+
+### 思源 缺乏 live query?
 
 比如
 - SB 的 query `${}` 或
@@ -65,6 +67,12 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 本体确实是缺乏的，但...有插件（准确地说是挂件）
 - [widget query](https://github.com/Zuoqiu-Yingyi/widget-query) #github
 - [dg0ln8](https://www.yuque.com/siyuannote/docs/dg0ln8) #yuque
+
+#### 思源的插件是 js... 的
+
+### 思源的 全局 查询条件 “可保存” #类比
+
+类似于 Orca、Logseq、SB、Tana、Anytype 的 查询块/节点
 
 ## 也可以 部署到 fly.io !
 
@@ -95,7 +103,3 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 Dinox 群里有提到 indexedDB Viewer #crx <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
 
 linked to [how pass values input to a widget](https://community.silverbullet.md/t/how-pass-values-input-to-a-widget/3588/8?u=chenzhu-xie) #community #silverbullet
-
-## 思源的 查询条件 “可保存” #类比
-
-类似于 Orca、Logseq、SB、Tana、Anytype 的 查询块/节点
