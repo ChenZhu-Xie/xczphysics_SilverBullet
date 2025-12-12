@@ -25,70 +25,154 @@ pageDecoration.prefix: "🎇 "
 
 ```space-lua
 local jsCode = [[
-const STATE_KEY = "__xhHighlightState_v5_HHH_Model";
+// Library/HierarchyHighlightHeadings.js
+// HHH v6 — JS 侧解析全文标题 + 左上角冻结 branch
 
-// ---------- 核心：获取 CodeMirror 实例 ----------
+const STATE_KEY = "__xhHighlightState_v6_HHH_JSParse";
 
-function getEditorView() {
-  // 尝试从标准 DOM 结构获取 CodeMirror 实例
-  const dom = document.querySelector(".cm-editor");
-  if (dom && dom.view) return dom.view;
-  // 备用方案：SilverBullet 全局对象 (视版本而定)
-  if (window.editor && window.editor.editorView) return window.editor.editorView;
-  return null;
+let FULL_HEADINGS = null;
+
+// ========== 1. 全文标题解析（不依赖 index.query，直接解析 Markdown 文本） ==========
+
+async function buildFullHeadings() {
+  try {
+    const ed = window.editor;
+    if (!ed || typeof ed.getText !== "function") {
+      console.warn("[HHH] editor.getText() 不可用，FULL_HEADINGS 功能禁用");
+      FULL_HEADINGS = null;
+      return;
+    }
+    const text = String(await ed.getText());
+    const lines = text.split(/\r?\n/);
+    const list = [];
+
+    for (const line of lines) {
+      // 只处理 ATX 标题：# .. ###### ..
+      const m = /^(#{1,6})\s+(.+?)\s*$/.exec(line);
+      if (!m) continue;
+      const level = m[1].length;
+      const titleText = m[2].trim();
+      if (!titleText) continue;
+      list.push({ level, text: titleText });
+    }
+
+    FULL_HEADINGS = list;
+  } catch (e) {
+    console.error("[HHH] buildFullHeadings 出错", e);
+    FULL_HEADINGS = null;
+  }
 }
 
-// ---------- 核心：基于文档模型(Model)的算法 ----------
-
-// 解析一行文本是否为标题，返回 { level, text } 或 null
-function parseHeading(lineText) {
-  // 匹配 Markdown 标题：# 标题, ## 标题
-  // 注意：SilverBullet 可能有 .sb-line-hN 类，但在纯文本中我们只认 Markdown 语法
-  const match = lineText.match(/^(#{1,6})\s+(.*)/);
-  if (match) {
-    return {
-      level: match[1].length,
-      text: match[2].trim(),
-      raw: lineText
-    };
+async function ensureFullHeadings() {
+  if (!FULL_HEADINGS) {
+    await buildFullHeadings();
   }
-  return null;
+  return FULL_HEADINGS;
 }
 
-// 从指定行号(startLine)开始，向上遍历文档，找到所有祖先标题
-// 返回数组: [H1对象, H2对象, ..., 当前标题对象]
-function getAncestorsFromModel(view, startLineNumber) {
-  const doc = view.state.doc;
-  const ancestors = [];
-  let currentMinLevel = 7; // 初始设为比 H6 更大
+async function getBranchFromFullHeadingsByDomHeading(domH) {
+  if (!domH) return null;
+  await ensureFullHeadings();
+  if (!FULL_HEADINGS || !FULL_HEADINGS.length) return null;
 
-  // 1. 先判断当前行本身是不是标题
-  const currentLineText = doc.line(startLineNumber).text;
-  const currentHeading = parseHeading(currentLineText);
-  
-  if (currentHeading) {
-    ancestors.unshift(currentHeading);
-    currentMinLevel = currentHeading.level;
-  }
+  const level = getLevel(domH);
+  const text = domH.innerText.trim();
+  if (!text) return null;
 
-  // 2. 向上回溯
-  for (let l = startLineNumber - 1; l >= 1; l--) {
-    // 如果已经找到 H1，就不需要再找了
-    if (currentMinLevel === 1) break;
-
-    const line = doc.line(l);
-    const h = parseHeading(line.text);
-    
-    if (h && h.level < currentMinLevel) {
-      ancestors.unshift(h);
-      currentMinLevel = h.level;
+  // 从后往前找：匹配 level + text
+  let idx = -1;
+  for (let i = FULL_HEADINGS.length - 1; i >= 0; i--) {
+    const h = FULL_HEADINGS[i];
+    if (h.level === level && h.text === text) {
+      idx = i;
+      break;
     }
   }
-  
-  return ancestors;
+  if (idx === -1) return null;
+
+  const leaf = FULL_HEADINGS[idx];
+  const ancestors = [];
+  let currLevel = leaf.level;
+  for (let i = idx - 1; i >= 0; i--) {
+    const h = FULL_HEADINGS[i];
+    if (h.level < currLevel) {
+      ancestors.unshift(h);
+      currLevel = h.level;
+      if (currLevel === 1) break;
+    }
+  }
+  return { ancestors, leaf };
 }
 
-// ---------- 渲染逻辑 ----------
+// ========== 2. DOM 工具函数 ==========
+
+function getLevel(el) {
+  // 优先 SilverBullet 的 sb-line-hN
+  for (let i = 1; i <= 6; i++) {
+    if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
+  }
+  const tag = el.tagName ? el.tagName.toLowerCase() : "";
+  if (/^h[1-6]$/.test(tag)) return Number(tag[1]);
+  return 0;
+}
+
+function listHeadings(root, headingSelector) {
+  return Array.from(root.querySelectorAll(headingSelector));
+}
+
+function collectDescendants(startIndex, headings, startLevel) {
+  const res = [];
+  for (let i = startIndex + 1; i < headings.length; i++) {
+    const lvl = getLevel(headings[i]);
+    if (lvl <= startLevel) break;
+    res.push(headings[i]);
+  }
+  return res;
+}
+
+function collectAncestors(startIndex, headings, startLevel) {
+  const res = [];
+  let minLevel = startLevel;
+  for (let i = startIndex - 1; i >= 0; i--) {
+    const lvl = getLevel(headings[i]);
+    if (lvl < minLevel) {
+      res.unshift(headings[i]);
+      minLevel = lvl;
+      if (minLevel === 1) break;
+    }
+  }
+  return res;
+}
+
+function findHeadingForElement(el, headings) {
+  if (!el) return null;
+  if (headings.includes(el)) return el;
+
+  // 从后往前找「在 el 之前」的最后一个标题
+  for (let i = headings.length - 1; i >= 0; i--) {
+    const h = headings[i];
+    const pos = h.compareDocumentPosition(el);
+    if (pos & Node.DOCUMENT_POSITION_FOLLOWING || pos === 0) {
+      return h;
+    }
+  }
+  return null;
+}
+
+function clearClasses(root) {
+  root
+    .querySelectorAll(
+      ".sb-active, .sb-active-anc, .sb-active-desc, .sb-active-current"
+    )
+    .forEach((el) =>
+      el.classList.remove(
+        "sb-active",
+        "sb-active-anc",
+        "sb-active-desc",
+        "sb-active-current"
+      )
+    );
+}
 
 function getFrozenContainer() {
   let fc = document.getElementById("sb-frozen-container");
@@ -108,176 +192,208 @@ function clearFrozen() {
   }
 }
 
-// 渲染冻结栏 (因为 DOM 可能不存在，所以我们基于 Text 数据创建元素)
-function renderFrozenBranch(container, branchHeadings) {
+// 基于 FULL_HEADINGS 的 branch 渲染左上角冻结栏
+function renderFrozenBranchFromAst(container, branch) {
   const fc = getFrozenContainer();
 
-  if (!branchHeadings || branchHeadings.length === 0) {
-    clearFrozen();
+  if (!branch || !branch.leaf) {
+    fc.innerHTML = "";
+    fc.style.display = "none";
     return;
   }
+
+  const items = [...branch.ancestors, branch.leaf];
 
   fc.style.display = "flex";
   fc.style.flexDirection = "column";
   fc.style.alignItems = "flex-start";
   fc.innerHTML = "";
 
-  branchHeadings.forEach(h => {
-    const el = document.createElement("div");
-    el.classList.add("sb-frozen-clone");
-    // 给一个对应的 hN 类，以便继承颜色样式
-    el.classList.add(`sb-line-h${h.level}`);
-    el.innerText = h.text; // 纯文本渲染，丢失加粗/斜体，但保证层级正确
-    fc.appendChild(el);
-  });
+  for (const h of items) {
+    const div = document.createElement("div");
+    div.className = `sb-frozen-item sb-frozen-l${h.level}`;
+    div.textContent = h.text;
+    fc.appendChild(div);
+  }
 
   const rect = container.getBoundingClientRect();
   fc.style.left = rect.left + "px";
+  fc.style.removeProperty("width");
 }
 
-// ---------- 高亮逻辑 (仅针对可见 DOM) ----------
-
-function clearClasses(root) {
-  root.querySelectorAll(".sb-active, .sb-active-anc, .sb-active-desc, .sb-active-current")
-    .forEach(el => el.classList.remove("sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"));
-}
-
-// 尝试高亮当前视口内可见的标题元素
-// 注意：我们只高亮"在屏幕上"的。屏幕外的不用管，反正看不见。
-function highlightVisibleElements(container, branchHeadings) {
-  clearClasses(container);
-  
-  // 简单的文本匹配策略：如果 DOM 里的文本和我们的标题链匹配，就高亮
-  // 这比 DOM 遍历更鲁棒
-  const visibleHeadings = Array.from(container.querySelectorAll(".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6"));
-  
-  // 提取纯文本用于比对
-  const branchTexts = branchHeadings.map(h => h.text);
-  
-  visibleHeadings.forEach(el => {
-    // 移除 markdown 标记 (#) 后的纯文本
-    const text = el.innerText.replace(/^#+\s+/, '').trim();
-    if (branchTexts.includes(text)) {
-      el.classList.add("sb-active");
-      // 区分当前还是祖先? 比较难精确对应，统一高亮即可，或者：
-      if (text === branchTexts[branchTexts.length - 1]) {
-        el.classList.add("sb-active-current");
-      } else {
-        el.classList.add("sb-active-anc");
-      }
-    }
-  });
-}
-
-// ---------- 主逻辑 ----------
+// ========== 3. 主入口 ==========
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
+  const headingSelector =
+    opts.headingSelector ||
+    "h1, h2, h3, h4, h5, h6, .sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6";
   const debug = !!opts.debug;
 
   const bind = () => {
     const container = document.querySelector(containerSelector);
-    const view = getEditorView();
-
-    if (!container || !view) {
-      // 没找到 View 可能是加载时机问题，稍后重试
-      if (debug) console.log("[HHH] Waiting for CodeMirror View...");
-      setTimeout(bind, 500);
+    if (!container) {
+      requestAnimationFrame(bind);
       return;
     }
 
-    if (debug) console.log("[HHH] CodeMirror View found! Hooking events.");
+    const prev = window[STATE_KEY];
+    if (prev && prev.cleanup) prev.cleanup();
 
-    // 清理旧状态
-    if (window[STATE_KEY] && window[STATE_KEY].cleanup) window[STATE_KEY].cleanup();
+    let currentBranchInfo = null;
+    let isScrolling = false;
 
-    // 状态更新核心函数
-    function updateState(sourceType, event) {
-      let targetLine = -1;
-
-      if (sourceType === 'scroll') {
-        // 算法：获取视口顶部对应的 Block
-        // 40px 是为了让标题稍微滚过顶部一点点才切换
-        const topBlock = view.lineBlockAtHeight(view.scrollDOM.scrollTop + 40);
-        targetLine = view.state.doc.lineAt(topBlock.from).number;
-      } else if (sourceType === 'hover') {
-        // 算法：根据鼠标坐标获取文档位置
-        const pos = view.posAtCoords({ x: event.clientX, y: event.clientY });
-        if (pos === null) return; // 鼠标不在编辑器文字区域
-        targetLine = view.state.doc.lineAt(pos).number;
+    async function setActiveBranch(headings, startIndex) {
+      if (
+        !headings ||
+        headings.length === 0 ||
+        startIndex == null ||
+        startIndex < 0 ||
+        startIndex >= headings.length
+      ) {
+        currentBranchInfo = null;
+        clearClasses(container);
+        clearFrozen();
+        return;
       }
 
-      if (targetLine === -1) return;
+      const startHeading = headings[startIndex];
+      const level = getLevel(startHeading);
+      const ancestors = collectAncestors(startIndex, headings, level);
+      const descendants = collectDescendants(startIndex, headings, level);
 
-      // 使用 Model 获取祖先链（不受 DOM 虚拟化影响）
-      const ancestors = getAncestorsFromModel(view, targetLine);
-      
-      // 渲染
-      renderFrozenBranch(container, ancestors);
-      highlightVisibleElements(container, ancestors);
+      currentBranchInfo = {
+        headings,
+        startIndex,
+        startHeading,
+        ancestors,
+        descendants,
+      };
+
+      // 1. 正文高亮（仅对视口内 DOM 起作用）
+      clearClasses(container);
+
+      startHeading.classList.add("sb-active", "sb-active-current");
+      ancestors.forEach((el) =>
+        el.classList.add("sb-active", "sb-active-anc")
+      );
+      descendants.forEach((el) =>
+        el.classList.add("sb-active", "sb-active-desc")
+      );
+
+      // 2. 冻结栏（用 FULL_HEADINGS 计算完整链）
+      const branch = await getBranchFromFullHeadingsByDomHeading(startHeading);
+      renderFrozenBranchFromAst(container, branch);
     }
 
-    // --- 事件监听 ---
+    // ---------- hover ----------
+    async function onPointerOver(e) {
+      if (!e.target || !container.contains(e.target)) return;
 
-    // 1. 鼠标悬浮
-    function onPointerOver(e) {
-      if (!container.contains(e.target)) return;
-      // 只有停留在标题行上才触发？或者停留在任意内容都显示上下文？
-      // 原逻辑是"查找最近上方标题"，这里我们简化为：显示鼠标所在位置的上下文
-      updateState('hover', e);
+      const headings = listHeadings(container, headingSelector);
+      if (!headings.length) return;
+
+      const h = findHeadingForElement(e.target, headings);
+      if (!h) return;
+
+      const startIndex = headings.indexOf(h);
+      if (startIndex === -1) return;
+
+      setActiveBranch(headings, startIndex);
     }
-    
-    // 2. 鼠标离开
+
     function onPointerOut(e) {
-       const to = e.relatedTarget;
-       if (!to || !container.contains(to)) {
-         clearClasses(container);
-         // clearFrozen(); // 可选：移出时隐藏冻结栏
-       }
+      const to = e.relatedTarget;
+      if (!to || !container.contains(to)) {
+        clearClasses(container);
+        // 冻结栏可以保留（不调用 clearFrozen）
+      }
     }
 
-    // 3. 滚动
-    let isScrolling = false;
+    // ---------- scroll ----------
+    async function handleScroll() {
+      const headings = listHeadings(container, headingSelector);
+      if (!headings.length) {
+        clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
+        isScrolling = false;
+        return;
+      }
+
+      const triggerY = 40;
+      let currentIndex = -1;
+
+      for (let i = 0; i < headings.length; i++) {
+        const rect = headings[i].getBoundingClientRect();
+        if (rect.top <= triggerY) {
+          currentIndex = i;
+        } else if (currentIndex !== -1) {
+          break;
+        }
+      }
+
+      if (currentIndex === -1) {
+        clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
+        isScrolling = false;
+        return;
+      }
+
+      // 滚动也走统一的 setActiveBranch 逻辑
+      setActiveBranch(headings, currentIndex);
+      isScrolling = false;
+    }
+
     function onScroll() {
       if (!isScrolling) {
-        requestAnimationFrame(() => {
-          updateState('scroll');
-          isScrolling = false;
-        });
         isScrolling = true;
+        window.requestAnimationFrame(handleScroll);
       }
     }
 
-    // 4. 内容变化 (编辑时)
-    const updateListener = view.dispatch({
-        effects: [], // 这是一个占位，实际上我们需要注册一个 UpdateListener
-    }); 
-    // 由于我们无法直接注入 CM 插件，我们使用 MutationObserver 监听 DOM 变化作为替补，
-    // 或者简单地依靠 scroll/hover 触发。
-    // 为了响应编辑（如修改了标题），我们可以监听 keyup
-    function onKeyUp() {
-        // 稍微延迟等待 Model 更新
-        setTimeout(() => updateState('scroll'), 100);
-    }
+    // ---------- DOM 变更：失效 FULL_HEADINGS 并恢复当前 branch ----------
+    const mo = new MutationObserver(() => {
+      // 文本可能发生变化，标记 FULL_HEADINGS 失效
+      FULL_HEADINGS = null;
+      if (currentBranchInfo && currentBranchInfo.headings) {
+        const { headings, startIndex } = currentBranchInfo;
+        setActiveBranch(headings, startIndex);
+      } else {
+        handleScroll();
+      }
+    });
+    mo.observe(container, { childList: true, subtree: true });
 
-    container.addEventListener("pointermove", onPointerOver); // pointermove 比 over 更灵敏
+    container.addEventListener("pointerover", onPointerOver);
     container.addEventListener("pointerout", onPointerOut);
     window.addEventListener("scroll", onScroll, { passive: true });
-    container.addEventListener("keyup", onKeyUp);
 
-    // 初始化运行一次
-    updateState('scroll');
+    // 初始试一次：如果打开时已经有滚动/内容
+    handleScroll();
+    // 同时预构建一次 FULL_HEADINGS（不阻塞）
+    ensureFullHeadings();
 
     window[STATE_KEY] = {
       cleanup() {
-        container.removeEventListener("pointermove", onPointerOver);
-        container.removeEventListener("pointerout", onPointerOut);
-        window.removeEventListener("scroll", onScroll);
-        container.removeEventListener("keyup", onKeyUp);
-        clearFrozen();
+        try {
+          container.removeEventListener("pointerover", onPointerOver);
+          container.removeEventListener("pointerout", onPointerOut);
+          window.removeEventListener("scroll", onScroll);
+        } catch {}
+        try {
+          mo.disconnect();
+        } catch {}
         clearClasses(container);
-      }
+        clearFrozen();
+        currentBranchInfo = null;
+      },
     };
+
+    if (debug) {
+      console.log("[HHH] enabled (v6, JS-parse FULL_HEADINGS)");
+    }
   };
 
   bind();
