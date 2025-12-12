@@ -70,7 +70,7 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 
 #### 思源的插件是 js... 的
 
-比如: 
+比如: https://github.com/OpaqueGlass/syplugin-fakeDocBreadcrumb
 不像 SilverBullet 的插件，编译为了 TS，
 但 SiYuan 本体用了很多 TS: https://github.com/siyuan-note/siyuan
 
