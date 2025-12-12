@@ -26,6 +26,7 @@ Wiki is Mesh-like Graph-theory, good at Navigation, Association,
   - 像 [[Library/xczphysics/CONFIG/Mouse/History_+_Center#Logic behind|Click History]] 和 [[Library/xczphysics/CONFIG/Picker/Table#Implementation 3|Table Picker]] 一样
 - 当然，我们更需要的是 [Ah_LMYqd2CE](https://www.youtube.com/shorts/Ah_LMYqd2CE) #youtube SQL 中的 DUPLICATE 关键字
   - `SELECT DUPLICATE ssn FROM payments;`
+- 发现 luaQuerry 有个类似的关键字distinct [query_collection.ts](https://github.com/silverbulletmd/silverbullet/blob/b9bbb32051283c7501efcdf8be88bc58b85cae31/client/space_lua/query_collection.ts#L53) #github
 
 ```space-lua
 -- priority: 11
