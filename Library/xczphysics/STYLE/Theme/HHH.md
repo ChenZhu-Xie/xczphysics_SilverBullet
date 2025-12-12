@@ -361,6 +361,15 @@ command.define {
     editor.flashNotification("HierarchyHighlightHeadings JS saved with size: " .. jsFile.size .. " bytes")
   end
 }
+
+command.define {
+  name = "Delete HierarchyHighlightHeadings.js",
+  hide = true,
+  run = function()
+          local jsFile = space.deleteDocument("Library/PanelDragResize.js")
+          editor.flashNotification("JS-File deleted")
+    end
+}
 ```
 
 
