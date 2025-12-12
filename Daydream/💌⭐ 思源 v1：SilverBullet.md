@@ -103,6 +103,11 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 尽管 数据库 和 属性结构 层面，json 的表达能力和丰富程度要比 .md 好。
 
 关于 ee2.. 加密的问题 [[github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了⚓|github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了🧑‍🤝‍🧑1]]${forthRef("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了")}${backRefs_noSelf("github 同步 md 文件没有作用了，只能同步 SQLite 文件，但由于 SQLite 加密了",1)}
+- 思源全部开源，仅剩的可能的讨饭钱的方式：就靠这个赚钱呢！
+- Logseq 即将推出的 DB 版，也是靠这个赚钱。
+    - 尽管在自家 community 上，遭到自家用户的强烈反对，也反对无效。
+- Tana 就不存在这个问题...因为它家全都是闭源的。
+    - 从同步到数据格式再到...
 
 Dinox 群里有提到 indexedDB Viewer #crx <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
 
