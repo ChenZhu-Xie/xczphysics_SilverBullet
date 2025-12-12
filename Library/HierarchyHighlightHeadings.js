@@ -29,7 +29,7 @@ function rebuildHeadingsSync() {
 
   const list = [];
   // 匹配行首标题
-  const regex = /^(#{1,6})\s+(.*)$/gm;
+  const regex = /^(#{1,6})\s+([^\n]*)$/gm;
   
   // 匹配 Widget 语法的正则，用于生成干净的显示文本
   // 例如：Step 3: ${widgets.btn()} -> Step 3:
@@ -38,10 +38,7 @@ function rebuildHeadingsSync() {
   let match;
   while ((match = regex.exec(text)) !== null) {
     let rawText = match[2].trim();
-    // 生成一个用于显示的文本，剔除 ${...}
-    let displayText = rawText.replace(widgetRegex, "").trim();
-    // 如果剔除后为空（例如纯 widget 标题），还是保留原文本以免显示空白
-    if (!displayText) displayText = rawText;
+    let displayText = rawText;
 
     list.push({
       level: match[1].length,

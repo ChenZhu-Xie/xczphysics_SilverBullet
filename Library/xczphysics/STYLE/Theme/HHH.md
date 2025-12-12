@@ -65,10 +65,7 @@ function rebuildHeadingsSync() {
   let match;
   while ((match = regex.exec(text)) !== null) {
     let rawText = match[2].trim();
-    // 生成一个用于显示的文本，剔除 ${...}
-    let displayText = rawText.replace(widgetRegex, "").trim();
-    // 如果剔除后为空（例如纯 widget 标题），还是保留原文本以免显示空白
-    if (!displayText) displayText = rawText;
+    let displayText = rawText;
 
     list.push({
       level: match[1].length,
