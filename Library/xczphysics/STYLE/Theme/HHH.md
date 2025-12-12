@@ -11,10 +11,16 @@ pageDecoration.prefix: "🎇 "
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
+ASDFZXV
+
 ### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save: HierarchyHighlightHeadings.js")}
+
+ASDFASDF
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
+
+ASDFASDF
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
