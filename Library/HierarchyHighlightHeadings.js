@@ -1,73 +1,100 @@
-const STATE_KEY = "__xhHighlightState_v6_HHH_JSMarkdown";
+// Library/HierarchyHighlightHeadings.js
+// HHH v6 - JS 侧直接从 CodeMirror 获取全文，解析 Markdown 构建 FULL_HEADINGS
 
-let FULL_HEADINGS = null; // [{ level, text }]
-let FULL_HEADINGS_VERSION = 0;
+const STATE_KEY = "__xhHighlightState_v6_HHH_CMText";
 
-// ---------------------- 获取全文 markdown ----------------------
+// ---------- 1. 从 CodeMirror 获取全文 ----------
 
 function getFullTextFromCodeMirror() {
-  // 尝试从 CodeMirror 6 的视图对象拿全文
-  // 通常根节点是 .cm-editor 或 .cm-content 所在的 DOM 上挂了 cmView
-  const cmRoot =
-    document.querySelector(".cm-editor") ||
-    document.querySelector(".cm-content");
-  const view = cmRoot && cmRoot.cmView;
-  if (view && view.state && view.state.doc) {
-    return view.state.doc.toString();
+  try {
+    // SilverBullet 前端 client 对象，底层 editor.getText 就是这么实现的
+    if (window.client && client.editorView && client.editorView.state) {
+      return client.editorView.state.sliceDoc();
+    }
+  } catch (e) {
+    console.warn("[HHH] getFullTextFromCodeMirror failed:", e);
   }
-  return null;
+  return "";
 }
 
-// 用简单正则从 markdown 文本里提取所有 # 开头的标题
-function buildFullHeadingsFromMarkdown(text) {
-  const lines = text.split(/\r?\n/);
-  const res = [];
-  for (const line of lines) {
-    const m = /^(#{1,6})\s+(.*)$/.exec(line);
-    if (!m) continue;
-    const level = m[1].length;
-    let txt = m[2].trim();
-    // 去掉末尾成对的 #（ATX 样式）: "Title ###"
-    txt = txt.replace(/\s+#+\s*$/, "").trim();
-    if (!txt) continue;
-    res.push({ level, text: txt });
+// ---------- 2. 基于 Markdown AST 的 FULL_HEADINGS ----------
+
+let FULL_HEADINGS = null;
+let BUILDING_FULL_HEADINGS = null;
+let FULL_HEADINGS_VERSION = 0;
+
+// 从全文文本构建 FULL_HEADINGS：[{ level, text }]
+async function buildFullHeadings() {
+  const text = getFullTextFromCodeMirror();
+  if (!text) {
+    FULL_HEADINGS = [];
+    FULL_HEADINGS_VERSION++;
+    return;
   }
-  FULL_HEADINGS = res;
+
+  // 依赖 SB 全局 markdown 模块：markdown.parseMarkdown + markdown.extractText
+  const ast = await markdown.parseMarkdown(text);
+  const list = [];
+
+  function walk(node) {
+    if (!node) return;
+    if (Array.isArray(node)) {
+      node.forEach(walk);
+      return;
+    }
+    if (node.type === "Heading") {
+      const level = node.level || 1;
+      const txt = (markdown.extractText
+        ? markdown.extractText(node)
+        : (node.text || "")).trim();
+      if (txt) {
+        list.push({ level, text: txt });
+      }
+    }
+    if (node.children) walk(node.children);
+    if (node.content) walk(node.content);
+  }
+
+  walk(ast);
+
+  FULL_HEADINGS = list;
   FULL_HEADINGS_VERSION++;
 }
 
-// 确保 FULL_HEADINGS 已构建；失败则返回 false
-function ensureFullHeadings() {
-  if (FULL_HEADINGS) return true;
-  const text = getFullTextFromCodeMirror();
-  if (!text) {
-    console.warn("[HHH] 无法从 CodeMirror 获取全文，FULL_HEADINGS 功能暂时禁用");
-    FULL_HEADINGS = null;
-    return false;
+// 确保 FULL_HEADINGS 构建完成（带简单并发保护）
+async function ensureFullHeadings() {
+  if (FULL_HEADINGS && !BUILDING_FULL_HEADINGS) {
+    return FULL_HEADINGS;
   }
-  buildFullHeadingsFromMarkdown(text);
-  return true;
+  if (!BUILDING_FULL_HEADINGS) {
+    BUILDING_FULL_HEADINGS = buildFullHeadings().finally(() => {
+      BUILDING_FULL_HEADINGS = null;
+    });
+  }
+  await BUILDING_FULL_HEADINGS;
+  return FULL_HEADINGS;
 }
 
-// 给一个 DOM heading，去 FULL_HEADINGS 里找对应项，并算出完整祖先链
-function getBranchFromFullHeadingsByDomHeading(domH) {
-  if (!ensureFullHeadings() || !domH) return null;
-
+// DOM heading -> FULL_HEADINGS 索引（用 level + 文本匹配）
+function findFullIndexForDomHeading(domH) {
+  if (!FULL_HEADINGS || !domH) return -1;
   const level = getLevel(domH);
   const text = domH.innerText.trim();
-  if (!text) return null;
+  if (!text) return -1;
 
-  // 从后往前找最后一个 level+text 匹配的 heading
-  let idx = -1;
+  // 从后往前找，处理重复标题时尽量匹配最近的
   for (let i = FULL_HEADINGS.length - 1; i >= 0; i--) {
     const h = FULL_HEADINGS[i];
     if (h.level === level && h.text === text) {
-      idx = i;
-      break;
+      return i;
     }
   }
-  if (idx === -1) return null;
+  return -1;
+}
 
+// 从 FULL_HEADINGS 索引算出完整祖先链
+function getBranchFromFullHeadings(idx) {
+  if (!FULL_HEADINGS || idx < 0 || idx >= FULL_HEADINGS.length) return null;
   const leaf = FULL_HEADINGS[idx];
   const ancestors = [];
   let currentLevel = leaf.level;
@@ -80,13 +107,25 @@ function getBranchFromFullHeadingsByDomHeading(domH) {
       if (currentLevel === 1) break;
     }
   }
-
   return { ancestors, leaf };
 }
 
-// ---------------------- DOM 工具函数（和之前类似） ----------------------
+// 从 DOM heading 更新左上角冻结栏（基于 FULL_HEADINGS）
+async function updateFrozenFromDomHeading(container, domHeading) {
+  await ensureFullHeadings();
+  const idx = findFullIndexForDomHeading(domHeading);
+  if (idx === -1) {
+    clearFrozen();
+    return;
+  }
+  const branch = getBranchFromFullHeadings(idx);
+  renderFrozenBranchFromAst(container, branch);
+}
+
+// ---------- 3. DOM 工具函数（沿用你之前的逻辑） ----------
 
 function getLevel(el) {
+  // 优先用 sb-line-hN
   for (let i = 1; i <= 6; i++) {
     if (el.classList && el.classList.contains(`sb-line-h${i}`)) return i;
   }
@@ -127,6 +166,7 @@ function findHeadingForElement(el, headings) {
   if (!el) return null;
   if (headings.includes(el)) return el;
 
+  // 从后往前找「在 el 之前」的最后一个标题
   for (let i = headings.length - 1; i >= 0; i--) {
     const h = headings[i];
     const pos = h.compareDocumentPosition(el);
@@ -152,8 +192,6 @@ function clearClasses(root) {
     );
 }
 
-// ---------------------- 冻结栏（左上角窄列） ----------------------
-
 function getFrozenContainer() {
   let fc = document.getElementById("sb-frozen-container");
   if (!fc) {
@@ -172,8 +210,8 @@ function clearFrozen() {
   }
 }
 
-// 使用 FULL_HEADINGS 信息渲染左上角冻结栏
-function renderFrozenBranchFromIndex(container, branch) {
+// 基于 FULL_HEADINGS（AST）渲染左上角冻结栏
+function renderFrozenBranchFromAst(container, branch) {
   const fc = getFrozenContainer();
 
   if (!branch || !branch.leaf) {
@@ -201,7 +239,7 @@ function renderFrozenBranchFromIndex(container, branch) {
   fc.style.removeProperty("width");
 }
 
-// ---------------------- 主入口 ----------------------
+// ---------- 4. 主逻辑 ----------
 
 export function enableHighlight(opts = {}) {
   const containerSelector = opts.containerSelector || "#sb-main";
@@ -217,12 +255,17 @@ export function enableHighlight(opts = {}) {
       return;
     }
 
+    // 先尝试构建一次 FULL_HEADINGS（懒加载里也会再触发，不必强求）
+    ensureFullHeadings().catch((e) =>
+      console.warn("[HHH] ensureFullHeadings on bind failed:", e)
+    );
+
     const prev = window[STATE_KEY];
     if (prev && prev.cleanup) prev.cleanup();
 
-    let currentBranchInfo = null;
+    let currentBranchInfo = null; // { headings, startIndex, ... }
 
-    async function setActiveBranch(headings, startIndex) {
+    function setActiveBranch(headings, startIndex) {
       if (
         !headings ||
         headings.length === 0 ||
@@ -249,7 +292,7 @@ export function enableHighlight(opts = {}) {
         descendants,
       };
 
-      // 1. 正文高亮（只对视口中有 DOM 的标题）
+      // 1. 文本高亮（只对当前视口的 DOM heading）
       clearClasses(container);
 
       startHeading.classList.add("sb-active", "sb-active-current");
@@ -260,12 +303,14 @@ export function enableHighlight(opts = {}) {
         el.classList.add("sb-active", "sb-active-desc")
       );
 
-      // 2. 冻结栏：基于 FULL_HEADINGS 计算全局完整链
-      const branch = getBranchFromFullHeadingsByDomHeading(startHeading);
-      renderFrozenBranchFromIndex(container, branch);
+      // 2. 冻结栏：用 FULL_HEADINGS + AST 得到完整祖先链
+      //    异步执行，不阻塞高亮
+      updateFrozenFromDomHeading(container, startHeading).catch((e) =>
+        console.warn("[HHH] updateFrozenFromDomHeading failed:", e)
+      );
     }
 
-    // ---------- hover ----------
+    // ---------- hover 逻辑 ----------
     function onPointerOver(e) {
       if (!e.target || !container.contains(e.target)) return;
 
@@ -278,26 +323,27 @@ export function enableHighlight(opts = {}) {
       const startIndex = headings.indexOf(h);
       if (startIndex === -1) return;
 
-      // 不需要等它完成，高亮 + 冻结晚一帧无所谓
-      void setActiveBranch(headings, startIndex);
+      setActiveBranch(headings, startIndex);
     }
 
     function onPointerOut(e) {
       const to = e.relatedTarget;
       if (!to || !container.contains(to)) {
         clearClasses(container);
-        // 如果希望移出编辑区也保留冻结栏，可以注释掉下一行
+        // 如果希望移出编辑器后仍保留冻结栏，可注释下一行
         // clearFrozen();
       }
     }
 
-    // ---------- 滚动 ----------
+    // ---------- 滚动逻辑：以视口顶部为基准决定当前 section ----------
     let isScrolling = false;
 
     function handleScroll() {
       const headings = listHeadings(container, headingSelector);
       if (!headings.length) {
         clearFrozen();
+        clearClasses(container);
+        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
@@ -316,12 +362,15 @@ export function enableHighlight(opts = {}) {
 
       if (currentIndex === -1) {
         clearFrozen();
+        // 不一定要清高亮，看个人喜好；这里保持与 hover 一致，清掉：
+        clearClasses(container);
+        currentBranchInfo = null;
         isScrolling = false;
         return;
       }
 
-      // 统一用 setActiveBranch：滚动也更新正文高亮 + 冻结栏
-      void setActiveBranch(headings, currentIndex);
+      // 滚动也统一用 setActiveBranch，这样高亮和冻结栏一致
+      setActiveBranch(headings, currentIndex);
 
       isScrolling = false;
     }
@@ -333,13 +382,12 @@ export function enableHighlight(opts = {}) {
       }
     }
 
-    // ---------- DOM 变化 ----------
+    // ---------- DOM 变化：尽量恢复当前 branch ----------
     const mo = new MutationObserver(() => {
-      // 文本可能改了，标题列表也可能变，标记 FULL_HEADINGS 失效
-      FULL_HEADINGS = null;
+      // CodeMirror 编辑会频繁触发这里
       if (currentBranchInfo && currentBranchInfo.headings) {
         const { headings, startIndex } = currentBranchInfo;
-        void setActiveBranch(headings, startIndex);
+        setActiveBranch(headings, startIndex);
       } else {
         handleScroll();
       }
@@ -350,8 +398,7 @@ export function enableHighlight(opts = {}) {
     container.addEventListener("pointerout", onPointerOut);
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // 初始先构建一次 FULL_HEADINGS（如果拿不到就延后到第一次触发）
-    ensureFullHeadings();
+    // 初始化一次滚动逻辑（页面加载后立即计算当前 section）
     handleScroll();
 
     window[STATE_KEY] = {
@@ -372,7 +419,7 @@ export function enableHighlight(opts = {}) {
 
     if (debug) {
       console.log(
-        "[HHH] enabled (v6, JS-side markdown headings via CodeMirror)"
+        "[HHH] enabled (v6, CodeMirror sliceDoc + JS Markdown AST FULL_HEADINGS)"
       );
     }
   };
