@@ -456,9 +456,17 @@ event.listen {
 
 ## CSS part
 
-1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
+### test
 
 ```space-style
+
+```
+
+### Previous parts
+
+1. Remember to Cancel the `1st space-style block` from [[STYLE/Theme/HHH-css]]
+
+```style
 /* --- 基础变量 --- */
 :root {
   --frozen-z-index: 1000;
@@ -546,7 +554,7 @@ html[data-theme="dark"] .sb-frozen-clone {
 
 1. https://chatgpt.com/share/68fd0e6f-19d8-8010-95b8-c0f80a829e9b
 
-```space-style
+```style
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6c8ff;
