@@ -998,7 +998,7 @@ html[data-theme="light"] {
 }
 ```
 
-```space-style
+```style
 
 :root {
   --h-bg-alpha-dark: 6%;   /* 深色主题 */
