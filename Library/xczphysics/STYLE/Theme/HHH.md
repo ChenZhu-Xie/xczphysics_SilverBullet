@@ -20,6 +20,8 @@ pageDecoration.prefix: "🎇 "
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
+
+
 > **danger** Danger
 > for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
 
