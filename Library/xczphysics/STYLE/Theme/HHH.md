@@ -576,7 +576,7 @@ event.listen {
    ========================================= */
 .sb-frozen-item:hover {
   /* 状态变化：完全不透明 */
-  opacity: 1 !important; 
+  opacity: 0.9 !important; 
   z-index: 1001;
 
   /* 视觉反馈：加亮、加深背景对比 */
