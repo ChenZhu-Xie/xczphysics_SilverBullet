@@ -523,6 +523,7 @@ event.listen {
 
 ### split
 
+
 ```space-style
 /* 冻结栏容器：左上角窄列，鼠标可穿透 */
 #sb-frozen-container {
