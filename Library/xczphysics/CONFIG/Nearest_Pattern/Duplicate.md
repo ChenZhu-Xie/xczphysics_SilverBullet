@@ -5,14 +5,19 @@ tags: meta/library
 pageDecoration.prefix: "👯 "
 ---
 
-#adsasdf
-
 # Copy nearest Format around Cursor
 
 1. https://chatgpt.com/share/68f394f8-fa80-8010-a0cf-db0a89923385
 2. https://community.silverbullet.md/t/copy-the-nearest-format-around-cursor/3418?u=chenzhu-xie
 
 ## Page Version
+
+
+
+
+```lua
+
+```
 
 ```space-lua
 -- pattern def：{ name, pattern, priority }
