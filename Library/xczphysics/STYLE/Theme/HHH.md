@@ -559,7 +559,7 @@ event.listen {
   box-sizing: border-box;
 
   /* 默认状态：半透明，稍微低调 */
-  opacity: 0.7 !important; 
+  opacity: 0.8 !important; 
   background-color: var(--bg-color, #ffffff);
   
   /* 边框和阴影 */
@@ -576,7 +576,7 @@ event.listen {
    ========================================= */
 .sb-frozen-item:hover {
   /* 状态变化：完全不透明 */
-  opacity: 0.9 !important; 
+  opacity: 0.8 !important; 
   z-index: 1001;
 
   /* 视觉反馈：加亮、加深背景对比 */
