@@ -525,20 +525,22 @@ event.listen {
 
 
 ```space-style
-/* 冻结栏容器：左上角窄列，鼠标可穿透 */
-#sb-frozen-container {
-  position: fixed;
-  top: 4px;
-  left: 0;                    /* 真正的 left 由 JS 用编辑区 rect.left 覆盖 */
-  z-index: 1000;
-  /* pointer-events: none; */
+/* =========================================
+   1. 容器样式
+   ========================================= */
+#sb-frozen-container-top,
+#sb-frozen-container-bottom {
+  /* 这些样式由 JS 动态控制位置，但这里保留基础属性 */
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px; /* 稍微增加间距，防止误触 */
   align-items: flex-start;
+  pointer-events: none; /* 容器本身不挡鼠标，子元素开启 */
 }
 
-/* 冻结项：按内容自适应宽度的一小块 */
+/* =========================================
+   2. 标题胶囊样式 (核心修改)
+   ========================================= */
 .sb-frozen-item {
   display: inline-block;
   width: auto;
@@ -547,29 +549,66 @@ event.listen {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  /* pointer-events: none; */
+  pointer-events: auto; /* 允许点击 */
+  cursor: pointer;      /* 鼠标变为手型 */
 
   margin: 0 !important;
-  padding: 0.1em 0.5em;
+  padding: 0.2em 0.6em; /* 稍微增加内边距，更像按钮 */
   border-radius: 4px;
   box-sizing: border-box;
 
-  opacity: 0.8 !important;
+  /* 默认状态：半透明，稍微低调 */
+  opacity: 0.7 !important; 
   background-color: var(--bg-color, #ffffff);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  
+  /* 边框和阴影 */
+  border: 1px solid transparent; /* 预留边框位置，防止悬停抖动 */
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  
   font-family: inherit;
+  transition: all 0.15s ease-out; /* 添加平滑过渡动画 */
 }
 
-/* 暗色模式：只调背景 / 边线 */
+/* =========================================
+   3. 悬停交互 (Hover Effect) - 响应用户操作
+   ========================================= */
+.sb-frozen-item:hover {
+  /* 状态变化：完全不透明 */
+  opacity: 1 !important; 
+  z-index: 1001;
+
+  /* 视觉反馈：加亮、加深背景对比 */
+  filter: brightness(1.05) contrast(1.05);
+  
+  /* 物理反馈：轻微上浮 + 阴影加深 */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+  /* 边框反馈：边框颜色变为文字颜色（即标题色），产生高亮框效果 */
+  border-color: currentColor; 
+}
+
+/* =========================================
+   4. 暗色模式适配
+   ========================================= */
 @media (prefers-color-scheme: dark) {
   .sb-frozen-item {
-    background-color: var(--bg-color-dark, #1f2023);
+    background-color: var(--bg-color-dark, #252629);
     border-bottom-color: rgba(255,255,255,0.06);
+  }
+  
+  /* 暗色模式下的悬停特调 */
+  .sb-frozen-item:hover {
+    background-color: #333; /* 悬停时背景略微提亮 */
+    filter: brightness(1.2); /* 文字颜色更亮 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   }
 }
 
-/* 不同级别的颜色，复用 H1–H6 的变量 */
+/* =========================================
+   5. 颜色定义 (保持不变)
+   ========================================= */
 html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
 html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
 html[data-theme="dark"] .sb-frozen-l3 { color: var(--h3-color-dark); }
@@ -583,9 +622,7 @@ html[data-theme="light"] .sb-frozen-l3 { color: var(--h3-color-light); }
 html[data-theme="light"] .sb-frozen-l4 { color: var(--h4-color-light); }
 html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
 html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
-```
 
-```space-style
 :root {
   /* Dark theme 颜色变量 */
   --h1-color-dark: #e6c8ff;
@@ -606,16 +643,17 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   --title-opacity: 0.5;
 }
 
-/* 公共 H1–H6 行样式（编辑区内） */
+/* 编辑区内的高亮样式 */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
 .sb-line-h4, .sb-line-h5, .sb-line-h6 {
   position: relative;
   opacity: var(--title-opacity);
   border-bottom-style: solid;
   border-bottom-width: 2px;
+  transition: opacity 0.2s; /* 编辑区内的高亮也加点过渡 */
 }
 
-/* Dark Theme */
+/* Dark Theme Fonts */
 html[data-theme="dark"] {
   .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
   .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
@@ -625,7 +663,7 @@ html[data-theme="dark"] {
   .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-dark)!important; }
 }
 
-/* Light Theme */
+/* Light Theme Fonts */
 html[data-theme="light"] {
   .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
   .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
@@ -635,8 +673,9 @@ html[data-theme="light"] {
   .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-light)!important; }
 }
 
-/* 高亮类：让激活的标题不透明 */
+/* 激活状态 */
 .sb-active {
-  opacity: 0.8 !important;
+  opacity: 0.9 !important;
 }
+
 ```
