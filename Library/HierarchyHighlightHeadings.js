@@ -160,7 +160,7 @@ const View = {
         // Left: 容器左边 + 45px (防止太靠边)
         el.style.left = (rect.left + 45) + "px";
         // Top: 容器顶部 + 50px (避开顶部菜单)
-        el.style.top = (rect.top + 50) + "px";
+        el.style.top = (rect.top + 40) + "px";
     }
 
     el.innerHTML = "";
