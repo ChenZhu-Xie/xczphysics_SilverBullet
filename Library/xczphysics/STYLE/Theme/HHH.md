@@ -580,7 +580,7 @@ event.listen {
   z-index: 1001;
 
   /* 视觉反馈：加亮、加深背景对比 */
-  filter: brightness(1.05) contrast(1.05);
+  filter: brightness(0.95) contrast(0.95);
   
   /* 物理反馈：轻微上浮 + 阴影加深 */
   transform: translateY(-1px);
