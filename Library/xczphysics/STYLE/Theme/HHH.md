@@ -534,7 +534,7 @@ event.listen {
   /* 这些样式由 JS 动态控制位置，但这里保留基础属性 */
   display: flex;
   flex-direction: column;
-  gap: 3px; /* 稍微增加间距，防止误触 */
+  gap: 2px; /* 稍微增加间距，防止误触 */
   align-items: flex-start;
   pointer-events: none; /* 容器本身不挡鼠标，子元素开启 */
 }
