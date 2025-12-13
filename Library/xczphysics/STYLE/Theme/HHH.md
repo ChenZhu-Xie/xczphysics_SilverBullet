@@ -23,7 +23,6 @@ pageDecoration.prefix: "🎇 "
 > **danger** Danger
 > for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
 
-
 ```space-lua
 local jsCode = [[
 // Library/HierarchyHighlightHeadings.js
