@@ -651,7 +651,7 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   opacity: var(--title-opacity);
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  transition: opacity 0.2s; /* 编辑区内的高亮也加点过渡 */
+  transition: opacity 0.12s; /* 编辑区内的高亮也加点过渡 */
 }
 
 /* Dark Theme Fonts */
