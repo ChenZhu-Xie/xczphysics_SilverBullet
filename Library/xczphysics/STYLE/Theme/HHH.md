@@ -677,5 +677,4 @@ html[data-theme="light"] {
 .sb-active {
   opacity: 0.9 !important;
 }
-
 ```
