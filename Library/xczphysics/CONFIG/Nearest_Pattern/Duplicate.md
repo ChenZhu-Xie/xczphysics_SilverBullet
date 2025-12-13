@@ -17,7 +17,6 @@ pageDecoration.prefix: "👯 "
 -- use % to escape special characters
 -- you can add your own patterns
 INLINE_PATTERNS = {
-  { "Code Block",    "```[(space%-)(lua)][^`]-```", 105 }, -- ```...```
   { "Wiki Link",     "%[%[[^\n%]]+%]%]",          100 }, -- [[...]] 或 [[...|...]]
   { "Fields",        "%[[^\n%]]+:[^\n%]]+%]",     95  }, -- [key:value]
   { "Image",         "!%[[^\n%]]-%]%([^\n)]+%)",  90  }, -- ![alt](src)
@@ -32,6 +31,7 @@ INLINE_PATTERNS = {
   { "Marker",        "==[^\n]+==",                35  }, -- ==?==
   { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
   { "Header",        "(#+ [^\n]+)\n",             25  }, -- # header
+  { "Code Block",    "```[(space%-)(lua)][^(```)]-```", 20 }, -- ```...```
 }
 
 function SelectiondistanceToCursor(startPos, endPos, cursorPos)
