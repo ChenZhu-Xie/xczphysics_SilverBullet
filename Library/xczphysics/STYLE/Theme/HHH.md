@@ -530,7 +530,7 @@ event.listen {
   top: 4px;
   left: 0;                    /* 真正的 left 由 JS 用编辑区 rect.left 覆盖 */
   z-index: 1000;
-  pointer-events: none;       /* 整个容器鼠标穿透 */
+  /* pointer-events: none; */
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -546,7 +546,7 @@ event.listen {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  pointer-events: none;       /* 单个标题也不截获鼠标事件 */
+  /* pointer-events: none; */
 
   margin: 0 !important;
   padding: 0.1em 0.5em;
