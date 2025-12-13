@@ -188,7 +188,7 @@ const View = {
         // Left: 容器左边 + 45px (防止太靠边)
         el.style.left = (rect.left + 45) + "px";
         // Top: 容器顶部 + 50px (避开顶部菜单)
-        el.style.top = (rect.top + 50) + "px";
+        el.style.top = (rect.top + 40) + "px";
     }
 
     el.innerHTML = "";
@@ -534,7 +534,7 @@ event.listen {
   /* 这些样式由 JS 动态控制位置，但这里保留基础属性 */
   display: flex;
   flex-direction: column;
-  gap: 2px; /* 稍微增加间距，防止误触 */
+  gap: 3px; /* 稍微增加间距，防止误触 */
   align-items: flex-start;
   pointer-events: none; /* 容器本身不挡鼠标，子元素开启 */
 }
