@@ -76,19 +76,21 @@ function yg.bc(path)
     local siblings = query[[
       from index.tag 'page'
       where _.name:startsWith(prefix) and _.name != current_page
-      select {name = string.match(_.name, "([^/]+)$")}
+      select { path = _.name,
+        name = string.match(path, "([^/]+)$") }
     ]]
 
     -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
     local options = {}
     for _, item in ipairs(siblings) do
-      local p_name = item.name
+      local p_path = item.path
       -- 获取相对路径
-      local rel_path = p_name:sub(#prefix + 1)
+      local rel_path = p_path:sub(#prefix + 1)
 
       -- 如果相对路径中没有 "/"，说明是直接同级
       if not rel_path:find("/") then
-        table.insert(options, { name = p_name })
+        table.insert(options, { path = p_path ,
+        name = string.match(path, "([^/]+)$") })
       end
     end
     return options
@@ -112,7 +114,7 @@ function yg.bc(path)
       local function pick_sibling()
         local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
         if not opt then return end
-        editor.navigate(opt.name)
+        editor.navigate(opt.path)
       end
 
       local buto = widgets.button(arrow_symbol_2 .. #options, pick_sibling)
@@ -135,7 +137,8 @@ function yg.bc(path)
   local options = query[[from index.tag "page"
          -- where _.name:startsWith(mypage .. "/")
          where _.name:find("^" .. mypage .. "/")
-         select {name = string.match(_.name, "([^/]+)$")}]]
+         select { path = _.name,
+        name = string.match(path, "([^/]+)$") }]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
@@ -143,7 +146,7 @@ function yg.bc(path)
     local function pick_child()
       local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
       if not opt then return end
-      editor.navigate(opt.name)
+      editor.navigate(opt.path)
     end
     local buto = widgets.button("👶🏻" .. #options, pick_child)
     table.insert(dom_list, buto)
