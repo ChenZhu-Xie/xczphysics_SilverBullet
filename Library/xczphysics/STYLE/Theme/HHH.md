@@ -602,7 +602,7 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   --h5-color-light: #b84c1c;
   --h6-color-light: #993399;
 
-  --title-opacity: 0.7;
+  --title-opacity: 0.5;
 }
 
 /* 公共 H1–H6 行样式（编辑区内） */
