@@ -77,7 +77,7 @@ function yg.bc(path)
       from index.tag 'page'
       where _.name:startsWith(prefix) and _.name != current_page
       select { path = _.name,
-        name = string.match(path, "([^/]+)$") }
+        name = string.match(_.name, "([^/]+)$") }
     ]]
 
     -- 3. 过滤：只保留直接子级（模拟文件系统的同级目录），排除孙级页面
@@ -90,7 +90,7 @@ function yg.bc(path)
       -- 如果相对路径中没有 "/"，说明是直接同级
       if not rel_path:find("/") then
         table.insert(options, { path = p_path ,
-        name = string.match(path, "([^/]+)$") })
+        name = string.match(p_path, "([^/]+)$") })
       end
     end
     return options
@@ -138,7 +138,7 @@ function yg.bc(path)
          -- where _.name:startsWith(mypage .. "/")
          where _.name:find("^" .. mypage .. "/")
          select { path = _.name,
-        name = string.match(path, "([^/]+)$") }]]
+        name = string.match(_.name, "([^/]+)$") }]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
