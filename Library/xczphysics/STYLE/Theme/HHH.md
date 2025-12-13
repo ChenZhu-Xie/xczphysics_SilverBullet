@@ -23,6 +23,7 @@ pageDecoration.prefix: "🎇 "
 > **danger** Danger
 > for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
 
+
 ```space-lua
 local jsCode = [[
 // Library/HierarchyHighlightHeadings.js
@@ -675,6 +676,6 @@ html[data-theme="light"] {
 
 /* 激活状态 */
 .sb-active {
-  opacity: 0.9 !important;
+  opacity: 0.8 !important;
 }
 ```
