@@ -553,7 +553,7 @@ event.listen {
   border-radius: 4px;
   box-sizing: border-box;
 
-  opacity: 1 !important;
+  opacity: 0.6 !important;
   background-color: var(--bg-color, #ffffff);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
