@@ -635,7 +635,6 @@ html[data-theme="light"] {
   .sb-line-h6 { font-size:1em !important; color:var(--h6-color-light)!important; border-bottom: 2px solid var(--h6-underline-light); }
 }
 
-
 /* 高亮类：让激活的标题不透明 */
 .sb-active {
   opacity: 0.8 !important;
