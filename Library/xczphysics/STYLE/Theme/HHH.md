@@ -160,7 +160,7 @@ const View = {
       el.style.display = "none";
       el.style.flexDirection = "column";
       el.style.alignItems = "flex-start";
-      el.style.pointerEvents = "none";
+      el.style.pointerEvents = "auto"; // 确保容器允许点击交互
       // 移除这里写死的 top/left/bottom，改为在 render 时根据容器计算
       document.body.appendChild(el);
     }
@@ -199,6 +199,7 @@ const View = {
     label.style.fontSize = "10px";
     label.style.opacity = "0.5";
     label.style.marginBottom = "2px";
+    label.style.pointerEvents = "none"; // 标签无需响应点击
     el.appendChild(label);
 
     list.forEach(h => {
@@ -209,6 +210,25 @@ const View = {
       
       // 仅保留少量间距调整，不添加颜色
       div.style.margin = "1px 0";
+
+      // --- 新增功能：点击跳转 ---
+      // 保持 UI 不变，仅增加鼠标手势提示
+      div.style.cursor = "pointer";
+      div.onclick = (e) => {
+        e.stopPropagation(); // 防止触发编辑器其他点击事件
+        if (window.client) {
+            const pageName = client.currentName(); // 获取当前页面名称
+            // 构造符合 SilverBullet 内部 navigate 逻辑的对象
+            client.navigate({
+                path: pageName,
+                details: {
+                    type: "header",
+                    header: h.text
+                }
+            });
+        }
+      };
+      // ------------------------
       
       el.appendChild(div);
     });
@@ -244,6 +264,7 @@ const View = {
     label.style.fontSize = "10px";
     label.style.opacity = "0.5";
     label.style.marginBottom = "2px";
+    label.style.pointerEvents = "none";
     el.appendChild(label);
 
     list.forEach(h => {
@@ -257,6 +278,23 @@ const View = {
       // 保留缩进逻辑（结构性样式），以便区分层级
       const indent = (h.level - DataModel.headings[targetIndex].level) * 10;
       div.style.marginLeft = `${indent}px`;
+
+      // --- 新增功能：点击跳转 ---
+      div.style.cursor = "pointer";
+      div.onclick = (e) => {
+        e.stopPropagation();
+        if (window.client) {
+            const pageName = client.currentName();
+            client.navigate({
+                path: pageName,
+                details: {
+                    type: "header",
+                    header: h.text
+                }
+            });
+        }
+      };
+      // ------------------------
       
       el.appendChild(div);
     });
