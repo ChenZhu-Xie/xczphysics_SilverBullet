@@ -17,10 +17,6 @@ pageDecoration.prefix: "🎇 "
 
 ### Step 4. Reload UI: ${widgets.commandButton("Client: Reload UI")}
 
-# test
-
-[[#test]]
-
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
 
