@@ -26,22 +26,21 @@ pageDecoration.prefix: "🎇 "
 ```space-lua
 local jsCode = [[
 // Library/HierarchyHighlightHeadings.js
-// HHH v10-FullContext
-// 功能：
-// 1. 鼠标悬浮/点击/编辑任意区域，自动高亮所属的父标题树。
-// 2. 左上角显示祖先路径 (Breadcrumbs)。
-// 3. 右下角显示当前块的子标题列表 (Children TOC)。
+// HHH v9-Positional Refactored
+// Core: CodeMirror Position Mapping (No Fuzzy Matching)
+// Solves: Inconsistent highlighting due to virtual scrolling
 
-const STATE_KEY = "__xhHighlightState_v10";
+const STATE_KEY = "__xhHighlightState_v9_Pos";
 
 // ==========================================
 // 1. Model: 全量数据与层级计算
 // ==========================================
 
 const DataModel = {
-  headings: [], // { index, level, start, end, text }
+  headings: [], // { level, start, end, text }
   lastText: null,
 
+  // 获取全文
   getFullText() {
     try {
       if (window.client && client.editorView && client.editorView.state) {
@@ -51,15 +50,17 @@ const DataModel = {
     return "";
   },
 
+  // 解析 Markdown，记录每个标题的起始位置 (pos)
   rebuildSync() {
     const text = this.getFullText();
-    if (text === this.lastText && this.headings.length > 0) return;
+    if (text === this.lastText && this.headings.length > 0) return; // 缓存命中
 
     this.lastText = text;
     this.headings = [];
     
     if (!text) return;
 
+    // 使用带有 'd' (indices) 标志的正则需要较新浏览器，这里用通用方法
     const regex = /^(#{1,6})\s+([^\n]*)$/gm;
     let match;
 
@@ -68,30 +69,34 @@ const DataModel = {
         index: this.headings.length,
         level: match[1].length,
         text: match[2].trim(),
-        start: match.index,
+        start: match.index, // 关键：记录在文档中的绝对偏移量
         end: match.index + match[0].length
       });
     }
   },
 
-  // [修改] 根据文档位置 (pos) 查找“所属”的标题索引
-  // 逻辑：找到 start <= pos 的最后一个标题
+  // 根据文档位置 (pos) 查找对应的标题索引
+  // 算法：找到 start <= pos 的最后一个标题
   findHeadingIndexByPos(pos) {
     this.rebuildSync();
-    if (this.headings.length === 0) return -1;
-
-    // 如果位置在第一个标题之前，返回 -1 (导言区)
-    if (pos < this.headings[0].start) return -1;
-
-    // 二分查找或倒序遍历。由于数量不多，倒序遍历足够快
+    // 二分查找优化 (或者简单的反向遍历，因为标题通常不多)
     for (let i = this.headings.length - 1; i >= 0; i--) {
       if (this.headings[i].start <= pos) {
-        return i;
+        // 简单的容错：如果 pos 离得太远（比如在正文中），需确认是否属于该标题段落
+        // 这里简化逻辑：只要在该标题下方，且未遇到下一个标题，就算该标题的范围
+        // 但为了高亮准确性，我们通常只匹配标题行本身
+        // 如果 pos > end，说明是在正文里。
+        // *本功能需求*：Hover 标题行触发。所以 pos 应该在 start 和 end 之间 (或附近)
+        if (pos <= this.headings[i].end + 1) { 
+            return i; 
+        }
+        return -1; // 在正文中，不触发
       }
     }
     return -1;
   },
 
+  // 核心逻辑：计算需要高亮的所有索引 (Self + Ancestors + Descendants)
   getFamilyIndices(targetIndex) {
     const indices = new Set();
     if (targetIndex < 0 || targetIndex >= this.headings.length) return indices;
@@ -99,7 +104,7 @@ const DataModel = {
     const target = this.headings[targetIndex];
     indices.add(targetIndex);
 
-    // 1. 找祖先
+    // 1. 找祖先 (向前找 level 更小的)
     let currentLevel = target.level;
     for (let i = targetIndex - 1; i >= 0; i--) {
       const h = this.headings[i];
@@ -110,7 +115,7 @@ const DataModel = {
       }
     }
 
-    // 2. 找后代 (用于高亮文档中的所有子孙)
+    // 2. 找后代 (向后找，直到遇到 level <= target.level)
     for (let i = targetIndex + 1; i < this.headings.length; i++) {
       const h = this.headings[i];
       if (h.level <= target.level) break;
@@ -120,6 +125,7 @@ const DataModel = {
     return indices;
   },
   
+  // 获取面包屑数据
   getBreadcrumbs(targetIndex) {
     if (targetIndex < 0) return [];
     const target = this.headings[targetIndex];
@@ -133,37 +139,6 @@ const DataModel = {
       }
     }
     return crumbs;
-  },
-
-  // [新增] 获取当前标题的直接子级（用于右下角显示）
-  getChildren(targetIndex) {
-    if (targetIndex < 0 || targetIndex >= this.headings.length) return [];
-    
-    const children = [];
-    const parent = this.headings[targetIndex];
-    
-    // 寻找该范围内，层级比父级大且最小的那个层级 (通常是 parent.level + 1)
-    // 这里简化逻辑：只显示下一层级的标题
-    // 如果想要显示所有子孙，逻辑会复杂一些，通常 TOC 只显示直属子级
-    
-    // 1. 确定子级的目标层级 (扫描直到遇到同级或更高级)
-    let targetChildLevel = -1;
-    
-    for (let i = targetIndex + 1; i < this.headings.length; i++) {
-      const h = this.headings[i];
-      if (h.level <= parent.level) break; // 超出范围
-
-      // 找到第一个子元素，定为目标层级
-      if (targetChildLevel === -1) {
-        targetChildLevel = h.level;
-      }
-
-      // 只收集该层级的元素
-      if (h.level === targetChildLevel) {
-        children.push(h);
-      }
-    }
-    return children;
   }
 };
 
@@ -172,43 +147,22 @@ const DataModel = {
 // ==========================================
 
 const View = {
-  topContainerId: "sb-frozen-breadcrumbs",
-  bottomContainerId: "sb-frozen-toc",
+  containerId: "sb-frozen-container",
 
-  getContainer(id, isBottom) {
-    let el = document.getElementById(id);
-    if (!el) {
-      el = document.createElement("div");
-      el.id = id;
-      el.style.display = "none";
-      el.style.position = "fixed";
-      el.style.zIndex = "999";
-      el.style.padding = "4px 8px";
-      el.style.background = "var(--sb-background, #fff)";
-      el.style.border = "1px solid var(--sb-border-color, #ddd)";
-      el.style.borderRadius = "4px";
-      el.style.fontSize = "12px";
-      el.style.opacity = "0.9";
-      el.style.pointerEvents = "none"; // 让鼠标穿透，不影响编辑
-
-      if (isBottom) {
-        el.style.bottom = "20px";
-        el.style.right = "20px";
-        el.style.textAlign = "right";
-      } else {
-        el.style.top = "0px"; // 初始位置，会被动态修改
-        el.style.left = "0px";
-      }
-      
-      document.body.appendChild(el);
+  getFrozenContainer() {
+    let fc = document.getElementById(this.containerId);
+    if (!fc) {
+      fc = document.createElement("div");
+      fc.id = this.containerId;
+      fc.style.display = "none";
+      document.body.appendChild(fc);
     }
-    return el;
+    return fc;
   },
 
-  // 渲染左上角面包屑
-  renderBreadcrumbs(targetIndex, editorContainer) {
-    const fc = this.getContainer(this.topContainerId, false);
-    
+  // 渲染面包屑
+  renderFrozenBar(targetIndex, container) {
+    const fc = this.getFrozenContainer();
     if (targetIndex === -1) {
       fc.style.display = "none";
       return;
@@ -220,78 +174,64 @@ const View = {
       return;
     }
 
-    // 构建内容
-    const html = crumbs.map(h => 
-      `<span class="sb-frozen-item" style="margin-right:5px; color:var(--sb-primary, #666);">${h.text}</span>`
-    ).join("<span style='color:#ccc'>/</span> ");
+    fc.innerHTML = "";
+    fc.style.display = "flex";
     
-    fc.innerHTML = html;
-    fc.style.display = "block";
+    crumbs.forEach(h => {
+      const div = document.createElement("div");
+      div.className = `sb-frozen-item sb-frozen-l${h.level}`;
+      div.textContent = h.text;
+      fc.appendChild(div);
+    });
 
-    // 定位到编辑器左上角附近
-    if (editorContainer) {
-      const rect = editorContainer.getBoundingClientRect();
-      fc.style.top = Math.max(0, rect.top) + 5 + "px";
+    if (container) {
+      const rect = container.getBoundingClientRect();
       fc.style.left = (rect.left + 10) + "px";
     }
   },
 
-  // [新增] 渲染右下角子标题列表
-  renderChildrenToc(targetIndex) {
-    const toc = this.getContainer(this.bottomContainerId, true);
-
-    if (targetIndex === -1) {
-      toc.style.display = "none";
-      return;
-    }
-
-    const children = DataModel.getChildren(targetIndex);
-    if (children.length === 0) {
-      toc.style.display = "none";
-      return;
-    }
-
-    // 构建内容
-    toc.innerHTML = `<div style="font-weight:bold; margin-bottom:4px; font-size:10px; color:#999">SUB-SECTIONS</div>`;
-    children.forEach(h => {
-      const div = document.createElement("div");
-      div.textContent = h.text;
-      div.style.color = "var(--sb-text-color, #333)";
-      toc.appendChild(div);
-    });
-    
-    toc.style.display = "block";
-  },
-
+  // 应用高亮样式
   applyHighlights(container, activeIndices) {
-    // 清除旧样式
+    // 1. 清除旧样式
     const cls = ["sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"];
     container.querySelectorAll("." + cls.join(", .")).forEach(el => el.classList.remove(...cls));
 
     if (!activeIndices || activeIndices.size === 0) return;
 
-    // 遍历可见标题
+    // 2. 遍历当前可见的 DOM 标题
+    // 关键：利用 CodeMirror API 获取每个 DOM 对应的 pos，再反查 Index
     const visibleHeadings = container.querySelectorAll(".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6");
+    
     if (!window.client || !client.editorView) return;
     const view = client.editorView;
 
     visibleHeadings.forEach(el => {
       try {
+        // 获取 DOM 元素在文档中的位置
         const pos = view.posAtDOM(el);
+        // 查找其对应的 Model Index
         const idx = DataModel.findHeadingIndexByPos(pos);
 
         if (activeIndices.has(idx)) {
           el.classList.add("sb-active");
+          
+          // 区分类型
           if (idx === window[STATE_KEY].currentIndex) {
             el.classList.add("sb-active-current");
           } else {
+             // 简单的逻辑判断是祖先还是后代
              const currentLevel = DataModel.headings[window[STATE_KEY].currentIndex].level;
              const thisLevel = DataModel.headings[idx].level;
-             if (idx < window[STATE_KEY].currentIndex && thisLevel < currentLevel) el.classList.add("sb-active-anc");
+             const thisIdx = idx;
+             const mainIdx = window[STATE_KEY].currentIndex;
+             
+             if (thisIdx < mainIdx && thisLevel < currentLevel) el.classList.add("sb-active-anc");
              else el.classList.add("sb-active-desc");
           }
         }
-      } catch (e) {}
+      } catch (e) {
+        // posAtDOM 可能会失败，忽略
+      }
     });
   }
 };
@@ -312,117 +252,125 @@ export function enableHighlight(opts = {}) {
 
     if (window[STATE_KEY] && window[STATE_KEY].cleanup) window[STATE_KEY].cleanup();
 
+    // 状态
     window[STATE_KEY] = {
-      currentIndex: -2, // 初始值设为 -2 强制刷新
+      currentIndex: -1,
       cleanup: null
     };
 
+    // 核心更新函数
     function updateState(targetIndex) {
+      // 性能优化：索引未变则不重绘
       if (targetIndex === window[STATE_KEY].currentIndex) return;
+      
       window[STATE_KEY].currentIndex = targetIndex;
 
+      if (targetIndex === -1) {
+        View.applyHighlights(container, null);
+        View.renderFrozenBar(-1);
+        return;
+      }
+
+      // 计算全量关系 (Model)
       const familyIndices = DataModel.getFamilyIndices(targetIndex);
       
+      // 应用到局部 DOM (View)
       View.applyHighlights(container, familyIndices);
-      View.renderBreadcrumbs(targetIndex, container);
-      View.renderChildrenToc(targetIndex);
-    }
-
-    // --- Core Logic: 从 Event 获取 Position ---
-    function resolvePositionAndHighlight(e) {
-      // 1. 获取文档位置
-      let pos = null;
-      try {
-        // 如果是 CodeMirror 编辑器
-        if (client.editorView) {
-          // 如果是鼠标事件，使用 coordsAtPos 的逆向? 不，使用 posAtCoords
-          if (e.type === 'mouseover' || e.type === 'click' || e.type === 'mouseup') {
-             pos = client.editorView.posAtCoords({ x: e.clientX, y: e.clientY });
-          } 
-          // 如果是键盘事件，使用当前光标位置
-          else if (e.type === 'keyup' || e.type === 'selectionchange') {
-             pos = client.editorView.state.selection.main.head;
-          }
-        }
-      } catch (err) { /* console.warn("Pos calc error", err); */ }
-
-      if (pos === null) return;
-
-      // 2. 查找对应的标题 Index
-      const idx = DataModel.findHeadingIndexByPos(pos);
-      
-      // 3. 更新
-      updateState(idx);
+      View.renderFrozenBar(targetIndex, container);
     }
 
     // --- Event Handlers ---
-    
-    // 1. 鼠标移动 (Hover)
-    // 节流处理，避免过于频繁计算
-    let hoverTimer = null;
-    function onMouseOver(e) {
-       // 检查是否在编辑器内容区域内
-       if (!container.contains(e.target)) return;
-       
-       if (hoverTimer) cancelAnimationFrame(hoverTimer);
-       hoverTimer = requestAnimationFrame(() => {
-           resolvePositionAndHighlight(e);
-       });
+
+    // 1. Hover Logic
+    function onPointerOver(e) {
+      // 必须是标题元素
+      const target = e.target.closest(".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6");
+      if (!target || !container.contains(target)) return;
+
+      try {
+        const pos = client.editorView.posAtDOM(target);
+        const idx = DataModel.findHeadingIndexByPos(pos);
+        if (idx !== -1) {
+          updateState(idx);
+        }
+      } catch (err) { console.warn(err); }
     }
 
-    // 2. 点击与编辑 (Click / Keyup)
-    // 同样适用于点击文本区域进行编辑的情况
-    function onInteraction(e) {
-        resolvePositionAndHighlight(e);
-    }
-
-    // 3. 离开编辑器区域
-    function onMouseOut(e) {
-      if (!container.contains(e.relatedTarget)) {
-         // 可选：移出时是否保持最后的状态？
-         // 如果希望移出时清空，取消注释下面这行：
-         // updateState(-1);
+    function onPointerOut(e) {
+      const to = e.relatedTarget;
+      if (!to || !container.contains(to)) {
+        // 移出容器，清除高亮 (可选：也可以选择保持最后状态)
+        updateState(-1);
       }
     }
 
-    // 绑定监听器
-    // 使用 capture: true 还是 false? 默认冒泡即可。
-    container.addEventListener("mouseover", onMouseOver); 
-    container.addEventListener("mouseup", onInteraction); // 点击定位光标
-    container.addEventListener("keyup", onInteraction);   // 键盘打字/移动光标
-    container.addEventListener("mouseout", onMouseOut);
+    // 2. Scroll Logic (Sticky Header)
+    let isScrolling = false;
+    function handleScroll() {
+      // 滚动时，我们基于视口顶部的 DOM 元素来判断
+      // 找到第一个在视口内的标题
+      // 也可以直接用 editorView.viewport.from 获取当前视口起始位置
+      
+      const viewportTopPos = client.editorView.viewport.from;
+      
+      // 找到距离 viewportTopPos 最近的上方标题
+      // 在 Model 中找：start <= viewportTopPos 的最大索引
+      DataModel.rebuildSync();
+      
+      let bestIdx = -1;
+      // 简单的线性查找，因为是 Sticky 效果，找的是视口最上方的那个上下文
+      // 注意：这里逻辑稍微不同，我们想高亮的是"当前正文所属的标题"
+      for (let i = 0; i < DataModel.headings.length; i++) {
+        if (DataModel.headings[i].start <= viewportTopPos + 100) { // +100 容差
+          bestIdx = i;
+        } else {
+          break;
+        }
+      }
 
-    // Mutation Observer (处理文档内容变化)
+      // 如果鼠标正在 hover，不要让滚动覆盖 hover 的效果 (可选，看个人喜好)
+      // 这里设定：如果鼠标不在 container 内，则响应滚动；否则响应 hover
+      if (!container.matches(":hover")) {
+          updateState(bestIdx);
+      }
+      
+      isScrolling = false;
+    }
+
+    function onScroll() {
+      if (!isScrolling) {
+        window.requestAnimationFrame(handleScroll);
+        isScrolling = true;
+      }
+    }
+    
+    // 3. Mutation (CodeMirror 重新渲染 DOM 时保持高亮)
     const mo = new MutationObserver(() => {
-        // 重新构建索引并刷新高亮
-        DataModel.lastText = null; // 强制刷新
-        if (window[STATE_KEY].currentIndex !== -2) {
-           // 尝试保留当前高亮，但索引可能变了，简单起见重算当前光标位置
-           // 这里我们简单刷新一下视图
-           const idx = window[STATE_KEY].currentIndex;
-           const familyIndices = DataModel.getFamilyIndices(idx);
+        // DOM 结构变化（如滚动加载新行），需要重新应用当前状态的高亮
+        if (window[STATE_KEY].currentIndex !== -1) {
+           const familyIndices = DataModel.getFamilyIndices(window[STATE_KEY].currentIndex);
            View.applyHighlights(container, familyIndices);
         }
     });
-    mo.observe(container, { childList: true, subtree: true, characterData: true });
+    mo.observe(container, { childList: true, subtree: true });
+
+    // Bind
+    container.addEventListener("mouseover", onPointerOver); // mouseover 冒泡，pointerover 也行
+    container.addEventListener("mouseout", onPointerOut);
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     window[STATE_KEY].cleanup = () => {
-      container.removeEventListener("mouseover", onMouseOver);
-      container.removeEventListener("mouseup", onInteraction);
-      container.removeEventListener("keyup", onInteraction);
-      container.removeEventListener("mouseout", onMouseOut);
+      container.removeEventListener("mouseover", onPointerOver);
+      container.removeEventListener("mouseout", onPointerOut);
+      window.removeEventListener("scroll", onScroll);
       mo.disconnect();
-      
       View.applyHighlights(container, null);
-      const topEl = document.getElementById(View.topContainerId);
-      if (topEl) topEl.remove();
-      const botEl = document.getElementById(View.bottomContainerId);
-      if (botEl) botEl.remove();
-      
+      const fc = document.getElementById(View.containerId);
+      if (fc) fc.remove();
       DataModel.headings = [];
     };
 
-    console.log("[HHH] v10-FullContext Enabled");
+    console.log("[HHH] v9-Positional Enabled");
   };
 
   bind();
