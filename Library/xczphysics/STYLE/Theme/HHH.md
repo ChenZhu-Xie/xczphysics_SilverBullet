@@ -602,7 +602,7 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   --h5-color-light: #b84c1c;
   --h6-color-light: #993399;
 
-  --title-opacity: 0.5;
+  --title-opacity: 0.6;
 }
 
 /* 公共 H1–H6 行样式（编辑区内） */
@@ -636,7 +636,7 @@ html[data-theme="light"] {
 
 /* 高亮类：让激活的标题不透明 */
 .sb-active {
-  opacity: 1 !important;
+  opacity: 0.9 !important;
 }
 ```
 
