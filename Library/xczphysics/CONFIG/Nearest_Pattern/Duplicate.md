@@ -12,13 +12,6 @@ pageDecoration.prefix: "👯 "
 
 ## Page Version
 
-
-
-
-```lua
-
-```
-
 ```space-lua
 -- pattern def：{ name, pattern, priority }
 -- use % to escape special characters
