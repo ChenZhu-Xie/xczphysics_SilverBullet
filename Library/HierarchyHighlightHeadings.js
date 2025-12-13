@@ -190,10 +190,10 @@ const View = {
       div.onclick = (e) => {
         e.stopPropagation(); // 防止触发编辑器其他点击事件
         if (window.client) {
-            const pageName = client.currentName(); // 获取当前页面名称
+            const pagePath = client.currentPath(); // 获取当前页面名称
             // 构造符合 SilverBullet 内部 navigate 逻辑的对象
             client.navigate({
-                path: pageName,
+                path: pagePath,
                 details: {
                     type: "header",
                     header: h.text
@@ -257,9 +257,9 @@ const View = {
       div.onclick = (e) => {
         e.stopPropagation();
         if (window.client) {
-            const pageName = client.currentName();
+            const pagePath = client.currentPath();
             client.navigate({
-                path: pageName,
+                path: pagePath,
                 details: {
                     type: "header",
                     header: h.text
