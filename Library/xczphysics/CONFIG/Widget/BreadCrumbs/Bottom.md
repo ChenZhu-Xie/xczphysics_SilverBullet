@@ -91,7 +91,8 @@ function Yg.bc(path)
       from index.tag 'page'
       -- where _.name:find("^" .. current_page .. "/")
       where _.name:startsWith(current_page .. "/")
-      select {name = string.match(_.name, "([^/]+)$")}
+      select { path = _.name,
+        name = string.match(_.name, "([^/]+)$") }
     ]]
   end
 
@@ -113,7 +114,7 @@ function Yg.bc(path)
       local function pick_child()
         local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
         if not opt then return end
-        editor.navigate(opt.name)
+        editor.navigate(opt.path)
       end
 
       local buto = widgets.button(arrow_symbol_2 .. #options, pick_child)
@@ -135,7 +136,8 @@ function Yg.bc(path)
   -- pick siblings
   local options = query[[from index.tag "page" 
          where _.name ~= thisPage and _.name:find(pattern(mypath))
-         select {name = string.match(_.name, "([^/]+)$")}]]
+         select { path = _.name,
+        name = string.match(_.name, "([^/]+)$") }]]
   -- table.insert(dom_list, " " .. visitsSuffix)
   if #options == 0 then
     table.insert(dom_list, "👀")
@@ -143,7 +145,7 @@ function Yg.bc(path)
     local function pick_sibling()
       local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
       if not opt then return end
-      editor.navigate(opt.name)
+      editor.navigate(opt.path)
     end
     local buto = widgets.button("🧑‍🤝‍🧑" .. #options, pick_sibling)
     table.insert(dom_list, buto)
