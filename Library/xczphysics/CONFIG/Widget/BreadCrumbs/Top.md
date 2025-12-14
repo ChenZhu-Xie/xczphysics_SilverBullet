@@ -189,6 +189,7 @@ event.listen {
 
 ```space-lua
 -- 最近修改/访问徽章
+local mypage = path or editor.getCurrentPage()
 local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
 
 -- 支持最多 9 个（对应 1~9）
@@ -238,6 +239,7 @@ event.listen {
 ### TOP breadcrumb 3
 
 ```space-lua
+local mypage = path or editor.getCurrentPage()
 local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 -- 支持最多 9 个（对应 1~9）
