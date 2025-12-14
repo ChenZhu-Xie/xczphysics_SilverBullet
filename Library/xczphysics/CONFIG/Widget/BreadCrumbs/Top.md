@@ -54,14 +54,6 @@ Related:
 -- priority: 10
 yg = yg or {}
 
--- 辅助：判断是否有子页面
-function has_children(mypage)
-  local children = query[[from index.tag "page"
-         where _.name:find("^" .. mypage .. "/")
-         limit 1]]
-  return #children > 0
-end
-
 -- 面包屑：根据是否有子页面，使用 🧑‍🤝‍🧑 或 👩🏼‍🤝‍👩🏻 拼接
 function yg.bc(path)
   local mypage = path or editor.getCurrentPage()
@@ -182,7 +174,15 @@ event.listen {
 ### TOP breadcrumb 2
 
 ```space-lua
--- priority: 9
+-- priority: 11
+
+-- 辅助：判断是否有子页面
+function has_children(mypage)
+  local children = query[[from index.tag "page"
+         where _.name:find("^" .. mypage .. "/")
+         limit 1]]
+  return #children > 0
+end
 
 -- 模板改为使用 ${badge}，具体符号在数据阶段注入
 function bc_last()
@@ -230,7 +230,7 @@ end
 ```
 
 ```space-lua
--- priority: 19
+-- priority: 21
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
@@ -242,7 +242,7 @@ event.listen {
 ### TOP breadcrumb 3
 
 ```space-lua
--- priority: 8
+-- priority: 9
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -285,7 +285,7 @@ end
 ```
 
 ```space-lua
--- priority: 18
+-- priority: 19
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
