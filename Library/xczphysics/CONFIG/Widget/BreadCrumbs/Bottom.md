@@ -162,6 +162,9 @@ function Yg.lastM(thisPage, mypath)
   return list
 end
 
+local thisPage = path or editor.getCurrentPage()
+local mypath = thisPage:match("^(.*)/[^/]*$")
+
 -- 最近修改 / 最近访问（带序号徽章）
 local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
 
@@ -206,6 +209,9 @@ function Yg.lastV(thisPage, mypath)
   end
   return list
 end
+
+local thisPage = path or editor.getCurrentPage()
+local mypath = thisPage:match("^(.*)/[^/]*$")
 
 local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
 
