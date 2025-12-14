@@ -13,8 +13,8 @@ Some #reflections on the Use of #LLMs:
 Both the use and the training of LLM resembles a process of natural selection: preserving every advantageous variation it produces. #abstract
 
 1. Variation: LLM training (Dev) mutates parameters; LLM interaction (Use) mutates outputs.
-2. Inheritance: successive weights (Dev) and outputs (Use) differ minimally; prompts mediate a → b as operators.
-3. Selection: advantageous parameters (Dev) and code (Use) persist.
+2. Inheritance: successive weights (Dev) and outputs (Use) differ minimally; BPs and prompts mediate a → b as operators.
+3. Selection: advantageous parameters (Dev) and codes (Use) persist.
 
 炼金术 的 另一种 intepretation?
 
