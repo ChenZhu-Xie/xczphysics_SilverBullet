@@ -1,6 +1,28 @@
-#LLM #💡
+---
+Title: Humans as the “Natural Selectors” of LLMs
+Abstract: "Both the use and the training of LLM resembles a process of natural selection: preserving every advantageous variation it produces."
+---
+#LLM #💡 
 
-# 人类 = LLM 的 “自然选择器”
+Some #reflections on the Use of #LLMs:
+
+# 压缩后
+
+## Humans as the “Natural Selectors” of LLMs
+
+Both the use and the training of LLM resembles a process of natural selection: preserving every advantageous variation it produces. #abstract
+
+1. Variation: LLM training (Dev) mutates parameters; LLM interaction (Use) mutates outputs.
+2. Inheritance: successive weights (Dev) and outputs (Use) differ minimally; prompts mediate a → b as operators.
+3. Selection: advantageous parameters (Dev) and code (Use) persist.
+
+炼金术 的 另一种 intepretation?
+
+- [@xczphysics](https://mastodon.social/@xczphysics/115717288134607059) #mastodon #social
+
+# 原文
+
+## 人类 = LLM 的 “自然选择器”
 
 人类用 AI 的过程像是：在保留它的每一次有利变异...不是么？
 
