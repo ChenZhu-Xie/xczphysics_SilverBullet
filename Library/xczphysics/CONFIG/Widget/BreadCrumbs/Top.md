@@ -155,7 +155,7 @@ function yg.bc(path)
   local dash = "\n"
   table.insert(dom_list, visiTimes)
   table.insert(dom_list, "\n" .. dash .. lastMs)
-  table.insert(dom_list, "\n" .. lastVs)
+  table.insert(dom_list, "\n" .. dash .. lastVs)
 
   return dom_list
 end
