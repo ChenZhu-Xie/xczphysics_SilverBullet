@@ -27,15 +27,15 @@ pageDecoration.prefix: "🎇 "
 ```space-lua
 local jsCode = [[
 // Library/HierarchyHighlightHeadings.js
-// HHH v10-FullScope & DualNav (Refactored Style)
-// 1. Hover/Edit anywhere triggers hierarchy
-// 2. Top-Left: Ancestors (Breadcrumbs) - v9 Style & Position
-// 3. Bottom-Left: Descendants (Subtree) - v9 Style & Position
+// HHH v11-FixAndFeatures
+// 1. Fix: Robust highlighting on hover/edit (added delays for DOM updates)
+// 2. Feature: Background highlight with transparency
+// 3. Feature: Gradient underline
 
-const STATE_KEY = "__xhHighlightState_v10";
+const STATE_KEY = "__xhHighlightState_v11";
 
 // ==========================================
-// 1. Model: 数据模型 (保持 v10 逻辑)
+// 1. Model: 数据模型
 // ==========================================
 
 const DataModel = {
@@ -53,6 +53,7 @@ const DataModel = {
 
   rebuildSync() {
     const text = this.getFullText();
+    // 即使文本没变，如果 headings 为空也需要重建（初始化情况）
     if (text === this.lastText && this.headings.length > 0) return;
 
     this.lastText = text;
@@ -143,14 +144,13 @@ const DataModel = {
 };
 
 // ==========================================
-// 2. View: 视图渲染 (修改为 v9 样式和定位)
+// 2. View: 视图渲染
 // ==========================================
 
 const View = {
   topContainerId: "sb-frozen-container-top",
   bottomContainerId: "sb-frozen-container-bottom",
 
-  // 创建或获取容器
   getContainer(id) {
     let el = document.getElementById(id);
     if (!el) {
@@ -161,14 +161,12 @@ const View = {
       el.style.display = "none";
       el.style.flexDirection = "column";
       el.style.alignItems = "flex-start";
-      el.style.pointerEvents = "auto"; // 确保容器允许点击交互
-      // 移除这里写死的 top/left/bottom，改为在 render 时根据容器计算
+      el.style.pointerEvents = "auto";
       document.body.appendChild(el);
     }
     return el;
   },
 
-  // 渲染左上角：父级链
   renderTopBar(targetIndex, container) {
     const el = this.getContainer(this.topContainerId);
     if (targetIndex === -1) {
@@ -182,60 +180,43 @@ const View = {
       return;
     }
 
-    // --- 定位逻辑 (参照 v9，移回编辑器内，并防止挤压) ---
     if (container) {
         const rect = container.getBoundingClientRect();
-        // Left: 容器左边 + 45px (防止太靠边)
         el.style.left = (rect.left + 45) + "px";
-        // Top: 容器顶部 + 50px (避开顶部菜单)
         el.style.top = (rect.top + 30) + "px";
     }
 
     el.innerHTML = "";
     el.style.display = "flex";
     
-    // 标题 (样式简化，去除了背景色)
     const label = document.createElement("div");
     label.textContent = "Context:";
     label.style.fontSize = "10px";
     label.style.opacity = "0.5";
     label.style.marginBottom = "2px";
-    label.style.pointerEvents = "none"; // 标签无需响应点击
+    label.style.pointerEvents = "none";
     el.appendChild(label);
 
     list.forEach(h => {
       const div = document.createElement("div");
-      // 还原 v9 样式：只保留 className，去除背景、边框、圆角等内联样式
       div.className = `sb-frozen-item sb-frozen-l${h.level}`;
       div.textContent = h.text;
-      
-      // 仅保留少量间距调整，不添加颜色
       div.style.margin = "1px 0";
-
-      // --- 新增功能：点击跳转 ---
-      // 保持 UI 不变，仅增加鼠标手势提示
       div.style.cursor = "pointer";
       div.onclick = (e) => {
-        e.stopPropagation(); // 防止触发编辑器其他点击事件
+        e.stopPropagation();
         if (window.client) {
-            const pagePath = client.currentPath(); // 获取当前页面名称
-            // 构造符合 SilverBullet 内部 navigate 逻辑的对象
+            const pagePath = client.currentPath();
             client.navigate({
                 path: pagePath,
-                details: {
-                    type: "header",
-                    header: h.text
-                }
+                details: { type: "header", header: h.text }
             });
         }
       };
-      // ------------------------
-      
       el.appendChild(div);
     });
   },
 
-  // 渲染左下角：子级链
   renderBottomBar(targetIndex, container) {
     const el = this.getContainer(this.bottomContainerId);
     if (targetIndex === -1) {
@@ -249,11 +230,10 @@ const View = {
       return;
     }
 
-    // --- 定位逻辑 ---
     if (container) {
         const rect = container.getBoundingClientRect();
-        el.style.left = (rect.left + 45) + "px"; // 同上，防止挤压
-        el.style.bottom = "30px"; // 底部固定距离
+        el.style.left = (rect.left + 45) + "px";
+        el.style.bottom = "30px";
         el.style.top = "auto";
     }
 
@@ -272,15 +252,9 @@ const View = {
       const div = document.createElement("div");
       div.className = `sb-frozen-item sb-frozen-l${h.level}`;
       div.textContent = h.text;
-      
-      // 还原 v9 样式：去除背景、边框
       div.style.margin = "1px 0";
-      
-      // 保留缩进逻辑（结构性样式），以便区分层级
       const indent = (h.level - DataModel.headings[targetIndex].level) * 10;
       div.style.marginLeft = `${indent}px`;
-
-      // --- 新增功能：点击跳转 ---
       div.style.cursor = "pointer";
       div.onclick = (e) => {
         e.stopPropagation();
@@ -288,22 +262,18 @@ const View = {
             const pagePath = client.currentPath();
             client.navigate({
                 path: pagePath,
-                details: {
-                    type: "header",
-                    header: h.text
-                }
+                details: { type: "header", header: h.text }
             });
         }
       };
-      // ------------------------
-      
       el.appendChild(div);
     });
   },
 
-  // DOM 高亮 (文档内的标题树高亮 - 保持 v10 逻辑)
+  // DOM 高亮逻辑
   applyHighlights(container, activeIndices) {
     const cls = ["sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"];
+    // 先清除旧的高亮，防止状态残留
     container.querySelectorAll("." + cls.join(", .")).forEach(el => el.classList.remove(...cls));
 
     if (!activeIndices || activeIndices.size === 0) return;
@@ -311,16 +281,20 @@ const View = {
     if (!window.client || !client.editorView) return;
     const view = client.editorView;
 
+    // 扩大查找范围，确保能找到所有标题行
     const visibleHeadings = container.querySelectorAll(".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6");
     
     visibleHeadings.forEach(el => {
       try {
         const pos = view.posAtDOM(el);
-        const idx = DataModel.findHeadingIndexByPos(pos);
+        // 使用 posAtDOM 有时会偏差，增加一定容错
+        const idx = DataModel.findHeadingIndexByPos(pos + 1);
         
         if (idx !== -1 && activeIndices.has(idx)) {
+            // 再次确认位置是否匹配（防止误判）
             const h = DataModel.headings[idx];
-            if (pos >= h.start - 10 && pos <= h.end + 10) {
+            // 只要 DOM 元素位置在标题范围内即可
+            if (pos >= h.start - 50 && pos <= h.end + 50) {
                  el.classList.add("sb-active");
                  if (idx === window[STATE_KEY].currentIndex) {
                     el.classList.add("sb-active-current");
@@ -358,11 +332,12 @@ export function enableHighlight(opts = {}) {
 
     window[STATE_KEY] = {
       currentIndex: -1,
-      cleanup: null
+      cleanup: null,
+      updateTimeout: null
     };
 
     function updateState(targetIndex) {
-      if (targetIndex === window[STATE_KEY].currentIndex) return;
+      // 即使 index 没变，也要重新 applyHighlights，因为 DOM 可能重绘了（例如打字时）
       window[STATE_KEY].currentIndex = targetIndex;
 
       if (targetIndex === -1) {
@@ -374,7 +349,6 @@ export function enableHighlight(opts = {}) {
 
       const familyIndices = DataModel.getFamilyIndices(targetIndex);
       View.applyHighlights(container, familyIndices);
-      // 传入 container 以便计算位置
       View.renderTopBar(targetIndex, container);
       View.renderBottomBar(targetIndex, container);
     }
@@ -382,35 +356,44 @@ export function enableHighlight(opts = {}) {
     // --- Event Handlers ---
 
     function onPointerOver(e) {
-      const target = e.target.closest(".cm-line, .sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6");
       if (!container.contains(e.target)) return;
 
       try {
-        let pos;
-        if (target) {
-            pos = client.editorView.posAtDOM(target);
-        } else {
-            pos = client.editorView.posAtCoords({x: e.clientX, y: e.clientY});
-        }
-
+        // 优先使用 posAtCoords，这比 target.closest 更准确，尤其是对于复杂的 CodeMirror 结构
+        const pos = client.editorView.posAtCoords({x: e.clientX, y: e.clientY});
         if (pos != null) {
           const idx = DataModel.findHeadingIndexByPos(pos);
-          updateState(idx);
+          // 只有当索引变化时才触发，避免高频闪烁，但要确保高亮存在
+          if (idx !== window[STATE_KEY].currentIndex || !document.querySelector(".sb-active")) {
+             updateState(idx);
+          }
         }
       } catch (err) { }
     }
 
-    function onCursorActivity() {
-      try {
-        const state = client.editorView.state;
-        const pos = state.selection.main.head;
-        const idx = DataModel.findHeadingIndexByPos(pos);
-        updateState(idx);
-      } catch (e) {}
+    // 编辑或点击时的处理
+    function onCursorActivity(e) {
+      // 使用 setTimeout 是关键修复：
+      // 当用户打字（keyup）时，CodeMirror 需要几毫秒来更新 DOM（添加 .sb-line-hX 类）。
+      // 如果立即执行，querySelectorAll 找不到新生成的标题元素，导致高亮失败。
+      if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
+      
+      window[STATE_KEY].updateTimeout = setTimeout(() => {
+        try {
+            // 两种策略：如果有鼠标位置用鼠标，否则用光标
+            // 这里主要处理编辑，所以优先用光标位置
+            const state = client.editorView.state;
+            const pos = state.selection.main.head;
+            const idx = DataModel.findHeadingIndexByPos(pos);
+            updateState(idx);
+        } catch (e) {}
+      }, 50); // 50ms 延迟通常足够等待 DOM 更新
     }
 
     let isScrolling = false;
     function handleScroll() {
+      // 滚动时如果鼠标在悬停，不强制改变（防止冲突），除非需要跟随视口
+      // 但为了持续高亮，我们允许滚动更新顶部索引
       if (container.matches(":hover")) {
           isScrolling = false;
           return;
@@ -429,17 +412,23 @@ export function enableHighlight(opts = {}) {
       }
     }
     
-    const mo = new MutationObserver(() => {
+    // 监听 DOM 变化，防止 CodeMirror 重绘导致高亮丢失
+    const mo = new MutationObserver((mutations) => {
+        // 只有当实际上有高亮需求时才重绘
         if (window[STATE_KEY].currentIndex !== -1) {
-           const familyIndices = DataModel.getFamilyIndices(window[STATE_KEY].currentIndex);
-           View.applyHighlights(container, familyIndices);
+           // 检查是否丢失了高亮类
+           const activeEl = container.querySelector(".sb-active");
+           if (!activeEl) {
+               const familyIndices = DataModel.getFamilyIndices(window[STATE_KEY].currentIndex);
+               View.applyHighlights(container, familyIndices);
+           }
         }
     });
-    mo.observe(container, { childList: true, subtree: true });
+    mo.observe(container, { childList: true, subtree: true, attributes: false });
 
     container.addEventListener("pointerover", onPointerOver); 
     container.addEventListener("click", onCursorActivity);
-    container.addEventListener("keyup", onCursorActivity);
+    container.addEventListener("keyup", onCursorActivity); // 确保键盘编辑时触发
     window.addEventListener("scroll", onScroll, { passive: true });
 
     window[STATE_KEY].cleanup = () => {
@@ -448,6 +437,7 @@ export function enableHighlight(opts = {}) {
       container.removeEventListener("keyup", onCursorActivity);
       window.removeEventListener("scroll", onScroll);
       mo.disconnect();
+      if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
       
       View.applyHighlights(container, null);
       const top = document.getElementById(View.topContainerId);
@@ -457,7 +447,7 @@ export function enableHighlight(opts = {}) {
       DataModel.headings = [];
     };
 
-    console.log("[HHH] v10-FullScope (v9 Style) Enabled");
+    console.log("[HHH] v11-FixAndFeatures Enabled");
   };
 
   bind();
@@ -527,20 +517,19 @@ event.listen {
 
 ```space-style
 /* =========================================
-   1. 容器样式
+   1. 容器样式 (Navigation Bars)
    ========================================= */
 #sb-frozen-container-top,
 #sb-frozen-container-bottom {
-  /* 这些样式由 JS 动态控制位置，但这里保留基础属性 */
   display: flex;
   flex-direction: column;
-  gap: 3px; /* 稍微增加间距，防止误触 */
+  gap: 3px;
   align-items: flex-start;
-  pointer-events: none; /* 容器本身不挡鼠标，子元素开启 */
+  pointer-events: none;
 }
 
 /* =========================================
-   2. 标题胶囊样式 (核心修改)
+   2. 导航胶囊样式 (Pills)
    ========================================= */
 .sb-frozen-item {
   display: inline-block;
@@ -550,65 +539,48 @@ event.listen {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  pointer-events: auto; /* 允许点击 */
-  cursor: pointer;      /* 鼠标变为手型 */
+  pointer-events: auto;
+  cursor: pointer;
 
   margin: 0 !important;
-  padding: 0.2em 0.6em; /* 稍微增加内边距，更像按钮 */
+  padding: 0.2em 0.6em;
   border-radius: 4px;
   box-sizing: border-box;
 
-  /* 默认状态：半透明，稍微低调 */
   opacity: 0.8 !important; 
   background-color: var(--bg-color, #ffffff);
   
-  /* 边框和阴影 */
-  border: 1px solid transparent; /* 预留边框位置，防止悬停抖动 */
+  border: 1px solid transparent;
   border-bottom-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   
   font-family: inherit;
-  transition: all 0.15s ease-out; /* 添加平滑过渡动画 */
+  transition: all 0.15s ease-out;
 }
 
-/* =========================================
-   3. 悬停交互 (Hover Effect) - 响应用户操作
-   ========================================= */
 .sb-frozen-item:hover {
-  /* 状态变化：完全不透明 */
-  opacity: 0.8 !important; 
+  opacity: 1 !important; 
   z-index: 1001;
-
-  /* 视觉反馈：加亮、加深背景对比 */
   filter: brightness(0.95) contrast(0.95);
-  
-  /* 物理反馈：轻微上浮 + 阴影加深 */
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-
-  /* 边框反馈：边框颜色变为文字颜色（即标题色），产生高亮框效果 */
   border-color: currentColor; 
 }
 
-/* =========================================
-   4. 暗色模式适配
-   ========================================= */
 @media (prefers-color-scheme: dark) {
   .sb-frozen-item {
     background-color: var(--bg-color-dark, #252629);
     border-bottom-color: rgba(255,255,255,0.06);
   }
-  
-  /* 暗色模式下的悬停特调 */
   .sb-frozen-item:hover {
-    background-color: #333; /* 悬停时背景略微提亮 */
-    filter: brightness(1.2); /* 文字颜色更亮 */
+    background-color: #333;
+    filter: brightness(1.2);
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   }
 }
 
 /* =========================================
-   5. 颜色定义 (保持不变)
+   3. 颜色定义 (Colors)
    ========================================= */
 html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
 html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
@@ -625,7 +597,7 @@ html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
 html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
 
 :root {
-  /* Dark theme 颜色变量 */
+  /* Dark theme colors */
   --h1-color-dark: #e6c8ff;
   --h2-color-dark: #a0d8ff;
   --h3-color-dark: #98ffb3;
@@ -633,7 +605,7 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   --h5-color-dark: #ffb48c;
   --h6-color-dark: #ffa8ff;
 
-  /* Light theme 颜色变量 */
+  /* Light theme colors */
   --h1-color-light: #6b2e8c;
   --h2-color-light: #1c4e8b;
   --h3-color-light: #1a6644;
@@ -644,17 +616,30 @@ html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
   --title-opacity: 0.5;
 }
 
-/* 编辑区内的高亮样式 */
+/* =========================================
+   4. 编辑器内标题样式 (Editor Headings)
+   ========================================= */
+
+/* 基础样式：渐变下划线 (Feature 2) */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
 .sb-line-h4, .sb-line-h5, .sb-line-h6 {
-  position: relative;
+  position: relative; /* 为伪元素定位做准备 */
   opacity: var(--title-opacity);
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  transition: opacity 0.15s; /* 编辑区内的高亮也加点过渡 */
+  
+  /* 移除原本的实线边框 */
+  border-bottom: none !important;
+  
+  /* 新增：从左往右渐暗的下划线 */
+  /* 使用 currentColor 自动匹配标题颜色 */
+  background-image: linear-gradient(90deg, currentColor, transparent);
+  background-size: 100% 2px; /* 宽度100%，高度2px */
+  background-position: 0 100%; /* 位于底部 */
+  background-repeat: no-repeat;
+  
+  transition: opacity 0.15s;
 }
 
-/* Dark Theme Fonts */
+/* 字体大小与颜色映射 (保持不变) */
 html[data-theme="dark"] {
   .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
   .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
@@ -664,7 +649,6 @@ html[data-theme="dark"] {
   .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-dark)!important; }
 }
 
-/* Light Theme Fonts */
 html[data-theme="light"] {
   .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
   .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
@@ -674,8 +658,34 @@ html[data-theme="light"] {
   .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-light)!important; }
 }
 
-/* 激活状态 */
+/* =========================================
+   5. 高亮状态 (Active State)
+   ========================================= */
+
+/* 激活时增加不透明度 */
 .sb-active {
-  opacity: 0.8 !important;
+  opacity: 1 !important;
+}
+
+/* 新增：高亮时的背景色块 (Feature 1) */
+/* 使用 ::before 伪元素来实现背景色，并应用透明度 */
+.sb-active::before {
+  content: "";
+  position: absolute;
+  top: -2px; 
+  left: -4px; 
+  right: -4px; 
+  bottom: 0;
+  
+  /* 关键：使用标题自身的颜色作为背景色 */
+  background-color: currentColor;
+  
+  /* 设置透明度，使其不完全遮挡 */
+  opacity: 0.15; 
+  
+  /* 放置在文字下方 */
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 4px;
 }
 ```
