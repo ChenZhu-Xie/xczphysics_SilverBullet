@@ -109,6 +109,6 @@ SB 以及 Tana、Logseq 也可以有自己的 对象们
 - Tana 就不存在这个问题...因为它家全都是闭源的。
     - 从同步到数据格式再到...
 
-Dinox 群里有提到 indexedDB Viewer #crx <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
+Dinox 群里有提到 [[Daydream/IndexedDB Exporter v2.0.crx]] #crx <https://www.chajianxw.com/developer/57097.html> 可以解析 flomo 网页端 对应的 indexedDB，并导出 对应的 json 文件
 
 linked to [how pass values input to a widget](https://community.silverbullet.md/t/how-pass-values-input-to-a-widget/3588/8?u=chenzhu-xie) #community #silverbullet
