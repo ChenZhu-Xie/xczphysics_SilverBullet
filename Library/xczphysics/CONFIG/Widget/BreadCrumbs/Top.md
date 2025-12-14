@@ -51,7 +51,7 @@ Related:
 ### TOP breadcrumb 1
 
 ```space-lua
--- priority: 9
+-- priority: 10
 
 -- 面包屑：根据是否有子页面，使用 🧑‍🤝‍🧑 或 👩🏼‍🤝‍👩🏻 拼接
 function yg.bc(path)
@@ -161,7 +161,7 @@ end
 ```
 
 ```space-lua
--- priority: 19
+-- priority: 20
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
@@ -173,7 +173,7 @@ event.listen {
 ### TOP breadcrumb 2
 
 ```space-lua
--- priority: 10
+-- priority: 11
 yg = yg or {}
 
 -- 辅助：判断是否有子页面
@@ -230,7 +230,7 @@ end
 ```
 
 ```space-lua
--- priority: 20
+-- priority: 21
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
@@ -242,7 +242,7 @@ event.listen {
 ### TOP breadcrumb 3
 
 ```space-lua
--- priority: 8
+-- priority: 9
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -285,7 +285,7 @@ end
 ```
 
 ```space-lua
--- priority: 18
+-- priority: 19
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
