@@ -151,11 +151,10 @@ function yg.bc(path)
     local buto = widgets.button("👶🏻" .. #options, pick_child)
     table.insert(dom_list, buto)
   end
-  -- local dash = "···························" .. "\n"
-  local dash = "\n"
+  
   table.insert(dom_list, visiTimes)
-  table.insert(dom_list, "\n" .. dash .. lastMs)
-  table.insert(dom_list, "\n" .. dash .. lastVs)
+  -- table.insert(dom_list, lastMs)
+  -- table.insert(dom_list, lastVs)
 
   return dom_list
 end
