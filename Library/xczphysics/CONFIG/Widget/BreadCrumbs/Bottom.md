@@ -67,10 +67,6 @@ function Yg.bc(path)
     table.insert(dom_list, "[[" .. current .. "]]")
   end
 
-  -- 最近修改 / 最近访问（带序号徽章）
-  local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
-  local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
-
   -- 访问次数
   local data = datastore.get({"Visitimes", thisPage}) or {}
   local visits = data.value or 0
@@ -95,8 +91,8 @@ function Yg.bc(path)
     table.insert(dom_list, buto)
   end
   table.insert(dom_list, visiTimes)
-  table.insert(dom_list, "\n" .. lastMs)
-  table.insert(dom_list, "\n" .. lastVs)
+  -- table.insert(dom_list, "\n" .. lastMs)
+  -- table.insert(dom_list, "\n" .. lastVs)
   
   return dom_list
 end
@@ -123,7 +119,13 @@ event.listen {
 ### BOTTOM breadcrumb 2
 
 ```space-lua
+-- priority: 11
 Yg = Yg or {}
+
+-- 模板使用 ${badge}，序号徽章在数据阶段注入
+function Bc_last()
+  return template.new([==[${badge}[[${name}]]​]==])
+end
 
 -- 仅用于 pattern() 的场景选择（保留原逻辑）
 function choose(a, b, path)
@@ -132,11 +134,6 @@ function choose(a, b, path)
   else
     return b
   end
-end
-
--- 模板使用 ${badge}，序号徽章在数据阶段注入
-function Bc_last()
-  return template.new([==[${badge}[[${name}]]​]==])
 end
 
 -- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
@@ -165,6 +162,34 @@ function Yg.lastM(thisPage, mypath)
   return list
 end
 
+-- 最近修改 / 最近访问（带序号徽章）
+local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
+
+function widgets.breadcrumbs_B2()
+  return widget.new {
+    -- markdown = lastMs
+    html = dom.div(lastMs),
+    display = "block",
+  }
+end
+```
+
+```space-lua
+-- priority: 21
+event.listen {
+  name = "hooks:renderBottomWidgets",
+  run = function(e)
+    return widgets.breadcrumbs_B2()
+  end
+}
+```
+
+### BOTTOM breadcrumb 3
+
+```space-lua
+-- priority: 9
+local max_num = 5  -- 如需覆盖 1~9，可改为 9
+
 function Yg.lastV(thisPage, mypath)
   local list = query[[from editor.getRecentlyOpenedPages "page"
          where _.lastOpened and _.name ~= thisPage and _.name:find(pattern(mypath))
@@ -182,16 +207,23 @@ function Yg.lastV(thisPage, mypath)
   return list
 end
 
+local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
+
+function widgets.breadcrumbs_B3()
+  return widget.new {
+    -- markdown = lastVs
+    html = dom.div(lastVs),
+    display = "block",
+  }
+end
 ```
 
-### BOTTOM breadcrumb 3
-
 ```space-lua
--- priority: 20
+-- priority: 19
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function(e)
-    return widgets.breadcrumbs_B1()
+    return widgets.breadcrumbs_B3()
   end
 }
 ```
