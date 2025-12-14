@@ -184,14 +184,10 @@ event.listen {
 }
 ```
 
-
 ### TOP breadcrumb 2
 
 ```space-lua
 -- priority: 10
--- 最近修改/访问徽章
-local mypage = path or editor.getCurrentPage()
-local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -220,6 +216,10 @@ function yg.lastM(mypage)
   return list
 end
 
+-- 最近修改/访问徽章
+local mypage = path or editor.getCurrentPage()
+local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
+
 function widgets.breadcrumbs_2()
   return widget.new {
     markdown = lastMs
@@ -241,8 +241,6 @@ event.listen {
 
 ```space-lua
 -- priority: 10
-local mypage = path or editor.getCurrentPage()
-local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -271,6 +269,9 @@ function yg.lastV(mypage)
   end
   return list
 end
+
+local mypage = path or editor.getCurrentPage()
+local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_3()
   return widget.new {
