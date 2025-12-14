@@ -54,11 +54,6 @@ Related:
 -- priority: 10
 yg = yg or {}
 
--- 模板改为使用 ${badge}，具体符号在数据阶段注入
-function bc_last()
-  return template.new([==[${badge}[[${name}]]​]==])
-end
-
 -- 辅助：判断是否有子页面
 function has_children(mypage)
   local children = query[[from index.tag "page"
@@ -188,6 +183,11 @@ event.listen {
 
 ```space-lua
 -- priority: 9
+
+-- 模板改为使用 ${badge}，具体符号在数据阶段注入
+function bc_last()
+  return template.new([==[${badge}[[${name}]]​]==])
+end
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
