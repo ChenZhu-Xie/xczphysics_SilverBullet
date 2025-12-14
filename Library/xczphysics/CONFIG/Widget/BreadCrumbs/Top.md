@@ -46,7 +46,9 @@ Related:
 > **warning** Warning
 > depend on [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level|]]
 
-## Ver 5: add Picker widgets
+## Ver 5: add Picker widgets + Split into 3
+
+### TOP breadcrumb 1
 
 ```space-lua
 -- priority: 10
@@ -163,7 +165,7 @@ function yg.bc(path)
   return dom_list
 end
 
-function widgets.breadcrumbs()
+function widgets.breadcrumbs_1()
   return widget.new {
     -- markdown = yg.bc()
     html = dom.div(yg.bc()),
@@ -172,10 +174,22 @@ function widgets.breadcrumbs()
 end
 ```
 
+
+```space-lua
+-- priority: 20
+event.listen {
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    return widgets.breadcrumbs_1()
+  end
+}
+```
+
+### TOP breadcrumb 2
+
 ```space-lua
 -- 最近修改/访问徽章
 local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
-local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -204,6 +218,31 @@ function yg.lastM(mypage)
   return list
 end
 
+function widgets.breadcrumbs_2()
+  return widget.new {
+    markdown = lastMs
+  }
+end
+```
+
+```space-lua
+-- priority: 19
+event.listen {
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    return widgets.breadcrumbs_2()
+  end
+}
+```
+
+### TOP breadcrumb 3
+
+```space-lua
+local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
+
+-- 支持最多 9 个（对应 1~9）
+local max_num = 5
+
 function yg.lastV(mypage)
   local hasChild = has_children(mypage)
 
@@ -228,6 +267,22 @@ function yg.lastV(mypage)
   end
   return list
 end
+
+function widgets.breadcrumbs_3()
+  return widget.new {
+    markdown = lastVs
+  }
+end
+```
+
+```space-lua
+-- priority: 18
+event.listen {
+  name = "hooks:renderTopWidgets",
+  run = function(e)
+    return widgets.breadcrumbs_3()
+  end
+}
 ```
 
 ## Ver 4: Adapt To [[Library/xczphysics/CONFIG/Add_Fields_for_Obj/Last_Opened-Page#Visitimes 2: Client level]] and [[index#Your Last Visit 👶🏻]]
@@ -794,7 +849,7 @@ function widgets.breadcrumbs()
 end
 ```
 
-```space-lua
+```lua
 -- priority: 20
 event.listen {
   name = "hooks:renderTopWidgets",
