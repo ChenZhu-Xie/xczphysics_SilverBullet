@@ -187,7 +187,7 @@ event.listen {
 ### TOP breadcrumb 2
 
 ```space-lua
--- priority: 10
+-- priority: 9
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
@@ -240,7 +240,7 @@ event.listen {
 ### TOP breadcrumb 3
 
 ```space-lua
--- priority: 10
+-- priority: 8
 
 -- 支持最多 9 个（对应 1~9）
 local max_num = 5
