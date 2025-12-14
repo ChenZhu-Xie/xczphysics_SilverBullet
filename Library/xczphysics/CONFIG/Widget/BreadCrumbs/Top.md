@@ -52,7 +52,6 @@ Related:
 
 ```space-lua
 -- priority: 9
-yg = yg or {}
 
 -- 面包屑：根据是否有子页面，使用 🧑‍🤝‍🧑 或 👩🏼‍🤝‍👩🏻 拼接
 function yg.bc(path)
@@ -175,6 +174,7 @@ event.listen {
 
 ```space-lua
 -- priority: 10
+yg = yg or {}
 
 -- 辅助：判断是否有子页面
 function has_children(mypage)
