@@ -2,7 +2,7 @@
 Title: Humans as the “Natural Selectors” of LLMs
 Abstract: "Both the use and the training of LLM resembles a process of natural selection: preserving every advantageous variation it produces."
 ---
-#LLM #💡 
+#LLMs #💡 
 
 Some #reflections on the Use of #LLMs:
 
@@ -37,5 +37,3 @@ Both the use and the training of LLM resembles a process of natural selection: p
 3.  **选择（selection）**：环境偏好某些特征，这些特征在种群里越来越多。
     - 每次训练 LLM 后，新 LLM 相对于 旧 LLM，所遗留的优良性状及对应 Gene，被选择性保留
     - 每次使用 LLM 后，LLM 作用于旧代码后，生成的新代码中，表现优良的部分，及对应的 code，被选择性保留
-
-
