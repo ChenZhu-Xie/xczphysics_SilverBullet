@@ -137,8 +137,8 @@ function choose(a, b, path)
   end
 end
 
--- 与原逻辑一致：决定“同父级子页”或“顶层单段”的匹配
-function pattern(path)
+-- 找 "parent/folder/to/file" 中的 file name
+function pattern(path) -- path 是直接父目录 "parent/folder/to"
   -- return choose("^" .. path .. "/[^/]+$", "^[^/]+$", path)
   local a = path and ("^" .. path .. "/[^/]+$") or nil
   return choose(a, "^[^/]+$", path)
@@ -165,6 +165,7 @@ end
 
 local thisPage = path or editor.getCurrentPage()
 local mypath = thisPage:match("^(.*)/[^/]*$")
+ -- mypath 是直接父目录 "parent/folder/to"
 
 -- 最近修改 / 最近访问（带序号徽章）
 local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
