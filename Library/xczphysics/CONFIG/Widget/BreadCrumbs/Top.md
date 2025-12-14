@@ -222,7 +222,7 @@ local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_2()
   return widget.new {
-    html = dom.div(lastMs),
+    html = dom.div({ lastMs }),
     display = "block",
   }
 end
