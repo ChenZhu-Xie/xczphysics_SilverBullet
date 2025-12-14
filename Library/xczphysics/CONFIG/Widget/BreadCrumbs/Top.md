@@ -222,6 +222,7 @@ local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_2()
   return widget.new {
+    -- markdown = lastMs
     html = dom.div({ lastMs }),
     display = "block",
   }
@@ -276,7 +277,9 @@ local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_3()
   return widget.new {
-    markdown = lastVs
+    -- markdown = lastVs
+    html = dom.div({ lastVs }),
+    display = "block",
   }
 end
 ```
