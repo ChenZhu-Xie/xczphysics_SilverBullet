@@ -191,6 +191,11 @@ event.listen {
 
 ### BOTTOM breadcrumb 3
 
+${query[[from editor.getRecentlyOpenedPages "page"
+         where _.lastOpened and _.name ~= editor.getCurrentPage() and _.name:find(pattern(editor.getCurrentPage()))
+         order by _.lastOpened desc
+         limit 5]]}
+
 ```space-lua
 -- priority: 9
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
