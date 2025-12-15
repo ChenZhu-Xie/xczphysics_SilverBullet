@@ -8,7 +8,7 @@ Some #reflections on the Use of #LLMs:
 
 # 压缩后
 
-## Humans as the “Natural Selectors” of LLMs
+## Humans as the "Natural Selectors" of LLMs
 
 Both the use and the training of LLM resembles a process of natural selection: preserving every advantageous variation it produces. #abstract
 
