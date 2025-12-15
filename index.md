@@ -1,4 +1,4 @@
-[[CONFIG/Add_Fields_for_Obj/Last_Opened-Page/Query@823]]
+
 # Hello 👋
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
