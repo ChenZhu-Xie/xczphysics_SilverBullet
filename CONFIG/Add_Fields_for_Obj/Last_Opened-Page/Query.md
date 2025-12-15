@@ -27,6 +27,8 @@ ${utilities.RecentlyOpenedPages(12)}
 2. https://chatgpt.com/share/6908ca51-ebf4-8010-9900-25e55eacaa6a
 
 ```space-lua
+utilities = utilities or {}
+
 function utilities.RecentlyOpenedPages(limit)
   local raw = editor.getRecentlyOpenedPages()
   local pages = {}
