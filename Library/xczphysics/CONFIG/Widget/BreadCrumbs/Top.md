@@ -101,10 +101,9 @@ local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_2()
   return widget.new {
-    markdown = lastMs,
-    markdown = lastMs
-    -- html = dom.div({ lastMs }),
-    -- display = "block",
+    -- markdown = lastMs,
+    html = dom.div({ lastMs }),
+    display = "block",
   }
 end
 ```
@@ -112,7 +111,8 @@ end
 ```space-lua
 -- priority: 2
 event.listen {
-  name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
+  -- name = "hooks:renderTopWidgets",
   run = function(e)
     return widgets.breadcrumbs_2()
   end
@@ -279,9 +279,9 @@ local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
 
 function widgets.breadcrumbs_3()
   return widget.new {
-    markdown = lastVs
-    -- html = dom.div({ lastVs }),
-    -- display = "block",
+    -- markdown = lastVs
+    html = dom.div({ lastVs }),
+    display = "block",
   }
 end
 ```
@@ -289,7 +289,8 @@ end
 ```space-lua
 -- priority: 0
 event.listen {
-  name = "hooks:renderTopWidgets",
+  name = "editor:pageLoaded",
+  -- name = "hooks:renderTopWidgets",
   run = function(e)
     return widgets.breadcrumbs_3()
   end
