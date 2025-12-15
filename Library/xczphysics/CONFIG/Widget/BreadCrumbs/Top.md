@@ -217,11 +217,10 @@ function yg.lastM(mypage)
   return list
 end
 
--- 最近修改/访问徽章
-local mypage = path or editor.getCurrentPage()
-local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
-
 function widgets.breadcrumbs_2()
+  local mypage = path or editor.getCurrentPage()
+  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
+  
   return widget.new {
     -- markdown = lastMs,
     html = dom.div({ lastMs }),
@@ -274,10 +273,10 @@ function yg.lastV(mypage)
   return list
 end
 
-local mypage = path or editor.getCurrentPage()
-local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
-
 function widgets.breadcrumbs_3()
+  local mypage = path or editor.getCurrentPage()
+  local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
+  
   return widget.new {
     -- markdown = lastVs
     html = dom.div({ lastVs }),
