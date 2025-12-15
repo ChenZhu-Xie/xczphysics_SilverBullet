@@ -108,7 +108,7 @@ end
 ```
 
 ```space-lua
--- priority: 20
+-- priority: 1
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function(e)
@@ -180,7 +180,7 @@ end
 ```
 
 ```space-lua
--- priority: 21
+-- priority: 2
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function(e)
@@ -227,7 +227,7 @@ end
 ```
 
 ```space-lua
--- priority: 19
+-- priority: 0
 event.listen {
   name = "hooks:renderBottomWidgets",
   run = function(e)
