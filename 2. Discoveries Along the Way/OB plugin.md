@@ -1,5 +1,6 @@
 
-- 
+
+- [Implied Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Implied+Edge+Builders) #publish #obsidian
 
 
 
