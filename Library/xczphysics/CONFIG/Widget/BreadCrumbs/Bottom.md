@@ -163,14 +163,12 @@ function Yg.lastM(thisPage, mypath)
   return list
 end
 
-local thisPage = path or editor.getCurrentPage()
-local mypath = thisPage:match("^(.*)/[^/]*$")
- -- mypath 是直接父目录 "parent/folder/to"
-
--- 最近修改 / 最近访问（带序号徽章）
-local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
-
 function widgets.breadcrumbs_B2()
+  local thisPage = path or editor.getCurrentPage()
+  local mypath = thisPage:match("^(.*)/[^/]*$")
+   -- mypath 是直接父目录 "parent/folder/to"
+  local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ""
+  
   return widget.new {
     -- markdown = lastMs
     html = dom.div({ lastMs }),
@@ -212,12 +210,11 @@ function Yg.lastV(thisPage, mypath)
   return list
 end
 
-local thisPage = path or editor.getCurrentPage()
-local mypath = thisPage:match("^(.*)/[^/]*$")
-
-local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
-
 function widgets.breadcrumbs_B3()
+  local thisPage = path or editor.getCurrentPage()
+  local mypath = thisPage:match("^(.*)/[^/]*$")
+  local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
+  
   return widget.new {
     -- markdown = lastVs
     html = dom.div({ lastVs }),
