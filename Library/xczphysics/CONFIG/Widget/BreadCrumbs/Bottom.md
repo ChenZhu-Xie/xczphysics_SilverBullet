@@ -191,9 +191,6 @@ event.listen {
 
 ### BOTTOM breadcrumb 3
 
-${query[[from index.tag "page" 
-         where _.name:find(pattern(editor.getCurrentPage()))]]}
-
 ```space-lua
 -- priority: 9
 local max_num = 5  -- 如需覆盖 1~9，可改为 9
