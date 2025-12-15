@@ -161,7 +161,7 @@ end
 ```
 
 ```space-lua
--- priority: -1
+-- priority: 20
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
@@ -230,7 +230,7 @@ end
 ```
 
 ```space-lua
--- priority: -1
+-- priority: 21
 event.listen {
   name = "hooks:renderTopWidgets",
   run = function(e)
