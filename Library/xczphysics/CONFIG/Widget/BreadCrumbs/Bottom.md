@@ -220,7 +220,7 @@ local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
 function widgets.breadcrumbs_B3()
   return widget.new {
     -- markdown = lastVs
-    html = dom.div({ lastVs }),
+    html = dom.div({ lastVs,lastVs }),
     display = "block",
   }
 end
