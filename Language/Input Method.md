@@ -139,7 +139,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - z_ dhjb xbxi uehv , womf dajx d x  y_  uiys urf. v_ y_ vsyc gsju
 
 6. 清韵
- - ;  d j. 
+ - ;  d j. x x  s h  , w m  d j  d x  y_  s y/ srf_ w_ ke z y  g j2
 
 ## 对比
 > - z\_dijrxrxzsnehu,w\_mrdejodvxveyxsreyuscurpfdzly\_zvuyxghjbi.
@@ -150,7 +150,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 墨奇 z_dhjbxbxiuehv,womfdajxdzxuyc_uiysurf.v_y.vsycgsju
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
- - 清韵 
+ - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
@@ -160,14 +160,14 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 墨奇 uh de xi la   zi mu  h_ uu xt fu hc  zfme daf_
 - 万象 uh de xi la   zi mu  he uu xt fu hc  zfme da    词 2 码长
 - 简单 u; d_ xi la   zi mu  h_ uu xt fu hc  zfme daj_
-- 清韵 
+- 清韵 s, e  x  l    z  m2  /  s  x  f  h2  z mo nk_
 
 # 整句 3 对比
 >- 充满希望的跋涉比到达目的地更能给人乐趣。
 - 小鹤 ismjxiwhd_bauebi_dcdamddiggnggwrflequ
 - 简单 im;xw_d_baueb;dcdamdd;ggnggwrflequ
 - 四拼 ymxs;bveaaebiddaemdd\_gneegreolqaa.
-- 清韵 cmxwebseA2beddamddGn/2gr0lq8
+- 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
 
 # 整句 4 对比
