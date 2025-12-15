@@ -12,11 +12,14 @@
 
 ## 比如 
 
-a 节点 [parent:c 节点]
-b 
+a 节点 [parent:[[c 节点]]]
+b 节点 [parent:[[c 节点]]]
 
-那么无须显式指定地，b 节点会自带 1 个对应属性 [child]
+那么无须显式指定地，
+c 节点[children:{[[a 节点]], [[b 节点]]}]
+会自动填充 1 个对应属性（但这个属性含有 1 个包含 2 个 child 的 list）
 
+也就是说 ${latex.inline[[a,b \ c]]}
 
 ${embed.youtube "https://www.youtube.com/watch?v=DXXB7fHcArg&t=897s"}
 
