@@ -191,10 +191,8 @@ event.listen {
 
 ### BOTTOM breadcrumb 3
 
-${query[[from editor.getRecentlyOpenedPages "page"
-         where _.lastOpened and _.name ~= editor.getCurrentPage() and _.name:find(pattern(editor.getCurrentPage()))
-         order by _.lastOpened desc
-         limit 5]]}
+${query[[from index.tag "page" 
+         where _.name:find(pattern(editor.getCurrentPage()))]]}
 
 ```space-lua
 -- priority: 9
