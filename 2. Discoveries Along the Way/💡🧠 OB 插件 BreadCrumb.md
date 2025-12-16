@@ -56,9 +56,9 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 除了 [手动添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Typed+Links) 外，可以按规则
 自动添加显式边：[Explicit Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Explicit+Edge+Builders) #publish #obsidian
 - 在 fields 中，除了 implied 边可以根据 [设计的规则](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations#Options)，进行自动推导外，
-1. 显式边也可以自动补全属性名，和自动添加属性值
-2. 以及 给 [按规则过滤](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes) 后的页面，[批量添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)
-3. 不通过 page attr，而通过 页面内的 [文本内容](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
+1. 显式边也可以 [自动补全属性名](https://publish.obsidian.md/breadcrumbs-docs/Suggesters/Metadata+Field+Suggester)，和 [自动添加属性值](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes)
+2. 以及 给 按规则过滤 后的页面，[批量添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)
+4. 不通过 page attr，而通过 页面内的 [文本内容](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
 
 
 # 但实际上 wiki 中的上下文，正是边
