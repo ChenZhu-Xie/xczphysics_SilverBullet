@@ -15,7 +15,7 @@
       - 不应该，因为 OB 也用 CodeMirror（5 正在升级到 6）
 
 # 边 edge = 节点与节点 之间的 连接(算符)
- - 是个箭头，有方向（像 AnyType 的 graph，最终构成一张 [[有向图]]）
+ - 是个箭头/单射，有方向（像 AnyType 的 graph，最终构成一张 [[有向图]]）
  - 是个函数，有反函数
  - 是个矩阵，有逆矩阵
  - 是个称呼，有对应称呼
@@ -69,7 +69,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
        - 尽管也是在 自动建立 forward wikis...
          - 然后通过 auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]]，实现 逆过程的自动补全。
        - 自动收集完了 forward wikis as key:value 后
-         - 再通过 refresh/rebuild 的 key:values 自动展示 该页面的图谱
+         - 再通过 refresh/rebuild 的 key:values 自动展示/render 该页面所参与链接的图谱
 2. ==批量起点==：给 按规则过滤 后的页面们，批量添加显式边（暂做不到？）
    - query 到的 多页面（对象）${latex.inline[[\xrightarrow[]{\text{的 1 key:}}]]} 1 value（as `[[page]]`）
    - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 ==批量终点== 配合 hook:render-top-widget + auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]] 来自动实现这个逆过程呢？
@@ -77,9 +77,18 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
 4. 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
 
-### 反思：这和
+### 反思：Tana 的 SuperTag
 
+这个 OB 插件，单纯只对 fields 进行解析，tag 只用于 filer values。
+  - 甚至也没有对 fields 进行自动修改？
+    - 显式构造边的 values 都是查询条件
+      - （而不是查询结果：页面对象作为value）
+    - 隐式构造边的 key 和 values 都只在 render 后的结果中出现，甚至都不出现在 frontmatter 中
 
+反观 Tana，它虽然自动添加 fields 甚至 keys，但得有 SuperTag 标记节点
+- Tana 的 fields 总是从属地、次要的。但也允许单独给节点加 fields。
+- OB 的机制、Tana 的机制，两种逻辑能共存么？哪个更好？还是说可以融合成一个更大的 picture?
+  - 这或许能在 SilverBullet 中得到回答：到底 fields 应不应该继承自 SuperTag
 
 # 但实际上 wiki 中的上下文，正是边
 
