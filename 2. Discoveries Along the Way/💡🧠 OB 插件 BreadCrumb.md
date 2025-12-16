@@ -9,7 +9,7 @@
 - 比树形系统 更自由，但也更 manual：需要 手动维护 非 implied 的 edge
 - ==题外话==
   - OB 部署后缺失了 SB 和 Logseq 的 CMDs
-    - 因此 deploy 后像是个经典的静态网页，而不是应用 app
+    - 因此 deploy 后像是个经典的静态网页，而不是应用 app?
   - OB 部署后，鼠标移到链接上的预览，与 Logseq 一样都有，且无限深度
     - SB 是不是 因为 CodeMirror6 而丢失了此功能？
       - 不应该，因为 OB 也用 CodeMirror（5 正在升级到 6）
