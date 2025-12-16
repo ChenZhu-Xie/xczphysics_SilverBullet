@@ -60,6 +60,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 1. 显式边也可以 [自动补全属性名](https://publish.obsidian.md/breadcrumbs-docs/Suggesters/Metadata+Field+Suggester)，和 [自动添加属性值(比如通过 tag)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes)
    - ==批量终点==：属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
      - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
+     - 每一个 page 都在按自己的规则(不止一条)，自动找它的朋友们#类比
 2. ==批量起点==：给 按规则过滤 后的页面，批量添加显式边（暂做不到？）
    - 这个 SB 似乎非常容易做到（通过 CMDs）
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
