@@ -43,6 +43,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 [Transitive Implied Relations](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations) #publish #obsidian
 - parent^2^ = grandparent
 - the day after tomorrow
+  - 类似 SB 的 [[CONFIG/Auto_Completions/Natural_Language_Dates]] 
 
 ### 多级/深度 推理
 
@@ -61,8 +62,10 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
    - ==批量终点==：属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
      - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
      - 每一个 page 都在按自己的规则(不止一条)，自动找它的朋友们#类比
-2. ==批量起点==：给 按规则过滤 后的页面，批量添加显式边（暂做不到？）
-   - 这个 SB 似乎非常容易做到（通过 CMDs）
+     - 1 页面 ${latex.inline[[\xleftarrow[]{\text{1 key}}]]} query 到的 多values
+2. ==批量起点==：给 按规则过滤 后的页面们，批量添加显式边（暂做不到？）
+   - query 到的 多页面 ${latex.inline[[\xrightarrow[]{\text{1 key}}]]} 1 value
+   - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
    - 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
 
@@ -70,7 +73,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 # 但实际上 wiki 中的上下文，正是边
 
 然后 前向链接对象（出口）的 反向链接 又展示了 其相对于入口关系，
-那么 这个功能似乎 也已经有了...
+那么 这个功能似乎 也已经有了... 即 页面底部的 反链，已经够了？
 那么 ...似乎 OB 的这个插件，
 - 除了能更直观地看出 diagram（类似 AnyType 或 Mermain 或 Tikz 含箭头的流程图 = upgraded graph view）外，没有其他太多的帮助？
 
