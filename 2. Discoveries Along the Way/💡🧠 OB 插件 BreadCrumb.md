@@ -1,11 +1,5 @@
 #💡 #PKM #🧠 
 
-```space-lua
-local function asdf()
-  local var =
-end
-```
-
 [CONTEXT:我在搜寻 OB 的 BreadCrumb 插件（向竞争对手学习）时，发现它的逻辑和 SiYuan 的 BreadCrumb 插件不一样，有自己独特的 edge 属性]
 
 尽管该插件所用的 attr 像 SB 一样，是页面层级的，且该插件年久失修
