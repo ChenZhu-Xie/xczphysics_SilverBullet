@@ -42,6 +42,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 
 [Transitive Implied Relations](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations) #publish #obsidian
 - parent^2^ = grandparent
+- the day after tomorrow
 
 ### 多级/深度 推理
 
@@ -57,7 +58,8 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 自动添加显式边：[Explicit Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Explicit+Edge+Builders) #publish #obsidian
 - 在 fields 中，除了 implied 边可以根据 [设计的规则](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations#Options)，进行自动推导外，
 1. 显式边也可以 [自动补全属性名](https://publish.obsidian.md/breadcrumbs-docs/Suggesters/Metadata+Field+Suggester)，和 [自动添加属性值](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes)
-2. 以及 给 按规则过滤 后的页面，[批量添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)
+   - 属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
+3. 以及 给 按规则过滤 后的页面，[批量添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)
 4. 不通过 page attr，而通过 页面内的 [文本内容](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
 
 
