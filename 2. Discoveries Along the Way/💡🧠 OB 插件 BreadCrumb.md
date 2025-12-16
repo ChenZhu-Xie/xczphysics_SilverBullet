@@ -30,8 +30,8 @@ b 节点 [parent:[[c 节点]]]
 ## 自动推断 缺失且互反/逆的 隐式关系 attr及值
 
 那么无须显式指定地，
-c 节点[children:{[[a 节点]], [[b 节点]]}]
-会自动填充 1 个对应属性（但这个属性含有 1 个包含 2 个 child 的 list）
+c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
+对应属性，及其值（但这个 属性:值 含有一个包含 2 个 child 的 list）
 - 即 `[[c 节点]]` is the parent of `[[a 节点]]` and `[[b 节点]]`
 - 或 `[[a 节点]]` and `[[b 节点]]` is the children of `[[c 节点]]`
 
@@ -50,6 +50,12 @@ c 节点[children:{[[a 节点]], [[b 节点]]}]
 - 那么至少需要 2 层推理，得出 a,b 互为兄弟关系：
   1. c 是 a 的父亲，b 是 c 的儿子
   2. 父亲的儿子是兄弟，所以：b的父亲c的儿子a，是b的兄弟
+
+### 还有一些 值得借鉴的东西
+
+[Explicit Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Explicit+Edge+Builders) #publish #obsidian
+- 在 fields 中，除了 implied 边可以根据 [设计的规则](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations#Options)，进行自动推导外，
+- 显式边也可以自动补全属性名，和自动添加属性值
 
 # 但实际上 wiki 中的上下文，正是边
 
