@@ -85,7 +85,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
       - （而不是查询结果：页面对象作为value）
     - 隐式构造边的 key 和 values 都只在 render 后的结果中出现，甚至都不出现在 frontmatter 中
 
-反观 Tana，它虽然自动添加 fields 甚至 keys，但得有 SuperTag 标记节点
+反观 #Tana,它虽然自动添加 fields 甚至 keys，但得有 SuperTag 标记节点
 - Tana 的 fields 总是从属地、次要的。但也允许单独给节点加 fields。
 - OB 的机制、Tana 的机制，两种逻辑能共存么？哪个更好？还是说可以融合成一个更大的 picture?
   - 这或许能在 SilverBullet 中得到回答：到底 fields 应不应该继承自 SuperTag
