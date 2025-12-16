@@ -62,6 +62,8 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
    - ==批量终点==：属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
      - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
      - 每一个 page 都在按自己的规则(不止一条)，自动找它的朋友们#类比
+       - use its own rule to forward link to its own friends...
+       - 当然，更 meta 一点是，根据 folder 的 path/fields/tags 自动生成它的 matching rule... 
      - 1 页面（对象）${latex.inline[[\xleftarrow[]{\text{的 1 key:}}]]} query 到的 多values（as `[[pages]]`）
        - query 对象后 + add 对象至 key:对应的 value 的动作
          - 可以被安排发生在 hook:render-top-widget 的事件中
