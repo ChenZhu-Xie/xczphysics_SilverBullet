@@ -57,11 +57,13 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 除了 [手动添加显式边](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Typed+Links) 外，可以按规则
 自动添加显式边：[Explicit Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Explicit+Edge+Builders) #publish #obsidian
 - 在 fields 中，除了 implied 边可以根据 [设计的规则](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Transitive+Implied+Relations#Options)，进行自动推导外，
-1. 显式边也可以 [自动补全属性名](https://publish.obsidian.md/breadcrumbs-docs/Suggesters/Metadata+Field+Suggester)，和 [自动添加属性值](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes)
+1. 显式边也可以 [自动补全属性名](https://publish.obsidian.md/breadcrumbs-docs/Suggesters/Metadata+Field+Suggester)，和 [自动添加属性值(比如通过 tag)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Tag+Notes)
    - ==批量终点==：属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
-   - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
-3. ==批量起点==：给 按规则过滤 后的页面，批量添加显式边
-4. 不通过 page attr，而通过 页面内的 [文本内容](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
+     - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
+2. ==批量起点==：给 按规则过滤 后的页面，批量添加显式边（暂做不到？）
+   - 这个 SB 似乎非常容易做到（通过 CMDs）
+3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
+   - 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
 
 
 # 但实际上 wiki 中的上下文，正是边
