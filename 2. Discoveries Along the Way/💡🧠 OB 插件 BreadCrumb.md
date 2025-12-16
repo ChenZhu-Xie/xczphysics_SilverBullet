@@ -62,13 +62,18 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
    - ==批量终点==：属性值一般是 [按规则过滤后的页面对象们](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Regex+Notes)，是箭头的终点
      - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
      - 每一个 page 都在按自己的规则(不止一条)，自动找它的朋友们#类比
-     - 1 页面（对象） ${latex.inline[[\xleftarrow[]{\text{1 key:}}]]} query 到的 多values
+     - 1 页面（对象）${latex.inline[[\xleftarrow[]{\text{的 1 key:}}]]} query 到的 多values
+       - query 对象后 + add 对象至 key:对应的 value 的动作
+         - 可以被安排发生在 hook:render-top-widget 的事件中
+     - 相比手动 建立 forward wiki，这就更 “自动收集器” 一点了
+       - 尽管也是在 自动建立 forward wikis...
+         - 然后通过 auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]]，实现 逆过程的自动补全。
 2. ==批量起点==：给 按规则过滤 后的页面们，批量添加显式边（暂做不到？）
-   - query 到的 多页面（对象） ${latex.inline[[\xrightarrow[]{\text{1 key:}}]]} 1 value
-   - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 SB
+   - query 到的 多页面（对象）${latex.inline[[\xrightarrow[]{\text{的 1 key:}}]]} 1 value
+   - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 ==批量终点== 配合 hook:render-top-widget + auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]] 来自动实现这个逆过程呢？
+     - 可能这也是为什么...这个 OB 插件的作者，没有做类似的功能的原因?
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
    - 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
-
 
 # 但实际上 wiki 中的上下文，正是边
 
