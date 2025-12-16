@@ -73,7 +73,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
    - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 ==批量终点== 配合 hook:render-top-widget + auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]] 来自动实现这个逆过程呢？
      - 可能这也是为什么...这个 OB 插件的作者，没有做类似的功能的原因?
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
-   - 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
+4. 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
 
 # 但实际上 wiki 中的上下文，正是边
 
@@ -81,7 +81,6 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 那么 这个功能似乎 也已经有了... 即 页面底部的 反链，已经够了？
 那么 ...似乎 OB 的这个插件，
 - 除了能更直观地看出 diagram（类似 AnyType 或 Mermain 或 Tikz 含箭头的流程图 = upgraded graph view）外，没有其他太多的帮助？
-
 
 ${embed.youtube "https://www.youtube.com/watch?v=DXXB7fHcArg&t=897s"}
 
