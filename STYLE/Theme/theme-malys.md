@@ -31,8 +31,6 @@ Dark theme thought for readibility and productivity.
 ## Editor
 
 
-
-
 ### asdfasdfsss
 
 
