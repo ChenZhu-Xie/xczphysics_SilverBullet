@@ -72,7 +72,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
          - 再通过 refresh/rebuild 的 key:values 自动展示/render 该页面所参与链接的图谱
 2. ==批量起点==：给 按规则过滤 后的页面们，批量添加显式边（暂做不到？）
    - query 到的 多页面（对象）${latex.inline[[\xrightarrow[]{\text{的 1 key:}}]]} 1 value（as `[[page]]`）
-   - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 ==批量终点== 配合 hook:render-top-widget + auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]] 来自动实现这个逆过程呢？
+   - 这个 SB 似乎也容易做到（通过 CMDs），但为什么不通过 ==批量终点/出链== 配合 hook:render-top-widget + auto-backlinks + [[#自动推断 缺失且互反/逆的 隐式关系 attr及值]] 来自动实现这个逆过程呢？
      - 可能这也是为什么...这个 OB 插件的作者，没有做类似的功能的原因?
 3. 不通过 page attr，而通过 页面内的 [文本内容(如 list)](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/List+Notes) 来构建 显示边
 4. 或者 通过 [页面名](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Dendron+Notes)、[文件夹结构](https://publish.obsidian.md/breadcrumbs-docs/Explicit+Edge+Builders/Folder+Notes) 构建显示边
