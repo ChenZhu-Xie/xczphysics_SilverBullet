@@ -2,6 +2,9 @@
 
 [CONTEXT:我在搜寻 OB 的 BreadCrumb 插件（向竞争对手学习）时，发现它的逻辑和 SiYuan的 BreadCrumb 插件不一样，有自己独特的 edge 属性]
 
+尽管该插件所用的 attr 像 SB 一样，是页面层级的，且该插件年久失修
+- 但概念上（对我来说）是新颖的，且很容易拓展到 行/块/bullet 层级。
+
 - [Implied Edge Builders](https://publish.obsidian.md/breadcrumbs-docs/Implied+Edge+Builders/Implied+Edge+Builders) #publish #obsidian
 - 比树形系统 更自由，但也更 manual：需要 手动维护 非 implied 的 edge
 - ==题外话==
