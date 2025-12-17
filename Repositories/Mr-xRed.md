@@ -3,7 +3,7 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: 5373e4fc
+share.hash: 9b16a894
 share.mode: pull
 ---
 
@@ -23,6 +23,11 @@ name: "⛅ OpenWeatherMap_Widgets"
 uri: github:Mr-xRed/silverbullet-libraries/OpenWeatherMap_Widgets.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/OpenWeatherMap_Widgets.md
 description: "OpenWeatherMap Widget and slash commands"
+---
+name: "🗂️ Document Explorer"
+uri: github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DocumentExplorer.md
+description: "Document Explorer VirtualPage"
 ```
 
 ## Productivity Shortcuts
