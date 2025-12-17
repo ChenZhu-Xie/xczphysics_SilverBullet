@@ -1,4 +1,4 @@
-#一些_link_资源
+#links #资源
 
 # WGPU 相关的
 
@@ -8,3 +8,4 @@
 # WGPU 无关的
 
 https://openrouter.ai/
+- 图表好看：[rankings](https://openrouter.ai/rankings) #openrouter
