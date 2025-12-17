@@ -11,5 +11,5 @@ Silver Bullet 的大哥 也叫 Zed ...? nono Zef。
 
 ## ✌ Vim
 
-1. still use sublime! [hgnzu1q](https://www.reddit.com/r/webdev/comments/q88c5o/comment/hgnzu1q/?tl=zh-hans&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) #reddit
-2. still use sublime! [hgpevyu](https://www.reddit.com/r/webdev/comments/q88c5o/comment/hgpevyu/?tl=zh-hans&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) #reddit
+1. still use Sublime! [hgnzu1q](https://www.reddit.com/r/webdev/comments/q88c5o/comment/hgnzu1q/?tl=zh-hans&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) #reddit
+2. keep using Sublime! [hgpevyu](https://www.reddit.com/r/webdev/comments/q88c5o/comment/hgpevyu/?tl=zh-hans&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) #reddit
