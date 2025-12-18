@@ -1,4 +1,4 @@
-#links #资源
+#links #资源 #微信
 
 # WGPU 相关的
 
@@ -9,3 +9,4 @@
 
 https://openrouter.ai/
 - 图表好看：[rankings](https://openrouter.ai/rankings) #openrouter
+
