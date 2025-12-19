@@ -1,6 +1,5 @@
 
-# Unwrap and Copy Nearest Pattern
-
+Unwrap and Copy Nearest Pattern
 
 ## Page Ver
 
@@ -65,7 +64,7 @@ command.define{
     editor.replaceRange(match.start - 1, match.stop, core)
 
     editor.flashNotification(match.name .. ": Unwrapped ✅")
-    if not match.name == "Inline Code" then 
+    if not (match.name == "Inline Code") then 
       editor.flashNotification(core)
     end
   end
