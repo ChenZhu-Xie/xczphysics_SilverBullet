@@ -57,7 +57,7 @@ function Yg.bc(path)
     else
       -- 有 children：生成按钮，点击时直接用预先算好的 options
       local function pick_child()
-        local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Child", arrow_symbol_2 .. " a Child")
         if not opt then return end
         editor.navigate(opt.path)
       end
