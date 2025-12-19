@@ -59,6 +59,7 @@ function yg.bc(path)
   -- 仅决定视觉符号，不再直接拼接字符串
   local arrow_symbol_1 = has_children(mypage) and "⇩" or "⬇"
   local arrow_symbol_2 = has_children(mypage) and "🧑‍🤝‍🧑" or "👬🏼"
+  local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
   
   local parts = string.split(mypage, "/")
   local current = ""
@@ -108,7 +109,7 @@ function yg.bc(path)
     else
       -- 有 siblings：生成按钮，点击时直接用预先算好的 options
       local function pick_sibling()
-        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", "🧑‍🤝‍🧑 a Sibling")
+        local opt = editor.filterBox("🤏 Pick", options, "Select a Sibling", arrow_symbol_2 .. " a Sibling")
         if not opt then return end
         editor.navigate(opt.path)
       end
@@ -136,11 +137,11 @@ function yg.bc(path)
     table.insert(dom_list, "👀")
   else
     local function pick_child()
-      local opt = editor.filterBox("🤏 Pick", options, "Select a Child", "👶🏻 a Child")
+      local opt = editor.filterBox("🤏 Pick", options, "Select a Child", child_symbol_3 .. " a Child")
       if not opt then return end
       editor.navigate(opt.path)
     end
-    local buto = widgets.button("👶🏻" .. #options, pick_child)
+    local buto = widgets.button(child_symbol_3 .. #options, pick_child)
     table.insert(dom_list, buto)
   end
   
