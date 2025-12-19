@@ -1,11 +1,6 @@
 
 # Unwrap and Copy Nearest Pattern
 
-[[asdfa|sfd|||||asdfasdf|]]
-
-
-[asdf:asdffff]
-
 ## Page Ver
 
 ```space-lua
