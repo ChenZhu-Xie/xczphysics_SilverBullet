@@ -165,6 +165,23 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Delete](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 [Delete.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md) #github
 
+## 📦 Unwrap
+
+==Alt-w==
+Remove the nearest format `#meta/library/remote`
+
+> **warning** Warning
+> need `func() findNearestInlinePattern` from [[#👯 Duplicate]]
+
+```#meta/library/remote
+name: "Nearest_Pattern/Delete"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md
+```
+[[Library/xczphysics/CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete]]
+[Delete](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Nearest_Pattern/Delete#Delete%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
+[Delete.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md) #github
+
 # 🔎 Picker
 
 ## Heading
