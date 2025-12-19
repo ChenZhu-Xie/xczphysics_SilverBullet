@@ -1,8 +1,6 @@
 
 1. https://community.silverbullet.md/t/weather-widget-open-meteo/3649?u=chenzhu-xie
 
-
-
 ```lua
 -- Weather icon mapping (WMO Weather interpretation codes)
 local weatherIcons = {
