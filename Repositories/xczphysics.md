@@ -168,7 +168,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ## 📦 Unwrap
 
 ==Alt-w==
-Remove the nearest format `#meta/library/remote`
+Unwrap the nearest format `#meta/library/remote`
+
+
 
 > **warning** Warning
 > need `func() findNearestInlinePattern` from [[#👯 Duplicate]]

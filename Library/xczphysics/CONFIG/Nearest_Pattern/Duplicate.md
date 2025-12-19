@@ -17,6 +17,7 @@ pageDecoration.prefix: "👯 "
 -- use % to escape special characters
 -- you can add your own patterns
 INLINE_PATTERNS = {
+  { "Inline Code",   "`[^\n`]+`",                 105  }, -- ``?``
   { "Wiki Link",     "%[%[[^\n%]]+%]%]",          100 }, -- [[...]] 或 [[...|...]]
   { "Fields",        "%[[^\n%]]+:[^\n%]]+%]",     95  }, -- [key:value]
   { "Image",         "!%[[^\n%]]-%]%([^\n)]+%)",  90  }, -- ![alt](src)
@@ -29,10 +30,9 @@ INLINE_PATTERNS = {
   { "Sub",           "~[^ \n~]+~",                45  }, -- ^sub^
   { "Tag",           "#[^\n, %?%.:%|\\{}%)%(%*&%^%%%$#@!]+",               40  }, -- #tag
   { "Marker",        "==[^\n]+==",                35  }, -- ==?==
-  { "Inline Code",   "`[^\n`]+`",                 30  }, -- ``?``
   { "Header",        "(#+ [^\n]+)\n",             25  }, -- # header
-  { "Lua Block",     "```.*(lua)+[^`]+```",         21 }, -- ```...```
-  { "Script Block",  "```.*(script)+[^`]+```",      20 }, -- ```...```
+  { "Lua Block",     "```.*(lua)+[^`]+```",         115 }, -- ```...```
+  { "Script Block",  "```.*(script)+[^`]+```",      110 }, -- ```...```
 }
 
 function SelectiondistanceToCursor(startPos, endPos, cursorPos)
