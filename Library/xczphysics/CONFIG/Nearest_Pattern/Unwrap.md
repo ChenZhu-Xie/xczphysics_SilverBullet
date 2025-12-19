@@ -8,9 +8,6 @@
 
 ## Page Ver
 
-
-[](asdfllll)
-
 ```space-lua
 -- 辅助函数：提取不同模式下的“核” (Content)
 local function extractCore(name, text)
@@ -24,7 +21,7 @@ local function extractCore(name, text)
   elseif name == "Image" then
     return text:match("!%[[^%]]-%]%(([^)]+)%)") -- 取 src 文字
   elseif name == "Markdown Link" then
-    return text:match("%[[^%]]+%]%(([^)]+)%)") -- 取 [text](url) 中的 text
+    return text:match("%[[^%]]+%]%(([^)]+)%)") -- 取 [text](url) 中的 url
   elseif name == "Color Func" then
     return text:match("%([\"\']([^\"\']+)[\"\']%)") -- 取 ${Color("value")} 中的 value
   elseif name == "Bold" then
