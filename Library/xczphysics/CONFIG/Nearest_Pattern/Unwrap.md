@@ -1,6 +1,8 @@
 
 # Unwrap and Copy Nearest Pattern
 
+[[asdfa|sfd|||||asdfasdf|]]
+
 
 ## Page Ver
 
@@ -10,7 +12,7 @@ local function extractCore(name, text)
   if name == "Wiki Link" then
     -- 匹配 [[text]] 或 [[link|text]]，取最后的部分
     local core = text:match("%[%[([^%]]+)%]%]")
-    if core and core:find("|") then core = core:match("|([^|]+)$") end
+    if core and core:find("|") then core = core:match("^([^|]+)|") end
     return core
   elseif name == "Fields" then
     return text:match("%[[^:]+:([^%]]+)%]") -- 取 [key:value] 中的 value
