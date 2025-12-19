@@ -65,7 +65,7 @@ command.define{
     editor.replaceRange(match.start - 1, match.stop, core)
 
     editor.flashNotification(match.name .. ": Unwrapped ✅")
-    if not (match.name == "Inline Code") then 
+    if not match.name:find"Block" then 
       editor.flashNotification(core)
     end
   end
