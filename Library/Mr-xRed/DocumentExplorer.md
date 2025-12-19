@@ -3,7 +3,7 @@ name: "Library/Mr-xRed/DocumentExplorer"
 tags: meta/library
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: 2956b666
+share.hash: 19e2611e
 share.mode: pull
 ---
 
@@ -18,27 +18,31 @@ share.mode: pull
 ## Supported Browsers:
 * 🟢 Chrome:  tested(Mac&Win) & working 
 * 🟢 Edge:    tested(Win) & working
-* 🟢 Brave:   tested(Mac) & working
-* 🟢 Firefox: tested(Mac) & working (animations doesn`t work)
-* 🟢 Safari:  tested(Mac) & working on latest edge 
+* 🟢 Brave:   tested(Mac&Linux) & working
+* 🟢 Firefox: tested(Mac) & working
+* 🟢 Safari:  tested(Mac) & working (on latest edge)
 
 
 ## GoTo: ${widgets.commandButton("Document Explorer","Navigate: Document Explorer")} or use shortcut: `Ctrl-Alt-d`
 
-## Configuration Options and Defaults:
-* `homeDirName`    - Name how your Home Directory appears in the Breadcrumbs (default: "🏠 Home")
-* `widgetHeight`   - Height of the widget in the VirtualPage (default: "75vh")
-* `tileSize`       - the tile size, recommanded between 100px-200px (default: "160px") 
-* `goToCurrentDir` - start navigation in the Directory of the currently opened page (default: true)
-
+## ## Configuration Options and Defaults:
+* `homeDirName`        - Name how your Home Directory appears in the Breadcrumbs (default: "🏠 Home")
+* `virtulaPagePattern` - Virtual page pattern (default: "🗂️ Explorer")
+* `widgetHeight`       - Height of the widget in the VirtualPage (default: "75vh")
+* `tileSize`           - Tile size, recommended between 100px-200px (default: "120px") 
+* `goToCurrentDir`     - Start navigation in the Directory of the currently opened page (default: true)
+* `viewMode`           - Choose between “grid” and “list” (default: grid)
 
 ```lua
-config.set( "explorer", {
-            homeDirName = "🏠 Home",
-            widgetHeight = "75vh",
-            tileSize = "160px", 
-            goToCurrentDir = true,
-}) 
+config.set("explorer", {
+  homeDirName = "🏠 Home",
+  virtualPagePattern = "🗂️ Explorer",
+  widgetHeight = "75vh",
+  tileSize = "120px",
+  goToCurrentDir = true,
+  viewMode = "grid"
+})
+
 ```
 
 > **note** Note
@@ -54,10 +58,14 @@ config.define("explorer", {
     tileSize = schema.string(),
     widgetHeight = schema.string(),
     homeDirName = schema.string(),
+    virtualPagePattern = schema.string(),
     goToCurrentDir = schema.boolean(),
-   }
+    viewMode = schema.string() -- "grid" | "list"
+  }
 })
+
 ```
+
 
 ### Command
 ```space-lua
@@ -69,20 +77,22 @@ command.define {
     local cfg = config.get("explorer") or {}
     local goToCurrentDir = cfg.goToCurrentDir ~= false
     local path = ""
- 
-    if current == "explorer" or current:match("^explorer/") then
+    local virtualPagePattern = cfg.virtualPagePattern or "🗂️ Explorer"
+    local virtualPagePatternMatch = "^" .. virtualPagePattern .. "/"
+
+    if current == virtualPagePattern or current:match(virtualPagePatternMatch) then
       editor.navigate(current)
       return
     end
-    
-   if goToCurrentDir then
+
+    if goToCurrentDir then
       path = current:match("^(.*)/") or ""
     end
 
     if path ~= "" then
-      editor.navigate("explorer/" .. path)
+      editor.navigate(virtualPagePattern .. "/" .. path)
     else
-      editor.navigate("explorer")
+      editor.navigate(virtualPagePattern)
     end
   end
 }
@@ -92,17 +102,19 @@ command.define {
 ### Document Explorer Widget
 ```space-lua
 
---Defining Config Defaults
- local expConf = config.get("explorer") or {}
- local tileSize = expConf.tileSize or "160px"
- local homeDirName = expConf.homeDirName or "🏠 Home"
-  
-function widgets.documentExplorer(folderPrefix, height)
-  if not height or height == "" then
-    height = "75vh"
-  end
+-- Defining Config Defaults
+local cfg = config.get("explorer") or {}
+local tileSize = cfg.tileSize or "120px"
+local homeDirName = cfg.homeDirName or "🏠 Home"
+local virtualPagePattern = cfg.virtualPagePattern or "🗂️ Explorer"
 
+function widgets.documentExplorer(folderPrefix, height, viewMode)
+  height = height or "75vh"
   folderPrefix = folderPrefix or ""
+  viewMode = (viewMode == "list") and "list" or "grid"
+
+  local wrapperClass =
+    "document-explorer-wrapper " .. viewMode .. "-view"
 
   local files = space.listFiles()
   local folders, images, mds, pdfs, unknowns = {}, {}, {}, {}, {}
@@ -113,7 +125,6 @@ function widgets.documentExplorer(folderPrefix, height)
     if folderPrefix == "" or file.name:sub(1, #folderPrefix) == folderPrefix then
       local rest = file.name:sub(#folderPrefix + 1)
 
-      -- subfolders
       local slashPos = rest:find("/")
       if slashPos then
         local sub = rest:sub(1, slashPos - 1)
@@ -123,7 +134,6 @@ function widgets.documentExplorer(folderPrefix, height)
         end
       end
 
-      -- files only
       if not rest:find("/") then
         if rest:match("%.png$") or rest:match("%.jpg$")
           or rest:match("%.jpeg$") or rest:match("%.webp$")
@@ -151,13 +161,17 @@ function widgets.documentExplorer(folderPrefix, height)
   local path = ""
 
   table.insert(crumbs,
-    "<a href='/explorer' data-ref='/explorer'>".. homeDirName .."</a>"
+    "<a href='/" .. virtualPagePattern ..
+    "' data-ref='/" .. virtualPagePattern .. "'>" ..
+    homeDirName .. "</a>"
   )
 
   for part in folderPrefix:gmatch("([^/]+)/") do
     path = path .. part .. "/"
     table.insert(crumbs,
-      "<a href='/explorer/" .. path .. "' data-ref='/explorer/" .. path .. "'>" .. part .. "</a>"
+      "<a href='/" .. virtualPagePattern .. "/" .. path ..
+      "' data-ref='/" .. virtualPagePattern .. "/" .. path .. "'>" ..
+      part .. "</a>"
     )
   end
 
@@ -168,17 +182,21 @@ function widgets.documentExplorer(folderPrefix, height)
 
   -- ---------- EXPLORER ----------
   local html =
-    "<div class='document-explorer-wrapper' style='--tile-size:" .. tileSize .. "'>" ..
-      breadcrumbHtml ..
-      "<div class='document-explorer' style='max-height:" .. height .. ";'>"
+    "<div class='" .. wrapperClass ..
+    "' style='--tile-size:" .. tileSize ..
+    ";--icon-size-grid: calc(var(--tile-size) * 0.4); --icon-size-list: 1.5em;'>" ..
+    breadcrumbHtml ..
+    "<div class='document-explorer' style='max-height:" .. height .. ";'>"
 
   -- Parent folder
   if folderPrefix ~= "" then
     local parent = folderPrefix:gsub("[^/]+/$", "")
     html = html ..
-      "<a class='image-tile folder-tile' href='/explorer/" .. parent .. "' data-ref='/explorer/" .. parent .. "'>" ..
-        "<div class='folder-icon'>📂</div>" ..
-        "<div class='image-title'>..</div>" ..
+      "<a class='image-tile folder-tile' href='/" ..
+      virtualPagePattern .. "/" .. parent ..
+      "' data-ref='/" .. virtualPagePattern .. "/" .. parent .. "'>" ..
+      "<div class='folder-icon'>📂</div>" ..
+      "<div class='image-title'>..</div>" ..
       "</a>"
   end
 
@@ -186,29 +204,33 @@ function widgets.documentExplorer(folderPrefix, height)
   for _, f in ipairs(folders) do
     local p = folderPrefix .. f .. "/"
     html = html ..
-      "<a class='image-tile folder-tile' href='/explorer/" .. p .. "' data-ref='/explorer/" .. p .. "'>" ..
-        "<div class='folder-icon'>📁</div>" ..
-        "<div class='image-title'>" .. f .. "</div>" ..
+      "<a class='image-tile folder-tile' href='/" ..
+      virtualPagePattern .. "/" .. p ..
+      "' data-ref='/" .. virtualPagePattern .. "/" .. p .. "'>" ..
+      "<div class='folder-icon'>📁</div>" ..
+      "<div class='image-title'>" .. f .. "</div>" ..
       "</a>"
   end
 
-  -- Markdown files
+  -- Markdown
   for _, md in ipairs(mds) do
     local target = "/" .. md.full:gsub("%.md$", "")
     html = html ..
-      "<a class='image-tile md-tile' href='" .. target .. "' data-ref='" .. target .. "' title='" .. md.full .. "'>" ..
-        "<div class='md-icon'>📝</div>" ..
-        "<div class='image-title'>" .. md.name .. "</div>" ..
+      "<a class='image-tile md-tile' href='" .. target ..
+      "' data-ref='" .. target .. "' title='" .. md.full .. "'>" ..
+      "<div class='md-icon'>📝</div>" ..
+      "<div class='image-title'>" .. md.name .. "</div>" ..
       "</a>"
   end
 
-  -- PDF files
+  -- PDFs
   for _, pdf in ipairs(pdfs) do
     local target = "/" .. pdf.full
     html = html ..
-      "<a class='image-tile pdf-tile' href='" .. target .. "' data-ref='" .. target .. "' title='" .. pdf.full .. "'>" ..
-        "<div class='pdf-icon'>📄</div>" ..
-        "<div class='image-title'>" .. pdf.name .. "</div>" ..
+      "<a class='image-tile pdf-tile' href='" .. target ..
+      "' data-ref='" .. target .. "' title='" .. pdf.full .. "'>" ..
+      "<div class='pdf-icon'>📄</div>" ..
+      "<div class='image-title'>" .. pdf.name .. "</div>" ..
       "</a>"
   end
 
@@ -216,21 +238,24 @@ function widgets.documentExplorer(folderPrefix, height)
   for _, img in ipairs(images) do
     local fs = "/.fs/" .. img.full
     html = html ..
-      "<a class='image-tile' href='" .. fs .. "' data-ref='/" .. img.full .. "' title='" .. img.full .. "'>" ..
-        "<div class='image-thumb'><img src='" .. fs .. "' loading='lazy' /></div>" ..
-        "<div class='image-title'>" .. img.name .. "</div>" ..
+      "<a class='image-tile' href='" .. fs ..
+      "' data-ref='/" .. img.full .. "' title='" .. img.full .. "'>" ..
+      "<div class='image-thumb'><img src='" .. fs .. "' loading='lazy' /></div>" ..
+      "<div class='image-title'>" .. img.name .. "</div>" ..
       "</a>"
   end
 
-  -- Unknown files
+  -- Unknown
   for _, unk in ipairs(unknowns) do
     local ext = unk.name:match("%.([^.]+)$")
     ext = ext and ext:upper() or "?"
 
     html = html ..
-      "<a class='image-tile unknown-tile' data-ext='" .. ext .. "' href='/.fs/" .. unk.full .. "' target='_blank' title='" .. unk.full .. "'>" ..
-        "<div class='unknown-icon'>❔</div>" ..
-        "<div class='image-title'>" .. unk.name .. "</div>" ..
+      "<a class='image-tile unknown-tile' data-ext='" .. ext ..
+      "' href='/.fs/" .. unk.full ..
+      "' target='_blank' title='" .. unk.full .. "'>" ..
+      "<div class='unknown-icon'>❔</div>" ..
+      "<div class='image-title'>" .. unk.name .. "</div>" ..
       "</a>"
   end
 
@@ -241,111 +266,70 @@ function widgets.documentExplorer(folderPrefix, height)
     html = html
   }
 end
+
 ```
 
 ### VirtualPage
 ```space-lua
- local expConf = config.get("explorer") or {}
- local widgetHeight = expConf.widgetHeight or "75vh"
- 
+command.define {
+  name = "Explorer: Toggle View Mode",
+  run = function()
+    local cfg = config.get("explorer") or {}
+    local currentMode = cfg.viewMode or "grid"
+    local newMode = (currentMode == "list") and "grid" or "list"
+
+    cfg.viewMode = newMode
+    config.set("explorer", cfg)
+    
+    local current = editor.getCurrentPath()
+    if current then
+      editor.navigate(current)
+    end
+  end
+}
+
+local cfg = config.get("explorer") or {}
+local widgetHeight = cfg.widgetHeight or "75vh"
+local virtualPagePattern = cfg.virtualPagePattern or "🗂️ Explorer"
+
 virtualPage.define {
-  pattern = "explorer/?(.*)",
+  pattern = virtualPagePattern .. "/?(.*)",
   run = function(path)
+    -- READ CONFIG HERE, NOT OUTSIDE
+    local cfg = config.get("explorer") or {}
+    local viewMode = cfg.viewMode or "grid"
+
     local folder = path or ""
 
-    -- normalise
     if folder ~= "" and not folder:match("/$") then
       folder = folder .. "/"
     end
 
-    -- prevent traversal
     folder = folder:gsub("%.%.", "")
 
-    return "\n${widgets.documentExplorer(\"" .. folder .. "\", \""..widgetHeight.."\")}\n"
+    local toggleLabel =
+      (viewMode == "list") and "Switch to Grid" or "Switch to List"
+
+    local toolbar =
+      "\n${widgets.commandButton(\"" ..
+      toggleLabel ..
+      "\", \"Explorer: Toggle View Mode\")}\n"
+
+    return "\n" ..
+      toolbar ..
+      "\n${widgets.documentExplorer(\"" ..
+      folder .. "\", \"" ..
+      widgetHeight .. "\", \"" ..
+      viewMode .. "\")}\n"
   end
 }
+
 
 ```
 
 ## Styling:
+
 ```space-style
-
-/* -------------- ICON SIZE -------------- */
-.folder-icon,
-.md-icon,
-.pdf-icon,
-.unknown-icon {
-  font-size: calc(var(--tile-size) * 0.4);
-  margin-top: calc(var(--tile-size) * 0.15);
-}
-
-
-/* ---------- UNKNOWN FILE TILE ---------- */
-.unknown-tile {
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
-
-.unknown-tile::after {
-  content: attr(data-ext);
-  position: absolute;
-  top: 4px;
-  right: 6px;
-
-  color: oklch(1 0 0);
-  font-size: 0.65em;
-  font-weight: bold;
-  padding: 1px 4px;
-  border-radius: 4px;
-  pointer-events: none;
-
-  background: oklch(0.45 0 0 / 0.6); /* neutral grey */
-}
-
-/* ---------- PDF TILE ---------- */
-.pdf-tile {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  justify-content: center;
-}
-
-/* ---------- MARKDOWN TILE ---------- */
-.md-tile {
-  width: 100%;
-  background: oklch(0 0 0 / 0); /* transparent */
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  text-align: center;
-  justify-content: center;
-}
-
-/* ---------- FILE EXTENSION LABEL ---------- */
-
-.md-tile, .pdf-tile, .unknown-tile { position: relative; }
-
-.md-tile::after,
-.pdf-tile::after {
-  content: attr(data-ext);
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  color: oklch(1 0 0); /* white */
-  font-size: 0.65em;
-  font-weight: bold;
-  padding: 1px 4px;
-  border-radius: 4px;
-  pointer-events: none;
-}
-
-.md-tile::after { content: "MD"; background: oklch(0.55 0.23 260 / 0.6); /* blue */ }
-.pdf-tile::after { content: "PDF"; background: oklch(0.55 0.23 30 / 0.6); /* red */ }
 
 /* ---------- BREADCRUMBS ---------- */
 .explorer-breadcrumbs {
@@ -370,53 +354,160 @@ virtualPage.define {
   opacity: 0.8;
 }
 
-/* ---------- EXPLORER ---------- */
-.document-explorer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(var(--tile-size) - 30px), 1fr));
-  grid-auto-rows: var(--tile-size);
-  gap: 14px;
+/* ---------- TILE BASE STYLE ---------- */
+.image-tile {
+  display: flex;
+  flex-direction: column; /* default: grid */
+  text-decoration: none;
+  color: inherit;
+  background-color: oklch(0.75 0 0 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
 
+.image-tile:hover {
+  background-color: oklch(0.85 0 0 / 0.5);
+}
+
+/* ---------- ICONS ---------- */
+.folder-icon,
+.md-icon,
+.pdf-icon,
+.unknown-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- FILE EXTENSION LABELS ---------- */
+.md-tile, .pdf-tile, .unknown-tile { position: relative; }
+
+.md-tile::after { content: "MD"; background: oklch(0.55 0.23 260 / 0.6); }
+.pdf-tile::after { content: "PDF"; background: oklch(0.55 0.23 30 / 0.6); }
+.unknown-tile::after {
+  content: attr(data-ext);
+  background: oklch(0.45 0 0 / 0.6);
+}
+
+.md-tile::after,
+.pdf-tile::after,
+.unknown-tile::after {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  color: oklch(1 0 0);
+  font-size: 0.65em;
+  font-weight: bold;
+  padding: 1px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* ---------- TITLES ---------- */
+.image-title {
+  flex: 1 1 auto;
+  min-width: 0; /* needed for ellipsis */
+  padding: 0 6px;
+  font-size: 0.75em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  position: relative;
+}
+
+/* ---------- FOLDER TOOLTIP ---------- */
+.folder-tile .image-title:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--bg_2);
+  color: var(--text-color_1);
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  z-index: 10;
+}
+
+/* ---------- GRID VIEW ---------- */
+.document-explorer-wrapper.grid-view .document-explorer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tile-size), 1fr));
+  grid-auto-rows: var(--tile-size);
+  gap: 12px;
   padding: 1em;
   overflow-y: auto;
   align-content: start;
 }
 
-/* ---------- TILE ---------- */
-.image-tile {
+.document-explorer-wrapper.grid-view .image-tile {
+  flex-direction: column;
+  justify-content: space-between; /* title at bottom */
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.15);
+}
+
+.document-explorer-wrapper.grid-view .image-title {
+  text-align: center;
+}
+
+.document-explorer-wrapper.grid-view .folder-icon,
+.document-explorer-wrapper.grid-view .md-icon,
+.document-explorer-wrapper.grid-view .pdf-icon,
+.document-explorer-wrapper.grid-view .unknown-icon {
+  font-size: var(--icon-size-grid);
+  margin-top: calc((var(--tile-size) - var(--icon-size-grid)) / 2 - 10px);
+}
+
+.document-explorer-wrapper.grid-view .image-tile .image-thumb {
+  width: 100%;
+  height: calc(var(--tile-size) - 30px);
+}
+
+/* ---------- LIST VIEW ---------- */
+.document-explorer-wrapper.list-view .document-explorer {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-
-  background: oklch(0.85 0 0 / 0.2);
-
-  border-radius: 8px;
-  overflow: hidden;
-
-  box-shadow: 0 2px 6px oklch(0 0 0 / 0.25);
+  gap: 0; /* removed gap */
+  padding: 1em;
+  overflow-y: auto;
 }
 
-.folder-tile .image-title {
-  position: relative;
+.document-explorer-wrapper.list-view .image-tile {
+  flex-direction: row;
+  border-radius: 0;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 8px;
+  box-shadow: none; /* removed shadow */
 }
 
-.folder-tile {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    justify-content: center;
+.document-explorer-wrapper.list-view .image-title {
+  text-align: left;
+  padding: 5px;
 }
 
+.document-explorer-wrapper.list-view .folder-icon,
+.document-explorer-wrapper.list-view .md-icon,
+.document-explorer-wrapper.list-view .pdf-icon,
+.document-explorer-wrapper.list-view .unknown-icon {
+  font-size: var(--icon-size-list);
+  margin-top: 0;
+}
 
+/* ---------- IMAGE vs FILE ICONS ---------- */
+.image-tile:not(.folder-tile) .image-thumb { display: flex; }
+.image-tile.folder-tile .image-thumb { display: none; }
+
+/* ---------- THUMBNAILS ---------- */
 .image-thumb {
-  height: calc(var(--tile-size) - 40px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
 }
 
 .image-thumb img {
@@ -425,36 +516,17 @@ virtualPage.define {
   object-fit: contain;
 }
 
-.image-title {
-  padding: 5px 8px;
-  font-size: 0.75em;
-  text-align: center;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Grid view: thumbnail fills available space */
+.document-explorer-wrapper.grid-view .image-thumb {
+  width: 100%;
+  height: calc(var(--tile-size) - 40px);
 }
 
-/* ---------- HOVER ---------- */
-.image-tile:hover {
-  background-color: oklch(0.85 0 0 / 0.6); /* neutral grey */
-}
-
-
-/* ---------- ANIMATION (SAFE) ---------- */
-@supports (animation-timeline: view()) {
-  .image-tile {
-    animation: fly-in linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 100%;
-  }
-}
-
-@keyframes fly-in {
-  0%   { opacity: 0; transform: translateY(30px) scaleX(0.3); }
-  11%  { opacity: 1; transform: translateY(0) scaleX(1); }
-  90%  { opacity: 1; transform: translateY(0) scaleX(1); }
-  100% { opacity: 0; transform: translateY(-30px) scaleX(0.3); }
+/* List view: square thumbnail */
+.document-explorer-wrapper.list-view .image-thumb {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
 }
 
 ```
