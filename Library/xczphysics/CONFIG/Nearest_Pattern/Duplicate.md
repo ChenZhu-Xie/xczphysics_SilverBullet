@@ -76,8 +76,8 @@ function findNearestInlinePattern()
 end
 
 command.define{
-  name = "Cursor: Copy Nearest Pattern",
-  description = "Copy the nearest and highest-priority formatted structure around the cursor",
+  name = "Cursor: Duplicate Nearest Pattern",
+  description = "Duplicate the nearest structure around the cursor",
   key = "Alt-c",
   run = function()
     local match = findNearestInlinePattern()
@@ -88,7 +88,7 @@ command.define{
     editor.copyToClipboard(match.text)
     editor.insertAtCursor(match.text, false)
     -- editor.flashNotification("Copied: " .. match.name .. " → " .. match.text)
-    editor.flashNotification(match.name .. " ✅")
+    editor.flashNotification(match.name .. " Duplicated ✅")
     if not match.name == "Inline Code" then 
       editor.flashNotification(match.text)
     end

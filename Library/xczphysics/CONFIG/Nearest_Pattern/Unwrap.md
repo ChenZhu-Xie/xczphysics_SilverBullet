@@ -45,9 +45,9 @@ local function extractCore(name, text)
 end
 
 command.define{
-  name = "Cursor: Unwrap and Copy Nearest",
-  description = "Remove the formatting of the nearest pattern, keep only the content, and copy it.",
-  key = "Alt-Shift-C", -- 您可以根据需要修改快捷键
+  name = "Cursor: Unwrap Nearest Pattern",
+  description = "Remove the format of the nearest pattern",
+  key = "Alt-w",
   run = function()
     local match = findNearestInlinePattern()
     if not match then
@@ -55,7 +55,6 @@ command.define{
       return
     end
 
-    -- 1. 提取核心内容
     local core = extractCore(match.name, match.text)
     if not core then
       editor.flashNotification("Failed to extract core from " .. match.name)
@@ -63,9 +62,12 @@ command.define{
     end
 
     editor.copyToClipboard(core)
-    editor.replaceRange(match.start, match.stop, core)
+    editor.replaceRange(match.start - 1, match.stop, core)
 
-    editor.flashNotification("Unwrapped & Copied: " .. match.name)
+    editor.flashNotification(match.name .. ": Unwrapped ✅")
+    if not match.name == "Inline Code" then 
+      editor.flashNotification(core)
+    end
   end
 }
 
