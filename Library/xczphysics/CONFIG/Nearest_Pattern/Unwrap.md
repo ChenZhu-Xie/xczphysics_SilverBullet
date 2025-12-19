@@ -4,6 +4,8 @@
 [[asdfa|sfd|||||asdfasdf|]]
 
 
+[asdf:asdffff]
+
 ## Page Ver
 
 ```space-lua
@@ -15,7 +17,7 @@ local function extractCore(name, text)
     if core and core:find("|") then core = core:match("^([^|]+)|") end
     return core
   elseif name == "Fields" then
-    return text:match("%[[^:]+:([^%]]+)%]") -- 取 [key:value] 中的 value
+    return text:match("%[([^:]+:[^%]]+)%]") -- 取 [key:value] 中的 value
   elseif name == "Image" then
     return text:match("!%[([^%]]*)%]") -- 取 alt 文字
   elseif name == "Markdown Link" then
