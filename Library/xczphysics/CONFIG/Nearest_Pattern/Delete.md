@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Nearest_Pattern/Delete
 tags: meta/library
-pageDecoration.prefix: 🪚
+pageDecoration.prefix: "🪚 "
 ---
 
 # Delete nearest Format around Cursor
