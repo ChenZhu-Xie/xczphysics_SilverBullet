@@ -8,18 +8,20 @@
 
 ## Page Ver
 
+!()
+
 ```space-lua
 -- 辅助函数：提取不同模式下的“核” (Content)
 local function extractCore(name, text)
   if name == "Wiki Link" then
-    -- 匹配 [[text]] 或 [[link|text]]，取最后的部分
+    -- 匹配 [[wiki]] 或 [[wiki|alias]]，取 wiki
     local core = text:match("%[%[([^%]]+)%]%]")
     if core and core:find("|") then core = core:match("^([^|]+)|") end
     return core
   elseif name == "Fields" then
-    return text:match("%[([^:]+:[^%]]+)%]") -- 取 [key:value] 中的 value
+    return text:match("%[([^:]+:[^%]]+)%]") -- 取 [key:value] 中的 key:value
   elseif name == "Image" then
-    return text:match("!%[([^%]]*)%]") -- 取 alt 文字
+    return text:match("!%[[^%]]-%]%(([^)]+)%)") -- 取 src 文字
   elseif name == "Markdown Link" then
     return text:match("%[([^%]]+)%]") -- 取 [text](url) 中的 text
   elseif name == "Color Func" then
