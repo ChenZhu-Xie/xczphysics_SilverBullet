@@ -6,6 +6,7 @@
 |----------|----------|------|-------|-----|--------|
 | Cursor: | [[Library/xczphysics/CONFIG/Nearest_Pattern/Delete#Delete nearest Format around Cursor|Delete Nearest Format]] | | | Alt | d |
 | Cursor: | [[Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate#Copy nearest Format around Cursor|Duplicate Nearest Format]] | | | Alt | c |
+| Cursor: | [[Library/xczphysics/CONFIG/Nearest_Pattern/Unwrap#Unwrap and Copy Nearest Pattern|Unwrap Nearest Format]] | | | Alt | w |
 | Cursor: | [[Library/xczphysics/CONFIG/Paste_as/Cursor_Anchor#here we go|Copy Nearest Flabel]] | | | Alt | m |
 | Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Link#Generate Link @ Cursor Position|Copy Link]] | Ctrl | Shift | | c |
 | Cursor: | [[Library/xczphysics/CONFIG/Copy_as/Cursor_Wiki#Generate Ref @ Cursor Position|Copy Reference]] | | Shift | Alt | c |
