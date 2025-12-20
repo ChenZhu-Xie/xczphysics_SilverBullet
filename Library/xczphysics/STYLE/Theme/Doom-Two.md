@@ -1037,6 +1037,7 @@ html[data-theme="dark"] {
 ```
 
 ```space-style
+/* Vertical Connecting Line */
 .tree__subnodes {
   margin-left: 15px;
   padding-left: 10px;  
