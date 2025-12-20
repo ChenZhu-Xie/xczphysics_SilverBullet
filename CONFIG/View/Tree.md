@@ -121,6 +121,7 @@ config.set (
 # Style
 
 1. https://community.silverbullet.md/t/responsive-treeview/2188
+2. https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/treeview.md
 
 ```space-style
 html {
@@ -150,6 +151,7 @@ html {
     height: var(--treeview-tablet-height);
     width: var(--treeview-tablet-width);
     border-right: 1px solid var(--top-border-color);
+    border-top: none;
   }
 }
 
