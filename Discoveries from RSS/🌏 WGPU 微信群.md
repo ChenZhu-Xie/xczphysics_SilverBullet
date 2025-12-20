@@ -1,6 +1,6 @@
 #links #资源 #微信
 
-# WGPU 相关的
+# WGPU Related
 
 [no graphics api](https://www.sebastianaaltonen.com/blog/no-graphics-api) #sebastianaaltonen
 
