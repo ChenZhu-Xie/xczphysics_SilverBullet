@@ -1037,6 +1037,24 @@ html[data-theme="dark"] {
 ```
 
 ```space-style
+.tree__subnodes {
+  margin-left: 15px;
+  padding-left: 10px;  
+  border-left: 1px solid #555;
+}
+
+.tree__subnodes:empty {
+  border-left: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.tree__collapse {
+    margin-left: 7px;
+}
+```
+
+```space-style
 /* Top buttons */
 .treeview-actions button {
   color: var(--green);
