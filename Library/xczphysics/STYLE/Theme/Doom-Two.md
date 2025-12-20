@@ -1036,6 +1036,8 @@ html[data-theme="dark"] {
 }
 ```
 
+1. [document explorer image gallery for silverbullet](https://community.silverbullet.md/t/document-explorer-image-gallery-for-silverbullet/3647/50?u=chenzhu-xie) #community #silverbullet
+
 ```space-style
 /* Vertical Connecting Line */
 .tree__subnodes {
