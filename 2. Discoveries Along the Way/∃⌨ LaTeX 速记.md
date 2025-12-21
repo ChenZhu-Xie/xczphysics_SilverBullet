@@ -6,5 +6,3 @@
      - 因为有更强的剑桥巨佬：https://dec41.user.srcf.net/notes/
    - 这哥们 也玩 [[Wikipedia/有向图]] ！
      - https://casinograph.ejmastnak.com/
-
-🍽
