@@ -4,3 +4,4 @@
    - https://math.mit.edu/~stevenj/
    - [Scombine.pdf](http://victorliu.info/pdfs/Scombine.pdf) #victorliu
    - [S4](https://web.stanford.edu/group/fan/S4/) #web #stanford
+   - [694acc0c 1e18 8010 aa5a c024d1a187be](https://chatgpt.com/share/694acc0c-1e18-8010-aa5a-c024d1a187be) #chatgpt
