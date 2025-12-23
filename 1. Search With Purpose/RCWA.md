@@ -1,4 +1,6 @@
 
+:
+
 1. [ann transfermatrix jl a general 4 x 4 transfer matrix for optics of multilayer media](https://discourse.julialang.org/t/ann-transfermatrix-jl-a-general-4-x-4-transfer-matrix-for-optics-of-multilayer-media/89797/4) #discourse #julialang
    - [Redheffer_star_product](https://en.wikipedia.org/wiki/Redheffer_star_product) #en #wikipedia
    - https://math.mit.edu/~stevenj/
