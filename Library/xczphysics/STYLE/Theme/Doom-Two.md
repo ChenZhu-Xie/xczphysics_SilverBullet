@@ -1055,7 +1055,7 @@ html[data-theme="dark"] {
 
 .tree__collapse {
   /* margin-left: 7px; */
-  margin-left: px;
+  margin-left: 5px;
 }
 ```
 
