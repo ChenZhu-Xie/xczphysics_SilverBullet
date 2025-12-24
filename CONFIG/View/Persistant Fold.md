@@ -59,7 +59,7 @@ command.define {
   run = function()
 
     local pageText = editor.getText()
-    local cursorPositionInPage = editor.getCursor()
+    local cursorPositionInPage = tonumber(editor.getCursor())
 
     -- Get the text, starting position and length of the current line
     local currentLineText = persFold.lineText(pageText, cursorPositionInPage)
