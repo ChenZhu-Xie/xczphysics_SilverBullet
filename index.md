@@ -11,7 +11,7 @@ ${widget.html(dom.marquee{
 })}
 
 _[One of us!](https://community.silverbullet.md/)_
-![|444](https://pic-upload001.oss-cn-beijing.aliyuncs.com/img/20251224115101277.png)
+![[ETP.png|444]]
 
 ## ETP.logo Meaning
 
