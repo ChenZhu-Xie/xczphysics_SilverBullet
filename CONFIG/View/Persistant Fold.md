@@ -1,7 +1,7 @@
 
 1. [persistent folding](https://community.silverbullet.md/t/persistent-folding/1945?u=chenzhu-xie) #community #silverbullet
 
-```space-lua
+```lua
 persFold = persFold or {} -- define namespace for persistent fold supporting functions
 
 persFold.marker = "⬇️"
@@ -52,14 +52,14 @@ function persFold.lineText(pageText, pos)
 end
 ```
 
-```space-lua
+```lua
 command.define {
   name = "togglePersistentFold",
   key = "ctrl-alt-q",
   run = function()
 
     local pageText = editor.getText()
-    local cursorPositionInPage = tonumber(editor.getCursor())
+    local cursorPositionInPage = editor.getCursor()
 
     -- Get the text, starting position and length of the current line
     local currentLineText = persFold.lineText(pageText, cursorPositionInPage)
