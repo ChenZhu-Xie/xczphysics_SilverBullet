@@ -15,3 +15,7 @@ codex team = 10块钱
 google pro = 10块钱
 反代（把额度转换成 api url/key）出 opus，
 放到 cherrystudio 呀其它地方去用
+
+## 张张最可爱的 pdf
+
+==【一站式Ai配置指南】Spec 驱动开发 + Gemini 本地反代 + MCP 配置全流程攻略==
