@@ -1037,14 +1037,14 @@ html[data-theme="dark"] {
 ```
 
 1. [document explorer image gallery for silverbullet](https://community.silverbullet.md/t/document-explorer-image-gallery-for-silverbullet/3647/50?u=chenzhu-xie) #community #silverbullet
-2. 
+2. 仿照 [doc 7702230](https://ohmygpt-docs.apifox.cn/us/doc-7702230) #ohmygpt-docs #apifox 的 侧边栏
 
 ```space-style
 /* Vertical Connecting Line */
 .tree__subnodes {
   margin-left: 15px;
   padding-left: 10px;  
-  border-left: 1px solid #555;
+  border-left: 0.2px solid #555;
 }
 
 .tree__subnodes:empty {
