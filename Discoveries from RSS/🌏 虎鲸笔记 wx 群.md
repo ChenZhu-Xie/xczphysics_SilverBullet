@@ -22,4 +22,5 @@ google pro = 10块钱
 
 https://www.ohmygpt.com/i/8AYTL557
 
-
+直接把antigravity给的claude opus这些额度 
+反代后拿去claudecode里用就好了[author:阿muel]
