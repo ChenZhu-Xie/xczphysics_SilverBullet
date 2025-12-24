@@ -19,3 +19,7 @@ google pro = 10块钱
 ## 张张最可爱的 pdf
 
 ==【一站式Ai配置指南】Spec 驱动开发 + Gemini 本地反代 + MCP 配置全流程攻略== ~ 4 mb
+
+https://www.ohmygpt.com/i/8AYTL557
+
+
