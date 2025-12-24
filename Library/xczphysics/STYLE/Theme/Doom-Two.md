@@ -1043,7 +1043,7 @@ html[data-theme="dark"] {
 /* Vertical Connecting Line */
 .tree__subnodes {
   margin-left: 15px;
-  padding-left: 5px;  
+  padding-left: 10px;  
   border-left: 1px solid #555;
 }
 
