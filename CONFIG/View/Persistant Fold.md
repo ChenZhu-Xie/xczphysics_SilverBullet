@@ -1,5 +1,6 @@
 
 1. [persistent folding](https://community.silverbullet.md/t/persistent-folding/1945?u=chenzhu-xie) #community #silverbullet
+2. [persistent folding how to use space style to hide a particular attribute](https://community.silverbullet.md/t/persistent-folding-how-to-use-space-style-to-hide-a-particular-attribute/3663?u=chenzhu-xie) #community #silverbullet
 
 ```lua
 persFold = persFold or {} -- define namespace for persistent fold supporting functions
