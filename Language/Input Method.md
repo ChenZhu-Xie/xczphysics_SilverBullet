@@ -120,8 +120,6 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 # 整句 1
 > - 在当今信息社会，我们大家都需要使用输入法这一重要工具。
 
-
-
 1. 声笔（飞单/飞码）
 > - z\_ di jr xr xz sne hu , w\_ mr de jo dv xve yx sre yu scu rp fd zl y\_ zvu yx gh jbi .
 - z_ dijr xrxz snhu , wm' dj' dv xy' sryu srfd zl_ y_ zvyx ghjba
@@ -136,6 +134,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 4. 墨奇（词/万象）
  - z_ dhjb xbxi uehv , womf dajx dzxu yc_ uiys urf. v_ y. vsyc gsju
  - zd dhjb xbxi uehv , womf dajx dzxu yc  uiysuurufave yi vsyc gsju
+
+
 
 5. 简单鹤（词）
  - z_ dhjb xbxi uehv , womf dajx d x  y_  uiys urf. v_ y_ vsyc gsju
