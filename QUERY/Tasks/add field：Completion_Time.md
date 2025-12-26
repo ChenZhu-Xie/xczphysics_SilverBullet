@@ -1,7 +1,7 @@
 #类比 这个 script 的功能 resembles #Tana 的 `task` 标签打了后，
 - 产生的 继承的 default fields...
 
-# add default key:value s to tasks
+# add default key:value(s) to tasks
 
 1. [how to list completed todos sorted by completion time](https://community.silverbullet.md/t/how-to-list-completed-todos-sorted-by-completion-time/3669/2?u=chenzhu-xie) #community #silverbullet
 
