@@ -133,9 +133,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 
 4. 墨奇（词/万象）
  - z_ dhjb xbxi uehv , womf dajx dzxu yc_ uiys urf. v_ y. vsyc gsju
+ - z_ dhjb xbxi uehv , w m  d j  d x  y   u y. urf. v_ y. vsyc gsju
  - zd dhjb xbxi uehv , womf dajx dzxu yc  uiysuurufave yi vsyc gsju
-
-
 
 5. 简单鹤（词）
  - z_ dhjb xbxi uehv , womf dajx d x  y_  uiys urf. v_ y_ vsyc gsju
@@ -149,7 +148,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 > - z\_dh\_jb\_xbr\_xiz\_uep\_hv\_,w\_mf\_da\_jxb\_dz\_xu\_yc\_uir\_ys\_uui\_r\_fa\_v\_y\_isp\_yc\_gsa\_juq\_.
  - 飞码 z_dijrxrxzsnhu,wm'dj'dvxy'sryusrfdzl_y_zvyxghjba
  - 小鹤 z_dhjbxbxiuehv,womfdajxdz_xuycuiysurfav_y_vsycgsju
- - 墨奇 z_dhjbxbxiuehv,womfdajxdzxuyc_uiysurf.v_y.vsycgsju
+ - 墨奇 z_dhjbxbxiuehv,wmdjdxyuy.urf.v_y.vsycgsju
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
