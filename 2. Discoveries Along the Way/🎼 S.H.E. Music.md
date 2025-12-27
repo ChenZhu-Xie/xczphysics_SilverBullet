@@ -24,4 +24,3 @@ Strudel.js -> [brey2y16XO8](https://www.youtube.com/shorts/brey2y16XO8?feature=s
 
 #tutorial: [getting started](https://strudel.cc/workshop/getting-started/) #strudel
 difference between: [strudel vs tidal](https://strudel.cc/learn/strudel-vs-tidal/) #strudel
-
