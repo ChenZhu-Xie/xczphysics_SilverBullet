@@ -16,4 +16,10 @@
   - 前者是个例对象，后者要考虑之后这一类对象
   - field只影响当前创建的对象，而tag中的field会影响同类其它对象，要考虑这些field是否会用到、怎么用
 
+# Tag as Page, both as Object/Class
+
+在 LogSeq 中，`#Tag` 就是 `[[Tag]]`
+- [coming from logseq outlines and linked mentions](https://community.silverbullet.md/t/coming-from-logseq-outlines-and-linked-mentions/290/16?u=chenzhu-xie) #community #silverbullet
+- 点 Tag 的聚类 = 点 [[Tag]] 后反向链接中的聚类 + [[Tag]] 自身
+
 
