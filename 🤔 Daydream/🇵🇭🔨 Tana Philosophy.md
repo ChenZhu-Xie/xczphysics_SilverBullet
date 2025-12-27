@@ -8,7 +8,7 @@
   - 与 Orca Note 的 交集之：节点被打标签后，继承 标签的 属性
     - 但 Orca Note 无法像 SilverBullet 那样，单独 为节点 设置 fields
 
-## WX 群友发言
+## #WX群 友发言
 
 - _煜城:_ 在tana中，不强迫思考，现在建立的块未来到底会不会成为某个类的实例
 - _煜城:_ 在没有想好这个块到底是个什么类型时，可以不打 is 类型 tag
@@ -19,9 +19,16 @@
 
 # `Tag` as `Page`, both as `Object/Class`
 
-在 LogSeq 中，`#Tag` 就是 `[[Tag]]`
+#WX群 里有人的 GPT 跟他说
+- 对于任何一个对象，你想给它打标签 `#` 时，
+  - 先按耐住自己、不要这么做
+  - 先试试 `@` 能不能满足你的要求
+    - 如果  能，则不要打标签
+    - 如果不能，才继续打标签
+
+在 [[LogSeq]] 中，`#Tag` 就是 `[[Tag]]`
 - [coming from logseq outlines and linked mentions](https://community.silverbullet.md/t/coming-from-logseq-outlines-and-linked-mentions/290/16?u=chenzhu-xie) #community #silverbullet
 - SilverBullet 中也类似：
-  - 点 `#Tag` 的聚类 = 点 `[[Tag]]` 后反向链接中的聚类 + `[[Tag]]` 自身
+  - 点 `#Tag` 的聚类 = 点 `[[Tag]]` 后反向链接们 + `[[Tag]]` 自身
 - `field` 也是 `Object/Class`：
   - 点 `#Tag` 或 `Key:Value` 中的 `Key` 后，跳转到 对应的页。

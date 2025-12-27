@@ -9,7 +9,9 @@ SB is lightweight, and at present its tags and attributes remain decoupled.
 
 These ideas certainly invite further discussion.
 
-# WX 群友
+# 来自 #WX群 的 图片们
+
+link to [[🤔 Daydream/🇵🇭🔨 Tana Philosophy#Fields|]]
 ![[🤔 Daydream/SuperTag1.png]]
 
 ![[🤔 Daydream/SuperTag2.png]]
