@@ -10,4 +10,6 @@
 # Groovin in G #YouTuber
 
 Strudel REPL: Intro -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
+Strudel.js -> [brey2y16XO8](https://www.youtube.com/shorts/brey2y16XO8?feature=share) #youtube #shorts
+
 
