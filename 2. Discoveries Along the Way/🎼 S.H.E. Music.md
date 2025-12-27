@@ -11,6 +11,7 @@
 
 Strudel REPL: Intro -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
 Strudel.js -> [brey2y16XO8](https://www.youtube.com/shorts/brey2y16XO8?feature=share) #youtube #shorts
+- 
 - [getting started](https://strudel.cc/workshop/getting-started/) #strudel
 difference between: [strudel vs tidal](https://strudel.cc/learn/strudel-vs-tidal/) #strudel
 
