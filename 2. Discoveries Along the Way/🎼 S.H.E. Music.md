@@ -1,5 +1,7 @@
 
-# Switch Angel Live #YouTuber
+
+
+## Switch Angel Live #YouTuber
 
 0. She making ==Live Trance== Music: https://www.youtube.com/watch?v=iu5rnQkfO6M
    - #tutorial: [watch](https://www.youtube.com/watch?v=sefJz9biLCY) #youtube
@@ -8,9 +10,12 @@
 3. ==Take a Try== on you Own #demo #site: https://strudel.cc/
 4. ==Doc==: https://tidalcycles.org/docs/innards/meaning_of_dot
 
-# Groovin in G #YouTuber
+## Groovin in G #YouTuber
 
 Strudel REPL: Intro -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
+
+
+
 Strudel.js -> [brey2y16XO8](https://www.youtube.com/shorts/brey2y16XO8?feature=share) #youtube #shorts
 - comming from someone who loves《Tron》as well: [charts](https://elidolney.dev/charts) #elidolney
 
