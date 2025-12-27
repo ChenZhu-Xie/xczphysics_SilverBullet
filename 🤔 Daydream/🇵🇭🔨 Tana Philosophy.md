@@ -20,6 +20,7 @@
 
 在 LogSeq 中，`#Tag` 就是 `[[Tag]]`
 - [coming from logseq outlines and linked mentions](https://community.silverbullet.md/t/coming-from-logseq-outlines-and-linked-mentions/290/16?u=chenzhu-xie) #community #silverbullet
-- 点 Tag 的聚类 = 点 [[Tag]] 后反向链接中的聚类 + [[Tag]] 自身
-
-
+- SilverBullet 中也类似：
+  - 点 Tag 的聚类 = 点 [[Tag]] 后反向链接中的聚类 + [[Tag]] 自身
+- field 也是 Object/Class：
+  - 点 `#Tag` 或 `Key:Value` 中的 `Key` 后，跳转到 对应的页。
