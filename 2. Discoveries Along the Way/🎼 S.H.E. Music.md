@@ -1,5 +1,5 @@
 
-
+# YouTubers
 
 ## Switch Angel Live #YouTuber
 
@@ -14,10 +14,13 @@
 
 Strudel REPL: Intro -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
 
-
+## LearningTheWires #YouTuber
 
 Strudel.js -> [brey2y16XO8](https://www.youtube.com/shorts/brey2y16XO8?feature=share) #youtube #shorts
 - comming from someone who loves《Tron》as well: [charts](https://elidolney.dev/charts) #elidolney
+  - [ANkNBD xWuo](https://youtube.com/shorts/ANkNBD-xWuo?si=qLIhDNTTWsIuMH7R) #youtube
+
+# Dive Deeper
 
 #tutorial: [getting started](https://strudel.cc/workshop/getting-started/) #strudel
 difference between: [strudel vs tidal](https://strudel.cc/learn/strudel-vs-tidal/) #strudel
