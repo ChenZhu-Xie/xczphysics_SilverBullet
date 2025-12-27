@@ -12,7 +12,7 @@
 
 ## Groovin in G #YouTuber
 
-Strudel REPL: Intro -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
+Strudel REPL: #tutorial -> [tKeJhjvTabc](https://youtu.be/tKeJhjvTabc?t=639) #youtu #be
 
 ## LearningTheWires #YouTuber
 
