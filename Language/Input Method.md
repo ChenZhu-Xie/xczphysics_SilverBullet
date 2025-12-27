@@ -16,10 +16,10 @@ https://www.zhihu.com/question/1941614246552133827 纯形的劣势
 https://input.tansongchen.com/philosophy.html 纯形的劣势
 https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 纯形的劣势
 
-  奕码
+  ==奕码==
        https://yb6b.github.io/yima/
        https://yb6b.github.io/yima/easy-code/ime.html
-  虎码
+  ==虎码==
        https://www.tiger-code.com/
        https://www.tiger-code.com/docs/basicStrokes
        https://sspai.com/post/83376
@@ -49,7 +49,7 @@ https://docs.qq.com/doc/DTGVmVVJrQW9Zb21x 音码的好处
        顶功不定长，记忆量大，盲打难，用进废退。
 
 ### 双拼 (SY..) +
-最强双拼：乱序飞猫 https://macroxue.github.io/shuangpin/eval.html
+最强双拼：==乱序飞猫== https://macroxue.github.io/shuangpin/eval.html
 https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synchronization/
 > 所有的四码上屏方案中，比如简单鹤的 媚 mwy 没有次选，但仍然 三码不上屏，为什么？
   - 因为不能够保证 后续第四码的加入，不会使得 mwyi 成为一个词（组）
@@ -60,17 +60,17 @@ https://plutotree.me/2024/07/introduction-to-hamster-and-multi-device-data-synch
     - 就直接丢弃最后一两码，3 码自动上屏。
     - 所以，声笔飞单的 21×(21+5)×5×5 是牺牲了编码范围来换取上屏速度？
 #### 部首 (PP)
-  官鹤
+  ==官鹤==
        https://www.flypy.cc/ix/?q=%25E7%25A6%25BA
        https://aituyaa.com/%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC%E5%8F%8A%E9%9F%B3%E5%BD%A2/
-  简单鹤
+  ==简单鹤==
        https://flauver.github.io/jdh/
        https://github.com/rimeinn/rime-JDhe
        https://www.zhihu.com/question/549135035
 
 #### 笔画 (BB..)
 https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
-  星空键道
+  ==星空键道==
        https://xkinput.github.io/
        https://ispoto.github.io/KeySoul/
        https://github.com/wzxmer/xkjd6-rime#%E4%BA%8C%E4%BA%86%E8%A7%A3%E9%94%AE%E9%81%93 但竟用笔画！没部首
@@ -82,27 +82,27 @@ https://zhuanlan.zhihu.com/p/651114035 笔画的尴尬
        https://chaifen.app/HResG3qHm/assembly
        https://chaifen.app/HResG3qHm/statistics2
 #### 任意 (BP)
-  墨奇 双拼+辅码 混搭 + 大词库，也可以 四码上屏，但是反编译的旧码表
+  ==墨奇== 双拼+辅码 混搭 + 大词库，也可以 四码上屏，但是反编译的旧码表
        https://github.com/gaboolic/rime-shuangpin-fuzhuma
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-shuo-ming/fu-zhu-ma-shuo-ming/mo-qi-ma-chai-fen-shuo-ming
        https://moqiyinxing.chunqiujinjing.com/index/mo-qi-yin-xing-gao-ji-gong-neng/u-zhi-jie-shu-ru-unicode-zi-fu
        https://github.com/gaboolic/rime-shuangpin-fuzhuma/wiki/%E5%A2%A8%E5%A5%87%E7%A0%81%E6%8B%86%E5%88%86%E8%A7%84%E5%88%99
-  飞鹤快拼 专注 小鹤 双拼+辅码 大词库，但似乎没有 四码上屏 选项。
+  ==飞鹤快拼== 专注 小鹤 双拼+辅码 大词库，但似乎没有 四码上屏 选项。
        https://github.com/boomker/rime-fast-xhup
   *   词组的双拼部分输入完成后，可用 `` ` `` 键逐字追加辅助码。例如，想输入「林纳斯」， 可以敲 ``lb`m na`sn si`q``，这与直接敲 `lb[m na[sn si[q` 是等价的。
   *   这也能用于重码太多的词库已有词。例如，希望输入「适时 」一词，敲 `uiui` 发现候选太多，补上最后一个字的形码 后 `uiui[oc` 还是没在第一页看到它。此时按 `Tab[`，输入框成为 `ui[ 光标 ui[oc`。补充敲下第一个字的形码部分 `z`， 然后按 `Control+e` (或者 `End`) 把光标移动到最后，即可看到想要的「适时 」一词出现在候选中。
   *   Q: 形码辅助引导符可以去掉吗? 想直接使用辅助码, 不用引导符(`[`)
   *   A: 默认直接辅助, 可以的, 解开 [这行](https://github.com/boomker/rime-fast-xhup/blob/main/flypy_xhfast.custom.yaml#L118) 注释即可. 若想还原引导符辅助, 加上注释即可
-  几维 墨奇 的 接班人？
+  ==几维== = ==墨奇== 的 接班人？
        https://outwit.app/
 ## 音调 (SỲ..) +
 https://github.com/hugh7007/xmjd6-rere#%E6%98%9F%E7%8C%AB%E9%94%AE%E9%81%93%E5%88%9D%E8%A1%B7 音码劣势
 ### 龙码 (PP)
-   汉心（3）- 像「飞猫」一样，「声、韵」都乱外，还加了乱「调」
+   ==汉心==（3）- 像「飞猫」一样，「声、韵」都乱外，还加了乱「调」
        https://hanxinma.github.io/longma/
        https://github.com/rimeinn/rime-zrlong
 ### 冰雪 (..)
-   奇缘（4+）
+   ==奇缘==（4+）
        https://github.com/rimeinn/rime-snow-pinyin 音码缺点
        https://input.tansongchen.com/snow
        https://input.tansongchen.com
@@ -120,26 +120,26 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 # 整句 1
 > - 在当今信息社会，我们大家都需要使用输入法这一重要工具。
 
-1. 声笔（飞单/飞码）
+1. ==声笔==（飞单/飞码）
 > - z\_ di jr xr xz sne hu , w\_ mr de jo dv xve yx sre yu scu rp fd zl y\_ zvu yx gh jbi .
 - z_ dijr xrxz snhu , wm' dj' dv xy' sryu srfd zl_ y_ zvyx ghjba
 
-2. 五笔
+2. ==五笔==
 > - d\_ iv\_ wynb wy\_ thn\_ py\_ wf\_ , q\_ wu\_ dd\_ pe\_ ftjb fdm\_ s\_ wgkq et\_ lwg\_ ty\_ if\_ p\_ g\_ tgj\_ s\_ a\_ hw\_ .
 
-3. 小鹤音形（字/词）
+3. ==小鹤音形==（字/词）
 > - z\_ dh\_ jb\_ xbr\_ xiz\_ uep\_ hv\_ , w\_ mf\_ da\_ jxb\_ dz\_ xu\_ yc\_ uir\_ ys\_ uui\_ r\_ fa\_ v\_ y\_ isp\_ yc\_ gsa\_ juq\_ .
  - z_ dhjb xbxi uehv , womf dajx dz_ xuyc uiys urfa v_ y_ vsyc gsju
 
-4. 墨奇（词/万象）
+4. ==墨奇==（词/万象）
  - z_ dhjb xbxi uehv , womf dajx dzxu yc_ uiys urf. v_ y. vsyc gsju
  - z_ dhjb xbxi uehv , w m  d j  d x  y   u y. urf. v_ y. vsyc gsju
  - zd dhjb xbxi uehv , womf dajx dzxu yc  uiysuurufave yi vsyc gsju
 
-5. 简单鹤（词）
+5. ==简单鹤==（词）
  - z_ dhjb xbxi uehv , womf dajx d x  y_  uiys urf. v_ y_ vsyc gsju
 
-6. 清韵
+6. ==清韵==
  - ;  d j. x x  s h  , w m  d j  d x  y_  s y/ srf_ w_ ke z y  g j2
 
 ## 对比
