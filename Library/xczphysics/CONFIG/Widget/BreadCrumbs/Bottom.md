@@ -211,7 +211,7 @@ function Yg.lastV(thisPage, mypath)
 end
 
 function widgets.breadcrumbs_B3()
-  local thisPage = path or editor.getCurrentPage()
+  local thisPage = editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
   local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ""
   
