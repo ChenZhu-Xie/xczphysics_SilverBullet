@@ -221,9 +221,15 @@ end
 
 function widgets.breadcrumbs_2()
   local mypage = path or editor.getCurrentPage()
-  local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
-  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ("lastModified:" .. child_symbol_3 .. "0")
-  
+  local list = yg.lastM(mypage)
+  local lastMs
+  if list and #list > 0 then
+    lastMs = template.each(list, bc_last())
+  else
+    local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
+    lastMs = "lastModified:" .. child_symbol_3 .. "0"
+  end
+
   return widget.new {
     -- markdown = lastMs,
     html = dom.div({ lastMs }),
@@ -278,8 +284,14 @@ end
 
 function widgets.breadcrumbs_3()
   local mypage = path or editor.getCurrentPage()
-  local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
-  local lastVs = template.each(yg.lastV(mypage), bc_last()) or("lastOpened:" .. child_symbol_3 .. "0")
+  local list = yg.lastV(mypage)
+  local lastVs
+  if list and #list > 0 then
+    lastVs = template.each(list, bc_last())
+  else
+    local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
+    lastVs = "lastOpened:" .. child_symbol_3 .. "0"
+  end
   
   return widget.new {
     -- markdown = lastVs
