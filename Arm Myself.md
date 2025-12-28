@@ -1,6 +1,6 @@
 #知识武装自己
 
-不深 但 高质量 的 科普，广泛涉猎 -> Build my own Database
+**不深** 但 ==高质量== 的 **科普**，广泛涉猎 -> Build my own Database
 [[我一直意识到了这一点，但直到今天才付出行动]]
 
 # 哲学
@@ -27,4 +27,4 @@
    - 来构建 自己的 视频知识库
 2. 使用 #SilverBullet 的 [[Library/xczphysics/CONFIG/Picker/Tags|Tags Picker]]
    - 来 [[QUERY]] 和 [[filter]] 收藏夹们
-  
+
