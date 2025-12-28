@@ -278,7 +278,7 @@ end
 function widgets.breadcrumbs_3()
   local mypage = path or editor.getCurrentPage()
   local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
-  local lastVs = template.each(yg.lastV(mypage), bc_last()) or("lastView:" .. child_symbol_3 .. "0")
+  local lastVs = template.each(yg.lastV(mypage), bc_last()) or("lastOpened:" .. child_symbol_3 .. "0")
   
   return widget.new {
     -- markdown = lastVs
