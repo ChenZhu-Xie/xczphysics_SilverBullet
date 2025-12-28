@@ -1,5 +1,5 @@
 
-[tanacommunity.slack.com](http://tanacommunity.slack.com/) #Slack #community
+[tanacommunity.slack.com](https://tanacommunity.slack.com/) #Slack #community
 - `#question` 和 `off-topic` 版块 蛮有用的
  - 瞧瞧我发现了些什么 REAL 实用的 #工作流
   - [watch](https://www.youtube.com/watch?v=nzC8G02ls_4) #youtube = [tana live build compound journaling](https://tana.inc/articles/tana-live-build-compound-journaling) #tana #inc
