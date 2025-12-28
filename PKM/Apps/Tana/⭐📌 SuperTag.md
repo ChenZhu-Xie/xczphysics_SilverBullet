@@ -11,10 +11,10 @@ These ideas certainly invite further discussion.
 
 # 来自 #WX群 的 图片们
 
-link to [[🤔 Daydream/🇵🇭🔨 Tana Philosophy#Fields|]]
-![[🤔 Daydream/SuperTag1.png]]
+link to [[PKM/Apps/Tana/🇵🇭🔨 Tana Philosophy#Fields|]]
+![[PKM/Apps/Tana/SuperTag1.png]]
 
-![[🤔 Daydream/SuperTag2.png]]
+![[PKM/Apps/Tana/SuperTag2.png]]
 
-![[🤔 Daydream/SuperTag3.png]]
+![[PKM/Apps/Tana/SuperTag3.png]]
 
