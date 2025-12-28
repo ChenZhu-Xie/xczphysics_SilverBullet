@@ -35,12 +35,11 @@
 
 # Tana 竟然 没有 Aspiring-Page 的概念
 
-@一个不存在的节点时，Tana 会将所创建的对象实体默认放在
+**Description**：@一个不存在的节点时，Tana 会将所创建的对象实体默认放在
 当前空间的 Library 下面。
+- “所有的引用，都有实例”
 
-正如 [[LogSeq]] 使用 [[一个不存在的 page 时，默认会创建 page.md
+#类比 [[LogSeq]] 使用 [[一个不存在的 page 时，默认会创建 page.md
 
-[[RoamEdit]] 和 [[SilverBullet]] 有 Aspiring-Page 的概念
-
-
-
+> **note** Note
+> [[RoamEdit]] 和 [[SilverBullet]] 有 Aspiring-Page 的概念
