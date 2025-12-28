@@ -44,6 +44,7 @@ Tana 会将所创建的对象实体，并且将其 默认放在当前空间的 L
 > - 如果 在 [[PKM/Apps/Tana]] 中内联地引用一个 node，
 > - 则   该 node 的 [[PKM/Apps/Tana/⭐📌 SuperTag]] 不会出现，
 > - 并且 该 node link 的 颜色是其 SuperTag 的颜色。
+  > - 如果 有多个 SuperTag 则是第一个的颜色
 
 #类比 [[PKM/Apps/LogSeq]] 使用 `[[` 一个不存在的 page 时，默认会创建 page.md
 
