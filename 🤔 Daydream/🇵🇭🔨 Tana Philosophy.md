@@ -38,7 +38,9 @@
 @一个不存在的节点时，Tana 会将所创建的对象实体默认放在
 当前空间的 Library 下面。
 
-[[RoamEdit]] 和 [[SilverBullet]] 有
-[[LogSeq]] 有一半（会创建 page）
+正如 [[LogSeq]] 使用 [[一个不存在的 page 时，默认会创建 page.md
+
+[[RoamEdit]] 和 [[SilverBullet]] 有 Aspiring-Page 的概念
+
 
 
