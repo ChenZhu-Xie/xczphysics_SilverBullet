@@ -32,3 +32,7 @@
   - 点 `#Tag` 的聚类 = 点 `[[Tag]]` 后反向链接们 + `[[Tag]]` 自身
 - `field` 也是 `Object/Class`：
   - 点 `#Tag` 或 `Key:Value` 中的 `Key` 后，跳转到 对应的页。
+
+# Tana 竟然 没有 Aspiring-Page 的概念
+
+[[RoamEdit]],

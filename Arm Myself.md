@@ -28,5 +28,5 @@
 2. 使用 #SilverBullet 的 [[Library/xczphysics/CONFIG/Picker/Tags|Tags Picker]]
    - 来 [[QUERY]] 和 [[filter]] 收藏夹们
 
-## 这个“收藏夹”下的内容即在践行上一个 Header
+## 这个“文件夹”下的内容即在践行上一个 Header
 
