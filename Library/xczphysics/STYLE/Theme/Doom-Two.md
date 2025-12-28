@@ -286,7 +286,7 @@ html {
   color: color-mix(in srgb, var(--yellow) 90%, transparent) !important;
 }
 .sb-strong {
-  color: var(--dark-blue) !important;
+  color: var(--cyan) !important;
 }
 ```
 
