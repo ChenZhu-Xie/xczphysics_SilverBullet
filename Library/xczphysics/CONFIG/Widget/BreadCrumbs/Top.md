@@ -220,7 +220,8 @@ end
 
 function widgets.breadcrumbs_2()
   local mypage = path or editor.getCurrentPage()
-  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ""
+  local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
+  local lastMs = template.each(yg.lastM(mypage), bc_last()) or ("lastModified:" .. child_symbol_3 .. "0")
   
   return widget.new {
     -- markdown = lastMs,
@@ -276,7 +277,8 @@ end
 
 function widgets.breadcrumbs_3()
   local mypage = path or editor.getCurrentPage()
-  local lastVs = template.each(yg.lastV(mypage), bc_last()) or ""
+  local child_symbol_3 = has_children(mypage) and "👶🏻" or "👼🏻"
+  local lastMs = template.each(yg.lastV(mypage), bc_last()) or("lastViewed:" .. child_symbol_3 .. "0")
   
   return widget.new {
     -- markdown = lastVs
