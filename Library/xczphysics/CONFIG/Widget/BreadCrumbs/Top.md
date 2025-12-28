@@ -180,6 +180,7 @@ yg = yg or {}
 
 -- 辅助：判断是否有子页面
 function has_children(mypage)
+  if not mypage then return false end
   local children = query[[from index.tag "page"
          where _.name:find("^" .. mypage .. "/")
          limit 1]]
