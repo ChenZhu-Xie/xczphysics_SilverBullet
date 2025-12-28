@@ -166,13 +166,12 @@ end
 function widgets.breadcrumbs_B2()
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
-  local sibling_symbol_3 = choose("🧑‍🤝‍🧑", "👬🏼", mypath)
-
   local list = Yg.lastM(thisPage, mypath)
   local lastMs
   if list and #list > 0 then
     lastMs = template.each(list, Bc_last())
   else
+    local sibling_symbol_3 = choose("🧑‍🤝‍🧑", "👬🏼", mypath)
     lastMs = "lastModified:" .. sibling_symbol_3 .. "0"
   end
 
