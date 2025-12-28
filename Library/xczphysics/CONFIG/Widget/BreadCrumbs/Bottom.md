@@ -166,12 +166,17 @@ end
 function widgets.breadcrumbs_B2()
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
-   -- mypath 是直接父目录 "parent/folder/to"
   local sibling_symbol_3 = choose("🧑‍🤝‍🧑", "👬🏼", mypath)
-  local lastMs = template.each(Yg.lastM(thisPage, mypath), Bc_last()) or ("lastModified:" .. sibling_symbol_3 .. "0")
-  
+
+  local list = Yg.lastM(thisPage, mypath)
+  local lastMs
+  if list and #list > 0 then
+    lastMs = template.each(list, Bc_last())
+  else
+    lastMs = "lastModified:" .. sibling_symbol_3 .. "0"
+  end
+
   return widget.new {
-    -- markdown = lastMs
     html = dom.div({ lastMs }),
     display = "block",
   }
@@ -215,10 +220,16 @@ function widgets.breadcrumbs_B3()
   local thisPage = path or editor.getCurrentPage()
   local mypath = thisPage:match("^(.*)/[^/]*$")
   local sibling_symbol_3 = choose("🧑‍🤝‍🧑", "👬🏼", mypath)
-  local lastVs = template.each(Yg.lastV(thisPage, mypath), Bc_last()) or ("lastOpened:" .. sibling_symbol_3 .. "0")
-  
+
+  local list = Yg.lastV(thisPage, mypath)
+  local lastVs
+  if list and #list > 0 then
+    lastVs = template.each(list, Bc_last())
+  else
+    lastVs = "lastOpened:" .. sibling_symbol_3 .. "0"
+  end
+
   return widget.new {
-    -- markdown = lastVs
     html = dom.div({ lastVs }),
     display = "block",
   }
