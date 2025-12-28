@@ -35,4 +35,10 @@
 
 # Tana 竟然 没有 Aspiring-Page 的概念
 
-[[RoamEdit]],
+@一个不存在的节点时，Tana 会将所创建的对象实体默认放在
+当前空间的 Library 下面。
+
+[[RoamEdit]] 和 [[SilverBullet]] 有
+[[LogSeq]] 有一半（会创建 page）
+
+
