@@ -3,7 +3,7 @@ name: "Repositories/malys"
 tags: meta/repository
 pageDecoration.prefix: "🦩"
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/Repositories/malys.md"
-share.hash: 17b8fa01
+share.hash: 547f8e39
 share.mode: pull
 ---
 ```#meta/library/remote
@@ -51,6 +51,11 @@ name: "Llminstructions"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/LLMInstructions.md
 website: https://github.com/malys/silverbullet-libraries/blob/main/src/LLMInstructions.md
 description: "System prompt to pilot LLM in SB plugin coding."
+---
+name: "Markmapmindmap"
+uri: https://github.com/malys/silverbullet-libraries/blob/main/src/MarkmapMindmap.md
+website: https://github.com/malys/silverbullet-libraries/blob/main/src/MarkmapMindmap.md
+description: "[MarkMap](https://markmap.js.org/) mindmap integration."
 ---
 name: "Marpslides"
 uri: https://github.com/malys/silverbullet-libraries/blob/main/src/MarpSlides.md
