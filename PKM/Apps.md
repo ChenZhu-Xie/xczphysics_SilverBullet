@@ -1,4 +1,6 @@
 
+1. [tft performance interim results](https://www.goedel.io/p/tft-performance-interim-results) #goedel #BenchMark
+
 # 从 inbox 到 archive 的 两种范式
 
 ## 1.[[PKM/Apps/SilverBullet]] = “放在哪个文件夹下 最合适”
