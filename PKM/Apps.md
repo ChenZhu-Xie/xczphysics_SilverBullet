@@ -50,6 +50,9 @@
 >    - 要知道，Tana 官方也拒绝开放 CSS 自定义...
 >    - Tana 的 YouTube 品牌代言人（高于 ambassador）的性格行为举止与 Tana 的产品哲学 高度类似（揉纸团丢掉！“不，我们不做这个功能”）
 
+### Plain Node >> Wiki >> field of Tag >> Tag >> (inherit/extend from) PARENT/metaTag of Tag
+Tana 群友问过 AI：#SuperTag 不应滥用。
+
 # 要 残酷真相 json，还是要 舒适谎言 md ?
 
 INTP 本尊是 接近 冰点的 json 的
