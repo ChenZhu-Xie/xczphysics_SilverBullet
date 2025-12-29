@@ -1,5 +1,5 @@
 
-# Discussion about Tana[[PKM/Apps/Tana/AI]] on #Slack
+# Discussion about Tana[[PKM/Apps/Tana/Built-In AI]] on #Slack
 
 ## Q:
 
