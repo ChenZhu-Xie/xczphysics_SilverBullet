@@ -94,13 +94,20 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 
 # 但实际上 wiki 中的上下文，正是边
 
-然后 前向链接对象（出口）的 反向链接 又展示了 其相对于入口关系，
+然后 前向链接对象（出口）的 反向链接 又展示了 其相对于入口关系
+，如果包含 context 即 [field_or_key:snippet] 的话。
+如果不包括 context 即 [field_or_key:snippet]，则 只是个 [[Library/xczphysics/CONFIG/Picker/Tags/Philosophy#1. 连接的本质：隐式 vs 显式|星形拓扑]] 结构的 #Tag 网
+>  “在目标文档中显示的所有“反向链接”，都可以暂时视为该文档的“逻辑子文档”。- [article](https://ld246.com/article/1739206311467#:~:text=%E5%9C%A8%E7%9B%AE%E6%A0%87%E6%96%87%E6%A1%A3%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E6%89%80%E6%9C%89%E2%80%9C%E5%8F%8D%E5%90%91%E9%93%BE%E6%8E%A5%E2%80%9D%EF%BC%8C%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%9A%82%E6%97%B6%E8%A7%86%E4%B8%BA%E8%AF%A5%E6%96%87%E6%A1%A3%E7%9A%84%E2%80%9C%E9%80%BB%E8%BE%91%E5%AD%90%E6%96%87%E6%A1%A3%E2%80%9D%E3%80%82) #ld246
+> - 同一个 [author:Frostime]（在 ==1017854502== qq 群里叫 ==抑郁 2 号机==） 写的其他文章：[article](https://ld246.com/article/1739206311467#:~:text=在目标文档中显示的所有“反向链接”，都可以暂时视为该文档的“逻辑子文档”。) #ld246
+>   - 上述都来自于 [sy f misc](https://github.com/frostime/sy-f-misc) #github
+
 那么 这个功能似乎 也已经有了... 即 页面底部的 反链，已经够了？
 那么 ...似乎 OB 的这个插件，
 - 除了能更直观地看出 diagram（类似 AnyType 或 Mermain 或 Tikz 含箭头的流程图 = upgraded graph view）外，没有其他太多的帮助？
 
 ${embed.youtube "https://www.youtube.com/watch?v=DXXB7fHcArg&t=897s"}
 
+# Trillium 里有该插件的祖先？
 
-
+1. [article](https://ld246.com/article/1739105383323) #ld246
 
