@@ -1,7 +1,9 @@
 
+1. [datepicker add on as slashcommand](https://community.silverbullet.md/t/datepicker-add-on-as-slashcommand/3679/5?u=chenzhu-xie) #community #silverbullet
+
 # Slash Cmd
 
-```space-lua
+```lua
 -- Date Picker (space-lua)
 -- Fix: avoid colliding with any existing /datepicker command by using a unique name.
 -- Usage: /pickdate

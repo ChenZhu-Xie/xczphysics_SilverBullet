@@ -3,9 +3,26 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: 9b16a894
+share.hash: c7105efd
 share.mode: pull
 ---
+## Tools
+```#meta/library/remote
+name: "🗂️ Document Explorer for the Side Panel"
+uri: github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DocumentExplorer.md
+description: "Document Explorer Side Panel"
+---
+name: "🖨️ PrintPreview"
+uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PrintPreview.md
+description: "Adds PrintPreview with custom HTML/CSS styling for SilverBullet"
+---
+name: "📃 Floating Page(Proof of Concept)"
+uri: github:Mr-xRed/silverbullet-libraries/FloatingPage.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md
+description: "Open any page in a Floating Window inside Silverbullet"
+```
 
 ## Widgets
 ```#meta/library/remote
@@ -23,11 +40,6 @@ name: "⛅ OpenWeatherMap_Widgets"
 uri: github:Mr-xRed/silverbullet-libraries/OpenWeatherMap_Widgets.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/OpenWeatherMap_Widgets.md
 description: "OpenWeatherMap Widget and slash commands"
----
-name: "🗂️ Document Explorer"
-uri: github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DocumentExplorer.md
-description: "Document Explorer VirtualPage"
 ```
 
 ## Productivity Shortcuts
@@ -41,6 +53,16 @@ name: "🛠 SelectionToCodeblockToggle"
 uri: github:Mr-xRed/silverbullet-libraries/SelectionToCodeblockToggle.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/SelectionToCodeblockToggle.md
 description: "Shortcuts to wrap the current selection in custom codeblocks."
+---
+name: "🗓️ DatePicker as SlashCommand"
+uri: github:Mr-xRed/silverbullet-libraries/DatePicker.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DatePicker.md
+description: "Pick a date from a calendar and add it to your page as a WikiLink"
+---
+name: "🗓️ Floating Journal Calendar"
+uri: github:Mr-xRed/silverbullet-libraries/FloatingJournalCalendar.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingJournalCalendar.md
+description: "The Journal Calendar is a lightweight, interactive navigation tool for SilverBullet. It provides a sleek, floating interface that allows users to quickly browse their journal entries."
 ```
 
 ## Styles and Visuals
@@ -86,15 +108,15 @@ website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/SilverBulle
 description: "A CSS Structure Map of IDs and Classes to ease customization."
 ```
 
-## Tools
+## Deprecated Libraries
 ```#meta/library/remote
-name: "🖨️ PrintPreview"
-uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PrintPreview.md
-description: "Adds PrintPreview with custom HTML/CSS styling for SilverBullet"
----
 name: "☠️ PDF_with_Pandoc_and_Weasyprint"
 uri: github:Mr-xRed/silverbullet-libraries/PDF_with_Pandoc_and_Weasyprint.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PDF_with_Pandoc_and_Weasyprint.md
 description: "DEPRECATED: Uses Pandoc and WeasyPrint to print your Markdown into PDF"
+---
+name: "☠️ Virtual Page Document Explorer (Deprecated)"
+uri: github:Mr-xRed/silverbullet-libraries/VirtualPageDocumentExplorer.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/VirtualPageDocumentExplorer.md
+description: "VirtualPage Document Explorer"
 ```
