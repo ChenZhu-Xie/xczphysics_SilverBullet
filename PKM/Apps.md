@@ -6,7 +6,7 @@
 **摩擦在于**：跨文件夹 跳转和查询：关联对象们
 - 相比 2. 不仅
   - 初始创建 的时候 难分类
-  - 查询起来 也挺难（2. 查询不难）。
+  - 查询起来 也挺难（2. 低代码 般的 查询不难）。
     - 要知道... [[Library/xczphysics/CONFIG/Picker/Tags|Tags Picker]] 在 Tana 里... 用 [[PKM/Apps/Tana/Query Builder|query builder]] 非常容易实现，但...为此 我竟然需要在 SilverBullet 中 写那么长代码...
 
 ## 2.[[PKM/Apps/Tana]] = “打什么标签 最合适”
