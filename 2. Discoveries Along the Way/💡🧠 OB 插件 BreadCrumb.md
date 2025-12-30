@@ -66,7 +66,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
        - 当然，更 meta 一点是，根据 folder 的 path/fields/tags 自动生成它的 matching rule...
        - 该概念 ==每一个 Page 自动按其 rules 去执行不同的 queries ==
          - #💡 #类比 [[PKM/Apps/Tana]] 的 [[PKM/Apps/Tana/Related Content|related content]] [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3057) #youtube
-         - ==== 相比于 [[PKM/Apps/Tana/Search Node|search node]] 似乎更 live query ？
+         - ==== 相比于 [[PKM/Apps/Tana/Search Node|search node]] 似乎更 live query (即 自动更新)？
          - #💡 #类比 ==Search Node== 被 convert to [[PKM/Apps/Tana/Command Node|command node]] 后，就是 silverbullet 的自定义的 各种 picker 命令了...
      - 1 页面（对象）${latex.inline[[\xleftarrow[]{\text{的 1 key:}}]]} query 到的 多values（as `[[pages]]`）
        - query 对象后 + add 对象至 key:对应的 value 的动作
