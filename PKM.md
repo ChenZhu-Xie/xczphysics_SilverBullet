@@ -7,3 +7,4 @@ Tana #WX群 里 [author:Edison Qian] 说
   - 读全库（应该没问题吧？如果能塞下大代码库的话，作为知识库的第二大脑又算得了什么呢）RAG 找联系 又厉害
   - 总结、联想等功能只需要说一说就可以生成...
 
+[[emacs]] [index.html](https://www.gnu.org/software/emacs/tour/index.html) #gnu 或许也... 是 最终极的 PKM
