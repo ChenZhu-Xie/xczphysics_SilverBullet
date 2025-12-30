@@ -8,4 +8,7 @@
   - Live Rendering [texpresso](https://github.com/let-def/texpresso) #github
   - from [vimandlatex](https://www.dmsussman.org/resources/vimandlatex/) #dmsussman
     - [why vim is more than just an editor vim language motions and modes explained](https://www.bomberbot.com/vim/why-vim-is-more-than-just-an-editor-vim-language-motions-and-modes-explained/) #bomberbot
-  - 
+    - [latexcollaboration](https://www.dmsussman.org/resources/latexcollaboration/#one-sentence-per-line) #dmsussman
+      - 每行一句话：我的小论文和大论文应该都遵循，并且可能需要重构
+    >    因为单个换行不会产生段落，而且可以提高可读性，也方便查找定位
+      - [ ] 用 antigravity 试试?
