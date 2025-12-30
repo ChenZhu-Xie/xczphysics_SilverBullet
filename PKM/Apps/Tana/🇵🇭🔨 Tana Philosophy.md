@@ -26,7 +26,7 @@
     - 如果  能，则不要打标签
     - 如果不能，才继续打标签
 
-在 [[LogSeq]] 中，`#Tag` 就是 `[[Tag]]`
+在 [[LogSeq]] 中，`#Tag` 就是 `[[Tag]]` 
 - [coming from logseq outlines and linked mentions](https://community.silverbullet.md/t/coming-from-logseq-outlines-and-linked-mentions/290/16?u=chenzhu-xie) #community #silverbullet
 - SilverBullet 中也类似：
   - 点 `#Tag` 的聚类 = 点 `[[Tag]]` 后反向链接们 + `[[Tag]]` 自身
