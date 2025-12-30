@@ -10,3 +10,7 @@
     - 这可能是 Tana 团队出于产品的安全考虑。
       - 正如 CSS 的注入都这么麻烦：他们似乎不希望开放太黑客的入口。
       - 也正如 [[Inbox/2025-12-27/23-32-42#Message 3|鼠标操作 多于键盘]] 的 背后原因，是基于同样的起源？
+
+# Simple Query Knowledge
+
+1. 引用单单一个 Node 到 Query Builder，默认是在找 它的所有后代 [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3617) #youtube
