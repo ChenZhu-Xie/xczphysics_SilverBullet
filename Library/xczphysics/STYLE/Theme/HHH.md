@@ -19,6 +19,8 @@ pageDecoration.prefix: "🎇 "
 
 1. borrowed `JS inject` from [[CONFIG/View/Tree/Float]]
 2. https://community.silverbullet.md/t/hhh-hierarchyhighlightheadings-theme/3467
+3. 这个 以及 Mr.Red 的 JS plug 像 [[PKM/Apps/Orca Note|]] 和 [[PKM/Apps/SiYuan|]] 的 JS plug
+   - 速度和大小上 应该会输于 [[PKM/Apps/SilverBullet|]] 的 编译后的 TS .plug.js
 
 > **danger** Danger
 > for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
@@ -60,16 +62,39 @@ const DataModel = {
     
     if (!text) return;
 
+    // 1. 预先扫描所有代码块的范围，用于后续排除
+    const codeBlockRanges = [];
+    // 匹配 ``` ... ``` 包裹的内容 (非贪婪模式)
+    const codeBlockRegex = /```[\s\S]*?```/gm;
+    let blockMatch;
+    while ((blockMatch = codeBlockRegex.exec(text)) !== null) {
+      codeBlockRanges.push({
+        start: blockMatch.index,
+        end: blockMatch.index + blockMatch[0].length
+      });
+    }
+
+    // 2. 扫描标题
     const regex = /^(#{1,6})\s+([^\n]*)$/gm;
     let match;
 
     while ((match = regex.exec(text)) !== null) {
+      const matchIndex = match.index;
+      
+      // 3. 检查当前匹配到的 # 是否在代码块范围内
+      const isInsideCodeBlock = codeBlockRanges.some(range => 
+        matchIndex >= range.start && matchIndex < range.end
+      );
+
+      // 如果在代码块内，则跳过，不将其视为标题
+      if (isInsideCodeBlock) continue;
+
       this.headings.push({
         index: this.headings.length,
         level: match[1].length,
         text: match[2].trim(),
-        start: match.index,
-        end: match.index + match[0].length
+        start: matchIndex,
+        end: matchIndex + match[0].length
       });
     }
   },
