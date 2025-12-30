@@ -49,3 +49,6 @@ I detail this and potential solutions in the live build session here: [https://
 
 TLDR make a separate tag #Relation with fields for each person and make search node in #person template that shows their #relations  
 简而言之，为每个人创建一个单独的 #Relation 标签，并添加相应的字段，然后在 #person 模板中创建一个搜索节点，用于显示他们的 #relations 关系。
+
+
+
