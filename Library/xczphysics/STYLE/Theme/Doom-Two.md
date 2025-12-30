@@ -221,6 +221,11 @@ html[data-theme=dark] {
 ```
 
 ## Frontmatter
+
+1. 实际上也可以跟进再 hide [key:value]
+   - [hiding some frontmatter](https://community.silverbullet.md/t/hiding-some-frontmatter/3682/4?u=chenzhu-xie) #community #silverbullet
+     - `.sb-atom`
+
 ```space-style
 /* Background */
 .sb-frontmatter {
