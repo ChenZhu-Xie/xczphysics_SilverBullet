@@ -2,6 +2,8 @@
 1. Pieces for Dev 的 等价物 们：
    - [best rewind alternatives](https://pieces.app/blog/best-rewind-alternatives) #pieces
 
+2. 等价物 2：豆包手机中的 agent = manus 做的浏览器 agents
+
 # 就像 豆包手机 自动截屏
 
 【【老戴】豆包手机到底在看你什么？我抓到了它的真实工作流程】
