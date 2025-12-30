@@ -7,3 +7,4 @@
 - NeoVim 上的一些 LaTeX 插件 [neovim_as_a_latex_editor](https://www.reddit.com/r/neovim/comments/1fqvbfb/neovim_as_a_latex_editor/) #reddit
   - Live Rendering [texpresso](https://github.com/let-def/texpresso) #github
   - from [vimandlatex](https://www.dmsussman.org/resources/vimandlatex/) #dmsussman
+  - 
