@@ -19,7 +19,8 @@ WITH REFS - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3547) #youtube
 
 #### 包括 search node
 
-- 
+[pinciple:一对多时，使用 search node 作为 key 的 value 值]
+- [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=643) #youtube
 
 
 # 对 field 求值：以构建 关系图中的 边
