@@ -9,3 +9,5 @@ Tana #WX群 里 [author:Edison Qian] 说
 
 [index.html](https://www.gnu.org/software/emacs/tour/index.html) #gnu [[emacs]] 或许也... 是 最终极的 PKM
 - [[Vim]] + agent tools（操作文件们的手(脚架)） = [[emacs]] ?
+- [emacs](https://emacs-china.org/t/emacs/9477/27) #emacs-china
+
