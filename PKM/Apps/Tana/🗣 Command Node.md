@@ -12,3 +12,4 @@
 # 对 field 求值：以构建 关系图中的 边
 串联 `value = ${key}` 以构建 标题：[n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=357) #youtube
 #类似 `string.format` [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1221) #youtube
+see also [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1246) #youtube and [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1259) #youtube
