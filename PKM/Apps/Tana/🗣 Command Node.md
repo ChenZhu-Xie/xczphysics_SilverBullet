@@ -8,3 +8,7 @@
 # 配合 [[PKM/Apps/Tana/🔎 Search Node]] = Picker
 
 1. [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=4306) #youtube
+
+# 对 field 求值：以构建 关系图中的 边
+串联 `value = ${key}` 以构建 标题：[n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=357) #youtube
+
