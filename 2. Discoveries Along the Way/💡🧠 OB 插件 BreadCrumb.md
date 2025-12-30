@@ -63,7 +63,9 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
      - 在当前笔记中添加，query 到的笔记们，作为边的终点 = attr 的值
      - 每一个 page 都在按自己的规则(不止一条)，自动找它的朋友们#类比
        - use its own rule to forward link to its own friends...
-       - 当然，更 meta 一点是，根据 folder 的 path/fields/tags 自动生成它的 matching rule... 
+       - 当然，更 meta 一点是，根据 folder 的 path/fields/tags 自动生成它的 matching rule...
+       - 该概念 ==每一个 Page 自动按其 rules 去执行不同的 queries ==
+         - #💡 #类比 [[PKM/Apps/Tana]] 的 ==related content== [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3057) #youtube
      - 1 页面（对象）${latex.inline[[\xleftarrow[]{\text{的 1 key:}}]]} query 到的 多values（as `[[pages]]`）
        - query 对象后 + add 对象至 key:对应的 value 的动作
          - 可以被安排发生在 hook:render-top-widget 的事件中
@@ -81,7 +83,7 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 
 ### 反思：Tana 的 SuperTag
 
-这个 OB 插件，单纯只对 fields 进行解析，tag 只用于 filer values。
+这个 OB 插件，单纯只对 fields 进行解析，tag 只用于 filter values。
   - 甚至也没有对 fields 进行自动修改？
     - 显式构造边的 values 都是查询条件
       - （而不是查询结果：页面对象作为value）
