@@ -31,7 +31,7 @@ Yes, the image was drawn by an 17-year-old from mainland China — my younger se
 
 At that time — a decade ago, and even now, I feel deeply that I possess a natural gift:
 
-1. ${Purple("Acquisition")}: actively generate (from purely within), gather (from surroundings) and filter unknown information efficiently, discover unusual dark spots (e.g. [SilverBullet](https://silverbullet.md/), [[Language/Input Method]]);
+1. ${Purple("Acquisition")}: actively generate (from purely within), gather (from surroundings) and filter unknown information efficiently, discover [[🤔 Daydream/💡 盲生发现华点|unusual dark spots]] (e.g. [SilverBullet](https://silverbullet.md/), [[Language/Input Method]]);
 2. ${Purple("Processing")}: pattern recognize, distill, understand, interweave, compress, and transform known information through original logic into forms comprehensible to the public; 
 3. ${Purple("Output")}: strive for what one believes to be precise and concise expression —
 
