@@ -13,14 +13,18 @@ WITH REFS - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3547) #youtube
 
 - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3191) #youtube
 
-#### field.obj's key ，可以拿到 obj's field 值 
-
-1. [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1274) #youtube
-
 #### 甚至包括 search node
 
 [pinciple:一对多时，使用 search node 作为 key 的 value 值]
 - [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=643) #youtube
+
+#### field.obj's key ，可以拿到 obj's field 值 
+
+1. [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1274) #youtube
+
+##### 甚至 无限地 dot 下去，穿透式寻找。 但不能反向上寻找...
+
+1. [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1321) #youtube
 
 # 对 field 求值：以构建 关系图中的 边
 串联 `value = ${key}` 以构建 标题：[n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=357) #youtube
