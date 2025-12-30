@@ -5,3 +5,6 @@
   - [ ] 包括 SuperTags 对应的一些操作的 快捷键
     - ==没有，且不能自定义==。推荐操作：`ctrl k` + `search: live...`
 
+# 配合 [[PKM/Apps/Tana/🔎 Search Node]] = Picker
+
+1. [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=4306) #youtube
