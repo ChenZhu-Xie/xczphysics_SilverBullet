@@ -34,6 +34,7 @@ WITH REFS - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3547) #youtube
 see also [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1246) #youtube and [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1259) #youtube
 
 ## Slack 上对 双向 field 的讨论，
+[p1766960701835609](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1766960701835609) #tanacommunity #slack
 引出了该 youtube video ==n1J0tZqb_6A== #学术.
 - [[双向 field]] #类似 [[2. Discoveries Along the Way/💡🧠 OB 插件 BreadCrumb|]] 中的 key:value 中，value 的 逆/反关系 和 反箭头
 
