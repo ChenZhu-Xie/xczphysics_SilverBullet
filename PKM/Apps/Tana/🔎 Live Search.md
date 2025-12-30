@@ -6,5 +6,6 @@
 
 1. [tana learn live live search and views](https://tana.inc/articles/tana-learn-live-live-search-and-views) #tana #inc
    - [origin:Tana Slack]
+
 #❓ Tana 的 query 似乎没办法嵌套
    - 第一个 query 产生的表格 无法作为 下一个 query 的输入
