@@ -39,7 +39,8 @@ Doc: [https://silverbullet.md/](https://silverbullet.md/)
 Community: [https://community.silverbullet.md/latest](https://community.silverbullet.md/latest)
 Source Code: [https://github.com/silverbulletmd/silverbullet](https://github.com/silverbulletmd/silverbullet)
 
-> ${name} official doc URL in markdown with concise name
+> the official DOC URL of ${name} via web search
+> ${name} official DOC URL in markdown with concise name
 > the ${name} Community URL as markdown, keep it clean
 
 ## Slack 上对 双向 field 的讨论，
