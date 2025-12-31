@@ -33,10 +33,14 @@ WITH REFS - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3547) #youtube
 #类似 `string.format` [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1221) #youtube
 see also [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1246) #youtube and [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1259) #youtube
 
+#关系型数据库
+
 ## Slack 上对 双向 field 的讨论，
 [p1766960701835609](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1766960701835609) #tanacommunity #slack
 引出了该 youtube video ==n1J0tZqb_6A== #学术.
-- [[双向 field]] #类似 [[2. Discoveries Along the Way/💡🧠 OB 插件 BreadCrumb|]] 中的 key:value 中，value 的 逆/反关系 和 反箭头
+- [[双向 field]] #类似
+  - [[2. Discoveries Along the Way/💡🧠 OB 插件 BreadCrumb|]] 中的 key:value 中，value 的 逆/反关系 和 反箭头
+  - Tana 中通过 [[PKM/Apps/Tana/🔎 Search Node]] 来自动化这种 逆？
 
 ==Q:== Is there a way to two-way link the values of a field in different objects? What I'm trying to do is create a network of my contacts and using a field to set the people each person knows, but I want to define a value in one place and it be reflected in the other person's field, i.e.: John Doe.Relations has Anne Joe as the value, and once I enter AnneJoe the Relations field should have John Doe already in place. I'm coming from Capacities and they have [this feature](https://capacities.io/whats-new/release-50), and I'm trying to map that concept into how Tana works  
 
