@@ -39,10 +39,10 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 → 推断出 ${latex.inline[[c \xrightarrow[]{\text{'s children is}} a,b]]} 或 ${latex.inline[[a,b \xrightarrow[]{\text{is the children of}} c]]}
 
 > **note** Note
-> 顺着箭头的方向 最好应该用 主动式语法 来解读，比如：
+> 顺着箭头的方向 最好应该用 主动式语法 来解读
+> （也即上面两行的第一列），比如：
 > a 的父母是（is 谓语）b
 > a 推出了（及物动词 vt.）b
-> a 
 
 ## 关系还能 传递/运算
 
