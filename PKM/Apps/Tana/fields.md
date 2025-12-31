@@ -35,6 +35,10 @@ see also [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1246) #youtube and [n1J0tZ
 
 #关系型数据库
 
+Doc: [https://silverbullet.md/](https://silverbullet.md/)
+Community: [https://community.silverbullet.md/latest](https://community.silverbullet.md/latest)
+Source Code: [https://github.com/silverbulletmd/silverbullet](https://github.com/silverbulletmd/silverbullet)
+
 ## Slack 上对 双向 field 的讨论，
 [p1766960701835609](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1766960701835609) #tanacommunity #slack
 引出了该 youtube video ==n1J0tZqb_6A== #学术.
