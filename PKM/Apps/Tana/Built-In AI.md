@@ -1,6 +1,7 @@
 
 # Discussion about Tana[[PKM/Apps/Tana/Built-In AI]] on #Slack
 
+- GPT5 Nano in particular is extremely cost effective #<Fun Fact>
 
 ## Q1:
 
