@@ -1,7 +1,6 @@
 
-Tana #WX群 里我的发言 #按时间顺序
+# Tana #WX群 里我的发言 #按时间顺序
 
----
 [强] 最近看了看 obsidian 的 breadcrumb 插件的逻辑 再和 silverbullet 的 topwidget 对比，也有这样的感觉
 
 在 silverbullet 里给 tana 做笔记[捂脸]：[[PKM/Apps/Tana/Related Content]]
