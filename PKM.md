@@ -12,6 +12,9 @@ Tana #WX群 里 [author:Edison Qian] 说
       - 作为 绝对关联路径 形成的 ==“图骨架”==
       - 作为 数据结构 近似 在内存中 连续分布，以使 查询成本 极低
   - 总结、联想等功能只需要说一说就可以生成...
+虎鲸 #WX群 里也提到了类似的 #PKM 工具：[author:Wilfred]
+  - [KnowNote](https://github.com/MrSibe/KnowNote) #github
+  - [WitNote](https://github.com/hooosberg/WitNote) #github
 
 [index.html](https://www.gnu.org/software/emacs/tour/index.html) #gnu [[emacs]] 或许也... 是 最终极的 PKM
 - [[Vim]] + agent tools（操作文件们的手(脚架)） = [[emacs]] ?
