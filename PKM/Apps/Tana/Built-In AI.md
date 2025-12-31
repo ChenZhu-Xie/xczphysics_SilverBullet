@@ -6,9 +6,9 @@
 
 What can I put in my prompt so that AI does not alias the references I wan? I want it to reference the actual nodes rather than alias them. 
 我应该在提示符中输入什么，才能让 AI 不要使用别名引用我想要的内容？我希望它引用实际的节点，而不是使用别名。
-
 ![[PKM/Apps/Tana/2025-12-31_19-09-35.png]]
 
+- [ ] Tana 可以标注 pdf ?
 
 ### A1:
 
