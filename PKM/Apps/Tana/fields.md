@@ -43,6 +43,7 @@ Source Code: [https://github.com/silverbulletmd/silverbullet](https://github.com
 > ${name} official DOC URL in markdown with concise name
 > the ${name} Community URL as markdown, keep it clean
 > Return one ${name} Community URL as [Domain](URL) only
+> Return 1 ${name} official Community URL precisely as [Domain](URL)
 
 ## Slack 上对 双向 field 的讨论，
 [p1766960701835609](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1766960701835609) #tanacommunity #slack
