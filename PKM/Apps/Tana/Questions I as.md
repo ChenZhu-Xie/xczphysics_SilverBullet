@@ -23,7 +23,7 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 
 I have two nodes, “itag” and “tag (base type)”, both tagged with `#"Object of PKM app"`.
 
-From a query builder named “equivalents” placed under either node, it is easy to retrieve the other node sharing this tag,  using query `(Tagged:Object of PKM app) AND (NOT (Node name==PARENT) )` (*where PARENT = “itag”*).
+From a query builder node named “equivalents” placed under either node, it is easy to retrieve the other node sharing this tag,  using query `(Tagged:Object of PKM app) AND (NOT (Node name==PARENT) )` (*where PARENT = “itag”*).
 
 However, within the “equivalents” field of `#"Object of PKM app"` itself, it is impossible to query ***any node with the same tag other than the node itself***.
 
