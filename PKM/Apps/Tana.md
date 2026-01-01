@@ -6,7 +6,7 @@
    1. [x] Tana 应用内 语音捕捉 快捷键 有吗？是什么？能自定义么？ [completed: 2025-12-29T17:51:32]
       - [nzC8G02ls_4](https://youtu.be/nzC8G02ls_4?t=942) #youtube
       - ==没有，且不能自定义==。推荐操作：`ctrl k` + `search: live...`
-   3. add fields as SupterTag’s default temp: [nzC8G02ls_4](https://youtu.be/nzC8G02ls_4?t=880) #youtube
+   3. add fields as SupterTag’s default content: [nzC8G02ls_4](https://youtu.be/nzC8G02ls_4?t=880) #youtube
  - https://sublime.app/?about
  - https://www.sandbar.com/stream
  - https://github.com/lokus-ai/lokus
