@@ -13,6 +13,8 @@
 1. `URL: Set` yields nodes that contain a `Url` field.
 2. `IS FIELD` then extracts the pure field nodes, discarding their parent nodes.
 
+simply using `and` doesn't work: `(URL==Set) AND (is:Field)` . so nested searches needed.
+
 ## 2
 
 How can one open a new panel vertically (downward) rather than horizontally (to the right) in Tana?
