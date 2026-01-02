@@ -36,6 +36,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 - 又继承到 #Tag 的 field 和 field type 上（将属于该 #Tag 的这2染色）
 
 这个看上去比 [[PKM/Apps/LogSeq]] 更科学：
+> 再加上 LogSeq 是后来者，说明 LogSeq 只在模仿，却没有超越？
 - 因为同一个 node 可以属于多个 #Tag 而被染上不同的混合颜色。
 - 而 LogSeq 的 field 既看不出来是 node 自身的 field，也看不出来是 #Tag 的 field，更看不出来是哪一个 #Tag 的 field (如果有多个 #Tag)
 
@@ -58,7 +59,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 
 1. field type
 2. field (key)
-3. value
+3. field (key) 的实例化对象：value
 
 # LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
 开启 Dev Tool 后，
@@ -67,5 +68,6 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 - 能提供比 Tana 这个闭源软件 更丰富的 Node 属性信息
   - 这个 Node 属性信息 可以用来 提供给 AI，并==更好地辅助你写 query==
 
-LogSeq 的 #Tag 中的 右键 field，弹出的菜单 最末，可拿到 page data
+LogSeq 的 #Tag 中，右键随便一个对象（包括其 field ），
+弹出的菜单 最末，可拿到该 #Tag 的 page data
 
