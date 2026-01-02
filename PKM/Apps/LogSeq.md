@@ -43,7 +43,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 2 #Tag 和 #Tag 的实例化对象 能改 logo
 - 但必须 同时改 logo
 1 field 可以改 logo
-1 field type 均无法改 logo
+1 field type 无法改 logo
 
 ### Tag 还有 Tag/base type，正如 field 有 field type
 即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 #Tag 实例化对象 的 数据结构/类型
@@ -67,4 +67,5 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 - 能提供比 Tana 这个闭源软件 更丰富的 Node 属性信息
   - 这个 Node 属性信息 可以用来 提供给 AI，并==更好地辅助你写 query==
 
-#Tag 中的 不能穿透
+LogSeq 的 #Tag 中的 右键 field，弹出的菜单 最末，可拿到 page data
+
