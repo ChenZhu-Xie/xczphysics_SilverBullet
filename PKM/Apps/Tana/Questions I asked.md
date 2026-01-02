@@ -61,7 +61,9 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 
 ## Q3 Tana 和 LogSeq 的 attr 模板内无法感知外
 
-Tana 在 ==Sources of options== 中，通过 Path 只能 query build 出 `schema` > `#Object of PKM app` > `Equivalents`
+[[PKM/Apps/Tana]] 在 ==Sources of options== 中，通过 >:Path 只能 query build 出 `schema` > `#Object of PKM app` > `Equivalents` > `Values`
+
+[[PKM/Apps/LogSeq]] 在 
 
 ### Q1
 
