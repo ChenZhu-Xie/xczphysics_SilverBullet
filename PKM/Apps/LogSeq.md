@@ -61,6 +61,8 @@ AnyType 竟然没有 #Tag 意义上的 #Tag...
 > 确实有 tag，但...竟然是个 field ！其 value 为多选 list ！...天才..
 - AnyType 的 building atom 直接就是 具象对象的基类 下的 具象对象本身，中间没有 #Tag 隔一层... 实例化对象 直接继承了 对象基类的 field... 这意味着 对象的基类，起到了 `#Tag (的 base type)` 的作用 
 
+
+
 #### 一共有 6 = 3 + 3 种 东西：
 
 1. #Tag 的 `base type`
