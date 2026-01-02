@@ -138,4 +138,4 @@ Get it, is it something like below?
 
 i.e. using a search node named "equivalents" in Tag Template to replace the "equivalents" field whose value is templated as a search node?
 
-==A:== 
+==A:== Yes your equivalents search is a perfect example of a search node that belongs to a tag template (`#object of` `PKM app`) and dynamically adapts to the PARENT of each instance
