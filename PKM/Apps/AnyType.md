@@ -5,6 +5,8 @@
 - ==另一种理解方式==：AnyType 有 #Tag 意义上的 #Tag:
   - 对象类型 object('s) type
     - 你点一下 sidebar 的类型，就 List 同类型下的 所有 ==实例化对象==。
+    - 逻辑上，对象 is（其基类）类型。而凡是 is 就是 #Tag
+     > 所以 AnyType 的 类型 type 等价于 #Tag
   - 可以新建 对象类型，自定义 该类型对应的模板、默认属性
     - 类型 Type 的模板（的排版）
       - 看上去就是 `#Tag 的 base type`（的具体布局/外观）？
