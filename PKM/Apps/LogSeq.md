@@ -69,5 +69,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
   - 这个 Node 属性信息 可以用来 提供给 AI，并==更好地辅助你写 query==
 
 LogSeq 的 #Tag 中，右键随便一个对象（包括其 field ），
-弹出的菜单 最末，可拿到该 #Tag 的 page data
+>  右键 #Tag 的 实例化对象 的 field 却没有任何反应。
+- 弹出的菜单 最末，可拿到该 #Tag 的 page data
+
 
