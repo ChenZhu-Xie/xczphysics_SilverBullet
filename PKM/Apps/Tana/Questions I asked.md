@@ -71,6 +71,10 @@ However, within the “equivalents” field of `#"Object of PKM app"` itself, 
 
 of no help EVEN using  `(Tagged:Object of PKM app) AND (NOT (Node name==GRANDPARENT) )` (*where GRANDPARENT can only trace up to "equivalents" field node, rather than the GRANDGRANDPARENT “itag” node*)
 
+#### A1
+
+==A:== Search nodes within field configurations are unable to dynamically adapt to instances
+
 ### Q2
 
 pic1: when "equivalents" node as the child of the node "tag (base type)", all go smooth  
@@ -81,6 +85,20 @@ pic2: when "equivalents" field as the field of the "tag (base type)", same query
 
 so I suppose we need GRANDGRANDPARENT to make things happen again.
 
-#### A
+#### A2
 
-==A:== Search nodes within field configurations are unable to dynamically adapt to instances
+==A:== It is not a GRAND^nPARENT issue, it is an instance adoption issue.
+
+You can create a PARENT search node with a tag config template, then when you tag a node you can see the search within that instance adopts the PARENT of the instance. 
+
+Even within the tag template you can see the linter says INSTANCE to designate this will be filled once instantiated.This ability is not present with field config / field instance so the field dropdowns are not adaptable. Workaround is to do the former and put a search within the tag template.No timeline on when this will be addressed
+
+### Q3
+
+Get it, is it something like below?  
+
+i.e. using a search node named "equivalents" in Tag Template to replace 
+
+the "equivalents" field whose value is templated as a search node ? 
+
+==A:== 
