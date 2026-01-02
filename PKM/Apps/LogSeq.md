@@ -46,11 +46,13 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 
 #### 一共有 6 = 3 + 3 种 东西：
 
-1. #Tag 的 baseType
+1. #Tag 的 base type
 2. #Tag    本身
 3. #Tag 的 实例化对象
 
-1. Field Type 的
+1. field type
+2. field (key)
+3. value
 
 # LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
 开启 Dev Tool 后，
