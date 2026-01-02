@@ -17,7 +17,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 如 public `string` str 中的 `string`
 
 - 但 Tana 不允许后续更改，LogSeq 却允许后续更改。
-  - 这就很奇怪 ==Tana==：
+  - 这就很奇怪 ==Tana==： 
     - Tana 的 node，作为实例化后的 #Tag, 允许更改 Logo；
       - #Tag 本身的 logo 只能是 `#`, 且无法更改
     - 但 Tana 的 field，作为实例化后的 field type，不允许更改 Logo
@@ -25,5 +25,11 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
     - LogSeq 的 block，继承了 #Tag 的 Logo，且允许和 #Tag 一起更改；
       - 实例本身的 logo 只能是 #Tag 的 logo, 无法 脱离于之 单独更改
     - LogSeq 的 field，作为实例化后的 field type，允许更改 Logo
+
+总结：1 #Tag 的实例化对象 能改 logo
+但 3 #Tag, field, field type 均无法改 logo
+然而，#Tag 有颜色且能更改颜色，并继承到其实例化对象上（若其无 logo）
+- 这个看上去很科学，因为 同一个对象 
+
 
 # LogSeq db 
