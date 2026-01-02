@@ -4,7 +4,7 @@
 
 ## Q1 嵌套搜索 Tana 和 LogSeq 做不到，SB 可以
 
-### Q1
+### q1
 
 ***Nested Searches***:  
 
@@ -28,7 +28,7 @@ simply using `and` doesn't work: `(URL==Set) AND (is:Field)` . so nested sea
 
 > >Path: >URL: (empty value)
 
-### Q2 
+### q2 
 
 > IS FIELD will return field references, not field values
 
@@ -95,8 +95,12 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 只能 **Query** 出 `property instance` 一个值... 
 等价于 Tana 的 GRANDPARENT = `Equivalents`
 
+---
+==结论==：Tana 和 LogSeq 二者的 field templete 中的 query，在实例化后
+没法 穿透 field 本身这个屏障，
+以到达它 所属的 (`Owned by` in Tana) 实例化节点
 
-### Q1
+### q1
 
 I have two nodes, “itag” and “tag (base type)”, both tagged with `#"Object of PKM app"`.
 
@@ -110,7 +114,7 @@ of no help EVEN using  `(Tagged:Object of PKM app) AND (NOT (Node name==GRANDP
 
 ==A:== Search nodes within field configurations are unable to dynamically adapt to instances
 
-### Q2
+### q2
 
 pic1: when "equivalents" node as the child of the node "tag (base type)", all go smooth  
 pic2: when "equivalents" field as the field of the "tag (base type)", same query (as `source of options`) don't work
@@ -128,7 +132,7 @@ You can create a PARENT search node with a tag config template, then when you ta
 
 Even within the tag template you can see the linter says INSTANCE to designate this will be filled once instantiated.This ability is not present with field config / field instance so the field dropdowns are not adaptable. Workaround is to do the former and put a search within the tag template.No timeline on when this will be addressed
 
-### Q3
+### q3
 
 Get it, is it something like below?
 
