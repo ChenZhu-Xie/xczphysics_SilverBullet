@@ -50,6 +50,8 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 ### Tag 还有 Tag/base type，正如 field 有 field type
 即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 `#Tag 实例化对象` 的 数据结构/类型
 - SB 的 page, table, item, task, paragraph, data, link, header, tag
+  - 很具象，最像 SiYuan，其次像 AnyType
+  - 这三者的 #Tag 的 实例化对象 只能继承一个 base type，但 Tana 不是，可以继承多个 Tags，因而可以继承多个 base type（每个 Tag 都可以选择一个 base type）
 - Tana 的 Meeting, Task, Person, Event, Day, Location, Topic, Project
 
 #### 一共有 6 = 3 + 3 种 东西：
