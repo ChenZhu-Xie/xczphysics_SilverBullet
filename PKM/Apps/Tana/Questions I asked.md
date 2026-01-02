@@ -2,7 +2,7 @@
 
 # Question I ask in Tana Slack
 
-## Q1
+## Q1 嵌套搜索 Tana 和 LogSeq 做不到，SB 可以
 
 ### Q1
 
@@ -28,7 +28,7 @@ simply using `and` doesn't work: `(URL==Set) AND (is:Field)` . so nested sea
 
 > >Path: >URL: (empty value)
 
-### Q2
+### Q2 
 
 > IS FIELD will return field references, not field values
 
@@ -51,7 +51,7 @@ rather than clickable links (as directly pasted)
 
 ==A:== Add a line http or .com to the query
 
-## Q2
+## Q2 无法 往下分屏
 
 How can one open a new panel vertically (downward) rather than horizontally (to the right) in Tana?
 
@@ -59,7 +59,9 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 
 ==A:== Top / bottom panels have been deprecated
 
-## Q3
+## Q3 Tana 和 LogSeq 的 attr 模板内无法感知外
+
+Tana 在
 
 ### Q1
 
@@ -95,10 +97,8 @@ Even within the tag template you can see the linter says INSTANCE to designate t
 
 ### Q3
 
-Get it, is it something like below?  
+Get it, is it something like below?
 
-i.e. using a search node named "equivalents" in Tag Template to replace 
-
-the "equivalents" field whose value is templated as a search node ? 
+i.e. using a search node named "equivalents" in Tag Template to replace the "equivalents" field whose value is templated as a search node?
 
 ==A:== 
