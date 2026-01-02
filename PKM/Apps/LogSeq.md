@@ -55,19 +55,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 > 但 Tana 不是，Tana 的 `#Tag 的 实例化对象`，可以继承多个 Tags，因而可以继承多个 `base type`（每个 Tag 都可以选择一个 `base type`）
 - Tana 的 Meeting, Task, Person, Event, Day, Location, Topic, Project
 
-[[PKM/Apps/SilverBullet]], [[PKM/Apps/Obsidian]], [[PKM/Apps/SiYuan]], [[PKM/Apps/AnyType]] 四者 都在根据 ==实例化对象== (的 #Tag) 的基类，进行 外观漂亮的 CSS 调整，特别是 AnyType。
-
-AnyType 竟然没有 #Tag 意义上的 #Tag...
-> 确实有 tag，但...竟然是个 field ！其 value 为多选 list ！...天才..
-- AnyType 的 building atom 直接就是 具象对象的基类 下的 具象对象本身，中间没有 #Tag 隔一层... 实例化对象 直接继承了 对象基类的 field... 这意味着 对象的基类，起到了 `#Tag (的 base type)` 的作用 
-- ==另一种理解方式==：AnyType 有 #Tag 意义上的 #Tag:
-  - 对象类型 object('s) type
-    - 你点一下 sidebar 的类型，就 List 同类型下的 所有 ==实例化对象==。
-  - 可以新建 对象类型，自定义 该类型对应的模板、默认属性
-    - 类型 Type 的模板（的排版）
-      - 看上去就是 `#Tag 的 base type`（的具体布局/外观）
-  - 任何一个对象，只能被分配到某一个 对象类型（只能有一个 #Tag 和 一个默认模板布局）。
-    - 对象可以选择继承 类型的 模板，也可以选择 用自己实例的不同模板
+[[PKM/Apps/SilverBullet]], [[PKM/Apps/Obsidian]], [[PKM/Apps/SiYuan]], [[PKM/Apps/AnyType]] 四者 都在根据 ==实例化对象== (的 #Tag) 的基类，进行 外观漂亮的 CSS 调整，特别是 [[PKM/Apps/AnyType]]。
 
 
 #### 一共有 6 = 3 + 3 种 东西：
