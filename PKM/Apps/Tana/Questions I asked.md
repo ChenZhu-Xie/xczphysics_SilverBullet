@@ -9,6 +9,8 @@
 ***Nested Searches***:  
 
 * Can the table output of one query builder (search node) be used as the input of another, similar to SQL’s `SELECT FROM`?
+  * 确认了，不能。即使确实允许在 query 里构建 query，但最里面层的 query builder 不会被解析为 搜索表达式，而只会被解析出 node 名。
+  - 像 logseq 一样，一般只能构建一个 query，里面用嵌套的逻辑。而不是多个 query 嵌套（一个查询输出表，作为另一个查询的检索表输入）。
 
 ***For example***,  
 
@@ -21,7 +23,6 @@ simply using `and` doesn't work: `(URL==Set) AND (is:Field)` . so nested sea
 
 ==A:== Return just field values is a bit tricky  
   
-
 1. Easiest is just put it in table view and display in column the values you want
 2. You can use a quirky query
 
