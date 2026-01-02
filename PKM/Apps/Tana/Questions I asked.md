@@ -15,9 +15,13 @@
 
 simply using `and` doesn't work: `(URL==Set) AND (is:Field)` . so nested searches needed.
 
+==A:== Add a line http or .com to the query
+
 ## 2
 
 How can one open a new panel vertically (downward) rather than horizontally (to the right) in Tana?
+
+==A:== Top / bottom panels have been deprecated
 
 ## 3
 
@@ -28,3 +32,5 @@ From a query builder node named “equivalents” placed under either node, it i
 However, within the “equivalents” field of `#"Object of PKM app"` itself, it is impossible to query ***any node with the same tag other than the node itself***.
 
 of no help EVEN using  `(Tagged:Object of PKM app) AND (NOT (Node name==GRANDPARENT) )` (*where GRANDPARENT can only trace up to "equivalents" field node, rather than the GRANDGRANDPARENT “itag” node*)
+
+==A:== Search nodes within field configurations are unable to dynamically adapt to instances
