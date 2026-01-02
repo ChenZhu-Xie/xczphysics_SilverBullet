@@ -72,4 +72,4 @@ LogSeq 的 #Tag 中，右键随便一个对象（包括其 field ），
 >  右键 #Tag 的 实例化对象 的 field 却没有任何反应。
 - 弹出的菜单 最末，可拿到该 #Tag 的 page data
 
-
+右键
