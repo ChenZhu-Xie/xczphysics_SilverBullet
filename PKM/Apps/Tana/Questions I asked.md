@@ -63,7 +63,7 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 
 [[PKM/Apps/Tana]] 在 field object - field type - options - ==Sources of options== 中
 
-通过 >:Path 只能 **query build** 出 `schema` > `#Object of PKM app` > `Equivalents` > `Values` ，
+通过 >:Path 只能 **query build** 出 `schema` > `#Object of PKM app` > `Equivalents` > `Values` （==这其实就是 Tana 的 Configure Field 页面顶部显示的路径==），
 
 其中
 - PARENT = `Values` 
