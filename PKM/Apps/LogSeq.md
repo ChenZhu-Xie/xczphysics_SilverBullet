@@ -47,20 +47,23 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 1 field 可以改 logo
 1 field type 无法改 logo
 
-### Tag 还有 Tag/base type，正如 field 有 field type
+### Tag 还有 Tag/`base type`，正如 field 有 field type
 即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 `#Tag 实例化对象` 的 数据结构/类型
 - SB 的 page, table, item, task, paragraph, data, link, header, tag
   - 很==具象==（相对于 Tana 的 Meeting 等），最像 SiYuan，其次像 AnyType
-  - 这三者的 `#Tag 的 实例化对象` 只能继承一个 base type
-> 但 Tana 不是，Tana 的 `#Tag 的 实例化对象`，可以继承多个 Tags，因而可以继承多个 base type（每个 Tag 都可以选择一个 base type）
+  - 这三者的 `#Tag 的 实例化对象` 只能继承一个 `base type`
+> 但 Tana 不是，Tana 的 `#Tag 的 实例化对象`，可以继承多个 Tags，因而可以继承多个 `base type`（每个 Tag 都可以选择一个 `base type`）
 - Tana 的 Meeting, Task, Person, Event, Day, Location, Topic, Project
 
-SilverBullet, ObSidian, SiYuan, AnyType 四者 都在根据 ==具象==的 基类进行 CSS 调整。
-AnyType 有点奇葩。它既不是
+[[PKM/Apps/SilverBullet]], [[PKM/Apps/Obsidian]], [[PKM/Apps/SiYuan]], [[PKM/Apps/AnyType]] 四者 都在根据 ==实例化对象== (的 #Tag) 的基类，进行 外观漂亮的 CSS 调整，特别是 AnyType。
+
+AnyType 竟然没有 #Tag 意义上的 #Tag...
+> 确实有 tag，但...竟然是个 field ！其 value 为多选 list ！...天才..
+- AnyType 的 building atom 直接就是 具象对象的基类 下的 具象对象本身，中间没有 #Tag 隔一层... 实例化对象 直接继承了 对象基类的 field... 这意味着 对象的基类，起到了 `#Tag (的 base type)` 的作用 
 
 #### 一共有 6 = 3 + 3 种 东西：
 
-1. #Tag 的 base type
+1. #Tag 的 `base type`
 2. #Tag    本身
 3. `#Tag 的 实例化对象`
 
