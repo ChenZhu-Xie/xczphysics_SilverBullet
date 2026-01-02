@@ -26,13 +26,24 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
       - 实例本身的 logo 只能是 #Tag 的 logo, 无法 脱离于之 单独更改
     - LogSeq 的 field，作为实例化后的 field type，允许更改 Logo
 
-总结：1 #Tag 的实例化对象 能改 logo
+### 总结
+
+在 [[PKM/Apps/Tana]] 中：
+1 #Tag 的实例化对象 能改 logo
 但 3 #Tag, field, field type 均无法改 logo
 然而，#Tag 有颜色且能更改颜色，并
 - 既继承到 #Tag 的实例化对象 上（若其无 logo）、
 - 又继承到 #Tag 的 field 和 field type 上（将属于该 #Tag 的这2染色）
+
 这个看上去比 [[PKM/Apps/LogSeq]] 更科学：
 - 因为同一个 node 可以属于多个 #Tag 而被染上不同的混合颜色。
 - 而 LogSeq 的 field 既看不出来是 node 自身的 field，也看不出来是 #Tag 的 field，更看不出来是哪一个 #Tag 的 field (如果有多个 #Tag)
 
-# LogSeq db 
+# LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
+开启 Dev Tool 后，
+右键 tag/field/block object，
+可以 Show block/page data。
+- 能提供比 Tana 这个闭源软件 更丰富的 Node 属性信息
+  - 这个 Node 属性信息 可以用来 提供给 AI，并更好地辅助你写 query
+
+
