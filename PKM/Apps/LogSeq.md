@@ -29,25 +29,26 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 ### 总结
 
 在 [[PKM/Apps/Tana]] 中：
-1 #Tag 的实例化对象 能改 logo
+1 `#Tag 的实例化对象` 能改 logo
 但 3 #Tag, field, field type 均无法改 logo
 然而，#Tag 有颜色且能更改颜色，并
-- 既继承到 #Tag 的实例化对象 上（若其无 logo）、
+- 既继承到 `#Tag 的实例化对象` 上（若其无 logo）、
 - 又继承到 #Tag 的 field 和 field type 上（将属于该 #Tag 的这2染色）
 
 这个看上去比 [[PKM/Apps/LogSeq]] 更科学：
 > 再加上 LogSeq 是后来者，说明 LogSeq 只在模仿，却没有超越？
+> LogSeq 的 标签 右对齐 这一点 做得还可以。
 - 因为同一个 node 可以属于多个 #Tag 而被染上不同的混合颜色。
 - 而 LogSeq 的 field 既看不出来是 node 自身的 field，也看不出来是 #Tag 的 field，更看不出来是哪一个 #Tag 的 field (如果有多个 #Tag)
 
 在 LogSeq 中：
-2 #Tag 和 #Tag 的实例化对象 能改 logo
+2 #Tag 和 `#Tag 的实例化对象` 能改 logo
 - 但必须 同时改 logo
 1 field 可以改 logo
 1 field type 无法改 logo
 
 ### Tag 还有 Tag/base type，正如 field 有 field type
-即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 #Tag 实例化对象 的 数据结构/类型
+即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 `#Tag 实例化对象` 的 数据结构/类型
 - SB 的 page, table, item, task, paragraph, data, link, header, tag
 - Tana 的 Meeting, Task, Person, Event, Day, Location, Topic, Project
 
@@ -55,7 +56,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 
 1. #Tag 的 base type
 2. #Tag    本身
-3. #Tag 的 实例化对象
+3. `#Tag 的 实例化对象`
 
 1. field type
 2. field (key)
@@ -69,7 +70,7 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
   - 这个 Node 属性信息 可以用来 提供给 AI，并==更好地辅助你写 query==
 
 LogSeq 的 #Tag 中，右键随便一个对象（包括其 field ），
->  右键 #Tag 的 实例化对象 的 field 却没有任何反应。
-- 弹出的菜单 最末，可拿到该 #Tag 的 page data
+>  右键 #Tag 的 ==实例化对象 的 field== 却没有任何反应。
+- 弹出的菜单 最末，可拿到该 #Tag 的 `page data`
 
-右键
+右键 `#Tag 的 实例化对象` 的 logo，可以查看 block 的 `block data`
