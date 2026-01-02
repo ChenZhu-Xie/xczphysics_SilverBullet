@@ -10,4 +10,4 @@
 - 要比 [[PKM/Apps/Tana]] 更抽象一点
   - [[PKM/Apps/Tana]] 的 emoji 加载在 #Tag 的 instance，即 节点 node 上
 
-
+## logseq db 的 field logo 
