@@ -40,9 +40,9 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 - 而 LogSeq 的 field 既看不出来是 node 自身的 field，也看不出来是 #Tag 的 field，更看不出来是哪一个 #Tag 的 field (如果有多个 #Tag)
 
 ### #Tag 还有 Tag/base type，正如 field 有 field type
-即 [[PKM/Apps/SilverBullet]] 的 itag，用于区分 #Tag 实例化对象 的 数据结构/类型
+即 [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（注意，{itags} = tag + {tags} ），用于区分 #Tag 实例化对象 的 数据结构/类型
 - SB 的 page, table, item, task, paragraph, data, link, header, tag
-
+- Tana 的
 
 # LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
 开启 Dev Tool 后，
