@@ -44,6 +44,6 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 右键 tag/field/block object，
 可以 Show block/page data。
 - 能提供比 Tana 这个闭源软件 更丰富的 Node 属性信息
-  - 这个 Node 属性信息 可以用来 提供给 AI，并更好地辅助你写 query
+  - 这个 Node 属性信息 可以用来 提供给 AI，并==更好地辅助你写 query==
 
-
+#Tag 中的 不能穿透
