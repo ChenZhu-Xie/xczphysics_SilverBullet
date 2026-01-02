@@ -61,9 +61,40 @@ How can one open a new panel vertically (downward) rather than horizontally (to 
 
 ## Q3 Tana 和 LogSeq 的 attr 模板内无法感知外
 
-[[PKM/Apps/Tana]] 在 ==Sources of options== 中，通过 >:Path 只能 query build 出 `schema` > `#Object of PKM app` > `Equivalents` > `Values`
+[[PKM/Apps/Tana]] 在 field object - field type - options - ==Sources of options== 中
 
-[[PKM/Apps/LogSeq]] 在 
+通过 >:Path 只能 **query build** 出 `schema` > `#Object of PKM app` > `Equivalents` > `Values` ，
+
+其中
+- PARENT = `Values` 
+- GRANDPARENT = `Equivalents`
+
+---
+[[PKM/Apps/LogSeq]] 在 tag object - tag properties - property instance - ==(Default) value== 中，
+
+通过 下述 `当前 node 所有祖先（不包含自身）`
+```Clojure
+{:query
+    [:find (pull ?a [*])
+     :in $ ?c %
+     :where
+     (ancestor ?c ?a)]
+
+ :inputs
+    [:current-block]
+
+ :rules
+    [[(ancestor ?c ?p)
+      [?c :block/parent ?p]]
+
+     [(ancestor ?c ?a)
+      [?c :block/parent ?p]
+      (ancestor ?p ?a)]]}
+```
+
+只能 **Query** 出 `property instance` 一个值... 
+等价于 Tana 的 GRANDPARENT = `Equivalents`
+
 
 ### Q1
 
