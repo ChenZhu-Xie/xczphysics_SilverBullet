@@ -1,5 +1,4 @@
-
-
+#❓
 # Question I ask in Tana Slack
 
 ## Q1 嵌套搜索 Tana 和 LogSeq 做不到，SB 可以
@@ -137,5 +136,6 @@ Even within the tag template you can see the linter says INSTANCE to designate t
 Get it, is it something like below?
 
 i.e. using a search node named "equivalents" in Tag Template to replace the "equivalents" field whose value is templated as a search node?
+![[PKM/Apps/Tana/image.png]]
 
 ==A:== Yes your equivalents search is a perfect example of a search node that belongs to a tag template (`#object of` `PKM app`) and dynamically adapts to the PARENT of each instance

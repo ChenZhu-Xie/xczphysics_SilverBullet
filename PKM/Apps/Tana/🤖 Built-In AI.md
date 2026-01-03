@@ -1,3 +1,4 @@
+#🤖
 
 # Discussion about Tana[[PKM/Apps/Tana/Built-In AI]] on #Slack
 
