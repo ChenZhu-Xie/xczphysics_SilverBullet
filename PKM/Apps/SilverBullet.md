@@ -28,3 +28,31 @@ SB 最大的好处是，
 ![[PKM/Apps/f30a676fab521eb6d12b31d2e17c6c59.png]]
 
 轻，和 sublime 是一个量级，这样允许你在 服务器端 以最低成本 建设个人网页
+
+---
+你在用 Ob 或者本地有一些 .md 文件么？可以 silverbullet -p 3001 "F:\Note_book\SilverBullet\1.local_server\test_space" 另开一个 port 来加载你的旧笔记们
+
+或者 clone 官方的 https://github.com/silverbulletmd/silverbullet/tree/main/website，
+或者一些个人的笔记仓库 https://github.com/ChenZhu-Xie/xczphysics_SilverBullet
+到某一个文件夹里，然后 另开个 Port 加载下，看看效果
+
+确实是，可能是 SB 用户里几乎没有中国人（反对这个起名）的缘故
+SY = SiYuan, OB = OBsidian 都不像骂人，
+SY + OB = SB = SilverBullet 就在了。
+
+---
+嗯，界面也比 TiddlyWiki 少点视觉干扰。
+也从某种意义上是“既是代码，也是笔记”。
+
+侧边栏是 treeview.plug.js 一些人用 TS 写的官方插件，编译后通过 space-lua 代码块 import 后，ctrl+shift+p 加载的
+
+论坛上也有人直接在 space-lua 代码块里 写 lua 和 html 的混合，实现了类似的
+
+这 silverbullet 像是 乐高积木，开局一条狗，装备全靠...拣
+
+https://community.silverbullet.md/t/document-explorer-for-silverbullet/3647/93
+
+https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DocumentExplorer.md
+
+---
+
