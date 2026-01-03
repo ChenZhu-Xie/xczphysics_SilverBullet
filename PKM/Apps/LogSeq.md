@@ -81,7 +81,10 @@ SB 的 tag 只用于区分 `#Tag 实例化对象` 的 样式，因此仍属于 #
 
 #### 一些 meme 思考
 
-
+field 的（子）field 又是什么呢？
+1. 首先它肯定不是 与 父 field 并列的东西
+2. 其次它也不是 field type 这个更 meta 一点的东西。
+那它是什么？我感觉这是纯正的 面向对象的链式 call：见 [[PKM/Apps/Tana/fields#甚至 无限地 dot 下去，穿透式寻找。 但不能反向上寻找...]] a.b.c.d.e...
 
 # LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
 开启 Dev Tool 后，
