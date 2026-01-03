@@ -55,11 +55,12 @@ LogSeq 和 Tana 的 field 的 key 的 初始 logo，以及 field type
 - SB 的 page, table, item, task, paragraph, data, link, header, tag
   - 很==具象==（相对于 Tana 的 Meeting 等），最像 SiYuan，其次像 AnyType
   - 这三者的 `#Tag 的 实例化对象` 只能继承一个 `base type`
-> 但 Tana 不是，Tana 的 `#Tag 的 实例化对象`，可以继承多个 Tags，因而可以继承多个 `base type`（每个 Tag 都可以选择一个 `base type`）
+> 但 Tana 不是，Tana 的 `#Tag 的 实例化对象`，可以继承多个 #Tag, 因而可以继承多个 `base type`（每个 Tag 都可以选择一个 `base type`）
 
 > **note** Note
 > [[PKM/Apps/SilverBullet]] 的 tag 这个单值 attr（目前，{itags} = tag + {tags} ）与 #Tag 是平权的，不是 #Tag 的模板或 base type。
-> - 从集合的角度就可以看出：它竟然可以被纳入 itags... 而不是比它更基本和抽象。
+> - 从集合的角度就可以看出：它竟然可以被纳入 itags...
+  > - 而不是比它更基本和抽象。
 > - 该 tag 主要用于 确定和区分 块的模板/样式，将其一一映射到 tag name
   > - 地位上等价于 构成 AnyType 的页面模板的单个元素们的样式。
 
@@ -77,6 +78,10 @@ SB 的 tag 只用于区分 `#Tag 实例化对象` 的 样式，因此仍属于 #
 1. field type
 2. field (key)
 3. field (key) 的实例化对象：value
+
+#### 一些 meme 思考
+
+
 
 # LogSeq db 开启 Dev tool 很有用（哪怕你不是 Developer，而只是 user）
 开启 Dev Tool 后，
