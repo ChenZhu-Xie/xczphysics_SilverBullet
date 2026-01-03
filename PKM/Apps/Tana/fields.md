@@ -26,6 +26,7 @@ WITH REFS - [QTnCqDKJNQk](https://youtu.be/QTnCqDKJNQk?t=3547) #youtube
 
 1. [n1J0tZqb_6A](https://youtu.be/n1J0tZqb_6A?t=1321) #youtube
 
+field 中的 field 也能 无限...点点点？
 ![[PKM/Apps/Tana/2025-12-31_03-01-30.png]]
 
 # 对 field 求值：以构建 关系图中的 边
