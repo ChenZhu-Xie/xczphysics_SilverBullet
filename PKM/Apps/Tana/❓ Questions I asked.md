@@ -142,20 +142,21 @@ i.e. using a search node named "equivalents" in Tag Template to replace the "equ
 
 ## Q4
 
-How can one **obtain the instance node(s) of a given tag (or field) within a tag’s field template** (i.e., *Sources of options*)?  
+How can one **obtain the instance node(without s) of a given tag (or field) within a tag’s field template** (i.e., *Sources of options*)?  
 
-*   Similar to how the `Owner node` field provides values (though via a different mechanism)
+*   Similar to how the `Owner node` field provides value (though via a different mechanism)
 *   or how a `search node` in tag template can access its PARENT node.
 
 I believe this missing **"tunnel through field" feature** should be introduced and is essential,  
 
-*   because tag templates can retrieve all `instance nodes` of a tag but cannot use them as `options`,
-*   while on the opposite, fields can define initial `options` yet cannot retrieve the `node instances` corresponding to that tag or field.
+*   because tag templates can retrieve `instance node`'s hierarchies but cannot use them as `options`,
+*   while on the opposite, fields can define initial `options` yet cannot retrieve the `node instance` corresponding to that tag or field.
 
 From a development perspective, this may conflict with the tag’s “build title from fields” feature,  
 
 *   since allowing fields to access a node’s title — when the title itself is built from fields
     *    — creates an apparent loop (though one that can be avoided?).
 
-what we actually need is more than instance nodes' titles, but also their hierarchical structures (like through `PATH` field),  
-which can be used from within any field template query as options.
+what we actually need is more than instance node's titles, but also its hierarchical structures (like through `PATH` field),  
+which can be used from within field template and query as options.
+
