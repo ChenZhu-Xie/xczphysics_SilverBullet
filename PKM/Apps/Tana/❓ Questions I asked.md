@@ -154,9 +154,9 @@ I believe this missing **"tunnel through field" feature** should be introduced
 
 From a development perspective, this may conflict with the tag’s “build title from fields” feature,  
 
-*   since allowing fields to access a node’s title — when the title itself is built from fields
+*   since allowing fields to access a node’s name — when the title itself is built from fields
     *    — creates an apparent loop (though one that can be avoided?).
 
-what we actually need is more than instance node's titles, but also its hierarchical structures (like through `PATH` field),  
+what we actually need is more than the name of the instance node, but also its hierarchical structures (like through `PATH` field),  
 which can be used from within field template and query as options.
 
