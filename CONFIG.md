@@ -74,7 +74,7 @@ config.set {
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
-      icon = 'file-plus',
+      icon = 'file-plus', -- https://feathericons.com/
       description = 'Insert Page',
       mobile =  true,
       run = function()
@@ -97,11 +97,9 @@ config.set {
       end
     },
     {
-      -- Got a Journal page template that will create a 
-      -- new day or go to that day. This is wonderful for
-      -- quick logging on the go
+      -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
       icon = 'calendar',
-      description = 'Quick Note',
+      description = 'Quick Note', 
       run = function()
         editor.invokeCommand('Quick Note')
       end
