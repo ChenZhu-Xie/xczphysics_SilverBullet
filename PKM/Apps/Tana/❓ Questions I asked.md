@@ -172,4 +172,4 @@ But yes as discussed in other thread, option-type field searches are blind to th
 
 ==Answer to him==
 
-Yes, I digged it out through your video series as well https://youtu.be/n1J0tZqb_6A?t=1354, 然而遗憾的是 Tana 把
+Yes, I digged it out through your video series independently as well https://youtu.be/n1J0tZqb_6A?t=1354, 然而遗憾的是 Tana 把
