@@ -50,11 +50,11 @@ Well, let’s start with a logo first.
 # My recent thoughts 💭
 
 
-## Topics
+## Interested Topics
 
-[[PKM/Apps]]
+- [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/LogSeq]]
 
-## Day Dream
+## Some daydreams
 
 ${query[[
     from index.tag "page"
@@ -81,7 +81,6 @@ ${query[[
     from getVisitStat()
     limit 5
 ]]}
-
 ## My Last Modified ✏️
 
 ${query[[
