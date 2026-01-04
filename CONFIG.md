@@ -78,9 +78,7 @@ config.set {
       description = 'Link',
       mobile =  true,
       run = function()
-        local pos = editor.getCursor()
-        editor.insertAtCursor('[[]]', true)
-        editor.moveCursor(pos + 2,false)
+        editor.invokeCommand('Page Picker: Insert')
       end
     },
     {
