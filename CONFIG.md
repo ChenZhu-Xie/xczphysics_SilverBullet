@@ -74,14 +74,6 @@ config.set {
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
-      icon = 'file-plus', -- https://feathericons.com/
-      description = 'Insert Tree-Tree',
-      -- mobile =  true,
-      run = function()
-        editor.invokeCommand('Tree-Tree Picker: Insert')
-      end
-    },
-    {
       icon = 'home',
       description = 'Go to the index page',
       run = function()
@@ -102,6 +94,14 @@ config.set {
       description = 'Quick Note', 
       run = function()
         editor.invokeCommand('Quick Note')
+      end
+    },
+    {
+      icon = 'file-plus', -- https://feathericons.com/
+      description = 'Insert Tree-Tree',
+      -- mobile =  true,
+      run = function()
+        editor.invokeCommand('Tree-Tree Picker: Insert')
       end
     },
     {
