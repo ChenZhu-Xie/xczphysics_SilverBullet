@@ -3,15 +3,15 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: c7105efd
+share.hash: 80e19ffc
 share.mode: pull
 ---
 ## Tools
 ```#meta/library/remote
-name: "🗂️ Document Explorer for the Side Panel"
+name: "🗂️ Document Explorer for SilverBullet"
 uri: github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DocumentExplorer.md
-description: "Document Explorer Side Panel"
+description: "Document Explorer for SilverBullet with Grid|List|Tree-View and some other handy features"
 ---
 name: "🖨️ PrintPreview"
 uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
@@ -44,6 +44,11 @@ description: "OpenWeatherMap Widget and slash commands"
 
 ## Productivity Shortcuts
 ```#meta/library/remote
+name: "🛠 DisableAccidentalMobileTaps"
+uri: github:Mr-xRed/silverbullet-libraries/DisableAccidentalMobileTaps.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DisableAccidentalMobileTaps.md
+description: "Command to disable Accidental Mobile Taps and summon the Evil Unwanted Virtual Keyboard"
+---
 name: "🛠 HeaderLevelToggle"
 uri: github:Mr-xRed/silverbullet-libraries/HeaderLevelToggle.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/HeaderLevelToggle.md
@@ -71,11 +76,6 @@ name: "🎨 Admonitions_multilingual"
 uri: github:Mr-xRed/silverbullet-libraries/Admonitions_multilingual.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md
 description: "Multilingual admonition, supporting custom styles and multiple languages."
----
-name: "🖌️ TitleBar_ModernStyle"
-uri: github:Mr-xRed/silverbullet-libraries/TitleBar_ModernStyle.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TitleBar_ModernStyle.md
-description: "Modern, styled title bar with sleek visual design"
 ---
 name: "🖌️ ModalBoxHighlighter"
 uri: github:Mr-xRed/silverbullet-libraries/ModalBoxHighlighter.md
@@ -119,4 +119,9 @@ name: "☠️ Virtual Page Document Explorer (Deprecated)"
 uri: github:Mr-xRed/silverbullet-libraries/VirtualPageDocumentExplorer.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/VirtualPageDocumentExplorer.md
 description: "VirtualPage Document Explorer"
+---
+name: "☠️ TitleBar_ModernStyle"
+uri: github:Mr-xRed/silverbullet-libraries/TitleBar_ModernStyle.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TitleBar_ModernStyle.md
+description: "Modern, styled title bar with sleek visual design"
 ```
