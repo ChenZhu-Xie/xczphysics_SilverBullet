@@ -112,7 +112,7 @@ config.set {
       icon = 'calendar',
       description = 'Go to todays journal',
       run = function()
-        editor.invokeCommand('Journal')
+        editor.invokeCommand('Inbox')
       end
     },
     {
