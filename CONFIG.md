@@ -101,9 +101,9 @@ config.set {
       -- new day or go to that day. This is wonderful for
       -- quick logging on the go
       icon = 'calendar',
-      description = 'Go to todays journal',
+      description = 'Quick Note',
       run = function()
-        editor.invokeCommand('Inbox')
+        editor.invokeCommand('Quick Note')
       end
     },
     {
