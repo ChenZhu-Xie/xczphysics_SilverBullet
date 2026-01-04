@@ -70,7 +70,70 @@ config.set {
 }
 ```
 
+
+
 ```space-lua
+config.set {
+  -- Think this should be default, current size of phones makes
+  -- the hamburger menu too far away for right and left handed
+  -- users
+  mobileMenuStyle = 'bottom-bar',
+  actionButtons = {
+    -- I'm left handed so prefer to have frequent buttons left
+    {
+      icon = 'md-link',
+      description = 'Link',
+      mobile =  true,
+      run = function()
+        local pos = editor.getCursor()
+        editor.insertAtCursor('[[]]', true)
+        editor.moveCursor(pos + 2,false)
+      end
+    },
+    {
+      icon = 'home',
+      description = 'Go to the index page',
+      run = function()
+        editor.invokeCommand('Navigate: Home')
+      end
+    },
+    {
+      -- Love for Silversearch
+      icon = 'search',
+      description = 'Search for words in space',
+      run = function()
+        editor.invokeCommand('Silversearch: Search')
+      end
+    },
+    {
+      -- Got a Journal page template that will create a 
+      -- new day or go to that day. This is wonderful for
+      -- quick logging on the go
+      icon = 'calendar',
+      description = 'Go to todays journal',
+      run = function()
+        editor.invokeCommand('Journal')
+      end
+    },
+    {
+      icon = 'book',
+      description = 'Open Page',
+      run = function()
+        editor.invokeCommand('Navigate: Page Picker')
+      end
+    },
+    {
+      icon = 'terminal',
+      description = 'Run command',
+      run = function()
+        editor.invokeCommand('Open Command Palette')
+      end
+    },
+  }
+}
+```
+
+
 config.set {
   actionButtons = {
     {
@@ -85,6 +148,5 @@ config.set {
     },
   }
 }
-```
 
 #SB_itself
