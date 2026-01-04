@@ -74,7 +74,7 @@ config.set {
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
-      icon = 'md-link',
+      icon = 'file-plus',
       description = 'Link',
       mobile =  true,
       run = function()
