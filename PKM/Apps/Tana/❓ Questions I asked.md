@@ -54,7 +54,7 @@ rather than clickable links (as directly pasted)
 
 How can one open a new panel vertically (downward) rather than horizontally (to the right) in Tana?
 
-#### A
+### A2
 
 ==A:== Top / bottom panels have been deprecated
 
@@ -160,3 +160,12 @@ From a development perspective, this may conflict with the tag’s “build titl
 what we actually need is more than the name of the instance node, but also its hierarchical structures (like through `PATH` field),  
 which can be used from within field template and query as options.
 
+### A4
+
+Tunnel through field = Semantic Part Of + COMPONENTS REC https://tana.inc/faq#a-video-explanation-of-part-of-components-rec
+
+Also you can write queries with PARENT.fieldname to insert the value of a field for a dynamic search
+
+[10:28](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1767536914527909?thread_ts=1767510465.541759&cid=C02DAKDSVQA)
+
+But yes as discussed in other thread, option-type field searches are blind to the instance details
