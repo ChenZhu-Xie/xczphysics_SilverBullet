@@ -76,7 +76,7 @@ config.set {
     {
       icon = 'file-plus', -- https://feathericons.com/
       description = 'Insert Tree-Tree',
-      mobile =  true,
+      -- mobile =  true,
       run = function()
         editor.invokeCommand('Tree-Tree Picker: Insert')
       end
