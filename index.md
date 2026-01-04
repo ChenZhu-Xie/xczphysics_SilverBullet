@@ -52,7 +52,7 @@ Well, let’s start with a logo first.
 
 ## Topics
 
-[[PKM/Apps/Tana]]
+[[PKM/Apps]]
 
 ## Day Dream
 
