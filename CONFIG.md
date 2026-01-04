@@ -64,20 +64,13 @@ config.set("admonLang","en")
 ```
 
 [mobile friendly toolbar](https://community.silverbullet.md/t/mobile-friendly-toolbar/871/12?u=chenzhu-xie) #community #silverbullet
-```space-lua
-config.set {
-  mobileMenuStyle = 'bottom-bar' -- or 'hamburger'
-}
-```
-
-
-
+[mobile friendly toolbar](https://community.silverbullet.md/t/mobile-friendly-toolbar/871/19?u=chenzhu-xie) #community #silverbullet
 ```space-lua
 config.set {
   -- Think this should be default, current size of phones makes
   -- the hamburger menu too far away for right and left handed
   -- users
-  mobileMenuStyle = 'bottom-bar',
+  mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
