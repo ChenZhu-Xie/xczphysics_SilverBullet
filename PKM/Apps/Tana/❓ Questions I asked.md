@@ -151,3 +151,11 @@ I believe this missing **"tunnel through field" feature** should be introduced
 
 *   because tag templates can retrieve all `instance nodes` of a tag but cannot use them as `options`,
 *   while on the opposite, fields can define initial `options` yet cannot retrieve the `node instances` corresponding to that tag or field.
+
+From a development perspective, this may conflict with the tag’s “build title from fields” feature,  
+
+*   since allowing fields to access a node’s title — when the title itself is built from fields
+    *    — creates an apparent loop (though one that can be avoided?).
+
+what we actually need is more than instance nodes' titles, but also their hierarchical structures (like through `PATH`),  
+which can be used from within any field template query as options.
