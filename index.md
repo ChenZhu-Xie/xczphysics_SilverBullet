@@ -49,6 +49,13 @@ Well, let’s start with a logo first.
 
 # My recent thoughts 💭
 
+
+## Topics
+
+[[PKM/Apps/Tana]]
+
+## Day Dream
+
 ${query[[
     from index.tag "page"
     where _.name:startsWith("🤔 Daydream/")
