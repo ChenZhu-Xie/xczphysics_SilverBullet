@@ -124,20 +124,4 @@ config.set {
 }
 ```
 
-
-config.set {
-  actionButtons = {
-    {
-      icon = 'search',
-      command = 'Search Space',
-      description = 'Search for words in space'
-    },
-    {
-      icon = 'file-plus',
-      command = 'Page: Create Page',
-      description = 'Create page' -- custom
-    },
-  }
-}
-
 #SB_itself
