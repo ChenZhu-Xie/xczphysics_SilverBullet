@@ -63,4 +63,11 @@ config.set(
 config.set("admonLang","en")
 ```
 
+[mobile friendly toolbar](https://community.silverbullet.md/t/mobile-friendly-toolbar/871/12?u=chenzhu-xie) #community #silverbullet
+```space-lua
+config.set {
+  mobileMenuStyle = 'bottom-bar' -- or 'hamburger'
+}
+```
+
 #SB_itself
