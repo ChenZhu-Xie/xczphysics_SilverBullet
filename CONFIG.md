@@ -76,6 +76,7 @@ config.set {
     {
       icon = 'file-plus',
       description = 'Insert Page',
+      mobile =  true,
       run = function()
         editor.invokeCommand('Page Picker: Insert')
       end
