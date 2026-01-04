@@ -75,8 +75,7 @@ config.set {
     -- I'm left handed so prefer to have frequent buttons left
     {
       icon = 'file-plus',
-      description = 'Link',
-      mobile =  true,
+      description = 'Insert Page',
       run = function()
         editor.invokeCommand('Page Picker: Insert')
       end
