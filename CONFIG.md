@@ -75,10 +75,10 @@ config.set {
     -- I'm left handed so prefer to have frequent buttons left
     {
       icon = 'file-plus', -- https://feathericons.com/
-      description = 'Insert Page',
+      description = 'Insert Tree-Tree',
       mobile =  true,
       run = function()
-        editor.invokeCommand('Page Picker: Insert')
+        editor.invokeCommand('Tree-Tree Picker: Insert')
       end
     },
     {
@@ -106,9 +106,9 @@ config.set {
     },
     {
       icon = 'book',
-      description = 'Open Page',
+      description = 'Open Tree-Tree',
       run = function()
-        editor.invokeCommand('Navigate: Page Picker')
+        editor.invokeCommand('Tree-Tree Picker: Navigate')
       end
     },
     {
