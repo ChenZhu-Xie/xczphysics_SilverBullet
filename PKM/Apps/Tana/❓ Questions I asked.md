@@ -144,10 +144,10 @@ i.e. using a search node named "equivalents" in Tag Template to replace the "equ
 
 How can one **obtain the instance nodes of a given tag (or field) within a tag’s field template** (i.e., *Sources of options*)?  
 
-*   Similar to how the Owner node field provides values (though via a different mechanism)
-*   or how a tag template can access its PARENT node.
+*   Similar to how the `Owner node` field provides values (though via a different mechanism)
+*   or how a `search node` in tag template can access its PARENT node.
 
 I believe this missing **"tunnel through field" feature** should be introduced and is essential,  
 
-*   because tag templates can retrieve all instance nodes of a tag but cannot use them as options,
-*   while on the opposite, fields can define initial options yet cannot retrieve the node instances corresponding to that tag or field.
+*   because tag templates can retrieve all `instance nodes` of a tag but cannot use them as `options`,
+*   while on the opposite, fields can define initial `options` yet cannot retrieve the `node instances` corresponding to that tag or field.
