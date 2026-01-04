@@ -1,7 +1,7 @@
 
 # disable 2 and 3 finger tapping on mobile
 
-```space-lua
+```lua
 local function ensureTouchBlockerInitialized()
   local window = js.window
   if not window._touchHandlerInitialized then
