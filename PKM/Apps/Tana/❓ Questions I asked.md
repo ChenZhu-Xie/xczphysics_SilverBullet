@@ -169,3 +169,7 @@ Also you can write queries with PARENT.fieldname to insert the value of a field 
 [10:28](https://tanacommunity.slack.com/archives/C02DAKDSVQA/p1767536914527909?thread_ts=1767510465.541759&cid=C02DAKDSVQA)
 
 But yes as discussed in other thread, option-type field searches are blind to the instance details
+
+==Answer to him==
+
+Yes, I digged it out through your video series as well https://youtu.be/n1J0tZqb_6A?t=1354, 然而遗憾的是 Tana 把
