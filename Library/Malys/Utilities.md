@@ -4,10 +4,24 @@ description: List of reusable functions.
 name: "Library/Malys/Utilities"
 tags: meta/library
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md"
-share.hash: af61a370
+share.hash: 43997abd
 share.mode: pull
 ---
 # Utilities
+
+## Debug
+
+### How to enable debug mode
+
+* Create space-lua with:
+```lua
+LOG_ENABLE=true
+```
+
+* Reload system.
+* Open Chrome Console
+* Add filter “[Client] [DEBUG]“
+## Code
 ```space-lua
 utilities=utilities or {}
 
@@ -67,6 +81,7 @@ local function dump(value, depth)
 
   return table.concat(parts, "\n")
 end
+
 
 function utilities.debug(message, prefix)
   if not LOG_ENABLE then

@@ -4,7 +4,7 @@ description: Implement Git commands (log, diff, revert)
 name: "Library/Malys/GitHistory"
 tags: meta/library
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/GitHistory.md"
-share.hash: 06ccc673
+share.hash: 51e4cbb1
 share.mode: pull
 ---
 ---
@@ -390,72 +390,6 @@ command.define {
   end
 }
 ```
-
-## Renderers
-
-```space-lua
--- Render `git status --porcelain` into readable Markdown.
--- Uses emojis to indicate status.
-function gitstatus_render(raw)
-  if not raw or raw == "" then
-    return "### 🟢 Clean Working Tree\nNo changes."
-  end
-
-  local md = { "### 📌 Git Status\n" }
-
-  for line in raw:gmatch("[^\r\n]+") do
-    local code = line:sub(1, 2)
-    local path = string.trim(line:sub(3) or "")
-
-    if code == "??" then
-      table.insert(md, "🆕 Untracked: " .. path)
-    elseif code == " M" then
-      table.insert(md, "🟡 Modified (unstaged): " .. path)
-    elseif code == "M " then
-      table.insert(md, "🟠 Modified (staged): " .. path)
-    elseif code == " D" then
-      table.insert(md, "🔴 Deleted (unstaged): " .. path)
-    elseif code == "D " then
-      table.insert(md, "🛑 Deleted (staged): " .. path)
-    elseif code == "A " or code == " A" then
-      table.insert(md, "🟢 Added: " .. path)
-    elseif code == "R " or code == " R" then
-      table.insert(md, "🔁 Renamed: " .. path)
-    elseif code == "C " or code == " C" then
-      table.insert(md, "📄 Copied: " .. path)
-    else
-      table.insert(md, "🟦 " .. code .. " " .. path)
-    end
-  end
-
-  return table.concat(md, "\n")
-end
-
-
--- Render raw git diff.
-function gitdiff_render(base64Text)
-  local diffText= encoding.utf8Decode(encoding.base64Decode(base64Text))
-  local lines = string.split(diffText, "\n")  
-  local html = '<pre class="git-diff">'  
-    
-  for _, line in ipairs(lines) do  
-    if string.startsWith(line, "---") or string.startsWith(line, "+++") then  
-      html = html .. '<div class="diff-header">' .. line .. '</div>'  
-    elseif string.startsWith(line, "@@") then  
-      html = html .. '<div class="diff-hunk">' .. line .. '</div>'  
-    elseif string.startsWith(line, "-") then  
-      html = html .. '<div class="diff-delete">' .. line .. '</div>'  
-    elseif string.startsWith(line, "+") then  
-      html = html .. '<div class="diff-add">' .. line .. '</div>'  
-    else  
-      html = html .. '<div class="diff-context">' .. line .. '</div>'  
-    end  
-  end  
-  html = html..'</pre>'  
-  return widget.htmlBlock(html)
-end
-
-```
 ## CSS
 ```space-style
 .git-diff {  
@@ -469,3 +403,7 @@ end
 .diff-context { color: inherit; }
 
 ```
+
+## Community
+
+[Silverbullet forum](https://community.silverbullet.md/t/space-lua-addon-with-missing-git-commands-history-diff-restore/3539)
