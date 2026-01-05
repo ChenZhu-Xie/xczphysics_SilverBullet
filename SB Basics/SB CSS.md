@@ -1,7 +1,8 @@
 
 1. [new user with some questions](https://community.silverbullet.md/t/new-user-with-some-questions/3714/4?u=chenzhu-xie) #community #silverbullet
 
-```
+[[SB Basics/SB CSS]]
+```space-style
 a.sb-wiki-link {
     font-size: 0 !important;
     text-decoration: none !important;
