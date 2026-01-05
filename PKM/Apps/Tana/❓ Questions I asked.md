@@ -142,6 +142,8 @@ i.e. using a search node named "equivalents" in Tag Template to replace the "equ
 
 ## Q4
 
+### q1
+
 How can one **obtain the instance node(without s) of a given tag (or field) within a tag’s field template** (i.e., *Sources of options*)?  
 
 *   Similar to how the `Owner node` field provides value (though via a different mechanism)
@@ -160,7 +162,7 @@ From a development perspective, this may conflict with the tag’s “build titl
 what we actually need is more than the name of the instance node, but also its hierarchical structures (like through `PATH` field),  
 which can be used from within field template and query as options.
 
-### A4
+#### A1
 
 Tunnel through field = Semantic Part Of + COMPONENTS REC https://tana.inc/faq#a-video-explanation-of-part-of-components-rec
 
@@ -170,7 +172,7 @@ Also you can write queries with PARENT.fieldname to insert the value of a field 
 
 But yes as discussed in other thread, option-type field searches are blind to the instance details
 
-### Answer to him
+### Answer to him 2
 
 Yes, I digged it out through your video series independently as well [https://youtu.be/n1J0tZqb\_6A?t=1354](https://youtu.be/n1J0tZqb_6A?t=1354), and it almost lives in the _meta graph_.
 
@@ -178,3 +180,10 @@ Yet "PARENT.fieldname" lives in the _instance graph_?
 (I found some similiar "`${fieldname.(node's)fieldname}`" in the same video [https://www.youtube.com/watch?t=1274&v=n1J0tZqb\_6A&feature=youtu.be](https://www.youtube.com/watch?t=1274&v=n1J0tZqb_6A&feature=youtu.be), hah ;)
 
 The issue appears to lie in Tana’s rigid distinction between the _meta graph_ and the _instance graph_? Certain scenarios require their integration. A comparable experiment in Logseq DB did not completely succeed but was partially effective -\_-||.
+
+#### A2
+
+Technically all the same graph. I think template / config path vs instance path might more accurately describe itWhen you build a PARENT search in a tag template / config it generates a new search node on each instance. This does not happen with searches in field config on instantiation
+
+But yes I have personal use cases I would love to use this for as well if it existed ![:带泪笑脸:](https://a.slack-edge.com/production-standard-emoji-assets/14.0/google-medium/1f972@2x.png) someday hopefully
+
