@@ -150,7 +150,6 @@ actionButton.define {
     editor.invokeCommand("Scroll: to Bottom")
   end
 }
-
 ```
 
 #SB_itself
