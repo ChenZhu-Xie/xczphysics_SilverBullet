@@ -2,7 +2,7 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/CONFIG/Picker/Heading
 tags: meta/library
-pageDecoration.prefix: "🔎 "
+pageDecoration.prefix: " "
 ---
 
 asdf
