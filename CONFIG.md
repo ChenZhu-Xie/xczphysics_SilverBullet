@@ -83,14 +83,6 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "sidebar",
-  description = "Toggle Tree View",
-  run = function()
-    editor.invokeCommand("Tree View: Toggle")
-  end
-}
-
-actionButton.define {
   -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
   icon = 'calendar',
   description = 'Quick Note', 
