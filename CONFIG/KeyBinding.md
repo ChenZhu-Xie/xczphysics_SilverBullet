@@ -74,7 +74,7 @@
 | Page Picker: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Page Picker|Official]] | Ctrl | | | k |
 | Page Picker: | [[/Library/xczphysics/CONFIG/KeyBinding/Update#Meta Picker|Meta]] | Ctrl | Alt | | k |
 | Page Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Pure-Page (along with Tree-Tree)|Tree]] | | Shift | Alt | k |
-| Page Picker: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Pure-Page (along with Tree-Tree)|Float]] | | Ctrl | Alt | o |
+| Page Picker: | [[Library/Mr-xRed/FloatingPage|Float]] | | Ctrl | Alt | o |
 | Tree-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Tree-Tree (depend on Pure-Page)|Pick]] | | Shift | Alt | e |
 | Giant-Tree: | [[Library/xczphysics/CONFIG/Picker/Tree-Tree#Giant-Tree: Query Version|Pick]] | | Shift | Alt | e |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: Across Pages|Across Pages]] | | Shift | Alt | a |
