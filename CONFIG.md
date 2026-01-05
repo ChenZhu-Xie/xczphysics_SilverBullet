@@ -97,11 +97,10 @@ config.set {
       end
     },
     {
-      icon = 'file-plus', -- https://feathericons.com/
-      description = 'Insert Tree-Tree',
-      -- mobile =  true,
+      icon = 'layout',
+      description = 'Floating: Open',
       run = function()
-        editor.invokeCommand('Tree-Tree Picker: Insert')
+        editor.invokeCommand('Open: Floating Page')
       end
     },
     {
