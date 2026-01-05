@@ -170,6 +170,11 @@ Also you can write queries with PARENT.fieldname to insert the value of a field 
 
 But yes as discussed in other thread, option-type field searches are blind to the instance details
 
-==Answer to him==
+### Answer to him
 
-Yes, I digged it out through your video series independently as well https://youtu.be/n1J0tZqb_6A?t=1354, 然而遗憾的是 Tana 把
+Yes, I digged it out through your video series independently as well [https://youtu.be/n1J0tZqb\_6A?t=1354](https://youtu.be/n1J0tZqb_6A?t=1354), and it almost lives in the _meta graph_.
+
+Yet "PARENT.fieldname" lives in the _instance graph_?
+(I found some similiar "`${fieldname.(node's)fieldname}`" in the same video [https://www.youtube.com/watch?t=1274&v=n1J0tZqb\_6A&feature=youtu.be](https://www.youtube.com/watch?t=1274&v=n1J0tZqb_6A&feature=youtu.be), hah ;)
+
+The issue appears to lie in Tana’s rigid distinction between the _meta graph_ and the _instance graph_? Certain scenarios require their integration. A comparable experiment in Logseq DB did not completely succeed but was partially effective -\_-||.
