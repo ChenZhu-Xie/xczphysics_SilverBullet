@@ -6,7 +6,7 @@
 -- delta: 1 代表增加一级 (# -> ##), -1 代表减少一级 (## -> #)
 local function modifySelectedHeaders(delta)
   -- 获取当前选区范围
-  local range = editor.getSelectionRange()
+  local range = editor.getSelection()
   -- 获取选区内的文本
   local text = editor.getText(range.from, range.to)
   
