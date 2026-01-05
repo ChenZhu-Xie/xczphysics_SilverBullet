@@ -20,4 +20,8 @@ Tana #WX群 里 [author:Edison Qian] 说
 - [[Vim]] + agent tools（操作文件们的手(脚架)） = [[emacs]] ?
   - [h1ixyxc](https://www.reddit.com/r/emacs/comments/nxxoeo/comment/h1ixyxc/?tl=zh-hans&utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) #reddit
 - [emacs](https://emacs-china.org/t/emacs/9477/27) #emacs-china
-
+- [logseq for code management](https://discuss.logseq.com/t/logseq-for-code-management/20743/3?u=xczphysics) #discuss #logseq
+  - [[PKM/Apps/LogSeq|]] 里也可以运行 js 和 python [edit and run python code inside logseq itself](https://discuss.logseq.com/t/edit-and-run-python-code-inside-logseq-itself/20829?u=xczphysics) #discuss #logseq
+  - 这有点像 SilverBullet 里可以运行 js 和 lua
+  - 而 emacs 似乎可以在笔记中运行任何代码
+    - 问题来了：我们需要在 笔记软件 里 造 IDE，还是把 IDE 变成 笔记？
