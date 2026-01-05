@@ -11,6 +11,10 @@ pageDecoration.prefix: "🎇 "
 
 ## JS Part
 
+> **note** Note
+> JS file now should be automatically downloaded and loaded.
+> So, no need to carry out below 4 steps.
+
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
 ### Step 2. Click ${widgets.commandButton("Save: HHH.js")}
@@ -25,7 +29,7 @@ pageDecoration.prefix: "🎇 "
    - 速度和大小上 应该会输于 [[PKM/Apps/SilverBullet|]] 的 编译后的 TS .plug.js
 
 > **danger** Danger
-> for test: ${widgets.commandButton("Delete: HHH.js")}
+> when remove this plug, better first: ${widgets.commandButton("Delete: HHH.js")}
 
 ```space-lua
 local jsCode = [[

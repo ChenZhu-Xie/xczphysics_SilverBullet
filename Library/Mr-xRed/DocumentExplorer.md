@@ -2,18 +2,15 @@
 name: "Library/Mr-xRed/DocumentExplorer"
 tags: meta/library
 files:
-- PanelDragResize.js
-- FloatingPage.js
+- UnifiedFloating.js
 - docex_styles.css
 - lucide-icons.svg
 - hybrid-cursor.svg
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: c62b56b8
+share.hash: 98c72872
 share.mode: pull
 ---
-
-
 # 🗂️ Document Explorer
 
 > **warning** WORK IN PROGRESS
@@ -50,13 +47,14 @@ ${widgets.commandButton("Decrease Width","Document Explorer: Decrease Width")}  
 > `Ctrl-Alt-ArrotLeft`  - Decrease Document Explorer Width in 10% increments
 
 ## Configuration Options and Defaults:
-* `homeDirName`        - Name how your Home Directory appears in the Breadcrumbs (default: "🏠 Home")
-* `goToCurrentDir`     - Start navigation in the Directory of the currently opened page (default: true)
-* `tileSize`           - Grid Tile size, recommended between 60px-120px (default: "80px") 
-* `listHeight`         - List & Tree Row height, recommended between 18px-36px (default: "24px") 
-* `enableContextMenu`  - Enable/Disable the Right-Click for Files & Folders: Rename & Delete (default: true)
-* `negativeFilter`     - Negative Filter to hide certain elements in Explorer (by path, extensions or wildcard) (default: none )
-* treeFolderFirst    - sort order in treeview: folders then files (default: false)
+* **`homeDirName`**        - Name how your Home Directory appears in the Breadcrumbs (default: "🏠 Home")
+* **`goToCurrentDir`**     - Start navigation in the Directory of the currently opened page (default: true)
+* **`tileSize`**           - Grid Tile size, recommended between 60px-120px (default: "80px") 
+* **`listHeight`**         - List & Tree Row height, recommended between 18px-36px (default: "24px") 
+* **`enableContextMenu`**  - Enable/Disable the Right-Click for Files & Folders: Rename & Delete (default: true)
+* **`negativeFilter`**     - Negative Filter to hide certain elements in Explorer (by path, extensions or wildcard) (default: none )
+* **`treeFolderFirst`**    - sort order in treeview: folders then files (default: false)
+* **`recoverAfterRefresh`** - Rocover after Page refresh - Reopen DocEx when you Refresh the page (default: true) 
 
 ```lua
 config.set("explorer", {
@@ -66,7 +64,8 @@ config.set("explorer", {
   enableContextMenu = true,
   listHeight = "24px",
   negativeFilter = {"Library/Std","*.zip","*.js","*.css", "*test*"},
-  treeFolderFirst = false
+  treeFolderFirst = false,
+  recoverAfterRefresh = true
 })
 ```
 
@@ -89,25 +88,19 @@ Licensed under the ISC and MIT licenses.
 
 ```css
 
-:root{
-  --header-height: 20px;                         /* Header height, drag-area */
-  --frame-width: 5px;                            /* frame thickness */
-  --frame-color: oklch(0.4 0 0 / 0.3);           /* frame color */
-  --window-border: 2px;                          /* solid border width (aesthetic) */
-  --window-border-radius: 10px;                  /* inner iframe border radius */
-  --window-border-color: oklch(0.65 0 0 / 0.3);  /* solid border color (aesthetic) */
-} 
-      
 html[data-theme="dark"]{
-  --explorer-bg-color: oklch(0.25 0 0);
+  /*Main UI Color*/
+  --explorer-bg-color: var(--top-background-color);
+  --explorer-text-color:  var(--root-color,white);
+  --explorer-accent-color: var(--ui-accent-color,  oklch(55% 0.15 250));
+  --explorer-accent-text: var(--ui-accent-contrast-color);
+  --breadcrumb-color: var(--editor-wiki-link-page-color);
+  --explorer-border-color: oklch(from var(--modal-border-color) 0.65 c h / 0.5);
   --explorer-hover-bg: oklch(0.65 0 0 / 0.5);
-  --explorer-text-color: oklch(1 0 0);
-  --explorer-border-color: oklch(0.65 0 0 / 0.5);
-  --explorer-accent-color: oklch(0.75 0.25 230);
-  --explorer-tile-bg: oklch(0.75 0 0 / 0.1);
-  --link-color:  oklch(0.85 0.1 260);
+  --explorer-tile-bg:  oklch(0.75 0 0 / 0.1);
+  /*Folder and File Color*/
   --folder-color: oklch(0.85 0.1 105);
-  --file-md-color:  oklch(0.85 0.1 260);
+  --file-md-color:  hsl(213, 100%, 83%);
   --file-pdf-color: oklch(0.85 0.1 30); 
   --file-img-color: oklch(0.85 0.1 180); 
   --file-ex-color:  oklch(0.85 0.1 300); 
@@ -116,12 +109,16 @@ html[data-theme="dark"]{
 }
 
 html[data-theme="light"]{
-  --explorer-bg-color: oklch(0.85 0 0);
+  /*Main UI Color*/
+  --explorer-bg-color: var(--top-background-color);
+  --explorer-text-color: var(--root-color, black);
+  --explorer-accent-color: var(--ui-accent-color,oklch(55% 0.15 250));
+  --explorer-accent-text: var(--ui-accent-contrast-color);
+  --breadcrumb-color: var(--editor-wiki-link-page-color);
+  --explorer-border-color: oklch(from var(--modal-border-color) 0.50 c h / 0.5);
   --explorer-hover-bg: oklch(0.75 0 0 / 0.5);
-  --explorer-text-color: oklch(0 0 0);
-  --explorer-border-color: oklch(0.50 0 0 / 0.5);
-  --explorer-accent-color: oklch(0.80 0.18 230);
-  --explorer-tile-bg: oklch(0.75 0 0 / 0.1);
+  --explorer-tile-bg:  oklch(0.75 0 0 / 0.1);
+  /*Folder and File Color*/
   --folder-color: oklch(0.65 0.15 105);
   --file-md-color:  oklch(0.65 0.15 260);
   --file-pdf-color: oklch(0.65 0.15 30); 
@@ -130,9 +127,18 @@ html[data-theme="light"]{
   --file-dio-color: oklch(0.65 0.15 90); 
   --file-unk-color: oklch(0.65 0 0);
 }
-
 ```
 
+## For the Floating Window
+```css
+:root{
+  --header-height: 20px;                         /* Header height, drag-area */
+  --frame-width: 5px;                            /* frame thickness */
+  --window-border: 2px;                          /* solid border width (aesthetic) */
+  --window-border-radius: 10px;                  /* inner iframe border radius */
+  --window-border-color: oklch(0.65 0 0 / 0.3);  /* solid border color (aesthetic) */
+} 
+```
 
 ## Integration:
 
@@ -149,7 +155,8 @@ config.define("explorer", {
     treeFolderFirst = schema.boolean(),
     goToCurrentDir = schema.boolean(),
     enableContextMenu = schema.boolean(),
-    negativeFilter = { type = "array", items = { type = "string" } }
+    negativeFilter = { type = "array", items = { type = "string" } },
+    recoverAfterRefresh = schema.boolean()
   }
 })
 
@@ -205,8 +212,8 @@ local homeDirName = cfg.homeDirName or "🏠 Home"
 local goToCurrentDir = cfg.goToCurrentDir ~= false
 local enableContextMenu = cfg.enableContextMenu ~= false
 local negativeFilter = cfg.negativeFilter or {}
--- The new sorting preference
 local treeFolderFirst = cfg.treeFolderFirst == true 
+local recoverAfterRefresh = cfg.recoverAfterRefresh ~= false
 
 
 local PANEL_ID = "lhs"
@@ -215,9 +222,34 @@ local cachedFiles = nil
 local PATH_KEY = "gridExplorer.cwd"
 local VIEW_MODE_KEY = "gridExplorer.viewMode"
 
+-- ---------- Restore panel visibility on page load ----------
+local function restoreExplorerOpenStateOnPageLoad()
+  if not recoverAfterRefresh then return end
+  
+  -- Check if we were explicitly told to stay closed for this specific load
+  if clientStore.get("explorer.suppressOnce") == "true" then
+    clientStore.set("explorer.suppressOnce", "false") -- Reset it immediately
+    return 
+  end
+  local shouldOpen = clientStore.get("explorer.open")
+  
+  if shouldOpen == "true" and not PANEL_VISIBLE then
+    local lastMode = clientStore.get("explorer.currentDisplayMode") or "panel"
+    
+    if lastMode == "window" then
+      -- Explicitly open window mode
+      if not cachedFiles then cachedFiles = space.listFiles() end
+      drawPanel()
+      js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").enableDrag()
+    else
+      -- Explicitly open panel mode
+      if not cachedFiles then cachedFiles = space.listFiles() end
+      drawPanel()
+    end
+  end
+end
 -- ---------- Helper to check negative filters ----------
 local function isFiltered(path)
-  -- We always calculate this so we can "tag" the item in HTML
   local lowPath = path:lower()
   for _, pattern in ipairs(negativeFilter) do
     local lowPattern = pattern:lower()
@@ -335,8 +367,12 @@ function refreshExplorerButton()
     editor.flashNotification("File list refreshed.")
 end
 
--- event.listen { name = "file:listed", run = refreshOnCreation }
-event.listen { name = "editor:pageLoaded", run = triggerHighlightUpdate }
+-- ---------- Event Listeners ----------
+-- Add restoreExplorerOpenStateOnPageLoad to the pageLoaded event
+event.listen { name = "editor:pageLoaded", run = function()
+    triggerHighlightUpdate()
+    restoreExplorerOpenStateOnPageLoad() 
+end }
 event.listen { name = "editor:documentLoaded", run = triggerHighlightUpdate }
 
 -- ---------- Tree Logic ----------
@@ -590,17 +626,16 @@ end
                        id="refresh-btn" 
                        onclick="syscall('lua.evalExpression', 'refreshExplorerButton()')">]])
       table.insert(h, ICONS.refresh)
-      table.insert(h, [[</div>
+      local filterDisabled = clientStore.get("explorer.disableFilter") == "true"
+      local activeClass = filterDisabled and " active" or ""
       
-                  <div title="Toggle Negative Filter" 
-                        class="explorer-action-btn" id="filter-btn" 
-                        style="background: ]])
-      table.insert(h, (clientStore.get("explorer.disableFilter") == "true" and "var(--explorer-accent-color)" or "var(--explorer-tile-bg)"))
-      table.insert(h, [[" 
-                        onclick="syscall('editor.invokeCommand','DocumentExplorer: ToggleFilter')">]])
-      table.insert(h, (clientStore.get("explorer.disableFilter") == "true" and ICONS.filterOn or ICONS.filterOff))
       table.insert(h, [[</div>
-              </div>  
+                        <div title="Toggle Negative Filter" 
+                              class="explorer-action-btn]] .. activeClass .. [[" id="filter-btn" 
+                              onclick="syscall('editor.invokeCommand','DocumentExplorer: ToggleFilter')">]])
+      table.insert(h, (filterDisabled and ICONS.filterOn or ICONS.filterOff))
+      table.insert(h, [[</div>
+                 </div>  
                   <div class="action-buttons" style="display: flex; gap: 4px;">
                   <div class="explorer-action-btn" title="Switch to Window/Sidepanel" onclick="syscall('editor.invokeCommand', 'DocumentExplorer: Toggle Window Mode')">]])
       table.insert(h, ICONS.window)
@@ -964,8 +999,12 @@ if (contextMenuEnabled) {
     if (document.getElementById('ctx-preview')) {
         document.getElementById('ctx-preview').onclick = async () => {
             menu.style.display = 'none';
+            
+            // Set the suppression flag so the new window doesn't spawn an explorer
+            await syscall('clientStore.set', 'explorer.suppressOnce', 'true');
+            
             const fileName = internalPath.split('/').pop();
-            const luaCmd = `js.import("/.fs/Library/Mr-xRed/FloatingPage.js").show("${internalPath}", "${fileName}")`;
+            const luaCmd = `js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").show("${internalPath}", "${fileName}")`;
             await syscall('lua.evalExpression', luaCmd);
         };
     }
@@ -1325,6 +1364,7 @@ ensureElement("explorer-style-css", "link", { rel: "stylesheet", href: "/.fs/Lib
   local finalHtml = table.concat(h)
   editor.showPanel(PANEL_ID, currentWidth, finalHtml, script)
   PANEL_VISIBLE = true
+  clientStore.set("explorer.open", "true")
 end
 
 
@@ -1389,7 +1429,8 @@ command.define {
         if not cachedFiles then cachedFiles = space.listFiles() end
         drawPanel()
       end
-      js.import("/.fs/Library/Mr-xRed/PanelDragResize.js").enableDrag()
+      clientStore.set("explorer.open", "true")
+      js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").enableDrag()
   end
 }
 
@@ -1400,11 +1441,10 @@ command.define {
     if PANEL_VISIBLE then
       editor.hidePanel(PANEL_ID)
       PANEL_VISIBLE = false
+      clientStore.set("explorer.open", "false") 
     else
-      if not cachedFiles then
-        cachedFiles = space.listFiles() 
-      end
-      drawPanel()
+      if not cachedFiles then cachedFiles = space.listFiles() end
+      drawPanel() 
     end
   end
 }
@@ -1424,8 +1464,9 @@ command.define {
     else
       clientStore.set("explorer.currentDisplayMode", "window")
       drawPanel()
-      js.import("/.fs/Library/Mr-xRed/PanelDragResize.js").enableDrag()
+      js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").enableDrag()
     end
+      clientStore.set("explorer.open", "true")
   end
 }
 

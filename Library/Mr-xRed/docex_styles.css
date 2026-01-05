@@ -1,68 +1,43 @@
-/*
- ====== 1. VARIABLES & BASE STYLES ======
-*/
+/* ====== 1. VARIABLES & BASE STYLES ====== */
 
 :root {
-  font-family: Monaco, Menlo, Consolas, "Courier New", Courier, monospace;
+  font-family: var(--ui-font), Monaco, Menlo, Consolas, "Courier New", Courier, monospace;
 }
 
-.explorer-panel body {
+.explorer-panel {
   color: var(--explorer-text-color);
 }
 
-
-/*
- ====== 2. LAYOUT CONTAINER ======
-*/
-
+/* ====== 2. LAYOUT CONTAINER ====== */
 
 .explorer-panel {
   display: flex;
   background: var(--explorer-bg-color);
   flex-direction: column;
-  height: 100%; 
+  height: 100vh; 
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
+
 
 .document-explorer {
   box-sizing: border-box;
   flex: 1; 
+  overflow-y: auto;
+  overflow-x: hidden; 
+  width: 100%;
   min-height: 0; 
-  overflow-y: auto !important;
   padding: 0.5em;
-  width: 100%;
   gap: 8px;
   align-content: start;
   scroll-behavior: smooth;
 }
-/*
-.explorer-panel {
-  display: flex;
-  background: var(--explorer-bg-color);
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
 
-.document-explorer {
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto !important;
-  padding: 0.5em;
-  width: 100%;
-  gap: 8px;
-  align-content: start;
-  scroll-behavior: smooth;
-}
-*/
-
-/*
- ======3. HEADER & NAVIGATION ======
-*/
+/* ======3. HEADER & NAVIGATION ====== */
 
 .explorer-header {
   flex: 0 0 auto;
@@ -103,7 +78,7 @@
 .explorer-toolbar input {
   height: 100%;
   width: 100%;
-  padding: 4px 7px;
+  padding: 4px 22px 4px 4px;
   border-radius: 6px;
   border: none;
   outline: 1px solid var(--explorer-border-color);
@@ -117,18 +92,18 @@
 .explorer-toolbar input:hover { background: var(--explorer-hover-bg); }
 .explorer-toolbar input:focus {
   cursor: text;
-  outline: 2px solid var(--explorer-border-color);
+  outline: 1px solid var(--explorer-border-color);
   box-sizing: border-box;
 }
 
 .clear-btn {
   position: absolute;
-  right: 8px;
+  right: 4px;
   top: 50%;
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
-  background: oklch(0.5 0 0);
+  background:  var(--explorer-hover-bg);
   border-radius: 50%;
   display: none;
   align-items: center;
@@ -166,9 +141,16 @@
 }
 
 .view-switcher div.active {
-  background: var(--explorer-accent-color);
+  background: oklch(from var(--explorer-accent-color) l c h);
   color: var(--explorer-text-color);
   opacity: 1;
+}
+
+.view-switcher div svg{
+  stroke: var(--explorer-text-color);
+}
+.view-switcher div.active svg{
+  stroke: var(--explorer-accent-text);
 }
 
 /* --- Action Buttons --- */
@@ -197,8 +179,11 @@
 
 .explorer-action-btn { font-size: 1.1em; }
 .explorer-action-btn:hover { background: var(--explorer-hover-bg); }
-.explorer-close-btn:hover { background: oklch(0.65 0.22 30); }
+.explorer-close-btn:hover { background: oklch(0.65 0.2 30); }
 .explorer-close-btn svg:hover { stroke: white; }
+
+.explorer-action-btn.active { background: oklch(from var(--explorer-accent-color) l c h );}
+.explorer-action-btn.active svg { stroke: var(--explorer-accent-text);}
 
 #tree-toggle-btn:hover,
 #filter-btn:hover {
@@ -225,11 +210,10 @@
 }
 
 
-/*--------- Hide Action Buttons when Filter in focus ------------- */
+/* --------- Hide Action Buttons when Filter in focus ------------- */
 
 .view-switcher, 
 .explorer-button-group,
-/*#filter-btn, #tree-toggle-btn,*/
 .action-buttons .explorer-action-btn {
   max-width: 200px; 
   opacity: 1;
@@ -281,7 +265,7 @@
 
 .explorer-breadcrumbs a {
   text-decoration: none;
-  color: var(--link-color);
+  color: oklch(from var(--breadcrumb-color) l c h );
 }
 
 .explorer-breadcrumbs a:hover {
@@ -289,9 +273,7 @@
   cursor: pointer;
 }
 
-/*
- ====== 4. SHARED TILE COMPONENTS (Icon, Title, Thumbnails) ======
-*/
+/* ====== 4. SHARED TILE COMPONENTS (Icon, Title, Thumbnails) ====== */
 
 .grid-tile {
   position: relative;
@@ -307,7 +289,7 @@
 }
 
 .grid-tile.is-focused {
-  outline: 2px solid var(--ui-accent-color);
+  outline: 2px solid var(--explorer-accent-text);
   outline-offset: -2px;
   background: oklch(0.75 0 0 / 0.15);
 }
@@ -352,9 +334,7 @@
 
 
 
-/*
- ====== 5. GRID MODE SPECIFIC ======
-*/
+/* ====== 5. GRID MODE SPECIFIC ====== */
 
 .mode-grid .document-explorer {
   display: grid;
@@ -370,9 +350,7 @@
   overflow: hidden;
 }
 
-/*
- ====== 6. LIST & TREE MODE (Shared Styles) ======
-*/
+/* ====== 6. LIST & TREE MODE (Shared Styles) ====== */
 
 .mode-list .document-explorer,
 .mode-tree .document-explorer {
@@ -381,12 +359,14 @@
   gap: 2px;
   width: 100%;
   align-items: stretch;
+  contain: content;
 }
 
 .mode-list .grid-tile,
 .mode-tree .grid-tile {
   flex-direction: row;
   height: var(--list-tile-height);
+  max-height: var(--list-tile-height); /* Force it */
   padding: 0 2px 0 0px;
   align-content: center;
   gap: calc((var(--list-tile-height) / 24px) * 8px);
@@ -417,11 +397,13 @@
     font-size: calc((var(--list-tile-height) / 24px) * 16px);
 }
 
-/*
- ====== 7. TREE VIEW SPECIFIC ======
-*/
+/* ====== 7. TREE VIEW SPECIFIC ====== */
 
-.mode-tree .tree-view-container { padding-left: 5px; }
+.mode-tree .tree-view-container {
+  padding-left: 5px;
+  margin: 0;
+  padding-bottom: 1px;
+}
 
 .mode-tree { 
  --left-padding: 15px;
@@ -429,32 +411,39 @@
  --tree-indent: calc((var(--icon-center) + var(--left-padding)));
 }
 
+/* Ensure the container has a relative position to anchor the line */
 .mode-tree .tree-content {
- margin-left: var(--tree-indent) !important;
- position: relative;
- display: flex;
- flex-direction: column;
+  margin-left: var(--tree-indent) !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; 
 }
 
-/* Vertical Lines */
+/* Vertical Lines  */
 .mode-tree .tree-content::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -2px;
-  bottom: calc(var(--icon-center) - 2px); 
+  left: -4px;
+  height: calc(100% - var(--icon-center) + 2px); 
   border-left: 2px solid var(--explorer-border-color);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Horizontal Lines */
 .mode-tree .tree-file::before {
   content: "";
   position: absolute;
-  left: 0px;
+  left: -2px;
   top: var(--icon-center);
   width: var(--left-padding);
   border-top: 2px solid var(--explorer-border-color);
+  pointer-events: none; 
 }
+
+
 
 .tree-view-container > .tree-file::before,
 .tree-view-container > .tree-folder::before {
@@ -500,22 +489,11 @@
   transform: rotate(90deg);
 }
 
-/* Active Page Highlighting */
-.grid-tile.is-active-page {
-  background-color: var(--explorer-accent-color, #007acc) !important;
-  color: white !important;
-  border-radius: 4px;
-  outline: 2px solid var(--explorer-accent-color, #007acc);
-}
-
-
 .grid-tile.is-active-page .grid-title {
   font-weight: bold;
 }
 
-/*
- ====== 8. FILE EXTENSIONS & BADGES ======
-*/
+/* ====== 8. FILE EXTENSIONS & BADGES ====== */
 
 /* Shared badge style */
 .grid-tile::after {
@@ -559,7 +537,7 @@ html[data-theme="dark"] {
   .image-tile::after { content: "IMG"; color: var(--file-img-color); background: oklch(from var(--file-img-color) 0.25 0.02 h / 1); border: 1px solid oklch(from var(--file-img-color) 0.5 0.05 h / 1);}
   .excalidraw-tile::after { content: "EX"; color: var(--file-ex-color); background: oklch(from var(--file-ex-color) 0.25 0.02 h / 1); border: 1px solid oklch(from var(--file-ex-color) 0.5 0.05 h / 1);}
   .drawio-tile::after { content: "DIO"; color: var(--file-dio-color); background: oklch(from var(--file-dio-color) 0.25 0.02 h / 1); border: 1px solid oklch(from var(--file-dio-color) 0.5 0.05 h / 1);}
-  .unknown-tile::after { content: attr(data-ext); color: var(--file-unk-color); background: oklch(from var(--file-unk-color) 0.25 0 h / 1); border: 1px solid oklch(from var(--file-unk-color) 0.5 0 h / 1);}
+  .unknown-tile::after { content: attr(data-ext); color: var(--file-unk-color); background: oklch(from var(--file-unk-color) 0.25 0.01 h / 1); border: 1px solid oklch(from var(--file-unk-color) 0.5 0.01 h / 1);}
 }
 
 
@@ -610,28 +588,35 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+  .mode-grid .hybrid-tile, .mode-list .hybrid-tile, .mode-tree .hybrid-tile { color: oklch(from var(--file-md-color) 0.75 0.25 h);}
+
   .hybrid-md-badge {
   color: var(--file-md-color);
   background: oklch(from var(--file-md-color) 0.25 0.02 h / 1);
   border: 1px solid oklch(from var(--file-md-color) 0.5 0.05 h / 1);
   }
-  .mode-grid .hybrid-tile,
-  .mode-list .hybrid-tile,
-  .mode-tree .hybrid-tile  {
-  color: oklch(from var(--file-md-color) 0.75 0.25 h);
+  
+  /* Active Page Highlighting */
+  .grid-tile.is-active-page:not(summary) {
+  background-color: oklch(from var(--explorer-accent-color) 0.5 c h ) !important;
+  /*color: var(--explorer-accent-text, white) !important;*/
+  font-weight: bold;
   }
 }
 
 html[data-theme="light"] {
+  .mode-grid .hybrid-tile, .mode-list .hybrid-tile, .mode-tree .hybrid-tile  { color: oklch(from var(--file-md-color) 0.55 0.25 h);}
+
   .hybrid-md-badge {
   color: oklch(from var(--file-md-color) 0.45 0.2 h / 1);
   background: oklch(from var(--file-md-color) 0.95 0.05 h / 1);
   border: 1px solid oklch(from var(--file-md-color) 0.8 0.05 h / 1);
   }
-  .mode-grid .hybrid-tile,
-  .mode-list .hybrid-tile,
-  .mode-tree .hybrid-tile  {
-  color: oklch(from var(--file-md-color) 0.55 0.25 h);
+  
+  .grid-tile.is-active-page:not(summary)  {
+  background-color: oklch(from var(--explorer-accent-color) 0.70 0.28 h ) !important;
+  color: var(--explorer-accent-text, white) !important;
+  font-weight: bold;
   }
 }
 
@@ -698,9 +683,7 @@ html[data-theme="light"] {
 
 
 
-/* 
- ====== 9. OVERLAYS (Context Menu) ======
-*/
+/*  ====== 9. OVERLAYS (Context Menu) ====== */
 
 #explorer-context-menu {
   font-weight: bold;
@@ -710,7 +693,6 @@ html[data-theme="light"] {
   box-shadow: 0 4px 15px 0 oklch(0 0 0 / 0.5);
   padding: 4px;
   width: 80px;
- /* backdrop-filter: blur(10px);*/
 }
 
 #explorer-context-menu .menu-item {
@@ -727,21 +709,11 @@ html[data-theme="light"] {
   
 }
 
-#explorer-context-menu .menu-item.delete { color: oklch(0.75 0.3 30);}
-#explorer-context-menu .menu-item.delete:hover { background: red; color: white; }
+#explorer-context-menu .menu-item.delete { color: oklch(0.65 0.2 30);}
+#explorer-context-menu .menu-item.delete:hover { background: oklch(0.65 0.2 30); color: white; }
 
 
-.menu-divider {
-    height: 1px;
-    background: gray;
-    margin: 4px 0;
-    opacity: 0.5;
-}
-
-
-/*
- ====== 10. ICONS  ======
-*/
+/* ====== 10. ICONS  ====== */
 
 .action-buttons svg {
  max-height: 24px;
@@ -789,7 +761,7 @@ html[data-theme="dark"] {
 .image-tile .icon svg{stroke: oklch(from var(--file-img-color) 0.98 c h );fill: oklch(from var(--file-img-color) 0.65 c h ); }
 .excalidraw-tile .icon svg{stroke: oklch(from var(--file-ex-color) 0.98 c h );fill: oklch(from var(--file-ex-color) 0.65 c h ); }
 .drawio-tile .icon svg{stroke: oklch(from var(--file-dio-color) 0.98 c h ); fill: oklch(from var(--file-dio-color) 0.65 c h ); }
-.unknown-tile .icon svg{stroke: oklch(from var(--file-unk-color) 0.98 0 h ); fill: oklch(from var(--file-unk-color) 0.65 c h ); }
+.unknown-tile .icon svg{stroke: oklch(from var(--file-unk-color) 0.98 c h ); fill: oklch(from var(--file-unk-color) 0.65 c h ); }
 }
 
 html[data-theme="light"] {
@@ -803,15 +775,20 @@ html[data-theme="light"] {
 .unknown-tile .icon svg{stroke: oklch(from var(--file-unk-color) l c h ); fill: oklch(from var(--file-unk-color) 0.95 c h ); }
 }
 
-
+/* ====== 11. MAIN UI (Colors) ====== */
 
 html[data-theme="dark"]{
-  --explorer-bg-color: oklch(0.27 0 0);
+  /*Main UI Color*/
+  --explorer-bg-color: var(--top-background-color);
+  --explorer-text-color:  var(--root-color,white);
+  --explorer-accent-color: var(--ui-accent-color,  oklch(55% 0.15 250));
+  --explorer-accent-text: var(--ui-accent-contrast-color);
+  --breadcrumb-color: var(--editor-wiki-link-page-color);
+  --explorer-border-color: oklch(from var(--modal-border-color) 0.65 c h / 0.5);
   --explorer-hover-bg: oklch(0.65 0 0 / 0.5);
-  --explorer-text-color: oklch(1 0 0);
-  --explorer-border-color: oklch(0.65 0 0 / 0.5);
-  --explorer-accent-color: oklch(0.75 0.25 230);
-  --explorer-tile-bg: oklch(0.75 0 0 / 0.1);
+  --explorer-tile-bg:  oklch(0.75 0 0 / 0.1);
+
+  /*Folder and File Color*/
   --folder-color: oklch(0.85 0.1 105);
   --file-md-color:  hsl(213, 100%, 83%);
   --file-pdf-color: oklch(0.85 0.1 30); 
@@ -822,12 +799,17 @@ html[data-theme="dark"]{
 }
 
 html[data-theme="light"]{
-  --explorer-bg-color: oklch(0.91 0 0);
+  /*Main UI Color*/
+  --explorer-bg-color: var(--top-background-color);
+  --explorer-text-color: var(--root-color, black);
+  --explorer-accent-color: var(--ui-accent-color,oklch(55% 0.15 250));
+  --explorer-accent-text: var(--ui-accent-contrast-color);
+  --breadcrumb-color: var(--editor-wiki-link-page-color);
+  --explorer-border-color: oklch(from var(--modal-border-color) 0.50 c h / 0.5);
   --explorer-hover-bg: oklch(0.75 0 0 / 0.5);
-  --explorer-text-color: oklch(0 0 0);
-  --explorer-border-color: oklch(0.50 0 0 / 0.5);
-  --explorer-accent-color: oklch(0.80 0.18 230);
-  --explorer-tile-bg: oklch(0.75 0 0 / 0.1);
+  --explorer-tile-bg:  oklch(0.75 0 0 / 0.1);
+
+  /*Folder and File Color*/
   --folder-color: oklch(0.65 0.15 105);
   --file-md-color:  oklch(0.65 0.15 260);
   --file-pdf-color: oklch(0.65 0.15 30); 
@@ -837,6 +819,3 @@ html[data-theme="light"]{
   --file-unk-color: oklch(0.65 0 0);
 }
 
-/*
- ====== 11. ROOT (Variables) ======
-*/
