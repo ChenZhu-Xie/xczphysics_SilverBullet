@@ -11,20 +11,6 @@ pageDecoration.prefix: "🔗 "
 
 ## 1. JS Logic
 
-```space-lua
-local jsCode = [[
-
-]]
-
-command.define {
-  name = "Save: LinkFloater.js",
-  run = function()
-    space.writeDocument("Library/xczphysics/STYLE/Theme/LinkFloater.js", jsCode)
-    editor.flashNotification("LinkFloater JS saved!")
-  end
-}
-```
-
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.
 
