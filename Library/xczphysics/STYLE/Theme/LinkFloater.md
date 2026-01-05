@@ -34,10 +34,10 @@ local function pushBacklinks()
     
     -- 查询反向链接
     -- 注意：这里使用 index.tag "link" 并筛选 toPage
-    local Query = [[
+    local Query = query[[
       from index.tag "link"
-      where toPage = @page and page != @page
-      select page, pos
+      where _.toPage == currentPage and _.page != currentPage
+      select { page=_.page, pos=_.pos }
     ]]
     
     -- 执行查询
@@ -143,9 +143,3 @@ html[data-theme="dark"] .sb-floater-btn {
   color: #ccc;
 }
 ```
-
-
-[[CONFIG/View/Tree]]
-
-
-
