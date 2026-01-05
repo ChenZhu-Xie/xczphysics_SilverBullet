@@ -98,9 +98,9 @@ config.set {
     },
     {
       icon = 'layout',
-      description = 'Floating: Open',
+      description = 'Open: Floating Page',
       run = function()
-        editor.invokeCommand('Open: Floating Page')
+        editor.invokeCommand('Floating: Open')
       end
     },
     {
