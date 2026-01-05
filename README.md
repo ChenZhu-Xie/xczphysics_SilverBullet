@@ -2,7 +2,7 @@
 
 ## long story short
 
-`https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
+Repository: `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
 
 ## long story
 
@@ -23,7 +23,7 @@
 8. install any lib
    - installed libs appear below the HEADER `Installed libraries`.
 
-## What You See Is What I Use
+## Libraries in Repository
 
 [These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
