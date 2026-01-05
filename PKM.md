@@ -24,5 +24,7 @@ Tana #WX群 里 [author:Edison Qian] 说
   - [[PKM/Apps/LogSeq|]] 里也可以运行 js 和 python [edit and run python code inside logseq itself](https://discuss.logseq.com/t/edit-and-run-python-code-inside-logseq-itself/20829?u=xczphysics) #discuss #logseq
   - 这有点像 SilverBullet 里可以运行 js 和 lua
   - 而 emacs 似乎可以在笔记中运行任何代码
-    - 问题来了：我们需要在 笔记软件 里 造 IDE（像 LogSeq, SilverBullet 和 emacs）
+    - 问题来了：我们需要在 笔记软件 里 造 IDE（像 LogSeq, SilverBullet 和 [[PKM/ecosystem/emacs|emacs]]）
     - 还是把 IDE 变成 笔记？（像 [author:Edison Qian] ）
+
+
