@@ -19,7 +19,7 @@
 
 ## What You See Is What I Use
 
-[These scripts ↓↓](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
+[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
 | Category | Plug.md in Github | Description in SilverBullet |
 |-----------|------|------------|
@@ -34,6 +34,7 @@
 | 🟦 **Nearest Pattern** | [Duplicate](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#👯%20Duplicate) |
 | 🟦 **Nearest Pattern** | [Delete](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Delete.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#🪚%20Delete) |
 | 🟦 **Nearest Pattern** | [Unwrap](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Unwrap.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#📦%20Unwrap) |
+| 🟢 **Indent** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
 | 🟢 **Picker** | [Heading](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Heading) |
 | 🟢 **Picker** | [Tags](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Tags.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Tags) |
 | 🟢 **Picker** | [Table](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Table.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Table) |

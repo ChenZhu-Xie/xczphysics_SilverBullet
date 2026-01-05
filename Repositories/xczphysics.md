@@ -211,9 +211,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ### Indent
 
-==`Ctrl-[`==
-Add `Header: Indent Selected` to CMD
 ==`Ctrl-]`==
+Add `Header: Indent Selected` to CMD
+==`Ctrl-[`==
 Add `Header: Outdent Selected` to CMD
 
 ```#meta/library/remote
