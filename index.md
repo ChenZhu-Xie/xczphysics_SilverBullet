@@ -29,7 +29,7 @@ Those three words _Enlarge. The. Percentage._ are clearly not what an adult nati
 
 Yes, the image was drawn by an 17-year-old from mainland China — my younger self — meticulously constructed with ruler on the back of my high-school graduation shirt.
 
-At that time — a decade ago, and even now, I feel deeply that I possess a natural gift:[[Language/Input Method|aasdfasdf]]
+At that time — a decade ago, and even now, I feel deeply that I possess a natural gift:
 
 1. ${Purple("Acquisition")}: actively generate (from purely within), gather (from surroundings) and filter unknown information efficiently, discover [[🤔 Daydream/💡 盲生发现华点|unusual dark spots]] (e.g. [SilverBullet](https://silverbullet.md/), [[Language/Input Method]]);
 2. ${Purple("Processing")}: pattern recognize, distill, understand, interweave, compress, and transform known information through original logic into forms comprehensible to the public; 
