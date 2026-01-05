@@ -16,7 +16,7 @@ pageDecoration.prefix: "🔗 "
 
 ```space-lua
 local jsCode = [[
-// /.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js
+// Library/xczphysics/STYLE/Theme/LinkFloater.js
 
 const STATE_KEY = "__LinkFloaterState";
 
@@ -290,7 +290,7 @@ export function disable() {
 command.define {
   name = "Save: LinkFloater.js",
   run = function()
-    space.writeDocument("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js", jsCode)
+    space.writeDocument("Library/xczphysics/STYLE/Theme/LinkFloater.js", jsCode)
     editor.flashNotification("LinkFloater JS saved!")
   end
 }
@@ -306,7 +306,7 @@ event.listen {
   run = function()
     -- 只有在客户端模式下才加载 JS
     if editor.isClient() then
-        js.import("/.fs//.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
+        js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
     end
   end
 }
@@ -330,7 +330,7 @@ local function pushBacklinks()
     
     -- 将结果传递给 JS
     -- JS 模块导出了 updateBacklinks 函数
-    js.import("/.fs//.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
 end
 
 -- 监听页面加载完成
@@ -339,7 +339,7 @@ event.listen {
   run = function()
     -- 延迟一点执行，确保 JS 环境已加载
     -- 也可以重新 enable 确保 View 存在
-    js.import("/.fs//.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
     pushBacklinks()
   end
 }
