@@ -135,9 +135,16 @@ actionButton.define {
   end
 }
 
+actionButton.define {
+  icon = "chevrons-up",
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand("Tree View: Toggle")
+  end
+}
 
 actionButton.define {
-  icon = "arrow-up",
+  icon = "chevrons-down",
   description = "Toggle Tree View",
   run = function()
     editor.invokeCommand("Tree View: Toggle")
