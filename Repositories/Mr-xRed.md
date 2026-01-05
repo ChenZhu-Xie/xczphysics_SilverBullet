@@ -18,7 +18,7 @@ uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PrintPreview.md
 description: "Adds PrintPreview with custom HTML/CSS styling for SilverBullet"
 ---
-name: "📃 Floating Page(Proof of Concept)"
+name: "📃 Floating Page(Proof of [[new page]]Concept)"
 uri: github:Mr-xRed/silverbullet-libraries/FloatingPage.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md
 description: "Open any page in a Floating Window inside Silverbullet"
