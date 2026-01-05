@@ -47,8 +47,8 @@
 |----------|----------|------|-------|-----|--------|
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Define#New Child|New Child]] | | Ctrl | Alt | n |
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Define#New Sibling|New Sibling]] | | Ctrl | Alt | s |
-| Page: | Quick Note | | Shift | Alt | n |
-| Page: | Templete | | Shift | Alt | t |
+| Page: | [[Library/Std/Page Templates/Quick Note|Quick Note]] | | Shift | Alt | n |
+| Page: | [[Library/Std/Infrastructure/Page Templates|Templete]] | | Shift | Alt | t |
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Delete|Delete]] | | Shift | Alt | d |
 | Page: | [[Library/xczphysics/CONFIG/KeyBinding/Update#Copy|Copy]] | Ctrl | | Alt | c |
 | Page: | [[CONFIG/Plug_dev/Github_Url#Add githubUrl to frontmatter|Copy Github]] | | Shift | Alt | g |
