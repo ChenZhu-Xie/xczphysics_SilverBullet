@@ -13,6 +13,7 @@ Add `Header: Indent Selected` to CMD
 Add `Header: Outdent Selected` to CMD
 
 ```space-lua
+
 -- =========================================================
 -- Helpers
 -- =========================================================
@@ -51,7 +52,7 @@ local function getFullLineBoundaries(sel, text)
   return startPos, getLineEnd(text, effectiveEnd)
 end
 
--- New Helper: Check if a position starts inside a code block by counting backticks
+-- Check if a position starts inside a code block by counting backticks
 local function startsInsideCodeBlock(text, pos)
   local prefix = text:sub(1, pos)
   local _, count = prefix:gsub("```", "")

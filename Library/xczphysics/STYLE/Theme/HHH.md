@@ -2,6 +2,8 @@
 author: Chenzhu-Xie
 name: Library/xczphysics/STYLE/Theme/HHH
 tags: meta/library
+files: 
+- HHH.js
 pageDecoration.prefix: "🎇 "
 ---
 
