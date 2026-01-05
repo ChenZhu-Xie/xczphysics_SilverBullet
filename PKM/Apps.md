@@ -66,3 +66,7 @@ Tana 群友问过 AI：#SuperTag 不应滥用。
 INTP 本尊是 接近 冰点的 json 的
 - 但...它在机器人之外，又很温暖的人机...
 - 于是我又试了试 SilverBullet 的 md...（*以及车妹）
+
+## 信息能进入 Tana SiYuan LogSeqDB 但不好出来
+
+
