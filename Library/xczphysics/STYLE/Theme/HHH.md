@@ -28,12 +28,6 @@ pageDecoration.prefix: "🎇 "
 3. 这个 以及 Mr.Red 的 JS plug 像 [[PKM/Apps/Orca Note|]] 和 [[PKM/Apps/SiYuan|]] 的 JS plug
    - 速度和大小上 应该会输于 [[PKM/Apps/SilverBullet|]] 的 编译后的 TS .plug.js
 
-[[#Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}|]]
-
-${query[[from index.tag "link"
-where _.page == editor.getCurrentPage()
-]]}
-
 > **danger** Danger
 > when remove this plug, better first: ${widgets.commandButton("Delete: HHH.js")}
 
