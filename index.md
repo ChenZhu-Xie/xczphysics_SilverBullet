@@ -53,7 +53,7 @@ Well, let’s start with a logo first.
 ## Interested Topics
 
 - [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/LogSeq]]
-- 
+- [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/Tana]] / [[PKM/Apps/Tana/❓ Questions I asked]]
 
 ## Some daydreams
 
