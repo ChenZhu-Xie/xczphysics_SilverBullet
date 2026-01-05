@@ -319,14 +319,14 @@ local function pushBacklinks()
     
     -- 查询反向链接
     -- 注意：这里使用 index.tag "link" 并筛选 toPage
-    local query = [[
+    local Query = [[
       from index.tag "link"
       where toPage = @page and page != @page
       select page, pos
     ]]
     
     -- 执行查询
-    local results = system.invokeFunction("index.query", query, { page = currentPage })
+    local results = system.invokeFunction("index.query", Query, { page = currentPage })
     
     -- 将结果传递给 JS
     -- JS 模块导出了 updateBacklinks 函数
