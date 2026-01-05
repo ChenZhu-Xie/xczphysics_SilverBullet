@@ -211,7 +211,9 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ### Indent
 
-[[Library/xczphysics/CONFIG/batch/Header Indent#Batch Header Indent]]
+
+[[Library/xczphysics/CONFIG/batch/Header Indent#Batch Header Indent|Indent]]
+
 
 ## Tags
 
