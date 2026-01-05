@@ -486,19 +486,19 @@ export function disableHighlight() {
 ]]
 
 command.define {
-  name = "Save: HierarchyHighlightHeadings.js",
+  name = "Save: HHH.js",
   hide = true,
   run = function()
-    local jsFile = space.writeDocument("Library/HierarchyHighlightHeadings.js", jsCode)
-    editor.flashNotification("HierarchyHighlightHeadings JS saved (" .. jsFile.size .. " bytes)")
+    local jsFile = space.writeDocument("Library/xczphysics/STYLE/Theme/HHH.js", jsCode)
+    editor.flashNotification("HHH JS saved (" .. jsFile.size .. " bytes)")
   end
 }
 
 command.define {
-  name = "Delete: HierarchyHighlightHeadings.js",
+  name = "Delete: HHH.js",
   hide = true,
   run = function()
-    space.deleteDocument("Library/HierarchyHighlightHeadings.js")
+    space.deleteDocument("Library/xczphysics/STYLE/Theme/HHH.js")
     editor.flashNotification("JS-File deleted")
   end
 }
