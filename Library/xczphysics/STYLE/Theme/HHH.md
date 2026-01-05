@@ -11,7 +11,7 @@ pageDecoration.prefix: "🎇 "
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save PanelDragResize.js using this button: ${widgets.commandButton("Save: HHH.js")}
+### Step 2. Click ${widgets.commandButton("Save: HHH.js")}
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
