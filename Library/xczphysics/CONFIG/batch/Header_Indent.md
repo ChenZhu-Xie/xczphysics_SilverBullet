@@ -8,9 +8,9 @@ pageDecoration.prefix: "⏩ "
 # Batch Header Indent
 
 ```space-lua
--- =========================================================
--- Helpers (must be defined before core logic)
--- =========================================================
+-- ======================================================
+-- Helpers
+-- ======================================================
 
 -- Find 0-based line start index
 local function getLineStart(text, pos)
@@ -65,9 +65,9 @@ local function getFullLineBoundaries(sel, text)
   return startPos, getLineEnd(text, effectiveEnd)
 end
 
--- =========================================================
+-- ======================================================
 -- Core Logic
--- =========================================================
+-- ======================================================
 
 -- Batch adjust header levels: delta 1 (Indent), -1 (Outdent)
 local function batchUpdateHeaders(delta)
@@ -128,9 +128,9 @@ local function batchUpdateHeaders(delta)
   end
 end
 
--- =========================================================
+-- ======================================================
 -- Command Registration
--- =========================================================
+-- ======================================================
 
 command.define {
   name = "Header: Indent Selected",
