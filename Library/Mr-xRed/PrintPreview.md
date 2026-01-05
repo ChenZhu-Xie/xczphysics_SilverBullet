@@ -62,7 +62,6 @@ author: "Mr-xRed"
 | @page: page-orientation | v85  | v85  | No  | No  | v71  |
 | @page: @top-center, @bottom-center (used for header & footer)| v131 | No  | No  | No  | No  |
 
-
 ## Implementation
 
 ```space-lua

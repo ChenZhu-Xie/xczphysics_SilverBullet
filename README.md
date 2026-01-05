@@ -1,10 +1,10 @@
 # How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
-## long story short
+## Repository (long story short)
 
-Repository: `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
+- `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
 
-## long story
+## How to (long story)
 
 > silverbullet upgrade-edge
 
@@ -25,7 +25,7 @@ Repository: `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Re
 
 ## Libraries in Repository
 
-[These scripts](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily work @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
+[These libraries](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md) are exactly what I am using & developing in my daily life @ [enlarge-the-percentage](https://enlarge-the-percentage.fly.dev/).
 
 | Category | Plug.md in Github | Description in SilverBullet |
 |-----------|------|------------|
