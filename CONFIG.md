@@ -137,17 +137,17 @@ actionButton.define {
 
 actionButton.define {
   icon = "chevrons-up",
-  description = "Toggle Tree View",
+  description = "Scroll: to Top",
   run = function()
-    editor.invokeCommand("Tree View: Toggle")
+    editor.invokeCommand("Scroll: to Top")
   end
 }
 
 actionButton.define {
   icon = "chevrons-down",
-  description = "Toggle Tree View",
+  description = "Scroll: to Bottom",
   run = function()
-    editor.invokeCommand("Tree View: Toggle")
+    editor.invokeCommand("Scroll: to Bottom")
   end
 }
 
