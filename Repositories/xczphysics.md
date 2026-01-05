@@ -205,7 +205,7 @@ name: "Picker/Heading"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
 ```
-[[Library/xczphysics/CONFIG/Picker/Heading#In page|Heading]]
+[[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Heading]]
 [Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
 [Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
 
