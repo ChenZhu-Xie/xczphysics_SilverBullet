@@ -49,7 +49,6 @@ Well, let’s start with a logo first.
 
 # My recent thoughts 💭
 
-
 ## Interested Topics
 
 - [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/LogSeq]]
