@@ -31,7 +31,7 @@
 | Outine: | Move down | | | Alt | ↓ |
 | Outline/Header: | Toggle fold | | Shift | Alt | f |
 | Heading: | [[CONFIG/Edit/Header_Level_Toggle#Header: Toggle Level|Toggle Level]] | Ctrl | | | 1 |
-| Heading: | [[Library/xczphysics/CONFIG/batch/Header Indent|Batch Indent]] | Ctrl | | | [] |
+| Heading: | [[Library/xczphysics/CONFIG/batch/Header_Indent|Batch Indent]] | Ctrl | | | [] |
 | Heading Picker: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Picker: In Page|In Page]] | | Shift | Alt | h |
 | Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: In Page|In Page]] | | | Alt | h |
 | Heading Inserter: | [[Library/xczphysics/CONFIG/Picker/Heading#Heading Inserter: Across Pages|Across Pages]] | | | Alt | a |

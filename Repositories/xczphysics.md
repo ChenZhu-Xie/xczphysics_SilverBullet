@@ -211,9 +211,19 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ### Indent
 
+==Shift-Alt-a==
+Add `Heading Picker: Across Pages` to CMD
+==Alt-a==
+Add `Heading Inserter: Across Pages` to CMD
 
-[[Library/xczphysics/CONFIG/batch/Header Indent#Batch Header Indent|Indent]]
-
+```#meta/library/remote
+name: "Picker/Heading"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md
+```
+[[Library/xczphysics/CONFIG/batch/Header_Indent#Batch Header Indent|Indent]]
+[Header_Indent](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/batch/Header_Indent#Batch%20Header%20Indent) #enlarge-the-percentage #fly
+[Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
 
 ## Tags
 
