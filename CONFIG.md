@@ -74,13 +74,6 @@ config.set {
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
-      icon = "sidebar",
-      description = "Toggle Tree View",
-      run = function()
-        editor.invokeCommand("Tree View: Toggle")
-      end
-    },
-    {
       icon = 'home',
       description = 'Go to the index page',
       run = function()
@@ -101,6 +94,13 @@ config.set {
       description = 'Quick Note', 
       run = function()
         editor.invokeCommand('Quick Note')
+      end
+    },
+    {
+      icon = "sidebar",
+      description = "Toggle Tree View",
+      run = function()
+        editor.invokeCommand("Tree View: Toggle")
       end
     },
     {
@@ -130,6 +130,13 @@ config.set {
       description = 'Run command',
       run = function()
         editor.invokeCommand('Open Command Palette')
+      end
+    },
+    {
+      icon = "arrow-up",
+      description = "Toggle Tree View",
+      run = function()
+        editor.invokeCommand("Tree View: Toggle")
       end
     },
   }
