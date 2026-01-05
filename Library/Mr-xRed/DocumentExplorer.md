@@ -12,6 +12,8 @@ share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
 share.hash: c62b56b8
 share.mode: pull
 ---
+
+
 # 🗂️ Document Explorer
 
 > **warning** WORK IN PROGRESS
