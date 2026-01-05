@@ -150,6 +150,14 @@ actionButton.define {
     editor.invokeCommand("Scroll: to Bottom")
   end
 }
+
+actionButton.define {
+  icon = "sidebar",
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand("Tree View: Toggle")
+  end
+}
 ```
 
 #SB_itself

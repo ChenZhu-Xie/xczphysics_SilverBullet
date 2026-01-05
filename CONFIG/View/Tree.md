@@ -16,7 +16,7 @@ config.set("plugs", { -- 注意，哪怕是 config.set() 也会相互覆盖
 
 # actionButton
 
-```space-lua
+```lua
 actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
