@@ -11,7 +11,7 @@ pageDecoration.prefix: "🎇 "
 
 ### Step 1. Reload your space to load the space-lua from this page: ${widgets.commandButton("System: Reload")}
 
-### Step 2. Save Library/PanelDragResize.js using this button: ${widgets.commandButton("Save: HierarchyHighlightHeadings.js")}
+### Step 2. Save PanelDragResize.js using this button: ${widgets.commandButton("Save: HHH.js")}
 
 ### Step 3. System Reload: ${widgets.commandButton("System: Reload")}
 
@@ -23,11 +23,11 @@ pageDecoration.prefix: "🎇 "
    - 速度和大小上 应该会输于 [[PKM/Apps/SilverBullet|]] 的 编译后的 TS .plug.js
 
 > **danger** Danger
-> for test: ${widgets.commandButton("Delete: HierarchyHighlightHeadings.js")}
+> for test: ${widgets.commandButton("Delete: HHH.js")}
 
 ```space-lua
 local jsCode = [[
-// Library/HierarchyHighlightHeadings.js
+// Library/xczphysics/STYLE/Theme/HHH.js
 // HHH v11-FixAndFeatures
 // 1. Fix: Robust highlighting on hover/edit (added delays for DOM updates)
 // 2. Feature: Background highlight with transparency
@@ -510,7 +510,7 @@ command.define {
 command.define {
   name = "Enable: HierarchyHighlightHeadings",
   run = function()
-    js.import("/.fs/Library/HierarchyHighlightHeadings.js").enableHighlight()
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
   end
 }
 
@@ -518,7 +518,7 @@ command.define {
   name = "Disable HierarchyHighlightHeadings",
   hide = true,
   run = function()
-    js.import("/.fs/Library/HierarchyHighlightHeadings.js").disableHighlight()
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").disableHighlight()
   end
 }
 ```
@@ -529,7 +529,7 @@ command.define {
 event.listen {
   name = 'system:ready',
   run = function(e)
-    js.import("/.fs/Library/HierarchyHighlightHeadings.js").enableHighlight()
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
   end
 }
 ```
