@@ -71,76 +71,70 @@ config.set {
   -- the hamburger menu too far away for right and left handed
   -- users
   mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
-  actionButtons = {
-    -- I'm left handed so prefer to have frequent buttons left
-    {
-      icon = 'home',
-      description = 'Go to the index page',
-      run = function()
-        editor.invokeCommand('Navigate: Home')
-      end
-    },
-    {
-      -- Love for Silversearch
-      icon = 'search',
-      description = 'Search for words in space',
-      run = function()
-        editor.invokeCommand('Silversearch: Search')
-      end
-    },
-    {
-      -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
-      icon = 'calendar',
-      description = 'Quick Note', 
-      run = function()
-        editor.invokeCommand('Quick Note')
-      end
-    },
-    {
-      icon = "sidebar",
-      description = "Toggle Tree View",
-      run = function()
-        editor.invokeCommand("Tree View: Toggle")
-      end
-    },
-    {
-      icon = 'layout',
-      description = 'Open: Floating Page',
-      run = function()
-        editor.invokeCommand('Floating: Open')
-      end
-    },
-    {
-      icon = 'file-plus', -- https://feathericons.com/
-      description = 'Insert Tree-Tree',
-      -- mobile =  true,
-      run = function()
-        editor.invokeCommand('Tree-Tree Picker: Insert')
-      end
-    },
-    {
-      icon = 'book',
-      description = 'Open Tree-Tree',
-      run = function()
-        editor.invokeCommand('Tree-Tree Picker: Navigate')
-      end
-    },
-    {
-      icon = 'terminal',
-      description = 'Run command',
-      run = function()
-        editor.invokeCommand('Open Command Palette')
-      end
-    },
-    {
-      icon = "arrow-up",
-      description = "Toggle Tree View",
-      run = function()
-        editor.invokeCommand("Tree View: Toggle")
-      end
-    },
-  }
 }
+
+actionButton.define {
+  -- Love for Silversearch
+  icon = 'search',
+  description = 'Search for words in space',
+  run = function()
+    editor.invokeCommand('Silversearch: Search')
+  end
+}
+
+actionButton.define {
+  icon = "sidebar",
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand("Tree View: Toggle")
+  end
+}
+
+actionButton.define {
+  -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
+  icon = 'calendar',
+  description = 'Quick Note', 
+  mobile =  true,
+  run = function()
+    editor.invokeCommand('Quick Note')
+  end
+}
+
+actionButton.define {
+  icon = 'layout',
+  description = 'Open: Floating Page',
+  run = function()
+    editor.invokeCommand('Floating: Open')
+  end
+}
+
+actionButton.define {
+  icon = 'file-plus', -- https://feathericons.com/
+  description = 'Insert Tree-Tree',
+  -- mobile =  true,
+  run = function()
+    editor.invokeCommand('Tree-Tree Picker: Insert')
+  end
+}
+
+actionButton.define {
+  icon = 'book',
+  description = 'Open Tree-Tree',
+  run = function()
+    editor.invokeCommand('Tree-Tree Picker: Navigate')
+  end
+}
+
+actionButton.define {
+  icon = "arrow-up",
+  description = "Toggle Tree View",
+  run = function()
+    editor.invokeCommand("Tree View: Toggle")
+  end
+}
+
+
+
 ```
 
 #SB_itself
