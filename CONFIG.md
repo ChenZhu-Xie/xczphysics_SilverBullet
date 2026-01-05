@@ -74,6 +74,13 @@ config.set {
   actionButtons = {
     -- I'm left handed so prefer to have frequent buttons left
     {
+      icon = "sidebar",
+      description = "Toggle Tree View",
+      run = function()
+        editor.invokeCommand("Tree View: Toggle")
+      end
+    },
+    {
       icon = 'home',
       description = 'Go to the index page',
       run = function()
