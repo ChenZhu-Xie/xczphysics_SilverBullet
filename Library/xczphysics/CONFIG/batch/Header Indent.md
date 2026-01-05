@@ -12,63 +12,77 @@ aasdfasdf
 -- =========================================================
 
 -- 获取位置所在的行首 (0-based)
+-- 修复：使用 string.find 反向查找换行符，避免 match 的陷阱
 local function getLineStart(text, pos)
-  if not pos or pos <= 0 then return 0 end
+  -- 防御性检查
+  if not text or not pos then return 0 end
+  if pos <= 0 then return 0 end
   
-  -- 截取光标前的文本
-  local pre = text:sub(1, pos)
+  -- 从 pos 位置向前查找最近的换行符
+  -- 我们需要检查 pos 之前（不含 pos）的内容
+  local searchEnd = pos
+  if searchEnd > #text then searchEnd = #text end
   
-  -- 查找最后一个换行符的位置
-  -- ".*()\n" 用于定位最后一个 \n 之后的位置（即下一行行首）
-  local lastNL = pre:match(".*()\n")
-  
-  if lastNL then
-    -- Lua index (1-based) 转换为 API index (0-based)
-    -- lastNL 返回的是 \n 后面那个字符在 Lua 中的位置
-    -- 对应到 0-based 系统，数值正好相等 (e.g. Lua 5 -> 0-based 5)
-    return lastNL
-  else
-    -- 没找到换行符，说明在第一行
-    return 0
+  -- 从后往前遍历查找换行符
+  for i = searchEnd, 1, -1 do
+    if text:sub(i, i) == "\n" then
+      -- 找到换行符，行首是换行符的下一个字符
+      -- 返回 0-based 索引，所以直接返回 i（Lua 1-based 的 i 等于 0-based 的 i-1，再 +1 等于 i）
+      return i
+    end
   end
+  
+  -- 没找到换行符，说明在第一行，行首是 0
+  return 0
 end
 
--- 获取位置所在的行尾 (0-based)
+-- 获取位置所在的行尾 (0-based)，返回该行最后一个字符之后的位置（含换行符）
 local function getLineEnd(text, pos)
-  if not pos or pos >= #text then return #text end
+  -- 防御性检查
+  if not text or not pos then return 0 end
+  if pos >= #text then return #text end
   
-  -- 从 pos + 1 开始查找下一个换行符
-  local post = text:sub(pos + 1)
-  local nextNL = post:find("\n")
+  -- 从 pos 位置向后查找最近的换行符
+  local searchStart = pos + 1
+  if searchStart < 1 then searchStart = 1 end
   
-  if nextNL then
-    -- pos 是起始偏移，nextNL 是相对于 post 的偏移
-    return pos + nextNL
-  else
-    return #text
+  for i = searchStart, #text do
+    if text:sub(i, i) == "\n" then
+      -- 找到换行符，返回包含换行符的位置
+      return i
+    end
   end
+  
+  -- 没找到换行符，说明在最后一行，返回文本末尾
+  return #text
 end
 
 -- 获取扩展后的完整行边界
 local function getFullLineBoundaries(sel, text)
   -- 防御性检查
-  if not sel then return 0, 0 end
+  if not sel then return 0, #text end
+  if not text or text == "" then return 0, 0 end
   
-  local startPos = getLineStart(text, sel.from) or 0
+  local startPos = getLineStart(text, sel.from)
   
-  -- 处理 "选区包含下一行行首" 导致的下跳 Bug
+  -- 处理 "选区结尾刚好在行首" 导致的下跳 Bug
   local effectiveEnd = sel.to
-  if sel.to > sel.from then
-    local charBefore = text:sub(sel.to, sel.to)
-    if charBefore == "\n" then
-      -- 如果光标刚好停在换行符后（新行行首），判定回退一行
-      if getLineStart(text, sel.to) == sel.to then
-         effectiveEnd = sel.to - 1
+  if sel.to > sel.from and sel.to > 0 then
+    -- 检查 sel.to 位置的字符是否是换行符后的位置
+    -- 即检查 sel.to 前一个字符是否为换行符
+    if sel.to <= #text then
+      local charBefore = text:sub(sel.to, sel.to)
+      -- 如果当前位置是换行符，说明光标在行末
+      -- 我们需要检查是否光标落在了新行的开头
+      local lineStartAtTo = getLineStart(text, sel.to)
+      if lineStartAtTo == sel.to and sel.to > sel.from then
+        -- 光标刚好在新行开头，回退到上一行
+        effectiveEnd = sel.to - 1
       end
     end
   end
-
-  local endPos = getLineEnd(text, effectiveEnd) or #text
+  
+  local endPos = getLineEnd(text, effectiveEnd)
   
   return startPos, endPos
 end
@@ -83,22 +97,32 @@ local function batchUpdateHeaders(delta)
   local sel = editor.getSelection()
   if not sel then return end
   
-  local text = editor.getText() or ""
+  local text = editor.getText()
+  if not text or text == "" then return end
   
   -- 1. 获取扩展后的完整行范围
   local rangeStart, rangeEnd = getFullLineBoundaries(sel, text)
   
-  -- 2. 提取目标文本块 (防御性修复：确保是数字)
-  rangeStart = rangeStart or 0
-  rangeEnd = rangeEnd or #text
+  -- 2. 防御性修复：确保是有效数字
+  if type(rangeStart) ~= "number" then rangeStart = 0 end
+  if type(rangeEnd) ~= "number" then rangeEnd = #text end
   
-  -- Lua string.sub 使用 1-based 索引，所以 start 要 +1
+  -- 确保范围有效
+  if rangeStart < 0 then rangeStart = 0 end
+  if rangeEnd > #text then rangeEnd = #text end
+  if rangeStart > rangeEnd then rangeStart, rangeEnd = rangeEnd, rangeStart end
+  
+  -- 3. 提取目标文本块
+  -- Lua string.sub 使用 1-based 索引
   local textBlock = text:sub(rangeStart + 1, rangeEnd)
+  
+  -- 如果文本块为空，直接返回
+  if not textBlock or textBlock == "" then return end
   
   local newLines = {}
   local modifiedCount = 0
   
-  -- 3. 逐行处理
+  -- 4. 逐行处理
   for line in textBlock:gmatch("([^\n]*\n?)") do
     if line ~= "" then
       -- 检查是否为 Header 行 (以 # 开头，必须后跟空格)
@@ -125,24 +149,18 @@ local function batchUpdateHeaders(delta)
             modifiedCount = modifiedCount + 1
           end
         end
-      else
-        -- 这是一个普通行。如果需要 "普通文本 -> H1" 的功能，取消下面注释：
-        -- if delta > 0 and line:match("%S") then 
-        --    line = "# " .. line
-        --    modifiedCount = modifiedCount + 1
-        -- end
       end
+      -- 注意：如果不是 Header 行，保持原样（不做处理）
       table.insert(newLines, line)
     end
   end
   
-  -- 4. 执行替换与重新选区
-  -- 即使 modifiedCount 为 0，如果我们要修正选区范围（扩展到整行），也建议执行
+  -- 5. 执行替换与重新选区
   if #newLines > 0 then
     local newText = table.concat(newLines)
     
     if newText ~= textBlock then
-        editor.replaceRange(rangeStart, rangeEnd, newText)
+      editor.replaceRange(rangeStart, rangeEnd, newText)
     end
     
     -- 设置选区：精确覆盖新文本，防止下跳
