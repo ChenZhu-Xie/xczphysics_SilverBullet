@@ -5,11 +5,7 @@ tags: meta/library
 pageDecoration.prefix: "⏩ "
 ---
 
-asdf
 # Batch Header Indent
-
-## test
-aasdfasdf
 
 ```space-lua
 -- =========================================================
