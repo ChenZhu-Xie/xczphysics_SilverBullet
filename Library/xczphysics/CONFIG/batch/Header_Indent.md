@@ -7,6 +7,11 @@ pageDecoration.prefix: "⏩ "
 
 # Batch Header Indent
 
+==`Ctrl-]`==
+Add `Header: Indent Selected` to CMD
+==`Ctrl-[`==
+Add `Header: Outdent Selected` to CMD
+
 ```space-lua
 -- ======================================================
 -- Helpers
