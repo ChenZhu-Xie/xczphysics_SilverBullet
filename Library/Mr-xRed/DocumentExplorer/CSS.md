@@ -1,7 +1,7 @@
 
 1. https://community.silverbullet.md/t/document-explorer-for-silverbullet/3647/141?u=chenzhu-xie
 
-```space-script
+```space-style
 html[data-theme="dark"]{
   /*Main UI Color*/
   --explorer-bg-color: var(--top-background-color);
