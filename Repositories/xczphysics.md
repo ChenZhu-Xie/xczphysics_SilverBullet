@@ -209,6 +209,10 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
 [Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
 
+### Indent
+
+[[Library/xczphysics/CONFIG/batch/Header Indent#Batch Header Indent]]
+
 ## Tags
 
 ==Ctrl-Alt-t==
