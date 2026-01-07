@@ -61,8 +61,8 @@ config.set (
     -- - "rhs" - right hand side
     -- - "bhs" - bottom
     -- - "modal" - in a modal
-    -- position = "bhs",
-    position = "lhs",
+    position = "bhs",
+    -- position = "lhs",
   }
 )
 ```
@@ -124,7 +124,7 @@ config.set (
 1. https://community.silverbullet.md/t/responsive-treeview/2188
 2. https://github.com/MatthiasBenaets/silverbullet-library/blob/master/Styles/treeview.md
 
-```style
+```space-style
 html {
   --treeview-phone-height: 25vh;
   --treeview-tablet-width: 25vw;
