@@ -7,7 +7,7 @@ files:
 - code.css
 - data.css
 share.uri: "github:Mr-xRed/silverbullet-libraries/PrintPreview.md"
-share.hash: c694df61
+share.hash: 844b1070
 share.mode: pull
 ---
 # PrintPreview Command `Ctrl-Alt-p`
@@ -61,6 +61,7 @@ author: "Mr-xRed"
 | @page: size | v15  | v79  | v95  | No  | v15  |
 | @page: page-orientation | v85  | v85  | No  | No  | v71  |
 | @page: @top-center, @bottom-center (used for header & footer)| v131 | No  | No  | No  | No  |
+
 
 ## Implementation
 
@@ -353,7 +354,8 @@ command.define {
     sync.performFileSync(outputFile)
 
     editor.flashNotification("HTML exported: " .. outputFile)
-    editor.openUrl("/.fs/" .. outputFile)
+--    editor.openUrl("/.fs/" .. outputFile)
+     js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").show(outputFile, "PrintPreview")
   end
 }
 
