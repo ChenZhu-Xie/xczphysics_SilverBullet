@@ -61,7 +61,8 @@ config.set (
     -- - "rhs" - right hand side
     -- - "bhs" - bottom
     -- - "modal" - in a modal
-    position = "bhs",
+    -- position = "bhs",
+    position = "rhs",
   }
 )
 ```
