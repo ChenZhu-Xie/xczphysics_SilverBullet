@@ -62,7 +62,7 @@ config.set (
     -- - "bhs" - bottom
     -- - "modal" - in a modal
     -- position = "bhs",
-    position = "rhs",
+    position = "lhs",
   }
 )
 ```
