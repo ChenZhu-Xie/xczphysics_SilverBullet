@@ -512,7 +512,7 @@ command.define {
 ```
 
 
-```space-lua
+```lua
 command.define {
   name = "Enable: HierarchyHighlightHeadings",
   run = function()
@@ -522,7 +522,6 @@ command.define {
 
 command.define {
   name = "Disable HierarchyHighlightHeadings",
-  hide = true,
   run = function()
     js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").disableHighlight()
   end
