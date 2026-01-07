@@ -3,7 +3,7 @@ name: "Library/Mr-xRed/DisableAccidentalMobileTaps"
 tags: meta/library
 pageDecoration.prefix: "🛠️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DisableAccidentalMobileTaps.md"
-share.hash: 4d8f3adb
+share.hash: b156f277
 share.mode: pull
 ---
 # Fixing the Mobile Keyboard Drama - Disable Accidental Taps
@@ -142,5 +142,5 @@ command.define {
 
 ```
 
-## Discussions about this widget
+## Discussions about this library
 * [SilverBullet Community](https://community.silverbullet.md/t/fixing-the-silverbullet-mobile-keyboard-drama-disable-accidental-taps/3709?u=mr.red)
