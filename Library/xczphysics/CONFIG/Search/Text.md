@@ -592,7 +592,7 @@ Please provide a search keyword.
 
 -- Command: Global Search
 command.define {
-    name = "Global Search",
+    name = "Search: Text",
     run = function()
         local keyword = editor.prompt("🔍 Global Search", "")
         if keyword and keyword:trim() ~= "" then

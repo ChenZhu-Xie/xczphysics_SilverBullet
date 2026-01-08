@@ -184,10 +184,10 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 # 🔎 Picker
 
-## Global Search
+## Global
 
 ==Ctrl-Shift-f== 
-Add CMD `Global Search` 
+Add CMD `Search: Text` 
 
 ```#meta/library/remote
 name: "Search/Text"
@@ -195,8 +195,8 @@ website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Librar
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Search/Text.md
 ```
 [[Library/xczphysics/CONFIG/Search/Text#Global Search|Global Search]]
-[Heading](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Picker/Heading#In%20page) #enlarge-the-percentage #fly
-[Heading.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Picker/Heading.md) #github
+[Text](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Search/Text#Global%20Search) #enlarge-the-percentage #fly
+[Text.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Search/Text.md) #github
 
 ## Heading
 
