@@ -3,7 +3,7 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: 80e19ffc
+share.hash: 71d7aaa9
 share.mode: pull
 ---
 ## Tools
@@ -18,7 +18,7 @@ uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PrintPreview.md
 description: "Adds PrintPreview with custom HTML/CSS styling for SilverBullet"
 ---
-name: "📃 Floating Page(Proof of [[new page]]Concept)"
+name: "📃 Floating Page(Proof of Concept)"
 uri: github:Mr-xRed/silverbullet-libraries/FloatingPage.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md
 description: "Open any page in a Floating Window inside Silverbullet"
@@ -72,6 +72,12 @@ description: "The Journal Calendar is a lightweight, interactive navigation tool
 
 ## Styles and Visuals
 ```#meta/library/remote
+---
+name: "🛠️ Panel Width Resizer using your Mouse"
+uri: github:Mr-xRed/silverbullet-libraries/AdvancedPanelControls.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/AdvancedPanelControls.md
+description: "Advanced Controls for your Side Panels (LHS, RHS, BHS) using your mouse & gestures"
+---
 name: "🎨 Admonitions_multilingual"
 uri: github:Mr-xRed/silverbullet-libraries/Admonitions_multilingual.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Admonitions_multilingual.md
