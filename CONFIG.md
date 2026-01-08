@@ -1,5 +1,5 @@
-
 # Custom Plugs are Located @
+
 [[CONFIG]] & [[STYLE]]
 
 ## Plugs community Wrote
@@ -152,7 +152,7 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "folder",
+  icon = "sidebar",
   description = "Toggle Tree View",
   run = function()
     editor.invokeCommand("Tree View: Toggle")
@@ -160,7 +160,7 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "sidebar",
+  icon = "folder",
   description = "Toggle Document Explorer",
   run = function()
     editor.invokeCommand("Navigate: Toggle Document Explorer")
