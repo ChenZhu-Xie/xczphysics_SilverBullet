@@ -158,6 +158,14 @@ actionButton.define {
     editor.invokeCommand("Tree View: Toggle")
   end
 }
+
+actionButton.define {
+  icon = "sidebar",
+  description = "Toggle Document Explorer",
+  run = function()
+    editor.invokeCommand("Navigate: Toggle Document Explorer")
+  end
+}
 ```
 
 #SB_itself
