@@ -118,6 +118,15 @@ actionButton.define {
 }
 
 actionButton.define {
+  -- Global Search
+  icon = 'zoom-in',
+  description = 'Global Search',
+  run = function()
+    editor.invokeCommand('Global Search')
+  end
+}
+
+actionButton.define {
   -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
   icon = 'calendar',
   description = 'Quick Note', 
