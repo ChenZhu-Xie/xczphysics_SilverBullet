@@ -152,7 +152,7 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "sidebar",
+  icon = "folder",
   description = "Toggle Tree View",
   run = function()
     editor.invokeCommand("Tree View: Toggle")
