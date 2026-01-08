@@ -97,7 +97,7 @@
 | Graph View: | [[CONFIG/View/Graph|Global on/off]] | Ctrl | | Shift | g |
 | Graph View: | [[CONFIG/View/Graph|Local on/off]] | Ctrl | | Shift | l |
 | SilverSearch: | Search Space | Ctrl | Shift | | f |
-| SilverSearch: | [[CONFIG/Search/全局搜索结果在侧边栏|Global Search]] | Ctrl | Shift | | f |
+| SilverSearch: | [[Library/xczphysics/CONFIG/Search/Text|Global Search]] | Ctrl | Shift | | f |
 | SilverSearch: | [[CONFIG/Search/Silver_Search|Panel Search]] | Ctrl | | | s |
 
 # System

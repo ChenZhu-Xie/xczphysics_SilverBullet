@@ -1,6 +1,6 @@
 ---
 author: Chenzhu-Xie
-name: Library/xczphysics/CONFIG/Picker/Text
+name: Library/xczphysics/CONFIG/Search/Text
 tags: meta/library
 pageDecoration.prefix: "🌐 "
 ---
