@@ -154,13 +154,12 @@ actionButton.define {
     editor.invokeCommand('Page: Delete')
   end
 }
-
 actionButton.define {
   icon = 'trash-2',
-  description = 'Line: Delete', 
+  description = 'Delete Line', 
   -- mobile =  true,
   run = function()
-    editor.invokeCommand('Line: Delete')
+    editor.invokeCommand('Delete Line')
   end
 }
 
