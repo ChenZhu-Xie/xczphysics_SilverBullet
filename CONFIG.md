@@ -156,6 +156,15 @@ actionButton.define {
 }
 
 actionButton.define {
+  icon = 'trash-2',
+  description = 'Line: Delete', 
+  -- mobile =  true,
+  run = function()
+    editor.invokeCommand('Line: Delete')
+  end
+}
+
+actionButton.define {
   icon = 'layout',
   description = 'Open: Floating Page',
   run = function()
