@@ -139,10 +139,10 @@ actionButton.define {
 actionButton.define {
   -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
   icon = 'calendar',
-  description = 'Quick Note', 
+  description = 'Journal: Floating Calendar', 
   -- mobile =  true,
   run = function()
-    editor.invokeCommand('Quick Note')
+    editor.invokeCommand('Journal: Floating Calendar')
   end
 }
 
