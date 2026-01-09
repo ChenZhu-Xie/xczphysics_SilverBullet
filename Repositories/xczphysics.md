@@ -187,7 +187,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 ## Global
 
 ==Ctrl-Shift-f== 
-Add CMD `Search: Text` 
+Add `Search: Text` to CMD
 
 ```#meta/library/remote
 name: "Search/Text"
