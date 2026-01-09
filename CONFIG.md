@@ -147,12 +147,11 @@ actionButton.define {
 }
 
 actionButton.define {
-  -- https://v2.silverbullet.md/Library/Std/Page%20Templates/Quick%20Note
-  icon = 'calendar',
-  description = 'Journal: Floating Calendar', 
+  icon = 'trash',
+  description = 'Page: Delete', 
   -- mobile =  true,
   run = function()
-    editor.invokeCommand('Journal: Floating Calendar')
+    editor.invokeCommand('Page: Delete')
   end
 }
 
