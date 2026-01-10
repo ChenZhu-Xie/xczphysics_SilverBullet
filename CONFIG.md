@@ -190,9 +190,9 @@ actionButton.define {
 
 actionButton.define {
   icon = "chevrons-up",
-  description = "Scroll: to Top",
+  description = "Page: New Sibling",
   run = function()
-    editor.invokeCommand("Scroll: to Top")
+    editor.invokeCommand("Page: New Sibling")
   end
 }
 
