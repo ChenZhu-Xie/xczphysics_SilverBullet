@@ -197,6 +197,14 @@ actionButton.define {
 }
 
 actionButton.define {
+  icon = "chevrons-up",
+  description = "Page: New",
+  run = function()
+    editor.invokeCommand("Page: New")
+  end
+}
+
+actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
   run = function()
