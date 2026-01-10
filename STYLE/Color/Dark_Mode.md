@@ -4,6 +4,12 @@ udpateDate: 2025-11-03
 githubUrl: "https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/STYLE/Color/Dark%20Mode.md"
 ---
 
+## Vim Mode
+
+1. [space script enable vim mode by default](https://community.silverbullet.md/t/space-script-enable-vim-mode-by-default/1818/2?u=chenzhu-xie) #community #silverbullet
+
+## Dark Mode
+
 1. https://community.silverbullet.md/t/defining-tags/3497/2?u=chenzhu-xie
 
 ```lua
