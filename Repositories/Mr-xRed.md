@@ -2,7 +2,7 @@
 name: "Repositories/Mr-xRed"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
-share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
+share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repositories/Mr-xRed.md"
 share.hash: 71d7aaa9
 share.mode: pull
 ---
