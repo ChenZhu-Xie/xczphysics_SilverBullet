@@ -197,7 +197,7 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "chevrons-up",
+  icon = "folder-plus",
   description = "Page: New",
   run = function()
     editor.invokeCommand("Page: New")
