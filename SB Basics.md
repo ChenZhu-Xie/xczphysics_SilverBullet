@@ -17,7 +17,7 @@ basic level: kindergarden
 ### Task
   * [ ] [Turn a Line into a Task](https://youtu.be/bb1USz_cEBY?t=455): ${Red("/task")}
   * [ ] [SB Feature: linked task](https://youtu.be/7hyLvEfw34w?t=827): Remember to Link [[CONFIG]] & [[STYLE]] to [[SB Basics]]
-    - 
+    - upgraded itags + ilinks: [coming from logseq outlines and linked mentions](https://community.silverbullet.md/t/coming-from-logseq-outlines-and-linked-mentions/290/29?u=chenzhu-xie) #community #silverbullet
 ### Table
   - [Generate a markdown Table](https://youtu.be/bb1USz_cEBY?t=468): ${Red("/table")}
     | Header A | Header B |
