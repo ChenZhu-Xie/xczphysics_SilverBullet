@@ -1,5 +1,5 @@
 ---
-name: "Repository/Mr-xRed Repo"
+name: "Repositories/Mr-xRed"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"

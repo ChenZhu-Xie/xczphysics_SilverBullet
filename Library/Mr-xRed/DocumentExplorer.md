@@ -9,7 +9,7 @@ files:
 - AdvancedPanelControls.md
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: fca133af
+share.hash: b6cd99e1
 share.mode: pull
 ---
 # 🗂️ Document Explorer
@@ -62,7 +62,7 @@ config.set("explorer", {
   tileSize = "80px",
   enableContextMenu = true,
   listHeight = "24px",
-  negativeFilter = {"Library/Std","*.js","*.css", "*test*"},
+  negativeFilter = {"Library/Std","*.js", "*test*"},
   treeFolderFirst = false,
   recoverAfterRefresh = true
 })
