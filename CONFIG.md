@@ -100,7 +100,7 @@ config.set {
 }
 
 actionButton.define {
-  icon = 'file-plus', -- https://feathericons.com/
+  icon = 'plus-square', -- https://feathericons.com/
   description = 'Insert Tree-Tree',
   -- mobile =  true,
   run = function()
@@ -189,7 +189,7 @@ actionButton.define {
 }
 
 actionButton.define {
-  icon = "chevrons-up",
+  icon = "file-plus",
   description = "Page: New Sibling",
   run = function()
     editor.invokeCommand("Page: New Sibling")
