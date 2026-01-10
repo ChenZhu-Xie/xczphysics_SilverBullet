@@ -189,6 +189,14 @@ actionButton.define {
 }
 
 actionButton.define {
+  icon = "chevrons-up",
+  description = "Scroll: to Top",
+  run = function()
+    editor.invokeCommand("Scroll: to Top")
+  end
+}
+
+actionButton.define {
   icon = "sidebar",
   description = "Toggle Tree View",
   run = function()
