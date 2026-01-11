@@ -11,6 +11,8 @@ pageDecoration.prefix: "🔗 "
 
 ## 1. JS Logic
 
+1. 
+
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.
 
