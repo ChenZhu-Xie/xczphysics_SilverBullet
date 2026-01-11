@@ -1,4 +1,4 @@
-# Custom Plugs are Located @
+[[Library/xczphysics|]]# Custom Plugs are Located @
 
 [[CONFIG]] & [[STYLE]]
 
