@@ -11,7 +11,8 @@ pageDecoration.prefix: "🔗 "
 
 ## 1. JS Logic
 
-1. 
+本插件可能会用到：JS 与 Lua 通信
+1. [task explorer](https://community.silverbullet.md/t/task-explorer/3747/2?u=chenzhu-xie) #community #silverbullet
 
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.
