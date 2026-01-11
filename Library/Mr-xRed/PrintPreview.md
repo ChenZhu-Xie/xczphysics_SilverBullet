@@ -7,7 +7,7 @@ files:
 - code.css
 - data.css
 share.uri: "github:Mr-xRed/silverbullet-libraries/PrintPreview.md"
-share.hash: 844b1070
+share.hash: 8cc14baf
 share.mode: pull
 ---
 # PrintPreview Command `Ctrl-Alt-p`
@@ -355,7 +355,7 @@ command.define {
 
     editor.flashNotification("HTML exported: " .. outputFile)
 --    editor.openUrl("/.fs/" .. outputFile)
-     js.import("/.fs/Library/Mr-xRed/UnifiedFloating.js").show(outputFile, "PrintPreview")
+     js.import("/.fs/Library/Mr-xRed/UnifiedAdvancedPanelControl.js").show(outputFile, "PrintPreview")
   end
 }
 
