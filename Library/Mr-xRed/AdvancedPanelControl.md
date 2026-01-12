@@ -4,9 +4,6 @@ tags: meta/library
 files:
 - UnifiedAdvancedPanelControl.js
 pageDecoration.prefix: "🛠️ "
-share.uri: "github:Mr-xRed/silverbullet-libraries/AdvancedPanelControl.md"
-share.hash: 6a5c0734
-share.mode: pull
 ---
 
 # Advanced Panel Controls (LHS, RHS, BHS) 
@@ -22,7 +19,7 @@ share.mode: pull
 - Panel constraints configurable (min/max width and height).
 - Button-Size and Style configurable through Space-Style (Documentation -> Soon)
 
-![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/UAPC-Screenshot.png)
+u![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/UAPC-Screenshot.png)
 
 
 ## Known Issues
@@ -53,20 +50,33 @@ config.set("AdvancedPanelControl", {
   maxWidth = "1000", -- max Width Constraints for LHS and RHS
   minHeight = "100", -- min Height Constraints for BHS
   maxHeight = "500", -- max Height Constraints for BHS
-  lhsHandlePostion = "50vh",  -- Top To Bottom
-  rhsHandlePostion = "50vh",  -- Top To Bottom
-  bhsHandlePostion = "50vw"   -- Left To Right
 })
 ```
 
 
 > **warning** IMPORTANT!
-> For this script to work as intended you need to remove all your previous custom space-styles or Libraries which you added previously to manipulate the panels, otherwise it will conflict with them!
+> For this Library to work as intended you need to remove all your previous custom space-styles or Libraries which you added previously to manipulate the panels, otherwise it will conflict with them!
 
 ## Implementation
 
+### Default overrides
 ```space-style
 
+#sb-main .cm-editor .cm-content {padding: 5px 40px;}
+
+#sb-top {z-index: 105; }
+
+#sb-top .panel {position: fixed;}
+
+#sb-editor { min-width: 0;}
+
+.sb-lua-wrapper { max-width: 100%; overflow-x: auto; }
+
+```
+
+
+```space-style
+/* priority: 100*/
 /* ---------------------------------------------------------
    Root Variables
    --------------------------------------------------------- */
@@ -74,35 +84,30 @@ config.set("AdvancedPanelControl", {
 :root {
   --header-height: 20px;
   --frame-width: 5px;
-  --frame-opacity: 20%;
-  --window-border: 2px;
-  --window-border-radius: 10px;
+  --frame-opacity: 100%;
+  --uapc-border: 2px;
+  --uapc-border-radius: 8px;
+  
+  --control-btn-size: 28px;
+  --control-btn-size-hover: 28px;
+  --btn-border-radius: 15px;
+  --drag-line-width: 16px;
+  --lhs-control-postion: 50vh;
+  --rhs-control-postion: 50vh;
+  --bhs-control-postion: 50vw;
 }
 
-/* ---------------------------------------------------------
-   Theme Helpers
-   --------------------------------------------------------- */
+/* ----- Accent Colors ------ */
 html[data-theme="dark"] {
-  --explorer-accent-color: oklch(0.75 0.25 230);
-  --explorer-border-color: oklch(
-    from var(--explorer-accent-color)
-    calc(l - 0.5) c h / 0.1
-  );
+  --uapc-accent-color: var(--ui-accent-color);
+  --uapc-border-color: oklch( from var(--uapc-accent-color) calc(l - 0.5) c h / var(--frame-opacity) );
 }
 
 html[data-theme="light"] {
-  --explorer-accent-color: oklch(0.80 0.18 230);
-  --explorer-border-color: oklch(
-    from var(--explorer-accent-color)
-    calc(l - 0.5) c h / 0.1
-  );
+  --uapc-accent-color: var(--ui-accent-color);
+  --uapc-border-color: oklch( from var(--uapc-accent-color) calc(l - 0.5) c h / var(--frame-opacity) );
 }
 
-html {
-  --control-btn-size: 28px;
-  --btn-border-radius: 15px;
-  --drag-line-width: 16px;
-}
 
 /* =========================================================
    Floating Window
@@ -117,13 +122,10 @@ html {
   box-sizing: border-box !important;
 
   padding: var(--frame-width);
-  border: var(--window-border) solid var(--explorer-border-color);
-  border-radius: calc(var(--window-border-radius) + var(--frame-width));
+  border: var(--uapc-border) solid var(--uapc-border-color);
+  border-radius: calc(var(--uapc-border-radius) + var(--frame-width));
 
-  background: oklch(
-    from var(--explorer-accent-color)
-    l 0.02 h / var(--frame-opacity)
-  );
+  background: oklch( from var(--uapc-accent-color) l 0.01 h / var(--frame-opacity));
 
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px #00000090;
@@ -133,11 +135,8 @@ html {
 }
 
 .sb-window-container.is-focused {
-  background: oklch(
-    from var(--explorer-accent-color)
-    l c h / var(--frame-opacity)
-  );
-  border-color: var(--explorer-border-color) !important;
+  background: oklch( from var(--uapc-accent-color) l 0.15 h / var(--frame-opacity));
+  border-color: var(--uapc-border-color) !important;
   box-shadow: 0 0 20px #000000b0;
 }
 
@@ -181,7 +180,7 @@ html {
 
 .sb-window-title {
   max-width: 100%;
-  padding: 0 40px;
+  padding: 0 75px;
 
   white-space: nowrap;
   overflow: hidden;
@@ -220,7 +219,7 @@ html {
   border-radius: 6px;
 
   background: oklch(
-    from var(--explorer-accent-color)
+    from var(--uapc-accent-color)
     l 0.02 h / 0.1
   );
 
@@ -230,7 +229,7 @@ html {
 
 .sb-window-container.is-focused .sb-window-close-btn {
   background: oklch(
-    from var(--explorer-accent-color)
+    from var(--uapc-accent-color)
     l c h / 0.5
   );
 }
@@ -256,9 +255,9 @@ html {
   overflow: clip !important;
   box-sizing: border-box !important;
 
-  border: var(--window-border) solid var(--explorer-border-color) !important;
-  border-radius: var(--window-border-radius) !important;
-
+  border: var(--uapc-border) solid var(--uapc-border-color) !important;
+  border-radius: var(--uapc-border-radius) !important;
+  
   background: var(--root-background-color, transparent) !important;
 }
 
@@ -273,10 +272,7 @@ html {
    Window Resizers
    ========================================================= */
 
-.sb-resizer {
-  position: absolute;
-  z-index: 91;
-}
+.sb-resizer { position: absolute; z-index: 91;}
 
 .resizer-t,
 .resizer-b {
@@ -288,26 +284,10 @@ html {
 
 .resizer-t { top: 0; }
 .resizer-b { bottom: 0; }
-
-.resizer-l,
-.resizer-r {
-  top: 20px;
-  bottom: 20px;
-  width: 8px;
-  cursor: ew-resize;
-}
-
+.resizer-l,.resizer-r {top:20px;bottom:20px;width:8px;cursor:ew-resize;}
 .resizer-l { left: 0; }
 .resizer-r { right: 0; }
-
-.resizer-tl,
-.resizer-tr,
-.resizer-bl,
-.resizer-br {
-  width: 22px;
-  height: 22px;
-}
-
+.resizer-tl,.resizer-tr,.resizer-bl,.resizer-br{width:22px;height: 22px;}
 .resizer-tl { top: 0; left: 0; cursor: nwse-resize; }
 .resizer-tr { top: 0; right: 0; cursor: nesw-resize; }
 .resizer-bl { bottom: 0; left: 0; cursor: nesw-resize; }
@@ -316,14 +296,6 @@ html {
 /* =========================================================
    Panel Controls (Migrated)
    ========================================================= */
-
-#sb-top {
-  z-index: 105;
-}
-
-#sb-top .panel {
-  position: fixed;
-}
 
 /* ---------------------------------------------------------
    Base Panel Behaviour
@@ -334,42 +306,47 @@ html {
   overflow: visible !important;
 }
 
-.sb-panel-controls-container {
-  position: absolute;
-  display: flex;
-  gap: 0;
-
-  z-index: 91;
-  border: 1px solid var(--panel-border-color);
-  transition: all 0.3s ease;
-}
 
 /* ---------------------------------------------------------
    Unified Control Buttons
    --------------------------------------------------------- */
 
+@property --control-btn-size { syntax: '<length>'; inherits: true; initial-value: 24px; }
+
 .sb-panel-controls-container {
-  background: oklch( from var(--top-background-color) l c h / 0.1 );
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%);
+  gap: 0px;
+  z-index: 91;
+  border: 1px solid var(--panel-border-color);
+  background: oklch( from var(--top-background-color) l c h / var(--frame-opacity) );
+  transition: --control-btn-size 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  
 }
+
+.sb-panel-controls-container:hover {--control-btn-size: var(--control-btn-size-hover);}
 
 .sb-panel-control-base {
   width: var(--control-btn-size);
   height: var(--control-btn-size);
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-family: monospace;
   font-weight: bold;
-  font-size: calc(var(--control-btn-size) * 0.6);
+  font-size: calc(var(--control-btn-size) - 10px);
 
   color: var(--root-color);
   cursor: pointer;
 
-  transition: all 0.6s ease;
+  transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              background 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .sb-panel-control-base:hover {
@@ -377,20 +354,20 @@ html {
   color: white;
 }
 
-.sb-drawer-toggle {
+.lhs .sb-drawer-toggle, .rhs .sb-drawer-toggle {
   height: calc(3 * var(--control-btn-size));
 }
 
+.bhs .sb-drawer-toggle {
+  width: calc(3 * var(--control-btn-size));
+}
 /* ---------------------------------------------------------
    Panel Orientations
    --------------------------------------------------------- */
 
 .lhs .sb-panel-controls-container {
-  top: var(--control-btn-position);
+  top: var(--lhs-control-postion);
   right: calc((-1 * var(--control-btn-size)) - 1px);
-
-  flex-direction: column;
-  transform: translateY(-50%);
 
   border-left: none;
   border-radius: 0 var(--btn-border-radius)
@@ -398,12 +375,9 @@ html {
 }
 
 .rhs .sb-panel-controls-container {
-  top: var(--control-btn-position);
+  top: var(--rhs-control-postion);
   left: calc((-1 * var(--control-btn-size)) - 1px);
-
-  flex-direction: column;
-  transform: translateY(-50%);
-
+  
   border-right: none;
   border-radius: var(--btn-border-radius) 0
                  0 var(--btn-border-radius);
@@ -411,7 +385,7 @@ html {
 
 .bhs .sb-panel-controls-container {
   top: calc((-1 * var(--control-btn-size)) - 1px);
-  right: var(--control-btn-position);
+  right: var(--bhs-control-postion);
 
   flex-direction: row;
 
@@ -452,66 +426,41 @@ html {
    Panel States
    --------------------------------------------------------- */
 
-.sb-panel.is-collapsed {
-  pointer-events: none;
-}
+.sb-panel.is-collapsed { pointer-events: none;}
 
-.sb-panel.is-collapsed.lhs {
-  margin-left: calc(var(--sb-panel-width) * -1);
-}
+.sb-panel.is-collapsed.lhs { margin-left: calc(var(--sb-panel-width) * -1);}
+.sb-panel.is-collapsed.rhs { margin-right: calc(var(--sb-panel-width) * -1);}
+.sb-panel.is-collapsed.bhs { margin-bottom: calc(var(--sb-panel-height) * -1);}
 
-.sb-panel.is-collapsed.rhs {
-  margin-right: calc(var(--sb-panel-width) * -1);
-}
-
-.sb-panel.is-collapsed.bhs {
-  margin-bottom: calc(var(--sb-panel-height) * -1);
-}
-
-.sb-panel.is-collapsed .sb-panel-controls-container {
-  pointer-events: auto;
-}
+.sb-panel.is-collapsed .sb-panel-controls-container { pointer-events: auto;}
 
 /* Fullscreen */
 
 .sb-panel.is-full {
   position: fixed !important;
   z-index: 98 !important;
-
   top: 56px !important;
   left: 0 !important;
-
   width: 100vw !important;
   height: calc(100vh - 56px) !important;
-
   margin: 0 !important;
   transform: none !important;
 }
 
-.sb-panel.rhs.is-full {
-  left: auto !important;
-  right: 0 !important;
-}
-
-.sb-panel.is-full .sb-panel-control-base:first-child {
-  border-radius: var(--btn-border-radius) var(--btn-border-radius) 0 0;  
-}
-
-.sb-panel.is-full .sb-panel-control-base:last-child {
-  border-radius: 0 0 var(--btn-border-radius) var(--btn-border-radius);
-}
-
 .sb-panel.is-full .sb-panel-controls-container{
   border: 1px solid var(--panel-border-color) !important;
-  border-radius: var(--btn-border-radius);
-}
+  border-radius: var(--btn-border-radius);}
 
-.sb-panel.lhs.is-full .sb-panel-controls-container{
-  right: 5px;
-}
-.sb-panel.rhs.is-full .sb-panel-controls-container{
-  left: 5px;
-}
+
+.sb-panel.rhs.is-full { left: auto !important; right: 0 !important;}
+.sb-panel.is-full .sb-panel-control-base:first-child {
+  border-radius: var(--btn-border-radius) var(--btn-border-radius) 0 0;}
+.sb-panel.is-full .sb-panel-control-base:last-child {
+  border-radius: 0 0 var(--btn-border-radius) var(--btn-border-radius);}
+
+
+.sb-panel.lhs.is-full .sb-panel-controls-container{ right: 5px; }
+.sb-panel.rhs.is-full .sb-panel-controls-container{ left: 5px; }
 
 
 /* ---------------------------------------------------------

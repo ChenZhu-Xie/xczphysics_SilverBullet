@@ -9,7 +9,7 @@ files:
 - hybrid-cursor.svg
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: a467ba87
+share.hash: 3fb2fc9a
 share.mode: pull
 ---
 # 🗂️ Document Explorer
@@ -33,9 +33,6 @@ share.mode: pull
 * Documents: .pdf, .excalidraw, .drawio (if Plugs installed)
 * Every other extension is rendered as `❔` and opened as raw file if browser supports it
 
-## GoTo: ${widgets.commandButton("Document Explorer in SidePanel","Navigate: Document Explorer")} or ${widgets.commandButton("Document Explorer in Window","Navigate: Document Explorer Window")}
-
-## or use the shortcuts: 
 
 > **tip** ShortCut Key
 > `Ctrl-Alt-e` - Toggle Document Explorer
@@ -424,7 +421,8 @@ local function renderTree(files, prefix)
         currentPath = currentPath or ""
         local sorted = {}
         for k in pairs(node) do 
-            if k:sub(1,1) ~= "_" then table.insert(sorted, k) end 
+            -- REMOVED: k:sub(1,1) ~= "_" check to allow underscores
+            if k ~= "_path" then table.insert(sorted, k) end 
         end
 
         if treeFolderFirst then
@@ -492,7 +490,8 @@ local function renderTree(files, prefix)
     -- 3. EXECUTE TRAVERSE
     local rootKeys = {}
     for k in pairs(tree) do 
-        if k:sub(1,1) ~= "_" then table.insert(rootKeys, k) end 
+        -- REMOVED: k:sub(1,1) ~= "_" check to allow underscores
+        if k ~= "_path" then table.insert(rootKeys, k) end 
     end
 
     if treeFolderFirst then

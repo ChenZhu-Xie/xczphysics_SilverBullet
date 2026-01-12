@@ -17,13 +17,13 @@ let highestZ = 100;
 const SNAP_THRESHOLD = 15;
 const TOP_OFFSET = 55;
 
-function injectStyles() {
-  if (document.getElementById("sb-unified-drag-styles")) return;
-  const style = document.createElement("style");
-  style.id = "sb-unified-drag-styles";
-  style.textContent = ` :root { --header-height: 20px; --frame-width: 5px; --frame-opacity: 10%; --window-border: 2px; --window-border-radius: 10px; } /* #sb-main .sb-panel:last-child {border-left: none;}*/ html[data-theme="dark"]{ --explorer-border-color: oklch(from var(--explorer-accent-color) calc(l - 0.5) c h / 0.1); --explorer-accent-color: oklch(0.75 0.25 230); } html[data-theme="light"]{ --explorer-border-color: oklch(from var(--explorer-accent-color) calc(l - 0.5) c h / 0.1); --explorer-accent-color: oklch(0.80 0.18 230); } .sb-window-container { position: fixed !important; z-index: 89 !important; display: flex !important; flex-direction: column !important; box-sizing: border-box !important; background: oklch(from var(--explorer-accent-color) l 0.02 h / var(--frame-opacity)); border: var(--window-border) solid var(--explorer-border-color) ; backdrop-filter: blur(10px); box-shadow: 0px 0px 20px #00000090; border-radius: calc(var(--window-border-radius) + var(--frame-width)); padding: var(--frame-width); touch-action: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .sb-window-container.is-focused { background: oklch(from var(--explorer-accent-color) l c h / var(--frame-opacity)); border-color: var(--explorer-border-color) !important; box-shadow: 0px 0px 20px #000000b0; } .sb-window-header { height: var(--header-height) !important; width: 100% !important; cursor: grab !important; border-radius: 8px !important; flex-shrink: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: background 0.2s ease; position: relative; } .is-panel .sb-window-header::after { content: "" !important; width: 60px !important; height: 12px !important; background: repeating-linear-gradient( to bottom, #808080cc 0px, #808080cc 2px, transparent 2px, transparent 5px ) !important; opacity: 0.6 !important; } .sb-window-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; padding: 0 40px; text-align: center; font-weight: 700; font-size: 0.85em; text-transform: uppercase; z-index: 1; pointer-events: none; color: var(--root-color); } .sb-window-close-btn { position: absolute; top: -2px; right: 0px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 6px; font-size: 14px; color: var(--root-color); background: oklch(from var(--explorer-accent-color) l 0.02 h / 0.1);; transition: all 0.2s; z-index: 92; } .sb-window-container.is-focused .sb-window-close-btn { background: oklch(from var(--explorer-accent-color) l c h / 0.5);; } .sb-window-container.is-focused .sb-window-close-btn:hover , .sb-window-close-btn:hover { background: oklch(0.65 0.2 30); color: white; } .sb-window-content { flex: 1 1 0% !important; position: relative !important; margin-top: 4px !important; width: 100% !important; height: 100% !important; overflow: clip !important; box-sizing: border-box !important; border: var(--window-border) solid var(--explorer-border-color) !important; border-radius: var(--window-border-radius) !important; background: var(--root-background-color, transparent) !important; } .sb-window-iframe { width: 100%; height: 100%; border: none; display: block; } .sb-resizer { position: absolute; z-index: 91; } .resizer-t { top: 0; left: 20px; right: 20px; height: 8px; cursor: ns-resize; } .resizer-b { bottom: 0; left: 20px; right: 20px; height: 8px; cursor: ns-resize; } .resizer-l { left: 0; top: 20px; bottom: 20px; width: 8px; cursor: ew-resize; } .resizer-r { right: 0; top: 20px; bottom: 20px; width: 8px; cursor: ew-resize; } .resizer-tl { top: 0; left: 0; width: 22px; height: 22px; cursor: nwse-resize; } .resizer-tr { top: 0; right: 0; width: 22px; height: 22px; cursor: nesw-resize; } .resizer-bl { bottom: 0; left: 0; width: 22px; height: 22px; cursor: nesw-resize; } .resizer-br { bottom: 0; right: 0; width: 22px; height: 22px; cursor: nwse-resize; } `;
-  (document.head || document.documentElement).appendChild(style);
-}
+//function injectStyles() {
+//  if (document.getElementById("sb-unified-drag-styles")) return;
+//  const style = document.createElement("style");
+//  style.id = "sb-unified-drag-styles";
+//  style.textContent = `  `;
+//  (document.head || document.documentElement).appendChild(style);
+//}
 
 function focusWindow(win) {
   document.querySelectorAll(".sb-window-container").forEach(c => c.classList.remove("is-focused"));
@@ -35,8 +35,8 @@ function focusWindow(win) {
 function clampToViewport(win, isPanel = false) {
   const rect = win.getBoundingClientRect();
   const minTop = isPanel ? TOP_OFFSET : TOP_OFFSET;
-  const minW = isPanel ? 320 : 260;
-  const minH = isPanel ? 310 : 260;
+  const minW = isPanel ? 250 : 250;
+  const minH = isPanel ? 250 : 250;
   let left = rect.left, top = rect.top, width = Math.max(rect.width, minW), height = Math.max(rect.height, minH);
   if (width > window.innerWidth) width = window.innerWidth;
   if (height > window.innerHeight - minTop) height = window.innerHeight - minTop;
@@ -124,7 +124,7 @@ function setupEvents(container, header, storageKey, isPanel) {
    =========================== */
 
 export function show(content, titleLabel = null) {
-  injectStyles();
+ // injectStyles();
   const isUrl = content.startsWith("http://") || content.startsWith("https://");
   const isHtml = content.trim().startsWith("<") && content.trim().endsWith(">");
   const storageKey = isHtml ? "sb_dim_mode_html" : (isUrl ? "sb_dim_mode_url" : "sb_dim_mode_page");
@@ -183,15 +183,55 @@ header.appendChild(dockRHSBtn);
   contentArea.className = "sb-window-content";
   const iframe = document.createElement("iframe");
   iframe.className = "sb-window-iframe";
+  /*
   iframe.onload = () => {
     try {
       const style = document.createElement('style');
-      style.textContent = `#sb-top { display: none !important; } html #sb-root {--editor-width: 800px !important; }`;
+      style.textContent = `#sb-top, #sb-main .sb-panel, #sb-root .sb-bhs { display: none !important; } html #sb-root {--editor-width: 800px !important; }`;
       iframe.contentDocument.head.appendChild(style);
     } catch (e) {
       console.warn("Cross-origin iframe detected: Cannot hide #sb-top inside this frame.", e);
     }
   };
+  */
+
+  iframe.onload = () => {
+    try {
+      const doc = iframe.contentDocument;
+      if (!doc) return;
+
+      // ===SAFETY NET: CSS HIDE (instant + future-proof) === 
+      const style = doc.createElement("style");
+      style.textContent = `
+        #sb-top,
+        #sb-main .sb-panel,
+        #sb-root .sb-bhs {
+          display: none !important;
+        }
+      `;
+      doc.head.appendChild(style);
+
+      // ====HARD DELETE: remove only the children, never parents ==== 
+      const kill = () => {
+        doc.querySelector("#sb-top")?.remove();
+        doc.querySelectorAll("#sb-main .sb-panel").forEach(el => el.remove());
+        doc.querySelector("#sb-root .sb-bhs")?.remove();
+     //   doc.querySelector("#custom-styles")?.remove();
+      };
+
+      // First pass
+      kill();
+
+      // Watch for SPA respawns
+      const observer = new MutationObserver(kill);
+      observer.observe(doc.body, { childList: true, subtree: true });
+
+    } catch (e) {
+      console.warn("Cross-origin iframe detected: DOM modification skipped.", e);
+    }
+  };
+
+
   if (isHtml) {
     const blob = new Blob([content], { type: 'text/html' });
     iframe.src = URL.createObjectURL(blob);
@@ -209,6 +249,8 @@ header.appendChild(dockRHSBtn);
     handle.dataset.direction = dir;
     container.appendChild(handle);
   });
+  
+  /*
   (document.querySelector("#sb-main") || document.body).appendChild(container);
   setupEvents(container, header, storageKey, false);
   const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
@@ -220,6 +262,31 @@ header.appendChild(dockRHSBtn);
     clampToViewport(container, false);
   } else {
     const offset = document.querySelectorAll('.is-floating').length * 30;
+    container.style.width = "600px";
+    container.style.height = "500px";
+    container.style.left = `${100 + offset}px`;
+    container.style.top = `${TOP_OFFSET + 35 + offset}px`;
+  }
+  */
+
+  // Get all existing floating windows *before* adding the new one
+  const existingFloating = document.querySelectorAll('.is-floating').length;
+  // Then append container
+  (document.querySelector("#sb-main") || document.body).appendChild(container);
+  setupEvents(container, header, storageKey, false);
+
+  // Apply saved position + offset
+  const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
+  const OFFSET_STEP = 20;
+  if (saved) {
+    const offset = existingFloating > 0 ? existingFloating * OFFSET_STEP : 0;
+    container.style.left = `${saved.x + offset}px`;
+    container.style.top = `${saved.y + offset}px`;
+    container.style.width = `${saved.w}px`;
+    container.style.height = `${saved.h}px`;
+    clampToViewport(container, false);
+  } else {
+    const offset = existingFloating * OFFSET_STEP;
     container.style.width = "600px";
     container.style.height = "500px";
     container.style.left = `${100 + offset}px`;
@@ -270,11 +337,15 @@ function dockFloatingWindow(container, side) {
 }
 
 
+function cssPx(varName, fallback = 0) {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(varName);
+  return parseInt(v, 10) || fallback;
+}
 
 
 
 export function enableWindow(panelSelector = "#sb-main .sb-panel") {
-  injectStyles();
+  //injectStyles();
   const panel = document.querySelector(panelSelector);
   // Guard clause: if panel doesn't exist or is already wrapped
   if (!panel || panel.parentElement.classList.contains('sb-window-container')) return;
@@ -356,8 +427,28 @@ export function enableWindow(panelSelector = "#sb-main .sb-panel") {
   container.appendChild(header);
   container.appendChild(panel);
   // Apply localized reset panel.style
-  panel.style.cssText = `flex: 1 1 0% !important; position: relative !important; top: 0 !important; left: 0 !important; margin: 0 !important; margin-top: 4px !important; width: 100% !important; height: 100% !important; overflow: clip !important; box-sizing: border-box !important; border: var(--window-border) solid var(--explorer-border-color) !important; border-radius: var(--window-border-radius) !important; background: transparent !important;`;
-  setupEvents(container, header, storageKey, true);
+  panel.style.cssText = `
+  flex: 1 1 0% !important;
+  position: relative !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  margin: 0 !important;
+  margin-top: 4px !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  overflow: clip !important;
+  box-sizing: border-box !important;
+
+  border: var(--uapc-border) solid var(--uapc-border-color) !important;
+  border-radius: var(--uapc-border-radius) !important;
+  
+  background: transparent !important;
+`;
+setupEvents(container, header, storageKey, true);
   const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
   if (saved) {
     container.style.left = `${saved.x}px`;
@@ -426,7 +517,7 @@ function _makeSPM(configOverrides = {}) {
       mode: "auto",
       gestures: true,
       constraints: { minW: 300, maxW: 1000, minH: 100, maxH: 500 },
-      positions: { lhs: "50%", rhs: "50%", bhs: "50%" },
+    //  positions: { lhs: "50%", rhs: "50%", bhs: "50%" },
       prefixes: { handle: "sb-drag-handle-", controls: "sb-panel-controls-" }
     },
     state: { currentMode: "dock", isDragging: false, swipe: { startX: 0, startY: 0, lastAction: 0 }, resizeTimer: null },
@@ -440,7 +531,7 @@ function _makeSPM(configOverrides = {}) {
   SPM.config = Object.assign(defaults.config, configOverrides.config || {});
   if (typeof configOverrides.gestures === "boolean") SPM.config.gestures = configOverrides.gestures;
   if (configOverrides.constraints) SPM.config.constraints = Object.assign(SPM.config.constraints, configOverrides.constraints);
-  if (configOverrides.positions) SPM.config.positions = Object.assign(SPM.config.positions, configOverrides.positions);
+ // if (configOverrides.positions) SPM.config.positions = Object.assign(SPM.config.positions, configOverrides.positions);
   if (configOverrides.savedLHS) SPM.savedLHS = String(configOverrides.savedLHS);
   if (configOverrides.savedRHS) SPM.savedRHS = String(configOverrides.savedRHS);
   if (configOverrides.savedBHS) SPM.savedBHS = String(configOverrides.savedBHS);
@@ -476,7 +567,7 @@ function _makeSPM(configOverrides = {}) {
     const id = SPM.config.prefixes.controls + type;
     if (document.getElementById(id)) return;
     const container = SPM.ui.createControl(id, "sb-panel-controls-container");
-
+/*
     // 🔑 APPLY POSITION HERE
       if (type === "LHS" && SPM.config.positions.lhs) {
         container.style.top = SPM.config.positions.lhs;
@@ -489,7 +580,7 @@ function _makeSPM(configOverrides = {}) {
       if (type === "BHS" && SPM.config.positions.bhs) {
         container.style.left = SPM.config.positions.bhs;
       }
-
+*/
     const btnClass = "sb-panel-control-base";
     // Toggle Button
     const toggleBtn = SPM.ui.createControl("", btnClass + " sb-drawer-toggle");
@@ -617,9 +708,6 @@ function _makeSPM(configOverrides = {}) {
   };
 
 
-
-
-
   SPM.ui.syncChevron = (el, type) => {
   const controls = document.getElementById(SPM.config.prefixes.controls + type);
   if (!controls) return;
@@ -744,79 +832,130 @@ function _makeSPM(configOverrides = {}) {
     handle.addEventListener("touchstart", startDragging, { passive: false });
   };
 
-  SPM.events.initSwipe = () => {
-    if (!SPM.config.gestures) return;
-    const handleStart = (e) => {
-      if (SPM.state.isDragging) return;
-      SPM.state.swipe.startX = e.changedTouches[0].screenX;
-      SPM.state.swipe.startY = e.changedTouches[0].screenY;
-    };
-    const handleEnd = (e) => {
-      if (SPM.state.isDragging) return;
-      const now = Date.now();
-      if (now - SPM.state.swipe.lastAction < 500) return;
-      const diffX = e.changedTouches[0].screenX - SPM.state.swipe.startX;
-      const diffY = e.changedTouches[0].screenY - SPM.state.swipe.startY;
-      const isHorizontal = Math.abs(diffX) > Math.abs(diffY);
-      const isVertical = Math.abs(diffY) > Math.abs(diffX);
-      const layouts = SPM.layout.getPanels();
-      const lhs = layouts.find(l => l.type === "LHS");
-      const rhs = layouts.find(l => l.type === "RHS");
-      const bhs = layouts.find(l => l.type === "BHS");
-      let acted = false;
-      const handleProgression = (dir) => {
-        const lhsOpen = lhs && lhs.el.classList.contains("is-expanded") && !lhs.el.classList.contains("is-full");
-        const lhsFull = lhs && lhs.el.classList.contains("is-full");
-        const rhsOpen = rhs && rhs.el.classList.contains("is-expanded") && !rhs.el.classList.contains("is-full");
-        const rhsFull = rhs && rhs.el.classList.contains("is-full");
-        if (dir === "left") {
-          if (lhsFull) return SPM.layout.toggleFullSize(lhs.el, "LHS", false);
-          if (lhsOpen) return SPM.layout.togglePanel(lhs.el, "LHS", false);
-          if (!rhsOpen) return SPM.layout.togglePanel(rhs.el, "RHS", true);
-          if (!rhsFull) return SPM.layout.toggleFullSize(rhs.el, "RHS", true);
-        } else if (dir === "right") {
-          if (rhsFull) return SPM.layout.toggleFullSize(rhs.el, "RHS", false);
-          if (rhsOpen) return SPM.layout.togglePanel(rhs.el, "RHS", false);
-          if (!lhsOpen) return SPM.layout.togglePanel(lhs.el, "LHS", true);
-          if (!lhsFull) return SPM.layout.toggleFullSize(lhs.el, "LHS", true);
-        }
-        return false;
-      };
-      if (isHorizontal && Math.abs(diffX) > 50) {
-        acted = handleProgression(diffX > 0 ? "right" : "left");
-      } else if (isVertical && Math.abs(diffY) > 50 && bhs) {
-        const bOpen = bhs.el.classList.contains("is-expanded") && !bhs.el.classList.contains("is-full");
-        const bFull = bhs.el.classList.contains("is-full");
-        if (diffY < 0) {
-          if (!bOpen) acted = SPM.layout.togglePanel(bhs.el, "BHS", true);
-          else if (!bFull) acted = SPM.layout.toggleFullSize(bhs.el, "BHS", true);
-        } else {
-          if (bFull) acted = SPM.layout.toggleFullSize(bhs.el, "BHS", false);
-          else if (bOpen) acted = SPM.layout.togglePanel(bhs.el, "BHS", false);
-        }
-      }
-      if (acted) SPM.state.swipe.lastAction = now;
-    };
-    const main = document.querySelector("#sb-main");
-    if (main && main.getAttribute("data-swipe-init") !== "true") {
-      main.setAttribute("data-swipe-init", "true");
-      main.addEventListener('touchstart', handleStart, {passive: true});
-      main.addEventListener('touchend', handleEnd, {passive: true});
-    }
-    document.querySelectorAll(".sb-panel iframe").forEach(iframe => {
-      const attach = () => {
-        try {
-          const iDoc = iframe.contentDocument || iframe.contentWindow.document;
-          iDoc.removeEventListener('touchstart', handleStart);
-          iDoc.removeEventListener('touchend', handleEnd);
-          iDoc.addEventListener('touchstart', handleStart, {passive: true});
-          iDoc.addEventListener('touchend', handleEnd, {passive: true});
-        } catch(e) {}
-      };
-      attach();
-      iframe.addEventListener("load", attach);
-    });
+SPM.events.initSwipe = () => {
+  if (!SPM.config.gestures) return;
+
+  const MIN_DISTANCE = 70;
+  const MAX_DURATION = 300;
+  const MIN_VELOCITY = 0.6;
+  const DIRECTION_RATIO = 1.5;
+
+  const handleStart = (e) => {
+    if (SPM.state.isDragging) return;
+    const t = e.changedTouches[0];
+    // Ensure the swipe object exists to avoid undefined errors
+    if (!SPM.state.swipe) SPM.state.swipe = {};
+    
+    SPM.state.swipe.startX = t.screenX;
+    SPM.state.swipe.startY = t.screenY;
+    SPM.state.swipe.startTime = Date.now();
   };
+
+  const handleEnd = (e) => {
+    if (SPM.state.isDragging || !SPM.state.swipe) return;
+
+    const now = Date.now();
+    if (now - (SPM.state.swipe.lastAction || 0) < 500) return;
+
+    const t = e.changedTouches[0];
+    // Fixed: Correctly referencing the nested swipe object
+    const dx = t.screenX - SPM.state.swipe.startX;
+    const dy = t.screenY - SPM.state.swipe.startY;
+    const duration = now - SPM.state.swipe.startTime;
+
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+
+    if (duration > MAX_DURATION || Math.max(absX, absY) < MIN_DISTANCE) return;
+
+    const velocityX = absX / duration;
+    const velocityY = absY / duration;
+
+    let acted = false;
+    const layouts = SPM.layout.getPanels();
+    const lhs = layouts.find(l => l.type === "LHS");
+    const rhs = layouts.find(l => l.type === "RHS");
+    const bhs = layouts.find(l => l.type === "BHS");
+
+    // Horizontal logic
+    if (absX > absY * DIRECTION_RATIO && velocityX >= MIN_VELOCITY) {
+      const dir = dx > 0 ? "right" : "left";
+      
+      const state = {
+        LHS: {
+          full: lhs?.el.classList.contains("is-full"),
+          open: lhs?.el.classList.contains("is-expanded") && !lhs?.el.classList.contains("is-full")
+        },
+        RHS: {
+          full: rhs?.el.classList.contains("is-full"),
+          open: rhs?.el.classList.contains("is-expanded") && !rhs?.el.classList.contains("is-full")
+        }
+      };
+
+      const actions = dir === "left" ? [
+        { cond: state.LHS.full, run: () => SPM.layout.toggleFullSize(lhs.el, "LHS", false) },
+        { cond: state.LHS.open, run: () => SPM.layout.togglePanel(lhs.el, "LHS", false) },
+        { cond: !state.RHS.open, run: () => SPM.layout.togglePanel(rhs.el, "RHS", true) },
+        { cond: !state.RHS.full, run: () => SPM.layout.toggleFullSize(rhs.el, "RHS", true) }
+      ] : [
+        { cond: state.RHS.full, run: () => SPM.layout.toggleFullSize(rhs.el, "RHS", false) },
+        { cond: state.RHS.open, run: () => SPM.layout.togglePanel(rhs.el, "RHS", false) },
+        { cond: !state.LHS.open, run: () => SPM.layout.togglePanel(lhs.el, "LHS", true) },
+        { cond: !state.LHS.full, run: () => SPM.layout.toggleFullSize(lhs.el, "LHS", true) }
+      ];
+
+      const action = actions.find(a => a.cond);
+      if (action) acted = action.run();
+
+    // Vertical logic
+    } else if (absY > absX * DIRECTION_RATIO && velocityY >= MIN_VELOCITY && bhs) {
+      const bOpen = bhs.el.classList.contains("is-expanded") && !bhs.el.classList.contains("is-full");
+      const bFull = bhs.el.classList.contains("is-full");
+
+      if (dy < 0) {
+        if (!bOpen) acted = SPM.layout.togglePanel(bhs.el, "BHS", true);
+        else if (!bFull) acted = SPM.layout.toggleFullSize(bhs.el, "BHS", true);
+      } else {
+        if (bFull) acted = SPM.layout.toggleFullSize(bhs.el, "BHS", false);
+        else if (bOpen) acted = SPM.layout.togglePanel(bhs.el, "BHS", false);
+      }
+    }
+
+    if (acted) SPM.state.swipe.lastAction = now;
+  };
+
+  const main = document.querySelector("#sb-main");
+  if (main && main.getAttribute("data-swipe-init") !== "true") {
+    main.setAttribute("data-swipe-init", "true");
+    main.addEventListener("touchstart", handleStart, { passive: true });
+    main.addEventListener("touchend", handleEnd, { passive: true });
+  }
+
+  // Handle iframes
+  document.querySelectorAll(".sb-panel iframe").forEach(iframe => {
+    const attach = () => {
+      try {
+        const iDoc = iframe.contentDocument || iframe.contentWindow.document;
+        iDoc.removeEventListener("touchstart", handleStart);
+        iDoc.removeEventListener("touchend", handleEnd);
+        iDoc.addEventListener("touchstart", handleStart, { passive: true });
+        iDoc.addEventListener("touchend", handleEnd, { passive: true });
+      } catch (e) {}
+    };
+    attach();
+    iframe.addEventListener("load", attach);
+  });
+};
+
+
+
+
+
+
+
+
+
+
 
   SPM.init = () => {
     const observer = new MutationObserver(() => {
@@ -844,7 +983,7 @@ function _makeSPM(configOverrides = {}) {
  *   panelMode: "auto"|"overlay"|"dock",
  *   gestures: true|false,
  *   constraints: { minW, maxW, minH, maxH },
- *   positions: { lhs, rhs, bhs },
+ * //  positions: { lhs, rhs, bhs },
  *   savedLHS: "300",
  *   savedRHS: "300",
  *   savedBHS: "200"
@@ -859,7 +998,7 @@ export function initPanelControls(options = {}) {
       mode: options.panelMode || (options.mode || "auto"),
       gestures: (typeof options.gestures === "boolean") ? options.gestures : (options.gesturesEnabled !== undefined ? options.gesturesEnabled : true),
       constraints: options.constraints || (options.constraints || null),
-      positions: options.positions || (options.positions || null),
+    //  positions: options.positions || (options.positions || null),
       prefixes: { handle: "sb-drag-handle-", controls: "sb-panel-controls-" }
     },
     savedLHS: options.savedLHS,
