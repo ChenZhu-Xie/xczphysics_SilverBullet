@@ -13,7 +13,9 @@ config.set("plugs", { -- 注意，第一个 config.set() 覆盖 第二个 config
 ```
 
 ```space-lua
-
+config.set("silversearch.tokenizers", {
+  ["Library/LelouchHe/silversearch-chinese-tokenizer.js"] = {}
+})
 ```
 
 ```
