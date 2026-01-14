@@ -1,6 +1,8 @@
 
 1. https://community.silverbullet.md/t/natural-language-dates-autocompletion/3341
 2. https://github.com/deepkn/silverbullet-nldates
+3. [date display options](https://community.silverbullet.md/t/date-display-options/1699/3?u=chenzhu-xie) #community #silverbullet
+4. [whenwords silver bullet](https://community.silverbullet.md/t/whenwords-silver-bullet/3766?u=chenzhu-xie) #community #silverbullet
 
 1. Type `!!` followed by a natural language date
 2. A completion popup appears with your parsed dates or quick options (today/tomorrow/yesterday)
