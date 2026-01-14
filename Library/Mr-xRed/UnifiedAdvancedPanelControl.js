@@ -181,8 +181,18 @@ header.appendChild(dockRHSBtn);
   header.appendChild(closeBtn);
   const contentArea = document.createElement("div");
   contentArea.className = "sb-window-content";
+  
+  // Set background to black for a better video experience
+  contentArea.style.backgroundColor = "black";
+
   const iframe = document.createElement("iframe");
   iframe.className = "sb-window-iframe";
+
+  // Critical additions for Video Players
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen";
+  iframe.referrerPolicy = "strict-origin-when-cross-origin";
+  iframe.setAttribute("allowfullscreen", "true");
+
   /*
   iframe.onload = () => {
     try {
@@ -443,8 +453,8 @@ export function enableWindow(panelSelector = "#sb-main .sb-panel") {
   overflow: clip !important;
   box-sizing: border-box !important;
 
-  border: var(--uapc-border) solid var(--uapc-border-color) !important;
-  border-radius: var(--uapc-border-radius) !important;
+  border: var(--window-border) solid var(--winbdow-border-color) !important;
+  border-radius: var(--window-border-radius) !important;
   
   background: transparent !important;
 `;
