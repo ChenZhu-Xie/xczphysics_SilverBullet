@@ -98,3 +98,5 @@ LogSeq 的 #Tag 中，右键随便一个对象（包括其 field ），
 - 弹出的菜单 最末，可拿到该 #Tag 的 `page data`
 
 右键 `#Tag 的 实例化对象` 的 logo，可以查看 block 的 `block data`
+
+
