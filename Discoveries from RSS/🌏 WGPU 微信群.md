@@ -4,9 +4,10 @@
 
 [no graphics api](https://www.sebastianaaltonen.com/blog/no-graphics-api) #sebastianaaltonen
 
-
 # WGPU 无关的
 
 https://openrouter.ai/
 - 图表好看：[rankings](https://openrouter.ai/rankings) #openrouter
 
+https://kiwi.biexi.com/
+- 按键精灵 python 版
