@@ -9,10 +9,10 @@ files:
 - hybrid-cursor.svg
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: 3fb2fc9a
+share.hash: "61771379"
 share.mode: pull
 ---
-# 🗂️ Document Explorer
+# 🗂️ Document Explorer (Ver. 1.0.10)
 ![DocumentExplorer_Screenshot](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/DocumentExplorer_Screenshot.png)
 
 ## Features

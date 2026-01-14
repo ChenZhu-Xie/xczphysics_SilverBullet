@@ -4,7 +4,7 @@ description: List of reusable functions.
 name: "Library/Malys/Utilities"
 tags: meta/library
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/Utilities.md"
-share.hash: f1f788d4
+share.hash: "75e53910"
 share.mode: pull
 ---
 # Utilities
@@ -23,7 +23,7 @@ LOG_ENABLE=true
 * Add filter “[Client] [DEBUG]“
 ## Code
 ```space-lua
--- priority: 11
+-- priority: 20
 mls=mls or {}
 
 -- Convert meeting note title

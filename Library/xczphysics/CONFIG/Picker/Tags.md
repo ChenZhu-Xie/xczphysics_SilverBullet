@@ -5,6 +5,8 @@ tags: meta/library
 pageDecoration.prefix: "🔖 "
 ---
 
+5. 社区一些其他人的 tag virtual page template [improved tag page template](https://community.silverbullet.md/t/improved-tag-page-template/3761?u=chenzhu-xie) #community #silverbullet
+
 Practical tag search handles multi-tag intersections, which is both the advantage and the drawbacks (not one-to-one) of tags (Webs) over file systems (Trees).
 
 One item can have many tags, and one tag can match many items.

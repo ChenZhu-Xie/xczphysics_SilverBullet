@@ -18,8 +18,9 @@ pageDecoration.prefix: "🛠️ "
 - Panel sizing is persisted via clientStore (LHS, RHS, BHS).
 - Panel constraints configurable (min/max width and height).
 - Button-Size and Style configurable through Space-Style (Documentation -> Soon)
+- Added **YouTube**/**Peertube**/Vimeo** **Support for the [Floating Page Library](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md)
 
-u![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/UAPC-Screenshot.png)
+![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/UAPC-Screenshot.png)
 
 
 ## Known Issues
@@ -74,20 +75,15 @@ config.set("AdvancedPanelControl", {
 
 ```
 
+### CSS Variables (`space-style` customization options)
 
 ```space-style
-/* priority: 100*/
-/* ---------------------------------------------------------
-   Root Variables
-   --------------------------------------------------------- */
+
+/* priority: 100 */
    
 :root {
-  --header-height: 20px;
-  --frame-width: 5px;
-  --frame-opacity: 100%;
-  --uapc-border: 2px;
-  --uapc-border-radius: 8px;
   
+/* --- Panel Control variables ---*/  
   --control-btn-size: 28px;
   --control-btn-size-hover: 28px;
   --btn-border-radius: 15px;
@@ -95,19 +91,40 @@ config.set("AdvancedPanelControl", {
   --lhs-control-postion: 50vh;
   --rhs-control-postion: 50vh;
   --bhs-control-postion: 50vw;
+
+/* ----- Window variables ------*/
+  --header-height: 20px;
+  --frame-width: 5px;
+  --frame-opacity: 100%;
+  --window-border: 2px;
+  --window-border-radius: 8px;
 }
 
-/* ----- Accent Colors ------ */
+/* ----- Window Colors ------ */
 html[data-theme="dark"] {
-  --uapc-accent-color: var(--ui-accent-color);
-  --uapc-border-color: oklch( from var(--uapc-accent-color) calc(l - 0.5) c h / var(--frame-opacity) );
+  --window-accent-color: var(--ui-accent-color);
+  --window-header-title: var(--modal-selected-option-color);
+  --window-border-color: oklch( from var(--window-accent-color) calc(l - 0.15) 0.01 h / var(--frame-opacity) );
+  --window-border-color-focused: oklch( from var(--window-accent-color) calc(l - 0.2) 0.1 h / var(--frame-opacity) );
+  --window-color: oklch( from var(--window-accent-color) calc(l - 0.2) 0.01 h / var(--frame-opacity));
+  --window-color-focused:oklch( from var(--window-accent-color) calc(l) 0.2 h / var(--frame-opacity));
 }
 
 html[data-theme="light"] {
-  --uapc-accent-color: var(--ui-accent-color);
-  --uapc-border-color: oklch( from var(--uapc-accent-color) calc(l - 0.5) c h / var(--frame-opacity) );
+  --window-accent-color: var(--ui-accent-color);
+  --window-header-title: var(--modal-selected-option-color);
+  --window-border-color: oklch( from var(--window-accent-color) calc(l + 0.3) 0.01 h / var(--frame-opacity) );
+  --window-border-color-focused: oklch( from var(--window-accent-color) calc(l ) 0.1 h / var(--frame-opacity) );
+  --window-color:oklch( from var(--window-accent-color) calc(l + 0.3) 0.01 h / var(--frame-opacity));
+  --window-color-focused:oklch( from var(--window-accent-color) calc(l + 0.1) 0.2 h / var(--frame-opacity));
 }
+```
 
+
+### Main StyleSheet
+
+```space-style
+/* priority: 100 */
 
 /* =========================================================
    Floating Window
@@ -122,22 +139,22 @@ html[data-theme="light"] {
   box-sizing: border-box !important;
 
   padding: var(--frame-width);
-  border: var(--uapc-border) solid var(--uapc-border-color);
-  border-radius: calc(var(--uapc-border-radius) + var(--frame-width));
+  border: var(--window-border) solid var(--window-border-color);
+  border-radius: calc(var(--window-border-radius) + var(--frame-width));
 
-  background: oklch( from var(--uapc-accent-color) l 0.01 h / var(--frame-opacity));
+  background: var(--window-color);
 
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px #00000090;
+  box-shadow: 0 0 10px #00000055;
 
   touch-action: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sb-window-container.is-focused {
-  background: oklch( from var(--uapc-accent-color) l 0.15 h / var(--frame-opacity));
-  border-color: var(--uapc-border-color) !important;
-  box-shadow: 0 0 20px #000000b0;
+  background: var(--window-color-focused);
+  border-color: var(--window-border-color-focused) !important;
+  box-shadow: 0 0 20px #000000bb;
 }
 
 /* ---------------------------------------------------------
@@ -157,8 +174,8 @@ html[data-theme="light"] {
   cursor: grab !important;
   border-radius: 8px !important;
   flex-shrink: 0 !important;
-
   transition: background 0.2s ease;
+  color:var(--window-header-title);
 }
 
 .is-panel .sb-window-header::after {
@@ -219,7 +236,7 @@ html[data-theme="light"] {
   border-radius: 6px;
 
   background: oklch(
-    from var(--uapc-accent-color)
+    from var(--window-accent-color)
     l 0.02 h / 0.1
   );
 
@@ -228,10 +245,7 @@ html[data-theme="light"] {
 }
 
 .sb-window-container.is-focused .sb-window-close-btn {
-  background: oklch(
-    from var(--uapc-accent-color)
-    l c h / 0.5
-  );
+  background: oklch(from var(--window-accent-color) calc(l - 0.1) c h / 0.5 );
 }
 
 .sb-window-close-btn:hover,
@@ -255,12 +269,15 @@ html[data-theme="light"] {
   overflow: clip !important;
   box-sizing: border-box !important;
 
-  border: var(--uapc-border) solid var(--uapc-border-color) !important;
-  border-radius: var(--uapc-border-radius) !important;
+  border: var(--window-border) solid var(--window-border-color) !important;
+  border-radius: var(--window-border-radius) !important;
   
   background: var(--root-background-color, transparent) !important;
 }
 
+.is-focused .sb-window-content {
+  border-color: var(--window-border-color-focused) !important;
+}
 .sb-window-iframe {
   width: 100%;
   height: 100%;
@@ -323,12 +340,14 @@ html[data-theme="light"] {
   border: 1px solid var(--panel-border-color);
   background: oklch( from var(--top-background-color) l c h / var(--frame-opacity) );
   transition: --control-btn-size 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /*backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);*/
   
 }
 
-.sb-panel-controls-container:hover {--control-btn-size: var(--control-btn-size-hover);}
+.sb-panel-controls-container:hover {
+  --control-btn-size: var(--control-btn-size-hover);
+}
 
 .sb-panel-control-base {
   width: var(--control-btn-size);
@@ -459,9 +478,20 @@ html[data-theme="light"] {
   border-radius: 0 0 var(--btn-border-radius) var(--btn-border-radius);}
 
 
-.sb-panel.lhs.is-full .sb-panel-controls-container{ right: 5px; }
-.sb-panel.rhs.is-full .sb-panel-controls-container{ left: 5px; }
+.sb-panel.lhs.is-full .sb-panel-controls-container{ right: 15px; }
+.sb-panel.rhs.is-full .sb-panel-controls-container{ left: 15px; }
 
+
+.sb-panel.is-full .sb-panel-controls-container {
+    opacity: 50%;
+   box-shadow: 0 0 20px #00000088;
+   transition: all 0.3s ease;
+}
+
+.sb-panel.is-full .sb-panel-controls-container:hover {
+    opacity: 100%;
+    box-shadow: 0 0 20px #000000bb;
+}
 
 /* ---------------------------------------------------------
    Resize Handles
@@ -594,11 +624,9 @@ function initPanelControls()
 
   -- Store Retrieval
   local savedLHS = clientStore.get("lhsPanelWidth") or "300"
---  editor.flashNotification(savedLHS)
   local savedRHS = clientStore.get("rhsPanelWidth") or "300"
---  editor.flashNotification(savedRHS)
   local savedBHS = clientStore.get("bottomPanelHeight") or "200"
---  editor.flashNotification(savedBHS)
+
 
 -- Pass configuration and saved values to the module's initPanelControls function.
   local jsModule = js.import("/.fs/Library/Mr-xRed/UnifiedAdvancedPanelControl.js")
@@ -613,21 +641,18 @@ function initPanelControls()
       savedBHS = savedBHS
     })
   else
---    editor.flashNotification("Failed to initialize UnifiedFloating.js module")
+    editor.flashNotification("Failed to initialize UnifiedFloating.js module")
   end
 
   -- Register listeners that were previously wired in Lua (store saves and close)
   js.window.addEventListener("sb-save-lhs", function(e)
     clientStore.set("lhsPanelWidth", e.detail.value)
---    editor.flashNotification(e.detail.value)
   end)
   js.window.addEventListener("sb-save-rhs", function(e)
     clientStore.set("rhsPanelWidth", e.detail.value)
---    editor.flashNotification(e.detail.value)
   end)
   js.window.addEventListener("sb-save-bhs", function(e)
     clientStore.set("bottomPanelHeight", e.detail.value)
---    editor.flashNotification(e.detail.value)
   end)
   js.window.addEventListener("sb-close-panel", function(e)
     hideSilverBulletPanel(e.detail.type)
@@ -635,7 +660,6 @@ function initPanelControls()
   js.window.addEventListener('silverbullet:hidePanel', function(e)
     hideSilverBulletPanel(e.detail.type)
   end)
-  
   js.window.addEventListener("flashNotification", function(e)
     editor.flashNotification(e.detail.value)
   end)
