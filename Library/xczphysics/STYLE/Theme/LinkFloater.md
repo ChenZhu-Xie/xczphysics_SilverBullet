@@ -18,14 +18,6 @@ pageDecoration.prefix: "🔗 "
 This part queries the index and pushes data to the JS view.
 
 ```space-lua
--- 监听系统就绪和页面加载事件
--- event.listen {
---   name = 'system:ready',
---   run = function(e)
---     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
---   end
--- }
-
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
 -- 定义一个函数来获取反链并推送到前端
@@ -49,9 +41,6 @@ end
 event.listen {
   name = "editor:pageLoaded",
   run = function()
-    -- 延迟一点执行，确保 JS 环境已加载
-    -- 也可以重新 enable 确保 View 存在
-    -- js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
     pushBacklinks()
   end
 }
