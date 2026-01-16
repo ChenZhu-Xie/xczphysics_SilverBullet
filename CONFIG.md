@@ -220,6 +220,15 @@ actionButton.define {
   end
 }
 
+actionButton.define {
+  mobile = config.get('readOnly').mobileOnlyActionButton,
+  icon = editor.getUiOption("forcedROMode") and config.get('readOnly').enabledIcon or config.get('readOnly').disabledIcon,
+  description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
+  run = function()
+    editor.invokeCommand("Toggle Read-Only Mode")
+  end
+}
+
 ```
 
 #SB_itself

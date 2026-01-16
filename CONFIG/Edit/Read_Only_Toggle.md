@@ -11,14 +11,14 @@ config.set("readOnly", {
     disabledIcon = 'eye'
   })
 
-actionButton.define {
-  mobile = config.get('readOnly').mobileOnlyActionButton,
-  icon = editor.getUiOption("forcedROMode") and config.get('readOnly').enabledIcon or config.get('readOnly').disabledIcon,
-  description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
-  run = function()
-    editor.invokeCommand("Toggle Read-Only Mode")
-  end
-}
+-- actionButton.define {
+--   mobile = config.get('readOnly').mobileOnlyActionButton,
+--   icon = editor.getUiOption("forcedROMode") and config.get('readOnly').enabledIcon or config.get('readOnly').disabledIcon,
+--   description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
+--   run = function()
+--     editor.invokeCommand("Toggle Read-Only Mode")
+--   end
+-- }
 
 -- Read-only mode implementation
 function toggleReadOnlyMode()
