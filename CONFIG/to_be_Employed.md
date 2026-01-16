@@ -31,4 +31,3 @@
 # Fields related
 
 1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
-2. 
