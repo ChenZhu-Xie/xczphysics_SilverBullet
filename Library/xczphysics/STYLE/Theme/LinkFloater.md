@@ -14,8 +14,6 @@ pageDecoration.prefix: "🔗 "
 本插件可能会用到：JS 与 Lua 通信
 1. [task explorer](https://community.silverbullet.md/t/task-explorer/3747/2?u=chenzhu-xie) #community #silverbullet
 
-[[SB Basics]]
-
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.
 
@@ -25,8 +23,6 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
 -- 定义一个函数来获取反链并推送到前端
 local function pushBacklinks()
-    if not editor.isClient() then return end
-    
     local currentPage = editor.getCurrentPage()
     
     -- 查询反向链接
