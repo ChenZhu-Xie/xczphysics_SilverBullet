@@ -1,5 +1,37 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
 
+// 在文件顶部定义一个辅助函数
+async function navigateTo(pageRef) {
+  // 使用 syscall 而不是直接调用 client.navigate
+  if (window.syscall) {
+    await syscall("editor.navigate", pageRef);
+  } else if (window.client && typeof client.navigate === "function") {
+    // 备用方案
+    client.navigate(pageRef);
+  } else {
+    console.error("[LinkFloater] Navigation unavailable");
+  }
+}
+
+// 然后在 renderBacklinks 中使用：
+renderBacklinks(backlinks) {
+  // ... 省略容器创建代码 ...
+
+  backlinks.forEach(link => {
+    if (!link.page) return;
+    
+    col.appendChild(this.createButton(link.page, () => {
+      // 使用安全的导航函数
+      const target = link.pos !== undefined 
+        ? `${link.page}@${link.pos}` 
+        : link.page;
+      navigateTo(target);
+    }, "backlink"));
+  });
+
+  container.appendChild(col);
+}
+
 const STATE_KEY = "__LinkFloaterState";
 
 // ==========================================
@@ -195,7 +227,8 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-             client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
+            navigateTo(pageRef)
+             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
 
