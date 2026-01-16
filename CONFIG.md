@@ -72,14 +72,14 @@ config.set {
   -- users
   mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
   actionButtons = {
-    {
-      icon = "home",
-      description = "Go to the index page",
-      priority = 3,
-      run = function()
-        editor.invokeCommand "Navigate: Home"
-      end
-    },
+    -- {
+    --   icon = "home",
+    --   description = "Go to the index page",
+    --   priority = 3,
+    --   run = function()
+    --     editor.invokeCommand "Navigate: Home"
+    --   end
+    -- },
     {
       icon = 'book',
       description = 'Open Tree-Tree',
@@ -108,14 +108,14 @@ actionButton.define {
   end
 }
 
-actionButton.define {
-  -- Love for Silversearch
-  icon = 'search',
-  description = 'Search for words in space',
-  run = function()
-    editor.invokeCommand('Silversearch: Search')
-  end
-}
+-- actionButton.define {
+--   -- Love for Silversearch
+--   icon = 'search',
+--   description = 'Search for words in space',
+--   run = function()
+--     editor.invokeCommand('Silversearch: Search')
+--   end
+-- }
 
 actionButton.define {
   -- Global Search
@@ -146,23 +146,23 @@ actionButton.define {
   end
 }
 
-actionButton.define {
-  icon = 'trash',
-  description = 'Page: Delete', 
-  -- mobile =  true,
-  run = function()
-    editor.invokeCommand('Page: Delete')
-  end
-}
+-- actionButton.define {
+--   icon = 'trash',
+--   description = 'Page: Delete', 
+--   -- mobile =  true,
+--   run = function()
+--     editor.invokeCommand('Page: Delete')
+--   end
+-- }
 
-actionButton.define {
-  icon = 'delete',
-  description = 'Delete Line', 
-  -- mobile =  true,
-  run = function()
-    editor.invokeCommand('Delete Line')
-  end
-}
+-- actionButton.define {
+--   icon = 'delete',
+--   description = 'Delete Line', 
+--   -- mobile =  true,
+--   run = function()
+--     editor.invokeCommand('Delete Line')
+--   end
+-- }
 
 actionButton.define {
   icon = 'layout',
