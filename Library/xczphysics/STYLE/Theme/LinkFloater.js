@@ -7,7 +7,7 @@ async function navigateTo(pageRef) {
     await syscall("editor.navigate", pageRef);
   } else if (window.client && typeof client.navigate === "function") {
     // 备用方案
-    client.navigate(pageRef);
+    client.navigate(pageRef, true, false);
   } else {
     console.error("[LinkFloater] Navigation unavailable");
   }
@@ -208,7 +208,7 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-            navigateTo(pageRef)
+            navigateTo(link.ref)
              // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
