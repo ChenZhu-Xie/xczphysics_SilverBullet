@@ -20,24 +20,17 @@ This part queries the index and pushes data to the JS view.
 ```space-lua
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
--- 定义一个函数来获取反链并推送到前端
 local function pushBacklinks()
     local currentPage = editor.getCurrentPage()
     
-    -- 查询反向链接
-    -- 注意：这里使用 index.tag "link" 并筛选 toPage
     local results = query[[
       from index.tag "link"
       where _.toPage == currentPage and _.page != currentPage
       select { page=_.page, pos=_.pos }
     ]]
-    
-    -- 将结果传递给 JS
-    -- JS 模块导出了 updateBacklinks 函数
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
 end
 
--- 监听页面加载完成
 event.listen {
   name = "editor:pageLoaded",
   run = function()
@@ -45,7 +38,6 @@ event.listen {
   end
 }
 
--- 监听页面保存 (反链可能发生变化，虽然通常是其他页面保存影响本页，但刷新一下无妨)
 event.listen {
   name = "editor:pageSaved",
   run = function()
