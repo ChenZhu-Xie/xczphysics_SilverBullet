@@ -18,10 +18,6 @@
 1. https://community.silverbullet.md/t/icalendar-query-provider/1594/6
 2. https://github.com/xunleii/silverbullet-icalendar?tab=readme-ov-file
 
-# Floating Widget
-
-1. https://community.silverbullet.md/t/introducing-orbitcal-a-floating-calendar-widget-proof-of-concept/3442
-
 # AI stuff
 
 1. https://github.com/justyns/silverbullet-ai
@@ -32,4 +28,7 @@
 1. [config validation helper function](https://community.silverbullet.md/t/config-validation-helper-function/3558) #community #silverbullet
 2. [8efbc6b1ee8546b83c9e3fb365d62893](https://gist.github.com/inos-github/8efbc6b1ee8546b83c9e3fb365d62893#file-config_validator-md) #gist #github
 
+# Fields related
 
+1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
+2. 
