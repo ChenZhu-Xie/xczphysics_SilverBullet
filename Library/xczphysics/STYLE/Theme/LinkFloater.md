@@ -46,11 +46,13 @@ local function pushBacklinks()
     ]]
     
     -- 执行查询
-    local results = system.invokeFunction("index.query", Query, { page = currentPage })
+    -- local results = system.invokeFunction("index.query", Query, { page = currentPage })
     
     -- 将结果传递给 JS
     -- JS 模块导出了 updateBacklinks 函数
-    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
+    -- js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
+
+js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(Query)
 end
 
 -- 监听页面加载完成
