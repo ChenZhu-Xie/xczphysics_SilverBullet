@@ -1,4 +1,8 @@
 
+${query[[
+      from index.tag "link"
+      where _.toPage == editor.getCurrentPage() and _.page != editor.getCurrentPage()
+    ]]}
 # Hello 👋
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
