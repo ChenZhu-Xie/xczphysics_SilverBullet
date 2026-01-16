@@ -51,7 +51,7 @@ event.listen {
   run = function()
     -- 延迟一点执行，确保 JS 环境已加载
     -- 也可以重新 enable 确保 View 存在
-    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
+    -- js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
     pushBacklinks()
   end
 }
