@@ -172,21 +172,21 @@ actionButton.define {
   end
 }
 
-actionButton.define {
-  icon = "chevrons-up",
-  description = "Scroll: to Top",
-  run = function()
-    editor.invokeCommand("Scroll: to Top")
-  end
-}
+-- actionButton.define {
+--   icon = "chevrons-up",
+--   description = "Scroll: to Top",
+--   run = function()
+--     editor.invokeCommand("Scroll: to Top")
+--   end
+-- }
 
-actionButton.define {
-  icon = "chevrons-down",
-  description = "Scroll: to Bottom",
-  run = function()
-    editor.invokeCommand("Scroll: to Bottom")
-  end
-}
+-- actionButton.define {
+--   icon = "chevrons-down",
+--   description = "Scroll: to Bottom",
+--   run = function()
+--     editor.invokeCommand("Scroll: to Bottom")
+--   end
+-- }
 
 actionButton.define {
   icon = "file-plus",
