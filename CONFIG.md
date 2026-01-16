@@ -146,14 +146,14 @@ actionButton.define {
 --   end
 -- }
 
-actionButton.define {
-  icon = 'trash',
-  description = 'Page: Delete', 
-  -- mobile =  true,
-  run = function()
-    editor.invokeCommand('Page: Delete')
-  end
-}
+-- actionButton.define {
+--   icon = 'trash',
+--   description = 'Page: Delete', 
+--   -- mobile =  true,
+--   run = function()
+--     editor.invokeCommand('Page: Delete')
+--   end
+-- }
 
 -- actionButton.define {
 --   icon = 'delete',
