@@ -10,3 +10,8 @@
 # Full Page Name as Wiki Link
 
 - [issues](https://github.com/silverbulletmd/silverbullet/issues/1615) #github
+
+# against LLM
+
+- [LLM Use](https://silverbullet.md/LLM%20Use) #silverbullet
+  - [code of conduct](https://ziglang.org/code-of-conduct/) #ziglang
