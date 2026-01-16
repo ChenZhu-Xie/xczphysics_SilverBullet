@@ -16,13 +16,6 @@ pageDecoration.prefix: "🔗 "
 
 [[SB Basics]]
 
-${query[[
-      from index.tag "link"
-      where _.toPage == editor.getCurrentPage() and _.page != editor.getCurrentPage()
-      select { page=_.page, pos=_.pos }
-    ]]}
-
-
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.
 
