@@ -1,11 +1,11 @@
 ---
 basic level: kindergarden
 ---
-${system.invokeFunction("index.query", query[[
+${query[[
       from index.tag "link"
       where _.toPage == editor.getCurrentPage() and _.page != editor.getCurrentPage()
       select { page=_.page, pos=_.pos }
-    ]], { page = editor.getCurrentPage() })}
+    ]]}
 # Quickly Cover the basics of SilverBullet
   - This page focuses on the basic operations in SB
   - ← [this is](https://silverbullet.md/Markdown/Basics) also a [Silver Bullet](https://youtu.be/bb1USz_cEBY?t=285) ;) #Outline
