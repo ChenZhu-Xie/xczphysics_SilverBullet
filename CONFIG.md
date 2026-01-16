@@ -212,13 +212,13 @@ actionButton.define {
   end
 }
 
-actionButton.define {
-  icon = "folder",
-  description = "Toggle Document Explorer",
-  run = function()
-    editor.invokeCommand("Navigate: Toggle Document Explorer")
-  end
-}
+-- actionButton.define {
+--   icon = "folder",
+--   description = "Toggle Document Explorer",
+--   run = function()
+--     editor.invokeCommand("Navigate: Toggle Document Explorer")
+--   end
+-- }
 
 actionButton.define {
   mobile = config.get('readOnly').mobileOnlyActionButton,
@@ -226,6 +226,15 @@ actionButton.define {
   description = editor.getUiOption("forcedROMode") and "Enable edit mode" or "Enable read-only mode",
   run = function()
     editor.invokeCommand("Toggle Read-Only Mode")
+  end
+}
+
+
+actionButton.define {
+  icon = "clock",
+  description = "Click History: Page Picker",
+  run = function()
+    editor.invokeCommand("Click History: Page Picker")
   end
 }
 
