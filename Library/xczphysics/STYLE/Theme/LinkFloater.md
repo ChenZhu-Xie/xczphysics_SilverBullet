@@ -21,15 +21,7 @@ This part queries the index and pushes data to the JS view.
 
 ```space-lua
 -- 监听系统就绪和页面加载事件
-event.listen {
-  name = "system:ready",
-  run = function()
-    -- 只有在客户端模式下才加载 JS
-    if editor.isClient() then
-        js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
-    end
-  end
-}
+js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
 -- 定义一个函数来获取反链并推送到前端
 local function pushBacklinks()
