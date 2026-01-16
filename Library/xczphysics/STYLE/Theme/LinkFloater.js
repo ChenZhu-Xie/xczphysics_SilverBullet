@@ -13,25 +13,6 @@ async function navigateTo(pageRef) {
   }
 }
 
-// 然后在 renderBacklinks 中使用：
-renderBacklinks(backlinks) {
-  // ... 省略容器创建代码 ...
-
-  backlinks.forEach(link => {
-    if (!link.page) return;
-    
-    col.appendChild(this.createButton(link.page, () => {
-      // 使用安全的导航函数
-      const target = link.pos !== undefined 
-        ? `${link.page}@${link.pos}` 
-        : link.page;
-      navigateTo(target);
-    }, "backlink"));
-  });
-
-  container.appendChild(col);
-}
-
 const STATE_KEY = "__LinkFloaterState";
 
 // ==========================================
