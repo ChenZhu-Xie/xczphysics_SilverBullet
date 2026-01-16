@@ -19,6 +19,13 @@ This part queries the index and pushes data to the JS view.
 
 ```space-lua
 -- 监听系统就绪和页面加载事件
+-- event.listen {
+--   name = 'system:ready',
+--   run = function(e)
+--     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
+--   end
+-- }
+
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
 -- 定义一个函数来获取反链并推送到前端

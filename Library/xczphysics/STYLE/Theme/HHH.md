@@ -531,12 +531,14 @@ command.define {
 1. borrowed `event.listen` from [[CONFIG/Edit/Read_Only_Toggle]]
 
 ```space-lua
-event.listen {
-  name = 'system:ready',
-  run = function(e)
-    js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
-  end
-}
+-- event.listen {
+--   name = 'system:ready',
+--   run = function(e)
+--     js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
+--   end
+-- }
+
+js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
 ```
 
 ## CSS part
