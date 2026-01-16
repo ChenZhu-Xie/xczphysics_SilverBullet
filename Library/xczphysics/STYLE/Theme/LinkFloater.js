@@ -24,7 +24,7 @@ const Model = {
     const text = this.getText();
     const localLinks = [];
     const remoteLinks = [];
-    const currentName = window.client ? client.getCurrentPage() : "";
+    const currentName = window.client ? client.currentName() : "";
 
     // Regex 匹配 [[Page]] 或 [[Page|Alias]] 或 [[Page#Anchor]]
     // 捕获组 1: Page name (可能包含 #Anchor)
