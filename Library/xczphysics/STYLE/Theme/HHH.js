@@ -181,7 +181,7 @@ const View = {
     
     for (let i = 0; i < depth - 1; i++) {
       if (parentIsLast[i]) {
-        prefix += SPACE + SPACE; // 父级是最后一个，用空白
+        prefix += " " + SPACE; // 父级是最后一个，用空白
       } else {
         prefix += "│" + SPACE; // 父级不是最后一个，用竖线
       }
