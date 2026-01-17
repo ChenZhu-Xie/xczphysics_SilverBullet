@@ -34,11 +34,75 @@ pageDecoration.prefix: "🎇 "
 ```space-lua
 local jsCode = [[
 // Library/xczphysics/STYLE/Theme/HHH.js
-// HHH v12 - 分列 + 悬浮展开
-// 1. Feature: 超过半屏高度时自动分列
-// 2. Feature: 标题初始宽度限制，悬浮展开
+// HHH v13 - 修复缩进 + 删除小方格
 
-const STATE_KEY = "__xhHighlightState_v12";
+const STATE_KEY = "__xhHighlightState_v13";
+
+// ==========================================
+// 辅助函数
+// ==========================================
+
+/**
+ * 居中光标的辅助函数
+ * 尝试多种方式实现 "Navigate: Center Cursor" 效果
+ */
+async function centerCursor() {
+  // 给导航一点时间完成
+  await new Promise(resolve => setTimeout(resolve, 50));
+  
+  try {
+    // 方法1: 使用 silverbullet.syscall (如果在正确的上下文中)
+    if (globalThis.silverbullet && typeof globalThis.silverbullet.syscall === 'function') {
+      await globalThis.silverbullet.syscall("editor.invokeCommand", "Navigate: Center Cursor");
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] syscall method failed:", e);
+  }
+  
+  try {
+    // 方法2: 直接使用 editorView 滚动到光标位置
+    if (window.client && client.editorView) {
+      const view = client.editorView;
+      const cursorPos = view.state.selection.main.head;
+      
+      // 获取光标的屏幕坐标
+      const coords = view.coordsAtPos(cursorPos);
+      if (coords) {
+        const viewRect = view.dom.getBoundingClientRect();
+        const viewHeight = viewRect.height;
+        
+        // 计算目标滚动位置，使光标位于视图中心
+        const currentScrollTop = view.scrollDOM.scrollTop;
+        const cursorRelativeY = coords.top - viewRect.top + currentScrollTop;
+        const targetScrollTop = cursorRelativeY - viewHeight / 2;
+        
+        view.scrollDOM.scrollTo({ 
+          top: Math.max(0, targetScrollTop), 
+          behavior: 'instant' 
+        });
+      }
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] Direct scroll failed:", e);
+  }
+  
+  return false;
+}
+
+/**
+ * 封装的导航函数 - 导航后自动居中光标
+ * @param {Object} options - client.navigate 的参数
+ */
+function navigateAndCenter(options) {
+  if (!window.client) return;
+  
+  client.navigate(options);
+  
+  // 异步执行居中，不阻塞导航
+  setTimeout(() => centerCursor(), 150);
+}
 
 // ==========================================
 // 1. Model: 数据模型
@@ -66,7 +130,6 @@ const DataModel = {
     
     if (!text) return;
 
-    // 1. 预先扫描所有代码块的范围
     const codeBlockRanges = [];
     const codeBlockRegex = /```[\s\S]*?```/gm;
     let blockMatch;
@@ -77,7 +140,6 @@ const DataModel = {
       });
     }
 
-    // 2. 扫描标题
     const regex = /^(#{1,6})\s+([^\n]*)$/gm;
     let match;
 
@@ -191,9 +253,6 @@ const View = {
     return el;
   },
 
-  /**
-   * 将项目列表分成多列
-   */
   splitIntoColumns(items, itemHeight = 26) {
     const maxHeight = window.innerHeight * 0.45;
     const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
@@ -206,13 +265,62 @@ const View = {
   },
 
   /**
+   * 生成树状结构前缀
+   * @param {number} level - 当前标题层级
+   * @param {number} baseLevel - 基础层级
+   * @param {boolean} isLast - 是否是该层级最后一个
+   * @param {Array} parentIsLast - 父级是否为最后一个的数组
+   */
+  generateTreePrefix(level, baseLevel, isLast, parentIsLast = []) {
+    if (level <= baseLevel) return "";
+    
+    let prefix = "";
+    const depth = level - baseLevel;
+    
+    // 使用不间断空格确保宽度一致
+    const SPACE = "\u00A0\u00A0"; // 两个不间断空格
+    
+    for (let i = 0; i < depth - 1; i++) {
+      if (parentIsLast[i]) {
+        prefix += "\u00A0" + SPACE; // 父级是最后一个，用空白
+      } else {
+        prefix += "│" + SPACE; // 父级不是最后一个，用竖线
+      }
+    }
+    
+    // 最后一个连接符
+    prefix += isLast ? "└─" : "├─";
+    
+    return prefix;
+  },
+
+  /**
    * 创建可悬浮展开的标题项
    */
-  createHeadingItem(h, baseLevel = 1) {
+  createHeadingItem(h, baseLevel, isLast, parentIsLast, index, total) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "sb-frozen-item-wrapper";
+    wrapper.style.display = "flex";
+    wrapper.style.alignItems = "center";
+    wrapper.style.gap = "2px";
+    
+    // 树状前缀
+    const treePrefix = this.generateTreePrefix(h.level, baseLevel, isLast, parentIsLast);
+    if (treePrefix) {
+      const prefixSpan = document.createElement("span");
+      prefixSpan.className = "sb-frozen-tree-prefix";
+      prefixSpan.textContent = treePrefix;
+      prefixSpan.style.fontFamily = "monospace";
+      prefixSpan.style.fontSize = "10px";
+      prefixSpan.style.opacity = "0.5";
+      prefixSpan.style.whiteSpace = "pre"; // 保持空格
+      wrapper.appendChild(prefixSpan);
+    }
+    
+    // 标题按钮
     const div = document.createElement("div");
     div.className = `sb-frozen-item sb-frozen-l${h.level}`;
     
-    // 截断显示文本
     const maxLen = 20;
     const shortText = h.text.length > maxLen ? h.text.substring(0, maxLen) + "…" : h.text;
     const fullText = h.text;
@@ -222,27 +330,26 @@ const View = {
     div.dataset.fullText = fullText;
     div.dataset.shortText = shortText;
     
-    div.style.margin = "1px 0";
     div.style.cursor = "pointer";
+    div.style.position = "relative";
     
-    // 缩进
-    if (baseLevel > 0) {
-      const indent = (h.level - baseLevel) * 10;
-      if (indent > 0) {
-        div.style.marginLeft = `${indent}px`;
-      }
-    }
+    // 层级指示器（左下角小字）
+    const levelIndicator = document.createElement("span");
+    levelIndicator.className = "sb-frozen-level-indicator";
+    levelIndicator.textContent = `H${h.level}`;
+    div.appendChild(levelIndicator);
     
     // 悬浮展开
     div.addEventListener("mouseenter", () => {
       if (fullText !== shortText) {
-        div.textContent = fullText;
+        // 保留层级指示器
+        div.childNodes[0].textContent = fullText;
         div.classList.add("sb-frozen-expanded");
       }
     });
     
     div.addEventListener("mouseleave", () => {
-      div.textContent = shortText;
+      div.childNodes[0].textContent = shortText;
       div.classList.remove("sb-frozen-expanded");
     });
     
@@ -251,14 +358,49 @@ const View = {
       e.stopPropagation();
       if (window.client) {
         const pagePath = client.currentPath();
-        client.navigate({
+        navigateAndCenter({
           path: pagePath,
           details: { type: "header", header: h.text }
         });
       }
     };
     
-    return div;
+    wrapper.appendChild(div);
+    return wrapper;
+  },
+
+  /**
+   * 计算 parentIsLast 数组
+   */
+  computeParentIsLast(items, index, baseLevel) {
+    const currentLevel = items[index].level;
+    const result = [];
+    
+    for (let lvl = baseLevel + 1; lvl < currentLevel; lvl++) {
+      // 检查在这个层级，当前项之后是否还有同级或更高级的项
+      let isLastAtThisLevel = true;
+      for (let j = index + 1; j < items.length; j++) {
+        if (items[j].level <= lvl) {
+          isLastAtThisLevel = false;
+          break;
+        }
+      }
+      result.push(isLastAtThisLevel);
+    }
+    
+    return result;
+  },
+
+  /**
+   * 检查是否是同级中的最后一个
+   */
+  isLastSibling(items, index) {
+    const currentLevel = items[index].level;
+    for (let j = index + 1; j < items.length; j++) {
+      if (items[j].level === currentLevel) return false;
+      if (items[j].level < currentLevel) return true;
+    }
+    return true;
   },
 
   renderTopBar(targetIndex, container) {
@@ -286,8 +428,8 @@ const View = {
     el.style.gap = "8px";
     el.style.alignItems = "flex-start";
 
-    // 分列
     const columns = this.splitIntoColumns(list);
+    const baseLevel = 0; // ancestors 从 1 级开始
 
     columns.forEach((columnItems, colIndex) => {
       const col = document.createElement("div");
@@ -314,8 +456,11 @@ const View = {
         col.appendChild(spacer);
       }
 
-      columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, 1));
+      columnItems.forEach((h, idx) => {
+        const globalIdx = colIndex * Math.ceil(list.length / columns.length) + idx;
+        const isLast = this.isLastSibling(list, globalIdx);
+        const parentIsLast = this.computeParentIsLast(list, globalIdx, baseLevel);
+        col.appendChild(this.createHeadingItem(h, baseLevel, isLast, parentIsLast, idx, columnItems.length));
       });
 
       el.appendChild(col);
@@ -349,8 +494,6 @@ const View = {
     el.style.alignItems = "flex-end";
 
     const baseLevel = DataModel.headings[targetIndex]?.level || 1;
-
-    // 分列
     const columns = this.splitIntoColumns(list);
 
     columns.forEach((columnItems, colIndex) => {
@@ -378,8 +521,11 @@ const View = {
         col.appendChild(spacer);
       }
 
-      columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, baseLevel));
+      columnItems.forEach((h, idx) => {
+        const globalIdx = colIndex * Math.ceil(list.length / columns.length) + idx;
+        const isLast = this.isLastSibling(list, globalIdx);
+        const parentIsLast = this.computeParentIsLast(list, globalIdx, baseLevel);
+        col.appendChild(this.createHeadingItem(h, baseLevel, isLast, parentIsLast, idx, columnItems.length));
       });
 
       el.appendChild(col);
@@ -425,7 +571,7 @@ const View = {
 };
 
 // ==========================================
-// 3. Controller: 事件控制
+// 3. Controller
 // ==========================================
 
 export function enableHighlight(opts = {}) {
@@ -464,7 +610,6 @@ export function enableHighlight(opts = {}) {
 
     function onPointerOver(e) {
       if (!container.contains(e.target)) return;
-
       try {
         const pos = client.editorView.posAtCoords({x: e.clientX, y: e.clientY});
         if (pos != null) {
@@ -478,7 +623,6 @@ export function enableHighlight(opts = {}) {
 
     function onCursorActivity(e) {
       if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-      
       window[STATE_KEY].updateTimeout = setTimeout(() => {
         try {
           const state = client.editorView.state;
@@ -495,7 +639,6 @@ export function enableHighlight(opts = {}) {
         isScrolling = false;
         return;
       }
-      
       const viewportTopPos = client.editorView.viewport.from;
       const idx = DataModel.findHeadingIndexByPos(viewportTopPos + 50);
       updateState(idx);
@@ -541,7 +684,7 @@ export function enableHighlight(opts = {}) {
       DataModel.headings = [];
     };
 
-    console.log("[HHH] v12 Enabled");
+    console.log("[HHH] v13 Enabled");
   };
 
   bind();
