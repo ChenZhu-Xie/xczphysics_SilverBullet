@@ -52,9 +52,16 @@ end
 event.listen {
   name = "editor:pageLoaded",
   run = function()
-    -- 先清空再刷新，确保切换页面时正确更新
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
     pushBacklinks()
+    pushForwardlinks()
+  end
+}
+
+-- 页面修改时（更实时）
+event.listen {
+  name = "editor:pageModified",
+  run = function()
     pushForwardlinks()
   end
 }
@@ -64,7 +71,6 @@ event.listen {
   name = "editor:pageSaving",
   run = function()
     pushBacklinks()
-    pushForwardlinks()
   end
 }
 ```

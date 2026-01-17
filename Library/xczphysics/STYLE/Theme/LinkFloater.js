@@ -1,8 +1,5 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
-// LinkFloater v4 - 完整重构
-// 1. Column 2 使用 HHH.js 风格的实时解析
-// 2. Column 1 保持 Lua table 渲染
-// 3. 多列交替排列 (1212)
+// LinkFloater v4 - 简化的 Column 2 解析方案
 
 const STATE_KEY = "__LinkFloaterState_v4";
 
@@ -10,9 +7,6 @@ const STATE_KEY = "__LinkFloaterState_v4";
 // 辅助函数
 // ==========================================
 
-/**
- * 从完整路径提取页面名称（保留 @pos 和 #header）
- */
 function extractPageName(fullRef) {
   if (!fullRef) return "";
   
@@ -36,140 +30,85 @@ function extractPageName(fullRef) {
   return pageName + suffix;
 }
 
+function getFullText() {
+  try {
+    if (window.client && client.editorView && client.editorView.state) {
+      return client.editorView.state.sliceDoc();
+    }
+  } catch (e) { console.warn(e); }
+  return "";
+}
+
+/**
+ * 从指定位置提取 wiki link 内容
+ * 从 pos 位置开始，跳过 [[，然后捕获直到 ]] 的内容
+ * 返回链接内容（不含 [[ 和 ]]）
+ */
+function extractWikiLinkAtPos(text, pos) {
+  // 检查 pos 位置是否是 [[ 开头
+  if (text.substring(pos, pos + 2) !== '[[') {
+    // 可能 pos 已经在 [[ 之后，尝试往前找
+    const searchStart = Math.max(0, pos - 5);
+    const prefix = text.substring(searchStart, pos + 2);
+    const bracketPos = prefix.lastIndexOf('[[');
+    if (bracketPos === -1) return null;
+    pos = searchStart + bracketPos;
+  }
+  
+  // 现在 pos 应该指向 [[
+  const contentStart = pos + 2;
+  const endBracket = text.indexOf(']]', contentStart);
+  
+  if (endBracket === -1) return null;
+  
+  const content = text.substring(contentStart, endBracket);
+  
+  // 处理别名: [[target|alias]] -> 只取 target
+  const pipeIndex = content.indexOf('|');
+  const target = pipeIndex > 0 ? content.substring(0, pipeIndex) : content;
+  
+  return target.trim();
+}
+
+/**
+ * 解析链接目标字符串，返回解析后的对象
+ */
+function parseLinkTarget(target) {
+  if (!target) return null;
+  
+  let page = target;
+  let header = null;
+  let posNum = null;
+  
+  // 检查 @pos
+  const atIndex = target.lastIndexOf("@");
+  if (atIndex > 0) {
+    const possiblePos = target.substring(atIndex + 1);
+    if (/^\d+$/.test(possiblePos)) {
+      page = target.substring(0, atIndex);
+      posNum = parseInt(possiblePos);
+    }
+  }
+  
+  // 检查 #header（仅当没有 @pos 时）
+  if (posNum === null) {
+    const hashIndex = target.indexOf("#");
+    if (hashIndex >= 0) {
+      page = hashIndex === 0 ? "" : target.substring(0, hashIndex);
+      header = target.substring(hashIndex + 1);
+    }
+  }
+  
+  return { page, header, posNum, raw: target };
+}
+
 // ==========================================
-// Model - 照搬 HHH.js 的解析逻辑
+// Model
 // ==========================================
 
 const Model = {
   backlinks: [],
-  forwardLinks: [],      // 来自 Lua
-  parsedWikiLinks: [],   // 实时解析的 wiki links
-  lastText: null,
-
-  getFullText() {
-    try {
-      if (window.client && client.editorView && client.editorView.state) {
-        return client.editorView.state.sliceDoc();
-      }
-    } catch (e) { console.warn(e); }
-    return "";
-  },
-
-  getCurrentPage() {
-    try {
-      if (window.client) {
-        return client.currentPage() || client.currentName() || "";
-      }
-    } catch (e) {}
-    return "";
-  },
-
-  /**
-   * 重建 wiki links 列表 - 照搬 HHH.js 的代码块排除逻辑
-   */
-  rebuildWikiLinks() {
-    const text = this.getFullText();
-    if (text === this.lastText && this.parsedWikiLinks.length > 0) return;
-
-    this.lastText = text;
-    this.parsedWikiLinks = [];
-    
-    if (!text) return;
-
-    const currentPage = this.getCurrentPage();
-
-    // 1. 预先扫描所有代码块的范围，用于后续排除
-    const codeBlockRanges = [];
-    const codeBlockRegex = /```[\s\S]*?```/gm;
-    let blockMatch;
-    while ((blockMatch = codeBlockRegex.exec(text)) !== null) {
-      codeBlockRanges.push({
-        start: blockMatch.index,
-        end: blockMatch.index + blockMatch[0].length
-      });
-    }
-
-    // 2. 扫描 wiki links: [[...]] 或 [[...|...]]
-    const regex = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      const matchIndex = match.index;
-      
-      // 3. 检查当前匹配是否在代码块范围内
-      const isInsideCodeBlock = codeBlockRanges.some(range => 
-        matchIndex >= range.start && matchIndex < range.end
-      );
-
-      if (isInsideCodeBlock) continue;
-
-      const rawTarget = match[1].trim();
-      const alias = match[2] ? match[2].trim() : null;
-      
-      let page = rawTarget;
-      let header = "";
-      let posNum = null;
-      
-      // 解析 @pos
-      const atIndex = rawTarget.lastIndexOf("@");
-      if (atIndex > 0) {
-        const possiblePos = rawTarget.substring(atIndex + 1);
-        if (/^\d+$/.test(possiblePos)) {
-          page = rawTarget.substring(0, atIndex);
-          posNum = parseInt(possiblePos);
-        }
-      }
-      
-      // 解析 #header
-      if (posNum === null) {
-        const hashIndex = rawTarget.indexOf("#");
-        if (hashIndex >= 0) {
-          page = rawTarget.substring(0, hashIndex);
-          header = rawTarget.substring(hashIndex + 1);
-        }
-      }
-
-      // 排除指向当前页面且没有锚点的链接
-      if (page === currentPage && !header && posNum === null) continue;
-      // 排除空页面名（纯锚点 [[#Section]]）
-      if (!page && !header) continue;
-
-      this.parsedWikiLinks.push({
-        raw: rawTarget,
-        page: page || currentPage,
-        header: header,
-        posNum: posNum,
-        alias: alias,
-        textPos: matchIndex,
-        end: matchIndex + match[0].length,
-        fullMatch: match[0]
-      });
-    }
-  },
-
-  /**
-   * 获取去重后的外部链接（用于 Column 2）
-   */
-  getUniqueOutgoingLinks() {
-    this.rebuildWikiLinks();
-    const currentPage = this.getCurrentPage();
-    
-    // 过滤出真正的外链（目标页面不是当前页面，或有锚点）
-    const outgoing = this.parsedWikiLinks.filter(link => {
-      return link.page !== currentPage || link.header || link.posNum !== null;
-    });
-
-    // 按 raw 去重，保留第一个出现的
-    const seen = new Map();
-    outgoing.forEach(link => {
-      const key = link.raw;
-      if (!seen.has(key)) {
-        seen.set(key, link);
-      }
-    });
-
-    return Array.from(seen.values());
-  }
+  forwardLinks: []
 };
 
 // ==========================================
@@ -196,9 +135,6 @@ const View = {
     return el;
   },
 
-  /**
-   * 创建带悬浮展开效果的按钮
-   */
   createButton(displayText, fullText, onClick, type) {
     const btn = document.createElement("div");
     btn.className = `sb-floater-btn sb-floater-${type}`;
@@ -227,9 +163,6 @@ const View = {
     return btn;
   },
 
-  /**
-   * 将项目列表分成多列
-   */
   splitIntoColumns(items, itemHeight = 28) {
     const maxHeight = window.innerHeight * 0.45;
     const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
@@ -242,34 +175,40 @@ const View = {
   },
 
   /**
-   * 渲染右上角：前向链接
-   * Column 1: Links (来自 Lua) - 跳转到当前页面中链接的位置
-   * Column 2: Go (实时解析) - 跳转到目标页面
-   * 多列时交替排列: 1, 2, 1, 2...
+   * 渲染右上角：前向链接 (交替排列 Links 和 Go)
    */
-  renderForward() {
+  renderForward(forwardLinks) {
     const container = this.createContainer(this.topContainerId, false);
     container.innerHTML = "";
 
-    const forwardLinks = Model.forwardLinks || [];
-    const outgoingLinks = Model.getUniqueOutgoingLinks();
-
-    if (forwardLinks.length === 0 && outgoingLinks.length === 0) {
+    if (!forwardLinks || forwardLinks.length === 0) {
       container.style.display = "none";
       return;
     }
     container.style.display = "flex";
 
+    const text = getFullText();
+
+    // 为每个 forwardLink 提取完整的链接目标
+    const enrichedLinks = forwardLinks.map(link => {
+      const rawTarget = extractWikiLinkAtPos(text, link.pos);
+      const parsed = parseLinkTarget(rawTarget);
+      return {
+        ...link,
+        rawTarget: rawTarget,
+        parsed: parsed
+      };
+    });
+
     const wrapper = document.createElement("div");
     wrapper.className = "sb-floater-wrapper";
 
     // 分列
-    const linksColumns = this.splitIntoColumns(forwardLinks);
-    const goColumns = this.splitIntoColumns(outgoingLinks);
-    
+    const linksColumns = this.splitIntoColumns(enrichedLinks);
+    const goColumns = this.splitIntoColumns(enrichedLinks);
     const maxCols = Math.max(linksColumns.length, goColumns.length);
 
-    // 交替排列: Links[0], Go[0], Links[1], Go[1], ...
+    // 交替排列：Links[0], Go[0], Links[1], Go[1], ...
     for (let i = 0; i < maxCols; i++) {
       // Column 1 (Links) - 第 i 列
       if (i < linksColumns.length) {
@@ -278,7 +217,7 @@ const View = {
         
         const header = document.createElement("div");
         header.className = "sb-floater-header";
-        header.textContent = i === 0 ? "Links" : "·";
+        header.textContent = "Links";
         if (i > 0) header.style.opacity = "0.3";
         col.appendChild(header);
 
@@ -306,36 +245,38 @@ const View = {
         
         const header = document.createElement("div");
         header.className = "sb-floater-header";
-        header.textContent = i === 0 ? "Go" : "·";
+        header.textContent = "Go";
         if (i > 0) header.style.opacity = "0.3";
         col.appendChild(header);
 
         goColumns[i].forEach(link => {
-          // 构建完整的目标显示
-          let targetDisplay = link.page;
-          if (link.header) {
-            targetDisplay = `${link.page}#${link.header}`;
-          } else if (link.posNum !== null) {
-            targetDisplay = `${link.page}@${link.posNum}`;
-          }
+          const parsed = link.parsed;
+          let targetDisplay = link.rawTarget || link.toPage;
           
-          col.appendChild(this.createButton("→", targetDisplay, () => {
+          const navigateAction = () => {
             if (!window.client) return;
             
-            if (link.posNum !== null) {
-              client.navigate({
-                path: `${link.page}.md`,
-                details: { type: "position", pos: link.posNum }
-              });
-            } else if (link.header) {
-              client.navigate({
-                path: `${link.page}.md`,
-                details: { type: "header", header: link.header }
-              });
+            if (parsed) {
+              if (parsed.posNum !== null) {
+                client.navigate({
+                  path: `${parsed.page}.md`,
+                  details: { type: "position", pos: parsed.posNum }
+                });
+              } else if (parsed.header) {
+                const targetPage = parsed.page || client.currentPage();
+                client.navigate({
+                  path: `${targetPage}.md`,
+                  details: { type: "header", header: parsed.header }
+                });
+              } else if (parsed.page) {
+                client.navigate({ path: `${parsed.page}.md` });
+              }
             } else {
-              client.navigate({ path: `${link.page}.md` });
+              client.navigate({ path: `${link.toPage}.md` });
             }
-          }, "remote"));
+          };
+          
+          col.appendChild(this.createButton("→", targetDisplay, navigateAction, "remote"));
         });
         wrapper.appendChild(col);
       }
@@ -344,16 +285,11 @@ const View = {
     container.appendChild(wrapper);
   },
 
-  /**
-   * 渲染右下角：反向链接
-   */
-  renderBacklinks() {
+  renderBacklinks(backlinks) {
     const container = this.createContainer(this.bottomContainerId, true);
     container.innerHTML = "";
 
-    const backlinks = Model.backlinks || [];
-
-    if (backlinks.length === 0) {
+    if (!backlinks || backlinks.length === 0) {
       container.style.display = "none";
       return;
     }
@@ -370,7 +306,7 @@ const View = {
 
       const header = document.createElement("div");
       header.className = "sb-floater-header";
-      header.textContent = colIndex === 0 ? "Backlinks" : "·";
+      header.textContent = "Backlinks";
       if (colIndex > 0) header.style.opacity = "0.3";
       col.appendChild(header);
 
@@ -409,72 +345,31 @@ const View = {
 };
 
 // ==========================================
-// Controller - 照搬 HHH.js 的事件监听逻辑
+// Controller
 // ==========================================
 
-/** 供 Lua 调用：更新反向链接数据 */
 export function updateBacklinks(data) {
   Model.backlinks = data || [];
-  View.renderBacklinks();
+  View.renderBacklinks(Model.backlinks);
 }
 
-/** 供 Lua 调用：更新前向链接数据 (Column 1) */
 export function updateForwardlinks(data) {
   Model.forwardLinks = data || [];
-  // 同时触发完整渲染（包括 Column 2 的实时解析）
-  View.renderForward();
+  View.renderForward(Model.forwardLinks);
 }
 
-/** 清空并重新渲染 */
 export function refresh() {
-  Model.lastText = null;
-  Model.parsedWikiLinks = [];
   View.clearAll();
-  View.renderForward();
-  View.renderBacklinks();
 }
 
 export function enable() {
   if (window[STATE_KEY]) return;
-  
-  window[STATE_KEY] = {
-    updateTimeout: null,
-    cleanup: null
-  };
-
-  // 实时更新 Column 2（照搬 HHH.js 的事件监听逻辑）
-  function refreshColumn2() {
-    Model.lastText = null; // 强制重新解析
-    View.renderForward();
-  }
-
-  function onActivity() {
-    if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-    window[STATE_KEY].updateTimeout = setTimeout(refreshColumn2, 300);
-  }
-
-  // 初始渲染
-  setTimeout(() => {
-    View.renderForward();
-    View.renderBacklinks();
-  }, 500);
-
-  // 绑定事件
-  document.addEventListener("keyup", onActivity);
-  document.addEventListener("click", onActivity);
-
-  window[STATE_KEY].cleanup = () => {
-    document.removeEventListener("keyup", onActivity);
-    document.removeEventListener("click", onActivity);
-    if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-  };
-
+  window[STATE_KEY] = {};
   console.log("[LinkFloater] v4 Enabled");
 }
 
 export function disable() {
   if (window[STATE_KEY]) {
-    if (window[STATE_KEY].cleanup) window[STATE_KEY].cleanup();
     View.clearAll();
     const top = document.getElementById(View.topContainerId);
     if (top) top.remove();

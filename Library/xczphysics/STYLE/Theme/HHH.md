@@ -798,6 +798,33 @@ html[data-theme="dark"] .sb-floater-btn:hover {
   opacity: 0.7;
 }
 
+/* HHH 层级指示器 */
+.sb-frozen-level-indicator {
+  position: absolute;
+  left: 2px;
+  bottom: 0px;
+  font-size: 8px;
+  opacity: 0.4;
+  font-family: monospace;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.sb-frozen-item:hover .sb-frozen-level-indicator,
+.sb-frozen-item.sb-frozen-expanded .sb-frozen-level-indicator {
+  opacity: 0.8;
+}
+
+/* 树状结构前缀 */
+.sb-frozen-tree-prefix {
+  color: var(--secondary-text-color, #888);
+  user-select: none;
+}
+
+.sb-frozen-item-wrapper:hover .sb-frozen-tree-prefix {
+  opacity: 0.8;
+}
+
 /* 层级标识颜色反转 */
 html[data-theme="dark"] .sb-frozen-level {
   color: #1a1a1a;
