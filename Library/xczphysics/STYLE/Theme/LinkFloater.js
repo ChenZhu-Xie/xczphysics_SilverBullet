@@ -223,7 +223,7 @@ const View = {
                   details: { type: "position", pos: link.pos }  
               });
             // if (typeof syscall === "function") syscall("editor.navigate", link.ref, false, false)
-            navigateTo("CONFIG")
+            // navigateTo("CONFIG")
             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
