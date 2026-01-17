@@ -1,7 +1,7 @@
 
 ${query[[
       from index.tag "link"
-      where _.page == editor.getCurrentPage()
+      where _.page == editor.getCurrentPage() and not _.toFile
       select { ref=_.ref, toPage=_.toPage, pos=_.pos }
       order by _.pos
     ]]}
