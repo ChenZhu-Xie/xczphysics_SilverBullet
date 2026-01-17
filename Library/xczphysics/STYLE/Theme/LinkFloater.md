@@ -17,10 +17,23 @@ pageDecoration.prefix: "🔗 "
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.i
 
+
+
 ```space-lua
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
 
 local function pushBacklinks()
+    local currentPage = editor.getCurrentPage()
+    
+    local results = query[[
+      from index.tag "link"
+      where _.toPage == currentPage and _.page != currentPage
+      select { ref=_.ref, page=_.page, pos=_.pos }
+    ]]
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
+end
+
+local function pushForwardlinks()
     local currentPage = editor.getCurrentPage()
     
     local results = query[[

@@ -169,6 +169,10 @@ const View = {
         localLinks.forEach(link => {
             const label = link.anchor;
             col1.appendChild(this.createButton(label, () => {
+                client.navigate({  
+                    path: `${link.page}.md`,
+                    details: { type: "position", pos: link.pos }  
+                });
                 // 跳转到锚点
                  client.navigate({
                     page: link.page,
