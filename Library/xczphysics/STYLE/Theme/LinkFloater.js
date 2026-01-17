@@ -208,8 +208,9 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-            navigateTo("CONFIG")
-             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
+            syscall("editor.navigate", link.ref, false, false)
+            // navigateTo("CONFIG")
+            // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
 
