@@ -1,12 +1,29 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
-// LinkFloater v4 - 简化的 Column 2 解析方案
+// LinkFloater v5 - 修复 [[#header]] 解析问题
 
-const STATE_KEY = "__LinkFloaterState_v4";
+const STATE_KEY = "__LinkFloaterState_v5";
 
 // ==========================================
 // 辅助函数
 // ==========================================
 
+/**
+ * 获取当前页面名称（不含 .md 后缀）
+ */
+function getCurrentPageName() {
+  try {
+    if (window.client) {
+      // 优先使用 currentPage()，其次 currentName()
+      const page = client.currentPage?.() || client.currentName?.() || "";
+      return page.replace(/\.md$/, "");
+    }
+  } catch (e) { console.warn(e); }
+  return "";
+}
+
+/**
+ * 从完整路径提取页面名称（保留 @pos 和 #header）
+ */
 function extractPageName(fullRef) {
   if (!fullRef) return "";
   
@@ -30,6 +47,9 @@ function extractPageName(fullRef) {
   return pageName + suffix;
 }
 
+/**
+ * 获取编辑器全文
+ */
 function getFullText() {
   try {
     if (window.client && client.editorView && client.editorView.state) {
@@ -72,13 +92,25 @@ function extractWikiLinkAtPos(text, pos) {
 
 /**
  * 解析链接目标字符串，返回解析后的对象
+ * ★ v5 修复：当 page 为空但有 header 时，补全为当前页面
  */
 function parseLinkTarget(target) {
   if (!target) return null;
   
+  const currentPage = getCurrentPageName();
+  
   let page = target;
   let header = null;
   let posNum = null;
+  let isLocalAnchor = false;
+  
+  // ★ 关键修复：检测是否为纯锚点链接 [[#...]]
+  if (target.startsWith("#")) {
+    isLocalAnchor = true;
+    page = currentPage;
+    header = target.substring(1);
+    return { page, header, posNum, raw: target, isLocalAnchor };
+  }
   
   // 检查 @pos
   const atIndex = target.lastIndexOf("@");
@@ -94,12 +126,43 @@ function parseLinkTarget(target) {
   if (posNum === null) {
     const hashIndex = target.indexOf("#");
     if (hashIndex >= 0) {
-      page = hashIndex === 0 ? "" : target.substring(0, hashIndex);
+      // hashIndex === 0 的情况已在上面处理，这里是 page#header 格式
+      page = hashIndex === 0 ? currentPage : target.substring(0, hashIndex);
       header = target.substring(hashIndex + 1);
+      if (hashIndex === 0) isLocalAnchor = true;
     }
   }
   
-  return { page, header, posNum, raw: target };
+  // 再次确保 page 不为空
+  if (!page && header) {
+    page = currentPage;
+    isLocalAnchor = true;
+  }
+  
+  return { page, header, posNum, raw: target, isLocalAnchor };
+}
+
+/**
+ * ★ v5 新增：补全显示用的页面名称
+ * 处理 toPage 为空或以 # 开头的情况
+ */
+function normalizeDisplayPage(toPage, ref) {
+  const currentPage = getCurrentPageName();
+  
+  if (!toPage || toPage === "") {
+    // toPage 为空，检查 ref
+    if (ref && ref.startsWith("#")) {
+      return currentPage + ref;
+    }
+    return currentPage;
+  }
+  
+  if (toPage.startsWith("#")) {
+    // toPage 是纯锚点，补全当前页面
+    return currentPage + toPage;
+  }
+  
+  return toPage;
 }
 
 // ==========================================
@@ -135,6 +198,9 @@ const View = {
     return el;
   },
 
+  /**
+   * 创建带悬浮展开效果的按钮
+   */
   createButton(displayText, fullText, onClick, type) {
     const btn = document.createElement("div");
     btn.className = `sb-floater-btn sb-floater-${type}`;
@@ -163,6 +229,9 @@ const View = {
     return btn;
   },
 
+  /**
+   * 将项目列表分成多列（当超过半屏高度时）
+   */
   splitIntoColumns(items, itemHeight = 28) {
     const maxHeight = window.innerHeight * 0.45;
     const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
@@ -176,6 +245,7 @@ const View = {
 
   /**
    * 渲染右上角：前向链接 (交替排列 Links 和 Go)
+   * ★ v5 修复：正确处理 [[#header]] 格式
    */
   renderForward(forwardLinks) {
     const container = this.createContainer(this.topContainerId, false);
@@ -188,15 +258,21 @@ const View = {
     container.style.display = "flex";
 
     const text = getFullText();
+    const currentPage = getCurrentPageName();
 
     // 为每个 forwardLink 提取完整的链接目标
     const enrichedLinks = forwardLinks.map(link => {
       const rawTarget = extractWikiLinkAtPos(text, link.pos);
       const parsed = parseLinkTarget(rawTarget);
+      
+      // ★ v5 修复：补全 displayPage
+      const displayPage = normalizeDisplayPage(link.toPage, link.ref);
+      
       return {
         ...link,
         rawTarget: rawTarget,
-        parsed: parsed
+        parsed: parsed,
+        displayPage: displayPage  // 用于 Column 1 显示
       };
     });
 
@@ -210,7 +286,7 @@ const View = {
 
     // 交替排列：Links[0], Go[0], Links[1], Go[1], ...
     for (let i = 0; i < maxCols; i++) {
-      // Column 1 (Links) - 第 i 列
+      // ========== Column 1 (Links) - 第 i 列 ==========
       if (i < linksColumns.length) {
         const col = document.createElement("div");
         col.className = "sb-floater-col";
@@ -222,14 +298,15 @@ const View = {
         col.appendChild(header);
 
         linksColumns[i].forEach(link => {
-          const shortName = extractPageName(link.toPage);
+          // ★ v5 修复：使用补全后的 displayPage
+          const shortName = extractPageName(link.displayPage);
           const fullName = link.ref;
           
           col.appendChild(this.createButton(shortName, fullName, () => {
             if (window.client) {
-              const currentPage = client.currentPath();
+              const currentPath = client.currentPath();
               client.navigate({
-                path: currentPage,
+                path: currentPath,
                 details: { type: "position", pos: link.pos }
               });
             }
@@ -238,7 +315,7 @@ const View = {
         wrapper.appendChild(col);
       }
 
-      // Column 2 (Go) - 第 i 列
+      // ========== Column 2 (Go) - 第 i 列 ==========
       if (i < goColumns.length) {
         const col = document.createElement("div");
         col.className = "sb-floater-col";
@@ -251,28 +328,37 @@ const View = {
 
         goColumns[i].forEach(link => {
           const parsed = link.parsed;
-          let targetDisplay = link.rawTarget || link.toPage;
+          
+          // ★ v5 修复：构建完整的目标显示（已补全 currentPage）
+          let targetDisplay = link.rawTarget || link.displayPage;
+          if (parsed && parsed.isLocalAnchor) {
+            // 纯锚点链接，显示为 currentPage#header
+            targetDisplay = `${parsed.page}#${parsed.header}`;
+          }
           
           const navigateAction = () => {
             if (!window.client) return;
             
             if (parsed) {
               if (parsed.posNum !== null) {
+                // 有具体位置 @pos
                 client.navigate({
                   path: `${parsed.page}.md`,
                   details: { type: "position", pos: parsed.posNum }
                 });
               } else if (parsed.header) {
-                const targetPage = parsed.page || client.currentPage();
+                // 有标题 #header（page 已在 parseLinkTarget 中补全）
                 client.navigate({
-                  path: `${targetPage}.md`,
+                  path: `${parsed.page}.md`,
                   details: { type: "header", header: parsed.header }
                 });
               } else if (parsed.page) {
+                // 纯页面
                 client.navigate({ path: `${parsed.page}.md` });
               }
             } else {
-              client.navigate({ path: `${link.toPage}.md` });
+              // 回退：使用 displayPage
+              client.navigate({ path: `${link.displayPage}.md` });
             }
           };
           
@@ -285,6 +371,9 @@ const View = {
     container.appendChild(wrapper);
   },
 
+  /**
+   * 渲染右下角：反向链接
+   */
   renderBacklinks(backlinks) {
     const container = this.createContainer(this.bottomContainerId, true);
     container.innerHTML = "";
@@ -345,19 +434,22 @@ const View = {
 };
 
 // ==========================================
-// Controller
+// Controller - 导出接口
 // ==========================================
 
+/** 供 Lua 调用：更新反向链接数据 */
 export function updateBacklinks(data) {
   Model.backlinks = data || [];
   View.renderBacklinks(Model.backlinks);
 }
 
+/** 供 Lua 调用：更新前向链接数据 */
 export function updateForwardlinks(data) {
   Model.forwardLinks = data || [];
   View.renderForward(Model.forwardLinks);
 }
 
+/** 清空并重新渲染 */
 export function refresh() {
   View.clearAll();
 }
@@ -365,7 +457,7 @@ export function refresh() {
 export function enable() {
   if (window[STATE_KEY]) return;
   window[STATE_KEY] = {};
-  console.log("[LinkFloater] v4 Enabled");
+  console.log("[LinkFloater] v5 Enabled");
 }
 
 export function disable() {
