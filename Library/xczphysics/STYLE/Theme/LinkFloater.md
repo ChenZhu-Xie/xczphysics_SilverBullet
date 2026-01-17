@@ -50,7 +50,8 @@ end
 
 -- 页面加载时
 event.listen {
-  name = "editor:pageLoaded",
+  name = "system:ready", -- 
+  -- name = "editor:pageLoaded",
   run = function()
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
     pushBacklinks()
