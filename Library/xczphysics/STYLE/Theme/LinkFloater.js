@@ -1,108 +1,49 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
-
-// 在文件顶部定义一个辅助函数
-// async function navigateTo(pageRef) {
-//   // 使用 syscall 而不是直接调用 client.navigate
-//   if (window.syscall) {
-//     await syscall("editor.navigate", pageRef);
-//   } else if (window.client && typeof client.navigate === "function") {
-//     // 备用方案
-//     client.navigate(pageRef, true, false);
-//   } else {
-//     console.error("[LinkFloater] Navigation unavailable");
-//   }
-// }
-
-// 在文件顶部定义辅助函数
-async function navigateTo(pageRef) {
-  if (window.syscall) {
-    await syscall("editor.navigate", pageRef, false, false);
-  } else if (window.client && window.client.navigate) {
-    window.client.navigate(pageRef);
-  } else {
-    console.error("[LinkFloater] Navigation unavailable");
-  };
-}
-
-// async function navigateTo(pageRef) {
-//   // 检查 syscall 是否可用（与另一个插件的写法一致）
-//   if (typeof syscall === "function") {
-//     await syscall("editor.navigate", pageRef, false, false);
-//   } else {
-//     console.error("[LinkFloater] syscall unavailable");
-//   }
-// }
+// LinkFloater v2 - Lua 双向通信 + 悬浮展开 + 样式优化
 
 const STATE_KEY = "__LinkFloaterState";
+
+// ==========================================
+// 辅助函数
+// ==========================================
+
+/**
+ * 从完整路径提取页面名称（保留 @pos 和 #header）
+ * 例如: "folder/subfolder/PageName@123" → "PageName@123"
+ *       "folder/PageName#Section" → "PageName#Section"
+ */
+function extractPageName(fullRef) {
+  if (!fullRef) return "";
+  
+  let suffix = "";
+  let basePath = fullRef;
+  
+  // 分离后缀（@pos 或 #header）
+  const atIndex = fullRef.lastIndexOf("@");
+  const hashIndex = fullRef.lastIndexOf("#");
+  
+  if (atIndex > 0) {
+    suffix = fullRef.substring(atIndex);
+    basePath = fullRef.substring(0, atIndex);
+  } else if (hashIndex > 0) {
+    suffix = fullRef.substring(hashIndex);
+    basePath = fullRef.substring(0, hashIndex);
+  }
+  
+  // 提取最后一部分作为页面名
+  const parts = basePath.split("/");
+  const pageName = parts[parts.length - 1] || basePath;
+  
+  return pageName + suffix;
+}
 
 // ==========================================
 // 1. Model & Logic
 // ==========================================
 
 const Model = {
-  // 缓存反向链接数据
   backlinks: [],
-
-  // 获取当前编辑器文本
-  getText() {
-    if (window.client && client.editorView && client.editorView.state) {
-      return client.editorView.state.sliceDoc();
-    }
-    return "";
-  },
-
-  // 解析前向链接 (Forward Links)
-  // 返回对象: { localLinks: [], remoteLinks: [] }
-  parseForwardLinks() {
-    const text = this.getText();
-    const localLinks = [];
-    const remoteLinks = [];
-    const currentName = window.client ? client.currentName() : "";
-
-    // Regex 匹配 [[Page]] 或 [[Page|Alias]] 或 [[Page#Anchor]]
-    // 捕获组 1: Page name (可能包含 #Anchor)
-    const regex = /$$\[([^$$\|]+)(?:\|[^\]]+)?\]\]/g;
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      const rawLink = match[1];
-      let page = rawLink;
-      let anchor = "";
-
-      // 分离 Page 和 Anchor
-      if (rawLink.includes("#")) {
-        const parts = rawLink.split("#");
-        page = parts[0];
-        anchor = parts.slice(1).join("#");
-      }
-
-      // 判断是否为页内链接 (Local)
-      // 1. 显式指向当前页面: [[CurrentPage#Section]]
-      // 2. 纯锚点: [[#Section]] (page 为空)
-      const isLocal = (page === "" || page === currentName) && anchor !== "";
-
-      const linkObj = {
-        full: rawLink,
-        page: page || currentName,
-        anchor: anchor,
-        pos: match.index // 记录链接在文本中的位置，可用于高亮或定位
-      };
-
-      if (isLocal) {
-        localLinks.push(linkObj);
-      } else {
-        // 排除指向当前页但没有锚点的链接（通常是无效引用，或者是自引用）
-        if (page !== currentName) {
-            remoteLinks.push(linkObj);
-        }
-      }
-    }
-
-    // 去重 (可选，这里简单根据 full 字段去重)
-    const uniqueRemote = [...new Map(remoteLinks.map(item => [item.page, item])).values()];
-
-    return { localLinks, remoteLinks: uniqueRemote };
-  }
+  forwardLinks: []
 };
 
 // ==========================================
@@ -122,95 +63,153 @@ const View = {
       if (isBottom) {
         el.style.bottom = "20px";
       } else {
-        el.style.top = "60px"; // 避开顶部栏
+        el.style.top = "60px";
       }
       document.body.appendChild(el);
     }
     return el;
   },
 
-  createButton(text, onClick, type) {
+  /**
+   * 创建带悬浮展开效果的按钮
+   * @param {string} displayText - 默认显示的短文本
+   * @param {string} fullText - 悬浮时显示的完整文本
+   * @param {Function} onClick - 点击回调
+   * @param {string} type - 按钮类型 (local/remote/backlink)
+   */
+  createButton(displayText, fullText, onClick, type) {
     const btn = document.createElement("div");
     btn.className = `sb-floater-btn sb-floater-${type}`;
-    btn.textContent = text;
+    btn.textContent = displayText;
+    btn.title = fullText; // tooltip
+    btn.dataset.fullText = fullText;
+    btn.dataset.shortText = displayText;
+    
+    // 鼠标悬浮时展开显示完整内容
+    btn.addEventListener("mouseenter", () => {
+      if (fullText !== displayText) {
+        btn.textContent = fullText;
+        btn.style.maxWidth = "none";
+      }
+    });
+    
+    btn.addEventListener("mouseleave", () => {
+      btn.textContent = displayText;
+      btn.style.maxWidth = "";
+    });
+    
     btn.onclick = (e) => {
       e.stopPropagation();
       onClick();
     };
+    
     return btn;
   },
 
-  // 渲染右上角：前向链接 (2列)
-  renderForward(localLinks, remoteLinks) {
+  /**
+   * 渲染右上角：前向链接 (2列)
+   * Column 1: 链接名称 → 点击跳转到当前页面中该链接的位置
+   * Column 2: → → 点击跳转到目标页面
+   */
+  renderForward(forwardLinks) {
     const container = this.createContainer(this.topContainerId, false);
     container.innerHTML = "";
 
-    if (localLinks.length === 0 && remoteLinks.length === 0) {
+    if (!forwardLinks || forwardLinks.length === 0) {
       container.style.display = "none";
       return;
     }
     container.style.display = "flex";
 
-    // 创建两列布局
     const wrapper = document.createElement("div");
     wrapper.style.display = "flex";
     wrapper.style.gap = "8px";
 
-    // Column 1: Local / Anchors
-    if (localLinks.length > 0) {
-        const col1 = document.createElement("div");
-        col1.className = "sb-floater-col";
-        // Header
-        const header = document.createElement("div");
-        header.className = "sb-floater-header";
-        header.textContent = "Anchors";
-        col1.appendChild(header);
+    // ========== Column 1: 链接引用（当前页面位置） ==========
+    const col1 = document.createElement("div");
+    col1.className = "sb-floater-col";
+    
+    const header1 = document.createElement("div");
+    header1.className = "sb-floater-header";
+    header1.textContent = "Links";
+    col1.appendChild(header1);
 
-        localLinks.forEach(link => {
-            const label = link.anchor;
-            col1.appendChild(this.createButton(label, () => {
-                client.navigate({  
-                    path: `${link.page}.md`,
-                    details: { type: "position", pos: link.pos }  
-                });
-                // 跳转到锚点
-                 client.navigate({
-                    page: link.page,
-                    pos: link.anchor // SB 支持通过 pos 传锚点字符串? 或者 url hash
-                 });
-                 // 备用方案：如果 client.navigate 不支持直接传 anchor 字符串作为 pos
-                 // 可以构造 path: "Page#Anchor"
-                 // 实际上 SB navigate 接受 { page, pos }，pos 如果是数字是光标位置。
-                 // 对于锚点，通常需要解析 URL。
-                 // 这里尝试直接 navigate 到 path
-                 client.navigate({ path: link.page + "#" + link.anchor });
-            }, "local"));
+    forwardLinks.forEach(link => {
+      // link 来自 Lua: { ref, toPage, pos }
+      const shortName = extractPageName(link.toPage);
+      const fullName = link.ref;
+      
+      col1.appendChild(this.createButton(shortName, fullName, () => {
+        // 跳转到当前页面中该链接的位置
+        if (window.client) {
+          const currentPage = client.currentPath();
+          client.navigate({
+            path: currentPage,
+            details: { type: "position", pos: link.pos }
+          });
+        }
+      }, "local"));
+    });
+    wrapper.appendChild(col1);
+
+    // ========== Column 2: → 按钮（目标页面） ==========
+    const col2 = document.createElement("div");
+    col2.className = "sb-floater-col";
+    
+    const header2 = document.createElement("div");
+    header2.className = "sb-floater-header";
+    header2.textContent = "Go";
+    col2.appendChild(header2);
+
+    forwardLinks.forEach(link => {
+      const targetRef = link.toPage || link.ref;
+      
+      col2.appendChild(this.createButton("→", targetRef, () => {
+        if (!window.client) return;
+        
+        // 解析目标：可能是 page@pos 或 page#header 或纯 page
+        const ref = targetRef;
+        
+        // 检查是否包含 @pos
+        const atIndex = ref.lastIndexOf("@");
+        if (atIndex > 0) {
+          const page = ref.substring(0, atIndex);
+          const pos = parseInt(ref.substring(atIndex + 1));
+          if (!isNaN(pos)) {
+            client.navigate({
+              path: `${page}.md`,
+              details: { type: "position", pos: pos }
+            });
+            return;
+          }
+        }
+        
+        // 检查是否包含 #header
+        const hashIndex = ref.lastIndexOf("#");
+        if (hashIndex > 0) {
+          const page = ref.substring(0, hashIndex);
+          const header = ref.substring(hashIndex + 1);
+          client.navigate({
+            path: `${page}.md`,
+            details: { type: "header", header: header }
+          });
+          return;
+        }
+        
+        // 纯页面跳转
+        client.navigate({
+          path: `${ref}.md`
         });
-        wrapper.appendChild(col1);
-    }
-
-    // Column 2: Remote / Outgoing
-    if (remoteLinks.length > 0) {
-        const col2 = document.createElement("div");
-        col2.className = "sb-floater-col";
-         // Header
-        const header = document.createElement("div");
-        header.className = "sb-floater-header";
-        header.textContent = "Outgoing";
-        col2.appendChild(header);
-
-        remoteLinks.forEach(link => {
-            col2.appendChild(this.createButton(link.page, () => {
-                client.navigate({ page: link.page });
-            }, "remote"));
-        });
-        wrapper.appendChild(col2);
-    }
+      }, "remote"));
+    });
+    wrapper.appendChild(col2);
 
     container.appendChild(wrapper);
   },
 
-  // 渲染右下角：反向链接 (1列)
+  /**
+   * 渲染右下角：反向链接 (1列)
+   */
   renderBacklinks(backlinks) {
     const container = this.createContainer(this.bottomContainerId, true);
     container.innerHTML = "";
@@ -230,13 +229,18 @@ const View = {
     col.appendChild(header);
 
     backlinks.forEach(link => {
-        // link 对象来自 Lua: { page: "PageName", pos: 123 }
-        col.appendChild(this.createButton(link.ref, () => {
-            client.navigate({  
-                  path: `${link.page}.md`,
-                  details: { type: "position", pos: link.pos }  
-              });
-        }, "backlink"));
+      // link 来自 Lua: { ref, page, pos }
+      const shortName = extractPageName(link.ref);
+      const fullName = link.ref;
+      
+      col.appendChild(this.createButton(shortName, fullName, () => {
+        if (window.client) {
+          client.navigate({
+            path: `${link.page}.md`,
+            details: { type: "position", pos: link.pos }
+          });
+        }
+      }, "backlink"));
     });
 
     container.appendChild(col);
@@ -244,66 +248,33 @@ const View = {
 };
 
 // ==========================================
-// 3. Controller
+// 3. Controller - 导出接口
 // ==========================================
 
-// 供 Lua 调用的接口：更新反向链接数据
+/** 供 Lua 调用：更新反向链接数据 */
 export function updateBacklinks(data) {
-    // console.log("JS received backlinks:", data);
-    Model.backlinks = data || [];
-    View.renderBacklinks(Model.backlinks);
+  Model.backlinks = data || [];
+  View.renderBacklinks(Model.backlinks);
+}
+
+/** 供 Lua 调用：更新前向链接数据 */
+export function updateForwardlinks(data) {
+  Model.forwardLinks = data || [];
+  View.renderForward(Model.forwardLinks);
 }
 
 export function enable() {
-    const containerSelector = "#sb-main"; // 监听主区域
-
-    if (window[STATE_KEY]) return; // 已启用
-
-    window[STATE_KEY] = {
-        observer: null,
-        timeout: null
-    };
-
-    // 实时更新前向链接
-    function refreshForward() {
-        const { localLinks, remoteLinks } = Model.parseForwardLinks();
-        View.renderForward(localLinks, remoteLinks);
-    }
-
-    // 监听 DOM 变化或键盘事件来触发刷新
-    // 简单的防抖处理
-    function onActivity() {
-        if (window[STATE_KEY].timeout) clearTimeout(window[STATE_KEY].timeout);
-        window[STATE_KEY].timeout = setTimeout(refreshForward, 300);
-    }
-
-    // 初始渲染
-    setTimeout(refreshForward, 500);
-
-    // 绑定事件
-    document.addEventListener("keyup", onActivity);
-    document.addEventListener("click", onActivity); // 点击可能改变光标位置或切换页面
-
-    // 也可以监听 DOM 变化 (更激进，但更实时)
-    // const targetNode = document.querySelector(".cm-content");
-    // if (targetNode) {
-    //    const obs = new MutationObserver(onActivity);
-    //    obs.observe(targetNode, { childList: true, subtree: true, characterData: true });
-    //    window[STATE_KEY].observer = obs;
-    // }
-
-    console.log("[LinkFloater] Enabled");
+  if (window[STATE_KEY]) return;
+  window[STATE_KEY] = {};
+  console.log("[LinkFloater] Enabled");
 }
 
 export function disable() {
-    if (window[STATE_KEY]) {
-        document.removeEventListener("keyup", window[STATE_KEY].timeout); // 清理逻辑简化
-        // 移除 DOM
-        const top = document.getElementById(View.topContainerId);
-        if (top) top.remove();
-        const bot = document.getElementById(View.bottomContainerId);
-        if (bot) bot.remove();
-
-        window[STATE_KEY] = null;
-    }
+  if (window[STATE_KEY]) {
+    const top = document.getElementById(View.topContainerId);
+    if (top) top.remove();
+    const bot = document.getElementById(View.bottomContainerId);
+    if (bot) bot.remove();
+    window[STATE_KEY] = null;
+  }
 }
