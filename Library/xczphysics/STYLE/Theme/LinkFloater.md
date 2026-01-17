@@ -9,6 +9,9 @@ pageDecoration.prefix: "🔗 "
 
 # LinkFloater - Realtime Link Navigator
 
+这个插件，说实话有点像 [[PKM/Apps/Tana|]] 中的 Related Content
+- 写了这么多 JS 代码，不如 Tana 的 Related Content 中一个 Query ?
+
 ## 1. JS Logic
 
 本插件可能会用到：JS 与 Lua 通信
@@ -16,8 +19,6 @@ pageDecoration.prefix: "🔗 "
 
 ## 2. Lua Logic (Bridge)
 This part queries the index and pushes data to the JS view.i
-
-
 
 ```space-lua
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
@@ -38,8 +39,9 @@ local function pushForwardlinks()
     
     local results = query[[
       from index.tag "link"
-      where _.toPage == currentPage and _.page != currentPage
-      select { ref=_.ref, page=_.page, pos=_.pos }
+      where _.page == currentPage and not _.toFile
+      select { ref=_.ref, toPage=_.toPage, pos=_.pos }
+      order by _.pos
     ]]
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
 end

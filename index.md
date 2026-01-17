@@ -1,11 +1,4 @@
 
-${query[[
-      from index.tag "link"
-      where _.page == editor.getCurrentPage() and not _.toFile
-      select { ref=_.ref, toPage=_.toPage, pos=_.pos }
-      order by _.pos
-    ]]}
-
 # Hello 👋
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
