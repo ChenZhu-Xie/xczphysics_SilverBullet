@@ -31,3 +31,8 @@
 # Fields related
 
 1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
+
+# LCU manager
+
+1. [cache management](https://community.silverbullet.md/t/cache-management/3769?u=chenzhu-xie) #community #silverbullet
+2. related to [QuickLineNavigator](https://github.com/ChenZhu-Xie/QuickLineNavigator) #github
