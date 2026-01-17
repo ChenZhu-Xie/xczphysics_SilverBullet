@@ -43,13 +43,14 @@ local function pushForwardlinks()
       select { ref=_.ref, toPage=_.toPage, pos=_.pos }
       order by _.pos
     ]]
-    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateBacklinks(results)
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateForwardlinks(results)
 end
 
 event.listen {
   name = "editor:pageLoaded",
   run = function()
     pushBacklinks()
+    pushForwardlinks()
   end
 }
 
@@ -57,6 +58,7 @@ event.listen {
   name = "editor:pageSaved",
   run = function()
     pushBacklinks()
+    pushForwardlinks()
   end
 }
 ```
