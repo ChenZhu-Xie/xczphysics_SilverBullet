@@ -1,9 +1,9 @@
 // Library/xczphysics/STYLE/Theme/HHH.js
-// HHH v12 - 分列 + 悬浮展开
-// 1. Feature: 超过半屏高度时自动分列
-// 2. Feature: 标题初始宽度限制，悬浮展开
+// HHH v13 - 层级标识 + 树状连接
+// 1. Feature: 左下角显示 H1-H6 层级
+// 2. Feature: 树状结构连接线
 
-const STATE_KEY = "__xhHighlightState_v12";
+const STATE_KEY = "__xhHighlightState_v13";
 
 // ==========================================
 // 1. Model: 数据模型
@@ -31,7 +31,6 @@ const DataModel = {
     
     if (!text) return;
 
-    // 1. 预先扫描所有代码块的范围
     const codeBlockRanges = [];
     const codeBlockRegex = /```[\s\S]*?```/gm;
     let blockMatch;
@@ -42,7 +41,6 @@ const DataModel = {
       });
     }
 
-    // 2. 扫描标题
     const regex = /^(#{1,6})\s+([^\n]*)$/gm;
     let match;
 
@@ -156,9 +154,6 @@ const View = {
     return el;
   },
 
-  /**
-   * 将项目列表分成多列
-   */
   splitIntoColumns(items, itemHeight = 26) {
     const maxHeight = window.innerHeight * 0.45;
     const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
@@ -171,13 +166,115 @@ const View = {
   },
 
   /**
-   * 创建可悬浮展开的标题项
+   * 生成树状连接符号
+   * @param {number} level - 当前层级
+   * @param {number} baseLevel - 基准层级
+   * @param {boolean} isLast - 是否是当前层级的最后一个
+   * @param {Array} parentConnectors - 父级连接符状态
    */
-  createHeadingItem(h, baseLevel = 1) {
+  getTreePrefix(level, baseLevel, isLast, parentConnectors = []) {
+    if (level <= baseLevel) return "";
+    
+    let prefix = "";
+    const depth = level - baseLevel;
+    
+    // 添加父级连接线
+    for (let i = 0; i < depth - 1; i++) {
+      if (parentConnectors[i]) {
+        prefix += "│ ";
+      } else {
+        prefix += "  ";
+      }
+    }
+    
+    // 添加当前节点连接符
+    if (isLast) {
+      prefix += "└─";
+    } else {
+      prefix += "├─";
+    }
+    
+    return prefix;
+  },
+
+  /**
+   * 计算列表中每个项目的树状连接信息
+   */
+  computeTreeInfo(list, baseLevel) {
+    const result = [];
+    const levelLastIndex = {}; // 记录每个层级最后一个元素的索引
+    
+    // 第一遍：找出每个层级的最后一个元素
+    for (let i = list.length - 1; i >= 0; i--) {
+      const level = list[i].level;
+      if (levelLastIndex[level] === undefined) {
+        levelLastIndex[level] = i;
+      }
+    }
+    
+    // 第二遍：生成树状信息
+    const activeConnectors = []; // 追踪哪些层级还有后续元素
+    
+    for (let i = 0; i < list.length; i++) {
+      const h = list[i];
+      const depth = h.level - baseLevel;
+      
+      // 判断是否是该层级在剩余列表中的最后一个
+      let isLastAtLevel = true;
+      for (let j = i + 1; j < list.length; j++) {
+        if (list[j].level === h.level) {
+          isLastAtLevel = false;
+          break;
+        }
+        if (list[j].level < h.level) {
+          break;
+        }
+      }
+      
+      // 更新连接器状态
+      activeConnectors[depth - 1] = !isLastAtLevel;
+      
+      // 生成前缀
+      let prefix = "";
+      for (let d = 0; d < depth - 1; d++) {
+        prefix += activeConnectors[d] ? "│ " : "  ";
+      }
+      if (depth > 0) {
+        prefix += isLastAtLevel ? "└─" : "├─";
+      }
+      
+      result.push({
+        ...h,
+        treePrefix: prefix,
+        isLast: isLastAtLevel
+      });
+    }
+    
+    return result;
+  },
+
+  /**
+   * 创建可悬浮展开的标题项（带层级标识和树状连接）
+   */
+  createHeadingItem(h, baseLevel = 1, treePrefix = "") {
+    const wrapper = document.createElement("div");
+    wrapper.className = `sb-frozen-item-wrapper sb-frozen-l${h.level}`;
+    wrapper.style.display = "flex";
+    wrapper.style.alignItems = "flex-end";
+    wrapper.style.gap = "4px";
+    
+    // 树状前缀
+    if (treePrefix) {
+      const treePre = document.createElement("span");
+      treePre.className = "sb-frozen-tree";
+      treePre.textContent = treePrefix;
+      wrapper.appendChild(treePre);
+    }
+    
+    // 主按钮
     const div = document.createElement("div");
     div.className = `sb-frozen-item sb-frozen-l${h.level}`;
     
-    // 截断显示文本
     const maxLen = 20;
     const shortText = h.text.length > maxLen ? h.text.substring(0, maxLen) + "…" : h.text;
     const fullText = h.text;
@@ -186,17 +283,9 @@ const View = {
     div.title = fullText;
     div.dataset.fullText = fullText;
     div.dataset.shortText = shortText;
+    div.dataset.level = h.level;
     
-    div.style.margin = "1px 0";
     div.style.cursor = "pointer";
-    
-    // 缩进
-    if (baseLevel > 0) {
-      const indent = (h.level - baseLevel) * 10;
-      if (indent > 0) {
-        div.style.marginLeft = `${indent}px`;
-      }
-    }
     
     // 悬浮展开
     div.addEventListener("mouseenter", () => {
@@ -223,7 +312,15 @@ const View = {
       }
     };
     
-    return div;
+    wrapper.appendChild(div);
+    
+    // 层级标识 (H1-H6)
+    const levelBadge = document.createElement("span");
+    levelBadge.className = `sb-frozen-level sb-frozen-l${h.level}`;
+    levelBadge.textContent = `H${h.level}`;
+    wrapper.appendChild(levelBadge);
+    
+    return wrapper;
   },
 
   renderTopBar(targetIndex, container) {
@@ -251,8 +348,11 @@ const View = {
     el.style.gap = "8px";
     el.style.alignItems = "flex-start";
 
-    // 分列
-    const columns = this.splitIntoColumns(list);
+    // 计算树状信息
+    const baseLevel = list.length > 0 ? list[0].level : 1;
+    const treeList = this.computeTreeInfo(list, baseLevel);
+
+    const columns = this.splitIntoColumns(treeList);
 
     columns.forEach((columnItems, colIndex) => {
       const col = document.createElement("div");
@@ -264,23 +364,19 @@ const View = {
 
       if (colIndex === 0) {
         const label = document.createElement("div");
+        label.className = "sb-frozen-header";
         label.textContent = "Context:";
-        label.style.fontSize = "10px";
-        label.style.opacity = "0.5";
-        label.style.marginBottom = "2px";
-        label.style.pointerEvents = "none";
         col.appendChild(label);
       } else {
         const spacer = document.createElement("div");
+        spacer.className = "sb-frozen-header";
         spacer.textContent = "·";
-        spacer.style.fontSize = "10px";
         spacer.style.opacity = "0.3";
-        spacer.style.marginBottom = "2px";
         col.appendChild(spacer);
       }
 
       columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, 1));
+        col.appendChild(this.createHeadingItem(h, baseLevel, h.treePrefix));
       });
 
       el.appendChild(col);
@@ -314,9 +410,9 @@ const View = {
     el.style.alignItems = "flex-end";
 
     const baseLevel = DataModel.headings[targetIndex]?.level || 1;
+    const treeList = this.computeTreeInfo(list, baseLevel);
 
-    // 分列
-    const columns = this.splitIntoColumns(list);
+    const columns = this.splitIntoColumns(treeList);
 
     columns.forEach((columnItems, colIndex) => {
       const col = document.createElement("div");
@@ -328,23 +424,19 @@ const View = {
 
       if (colIndex === 0) {
         const label = document.createElement("div");
+        label.className = "sb-frozen-header";
         label.textContent = "Sub-sections:";
-        label.style.fontSize = "10px";
-        label.style.opacity = "0.5";
-        label.style.marginBottom = "2px";
-        label.style.pointerEvents = "none";
         col.appendChild(label);
       } else {
         const spacer = document.createElement("div");
+        spacer.className = "sb-frozen-header";
         spacer.textContent = "·";
-        spacer.style.fontSize = "10px";
         spacer.style.opacity = "0.3";
-        spacer.style.marginBottom = "2px";
         col.appendChild(spacer);
       }
 
       columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, baseLevel));
+        col.appendChild(this.createHeadingItem(h, baseLevel, h.treePrefix));
       });
 
       el.appendChild(col);
@@ -390,7 +482,7 @@ const View = {
 };
 
 // ==========================================
-// 3. Controller: 事件控制
+// 3. Controller
 // ==========================================
 
 export function enableHighlight(opts = {}) {
@@ -506,7 +598,7 @@ export function enableHighlight(opts = {}) {
       DataModel.headings = [];
     };
 
-    console.log("[HHH] v12 Enabled");
+    console.log("[HHH] v13 Enabled");
   };
 
   bind();

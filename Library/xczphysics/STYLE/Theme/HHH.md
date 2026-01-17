@@ -612,11 +612,11 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
 
 ```space-style
 /* =========================================
-   统一主题样式 - HHH + LinkFloater
+   统一主题样式 - HHH + LinkFloater v4
    ========================================= */
 
 /* =========================================
-   1. 共享变量 (Shared Variables)
+   1. 共享变量
    ========================================= */
 :root {
   /* Dark theme colors */
@@ -644,8 +644,7 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
 }
 
 /* =========================================
-   2. 共享基础样式 (Shared Base Styles)
-   用于 .sb-frozen-item 和 .sb-floater-btn
+   2. 共享基础样式
    ========================================= */
 .sb-frozen-item,
 .sb-floater-btn {
@@ -666,15 +665,15 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
   opacity: 0.8;
   background-color: var(--bg-color, #ffffff);
   
-  border: 1px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.05);
+  /* 完整边框（透明） */
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   
   font-family: inherit;
   transition: all 0.15s ease-out;
 }
 
-/* 共享悬浮效果 */
+/* 悬浮效果 - 包含完整边框（顶边和底边） */
 .sb-frozen-item:hover,
 .sb-frozen-item.sb-frozen-expanded,
 .sb-floater-btn:hover,
@@ -684,28 +683,30 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
   max-width: none;
   filter: brightness(0.95) contrast(0.95);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-color: currentColor;
+  /* 完整边框高亮 */
+  border: 1px solid currentColor;
 }
 
-/* 共享 Dark Mode */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   .sb-frozen-item,
   .sb-floater-btn {
     background-color: var(--bg-color-dark, #252629);
-    border-bottom-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
   }
   .sb-frozen-item:hover,
   .sb-floater-btn:hover {
     background-color: #333;
     filter: brightness(1.2);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid currentColor;
   }
 }
 
 html[data-theme="dark"] .sb-frozen-item,
 html[data-theme="dark"] .sb-floater-btn {
   background-color: var(--bg-color-dark, #252629);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
   color: #ccc;
 }
 
@@ -714,13 +715,13 @@ html[data-theme="dark"] .sb-floater-btn:hover {
   background-color: #333;
   filter: brightness(1.2);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border: 1px solid currentColor;
 }
 
 /* =========================================
    3. HHH 专用样式
    ========================================= */
 
-/* 容器样式 */
 #sb-frozen-container-top,
 #sb-frozen-container-bottom {
   display: flex;
@@ -738,6 +739,20 @@ html[data-theme="dark"] .sb-floater-btn:hover {
   pointer-events: auto;
 }
 
+.sb-frozen-header {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-bottom: 2px;
+  pointer-events: none;
+}
+
+/* 标题项容器（包含树状连接、按钮、层级标识） */
+.sb-frozen-item-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
 /* HHH 专用：宽度限制 */
 .sb-frozen-item {
   max-width: 40vw;
@@ -747,20 +762,78 @@ html[data-theme="dark"] .sb-floater-btn:hover {
   transform: translateY(-1px);
 }
 
-/* 标题颜色 */
-html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
-html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
-html[data-theme="dark"] .sb-frozen-l3 { color: var(--h3-color-dark); }
-html[data-theme="dark"] .sb-frozen-l4 { color: var(--h4-color-dark); }
-html[data-theme="dark"] .sb-frozen-l5 { color: var(--h5-color-dark); }
-html[data-theme="dark"] .sb-frozen-l6 { color: var(--h6-color-dark); }
+/* 树状连接线 */
+.sb-frozen-tree {
+  font-family: monospace;
+  font-size: 11px;
+  opacity: 0.4;
+  color: currentColor;
+  white-space: pre;
+  line-height: 1.2;
+  pointer-events: none;
+  user-select: none;
+}
 
-html[data-theme="light"] .sb-frozen-l1 { color: var(--h1-color-light); }
-html[data-theme="light"] .sb-frozen-l2 { color: var(--h2-color-light); }
-html[data-theme="light"] .sb-frozen-l3 { color: var(--h3-color-light); }
-html[data-theme="light"] .sb-frozen-l4 { color: var(--h4-color-light); }
-html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
-html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
+.sb-frozen-item-wrapper:hover .sb-frozen-tree {
+  opacity: 0.8;
+}
+
+/* 层级标识 (H1-H6) */
+.sb-frozen-level {
+  font-size: 9px;
+  font-weight: bold;
+  opacity: 0.4;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background-color: currentColor;
+  color: var(--bg-color, #fff);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  margin-left: -2px;
+  align-self: flex-end;
+}
+
+/* 层级标识悬浮高亮 */
+.sb-frozen-item-wrapper:hover .sb-frozen-level {
+  opacity: 0.7;
+}
+
+/* 层级标识颜色反转 */
+html[data-theme="dark"] .sb-frozen-level {
+  color: #1a1a1a;
+}
+
+html[data-theme="light"] .sb-frozen-level {
+  color: #fff;
+}
+
+/* 标题颜色 */
+html[data-theme="dark"] .sb-frozen-l1,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l1 { color: var(--h1-color-dark); }
+html[data-theme="dark"] .sb-frozen-l2,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l2 { color: var(--h2-color-dark); }
+html[data-theme="dark"] .sb-frozen-l3,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l3 { color: var(--h3-color-dark); }
+html[data-theme="dark"] .sb-frozen-l4,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l4 { color: var(--h4-color-dark); }
+html[data-theme="dark"] .sb-frozen-l5,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l5 { color: var(--h5-color-dark); }
+html[data-theme="dark"] .sb-frozen-l6,
+html[data-theme="dark"] .sb-frozen-item-wrapper.sb-frozen-l6 { color: var(--h6-color-dark); }
+
+html[data-theme="light"] .sb-frozen-l1,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l1 { color: var(--h1-color-light); }
+html[data-theme="light"] .sb-frozen-l2,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l2 { color: var(--h2-color-light); }
+html[data-theme="light"] .sb-frozen-l3,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l3 { color: var(--h3-color-light); }
+html[data-theme="light"] .sb-frozen-l4,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l4 { color: var(--h4-color-light); }
+html[data-theme="light"] .sb-frozen-l5,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l5 { color: var(--h5-color-light); }
+html[data-theme="light"] .sb-frozen-l6,
+html[data-theme="light"] .sb-frozen-item-wrapper.sb-frozen-l6 { color: var(--h6-color-light); }
 
 /* 编辑器内标题样式 */
 .sb-line-h1, .sb-line-h2, .sb-line-h3,
@@ -854,7 +927,7 @@ html[data-theme="light"] .sb-line-h6 { font-size:1em !important;  color:var(--h6
   transform: translateX(-2px);
 }
 
-/* 链接类型颜色 */
+/* 链接类型颜色 + 左侧条 */
 .sb-floater-local {
   border-left: 3px solid var(--link-local-color);
   color: var(--link-local-color);
@@ -868,186 +941,49 @@ html[data-theme="light"] .sb-line-h6 { font-size:1em !important;  color:var(--h6
 
 .sb-floater-backlink {
   border-right: 3px solid var(--link-backlink-color);
-  border-left: 1px solid transparent;
+  border-left-width: 1px;
   color: var(--link-backlink-color);
 }
 
-html[data-theme="dark"] .sb-floater-local { color: #81c784; }
-html[data-theme="dark"] .sb-floater-remote { color: #64b5f6; }
-html[data-theme="dark"] .sb-floater-backlink { color: #ffb74d; }
-```
-
-```space
-/* =========================================
-   1. 容器样式 (Navigation Bars)
-   ========================================= */
-#sb-frozen-container-top,
-#sb-frozen-container-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  align-items: flex-start;
-  pointer-events: none;
+/* 悬浮时保持类型边框 + 完整边框 */
+.sb-floater-local:hover {
+  border: 1px solid var(--link-local-color);
+  border-left: 3px solid var(--link-local-color);
 }
 
-/* =========================================
-   2. 导航胶囊样式 (Pills)
-   ========================================= */
-.sb-frozen-item {
-  display: inline-block;
-  width: auto;
-  max-width: 40vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  pointer-events: auto;
-  cursor: pointer;
-
-  margin: 0 !important;
-  padding: 0.2em 0.6em;
-  border-radius: 4px;
-  box-sizing: border-box;
-
-  opacity: 0.8 !important; 
-  background-color: var(--bg-color, #ffffff);
-  
-  border: 1px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  
-  font-family: inherit;
-  transition: all 0.15s ease-out;
+.sb-floater-remote:hover {
+  border: 1px solid var(--link-remote-color);
+  border-left: 3px solid var(--link-remote-color);
 }
 
-.sb-frozen-item:hover {
-  opacity: 1 !important; 
-  z-index: 1001;
-  filter: brightness(0.95) contrast(0.95);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  border-color: currentColor; 
+.sb-floater-backlink:hover {
+  border: 1px solid var(--link-backlink-color);
+  border-right: 3px solid var(--link-backlink-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  .sb-frozen-item {
-    background-color: var(--bg-color-dark, #252629);
-    border-bottom-color: rgba(255,255,255,0.06);
-  }
-  .sb-frozen-item:hover {
-    background-color: #333;
-    filter: brightness(1.2);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  }
+html[data-theme="dark"] .sb-floater-local { 
+  color: #81c784; 
+  border-left-color: #81c784;
+}
+html[data-theme="dark"] .sb-floater-remote { 
+  color: #64b5f6; 
+  border-left-color: #64b5f6;
+}
+html[data-theme="dark"] .sb-floater-backlink { 
+  color: #ffb74d; 
+  border-right-color: #ffb74d;
 }
 
-/* =========================================
-   3. 颜色定义 (Colors)
-   ========================================= */
-html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
-html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
-html[data-theme="dark"] .sb-frozen-l3 { color: var(--h3-color-dark); }
-html[data-theme="dark"] .sb-frozen-l4 { color: var(--h4-color-dark); }
-html[data-theme="dark"] .sb-frozen-l5 { color: var(--h5-color-dark); }
-html[data-theme="dark"] .sb-frozen-l6 { color: var(--h6-color-dark); }
-
-html[data-theme="light"] .sb-frozen-l1 { color: var(--h1-color-light); }
-html[data-theme="light"] .sb-frozen-l2 { color: var(--h2-color-light); }
-html[data-theme="light"] .sb-frozen-l3 { color: var(--h3-color-light); }
-html[data-theme="light"] .sb-frozen-l4 { color: var(--h4-color-light); }
-html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
-html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
-
-:root {
-  /* Dark theme colors */
-  --h1-color-dark: #e6c8ff;
-  --h2-color-dark: #a0d8ff;
-  --h3-color-dark: #98ffb3;
-  --h4-color-dark: #fff3a8;
-  --h5-color-dark: #ffb48c;
-  --h6-color-dark: #ffa8ff;
-
-  /* Light theme colors */
-  --h1-color-light: #6b2e8c;
-  --h2-color-light: #1c4e8b;
-  --h3-color-light: #1a6644;
-  --h4-color-light: #a67c00;
-  --h5-color-light: #b84c1c;
-  --h6-color-light: #993399;
-
-  --title-opacity: 0.5;
+html[data-theme="dark"] .sb-floater-local:hover {
+  border-color: #81c784;
+  border-left: 3px solid #81c784;
 }
-
-/* =========================================
-   4. 编辑器内标题样式 (Editor Headings)
-   ========================================= */
-
-/* 基础样式：渐变下划线 (Feature 2) */
-.sb-line-h1, .sb-line-h2, .sb-line-h3,
-.sb-line-h4, .sb-line-h5, .sb-line-h6 {
-  position: relative; /* 为伪元素定位做准备 */
-  opacity: var(--title-opacity);
-  
-  /* 移除原本的实线边框 */
-  border-bottom: none !important;
-  
-  /* 新增：从左往右渐暗的下划线 */
-  /* 使用 currentColor 自动匹配标题颜色 */
-  background-image: linear-gradient(90deg, currentColor, transparent);
-  background-size: 100% 2px; /* 宽度100%，高度2px */
-  background-position: 0 100%; /* 位于底部 */
-  background-repeat: no-repeat;
-  
-  transition: opacity 0.15s;
+html[data-theme="dark"] .sb-floater-remote:hover {
+  border-color: #64b5f6;
+  border-left: 3px solid #64b5f6;
 }
-
-/* 字体大小与颜色映射 (保持不变) */
-html[data-theme="dark"] {
-  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
-  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
-  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-dark)!important; }
-  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-dark)!important; }
-  .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-dark)!important; }
-  .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-dark)!important; }
-}
-
-html[data-theme="light"] {
-  .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
-  .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
-  .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-light)!important; }
-  .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-light)!important; }
-  .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-light)!important; }
-  .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-light)!important; }
-}
-
-/* =========================================
-   5. 高亮状态 (Active State)
-   ========================================= */
-
-/* 激活时增加不透明度 */
-.sb-active {
-  opacity: 1 !important;
-}
-
-/* 新增：高亮时的背景色块 (Feature 1) */
-/* 使用 ::before 伪元素来实现背景色，并应用透明度 */
-.sb-active::before {
-  content: "";
-  position: absolute;
-  top: -2px; 
-  left: -4px; 
-  right: -4px; 
-  bottom: 0;
-  
-  /* 关键：使用标题自身的颜色作为背景色 */
-  background-color: currentColor;
-  
-  /* 设置透明度，使其不完全遮挡 */
-  opacity: 0.15; 
-  
-  /* 放置在文字下方 */
-  z-index: -1;
-  pointer-events: none;
-  border-radius: 4px;
+html[data-theme="dark"] .sb-floater-backlink:hover {
+  border-color: #ffb74d;
+  border-right: 3px solid #ffb74d;
 }
 ```
