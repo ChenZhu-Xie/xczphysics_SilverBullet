@@ -231,7 +231,8 @@ const View = {
             console.log("Navigating to backlink:", link.ref);
             // client.navigate(link.ref);
             client.navigate({  
-                  path: link.pos
+                  path: `${link.page}.md`,
+                  details: { type: "position", pos: link.pos }  
               });
             // if (typeof syscall === "function") syscall("editor.navigate", link.ref, false, false)
             // navigateTo("CONFIG");
