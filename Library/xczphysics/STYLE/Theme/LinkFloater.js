@@ -1,15 +1,25 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
 
 // 在文件顶部定义一个辅助函数
+// async function navigateTo(pageRef) {
+//   // 使用 syscall 而不是直接调用 client.navigate
+//   if (window.syscall) {
+//     await syscall("editor.navigate", pageRef);
+//   } else if (window.client && typeof client.navigate === "function") {
+//     // 备用方案
+//     client.navigate(pageRef, true, false);
+//   } else {
+//     console.error("[LinkFloater] Navigation unavailable");
+//   }
+// }
+
+// 在文件顶部定义辅助函数
 async function navigateTo(pageRef) {
-  // 使用 syscall 而不是直接调用 client.navigate
-  if (window.syscall) {
-    await syscall("editor.navigate", pageRef);
-  } else if (window.client && typeof client.navigate === "function") {
-    // 备用方案
-    client.navigate(pageRef, true, false);
+  // 检查 syscall 是否可用（与另一个插件的写法一致）
+  if (typeof syscall === "function") {
+    await syscall("editor.navigate", pageRef, false, false);
   } else {
-    console.error("[LinkFloater] Navigation unavailable");
+    console.error("[LinkFloater] syscall unavailable");
   }
 }
 
@@ -208,8 +218,8 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-            syscall("editor.navigate", link.ref, false, false)
-            // navigateTo("CONFIG")
+            // syscall("editor.navigate", link.ref, false, false)
+            navigateTo("CONFIG")
             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
