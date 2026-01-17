@@ -1,73 +1,11 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
-// LinkFloater v6 - 导航后自动居中光标
+// LinkFloater v5 - 修复 [[#header]] 解析问题
 
-const STATE_KEY = "__LinkFloaterState_v6";
+const STATE_KEY = "__LinkFloaterState_v5";
 
 // ==========================================
 // 辅助函数
 // ==========================================
-
-/**
- * 居中光标的辅助函数
- * 尝试多种方式实现 "Navigate: Center Cursor" 效果
- */
-async function centerCursor() {
-  // 给导航一点时间完成
-  await new Promise(resolve => setTimeout(resolve, 50));
-  
-  try {
-    // 方法1: 使用 silverbullet.syscall (如果在正确的上下文中)
-    if (globalThis.silverbullet && typeof globalThis.silverbullet.syscall === 'function') {
-      await globalThis.silverbullet.syscall("editor.invokeCommand", "Navigate: Center Cursor");
-      return true;
-    }
-  } catch (e) {
-    // console.warn("[LinkFloater] syscall method failed:", e);
-  }
-  
-  try {
-    // 方法2: 直接使用 editorView 滚动到光标位置
-    if (window.client && client.editorView) {
-      const view = client.editorView;
-      const cursorPos = view.state.selection.main.head;
-      
-      // 获取光标的屏幕坐标
-      const coords = view.coordsAtPos(cursorPos);
-      if (coords) {
-        const viewRect = view.dom.getBoundingClientRect();
-        const viewHeight = viewRect.height;
-        
-        // 计算目标滚动位置，使光标位于视图中心
-        const currentScrollTop = view.scrollDOM.scrollTop;
-        const cursorRelativeY = coords.top - viewRect.top + currentScrollTop;
-        const targetScrollTop = cursorRelativeY - viewHeight / 2;
-        
-        view.scrollDOM.scrollTo({ 
-          top: Math.max(0, targetScrollTop), 
-          behavior: 'instant' 
-        });
-      }
-      return true;
-    }
-  } catch (e) {
-    // console.warn("[LinkFloater] Direct scroll failed:", e);
-  }
-  
-  return false;
-}
-
-/**
- * 封装的导航函数 - 导航后自动居中光标
- * @param {Object} options - client.navigate 的参数
- */
-function navigateAndCenter(options) {
-  if (!window.client) return;
-  
-  client.navigate(options);
-  
-  // 异步执行居中，不阻塞导航
-  setTimeout(() => centerCursor(), 150);
-}
 
 /**
  * 获取当前页面名称（不含 .md 后缀）
@@ -75,10 +13,11 @@ function navigateAndCenter(options) {
 function getCurrentPageName() {
   try {
     if (window.client) {
+      // 优先使用 currentPage()，其次 currentName()
       const page = client.currentPage?.() || client.currentName?.() || "";
       return page.replace(/\.md$/, "");
     }
-  } catch (e) {}
+  } catch (e) { console.warn(e); }
   return "";
 }
 
@@ -121,96 +60,109 @@ function getFullText() {
 }
 
 /**
- * 扫描代码块范围
+ * 从指定位置提取 wiki link 内容
+ * 从 pos 位置开始，跳过 [[，然后捕获直到 ]] 的内容
+ * 返回链接内容（不含 [[ 和 ]]）
  */
-function getCodeBlockRanges(text) {
-  const ranges = [];
-  const regex = /```[\s\S]*?```/gm;
-  let match;
-  while ((match = regex.exec(text)) !== null) {
-    ranges.push({ start: match.index, end: match.index + match[0].length });
+function extractWikiLinkAtPos(text, pos) {
+  // 检查 pos 位置是否是 [[ 开头
+  if (text.substring(pos, pos + 2) !== '[[') {
+    // 可能 pos 已经在 [[ 之后，尝试往前找
+    const searchStart = Math.max(0, pos - 5);
+    const prefix = text.substring(searchStart, pos + 2);
+    const bracketPos = prefix.lastIndexOf('[[');
+    if (bracketPos === -1) return null;
+    pos = searchStart + bracketPos;
   }
-  return ranges;
+  
+  // 现在 pos 应该指向 [[
+  const contentStart = pos + 2;
+  const endBracket = text.indexOf(']]', contentStart);
+  
+  if (endBracket === -1) return null;
+  
+  const content = text.substring(contentStart, endBracket);
+  
+  // 处理别名: [[target|alias]] -> 只取 target
+  const pipeIndex = content.indexOf('|');
+  const target = pipeIndex > 0 ? content.substring(0, pipeIndex) : content;
+  
+  return target.trim();
 }
 
 /**
- * 检查位置是否在代码块内
+ * 解析链接目标字符串，返回解析后的对象
+ * ★ v5 修复：当 page 为空但有 header 时，补全为当前页面
  */
-function isInCodeBlock(pos, codeBlockRanges) {
-  return codeBlockRanges.some(range => pos >= range.start && pos < range.end);
-}
-
-/**
- * 解析文本中的 [[wiki link]]，返回完整信息
- * ★ v5 修复：[[#header]] 时，page 补全为 currentPage
- */
-function parseWikiLinks(text) {
-  const codeBlockRanges = getCodeBlockRanges(text);
-  const links = [];
+function parseLinkTarget(target) {
+  if (!target) return null;
+  
   const currentPage = getCurrentPageName();
   
-  const regex = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
-  let match;
+  let page = target;
+  let header = null;
+  let posNum = null;
+  let isLocalAnchor = false;
   
-  while ((match = regex.exec(text)) !== null) {
-    const matchIndex = match.index;
-    
-    if (isInCodeBlock(matchIndex, codeBlockRanges)) continue;
-    
-    const rawTarget = match[1].trim();
-    
-    let page = rawTarget;
-    let header = "";
-    let posNum = null;
-    let isLocalAnchor = false;
-    
-    // ★ 检测纯锚点链接 [[#...]]
-    if (rawTarget.startsWith("#")) {
-      isLocalAnchor = true;
-      page = currentPage;
-      header = rawTarget.substring(1);
-    } else {
-      // 解析 @pos
-      const atIndex = rawTarget.lastIndexOf("@");
-      if (atIndex > 0) {
-        const possiblePos = rawTarget.substring(atIndex + 1);
-        if (/^\d+$/.test(possiblePos)) {
-          page = rawTarget.substring(0, atIndex);
-          posNum = parseInt(possiblePos);
-        }
-      }
-      
-      // 解析 #header
-      if (posNum === null) {
-        const hashIndex = rawTarget.indexOf("#");
-        if (hashIndex > 0) {
-          page = rawTarget.substring(0, hashIndex);
-          header = rawTarget.substring(hashIndex + 1);
-        } else if (hashIndex === 0) {
-          page = currentPage;
-          header = rawTarget.substring(1);
-          isLocalAnchor = true;
-        }
-      }
-    }
-    
-    if (!page && header) {
-      page = currentPage;
-      isLocalAnchor = true;
-    }
-    
-    links.push({
-      raw: rawTarget,
-      page: page,
-      header: header,
-      posNum: posNum,
-      textPos: matchIndex,
-      fullMatch: match[0],
-      isLocalAnchor: isLocalAnchor
-    });
+  // ★ 关键修复：检测是否为纯锚点链接 [[#...]]
+  if (target.startsWith("#")) {
+    isLocalAnchor = true;
+    page = currentPage;
+    header = target.substring(1);
+    return { page, header, posNum, raw: target, isLocalAnchor };
   }
   
-  return links;
+  // 检查 @pos
+  const atIndex = target.lastIndexOf("@");
+  if (atIndex > 0) {
+    const possiblePos = target.substring(atIndex + 1);
+    if (/^\d+$/.test(possiblePos)) {
+      page = target.substring(0, atIndex);
+      posNum = parseInt(possiblePos);
+    }
+  }
+  
+  // 检查 #header（仅当没有 @pos 时）
+  if (posNum === null) {
+    const hashIndex = target.indexOf("#");
+    if (hashIndex >= 0) {
+      // hashIndex === 0 的情况已在上面处理，这里是 page#header 格式
+      page = hashIndex === 0 ? currentPage : target.substring(0, hashIndex);
+      header = target.substring(hashIndex + 1);
+      if (hashIndex === 0) isLocalAnchor = true;
+    }
+  }
+  
+  // 再次确保 page 不为空
+  if (!page && header) {
+    page = currentPage;
+    isLocalAnchor = true;
+  }
+  
+  return { page, header, posNum, raw: target, isLocalAnchor };
+}
+
+/**
+ * ★ v5 新增：补全显示用的页面名称
+ * 处理 toPage 为空或以 # 开头的情况
+ */
+function normalizeDisplayPage(toPage, ref) {
+  const currentPage = getCurrentPageName();
+  
+  if (!toPage || toPage === "") {
+    // toPage 为空，检查 ref
+    if (ref && ref.startsWith("#")) {
+      return currentPage + ref;
+    }
+    return currentPage;
+  }
+  
+  if (toPage.startsWith("#")) {
+    // toPage 是纯锚点，补全当前页面
+    return currentPage + toPage;
+  }
+  
+  return toPage;
 }
 
 // ==========================================
@@ -219,9 +171,7 @@ function parseWikiLinks(text) {
 
 const Model = {
   backlinks: [],
-  forwardLinks: [],
-  parsedWikiLinks: [],
-  lastText: null
+  forwardLinks: []
 };
 
 // ==========================================
@@ -248,6 +198,9 @@ const View = {
     return el;
   },
 
+  /**
+   * 创建带悬浮展开效果的按钮
+   */
   createButton(displayText, fullText, onClick, type) {
     const btn = document.createElement("div");
     btn.className = `sb-floater-btn sb-floater-${type}`;
@@ -276,6 +229,9 @@ const View = {
     return btn;
   },
 
+  /**
+   * 将项目列表分成多列（当超过半屏高度时）
+   */
   splitIntoColumns(items, itemHeight = 28) {
     const maxHeight = window.innerHeight * 0.45;
     const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
@@ -288,65 +244,68 @@ const View = {
   },
 
   /**
-   * 渲染右上角：前向链接 (2列: Links + Go)
-   * ★ v6: 所有导航都使用 navigateAndCenter
+   * 渲染右上角：前向链接 (交替排列 Links 和 Go)
+   * ★ v5 修复：正确处理 [[#header]] 格式
    */
-  renderForward() {
+  renderForward(forwardLinks) {
     const container = this.createContainer(this.topContainerId, false);
     container.innerHTML = "";
 
-    const forwardLinks = Model.forwardLinks || [];
-    
-    const text = getFullText();
-    const parsedLinks = parseWikiLinks(text);
-    Model.parsedWikiLinks = parsedLinks;
-
-    if (forwardLinks.length === 0 && parsedLinks.length === 0) {
+    if (!forwardLinks || forwardLinks.length === 0) {
       container.style.display = "none";
       return;
     }
     container.style.display = "flex";
 
+    const text = getFullText();
+    const currentPage = getCurrentPageName();
+
+    // 为每个 forwardLink 提取完整的链接目标
+    const enrichedLinks = forwardLinks.map(link => {
+      const rawTarget = extractWikiLinkAtPos(text, link.pos);
+      const parsed = parseLinkTarget(rawTarget);
+      
+      // ★ v5 修复：补全 displayPage
+      const displayPage = normalizeDisplayPage(link.toPage, link.ref);
+      
+      return {
+        ...link,
+        rawTarget: rawTarget,
+        parsed: parsed,
+        displayPage: displayPage  // 用于 Column 1 显示
+      };
+    });
+
     const wrapper = document.createElement("div");
     wrapper.className = "sb-floater-wrapper";
 
-    const linksColumns = this.splitIntoColumns(forwardLinks);
-    const goColumns = this.splitIntoColumns(parsedLinks);
-    
+    // 分列
+    const linksColumns = this.splitIntoColumns(enrichedLinks);
+    const goColumns = this.splitIntoColumns(enrichedLinks);
     const maxCols = Math.max(linksColumns.length, goColumns.length);
 
+    // 交替排列：Links[0], Go[0], Links[1], Go[1], ...
     for (let i = 0; i < maxCols; i++) {
-      // ========== Column 1 (Links) ==========
+      // ========== Column 1 (Links) - 第 i 列 ==========
       if (i < linksColumns.length) {
         const col = document.createElement("div");
         col.className = "sb-floater-col";
         
         const header = document.createElement("div");
         header.className = "sb-floater-header";
-        header.textContent = i === 0 ? "Links" : "·";
+        header.textContent = "Links";
         if (i > 0) header.style.opacity = "0.3";
         col.appendChild(header);
 
         linksColumns[i].forEach(link => {
-          let displayPage = link.toPage || link.ref || "";
-          const currentPage = getCurrentPageName();
-          
-          if (!displayPage || displayPage.startsWith("#")) {
-            if (displayPage.startsWith("#")) {
-              displayPage = currentPage + displayPage;
-            } else if (link.ref && link.ref.startsWith("#")) {
-              displayPage = currentPage + link.ref;
-            }
-          }
-          
-          const shortName = extractPageName(displayPage);
+          // ★ v5 修复：使用补全后的 displayPage
+          const shortName = extractPageName(link.displayPage);
           const fullName = link.ref;
           
           col.appendChild(this.createButton(shortName, fullName, () => {
             if (window.client) {
               const currentPath = client.currentPath();
-              // ★ v6: 使用 navigateAndCenter
-              navigateAndCenter({
+              client.navigate({
                 path: currentPath,
                 details: { type: "position", pos: link.pos }
               });
@@ -356,43 +315,54 @@ const View = {
         wrapper.appendChild(col);
       }
 
-      // ========== Column 2 (Go) ==========
+      // ========== Column 2 (Go) - 第 i 列 ==========
       if (i < goColumns.length) {
         const col = document.createElement("div");
         col.className = "sb-floater-col";
         
         const header = document.createElement("div");
         header.className = "sb-floater-header";
-        header.textContent = i === 0 ? "Go" : "·";
+        header.textContent = "Go";
         if (i > 0) header.style.opacity = "0.3";
         col.appendChild(header);
 
         goColumns[i].forEach(link => {
-          let targetDisplay = link.page;
-          if (link.header) {
-            targetDisplay = `${link.page}#${link.header}`;
-          } else if (link.posNum !== null) {
-            targetDisplay = `${link.page}@${link.posNum}`;
+          const parsed = link.parsed;
+          
+          // ★ v5 修复：构建完整的目标显示（已补全 currentPage）
+          let targetDisplay = link.rawTarget || link.displayPage;
+          if (parsed && parsed.isLocalAnchor) {
+            // 纯锚点链接，显示为 currentPage#header
+            targetDisplay = `${parsed.page}#${parsed.header}`;
           }
           
-          col.appendChild(this.createButton("→", targetDisplay, () => {
+          const navigateAction = () => {
             if (!window.client) return;
             
-            // ★ v6: 所有导航都使用 navigateAndCenter
-            if (link.posNum !== null) {
-              navigateAndCenter({
-                path: `${link.page}.md`,
-                details: { type: "position", pos: link.posNum }
-              });
-            } else if (link.header) {
-              navigateAndCenter({
-                path: `${link.page}.md`,
-                details: { type: "header", header: link.header }
-              });
+            if (parsed) {
+              if (parsed.posNum !== null) {
+                // 有具体位置 @pos
+                client.navigate({
+                  path: `${parsed.page}.md`,
+                  details: { type: "position", pos: parsed.posNum }
+                });
+              } else if (parsed.header) {
+                // 有标题 #header（page 已在 parseLinkTarget 中补全）
+                client.navigate({
+                  path: `${parsed.page}.md`,
+                  details: { type: "header", header: parsed.header }
+                });
+              } else if (parsed.page) {
+                // 纯页面
+                client.navigate({ path: `${parsed.page}.md` });
+              }
             } else {
-              navigateAndCenter({ path: `${link.page}.md` });
+              // 回退：使用 displayPage
+              client.navigate({ path: `${link.displayPage}.md` });
             }
-          }, "remote"));
+          };
+          
+          col.appendChild(this.createButton("→", targetDisplay, navigateAction, "remote"));
         });
         wrapper.appendChild(col);
       }
@@ -403,15 +373,12 @@ const View = {
 
   /**
    * 渲染右下角：反向链接
-   * ★ v6: 使用 navigateAndCenter
    */
-  renderBacklinks() {
+  renderBacklinks(backlinks) {
     const container = this.createContainer(this.bottomContainerId, true);
     container.innerHTML = "";
 
-    const backlinks = Model.backlinks || [];
-
-    if (backlinks.length === 0) {
+    if (!backlinks || backlinks.length === 0) {
       container.style.display = "none";
       return;
     }
@@ -428,7 +395,7 @@ const View = {
 
       const header = document.createElement("div");
       header.className = "sb-floater-header";
-      header.textContent = colIndex === 0 ? "Backlinks" : "·";
+      header.textContent = "Backlinks";
       if (colIndex > 0) header.style.opacity = "0.3";
       col.appendChild(header);
 
@@ -438,8 +405,7 @@ const View = {
         
         col.appendChild(this.createButton(shortName, fullName, () => {
           if (window.client) {
-            // ★ v6: 使用 navigateAndCenter
-            navigateAndCenter({
+            client.navigate({
               path: `${link.page}.md`,
               details: { type: "position", pos: link.pos }
             });
@@ -474,62 +440,28 @@ const View = {
 /** 供 Lua 调用：更新反向链接数据 */
 export function updateBacklinks(data) {
   Model.backlinks = data || [];
-  View.renderBacklinks();
+  View.renderBacklinks(Model.backlinks);
 }
 
-/** 供 Lua 调用：更新前向链接数据 (Column 1) */
+/** 供 Lua 调用：更新前向链接数据 */
 export function updateForwardlinks(data) {
   Model.forwardLinks = data || [];
-  View.renderForward();
+  View.renderForward(Model.forwardLinks);
 }
 
 /** 清空并重新渲染 */
 export function refresh() {
-  Model.lastText = null;
-  Model.parsedWikiLinks = [];
   View.clearAll();
-  View.renderForward();
-  View.renderBacklinks();
 }
 
 export function enable() {
   if (window[STATE_KEY]) return;
-  
-  window[STATE_KEY] = {
-    updateTimeout: null,
-    cleanup: null
-  };
-
-  function refreshColumn2() {
-    Model.lastText = null;
-    View.renderForward();
-  }
-
-  function onActivity() {
-    if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-    window[STATE_KEY].updateTimeout = setTimeout(refreshColumn2, 300);
-  }
-
-  setTimeout(() => {
-    View.renderForward();
-    View.renderBacklinks();
-  }, 500);
-
-  document.addEventListener("keyup", onActivity);
-  document.addEventListener("click", onActivity);
-
-  window[STATE_KEY].cleanup = () => {
-    document.removeEventListener("keyup", onActivity);
-    document.removeEventListener("click", onActivity);
-    if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-  };
-
-  console.log("[LinkFloater] v6 Enabled (with auto-center)");
+  window[STATE_KEY] = {};
+  console.log("[LinkFloater] v5 Enabled");
 }
 
 export function disable() {
   if (window[STATE_KEY]) {
-    if (window[STATE_KEY].cleanup) window[STATE_KEY].cleanup();
     View.clearAll();
     const top = document.getElementById(View.topContainerId);
     if (top) top.remove();
