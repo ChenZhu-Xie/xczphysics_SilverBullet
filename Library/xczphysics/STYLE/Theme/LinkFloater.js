@@ -8,6 +8,68 @@ const STATE_KEY = "__LinkFloaterState_v5";
 // ==========================================
 
 /**
+ * 居中光标的辅助函数
+ * 尝试多种方式实现 "Navigate: Center Cursor" 效果
+ */
+async function centerCursor() {
+  // 给导航一点时间完成
+  await new Promise(resolve => setTimeout(resolve, 50));
+  
+  try {
+    // 方法1: 使用 silverbullet.syscall (如果在正确的上下文中)
+    if (globalThis.silverbullet && typeof globalThis.silverbullet.syscall === 'function') {
+      await globalThis.silverbullet.syscall("editor.invokeCommand", "Navigate: Center Cursor");
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] syscall method failed:", e);
+  }
+  
+  try {
+    // 方法2: 直接使用 editorView 滚动到光标位置
+    if (window.client && client.editorView) {
+      const view = client.editorView;
+      const cursorPos = view.state.selection.main.head;
+      
+      // 获取光标的屏幕坐标
+      const coords = view.coordsAtPos(cursorPos);
+      if (coords) {
+        const viewRect = view.dom.getBoundingClientRect();
+        const viewHeight = viewRect.height;
+        
+        // 计算目标滚动位置，使光标位于视图中心
+        const currentScrollTop = view.scrollDOM.scrollTop;
+        const cursorRelativeY = coords.top - viewRect.top + currentScrollTop;
+        const targetScrollTop = cursorRelativeY - viewHeight / 2;
+        
+        view.scrollDOM.scrollTo({ 
+          top: Math.max(0, targetScrollTop), 
+          behavior: 'instant' 
+        });
+      }
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] Direct scroll failed:", e);
+  }
+  
+  return false;
+}
+
+/**
+ * 封装的导航函数 - 导航后自动居中光标
+ * @param {Object} options - client.navigate 的参数
+ */
+function navigateAndCenter(options) {
+  if (!window.client) return;
+  
+  client.navigate(options);
+  
+  // 异步执行居中，不阻塞导航
+  setTimeout(() => centerCursor(), 150);
+}
+
+/**
  * 获取当前页面名称（不含 .md 后缀）
  */
 function getCurrentPageName() {
@@ -305,7 +367,7 @@ const View = {
           col.appendChild(this.createButton(shortName, fullName, () => {
             if (window.client) {
               const currentPath = client.currentPath();
-              client.navigate({
+              navigateAndCenter({
                 path: currentPath,
                 details: { type: "position", pos: link.pos }
               });
@@ -342,23 +404,23 @@ const View = {
             if (parsed) {
               if (parsed.posNum !== null) {
                 // 有具体位置 @pos
-                client.navigate({
+                navigateAndCenter({
                   path: `${parsed.page}.md`,
                   details: { type: "position", pos: parsed.posNum }
                 });
               } else if (parsed.header) {
                 // 有标题 #header（page 已在 parseLinkTarget 中补全）
-                client.navigate({
+                navigateAndCenter({
                   path: `${parsed.page}.md`,
                   details: { type: "header", header: parsed.header }
                 });
               } else if (parsed.page) {
                 // 纯页面
-                client.navigate({ path: `${parsed.page}.md` });
+                navigateAndCenter({ path: `${parsed.page}.md` });
               }
             } else {
               // 回退：使用 displayPage
-              client.navigate({ path: `${link.displayPage}.md` });
+              navigateAndCenter({ path: `${link.displayPage}.md` });
             }
           };
           
@@ -405,7 +467,7 @@ const View = {
         
         col.appendChild(this.createButton(shortName, fullName, () => {
           if (window.client) {
-            client.navigate({
+            navigateAndCenter({
               path: `${link.page}.md`,
               details: { type: "position", pos: link.pos }
             });
