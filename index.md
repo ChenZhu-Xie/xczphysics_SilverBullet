@@ -1,7 +1,9 @@
 
 ${query[[
       from index.tag "link"
-      where _.toPage == editor.getCurrentPage() and _.page != editor.getCurrentPage()
+      where _.page == editor.getCurrentPage()
+      select { ref=_.ref, toPage=_.toPage, pos=_.pos }
+      order by _.pos
     ]]}
 
 # Hello 👋
