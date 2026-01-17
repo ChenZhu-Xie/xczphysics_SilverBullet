@@ -66,7 +66,7 @@ function navigateAndCenter(options) {
   client.navigate(options);
   
   // 异步执行居中，不阻塞导航
-  setTimeout(() => centerCursor(), 150);
+  setTimeout(() => centerCursor(), 50);
 }
 
 /**

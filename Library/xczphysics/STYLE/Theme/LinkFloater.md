@@ -12,8 +12,6 @@ pageDecoration.prefix: "🔗 "
 这个插件，说实话有点像 [[PKM/Apps/Tana|]] 中的 Related Content
 - 写了这么多 JS 代码，不如 Tana 的 Related Content 中一个 Query ?
 
-[[Language/Input Method/声笔飞单]]
-
 ## 1. JS Logic
 
 本插件可能会用到：JS 与 Lua 通信
