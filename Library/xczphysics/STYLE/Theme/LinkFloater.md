@@ -61,7 +61,7 @@ event.listen {
 
 -- 页面保存时
 event.listen {
-  name = "editor:pageSaved",
+  name = "editor:pageSaving",
   run = function()
     pushBacklinks()
     pushForwardlinks()
