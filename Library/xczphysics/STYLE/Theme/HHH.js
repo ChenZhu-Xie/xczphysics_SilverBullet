@@ -1,7 +1,5 @@
 // Library/xczphysics/STYLE/Theme/HHH.js
-// HHH v13 - 层级标识 + 树状连接
-// 1. Feature: 左下角显示 H1-H6 层级
-// 2. Feature: 树状结构连接线
+// HHH v13 - 修复缩进 + 删除小方格
 
 const STATE_KEY = "__xhHighlightState_v13";
 
@@ -166,112 +164,59 @@ const View = {
   },
 
   /**
-   * 生成树状连接符号
-   * @param {number} level - 当前层级
-   * @param {number} baseLevel - 基准层级
-   * @param {boolean} isLast - 是否是当前层级的最后一个
-   * @param {Array} parentConnectors - 父级连接符状态
+   * 生成树状结构前缀
+   * @param {number} level - 当前标题层级
+   * @param {number} baseLevel - 基础层级
+   * @param {boolean} isLast - 是否是该层级最后一个
+   * @param {Array} parentIsLast - 父级是否为最后一个的数组
    */
-  getTreePrefix(level, baseLevel, isLast, parentConnectors = []) {
+  generateTreePrefix(level, baseLevel, isLast, parentIsLast = []) {
     if (level <= baseLevel) return "";
     
     let prefix = "";
     const depth = level - baseLevel;
     
-    // 添加父级连接线
+    // 使用不间断空格确保宽度一致
+    const SPACE = "\u00A0\u00A0"; // 两个不间断空格
+    
     for (let i = 0; i < depth - 1; i++) {
-      if (parentConnectors[i]) {
-        prefix += "│ ";
+      if (parentIsLast[i]) {
+        prefix += SPACE + SPACE; // 父级是最后一个，用空白
       } else {
-        prefix += "  ";
+        prefix += "│" + SPACE; // 父级不是最后一个，用竖线
       }
     }
     
-    // 添加当前节点连接符
-    if (isLast) {
-      prefix += "└─";
-    } else {
-      prefix += "├─";
-    }
+    // 最后一个连接符
+    prefix += isLast ? "└─" : "├─";
     
     return prefix;
   },
 
   /**
-   * 计算列表中每个项目的树状连接信息
+   * 创建可悬浮展开的标题项
    */
-  computeTreeInfo(list, baseLevel) {
-    const result = [];
-    const levelLastIndex = {}; // 记录每个层级最后一个元素的索引
-    
-    // 第一遍：找出每个层级的最后一个元素
-    for (let i = list.length - 1; i >= 0; i--) {
-      const level = list[i].level;
-      if (levelLastIndex[level] === undefined) {
-        levelLastIndex[level] = i;
-      }
-    }
-    
-    // 第二遍：生成树状信息
-    const activeConnectors = []; // 追踪哪些层级还有后续元素
-    
-    for (let i = 0; i < list.length; i++) {
-      const h = list[i];
-      const depth = h.level - baseLevel;
-      
-      // 判断是否是该层级在剩余列表中的最后一个
-      let isLastAtLevel = true;
-      for (let j = i + 1; j < list.length; j++) {
-        if (list[j].level === h.level) {
-          isLastAtLevel = false;
-          break;
-        }
-        if (list[j].level < h.level) {
-          break;
-        }
-      }
-      
-      // 更新连接器状态
-      activeConnectors[depth - 1] = !isLastAtLevel;
-      
-      // 生成前缀
-      let prefix = "";
-      for (let d = 0; d < depth - 1; d++) {
-        prefix += activeConnectors[d] ? "│ " : "  ";
-      }
-      if (depth > 0) {
-        prefix += isLastAtLevel ? "└─" : "├─";
-      }
-      
-      result.push({
-        ...h,
-        treePrefix: prefix,
-        isLast: isLastAtLevel
-      });
-    }
-    
-    return result;
-  },
-
-  /**
-   * 创建可悬浮展开的标题项（带层级标识和树状连接）
-   */
-  createHeadingItem(h, baseLevel = 1, treePrefix = "") {
+  createHeadingItem(h, baseLevel, isLast, parentIsLast, index, total) {
     const wrapper = document.createElement("div");
-    wrapper.className = `sb-frozen-item-wrapper sb-frozen-l${h.level}`;
+    wrapper.className = "sb-frozen-item-wrapper";
     wrapper.style.display = "flex";
-    wrapper.style.alignItems = "flex-end";
-    wrapper.style.gap = "4px";
+    wrapper.style.alignItems = "center";
+    wrapper.style.gap = "2px";
     
     // 树状前缀
+    const treePrefix = this.generateTreePrefix(h.level, baseLevel, isLast, parentIsLast);
     if (treePrefix) {
-      const treePre = document.createElement("span");
-      treePre.className = "sb-frozen-tree";
-      treePre.textContent = treePrefix;
-      wrapper.appendChild(treePre);
+      const prefixSpan = document.createElement("span");
+      prefixSpan.className = "sb-frozen-tree-prefix";
+      prefixSpan.textContent = treePrefix;
+      prefixSpan.style.fontFamily = "monospace";
+      prefixSpan.style.fontSize = "10px";
+      prefixSpan.style.opacity = "0.5";
+      prefixSpan.style.whiteSpace = "pre"; // 保持空格
+      wrapper.appendChild(prefixSpan);
     }
     
-    // 主按钮
+    // 标题按钮
     const div = document.createElement("div");
     div.className = `sb-frozen-item sb-frozen-l${h.level}`;
     
@@ -283,20 +228,27 @@ const View = {
     div.title = fullText;
     div.dataset.fullText = fullText;
     div.dataset.shortText = shortText;
-    div.dataset.level = h.level;
     
     div.style.cursor = "pointer";
+    div.style.position = "relative";
+    
+    // 层级指示器（左下角小字）
+    const levelIndicator = document.createElement("span");
+    levelIndicator.className = "sb-frozen-level-indicator";
+    levelIndicator.textContent = `H${h.level}`;
+    div.appendChild(levelIndicator);
     
     // 悬浮展开
     div.addEventListener("mouseenter", () => {
       if (fullText !== shortText) {
-        div.textContent = fullText;
+        // 保留层级指示器
+        div.childNodes[0].textContent = fullText;
         div.classList.add("sb-frozen-expanded");
       }
     });
     
     div.addEventListener("mouseleave", () => {
-      div.textContent = shortText;
+      div.childNodes[0].textContent = shortText;
       div.classList.remove("sb-frozen-expanded");
     });
     
@@ -313,14 +265,41 @@ const View = {
     };
     
     wrapper.appendChild(div);
-    
-    // 层级标识 (H1-H6)
-    const levelBadge = document.createElement("span");
-    levelBadge.className = `sb-frozen-level sb-frozen-l${h.level}`;
-    levelBadge.textContent = `H${h.level}`;
-    wrapper.appendChild(levelBadge);
-    
     return wrapper;
+  },
+
+  /**
+   * 计算 parentIsLast 数组
+   */
+  computeParentIsLast(items, index, baseLevel) {
+    const currentLevel = items[index].level;
+    const result = [];
+    
+    for (let lvl = baseLevel + 1; lvl < currentLevel; lvl++) {
+      // 检查在这个层级，当前项之后是否还有同级或更高级的项
+      let isLastAtThisLevel = true;
+      for (let j = index + 1; j < items.length; j++) {
+        if (items[j].level <= lvl) {
+          isLastAtThisLevel = false;
+          break;
+        }
+      }
+      result.push(isLastAtThisLevel);
+    }
+    
+    return result;
+  },
+
+  /**
+   * 检查是否是同级中的最后一个
+   */
+  isLastSibling(items, index) {
+    const currentLevel = items[index].level;
+    for (let j = index + 1; j < items.length; j++) {
+      if (items[j].level === currentLevel) return false;
+      if (items[j].level < currentLevel) return true;
+    }
+    return true;
   },
 
   renderTopBar(targetIndex, container) {
@@ -348,11 +327,8 @@ const View = {
     el.style.gap = "8px";
     el.style.alignItems = "flex-start";
 
-    // 计算树状信息
-    const baseLevel = list.length > 0 ? list[0].level : 1;
-    const treeList = this.computeTreeInfo(list, baseLevel);
-
-    const columns = this.splitIntoColumns(treeList);
+    const columns = this.splitIntoColumns(list);
+    const baseLevel = 0; // ancestors 从 1 级开始
 
     columns.forEach((columnItems, colIndex) => {
       const col = document.createElement("div");
@@ -364,19 +340,26 @@ const View = {
 
       if (colIndex === 0) {
         const label = document.createElement("div");
-        label.className = "sb-frozen-header";
         label.textContent = "Context:";
+        label.style.fontSize = "10px";
+        label.style.opacity = "0.5";
+        label.style.marginBottom = "2px";
+        label.style.pointerEvents = "none";
         col.appendChild(label);
       } else {
         const spacer = document.createElement("div");
-        spacer.className = "sb-frozen-header";
         spacer.textContent = "·";
+        spacer.style.fontSize = "10px";
         spacer.style.opacity = "0.3";
+        spacer.style.marginBottom = "2px";
         col.appendChild(spacer);
       }
 
-      columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, baseLevel, h.treePrefix));
+      columnItems.forEach((h, idx) => {
+        const globalIdx = colIndex * Math.ceil(list.length / columns.length) + idx;
+        const isLast = this.isLastSibling(list, globalIdx);
+        const parentIsLast = this.computeParentIsLast(list, globalIdx, baseLevel);
+        col.appendChild(this.createHeadingItem(h, baseLevel, isLast, parentIsLast, idx, columnItems.length));
       });
 
       el.appendChild(col);
@@ -410,9 +393,7 @@ const View = {
     el.style.alignItems = "flex-end";
 
     const baseLevel = DataModel.headings[targetIndex]?.level || 1;
-    const treeList = this.computeTreeInfo(list, baseLevel);
-
-    const columns = this.splitIntoColumns(treeList);
+    const columns = this.splitIntoColumns(list);
 
     columns.forEach((columnItems, colIndex) => {
       const col = document.createElement("div");
@@ -424,19 +405,26 @@ const View = {
 
       if (colIndex === 0) {
         const label = document.createElement("div");
-        label.className = "sb-frozen-header";
         label.textContent = "Sub-sections:";
+        label.style.fontSize = "10px";
+        label.style.opacity = "0.5";
+        label.style.marginBottom = "2px";
+        label.style.pointerEvents = "none";
         col.appendChild(label);
       } else {
         const spacer = document.createElement("div");
-        spacer.className = "sb-frozen-header";
         spacer.textContent = "·";
+        spacer.style.fontSize = "10px";
         spacer.style.opacity = "0.3";
+        spacer.style.marginBottom = "2px";
         col.appendChild(spacer);
       }
 
-      columnItems.forEach(h => {
-        col.appendChild(this.createHeadingItem(h, baseLevel, h.treePrefix));
+      columnItems.forEach((h, idx) => {
+        const globalIdx = colIndex * Math.ceil(list.length / columns.length) + idx;
+        const isLast = this.isLastSibling(list, globalIdx);
+        const parentIsLast = this.computeParentIsLast(list, globalIdx, baseLevel);
+        col.appendChild(this.createHeadingItem(h, baseLevel, isLast, parentIsLast, idx, columnItems.length));
       });
 
       el.appendChild(col);
@@ -521,7 +509,6 @@ export function enableHighlight(opts = {}) {
 
     function onPointerOver(e) {
       if (!container.contains(e.target)) return;
-
       try {
         const pos = client.editorView.posAtCoords({x: e.clientX, y: e.clientY});
         if (pos != null) {
@@ -535,7 +522,6 @@ export function enableHighlight(opts = {}) {
 
     function onCursorActivity(e) {
       if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
-      
       window[STATE_KEY].updateTimeout = setTimeout(() => {
         try {
           const state = client.editorView.state;
@@ -552,7 +538,6 @@ export function enableHighlight(opts = {}) {
         isScrolling = false;
         return;
       }
-      
       const viewportTopPos = client.editorView.viewport.from;
       const idx = DataModel.findHeadingIndexByPos(viewportTopPos + 50);
       updateState(idx);
