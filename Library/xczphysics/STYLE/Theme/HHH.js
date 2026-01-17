@@ -4,6 +4,72 @@
 const STATE_KEY = "__xhHighlightState_v13";
 
 // ==========================================
+// 辅助函数
+// ==========================================
+
+/**
+ * 居中光标的辅助函数
+ * 尝试多种方式实现 "Navigate: Center Cursor" 效果
+ */
+async function centerCursor() {
+  // 给导航一点时间完成
+  await new Promise(resolve => setTimeout(resolve, 50));
+  
+  try {
+    // 方法1: 使用 silverbullet.syscall (如果在正确的上下文中)
+    if (globalThis.silverbullet && typeof globalThis.silverbullet.syscall === 'function') {
+      await globalThis.silverbullet.syscall("editor.invokeCommand", "Navigate: Center Cursor");
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] syscall method failed:", e);
+  }
+  
+  try {
+    // 方法2: 直接使用 editorView 滚动到光标位置
+    if (window.client && client.editorView) {
+      const view = client.editorView;
+      const cursorPos = view.state.selection.main.head;
+      
+      // 获取光标的屏幕坐标
+      const coords = view.coordsAtPos(cursorPos);
+      if (coords) {
+        const viewRect = view.dom.getBoundingClientRect();
+        const viewHeight = viewRect.height;
+        
+        // 计算目标滚动位置，使光标位于视图中心
+        const currentScrollTop = view.scrollDOM.scrollTop;
+        const cursorRelativeY = coords.top - viewRect.top + currentScrollTop;
+        const targetScrollTop = cursorRelativeY - viewHeight / 2;
+        
+        view.scrollDOM.scrollTo({ 
+          top: Math.max(0, targetScrollTop), 
+          behavior: 'instant' 
+        });
+      }
+      return true;
+    }
+  } catch (e) {
+    // console.warn("[LinkFloater] Direct scroll failed:", e);
+  }
+  
+  return false;
+}
+
+/**
+ * 封装的导航函数 - 导航后自动居中光标
+ * @param {Object} options - client.navigate 的参数
+ */
+function navigateAndCenter(options) {
+  if (!window.client) return;
+  
+  client.navigate(options);
+  
+  // 异步执行居中，不阻塞导航
+  setTimeout(() => centerCursor(), 150);
+}
+
+// ==========================================
 // 1. Model: 数据模型
 // ==========================================
 
@@ -257,7 +323,7 @@ const View = {
       e.stopPropagation();
       if (window.client) {
         const pagePath = client.currentPath();
-        client.navigate({
+        navigateAndCenter({
           path: pagePath,
           details: { type: "header", header: h.text }
         });
