@@ -612,6 +612,273 @@ js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
 
 ```space-style
 /* =========================================
+   统一主题样式 - HHH + LinkFloater
+   ========================================= */
+
+/* =========================================
+   1. 共享变量 (Shared Variables)
+   ========================================= */
+:root {
+  /* Dark theme colors */
+  --h1-color-dark: #e6c8ff;
+  --h2-color-dark: #a0d8ff;
+  --h3-color-dark: #98ffb3;
+  --h4-color-dark: #fff3a8;
+  --h5-color-dark: #ffb48c;
+  --h6-color-dark: #ffa8ff;
+
+  /* Light theme colors */
+  --h1-color-light: #6b2e8c;
+  --h2-color-light: #1c4e8b;
+  --h3-color-light: #1a6644;
+  --h4-color-light: #a67c00;
+  --h5-color-light: #b84c1c;
+  --h6-color-light: #993399;
+
+  --title-opacity: 0.5;
+  
+  /* LinkFloater colors */
+  --link-local-color: #4caf50;
+  --link-remote-color: #2196f3;
+  --link-backlink-color: #ff9800;
+}
+
+/* =========================================
+   2. 共享基础样式 (Shared Base Styles)
+   用于 .sb-frozen-item 和 .sb-floater-btn
+   ========================================= */
+.sb-frozen-item,
+.sb-floater-btn {
+  display: inline-block;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: auto;
+  cursor: pointer;
+
+  margin: 0;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  opacity: 0.8;
+  background-color: var(--bg-color, #ffffff);
+  
+  border: 1px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  font-family: inherit;
+  transition: all 0.15s ease-out;
+}
+
+/* 共享悬浮效果 */
+.sb-frozen-item:hover,
+.sb-frozen-item.sb-frozen-expanded,
+.sb-floater-btn:hover,
+.sb-floater-btn.sb-floater-expanded {
+  opacity: 1;
+  z-index: 1001;
+  max-width: none;
+  filter: brightness(0.95) contrast(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: currentColor;
+}
+
+/* 共享 Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .sb-frozen-item,
+  .sb-floater-btn {
+    background-color: var(--bg-color-dark, #252629);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+  .sb-frozen-item:hover,
+  .sb-floater-btn:hover {
+    background-color: #333;
+    filter: brightness(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+html[data-theme="dark"] .sb-frozen-item,
+html[data-theme="dark"] .sb-floater-btn {
+  background-color: var(--bg-color-dark, #252629);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  color: #ccc;
+}
+
+html[data-theme="dark"] .sb-frozen-item:hover,
+html[data-theme="dark"] .sb-floater-btn:hover {
+  background-color: #333;
+  filter: brightness(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   3. HHH 专用样式
+   ========================================= */
+
+/* 容器样式 */
+#sb-frozen-container-top,
+#sb-frozen-container-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.sb-frozen-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+/* HHH 专用：宽度限制 */
+.sb-frozen-item {
+  max-width: 40vw;
+}
+
+.sb-frozen-item:hover {
+  transform: translateY(-1px);
+}
+
+/* 标题颜色 */
+html[data-theme="dark"] .sb-frozen-l1 { color: var(--h1-color-dark); }
+html[data-theme="dark"] .sb-frozen-l2 { color: var(--h2-color-dark); }
+html[data-theme="dark"] .sb-frozen-l3 { color: var(--h3-color-dark); }
+html[data-theme="dark"] .sb-frozen-l4 { color: var(--h4-color-dark); }
+html[data-theme="dark"] .sb-frozen-l5 { color: var(--h5-color-dark); }
+html[data-theme="dark"] .sb-frozen-l6 { color: var(--h6-color-dark); }
+
+html[data-theme="light"] .sb-frozen-l1 { color: var(--h1-color-light); }
+html[data-theme="light"] .sb-frozen-l2 { color: var(--h2-color-light); }
+html[data-theme="light"] .sb-frozen-l3 { color: var(--h3-color-light); }
+html[data-theme="light"] .sb-frozen-l4 { color: var(--h4-color-light); }
+html[data-theme="light"] .sb-frozen-l5 { color: var(--h5-color-light); }
+html[data-theme="light"] .sb-frozen-l6 { color: var(--h6-color-light); }
+
+/* 编辑器内标题样式 */
+.sb-line-h1, .sb-line-h2, .sb-line-h3,
+.sb-line-h4, .sb-line-h5, .sb-line-h6 {
+  position: relative;
+  opacity: var(--title-opacity);
+  border-bottom: none !important;
+  background-image: linear-gradient(90deg, currentColor, transparent);
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: opacity 0.15s;
+}
+
+html[data-theme="dark"] .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-dark)!important; }
+html[data-theme="dark"] .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-dark)!important; }
+html[data-theme="dark"] .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-dark)!important; }
+html[data-theme="dark"] .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-dark)!important; }
+html[data-theme="dark"] .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-dark)!important; }
+html[data-theme="dark"] .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-dark)!important; }
+
+html[data-theme="light"] .sb-line-h1 { font-size:1.8em !important; color:var(--h1-color-light)!important; }
+html[data-theme="light"] .sb-line-h2 { font-size:1.6em !important; color:var(--h2-color-light)!important; }
+html[data-theme="light"] .sb-line-h3 { font-size:1.4em !important; color:var(--h3-color-light)!important; }
+html[data-theme="light"] .sb-line-h4 { font-size:1.2em !important; color:var(--h4-color-light)!important; }
+html[data-theme="light"] .sb-line-h5 { font-size:1em !important;  color:var(--h5-color-light)!important; }
+html[data-theme="light"] .sb-line-h6 { font-size:1em !important;  color:var(--h6-color-light)!important; }
+
+/* 高亮状态 */
+.sb-active { opacity: 1 !important; }
+
+.sb-active::before {
+  content: "";
+  position: absolute;
+  top: -2px; 
+  left: -4px; 
+  right: -4px; 
+  bottom: 0;
+  background-color: currentColor;
+  opacity: 0.15; 
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* =========================================
+   4. LinkFloater 专用样式
+   ========================================= */
+
+.sb-floater-container {
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+  pointer-events: none;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.sb-floater-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.sb-floater-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  pointer-events: auto;
+}
+
+.sb-floater-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--secondary-text-color, #888);
+  opacity: 0.6;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* LinkFloater 专用：宽度限制 */
+.sb-floater-btn {
+  max-width: 120px;
+}
+
+.sb-floater-btn:hover {
+  transform: translateX(-2px);
+}
+
+/* 链接类型颜色 */
+.sb-floater-local {
+  border-left: 3px solid var(--link-local-color);
+  color: var(--link-local-color);
+}
+
+.sb-floater-remote {
+  border-left: 3px solid var(--link-remote-color);
+  color: var(--link-remote-color);
+  font-weight: bold;
+}
+
+.sb-floater-backlink {
+  border-right: 3px solid var(--link-backlink-color);
+  border-left: 1px solid transparent;
+  color: var(--link-backlink-color);
+}
+
+html[data-theme="dark"] .sb-floater-local { color: #81c784; }
+html[data-theme="dark"] .sb-floater-remote { color: #64b5f6; }
+html[data-theme="dark"] .sb-floater-backlink { color: #ffb74d; }
+```
+
+```space
+/* =========================================
    1. 容器样式 (Navigation Bars)
    ========================================= */
 #sb-frozen-container-top,
