@@ -31,6 +31,13 @@ pageDecoration.prefix: "📎 "
 
 1. [Tag Page](https://silverbullet.md/Library/Std/Infrastructure/Tag%20Page) #silverbullet
 
+${query[[
+      from index.tag "link"
+      where _.page == editor.getCurrentPage() and not _.toFile
+      select { ref=_.ref, toPage=_.toPage, pos=_.pos }
+      order by _.pos
+    ]]}
+
 ```space-lua
 function getSelectedText()
   local sel = editor.getSelection()
