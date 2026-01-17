@@ -1,10 +1,9 @@
 // Library/xczphysics/STYLE/Theme/HHH.js
-// HHH v11-FixAndFeatures
-// 1. Fix: Robust highlighting on hover/edit (added delays for DOM updates)
-// 2. Feature: Background highlight with transparency
-// 3. Feature: Gradient underline
+// HHH v12 - 分列 + 悬浮展开
+// 1. Feature: 超过半屏高度时自动分列
+// 2. Feature: 标题初始宽度限制，悬浮展开
 
-const STATE_KEY = "__xhHighlightState_v11";
+const STATE_KEY = "__xhHighlightState_v12";
 
 // ==========================================
 // 1. Model: 数据模型
@@ -25,7 +24,6 @@ const DataModel = {
 
   rebuildSync() {
     const text = this.getFullText();
-    // 即使文本没变，如果 headings 为空也需要重建（初始化情况）
     if (text === this.lastText && this.headings.length > 0) return;
 
     this.lastText = text;
@@ -33,9 +31,8 @@ const DataModel = {
     
     if (!text) return;
 
-    // 1. 预先扫描所有代码块的范围，用于后续排除
+    // 1. 预先扫描所有代码块的范围
     const codeBlockRanges = [];
-    // 匹配 ``` ... ``` 包裹的内容 (非贪婪模式)
     const codeBlockRegex = /```[\s\S]*?```/gm;
     let blockMatch;
     while ((blockMatch = codeBlockRegex.exec(text)) !== null) {
@@ -52,12 +49,10 @@ const DataModel = {
     while ((match = regex.exec(text)) !== null) {
       const matchIndex = match.index;
       
-      // 3. 检查当前匹配到的 # 是否在代码块范围内
       const isInsideCodeBlock = codeBlockRanges.some(range => 
         matchIndex >= range.start && matchIndex < range.end
       );
 
-      // 如果在代码块内，则跳过，不将其视为标题
       if (isInsideCodeBlock) continue;
 
       this.headings.push({
@@ -151,15 +146,84 @@ const View = {
     if (!el) {
       el = document.createElement("div");
       el.id = id;
+      el.className = "sb-frozen-container";
       el.style.position = "fixed";
       el.style.zIndex = "9999";
       el.style.display = "none";
-      el.style.flexDirection = "column";
-      el.style.alignItems = "flex-start";
       el.style.pointerEvents = "auto";
       document.body.appendChild(el);
     }
     return el;
+  },
+
+  /**
+   * 将项目列表分成多列
+   */
+  splitIntoColumns(items, itemHeight = 26) {
+    const maxHeight = window.innerHeight * 0.45;
+    const maxItemsPerCol = Math.max(3, Math.floor(maxHeight / itemHeight));
+    
+    const columns = [];
+    for (let i = 0; i < items.length; i += maxItemsPerCol) {
+      columns.push(items.slice(i, i + maxItemsPerCol));
+    }
+    return columns;
+  },
+
+  /**
+   * 创建可悬浮展开的标题项
+   */
+  createHeadingItem(h, baseLevel = 1) {
+    const div = document.createElement("div");
+    div.className = `sb-frozen-item sb-frozen-l${h.level}`;
+    
+    // 截断显示文本
+    const maxLen = 20;
+    const shortText = h.text.length > maxLen ? h.text.substring(0, maxLen) + "…" : h.text;
+    const fullText = h.text;
+    
+    div.textContent = shortText;
+    div.title = fullText;
+    div.dataset.fullText = fullText;
+    div.dataset.shortText = shortText;
+    
+    div.style.margin = "1px 0";
+    div.style.cursor = "pointer";
+    
+    // 缩进
+    if (baseLevel > 0) {
+      const indent = (h.level - baseLevel) * 10;
+      if (indent > 0) {
+        div.style.marginLeft = `${indent}px`;
+      }
+    }
+    
+    // 悬浮展开
+    div.addEventListener("mouseenter", () => {
+      if (fullText !== shortText) {
+        div.textContent = fullText;
+        div.classList.add("sb-frozen-expanded");
+      }
+    });
+    
+    div.addEventListener("mouseleave", () => {
+      div.textContent = shortText;
+      div.classList.remove("sb-frozen-expanded");
+    });
+    
+    // 点击导航
+    div.onclick = (e) => {
+      e.stopPropagation();
+      if (window.client) {
+        const pagePath = client.currentPath();
+        client.navigate({
+          path: pagePath,
+          details: { type: "header", header: h.text }
+        });
+      }
+    };
+    
+    return div;
   },
 
   renderTopBar(targetIndex, container) {
@@ -176,39 +240,50 @@ const View = {
     }
 
     if (container) {
-        const rect = container.getBoundingClientRect();
-        el.style.left = (rect.left + 45) + "px";
-        el.style.top = (rect.top + 30) + "px";
+      const rect = container.getBoundingClientRect();
+      el.style.left = (rect.left + 45) + "px";
+      el.style.top = (rect.top + 30) + "px";
     }
 
     el.innerHTML = "";
     el.style.display = "flex";
-    
-    const label = document.createElement("div");
-    label.textContent = "Context:";
-    label.style.fontSize = "10px";
-    label.style.opacity = "0.5";
-    label.style.marginBottom = "2px";
-    label.style.pointerEvents = "none";
-    el.appendChild(label);
+    el.style.flexDirection = "row";
+    el.style.gap = "8px";
+    el.style.alignItems = "flex-start";
 
-    list.forEach(h => {
-      const div = document.createElement("div");
-      div.className = `sb-frozen-item sb-frozen-l${h.level}`;
-      div.textContent = h.text;
-      div.style.margin = "1px 0";
-      div.style.cursor = "pointer";
-      div.onclick = (e) => {
-        e.stopPropagation();
-        if (window.client) {
-            const pagePath = client.currentPath();
-            client.navigate({
-                path: pagePath,
-                details: { type: "header", header: h.text }
-            });
-        }
-      };
-      el.appendChild(div);
+    // 分列
+    const columns = this.splitIntoColumns(list);
+
+    columns.forEach((columnItems, colIndex) => {
+      const col = document.createElement("div");
+      col.className = "sb-frozen-col";
+      col.style.display = "flex";
+      col.style.flexDirection = "column";
+      col.style.alignItems = "flex-start";
+      col.style.gap = "2px";
+
+      if (colIndex === 0) {
+        const label = document.createElement("div");
+        label.textContent = "Context:";
+        label.style.fontSize = "10px";
+        label.style.opacity = "0.5";
+        label.style.marginBottom = "2px";
+        label.style.pointerEvents = "none";
+        col.appendChild(label);
+      } else {
+        const spacer = document.createElement("div");
+        spacer.textContent = "·";
+        spacer.style.fontSize = "10px";
+        spacer.style.opacity = "0.3";
+        spacer.style.marginBottom = "2px";
+        col.appendChild(spacer);
+      }
+
+      columnItems.forEach(h => {
+        col.appendChild(this.createHeadingItem(h, 1));
+      });
+
+      el.appendChild(col);
     });
   },
 
@@ -226,49 +301,58 @@ const View = {
     }
 
     if (container) {
-        const rect = container.getBoundingClientRect();
-        el.style.left = (rect.left + 45) + "px";
-        el.style.bottom = "30px";
-        el.style.top = "auto";
+      const rect = container.getBoundingClientRect();
+      el.style.left = (rect.left + 45) + "px";
+      el.style.bottom = "30px";
+      el.style.top = "auto";
     }
 
     el.innerHTML = "";
     el.style.display = "flex";
+    el.style.flexDirection = "row";
+    el.style.gap = "8px";
+    el.style.alignItems = "flex-end";
 
-    const label = document.createElement("div");
-    label.textContent = "Sub-sections:";
-    label.style.fontSize = "10px";
-    label.style.opacity = "0.5";
-    label.style.marginBottom = "2px";
-    label.style.pointerEvents = "none";
-    el.appendChild(label);
+    const baseLevel = DataModel.headings[targetIndex]?.level || 1;
 
-    list.forEach(h => {
-      const div = document.createElement("div");
-      div.className = `sb-frozen-item sb-frozen-l${h.level}`;
-      div.textContent = h.text;
-      div.style.margin = "1px 0";
-      const indent = (h.level - DataModel.headings[targetIndex].level) * 10;
-      div.style.marginLeft = `${indent}px`;
-      div.style.cursor = "pointer";
-      div.onclick = (e) => {
-        e.stopPropagation();
-        if (window.client) {
-            const pagePath = client.currentPath();
-            client.navigate({
-                path: pagePath,
-                details: { type: "header", header: h.text }
-            });
-        }
-      };
-      el.appendChild(div);
+    // 分列
+    const columns = this.splitIntoColumns(list);
+
+    columns.forEach((columnItems, colIndex) => {
+      const col = document.createElement("div");
+      col.className = "sb-frozen-col";
+      col.style.display = "flex";
+      col.style.flexDirection = "column";
+      col.style.alignItems = "flex-start";
+      col.style.gap = "2px";
+
+      if (colIndex === 0) {
+        const label = document.createElement("div");
+        label.textContent = "Sub-sections:";
+        label.style.fontSize = "10px";
+        label.style.opacity = "0.5";
+        label.style.marginBottom = "2px";
+        label.style.pointerEvents = "none";
+        col.appendChild(label);
+      } else {
+        const spacer = document.createElement("div");
+        spacer.textContent = "·";
+        spacer.style.fontSize = "10px";
+        spacer.style.opacity = "0.3";
+        spacer.style.marginBottom = "2px";
+        col.appendChild(spacer);
+      }
+
+      columnItems.forEach(h => {
+        col.appendChild(this.createHeadingItem(h, baseLevel));
+      });
+
+      el.appendChild(col);
     });
   },
 
-  // DOM 高亮逻辑
   applyHighlights(container, activeIndices) {
     const cls = ["sb-active", "sb-active-anc", "sb-active-desc", "sb-active-current"];
-    // 先清除旧的高亮，防止状态残留
     container.querySelectorAll("." + cls.join(", .")).forEach(el => el.classList.remove(...cls));
 
     if (!activeIndices || activeIndices.size === 0) return;
@@ -276,33 +360,29 @@ const View = {
     if (!window.client || !client.editorView) return;
     const view = client.editorView;
 
-    // 扩大查找范围，确保能找到所有标题行
     const visibleHeadings = container.querySelectorAll(".sb-line-h1, .sb-line-h2, .sb-line-h3, .sb-line-h4, .sb-line-h5, .sb-line-h6");
     
     visibleHeadings.forEach(el => {
       try {
         const pos = view.posAtDOM(el);
-        // 使用 posAtDOM 有时会偏差，增加一定容错
         const idx = DataModel.findHeadingIndexByPos(pos + 1);
         
         if (idx !== -1 && activeIndices.has(idx)) {
-            // 再次确认位置是否匹配（防止误判）
-            const h = DataModel.headings[idx];
-            // 只要 DOM 元素位置在标题范围内即可
-            if (pos >= h.start - 50 && pos <= h.end + 50) {
-                 el.classList.add("sb-active");
-                 if (idx === window[STATE_KEY].currentIndex) {
-                    el.classList.add("sb-active-current");
-                 } else {
-                     const mainIdx = window[STATE_KEY].currentIndex;
-                     const currentLevel = DataModel.headings[mainIdx].level;
-                     if (idx < mainIdx && DataModel.headings[idx].level < currentLevel) {
-                         el.classList.add("sb-active-anc");
-                     } else {
-                         el.classList.add("sb-active-desc");
-                     }
-                 }
+          const h = DataModel.headings[idx];
+          if (pos >= h.start - 50 && pos <= h.end + 50) {
+            el.classList.add("sb-active");
+            if (idx === window[STATE_KEY].currentIndex) {
+              el.classList.add("sb-active-current");
+            } else {
+              const mainIdx = window[STATE_KEY].currentIndex;
+              const currentLevel = DataModel.headings[mainIdx].level;
+              if (idx < mainIdx && DataModel.headings[idx].level < currentLevel) {
+                el.classList.add("sb-active-anc");
+              } else {
+                el.classList.add("sb-active-desc");
+              }
             }
+          }
         }
       } catch (e) {}
     });
@@ -332,7 +412,6 @@ export function enableHighlight(opts = {}) {
     };
 
     function updateState(targetIndex) {
-      // 即使 index 没变，也要重新 applyHighlights，因为 DOM 可能重绘了（例如打字时）
       window[STATE_KEY].currentIndex = targetIndex;
 
       if (targetIndex === -1) {
@@ -348,50 +427,38 @@ export function enableHighlight(opts = {}) {
       View.renderBottomBar(targetIndex, container);
     }
 
-    // --- Event Handlers ---
-
     function onPointerOver(e) {
       if (!container.contains(e.target)) return;
 
       try {
-        // 优先使用 posAtCoords，这比 target.closest 更准确，尤其是对于复杂的 CodeMirror 结构
         const pos = client.editorView.posAtCoords({x: e.clientX, y: e.clientY});
         if (pos != null) {
           const idx = DataModel.findHeadingIndexByPos(pos);
-          // 只有当索引变化时才触发，避免高频闪烁，但要确保高亮存在
           if (idx !== window[STATE_KEY].currentIndex || !document.querySelector(".sb-active")) {
-             updateState(idx);
+            updateState(idx);
           }
         }
       } catch (err) { }
     }
 
-    // 编辑或点击时的处理
     function onCursorActivity(e) {
-      // 使用 setTimeout 是关键修复：
-      // 当用户打字（keyup）时，CodeMirror 需要几毫秒来更新 DOM（添加 .sb-line-hX 类）。
-      // 如果立即执行，querySelectorAll 找不到新生成的标题元素，导致高亮失败。
       if (window[STATE_KEY].updateTimeout) clearTimeout(window[STATE_KEY].updateTimeout);
       
       window[STATE_KEY].updateTimeout = setTimeout(() => {
         try {
-            // 两种策略：如果有鼠标位置用鼠标，否则用光标
-            // 这里主要处理编辑，所以优先用光标位置
-            const state = client.editorView.state;
-            const pos = state.selection.main.head;
-            const idx = DataModel.findHeadingIndexByPos(pos);
-            updateState(idx);
+          const state = client.editorView.state;
+          const pos = state.selection.main.head;
+          const idx = DataModel.findHeadingIndexByPos(pos);
+          updateState(idx);
         } catch (e) {}
-      }, 50); // 50ms 延迟通常足够等待 DOM 更新
+      }, 50);
     }
 
     let isScrolling = false;
     function handleScroll() {
-      // 滚动时如果鼠标在悬停，不强制改变（防止冲突），除非需要跟随视口
-      // 但为了持续高亮，我们允许滚动更新顶部索引
       if (container.matches(":hover")) {
-          isScrolling = false;
-          return;
+        isScrolling = false;
+        return;
       }
       
       const viewportTopPos = client.editorView.viewport.from;
@@ -407,23 +474,20 @@ export function enableHighlight(opts = {}) {
       }
     }
     
-    // 监听 DOM 变化，防止 CodeMirror 重绘导致高亮丢失
     const mo = new MutationObserver((mutations) => {
-        // 只有当实际上有高亮需求时才重绘
-        if (window[STATE_KEY].currentIndex !== -1) {
-           // 检查是否丢失了高亮类
-           const activeEl = container.querySelector(".sb-active");
-           if (!activeEl) {
-               const familyIndices = DataModel.getFamilyIndices(window[STATE_KEY].currentIndex);
-               View.applyHighlights(container, familyIndices);
-           }
+      if (window[STATE_KEY].currentIndex !== -1) {
+        const activeEl = container.querySelector(".sb-active");
+        if (!activeEl) {
+          const familyIndices = DataModel.getFamilyIndices(window[STATE_KEY].currentIndex);
+          View.applyHighlights(container, familyIndices);
         }
+      }
     });
     mo.observe(container, { childList: true, subtree: true, attributes: false });
 
     container.addEventListener("pointerover", onPointerOver); 
     container.addEventListener("click", onCursorActivity);
-    container.addEventListener("keyup", onCursorActivity); // 确保键盘编辑时触发
+    container.addEventListener("keyup", onCursorActivity);
     window.addEventListener("scroll", onScroll, { passive: true });
 
     window[STATE_KEY].cleanup = () => {
@@ -442,7 +506,7 @@ export function enableHighlight(opts = {}) {
       DataModel.headings = [];
     };
 
-    console.log("[HHH] v11-FixAndFeatures Enabled");
+    console.log("[HHH] v12 Enabled");
   };
 
   bind();

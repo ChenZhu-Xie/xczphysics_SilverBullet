@@ -21,7 +21,9 @@ pageDecoration.prefix: "🔗 "
 This part queries the index and pushes data to the JS view.i
 
 ```space-lua
+-- 启用插件
 js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").enable()
+js.import("/.fs/Library/xczphysics/STYLE/Theme/HHH.js").enableHighlight()
 
 local function pushBacklinks()
     local currentPage = editor.getCurrentPage()
@@ -46,14 +48,18 @@ local function pushForwardlinks()
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").updateForwardlinks(results)
 end
 
+-- 页面加载时
 event.listen {
   name = "editor:pageLoaded",
   run = function()
+    -- 先清空再刷新，确保切换页面时正确更新
+    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
     pushBacklinks()
     pushForwardlinks()
   end
 }
 
+-- 页面保存时
 event.listen {
   name = "editor:pageSaved",
   run = function()
