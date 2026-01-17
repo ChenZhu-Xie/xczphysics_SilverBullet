@@ -15,7 +15,7 @@ pageDecoration.prefix: "🔗 "
 [[Language/Input Method/声笔飞单]]
 
 [[Library/xczphysics/STYLE/Theme/HHH.js]]
-
+[[Language/Input Method/声笔飞单]]
 
 ## 1. JS Logic
 
@@ -63,18 +63,19 @@ event.listen {
   end
 }
 
--- 页面修改时（更实时）
-event.listen {
-  name = "editor:pageModified",
-  run = function()
-    pushForwardlinks()
-  end
-}
+-- -- 页面修改时（更实时）
+-- event.listen {
+--   name = "editor:pageModified",
+--   run = function()
+--     pushForwardlinks()
+--   end
+-- }
 
 -- 页面保存时
 event.listen {
   name = "editor:pageSaving",
   run = function()
+    pushForwardlinks()
     pushBacklinks()
   end
 }
