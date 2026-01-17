@@ -63,7 +63,6 @@ event.listen {
 event.listen {
   name = "editor:pageSaved",
   run = function()
-    js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
     pushBacklinks()
     pushForwardlinks()
   end
