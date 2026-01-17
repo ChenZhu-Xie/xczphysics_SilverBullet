@@ -230,10 +230,10 @@ const View = {
         col.appendChild(this.createButton(link.ref, () => {
             console.log("Navigating to backlink:", link.ref);
             // client.navigate(link.ref);
-            // client.navigate({  
-            //       path: link.page,  
-            //       details: { type: "position", pos: link.pos }  
-            //   });
+            client.navigate({  
+                  path: link.ref,
+                  details: { type: "position", pos: link.pos }  
+              });
             // if (typeof syscall === "function") syscall("editor.navigate", link.ref, false, false)
             // navigateTo("CONFIG");
             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
