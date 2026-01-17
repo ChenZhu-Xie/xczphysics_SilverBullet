@@ -50,9 +50,9 @@ end
 
 -- 页面加载时
 event.listen {
-  name = "hooks:renderTopWidgets", -- https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
+  -- name = "hooks:renderTopWidgets", -- https://community.silverbullet.md/t/permanent-dark-mode/370/9?u=chenzhu-xie
   -- name = "system:ready", -- https://deepwiki.com/search/js-syscall-silverbullet-lua_ba58d949-b824-46ca-8063-6e7b42989389?mode=fast
-  -- name = "editor:pageLoaded",
+  name = "editor:pageLoaded",
   run = function()
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
     pushBacklinks()
