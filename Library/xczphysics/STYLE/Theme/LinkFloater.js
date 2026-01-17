@@ -228,7 +228,7 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-            client.log("Navigating to backlink:", link.ref);
+            console.log("Navigating to backlink:", link.ref);
             // client.navigate(link.ref);
             // client.navigate({  
             //       path: link.page,  
