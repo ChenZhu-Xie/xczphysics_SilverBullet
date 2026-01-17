@@ -50,7 +50,7 @@ end
 
 -- 页面加载时
 event.listen {
-  name = "system:ready", -- https://deepwiki.com/search/js-syscall-silverbullet-lua_ba58d949-b824-46ca-8063-6e7b42989389?mode=fast
+  name = "editor:complete", -- https://deepwiki.com/search/js-syscall-silverbullet-lua_ba58d949-b824-46ca-8063-6e7b42989389?mode=fast
   -- name = "editor:pageLoaded",
   run = function()
     js.import("/.fs/Library/xczphysics/STYLE/Theme/LinkFloater.js").refresh()
