@@ -15,13 +15,23 @@
 
 // 在文件顶部定义辅助函数
 async function navigateTo(pageRef) {
-  // 检查 syscall 是否可用（与另一个插件的写法一致）
-  if (typeof syscall === "function") {
+  if (window.syscall) {
     await syscall("editor.navigate", pageRef, false, false);
+  } else if (window.client && window.client.navigate) {
+    window.client.navigate(pageRef);
   } else {
-    console.error("[LinkFloater] syscall unavailable");
-  }
+    console.error("[LinkFloater] Navigation unavailable");
+  };
 }
+
+// async function navigateTo(pageRef) {
+//   // 检查 syscall 是否可用（与另一个插件的写法一致）
+//   if (typeof syscall === "function") {
+//     await syscall("editor.navigate", pageRef, false, false);
+//   } else {
+//     console.error("[LinkFloater] syscall unavailable");
+//   }
+// }
 
 const STATE_KEY = "__LinkFloaterState";
 
@@ -218,12 +228,12 @@ const View = {
     backlinks.forEach(link => {
         // link 对象来自 Lua: { page: "PageName", pos: 123 }
         col.appendChild(this.createButton(link.ref, () => {
-            client.navigate({  
-                  path: link.page,  
-                  details: { type: "position", pos: link.pos }  
-              });
+            // client.navigate({  
+            //       path: link.page,  
+            //       details: { type: "position", pos: link.pos }  
+            //   });
             // if (typeof syscall === "function") syscall("editor.navigate", link.ref, false, false)
-            // navigateTo("CONFIG")
+            navigateTo("CONFIG");
             // client.navigate("CONFIG", true, false); // ref, replaceState, newWindow
         }, "backlink"));
     });
