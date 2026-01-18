@@ -505,7 +505,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## HHH
 
-==Highlight the entire `Tree of Headings`where your cursor belongs==, addtitionally provide corresponding floating buttons to navigate through these headers
+==Highlight the entire `Tree of Headings`where your cursor belongs==, _addtitionally provide corresponding floating buttons to navigate through these headers_
 - Install `HierarchyHighlightHeadings.js` and its `css part`
 - No conflict to [[Repositories/xczphysics#Doom-Two]]
 - Share some `CSS` with [[#LinkFloater|]]
