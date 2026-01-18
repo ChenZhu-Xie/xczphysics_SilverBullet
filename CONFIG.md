@@ -70,7 +70,8 @@ config.set {
   -- Think this should be default, current size of phones makes
   -- the hamburger menu too far away for right and left handed
   -- users
-  mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
+  -- mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
+  mobileMenuStyle = 'hamburger',
   actionButtons = {
     -- {
     --   icon = "home",
@@ -238,6 +239,37 @@ actionButton.define {
   end
 }
 
+```
+
+1. [mobile toolbar via hamburger menu](https://community.silverbullet.md/t/mobile-toolbar-via-hamburger-menu/3776?u=chenzhu-xie) #community #silverbullet
+
+```space-style
+/* ===== Mobile settings ===== */
+@media (max-width: 600px) {
+  html {
+    --editor-width: 100%;
+  }
+
+  /* hamburger menu smaller buttons on mobile */
+  #sb-top .sb-actions.hamburger button:not(.sb-code-copy-button) {
+          height: 1.4rem; /* !!!!! adjust height to suit your mobile !!!!!!! */
+          margin: 4px 0;
+          padding: 4px 0;
+  }
+}
+
+    
+/* hamburger menu  colors */
+#sb-root .sb-actions button {
+  color: #c39952e6;
+}
+
+/* change backticked and plain triple back tick code block colors */
+#sb-editor .sb-code {
+    background: #444444 !important;
+    color: #8cbdf4;
+    text-decoration: none !important;
+  }
 ```
 
 #SB_itself
