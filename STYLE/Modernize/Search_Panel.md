@@ -10,7 +10,7 @@ This CSS snippet is all about **improving focus and usability** when interacti
 *   **Backdrop**: Dark, semi-transparent, blurred overlay - focuses attention on modal.
 *   **Benefits**: Improves focus, usability, and aesthetics with sleek, user-friendly design.
 
-```space-style
+```space
 /* Makes the modal box a little narrower and higher to fit more results*/
 .sb-modal-box {
     width: 600px;
