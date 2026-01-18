@@ -4,7 +4,7 @@ name: Library/xczphysics/STYLE/Theme/LinkFloater
 tags: meta/library
 files:
 - LinkFloater.js
-pageDecoration.prefix: "🔗 "
+pageDecoration.prefix: "🖇 "
 ---
 
 # LinkFloater - Realtime Link Navigator

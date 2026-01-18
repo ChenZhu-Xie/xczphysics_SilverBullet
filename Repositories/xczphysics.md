@@ -521,14 +521,15 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## LinkFloater
 
-==Highlight the entire `Tree of Headings`where your cursor belongs==
+==`provid` inward links to `and` outward links from `current page`==
 - Install `LinkFloater.js`
-- Need `CSS` from [[#HHH|]]
+- Share some `CSS` with [[#HHH|]]
+>  yet don’t need [[#HHH|]]
 
 ```#meta/library/remote
-name: "Theme/HHH"
-website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
-uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
+name: "Theme/LinkFloater"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md
 ```
 [[Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
 [HHH](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
