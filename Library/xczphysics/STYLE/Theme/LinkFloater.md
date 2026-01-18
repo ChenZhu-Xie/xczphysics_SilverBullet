@@ -80,4 +80,4 @@ event.listen {
 
 ## 3. CSS Style
 
-- need `CSS` from [[#HHH|]]
+- need `CSS` from [[Library/xczphysics/STYLE/Theme/HHH|]]
