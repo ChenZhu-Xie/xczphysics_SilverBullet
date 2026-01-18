@@ -7,7 +7,7 @@ files:
 pageDecoration.prefix: "🖇 "
 ---
 
-# LinkFloater - Realtime Link Navigator
+# LinkFloater - Realtime Forward/Backward Link Navigator
 
 这个插件，说实话有点像 [[PKM/Apps/Tana|]] 中的 Related Content
 - 写了这么多 JS 代码，不如 Tana 的 Related Content 中一个 Query ?
