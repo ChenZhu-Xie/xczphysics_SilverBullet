@@ -5,7 +5,7 @@ d
 ```space-lua
 command.define {
   name = "Line: Toggle paragraph / list / task",
-  key = "Ctrl-Alt-Enter",
+  key = "Ctrl-Alt-Tab",
   run = function()
     local line = editor.getCurrentLine()
     if not line or not line.textWithCursor then return end
