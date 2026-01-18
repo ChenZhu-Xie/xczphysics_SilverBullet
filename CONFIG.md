@@ -241,8 +241,9 @@ actionButton.define {
 
 ```
 
+1. [mobile toolbar via hamburger menu](https://community.silverbullet.md/t/mobile-toolbar-via-hamburger-menu/3776?u=chenzhu-xie) #community #silverbullet
 
-```
+```space-style
 /* ===== Mobile settings ===== */
 @media (max-width: 600px) {
   html {
