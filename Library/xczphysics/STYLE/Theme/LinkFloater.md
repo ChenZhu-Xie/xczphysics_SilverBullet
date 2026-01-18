@@ -60,13 +60,13 @@ event.listen {
   end
 }
 
--- 页面修改时（更实时）
-event.listen {
-  name = "editor:pageModified",
-  run = function()
-    pushForwardlinks()
-  end
-}
+-- -- 页面修改时（更实时）
+-- event.listen {
+--   name = "editor:pageModified",
+--   run = function()
+--     pushForwardlinks()
+--   end
+-- }
 
 -- 页面保存时
 event.listen {
