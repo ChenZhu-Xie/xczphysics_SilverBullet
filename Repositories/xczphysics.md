@@ -505,9 +505,25 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ## HHH
 
-==Highlight the entire `Tree of Headings`where your cursor belongs==
+==Highlight the entire `Tree of Headings`where your cursor belongs==, addtitionally provide corresponding floating buttons to navigate through these headers
 - Install `HierarchyHighlightHeadings.js` and its `css part`
 - No conflict to [[Repositories/xczphysics#Doom-Two]]
+- Share some `CSS` with [[#LinkFloater|]]
+
+```#meta/library/remote
+name: "Theme/HHH"
+website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
+uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md
+```
+[[Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
+[HHH](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
+[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md) #github
+
+## LinkFloater
+
+==Highlight the entire `Tree of Headings`where your cursor belongs==
+- Install `LinkFloater.js`
+- Need `CSS` from [[#HHH|]]
 
 ```#meta/library/remote
 name: "Theme/HHH"
