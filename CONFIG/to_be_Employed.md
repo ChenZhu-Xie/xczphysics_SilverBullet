@@ -23,16 +23,12 @@
 1. https://github.com/justyns/silverbullet-ai
 2. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Assistant.md
 
-# Config validation helper function 
-
-1. [config validation helper function](https://community.silverbullet.md/t/config-validation-helper-function/3558) #community #silverbullet
-2. [8efbc6b1ee8546b83c9e3fb365d62893](https://gist.github.com/inos-github/8efbc6b1ee8546b83c9e3fb365d62893#file-config_validator-md) #gist #github
-
 # Fields related
 
+BOOK
 1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
 
 # LCU manager
 
 1. [cache management](https://community.silverbullet.md/t/cache-management/3769?u=chenzhu-xie) #community #silverbullet
-2. related to [QuickLineNavigator](https://github.com/ChenZhu-Xie/QuickLineNavigator) #github
+   - related to [QuickLineNavigator](https://github.com/ChenZhu-Xie/QuickLineNavigator) #github
