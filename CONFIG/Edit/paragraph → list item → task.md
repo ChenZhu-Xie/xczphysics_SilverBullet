@@ -1,7 +1,7 @@
 
 1. [command to cycle between paragraph and task](https://community.silverbullet.md/t/command-to-cycle-between-paragraph-and-task/3774/8?u=chenzhu-xie) #community #silverbullet
 
-- [ ] d
+- d
 
 ```space-lua
 -- first we disable the Shortcut of the system command which already has the Keys assigned
