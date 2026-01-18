@@ -531,9 +531,9 @@ name: "Theme/LinkFloater"
 website: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md
 uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md
 ```
-[[Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings - HHH Theme|HHH]]
-[HHH](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/HHH#HierarchyHighlightHeadings%20-%20HHH%20Theme) #enlarge-the-percentage #fly
-[HHH.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md) #github
+[[Library/xczphysics/STYLE/Theme/LinkFloater#2. Lua Logic (Bridge)|LinkFloater]]
+[LinkFloater](https://enlarge-the-percentage.fly.dev/Library/xczphysics/STYLE/Theme/LinkFloater#2.%20Lua%20Logic%20(Bridge)) #enlarge-the-percentage #fly
+[LinkFloater.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md) #github
 
 # Other Custom Configs
 
