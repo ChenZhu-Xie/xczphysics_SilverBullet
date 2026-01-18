@@ -1,7 +1,7 @@
 
-- d
-d
-d
+1. [command to cycle between paragraph and task](https://community.silverbullet.md/t/command-to-cycle-between-paragraph-and-task/3774/3?u=chenzhu-xie) #community #silverbullet
+
+- [ ] d
 
 ```space-lua
 command.define {
