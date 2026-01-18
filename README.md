@@ -60,6 +60,7 @@
 | 🟩 **Inline** | [Builtin Formats](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Builtin_Formats.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Builtin%20Formats) |
 | 🟣 **Theme** | [Doom Two](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/Doom-Two.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#Doom-Two) |
 | 🟣 **Theme** | [HHH](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/HHH.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#HHH) |
+| 🟣 **Theme** | [LinkFloater](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/STYLE/Theme/LinkFloater.md) | [Usage](https://enlarge-the-percentage.fly.dev/Repositories/xczphysics#LinkFloater) |
 
 ## Issues
 
