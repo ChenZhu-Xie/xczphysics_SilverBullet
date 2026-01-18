@@ -250,15 +250,14 @@ actionButton.define {
     --editor-width: 100%;
   }
 
-  /* hamburger menu smaller buttons on mobile */
-  #sb-top .sb-actions.hamburger button:not(.sb-code-copy-button) {
+/* hamburger menu smaller buttons on mobile */
+#sb-top .sb-actions.hamburger button:not(.sb-code-copy-button) {
           height: 1.4rem; /* !!!!! adjust height to suit your mobile !!!!!!! */
           margin: 4px 0;
           padding: 4px 0;
   }
 }
 
-    
 /* hamburger menu  colors */
 #sb-root .sb-actions button {
   color: #c39952e6;
