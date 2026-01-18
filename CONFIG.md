@@ -260,7 +260,7 @@ actionButton.define {
 
 /* hamburger menu  colors */
 #sb-root .sb-actions button {
-  color: #c39952e1;
+  color: #a31952e1;
 }
 
 /* change backticked and plain triple back tick code block colors */
