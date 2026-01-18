@@ -523,8 +523,7 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 
 ==`provid` inward links to `and` outward links from `current page`==
 - Install `LinkFloater.js`
-- Share some `CSS` with [[#HHH|]]
->  yet don’t need [[#HHH|]]
+- need `CSS` from [[#HHH|]]
 
 ```#meta/library/remote
 name: "Theme/LinkFloater"
