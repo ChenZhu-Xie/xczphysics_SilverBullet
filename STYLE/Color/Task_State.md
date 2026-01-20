@@ -35,9 +35,13 @@ asdf
    3. 逻辑 B：鼠标左键按下 (Mouse Down)
    这是由 CSS :active 伪类控制的，仅在按键按下的物理瞬间生效
    ================================================================= */
-.sb-line-li:hover {
+.sb-line-li:active {
   /* 橙色背景（示例）：代表鼠标正在点击但这行可能还没获得光标 */
   /* 使用 !important 确保按下时的反馈优先级最高，或者与 active-line 叠加 */
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.cm-line:hover {
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 
