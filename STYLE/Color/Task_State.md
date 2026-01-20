@@ -6,7 +6,7 @@
 ## CSS
 
 
-### customized css2
+### customized CSS 2
 
 ```space-style
 /* ===========================================================
@@ -49,7 +49,7 @@
 }
 ```
 
-### customized css1
+### customized CSS 1
 
 ```space
 .cm-line:hover {
