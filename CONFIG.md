@@ -265,7 +265,7 @@ actionButton.define {
 
 /* change backticked and plain triple back tick code block colors */
 #sb-editor .sb-code {
-    background: rgba(68, 68, 68, 0.15) !important;
+    background: rgba(68, 68, 68, 0.3) !important;
     color: #8cbdf4;
     text-decoration: none !important;
   }
