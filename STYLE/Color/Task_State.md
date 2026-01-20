@@ -115,6 +115,8 @@
 
 ## JS
 
+### customized JS
+
 ```space-lua
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
