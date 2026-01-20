@@ -20,8 +20,8 @@
    L1: Hover state (Lowest priority)
 =========================================================== */
 .cm-line:hover {
-  /* background-color: rgba(65, 90, 115, 0.15); */
-  background-color: rgba(191, 117, 213, 0.15);
+  background-color: rgba(65, 90, 115, 0.15);
+  /* background-color: rgba(191, 117, 213, 0.15); */
 }
 
 /* ===========================================================
@@ -29,8 +29,8 @@
    Persists as long as the cursor is on the line.
 =========================================================== */
 .sb-active-line {
-  /* background-color: rgba(131, 195, 55, 0.15) !important; */
-  background-color: rgba(192, 26, 77, 0.15) !important;
+  background-color: rgba(131, 195, 55, 0.15) !important;
+  /* background-color: rgba(192, 26, 77, 0.15) !important; */
 }
 
 /* ===========================================================
