@@ -112,9 +112,160 @@
 
 ## JS
 
-### customized JS 3
+### customized JS 4
 
 ```space-lua
+function setupActiveLineHighlighter()
+    local styleEl = js.window.document.createElement("style")
+    styleEl.innerHTML = [[
+        #sb-ghost-active-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            background-color: rgba(131, 195, 55, 0.12);
+            z-index: -1;
+            /* ★ 关键：不用 transition，用 will-change 提升层 */
+            will-change: transform;
+        }
+        /* 让 .cm-content 成为定位上下文 */
+        .cm-content {
+            position: relative !important;
+        }
+    ]]
+    js.window.document.head.appendChild(styleEl)
+
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        const HIGHLIGHTER_ID = "sb-ghost-active-line";
+        let highlighter = null;
+        let lastTop = -1;
+        let lastHeight = -1;
+        let updateScheduled = false;
+
+        function ensureHighlighter() {
+            if (highlighter && document.body.contains(highlighter)) return highlighter;
+            
+            const content = document.querySelector(".cm-content");
+            if (!content) return null;
+
+            highlighter = document.createElement("div");
+            highlighter.id = HIGHLIGHTER_ID;
+            
+            // ★ 关键：插入到 content 的最前面，作为第一个子元素
+            content.insertBefore(highlighter, content.firstChild);
+            
+            return highlighter;
+        }
+
+        function updateHighlighter() {
+            updateScheduled = false;
+            
+            if (!window.client || !client.editorView) return;
+            
+            const view = client.editorView;
+            const state = view.state;
+            const pos = state.selection.main.head;
+            
+            // ★ 使用 CM6 API 获取行信息（比 DOM 查询更可靠）
+            const line = state.doc.lineAt(pos);
+            const lineBlock = view.lineBlockAt(pos);
+            
+            if (!lineBlock) return;
+
+            const newTop = lineBlock.top;
+            const newHeight = lineBlock.height;
+
+            // 位置没变，跳过
+            if (Math.abs(newTop - lastTop) < 0.5 && Math.abs(newHeight - lastHeight) < 0.5) {
+                return;
+            }
+
+            lastTop = newTop;
+            lastHeight = newHeight;
+
+            const el = ensureHighlighter();
+            if (el) {
+                // ★ 使用 transform 而非 top（触发 GPU 加速，不触发 reflow）
+                el.style.transform = `translateY(${newTop}px)`;
+                el.style.height = newHeight + "px";
+            }
+        }
+
+        function scheduleUpdate() {
+            if (updateScheduled) return;
+            updateScheduled = true;
+            // ★ 使用 requestAnimationFrame 确保在渲染前完成
+            requestAnimationFrame(updateHighlighter);
+        }
+
+        function init() {
+            if (!window.client || !client.editorView) {
+                setTimeout(init, 500);
+                return;
+            }
+
+            const view = client.editorView;
+
+            // ★ 最可靠的方式：监听 CM6 的 updateListener
+            // 每次编辑器状态更新时都会触发，包括打字、选择变化等
+            try {
+                const updateListener = view.constructor.updateListener || 
+                                       (window.CM && CM.view && CM.view.EditorView.updateListener);
+                
+                if (updateListener) {
+                    view.dispatch({
+                        effects: window.CM.state.StateEffect.appendConfig.of(
+                            updateListener.of((update) => {
+                                if (update.selectionSet || update.docChanged) {
+                                    scheduleUpdate();
+                                }
+                            })
+                        )
+                    });
+                    console.log("[ActiveLine] Using CM6 updateListener");
+                }
+            } catch (e) {
+                console.log("[ActiveLine] updateListener not available:", e);
+            }
+
+            // 备用：MutationObserver
+            const scroller = document.querySelector(".cm-scroller");
+            const cursorLayer = document.querySelector(".cm-cursorLayer");
+            
+            if (cursorLayer) {
+                const observer = new MutationObserver(scheduleUpdate);
+                observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
+            }
+            
+            if (scroller) {
+                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
+            }
+
+            window.addEventListener("resize", scheduleUpdate);
+            
+            scheduleUpdate();
+            console.log("[ActiveLine] Ghost layer initialized");
+        }
+
+        setTimeout(init, 800);
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
+### customized JS 3
+
+```space
 function setupNativeActiveLine()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
