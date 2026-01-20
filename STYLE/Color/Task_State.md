@@ -5,7 +5,7 @@
 ```space-style
 .sb-attribute[data-completed] {  
   opacity: 0.25;
-  transition: opacity 0.1s ease-in-out;
+  /* transition: opacity 0.1s ease-in-out; */
 }
 
 .sb-active-line .sb-attribute[data-completed] {
@@ -15,7 +15,7 @@
 /*As a bonus, I also added some background to the currently active line, because why not*/
 .sb-active-line {
   background-color: rgba(0, 170, 255, 0.15) !important;
-  transition: background-color 0.1s ease;
+  /* transition: background-color 0.1s ease; */
 }
 
 
