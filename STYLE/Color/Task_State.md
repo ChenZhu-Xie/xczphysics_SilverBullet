@@ -64,6 +64,16 @@
 ```
 
 ```space-style
+.sb-attribute[data-completed] {  
+  opacity: 0.25;
+}
+
+/* ===========================================================
+   4. 逻辑 C：鼠标悬停 (Hover) - 也高亮
+=========================================================== */
+.sb-line-li:hover .sb-attribute[data-completed] {
+  opacity: 1;
+}
 
 /* 规则：光标所在行，任务内容不透明 */
 .sb-active-line .sb-attribute[data-completed] {
@@ -72,18 +82,6 @@
 
 /* 规则：鼠标按下的行，任务内容不透明 */
 .sb-line-li:active .sb-attribute[data-completed] {
-  opacity: 1;
-}
-
-.sb-attribute[data-completed] {  
-  opacity: 0.25;
-}
-
-/* ===========================================================
-   4. 逻辑 C：鼠标悬停 (Hover) - 可选
-   如果你希望鼠标划过时也高亮，保留此段
-=========================================================== */
-.sb-line-li:hover .sb-attribute[data-completed] {
   opacity: 1;
 }
 ```
@@ -120,82 +118,118 @@
 
 ```space-lua
 function setupActiveLineHighlighter()
-    -- -- 1. 注入 CSS 样式
-    -- local styleEl = js.window.document.createElement("style")
-    -- styleEl.innerHTML = [[
-    --     .sb-active-line {
-    --         background-color: rgba(131, 195, 55, 0.15) !important;
-    --     }
-    -- ]]
-    -- js.window.document.head.appendChild(styleEl)
-
-    -- -- 2. 注入 JS 逻辑
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
     (function() {
-        const CLASS_NAME = "sb-active-line";
-        let lastLine = null; // 缓存上一次高亮的行元素
+        const HIGHLIGHTER_ID = "sb-ghost-active-line";
+        let lastTop = -1;    // 缓存上一次的 top 值
+        let lastHeight = -1; // 缓存上一次的 height 值
+        let rafId = null;
 
-        function update() {
-            // 尝试多种选择器找光标
-            const cursor = document.querySelector(".cm-cursor-primary") 
-                        || document.querySelector(".cm-cursor");
-            if (!cursor) {
-                console.log("[ActiveLine] 找不到光标元素");
-                return;
-            }
-
-            const rect = cursor.getBoundingClientRect();
-            const x = rect.left + 5;
-            const y = rect.top + rect.height / 2;
-
-            const el = document.elementFromPoint(x, y);
-            const currentLine = el ? el.closest(".cm-line") : null;
-
-            // 核心优化：只有当行变化时才操作 DOM
-            if (currentLine === lastLine) {
-                // 同一行，检查类名是否还在（CodeMirror 可能会移除）
-                if (currentLine && !currentLine.classList.contains(CLASS_NAME)) {
-                    currentLine.classList.add(CLASS_NAME);
+        function getHighlighter(scroller) {
+            let el = document.getElementById(HIGHLIGHTER_ID);
+            if (!el) {
+                el = document.createElement("div");
+                el.id = HIGHLIGHTER_ID;
+                el.style.position = "absolute";
+                el.style.left = "0";
+                el.style.right = "0";
+                el.style.pointerEvents = "none";
+                el.style.backgroundColor = "rgba(0, 0, 0, 0.05)"; // 自定义颜色
+                el.style.zIndex = "0";
+                // 移除 transition，避免触发不必要的动画
+                
+                const content = scroller.querySelector(".cm-content");
+                if (content) {
+                    content.insertBefore(el, content.firstChild);
+                    content.style.position = "relative";
                 }
-                return;
             }
-
-            // 行发生变化
-            if (lastLine) {
-                lastLine.classList.remove(CLASS_NAME);
-            }
-            if (currentLine) {
-                currentLine.classList.add(CLASS_NAME);
-            }
-            lastLine = currentLine;
+            return el;
         }
 
-        function init() {
+        function updateActiveLine() {
             const scroller = document.querySelector(".cm-scroller");
-            const cursorLayer = document.querySelector(".cm-cursorLayer");
-            const content = document.querySelector(".cm-content");
+            if (!scroller) return;
 
-            if (!scroller || !cursorLayer || !content) {
-                console.log("[ActiveLine] 编辑器未就绪，500ms 后重试...");
-                setTimeout(init, 500);
+            const cursor = document.querySelector(".cm-cursor-primary");
+            if (!cursor) {
+                const highlighter = document.getElementById(HIGHLIGHTER_ID);
+                if (highlighter) highlighter.style.display = "none";
+                lastTop = -1;
+                lastHeight = -1;
                 return;
             }
 
-            // 监听光标层变化
-            const observer = new MutationObserver(update);
-            observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
-            // 监听内容层变化（打字时行会被重建）
-            observer.observe(content, { childList: true, subtree: true });
+            const cursorRect = cursor.getBoundingClientRect();
+            const cursorMidY = cursorRect.top + (cursorRect.height / 2);
 
-            scroller.addEventListener("scroll", update, { passive: true });
-            window.addEventListener("click", () => setTimeout(update, 10));
+            const lines = scroller.querySelectorAll(".cm-line");
+            let currentLine = null;
 
-            update(); // 初始执行
-            console.log("[ActiveLine] 初始化成功！");
+            for (let line of lines) {
+                const lineRect = line.getBoundingClientRect();
+                if (cursorMidY >= lineRect.top && cursorMidY <= lineRect.bottom) {
+                    currentLine = line;
+                    break;
+                }
+            }
+
+            if (!currentLine) return;
+
+            const newTop = currentLine.offsetTop;
+            const newHeight = currentLine.offsetHeight;
+
+            // 【核心优化】位置没变 → 跳过所有 DOM 操作
+            if (newTop === lastTop && newHeight === lastHeight) {
+                return;
+            }
+
+            // 位置变化，更新缓存
+            lastTop = newTop;
+            lastHeight = newHeight;
+
+            // 写入 DOM
+            const highlighter = getHighlighter(scroller);
+            if (highlighter) {
+                highlighter.style.display = "block";
+                highlighter.style.top = newTop + "px";
+                highlighter.style.height = newHeight + "px";
+            }
         }
 
-        setTimeout(init, 1000); // 延迟启动，确保编辑器加载完成
+        const scheduleUpdate = () => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(updateActiveLine);
+        };
+
+        const observer = new MutationObserver(scheduleUpdate);
+
+        const init = () => {
+            const scroller = document.querySelector(".cm-scroller");
+            if (scroller) {
+                const cursorLayer = document.querySelector(".cm-cursorLayer");
+                if (cursorLayer) {
+                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
+                }
+                
+                const content = document.querySelector(".cm-content");
+                if (content) {
+                    observer.observe(content, { childList: true, subtree: true });
+                }
+
+                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
+                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
+                window.addEventListener("resize", scheduleUpdate);
+                
+                scheduleUpdate();
+                console.log("Ghost Active Line Initialized (with position cache)");
+            } else {
+                setTimeout(init, 500);
+            }
+        };
+
+        setTimeout(init, 1000);
     })();
     ]]
     js.window.document.body.appendChild(scriptEl)
