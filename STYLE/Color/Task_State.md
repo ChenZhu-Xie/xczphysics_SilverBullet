@@ -88,7 +88,7 @@ asdf
 
 ## js
 
-```space-lua
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
