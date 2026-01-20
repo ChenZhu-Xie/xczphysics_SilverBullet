@@ -7,10 +7,6 @@
 
 ### customized CSS 2
 
-
-asdfasdjfjasdfjj
-
-
 ```space-style
 /* ===========================================================
    Base: Smooth transition & visual polish
