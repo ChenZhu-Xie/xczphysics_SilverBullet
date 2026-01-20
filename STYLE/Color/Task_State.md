@@ -123,31 +123,33 @@ function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
     (function() {
-        // ID for our persistent highlighter element
         const HIGHLIGHTER_ID = "sb-ghost-active-line";
         
-        // Create or get the highlighter element
+        // 1. 创建高亮元素
         function getHighlighter(scroller) {
             let el = document.getElementById(HIGHLIGHTER_ID);
             if (!el) {
                 el = document.createElement("div");
                 el.id = HIGHLIGHTER_ID;
-                // CSS for the highlighter
+                
+                // 核心样式
                 el.style.position = "absolute";
                 el.style.left = "0";
                 el.style.right = "0";
-                el.style.pointerEvents = "none"; // Let clicks pass through
-                el.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Customize color here
-                el.style.zIndex = "0"; // Behind text but above background
-                el.style.transition = "top 0.05s ease-out, height 0.05s"; // Smooth movement
+                el.style.pointerEvents = "none"; 
+                // 使用混合模式，确保在深色/浅色主题下都能看到，且不遮挡文字
+                el.style.mixBlendMode = "multiply"; 
+                // 调试用颜色：先用明显的颜色确认它出来了，之后改回 0.05
+                el.style.backgroundColor = "rgba(0, 120, 255, 0.1)"; 
+                el.style.zIndex = "0"; 
+                // 平滑过渡，消除闪烁的核心
+                el.style.transition = "top 0.1s ease-out, height 0.1s ease-out"; 
                 
-                // We append it to the content container so it scrolls with text
                 const content = scroller.querySelector(".cm-content");
                 if (content) {
-                    content.appendChild(el);
-                    // Ensure content has z-index to sit above our highlighter
-                    content.style.position = "relative";
-                    content.style.zIndex = "1"; 
+                    // 重要：使用 prepend 把它插到最前面，让它位于文本（通常是后续子元素）的下方
+                    // 这样就不需要复杂的 z-index 管理
+                    content.insertBefore(el, content.firstChild);
                 }
             }
             return el;
@@ -159,39 +161,48 @@ function setupActiveLineHighlighter()
             const scroller = document.querySelector(".cm-scroller");
             if (!scroller) return;
 
-            // 1. Find the cursor
+            // 2. 寻找光标
             const cursor = document.querySelector(".cm-cursor-primary");
-            if (!cursor) {
-                // If no cursor (lost focus), maybe hide the highlighter?
-                // optionally: document.getElementById(HIGHLIGHTER_ID).style.display = 'none';
-                return;
-            }
+            if (!cursor) return; // 光标不在或未聚焦
 
-            // 2. Identify the line element corresponding to the cursor
-            // We still need the line element to know the full height (handling wrapped lines)
-            const rect = cursor.getBoundingClientRect();
-            // Offset slightly to ensure we grab the line, not the gutter
-            const elementAtCursor = document.elementFromPoint(rect.left + 5, rect.top + (rect.height / 2));
-            const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
+            // 3. 稳健的行定位逻辑 (替代 elementFromPoint)
+            // 获取光标在视口中的垂直中心位置
+            const cursorRect = cursor.getBoundingClientRect();
+            const cursorMidY = cursorRect.top + (cursorRect.height / 2);
+
+            // 获取当前视口内所有行（CM6 只渲染视口内的行，所以性能开销很小）
+            const lines = scroller.querySelectorAll(".cm-line");
+            let currentLine = null;
+
+            // 遍历找到包含光标中心点的行
+            for (let line of lines) {
+                const lineRect = line.getBoundingClientRect();
+                if (cursorMidY >= lineRect.top && cursorMidY <= lineRect.bottom) {
+                    currentLine = line;
+                    break;
+                }
+            }
 
             if (!currentLine) return;
 
-            // 3. Calculate position relative to the container
-            // We use offsetTop/offsetHeight which is relative to the parent (.cm-content)
-            // This is much more stable than getBoundingClientRect for positioning
+            // 4. 计算相对位置
+            // offsetTop 是相对于父容器 (.cm-content) 的，这正是我们需要的值
             const newTop = currentLine.offsetTop;
             const newHeight = currentLine.offsetHeight;
 
-            // 4. Update the Ghost Highlighter
+            // 5. 更新高亮层
             const highlighter = getHighlighter(scroller);
             if (highlighter) {
-                highlighter.style.display = "block";
-                // Only write to DOM if values changed (Optimization)
+                // 仅在数值变化时写入 DOM
                 if (highlighter.style.top !== newTop + "px") {
                     highlighter.style.top = newTop + "px";
                 }
                 if (highlighter.style.height !== newHeight + "px") {
                     highlighter.style.height = newHeight + "px";
+                }
+                // 确保它是可见的
+                if (highlighter.style.display === 'none') {
+                    highlighter.style.display = 'block';
                 }
             }
         }
@@ -208,30 +219,33 @@ function setupActiveLineHighlighter()
         const init = () => {
             const scroller = document.querySelector(".cm-scroller");
             if (scroller) {
+                // 监听光标层的变化（光标移动、闪烁）
                 const cursorLayer = document.querySelector(".cm-cursorLayer");
-                
-                // Observe cursor blinking/movement
                 if (cursorLayer) {
                     observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
                 }
                 
-                // Observe content changes (typing causing line wrap changes)
+                // 监听内容层变化（换行、输入）
                 const content = document.querySelector(".cm-content");
                 if (content) {
                     observer.observe(content, { childList: true, subtree: true, characterData: true });
                 }
 
+                // 监听滚动和点击
                 scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
-                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
+                window.addEventListener("click", () => setTimeout(scheduleUpdate, 50));
                 window.addEventListener("resize", scheduleUpdate);
+                window.addEventListener("keydown", () => setTimeout(scheduleUpdate, 0)); // 键盘输入立即响应
                 
                 scheduleUpdate();
+                console.log("Ghost Active Line Initialized"); // 调试日志
             } else {
                 setTimeout(init, 500);
             }
         };
 
-        init();
+        // 延迟一点启动，确保编辑器完全加载
+        setTimeout(init, 1000);
     })();
     ]]
     js.window.document.body.appendChild(scriptEl)
