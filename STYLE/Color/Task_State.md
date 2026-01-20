@@ -28,7 +28,7 @@
    Persists as long as the cursor is on the line.
 =========================================================== */
 .sb-active-line {
-  background-color: rgba(131, 115, 55, 0.15) !important;
+  background-color: rgba(131, 195, 55, 0.15) !important;
 }
 
 /* ===========================================================
