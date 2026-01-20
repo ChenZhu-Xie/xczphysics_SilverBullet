@@ -7,8 +7,6 @@
 
 ### customized CSS 2
 
-
-
 ```space-style
 /* ===========================================================
    Base: Smooth transition & visual polish
@@ -567,7 +565,7 @@ event.listen {
 
 ### customized JS 2
 
-```space
+```space-lua
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
