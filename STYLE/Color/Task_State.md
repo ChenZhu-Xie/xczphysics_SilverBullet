@@ -3,9 +3,12 @@
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
 
+
+
+
 ## css
 
-```space-style
+```space
 .sb-attribute[data-completed] {  
   opacity: 0.25;
   /* transition: opacity 0.1s ease-in-out; */
