@@ -32,7 +32,7 @@
 .sb-active-line {
   /* background-color: rgba(131, 195, 55, 0.15) !important; */
   /* background-color: rgba(192, 26, 77, 0.15) !important; */
-  background-color: rgba(23, 126, 27, 0.15) !important;
+  background-color: rgba(23, 106, 77, 0.15) !important;
 }
 
 /* ===========================================================
