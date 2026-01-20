@@ -112,9 +112,92 @@
 
 ## JS
 
-### customized JS 2
+### customized JS 3
 
 ```space-lua
+function setupNativeActiveLine()
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        // 等待 SilverBullet 完全加载
+        function trySetup() {
+            if (!window.client || !client.editorView) {
+                setTimeout(trySetup, 500);
+                return;
+            }
+
+            const view = client.editorView;
+            
+            // 检查是否已经有 highlightActiveLine 扩展
+            // CM6 的 @codemirror/view 包含此功能
+            try {
+                // 动态导入 CodeMirror 模块（如果 SilverBullet 暴露了）
+                if (window.CM && CM.view && CM.view.highlightActiveLine) {
+                    // 方案 A：使用官方扩展
+                    view.dispatch({
+                        effects: CM.state.StateEffect.appendConfig.of(
+                            CM.view.highlightActiveLine()
+                        )
+                    });
+                    console.log("[ActiveLine] Native CM extension enabled");
+                    return;
+                }
+            } catch (e) {
+                console.log("[ActiveLine] Native extension not available:", e);
+            }
+
+            // 方案 B：使用 CM6 的 Decoration API（更底层但更可靠）
+            try {
+                const { StateField, StateEffect } = window.CM?.state || {};
+                const { Decoration, DecorationSet, EditorView } = window.CM?.view || {};
+                
+                if (StateField && Decoration) {
+                    const lineHighlightField = StateField.define({
+                        create() {
+                            return Decoration.none;
+                        },
+                        update(value, tr) {
+                            // 每次状态更新时同步计算高亮位置
+                            const line = tr.state.doc.lineAt(tr.state.selection.main.head);
+                            return Decoration.set([
+                                Decoration.line({ class: "sb-active-line" }).range(line.from)
+                            ]);
+                        },
+                        provide: f => EditorView.decorations.from(f)
+                    });
+
+                    view.dispatch({
+                        effects: StateEffect.appendConfig.of(lineHighlightField)
+                    });
+                    console.log("[ActiveLine] Custom decoration enabled");
+                    return;
+                }
+            } catch (e) {
+                console.log("[ActiveLine] Decoration API failed:", e);
+            }
+
+            console.log("[ActiveLine] Falling back to MutationObserver method");
+            // 如果原生 API 都不可用，回退到 Observer 方案
+            setupFallback();
+        }
+
+        trySetup();
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
+### customized JS 2
+
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
