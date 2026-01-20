@@ -8,7 +8,7 @@
 
 ## css
 
-```space
+```space-style
 .sb-attribute[data-completed] {  
   opacity: 0.25;
   /* transition: opacity 0.1s ease-in-out; */
