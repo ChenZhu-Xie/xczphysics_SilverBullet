@@ -62,48 +62,29 @@
 
 
 
-
-
-
-
-
-
-
-
-
-```space
-.sb-active-line {
-  background-color: rgba(255, 165, 0, 0.15) !important;
-}
-.cm-line:hover {
-  background-color: rgba(65, 90, 115, 0.15) !important;
-}
-.sb-line-li:active {
-  background-color: rgba(255, 165, 0, 0.15) !important;
-}
-
+```space-style
 
 /* 规则：光标所在行，任务内容不透明 */
 .sb-active-line .sb-attribute[data-completed] {
   opacity: 1;
 }
+
 /* 规则：鼠标按下的行，任务内容不透明 */
 .sb-line-li:active .sb-attribute[data-completed] {
   opacity: 1;
 }
 
-
 .sb-attribute[data-completed] {  
   opacity: 0.25;
 }
-/* =================================================================
+
+/* ===========================================================
    4. 逻辑 C：鼠标悬停 (Hover) - 可选
    如果你希望鼠标划过时也高亮，保留此段
-   ================================================================= */
+=========================================================== */
 .sb-line-li:hover .sb-attribute[data-completed] {
   opacity: 1;
 }
-
 ```
 
 
