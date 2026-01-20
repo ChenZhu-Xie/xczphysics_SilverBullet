@@ -28,7 +28,7 @@
    L2: Active cursor line (Medium priority)
    Persists as long as the cursor is on the line.
 =========================================================== */
-.sb-ghost-active-line {
+.sb-active-line {
   background-color: rgba(131, 195, 55, 0.15) !important;
 }
 
