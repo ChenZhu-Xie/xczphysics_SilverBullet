@@ -120,16 +120,16 @@
 
 ```space-lua
 function setupActiveLineHighlighter()
-    -- 1. 注入 CSS 样式
-    local styleEl = js.window.document.createElement("style")
-    styleEl.innerHTML = [[
-        .sb-active-line {
-            background-color: rgba(131, 195, 55, 0.15) !important;
-        }
-    ]]
-    js.window.document.head.appendChild(styleEl)
+    -- -- 1. 注入 CSS 样式
+    -- local styleEl = js.window.document.createElement("style")
+    -- styleEl.innerHTML = [[
+    --     .sb-active-line {
+    --         background-color: rgba(131, 195, 55, 0.15) !important;
+    --     }
+    -- ]]
+    -- js.window.document.head.appendChild(styleEl)
 
-    -- 2. 注入 JS 逻辑
+    -- -- 2. 注入 JS 逻辑
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
     (function() {
