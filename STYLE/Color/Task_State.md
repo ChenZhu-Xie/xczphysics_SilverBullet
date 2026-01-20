@@ -2,7 +2,7 @@
 1. [css rendering vs markdown editing](https://community.silverbullet.md/t/css-rendering-vs-markdown-editing/3780/3?u=chenzhu-xie) #community #silverbullet
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
-dddd
+
 ## CSS
 
 
@@ -247,7 +247,7 @@ event.listen {
 
 ### customized JS 1
 
-```space-lua
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
