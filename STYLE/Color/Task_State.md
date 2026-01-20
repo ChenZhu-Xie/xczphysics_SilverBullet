@@ -23,11 +23,9 @@
 
 
 /* Uncoment if you also want opacity:1 while hovering over the line */
-/*
 .sb-line-li:hover .sb-attribute[data-completed] {
   opacity: 1;
 }
-*/
 ```
 
 ## js
