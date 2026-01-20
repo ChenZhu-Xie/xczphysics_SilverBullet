@@ -5,7 +5,7 @@
 
 ## customized css2
 
-```space-style
+```space
 /* ===========================================================
    Base: Smooth transition & visual polish
 =========================================================== */
@@ -48,7 +48,7 @@
 
 ## customized css1
 
-```space-
+```space-style
 .cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15);
 } /* hover (lowest priority) */
@@ -59,6 +59,17 @@
   background-color: rgba(255, 165, 0, 0.15) !important;
 } /* click (and hold) = Mouse pressed and not released */
 ```
+
+
+
+
+
+
+
+
+
+
+
 
 ```space
 .sb-active-line {
