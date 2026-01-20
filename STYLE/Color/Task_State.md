@@ -12,6 +12,12 @@ asdf
 
 ## customized css
 
+```space-style
+.cm-line:hover {
+  background-color: rgba(65, 90, 115, 0.15) !important;
+}
+```
+
 ```space
 
 .sb-active-line {
