@@ -5,7 +5,7 @@
 ```space-style
 .sb-attribute[data-completed] {  
   opacity: 0.25;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
 .sb-active-line .sb-attribute[data-completed] {
