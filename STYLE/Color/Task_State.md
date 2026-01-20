@@ -265,7 +265,7 @@ event.listen {
 
 ### customized JS 3
 
-```space-lua
+```space
 function setupNativeActiveLine()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
@@ -348,7 +348,7 @@ event.listen {
 
 ### customized JS 2
 
-```space
+```space-lua
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
