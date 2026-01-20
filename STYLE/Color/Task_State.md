@@ -22,7 +22,7 @@
 .cm-line:hover {
   /* background-color: rgba(65, 90, 115, 0.15); */
   /* background-color: rgba(191, 117, 213, 0.15); */
-  background-color: rgba(191, 117, 23, 0.15);
+  background-color: rgba(141, 117, 23, 0.15);
 }
 
 /* ===========================================================
@@ -43,7 +43,7 @@
 /* Case A: Clicking a normal line */
 .cm-line:active {
   /* background-color: rgba(255, 165, 0, 0.15) !important; */
-  background-color: rgba(45, 80, 165, 0.25) !important;
+  background-color: rgba(45, 80, 125, 0.25) !important;
 }
 
 /* Case B: Clicking the ALREADY active line */
