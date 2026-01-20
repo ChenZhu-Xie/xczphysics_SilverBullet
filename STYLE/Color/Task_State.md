@@ -265,7 +265,7 @@ event.listen {
 
 ### customized JS 3
 
-```space-lua
+```space
 function setupNativeActiveLine()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
