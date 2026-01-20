@@ -5,7 +5,7 @@
 
 ## customized css2
 
-```space
+```space-style
 /* ===========================================================
    Base: Smooth transition & visual polish
 =========================================================== */
@@ -85,7 +85,7 @@
 }
 ```
 
-## M-R css
+## MR-red css
 
 ```space
 .sb-attribute[data-completed] {  
@@ -110,7 +110,7 @@
 }
 ```
 
-## js
+## MR-red js
 
 ```space-lua
 function setupActiveLineHighlighter()
