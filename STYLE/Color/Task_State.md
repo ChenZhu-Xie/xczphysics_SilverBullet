@@ -3,7 +3,10 @@
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
 
-## customized css2
+## CSS
+
+
+### customized css2
 
 ```space-style
 /* ===========================================================
@@ -46,7 +49,7 @@
 }
 ```
 
-## customized css1
+### customized css1
 
 ```space
 .cm-line:hover {
@@ -85,7 +88,7 @@
 }
 ```
 
-## MR-red css
+### MR-red css
 
 ```space
 .sb-attribute[data-completed] {  
@@ -110,9 +113,105 @@
 }
 ```
 
-## MR-red js 2
+## JS
 
 ```space-lua
+function setupActiveLineHighlighter()
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        const CLASS_NAME = "sb-active-line";
+        let lastActiveLine = null;
+        let rafId = null;
+        
+        function updateActiveLine() {
+            // 1. Find the primary cursor
+            const cursor = document.querySelector(".cm-cursor-primary");
+            if (!cursor) return;
+
+            // 2. Get the cursor position
+            const rect = cursor.getBoundingClientRect();
+            const x = rect.left + 5; 
+            const y = rect.top + (rect.height / 2);
+
+            // 3. Find the element at that coordinate
+            const elementAtCursor = document.elementFromPoint(x, y);
+            const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
+
+            // [CORE FIX]: If the line hasn't changed, do NOTHING.
+            // This prevents the "remove -> add" cycle that causes flickering during typing/blinking.
+            if (currentLine === lastActiveLine) {
+                return;
+            }
+
+            // 4. Clean up old highlights
+            // First, try to remove from the cached element directly (fastest)
+            if (lastActiveLine) {
+                lastActiveLine.classList.remove(CLASS_NAME);
+            }
+            // Fallback: Ensure strictly no other elements have the class (handles scrolling/virtual DOM recycling)
+            document.querySelectorAll("." + CLASS_NAME).forEach(el => {
+                if (el !== currentLine) el.classList.remove(CLASS_NAME);
+            });
+
+            // 5. Apply new highlight
+            if (currentLine) {
+                currentLine.classList.add(CLASS_NAME);
+            }
+            
+            // Update cache
+            lastActiveLine = currentLine;
+        }
+
+        // Wrapper to align updates with browser frames
+        const scheduleUpdate = () => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(updateActiveLine);
+        };
+
+        // Observer to watch for cursor movements
+        const observer = new MutationObserver((mutations) => {
+            scheduleUpdate();
+        });
+
+        const init = () => {
+            const scroller = document.querySelector(".cm-scroller");
+            if (scroller) {
+                const cursorLayer = document.querySelector(".cm-cursorLayer");
+                if (cursorLayer) {
+                    // Observe attributes (like opacity for blinking) and childList (for movement)
+                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
+                }
+                
+                // Update on scroll and click
+                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
+                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
+                
+                // Initial run
+                scheduleUpdate();
+            } else {
+                setTimeout(init, 500);
+            }
+        };
+
+        init();
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+-- Initialize the hack on page load
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
+### MR-red js 2
+
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
@@ -183,7 +282,7 @@ event.listen {
 }
 ```
 
-## MR-red js 1
+### MR-red js 1
 
 ```space
 function setupActiveLineHighlighter()
