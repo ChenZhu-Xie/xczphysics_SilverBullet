@@ -110,9 +110,82 @@
 }
 ```
 
-## MR-red js
+## MR-red js 2
 
 ```space-lua
+function setupActiveLineHighlighter()
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        const CLASS_NAME = "sb-active-line";
+        
+        function updateActiveLine() {
+            // 1. Find the primary cursor
+            const cursor = document.querySelector(".cm-cursor-primary");
+            if (!cursor) return;
+
+            // 2. Get the cursor position
+            const rect = cursor.getBoundingClientRect();
+            // We shift slightly to the right to ensure we hit the line text area
+            const x = rect.left + 5; 
+            const y = rect.top + (rect.height / 2);
+
+            // 3. Find the element at that coordinate
+            const elementAtCursor = document.elementFromPoint(x, y);
+            const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
+
+            // 4. Clean up old highlights
+            document.querySelectorAll("." + CLASS_NAME).forEach(el => {
+                if (el !== currentLine) el.classList.remove(CLASS_NAME);
+            });
+
+            // 5. Apply new highlight
+            if (currentLine && !currentLine.classList.contains(CLASS_NAME)) {
+                currentLine.classList.add(CLASS_NAME);
+            }
+        }
+
+        // Observer to watch for cursor movements (changes in style or DOM position)
+        const observer = new MutationObserver((mutations) => {
+            updateActiveLine();
+        });
+
+        // We need to wait for the editor to be available in the DOM
+        const init = () => {
+            const scroller = document.querySelector(".cm-scroller");
+            if (scroller) {
+                // Monitor the cursor layer for changes (blinking/moving)
+                const cursorLayer = document.querySelector(".cm-cursorLayer");
+                if (cursorLayer) {
+                    observer.observe(cursorLayer, { attributes: true, subtree: true });
+                }
+                // Also update on scrolls and clicks
+                scroller.addEventListener("scroll", updateActiveLine, { passive: true });
+                window.addEventListener("click", () => setTimeout(updateActiveLine, 10));
+                updateActiveLine();
+            } else {
+                setTimeout(init, 500);
+            }
+        };
+
+        init();
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+-- Initialize the hack on page load
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
+## MR-red js 1
+
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
