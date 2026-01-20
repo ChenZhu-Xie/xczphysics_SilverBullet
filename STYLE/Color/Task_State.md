@@ -8,13 +8,13 @@
 ```space-style
 .cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15);
-} /* hover */
+} /* hover (lowest priority) */
+.sb-active-line {
+  background-color: rgba(131, 195, 55, 0.15) !important;
+} /* cursor + Mouse released (medium priority) */
 .cm-line:active {
   background-color: rgba(255, 165, 0, 0.15) !important;
 } /* click (and hold) = Mouse pressed and not released */
-.sb-active-line {
-  background-color: rgba(131, 195, 55, 0.15) !important;
-} /* cursor + Mouse released */
 ```
 
 ```space
