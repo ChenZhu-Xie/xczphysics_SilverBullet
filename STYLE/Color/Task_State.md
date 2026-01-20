@@ -114,7 +114,7 @@
 
 ### customized JS 5
 
-```space-lua
+```space
 function setupActiveLineHighlighter()
     local styleEl = js.window.document.createElement("style")
     styleEl.innerHTML = [[
@@ -331,7 +331,7 @@ event.listen {
 
 ### customized JS 4
 
-```space
+```space-lua
 function setupActiveLineHighlighter()
     local styleEl = js.window.document.createElement("style")
     styleEl.innerHTML = [[
