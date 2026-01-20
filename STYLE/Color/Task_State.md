@@ -17,7 +17,7 @@
 
 /*As a bonus, I also added some background to the currently active line, because why not*/
 .sb-active-line {
-  background-color: rgba(35, 130, 115, 0.15) !important;
+  background-color: rgba(135, 110, 115, 0.15) !important;
   /* transition: background-color 0.1s ease; */
 }
 
