@@ -118,13 +118,43 @@ ddszaadasd
 
 ```space-lua
 function setupActiveLineHighlighter()
+    -- 1. 注入 CSS（含 :active 状态处理）
+    local styleEl = js.window.document.createElement("style")
+    styleEl.innerHTML = [[
+        /* 幽灵层样式 */
+        #sb-ghost-active-line {
+            background-color: rgba(131, 195, 55, 0.12);
+            pointer-events: none;
+        }
+        
+        /* 点击时的视觉反馈（防止感知闪烁） */
+        .cm-line:active {
+            background-color: rgba(255, 165, 0, 0.1) !important;
+            transition: none !important;
+        }
+        
+        /* 备用类名高亮（当幽灵层失效时） */
+        .sb-active-line-fallback {
+            background-color: rgba(131, 195, 55, 0.12) !important;
+        }
+    ]]
+    js.window.document.head.appendChild(styleEl)
+
+    -- 2. 注入 JS 逻辑
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
     (function() {
         const HIGHLIGHTER_ID = "sb-ghost-active-line";
-        let lastTop = -1;    // 缓存上一次的 top 值
-        let lastHeight = -1; // 缓存上一次的 height 值
-        let rafId = null;
+        const FALLBACK_CLASS = "sb-active-line-fallback";
+        const STATE_KEY = "__sbActiveLine__";
+        
+        // 状态追踪（类似 HHH.js 的方式）
+        window[STATE_KEY] = {
+            lastTop: -1,
+            lastHeight: -1,
+            lastLineElement: null,  // 追踪当前行元素
+            isHighlightApplied: false
+        };
 
         function getHighlighter(scroller) {
             let el = document.getElementById(HIGHLIGHTER_ID);
@@ -134,10 +164,8 @@ function setupActiveLineHighlighter()
                 el.style.position = "absolute";
                 el.style.left = "0";
                 el.style.right = "0";
-                el.style.pointerEvents = "none";
-                el.style.backgroundColor = "rgba(0, 0, 0, 0.05)"; // 自定义颜色
                 el.style.zIndex = "0";
-                // 移除 transition，避免触发不必要的动画
+                el.style.pointerEvents = "none";
                 
                 const content = scroller.querySelector(".cm-content");
                 if (content) {
@@ -148,46 +176,50 @@ function setupActiveLineHighlighter()
             return el;
         }
 
-        function updateActiveLine() {
+        function findCurrentLine() {
             const scroller = document.querySelector(".cm-scroller");
-            if (!scroller) return;
+            if (!scroller) return null;
 
             const cursor = document.querySelector(".cm-cursor-primary");
-            if (!cursor) {
-                const highlighter = document.getElementById(HIGHLIGHTER_ID);
-                if (highlighter) highlighter.style.display = "none";
-                lastTop = -1;
-                lastHeight = -1;
-                return;
-            }
+            if (!cursor) return null;
 
             const cursorRect = cursor.getBoundingClientRect();
             const cursorMidY = cursorRect.top + (cursorRect.height / 2);
 
             const lines = scroller.querySelectorAll(".cm-line");
-            let currentLine = null;
-
             for (let line of lines) {
                 const lineRect = line.getBoundingClientRect();
                 if (cursorMidY >= lineRect.top && cursorMidY <= lineRect.bottom) {
-                    currentLine = line;
-                    break;
+                    return line;
+                }
+            }
+            return null;
+        }
+
+        function applyHighlight(line) {
+            if (!line) return;
+            
+            const scroller = document.querySelector(".cm-scroller");
+            if (!scroller) return;
+
+            const newTop = line.offsetTop;
+            const newHeight = line.offsetHeight;
+            const state = window[STATE_KEY];
+
+            // 位置缓存：只有真正变化时才写入 DOM
+            if (newTop === state.lastTop && newHeight === state.lastHeight) {
+                // 位置没变，但检查高亮是否还存在
+                const highlighter = document.getElementById(HIGHLIGHTER_ID);
+                if (highlighter && highlighter.style.display !== "none") {
+                    return; // 一切正常，跳过
                 }
             }
 
-            if (!currentLine) return;
-
-            const newTop = currentLine.offsetTop;
-            const newHeight = currentLine.offsetHeight;
-
-            // 【核心优化】位置没变 → 跳过所有 DOM 操作
-            if (newTop === lastTop && newHeight === lastHeight) {
-                return;
-            }
-
-            // 位置变化，更新缓存
-            lastTop = newTop;
-            lastHeight = newHeight;
+            // 更新缓存
+            state.lastTop = newTop;
+            state.lastHeight = newHeight;
+            state.lastLineElement = line;
+            state.isHighlightApplied = true;
 
             // 写入 DOM
             const highlighter = getHighlighter(scroller);
@@ -198,38 +230,102 @@ function setupActiveLineHighlighter()
             }
         }
 
-        const scheduleUpdate = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(updateActiveLine);
-        };
+        function updateActiveLine() {
+            const line = findCurrentLine();
+            if (line) {
+                applyHighlight(line);
+            } else {
+                // 隐藏高亮
+                const highlighter = document.getElementById(HIGHLIGHTER_ID);
+                if (highlighter) highlighter.style.display = "none";
+                window[STATE_KEY].lastTop = -1;
+                window[STATE_KEY].lastHeight = -1;
+                window[STATE_KEY].isHighlightApplied = false;
+            }
+        }
 
-        const observer = new MutationObserver(scheduleUpdate);
+        // ★ 核心：MutationObserver 检测高亮丢失并立即恢复
+        function checkAndRestoreHighlight() {
+            const state = window[STATE_KEY];
+            if (!state.isHighlightApplied) return;
+
+            const highlighter = document.getElementById(HIGHLIGHTER_ID);
+            
+            // 检查幽灵层是否还存在且可见
+            if (!highlighter || highlighter.style.display === "none" || !document.body.contains(highlighter)) {
+                // 幽灵层丢失！立即重新创建并应用
+                const line = findCurrentLine();
+                if (line) {
+                    // 强制重新创建
+                    const oldHighlighter = document.getElementById(HIGHLIGHTER_ID);
+                    if (oldHighlighter) oldHighlighter.remove();
+                    
+                    state.lastTop = -1; // 重置缓存强制更新
+                    applyHighlight(line);
+                }
+            }
+        }
 
         const init = () => {
             const scroller = document.querySelector(".cm-scroller");
-            if (scroller) {
-                const cursorLayer = document.querySelector(".cm-cursorLayer");
-                if (cursorLayer) {
-                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
-                }
-                
-                const content = document.querySelector(".cm-content");
-                if (content) {
-                    observer.observe(content, { childList: true, subtree: true });
-                }
+            const cursorLayer = document.querySelector(".cm-cursorLayer");
+            const content = document.querySelector(".cm-content");
 
-                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
-                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
-                window.addEventListener("resize", scheduleUpdate);
-                
-                scheduleUpdate();
-                console.log("Ghost Active Line Initialized (with position cache)");
-            } else {
+            if (!scroller || !cursorLayer || !content) {
                 setTimeout(init, 500);
+                return;
             }
+
+            // ★ 关键 Observer：检测 DOM 变化后立即检查并恢复高亮
+            const contentObserver = new MutationObserver((mutations) => {
+                // 同步执行，不用 requestAnimationFrame
+                checkAndRestoreHighlight();
+                updateActiveLine();
+            });
+            
+            contentObserver.observe(content, { 
+                childList: true, 
+                subtree: true,
+                attributes: false  // 不监听属性变化，减少触发
+            });
+
+            // 光标层 Observer
+            const cursorObserver = new MutationObserver(() => {
+                updateActiveLine();
+            });
+            cursorObserver.observe(cursorLayer, { 
+                attributes: true, 
+                subtree: true, 
+                childList: true 
+            });
+
+            // 事件监听
+            scroller.addEventListener("scroll", updateActiveLine, { passive: true });
+            
+            // 点击后延迟更新（让 :active 状态先生效）
+            window.addEventListener("click", () => {
+                // 立即检查恢复
+                checkAndRestoreHighlight();
+                // 稍后更新位置
+                setTimeout(updateActiveLine, 20);
+            });
+            
+            window.addEventListener("resize", updateActiveLine);
+            
+            // 键盘事件（打字时）
+            window.addEventListener("keydown", () => {
+                // 打字时同步检查
+                requestAnimationFrame(() => {
+                    checkAndRestoreHighlight();
+                    updateActiveLine();
+                });
+            });
+
+            updateActiveLine();
+            console.log("[ActiveLine] v2 Initialized (with HHH-style recovery)");
         };
 
-        setTimeout(init, 1000);
+        setTimeout(init, 800);
     })();
     ]]
     js.window.document.body.appendChild(scriptEl)
