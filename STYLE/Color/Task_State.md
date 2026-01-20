@@ -115,7 +115,137 @@
 
 ## JS
 
-### customized JS
+
+### customized JS 2
+
+```space-lua
+function setupActiveLineHighlighter()
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        // ID for our persistent highlighter element
+        const HIGHLIGHTER_ID = "sb-ghost-active-line";
+        
+        // Create or get the highlighter element
+        function getHighlighter(scroller) {
+            let el = document.getElementById(HIGHLIGHTER_ID);
+            if (!el) {
+                el = document.createElement("div");
+                el.id = HIGHLIGHTER_ID;
+                // CSS for the highlighter
+                el.style.position = "absolute";
+                el.style.left = "0";
+                el.style.right = "0";
+                el.style.pointerEvents = "none"; // Let clicks pass through
+                el.style.backgroundColor = "rgba(0, 0, 0, 0.05)"; // Customize color here
+                el.style.zIndex = "0"; // Behind text but above background
+                el.style.transition = "top 0.05s ease-out, height 0.05s"; // Smooth movement
+                
+                // We append it to the content container so it scrolls with text
+                const content = scroller.querySelector(".cm-content");
+                if (content) {
+                    content.appendChild(el);
+                    // Ensure content has z-index to sit above our highlighter
+                    content.style.position = "relative";
+                    content.style.zIndex = "1"; 
+                }
+            }
+            return el;
+        }
+
+        let rafId = null;
+
+        function updateActiveLine() {
+            const scroller = document.querySelector(".cm-scroller");
+            if (!scroller) return;
+
+            // 1. Find the cursor
+            const cursor = document.querySelector(".cm-cursor-primary");
+            if (!cursor) {
+                // If no cursor (lost focus), maybe hide the highlighter?
+                // optionally: document.getElementById(HIGHLIGHTER_ID).style.display = 'none';
+                return;
+            }
+
+            // 2. Identify the line element corresponding to the cursor
+            // We still need the line element to know the full height (handling wrapped lines)
+            const rect = cursor.getBoundingClientRect();
+            // Offset slightly to ensure we grab the line, not the gutter
+            const elementAtCursor = document.elementFromPoint(rect.left + 5, rect.top + (rect.height / 2));
+            const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
+
+            if (!currentLine) return;
+
+            // 3. Calculate position relative to the container
+            // We use offsetTop/offsetHeight which is relative to the parent (.cm-content)
+            // This is much more stable than getBoundingClientRect for positioning
+            const newTop = currentLine.offsetTop;
+            const newHeight = currentLine.offsetHeight;
+
+            // 4. Update the Ghost Highlighter
+            const highlighter = getHighlighter(scroller);
+            if (highlighter) {
+                highlighter.style.display = "block";
+                // Only write to DOM if values changed (Optimization)
+                if (highlighter.style.top !== newTop + "px") {
+                    highlighter.style.top = newTop + "px";
+                }
+                if (highlighter.style.height !== newHeight + "px") {
+                    highlighter.style.height = newHeight + "px";
+                }
+            }
+        }
+
+        const scheduleUpdate = () => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(updateActiveLine);
+        };
+
+        const observer = new MutationObserver((mutations) => {
+            scheduleUpdate();
+        });
+
+        const init = () => {
+            const scroller = document.querySelector(".cm-scroller");
+            if (scroller) {
+                const cursorLayer = document.querySelector(".cm-cursorLayer");
+                
+                // Observe cursor blinking/movement
+                if (cursorLayer) {
+                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
+                }
+                
+                // Observe content changes (typing causing line wrap changes)
+                const content = document.querySelector(".cm-content");
+                if (content) {
+                    observer.observe(content, { childList: true, subtree: true, characterData: true });
+                }
+
+                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
+                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
+                window.addEventListener("resize", scheduleUpdate);
+                
+                scheduleUpdate();
+            } else {
+                setTimeout(init, 500);
+            }
+        };
+
+        init();
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
+### customized JS 1
 
 ```space-lua
 function setupActiveLineHighlighter()
