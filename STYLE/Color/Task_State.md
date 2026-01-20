@@ -19,9 +19,6 @@ asdf
 .cm-line:active {
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
-.sb-active-line {
-  background-color: rgba(255, 165, 0, 0.15) !important;
-}
 ```
 
 ```space
