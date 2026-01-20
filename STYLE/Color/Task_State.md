@@ -19,9 +19,9 @@ asdf
 .cm-line:active {
   background-color: rgba(255, 165, 0, 0.15) !important;
 } */
-.sb-active-line {
+/* .sb-active-line {
   background-color: rgba(255, 165, 0, 0.15) !important;
-}
+} */
 ```
 
 ```space
@@ -63,7 +63,7 @@ asdf
 
 ## M-R css
 
-```space
+```space-style
 .sb-attribute[data-completed] {  
   opacity: 0.25;
   /* transition: opacity 0.1s ease-in-out; */
