@@ -138,7 +138,7 @@ function setupActiveLineHighlighter()
                 el.style.left = "0";
                 el.style.right = "0";
                 el.style.pointerEvents = "none"; // Let clicks pass through
-                el.style.backgroundColor = "rgba(0, 0, 0, 0.05)"; // Customize color here
+                el.style.backgroundColor = "rgba(0, 0, 0, 0.2)"; // Customize color here
                 el.style.zIndex = "0"; // Behind text but above background
                 el.style.transition = "top 0.05s ease-out, height 0.05s ease-out"; // Smooth movement
                 
