@@ -1,4 +1,4 @@
-
+dddddd
 1. [css rendering vs markdown editing](https://community.silverbullet.md/t/css-rendering-vs-markdown-editing/3780/3?u=chenzhu-xie) #community #silverbullet
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
@@ -123,8 +123,6 @@ function setupActiveLineHighlighter()
     scriptEl.innerHTML = [[
     (function() {
         const CLASS_NAME = "sb-active-line";
-        let lastActiveLine = null;
-        let rafId = null;
         
         function updateActiveLine() {
             // 1. Find the primary cursor
@@ -133,6 +131,7 @@ function setupActiveLineHighlighter()
 
             // 2. Get the cursor position
             const rect = cursor.getBoundingClientRect();
+            // Shift slightly right to hit the line content
             const x = rect.left + 5; 
             const y = rect.top + (rect.height / 2);
 
@@ -140,59 +139,63 @@ function setupActiveLineHighlighter()
             const elementAtCursor = document.elementFromPoint(x, y);
             const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
 
-            // [CORE FIX]: If the line hasn't changed, do NOTHING.
-            // This prevents the "remove -> add" cycle that causes flickering during typing/blinking.
-            if (currentLine === lastActiveLine) {
-                return;
-            }
-
-            // 4. Clean up old highlights
-            // First, try to remove from the cached element directly (fastest)
-            if (lastActiveLine) {
-                lastActiveLine.classList.remove(CLASS_NAME);
-            }
-            // Fallback: Ensure strictly no other elements have the class (handles scrolling/virtual DOM recycling)
-            document.querySelectorAll("." + CLASS_NAME).forEach(el => {
-                if (el !== currentLine) el.classList.remove(CLASS_NAME);
-            });
-
-            // 5. Apply new highlight
+            // 4. Apply new highlight IMMEDIATELY (Before removing old ones)
+            // This order prevents a "frame gap" where no line is highlighted.
             if (currentLine) {
-                currentLine.classList.add(CLASS_NAME);
+                // Check to avoid unnecessary DOM writes (though classList.add is usually optimized)
+                if (!currentLine.classList.contains(CLASS_NAME)) {
+                    currentLine.classList.add(CLASS_NAME);
+                }
             }
-            
-            // Update cache
-            lastActiveLine = currentLine;
+
+            // 5. Clean up old highlights
+            // We remove the class from ANY element that is not the current line.
+            // This handles the case where the "old" line DOM node still exists but is no longer active.
+            const allActive = document.getElementsByClassName(CLASS_NAME);
+            // Convert to array to avoid live collection issues during iteration
+            Array.from(allActive).forEach(el => {
+                if (el !== currentLine) {
+                    el.classList.remove(CLASS_NAME);
+                }
+            });
         }
 
-        // Wrapper to align updates with browser frames
-        const scheduleUpdate = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(updateActiveLine);
-        };
-
-        // Observer to watch for cursor movements
+        // Observer to watch for DOM changes
         const observer = new MutationObserver((mutations) => {
-            scheduleUpdate();
+            // Execute synchronously to beat the browser paint frame
+            updateActiveLine();
         });
 
         const init = () => {
             const scroller = document.querySelector(".cm-scroller");
-            if (scroller) {
-                const cursorLayer = document.querySelector(".cm-cursorLayer");
-                if (cursorLayer) {
-                    // Observe attributes (like opacity for blinking) and childList (for movement)
-                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
-                }
-                
-                // Update on scroll and click
-                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
-                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
+            const content = document.querySelector(".cm-content");
+            const cursorLayer = document.querySelector(".cm-cursorLayer");
+
+            if (scroller && content && cursorLayer) {
+                // 1. Watch cursor blinking and movement
+                observer.observe(cursorLayer, { 
+                    attributes: true, 
+                    subtree: true, 
+                    childList: true 
+                });
+
+                // 2. Watch text content changes (CRITICAL for typing)
+                // When you type, CM6 replaces the line div. We must catch this replacement.
+                // We only watch childList (lines added/removed), not subtree (text changes inside lines),
+                // to save performance, as replacing a line triggers childList on the parent.
+                observer.observe(content, { 
+                    childList: true,
+                    subtree: false 
+                });
+
+                // 3. Update on interactions
+                scroller.addEventListener("scroll", updateActiveLine, { passive: true });
+                window.addEventListener("click", () => updateActiveLine()); // Removed timeout for instant reaction
                 
                 // Initial run
-                scheduleUpdate();
+                updateActiveLine();
             } else {
-                setTimeout(init, 500);
+                setTimeout(init, 100);
             }
         };
 
@@ -202,7 +205,6 @@ function setupActiveLineHighlighter()
     js.window.document.body.appendChild(scriptEl)
 end
 
--- Initialize the hack on page load
 event.listen { 
     name = "editor:pageLoaded", 
     run = function() 
