@@ -10,7 +10,7 @@
    Base: Smooth transition & visual polish
 =========================================================== */
 .cm-line {
-  transition: background-color 0.1s ease-out;
+  /* transition: background-color 0.1s ease-out; */
   border-radius: 4px; /* Optional: Modern rounded look */
 }
 
