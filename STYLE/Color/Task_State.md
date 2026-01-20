@@ -20,7 +20,7 @@ asdf
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 .sb-active-line {
-  background-color: rgba(111, 115, 0, 0.15) !important;
+  background-color: rgba(111, 185, 0, 0.15) !important;
 }
 ```
 
