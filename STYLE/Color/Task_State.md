@@ -132,22 +132,23 @@ function setupActiveLineHighlighter()
             if (!el) {
                 el = document.createElement("div");
                 el.id = HIGHLIGHTER_ID;
-                // CSS for the highlighter
+                
+                // Core styles
                 el.style.position = "absolute";
                 el.style.left = "0";
                 el.style.right = "0";
                 el.style.pointerEvents = "none"; // Let clicks pass through
-                el.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Customize color here
+                el.style.backgroundColor = "rgba(0, 0, 0, 0.05)"; // Customize color here
                 el.style.zIndex = "0"; // Behind text but above background
-                el.style.transition = "top 0.05s ease-out, height 0.05s"; // Smooth movement
+                el.style.transition = "top 0.05s ease-out, height 0.05s ease-out"; // Smooth movement
                 
-                // We append it to the content container so it scrolls with text
+                // Append to .cm-content so it scrolls with text
                 const content = scroller.querySelector(".cm-content");
                 if (content) {
-                    content.appendChild(el);
-                    // Ensure content has z-index to sit above our highlighter
+                    // Use insertBefore to place it behind text elements
+                    content.insertBefore(el, content.firstChild);
+                    // Ensure content has relative positioning
                     content.style.position = "relative";
-                    content.style.zIndex = "1"; 
                 }
             }
             return el;
@@ -162,31 +163,39 @@ function setupActiveLineHighlighter()
             // 1. Find the cursor
             const cursor = document.querySelector(".cm-cursor-primary");
             if (!cursor) {
-                // If no cursor (lost focus), maybe hide the highlighter?
-                // optionally: document.getElementById(HIGHLIGHTER_ID).style.display = 'none';
+                // Hide highlighter if no cursor
+                const highlighter = document.getElementById(HIGHLIGHTER_ID);
+                if (highlighter) highlighter.style.display = "none";
                 return;
             }
 
-            // 2. Identify the line element corresponding to the cursor
-            // We still need the line element to know the full height (handling wrapped lines)
-            const rect = cursor.getBoundingClientRect();
-            // Offset slightly to ensure we grab the line, not the gutter
-            const elementAtCursor = document.elementFromPoint(rect.left + 5, rect.top + (rect.height / 2));
-            const currentLine = elementAtCursor ? elementAtCursor.closest(".cm-line") : null;
+            // 2. Find the line containing the cursor by comparing vertical positions
+            const cursorRect = cursor.getBoundingClientRect();
+            const cursorMidY = cursorRect.top + (cursorRect.height / 2);
+
+            // Get all visible lines (CM6 only renders visible lines, so this is performant)
+            const lines = scroller.querySelectorAll(".cm-line");
+            let currentLine = null;
+
+            for (let line of lines) {
+                const lineRect = line.getBoundingClientRect();
+                if (cursorMidY >= lineRect.top && cursorMidY <= lineRect.bottom) {
+                    currentLine = line;
+                    break;
+                }
+            }
 
             if (!currentLine) return;
 
-            // 3. Calculate position relative to the container
-            // We use offsetTop/offsetHeight which is relative to the parent (.cm-content)
-            // This is much more stable than getBoundingClientRect for positioning
+            // 3. Calculate position relative to .cm-content using offsetTop/offsetHeight
             const newTop = currentLine.offsetTop;
             const newHeight = currentLine.offsetHeight;
 
-            // 4. Update the Ghost Highlighter
+            // 4. Update the ghost highlighter
             const highlighter = getHighlighter(scroller);
             if (highlighter) {
                 highlighter.style.display = "block";
-                // Only write to DOM if values changed (Optimization)
+                // Only write to DOM if values changed (optimization)
                 if (highlighter.style.top !== newTop + "px") {
                     highlighter.style.top = newTop + "px";
                 }
@@ -196,47 +205,50 @@ function setupActiveLineHighlighter()
             }
         }
 
+        // Schedule update using requestAnimationFrame for smooth rendering
         const scheduleUpdate = () => {
             if (rafId) cancelAnimationFrame(rafId);
             rafId = requestAnimationFrame(updateActiveLine);
         };
 
-        const observer = new MutationObserver((mutations) => {
-            scheduleUpdate();
-        });
+        // Observer to watch for DOM changes
+        const observer = new MutationObserver(scheduleUpdate);
 
         const init = () => {
             const scroller = document.querySelector(".cm-scroller");
             if (scroller) {
+                // Observe cursor layer for blinking/movement
                 const cursorLayer = document.querySelector(".cm-cursorLayer");
-                
-                // Observe cursor blinking/movement
                 if (cursorLayer) {
                     observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
                 }
                 
-                // Observe content changes (typing causing line wrap changes)
+                // Observe content for typing (line wrap changes, etc.)
                 const content = document.querySelector(".cm-content");
                 if (content) {
                     observer.observe(content, { childList: true, subtree: true, characterData: true });
                 }
 
+                // Additional event listeners
                 scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
                 window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
                 window.addEventListener("resize", scheduleUpdate);
                 
                 scheduleUpdate();
+                console.log("Ghost Active Line Highlighter Initialized");
             } else {
                 setTimeout(init, 500);
             }
         };
 
-        init();
+        // Delay initialization to ensure editor is fully loaded
+        setTimeout(init, 500);
     })();
     ]]
     js.window.document.body.appendChild(scriptEl)
 end
 
+-- Initialize the hack on page load
 event.listen { 
     name = "editor:pageLoaded", 
     run = function() 
