@@ -120,135 +120,87 @@
 
 ```space-lua
 function setupActiveLineHighlighter()
+    -- 1. 注入 CSS 样式
+    local styleEl = js.window.document.createElement("style")
+    styleEl.innerHTML = [[
+        .sb-active-line {
+            background-color: rgba(131, 195, 55, 0.15) !important;
+        }
+    ]]
+    js.window.document.head.appendChild(styleEl)
+
+    -- 2. 注入 JS 逻辑
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
     (function() {
-        // ID for our persistent highlighter element
-        const HIGHLIGHTER_ID = "sb-ghost-active-line";
-        
-        // Create or get the highlighter element
-        function getHighlighter(scroller) {
-            let el = document.getElementById(HIGHLIGHTER_ID);
-            if (!el) {
-                el = document.createElement("div");
-                el.id = HIGHLIGHTER_ID;
-                
-                // Core styles
-                el.style.position = "absolute";
-                el.style.left = "0";
-                el.style.right = "0";
-                el.style.pointerEvents = "none"; // Let clicks pass through
-                el.style.backgroundColor = "rgba(0, 0, 0, 0.2)"; // Customize color here
-                el.style.zIndex = "0"; // Behind text but above background
-                el.style.transition = "top 0.05s ease-out, height 0.05s ease-out"; // Smooth movement
-                
-                // Append to .cm-content so it scrolls with text
-                const content = scroller.querySelector(".cm-content");
-                if (content) {
-                    // Use insertBefore to place it behind text elements
-                    content.insertBefore(el, content.firstChild);
-                    // Ensure content has relative positioning
-                    content.style.position = "relative";
-                }
-            }
-            return el;
-        }
+        const CLASS_NAME = "sb-active-line";
+        let lastLine = null; // 缓存上一次高亮的行元素
 
-        let rafId = null;
-
-        function updateActiveLine() {
-            const scroller = document.querySelector(".cm-scroller");
-            if (!scroller) return;
-
-            // 1. Find the cursor
-            const cursor = document.querySelector(".cm-cursor-primary");
+        function update() {
+            // 尝试多种选择器找光标
+            const cursor = document.querySelector(".cm-cursor-primary") 
+                        || document.querySelector(".cm-cursor");
             if (!cursor) {
-                // Hide highlighter if no cursor
-                const highlighter = document.getElementById(HIGHLIGHTER_ID);
-                if (highlighter) highlighter.style.display = "none";
+                console.log("[ActiveLine] 找不到光标元素");
                 return;
             }
 
-            // 2. Find the line containing the cursor by comparing vertical positions
-            const cursorRect = cursor.getBoundingClientRect();
-            const cursorMidY = cursorRect.top + (cursorRect.height / 2);
+            const rect = cursor.getBoundingClientRect();
+            const x = rect.left + 5;
+            const y = rect.top + rect.height / 2;
 
-            // Get all visible lines (CM6 only renders visible lines, so this is performant)
-            const lines = scroller.querySelectorAll(".cm-line");
-            let currentLine = null;
+            const el = document.elementFromPoint(x, y);
+            const currentLine = el ? el.closest(".cm-line") : null;
 
-            for (let line of lines) {
-                const lineRect = line.getBoundingClientRect();
-                if (cursorMidY >= lineRect.top && cursorMidY <= lineRect.bottom) {
-                    currentLine = line;
-                    break;
+            // 核心优化：只有当行变化时才操作 DOM
+            if (currentLine === lastLine) {
+                // 同一行，检查类名是否还在（CodeMirror 可能会移除）
+                if (currentLine && !currentLine.classList.contains(CLASS_NAME)) {
+                    currentLine.classList.add(CLASS_NAME);
                 }
+                return;
             }
 
-            if (!currentLine) return;
-
-            // 3. Calculate position relative to .cm-content using offsetTop/offsetHeight
-            const newTop = currentLine.offsetTop;
-            const newHeight = currentLine.offsetHeight;
-
-            // 4. Update the ghost highlighter
-            const highlighter = getHighlighter(scroller);
-            if (highlighter) {
-                highlighter.style.display = "block";
-                // Only write to DOM if values changed (optimization)
-                if (highlighter.style.top !== newTop + "px") {
-                    highlighter.style.top = newTop + "px";
-                }
-                if (highlighter.style.height !== newHeight + "px") {
-                    highlighter.style.height = newHeight + "px";
-                }
+            // 行发生变化
+            if (lastLine) {
+                lastLine.classList.remove(CLASS_NAME);
             }
+            if (currentLine) {
+                currentLine.classList.add(CLASS_NAME);
+            }
+            lastLine = currentLine;
         }
 
-        // Schedule update using requestAnimationFrame for smooth rendering
-        const scheduleUpdate = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(updateActiveLine);
-        };
-
-        // Observer to watch for DOM changes
-        const observer = new MutationObserver(scheduleUpdate);
-
-        const init = () => {
+        function init() {
             const scroller = document.querySelector(".cm-scroller");
-            if (scroller) {
-                // Observe cursor layer for blinking/movement
-                const cursorLayer = document.querySelector(".cm-cursorLayer");
-                if (cursorLayer) {
-                    observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
-                }
-                
-                // Observe content for typing (line wrap changes, etc.)
-                const content = document.querySelector(".cm-content");
-                if (content) {
-                    observer.observe(content, { childList: true, subtree: true, characterData: true });
-                }
+            const cursorLayer = document.querySelector(".cm-cursorLayer");
+            const content = document.querySelector(".cm-content");
 
-                // Additional event listeners
-                scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
-                window.addEventListener("click", () => setTimeout(scheduleUpdate, 10));
-                window.addEventListener("resize", scheduleUpdate);
-                
-                scheduleUpdate();
-                console.log("Ghost Active Line Highlighter Initialized");
-            } else {
+            if (!scroller || !cursorLayer || !content) {
+                console.log("[ActiveLine] 编辑器未就绪，500ms 后重试...");
                 setTimeout(init, 500);
+                return;
             }
-        };
 
-        // Delay initialization to ensure editor is fully loaded
-        setTimeout(init, 500);
+            // 监听光标层变化
+            const observer = new MutationObserver(update);
+            observer.observe(cursorLayer, { attributes: true, subtree: true, childList: true });
+            // 监听内容层变化（打字时行会被重建）
+            observer.observe(content, { childList: true, subtree: true });
+
+            scroller.addEventListener("scroll", update, { passive: true });
+            window.addEventListener("click", () => setTimeout(update, 10));
+
+            update(); // 初始执行
+            console.log("[ActiveLine] 初始化成功！");
+        }
+
+        setTimeout(init, 1000); // 延迟启动，确保编辑器加载完成
     })();
     ]]
     js.window.document.body.appendChild(scriptEl)
 end
 
--- Initialize the hack on page load
 event.listen { 
     name = "editor:pageLoaded", 
     run = function() 
