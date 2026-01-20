@@ -13,13 +13,13 @@ asdf
 ## customized css
 
 ```space-style
+.sb-active-line {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
 .cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15) !important;
 }
 .cm-line:active {
-  background-color: rgba(255, 165, 0, 0.15) !important;
-}
-.sb-active-line {
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 ```
