@@ -3,55 +3,47 @@
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
 
-
 ## customized css2
 
 ```space-style
-/* 
-   通用设置：给所有状态添加平滑过渡 
-   注意：时间不要超过 0.15s，否则会感觉“跟手”有延迟
-*/
+/* ===========================================================
+   Base: Smooth transition & visual polish
+=========================================================== */
 .cm-line {
   transition: background-color 0.1s ease-out;
-  border-radius: 4px; /* 可选：让高亮条有一点圆角，看起来更像现代 UI */
+  border-radius: 4px; /* Optional: Modern rounded look */
 }
 
-/* =================================================================
-   层级 1: Hover (最低优先级)
-   不需要 !important，它是最基础的交互
-   ================================================================= */
+/* ===========================================================
+   L1: Hover state (Lowest priority)
+=========================================================== */
 .cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15);
 }
 
-/* =================================================================
-   层级 2: Cursor / Focus (中等优先级)
-   这是常驻状态。
-   改进：如果可能，尽量不使用 !important，而是利用 CSS 加载顺序。
-   但由于 SilverBullet 内部样式可能也很强，保留 !important 也是为了稳妥。
-   ================================================================= */
+/* ===========================================================
+   L2: Active cursor line (Medium priority)
+   Persists as long as the cursor is on the line.
+=========================================================== */
 .sb-active-line {
   background-color: rgba(131, 195, 55, 0.15) !important;
 }
 
-/* =================================================================
-   层级 3: Click / Active (最高优先级)
-   改进：增加了特异性 (Specificity)。
-   使用 .cm-line.sb-active-line:active 组合选择器，
-   确保即使在“当前行”点击，橙色也能稳稳覆盖绿色。
-   ================================================================= */
+/* ===========================================================
+   L3: Mouse down / Click (Highest priority)
+   Overrides everything else while the mouse button is held down.
+=========================================================== */
 
-/* 情况 A: 点击普通行 */
+/* Case A: Clicking a normal line */
 .cm-line:active {
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 
-/* 情况 B: 点击已经是光标所在的行 (增强反馈) */
-/* 这条规则确保了你在打字时，如果用鼠标点击当前行，依然能看到橙色闪烁 */
+/* Case B: Clicking the ALREADY active line */
+/* Slightly darker for better feedback when clicking where you are typing */
 .cm-line.sb-active-line:active {
-  background-color: rgba(255, 165, 0, 0.25) !important; /* 可以稍微加深一点，强调确认感 */
+  background-color: rgba(255, 165, 0, 0.25) !important;
 }
-
 ```
 
 ## customized css1
