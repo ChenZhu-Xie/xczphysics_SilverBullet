@@ -22,9 +22,12 @@ asdf
    这是由编辑器逻辑控制的，光标停留在哪一行，哪一行就有这个类
    ================================================================= */
 .sb-active-line {
-  /* 蓝色背景：代表当前光标编辑的位置 */
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+.cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15) !important;
 }
+
 
 /* 规则：光标所在行，任务内容不透明 */
 .sb-active-line .sb-attribute[data-completed] {
@@ -41,9 +44,7 @@ asdf
   background-color: rgba(255, 165, 0, 0.15) !important;
 }
 
-.cm-line:hover {
-  background-color: rgba(255, 165, 0, 0.15) !important;
-}
+
 
 /* 规则：鼠标按下的行，任务内容不透明 */
 .sb-line-li:active .sb-attribute[data-completed] {
