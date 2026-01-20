@@ -32,7 +32,7 @@
 .sb-active-line {
   /* background-color: rgba(131, 195, 55, 0.15) !important; */
   /* background-color: rgba(192, 26, 77, 0.15) !important; */
-  background-color: rgba(23, 126, 77, 0.15) !important;
+  background-color: rgba(23, 126, 27, 0.15) !important;
 }
 
 /* ===========================================================
@@ -43,7 +43,7 @@
 /* Case A: Clicking a normal line */
 .cm-line:active {
   /* background-color: rgba(255, 165, 0, 0.15) !important; */
-  background-color: rgba(45, 80, 125, 0.25) !important;
+  background-color: rgba(45, 80, 165, 0.25) !important;
 }
 
 /* Case B: Clicking the ALREADY active line */
