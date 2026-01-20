@@ -112,6 +112,223 @@
 
 ## JS
 
+### customized JS 5
+
+```space-lua
+function setupActiveLineHighlighter()
+    local styleEl = js.window.document.createElement("style")
+    styleEl.innerHTML = [[
+        #sb-ghost-active-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            background-color: rgba(131, 195, 55, 0.12);
+            z-index: 0;
+            will-change: transform;
+        }
+        /* 确保 scroller 是定位上下文 */
+        .cm-scroller {
+            position: relative !important;
+        }
+    ]]
+    js.window.document.head.appendChild(styleEl)
+
+    local scriptEl = js.window.document.createElement("script")
+    scriptEl.innerHTML = [[
+    (function() {
+        const HIGHLIGHTER_ID = "sb-ghost-active-line";
+        let lastTop = -1;
+        let lastHeight = -1;
+        let rafId = null;
+
+        // ★ 获取或重新创建幽灵层（放在 .cm-scroller 内，不会被 CM6 删除）
+        function getOrCreateHighlighter() {
+            let el = document.getElementById(HIGHLIGHTER_ID);
+            
+            // 检查是否存在且在正确位置
+            if (el && el.parentElement && el.parentElement.classList.contains("cm-scroller")) {
+                return el;
+            }
+            
+            // 需要重新创建
+            if (el) el.remove();
+            
+            const scroller = document.querySelector(".cm-scroller");
+            if (!scroller) return null;
+
+            el = document.createElement("div");
+            el.id = HIGHLIGHTER_ID;
+            
+            // ★ 关键：插入到 scroller，而非 content
+            // scroller 不会被 CodeMirror 重建
+            scroller.insertBefore(el, scroller.firstChild);
+            
+            console.log("[ActiveLine] Highlighter created/recreated");
+            return el;
+        }
+
+        function updateHighlighter() {
+            if (!window.client || !client.editorView) return;
+            
+            const view = client.editorView;
+            const state = view.state;
+            
+            // 检查是否有选区
+            if (!state.selection || !state.selection.main) return;
+            
+            const pos = state.selection.main.head;
+            
+            // ★ 使用 lineBlockAt 获取行信息
+            let lineBlock;
+            try {
+                lineBlock = view.lineBlockAt(pos);
+            } catch (e) {
+                return;
+            }
+            
+            if (!lineBlock) return;
+
+            // ★ 计算相对于 scroller 的位置
+            // lineBlock.top 是相对于文档顶部的，需要加上 content 的 padding
+            const content = document.querySelector(".cm-content");
+            if (!content) return;
+            
+            const contentStyle = window.getComputedStyle(content);
+            const paddingTop = parseFloat(contentStyle.paddingTop) || 0;
+            
+            const newTop = lineBlock.top + paddingTop;
+            const newHeight = lineBlock.height;
+
+            // 位置没变，只检查幽灵层是否还存在
+            if (Math.abs(newTop - lastTop) < 0.5 && Math.abs(newHeight - lastHeight) < 0.5) {
+                // ★ 即使位置没变，也要检查幽灵层是否被删除
+                const el = getOrCreateHighlighter();
+                if (el && el.style.transform !== `translateY(${newTop}px)`) {
+                    el.style.transform = `translateY(${newTop}px)`;
+                    el.style.height = newHeight + "px";
+                }
+                return;
+            }
+
+            lastTop = newTop;
+            lastHeight = newHeight;
+
+            const el = getOrCreateHighlighter();
+            if (el) {
+                el.style.transform = `translateY(${newTop}px)`;
+                el.style.height = newHeight + "px";
+            }
+        }
+
+        // ★ 同步更新（用于 MutationObserver 回调）
+        function syncUpdate() {
+            updateHighlighter();
+        }
+
+        // ★ 异步更新（用于频繁事件如 scroll）
+        function scheduleUpdate() {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                rafId = null;
+                updateHighlighter();
+            });
+        }
+
+        function init() {
+            if (!window.client || !client.editorView) {
+                setTimeout(init, 500);
+                return;
+            }
+
+            const scroller = document.querySelector(".cm-scroller");
+            const cursorLayer = document.querySelector(".cm-cursorLayer");
+            const content = document.querySelector(".cm-content");
+
+            if (!scroller) {
+                setTimeout(init, 500);
+                return;
+            }
+
+            // ★ 监听光标层变化（光标移动、闪烁）
+            if (cursorLayer) {
+                const cursorObserver = new MutationObserver(syncUpdate);
+                cursorObserver.observe(cursorLayer, { 
+                    attributes: true, 
+                    subtree: true, 
+                    childList: true 
+                });
+            }
+
+            // ★ 监听内容层变化（打字、删除）- 同步执行！
+            if (content) {
+                const contentObserver = new MutationObserver((mutations) => {
+                    // ★ 检查幽灵层是否被删除
+                    const el = document.getElementById(HIGHLIGHTER_ID);
+                    if (!el || !document.body.contains(el)) {
+                        // 幽灵层被删除了，立即恢复
+                        syncUpdate();
+                    } else {
+                        // 正常更新
+                        syncUpdate();
+                    }
+                });
+                contentObserver.observe(content, { 
+                    childList: true, 
+                    subtree: true,
+                    characterData: true
+                });
+            }
+
+            // ★ 监听 scroller 变化（检测幽灵层被删除）
+            const scrollerObserver = new MutationObserver((mutations) => {
+                for (const m of mutations) {
+                    if (m.removedNodes.length > 0) {
+                        for (const node of m.removedNodes) {
+                            if (node.id === HIGHLIGHTER_ID) {
+                                // 幽灵层被删除，立即重建
+                                console.log("[ActiveLine] Highlighter removed, recreating...");
+                                syncUpdate();
+                                return;
+                            }
+                        }
+                    }
+                }
+            });
+            scrollerObserver.observe(scroller, { childList: true });
+
+            // 滚动事件（使用 RAF 节流）
+            scroller.addEventListener("scroll", scheduleUpdate, { passive: true });
+            
+            // 点击事件
+            window.addEventListener("click", () => setTimeout(syncUpdate, 10));
+            
+            // resize 事件
+            window.addEventListener("resize", scheduleUpdate);
+
+            // ★ 键盘事件 - 打字时立即更新
+            window.addEventListener("keydown", syncUpdate);
+            window.addEventListener("keyup", syncUpdate);
+
+            // 初始更新
+            syncUpdate();
+            console.log("[ActiveLine] Ghost layer v2 initialized");
+        }
+
+        setTimeout(init, 800);
+    })();
+    ]]
+    js.window.document.body.appendChild(scriptEl)
+end
+
+event.listen { 
+    name = "editor:pageLoaded", 
+    run = function() 
+        setupActiveLineHighlighter() 
+    end 
+}
+```
+
 ### customized JS 4
 
 ```space
