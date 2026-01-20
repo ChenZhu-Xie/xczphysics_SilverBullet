@@ -48,7 +48,7 @@
 
 ## customized css1
 
-```space-style
+```space
 .cm-line:hover {
   background-color: rgba(65, 90, 115, 0.15);
 } /* hover (lowest priority) */
@@ -59,8 +59,6 @@
   background-color: rgba(255, 165, 0, 0.15) !important;
 } /* click (and hold) = Mouse pressed and not released */
 ```
-
-
 
 ```space-style
 
@@ -86,7 +84,6 @@
   opacity: 1;
 }
 ```
-
 
 ## M-R css
 
