@@ -1,6 +1,9 @@
 
 - [x] test [completed: 2026-01-20T15:41:00] [completed: 2026-01-20T15:41:00]
 
+
+
+
 ```space-style
 .sb-attribute[data-completed] {  
   opacity: 0.25;
@@ -26,7 +29,7 @@
 */
 ```
 
-```space-lua
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
