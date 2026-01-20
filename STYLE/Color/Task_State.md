@@ -1,4 +1,3 @@
-// 检查幽灵层是否被频繁删除 let deleteCount = 0; const scroller = document.querySelector(".cm-scroller"); const observer = new MutationObserver((mutations) => {     for (const m of mutations) {         for (const node of m.removedNodes) {             if (node.id === "sb-ghost-active-line") {                 deleteCount++;                 console.log(`[诊断] 幽灵层被删除 #${deleteCount}`, new Date().toISOString());             }         }     } }); observer.observe(scroller, { childList: true }); console.log("[诊断] 开始监控幽灵层删除...");
 
 1. [css rendering vs markdown editing](https://community.silverbullet.md/t/css-rendering-vs-markdown-editing/3780/3?u=chenzhu-xie) #community #silverbullet
 
@@ -566,7 +565,7 @@ event.listen {
 
 ### customized JS 2
 
-```space-lua
+```space
 function setupActiveLineHighlighter()
     local scriptEl = js.window.document.createElement("script")
     scriptEl.innerHTML = [[
