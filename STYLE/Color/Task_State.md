@@ -52,7 +52,7 @@
 /* Slightly darker for better feedback when clicking where you are typing */
 .cm-line.sb-active-line:active {
   /* background-color: rgba(255, 165, 0, 0.25) !important; */
-  background-color: rgba(45, 80, 165, 0.25) !important;
+  background-color: rgba(45, 30, 165, 0.25) !important;
 }
 ```
 
