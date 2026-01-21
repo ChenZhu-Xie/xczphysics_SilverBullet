@@ -10,7 +10,7 @@
 
 2. [issues](https://github.com/silverbulletmd/silverbullet/issues/1318#issuecomment-3728885875) #github
 
-```space-style
+```space
 .sb-modal-box .cm-content .cm-line {
     caret-color: var(--editor-caret-color);
     caret-shape: block;
