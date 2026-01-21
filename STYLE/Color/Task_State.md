@@ -20,9 +20,9 @@
    L1: Hover state (Lowest priority)
 =========================================================== */
 .cm-line:hover {
-  background-color: rgba(65, 90, 115, 0.15);
+  /* background-color: rgba(65, 90, 115, 0.15); */
   /* background-color: rgba(191, 117, 213, 0.15); */
-  /* background-color: rgba(141, 117, 23, 0.15); */
+  background-color: rgba(141, 117, 23, 0.15);
 }
 
 /* ===========================================================
@@ -33,7 +33,8 @@
   /* background-color: rgba(131, 195, 55, 0.15) !important; */
   /* background-color: rgba(192, 26, 77, 0.15) !important; */
   /* background-color: rgba(23, 156, 77, 0.15) !important; */
-  background-color: rgba(141, 117, 23, 0.35);
+  /* background-color: rgba(141, 117, 23, 0.35); */
+  background-color: rgba(65, 90, 115, 0.15);
 }
 
 /* ===========================================================
