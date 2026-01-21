@@ -4,7 +4,7 @@
 ```space-style
 .cm-cursor, .cm-dropCursor {
     --editor-caret-color: #eb75b1aa;
-    border-left: 1.2ch solid var(--editor-caret-color) !important;
+    border-left: 1.0ch solid var(--editor-caret-color) !important;
 }
 ```
 
