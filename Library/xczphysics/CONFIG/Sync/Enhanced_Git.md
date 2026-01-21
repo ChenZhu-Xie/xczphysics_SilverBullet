@@ -1,6 +1,6 @@
 ---
 author: Chenzhu-Xie
-name: Library/xczphysics/CONFIG/Sync/Enhanced_Git
+name: Library/xczphysics/CONFIG/Sync/Enhanced_Glockit
 tags: meta/library
 pageDecoration.prefix: "🎏 "
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
@@ -188,7 +188,7 @@ end
 
 
 -- Simple memory lock mechanism for SB internal git operations
-if not _G then
+if not _Glock then
   gitLock = {
     isLocked = false,
     currentOperation = ""
@@ -210,31 +210,31 @@ if not _G then
     gitLock.currentOperation = ""
   end
 else
-  _G.gitLock = {
+  _Glock.gitLock = {
     isLocked = false,
     currentOperation = ""
   }
 
-  _G.acquireGitLock = function(operationName)
-    if _G.gitLock.isLocked then
-      NotificationManager:showWarning("GIT_LOCK_WARNING", _G.gitLock.currentOperation)
+  _Glock.acquireGitLock = function(operationName)
+    if _Glock.gitLock.isLocked then
+      NotificationManager:showWarning("GIT_LOCK_WARNING", _Glock.gitLock.currentOperation)
       return false
     end
 
-    _G.gitLock.isLocked = true
-    _G.gitLock.currentOperation = operationName
+    _Glock.gitLock.isLocked = true
+    _Glock.gitLock.currentOperation = operationName
     return true
   end
 
-  _G.releaseGitLock = function()
-    _G.gitLock.isLocked = false
-    _G.gitLock.currentOperation = ""
+  _Glock.releaseGitLock = function()
+    _Glock.gitLock.isLocked = false
+    _Glock.gitLock.currentOperation = ""
   end
 
   -- Also create local references for consistency
-  gitLock = _G.gitLock
-  acquireGitLock = _G.acquireGitLock
-  releaseGitLock = _G.releaseGitLock
+  gitLock = _Glock.gitLock
+  acquireGitLock = _Glock.acquireGitLock
+  releaseGitLock = _Glock.releaseGitLock
 end
 
 -- Git operation handlers (low-level operations, no locks)
@@ -312,9 +312,9 @@ end
 -- Core commit operation WITH LOCK
 function GitOperations.performCommit(message, showSteps, isColdStart)
   local needToReleaseLock = false
-  local lockObj = _G and _G.gitLock or gitLock
-  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
-  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+  local lockObj = _Glock and _Glock.gitLock or gitLock
+  local acquireFn = _Glock and _Glock.acquireGitLock or acquireGitLock
+  local releaseFn = _Glock and _Glock.releaseGitLock or releaseGitLock
 
   if not lockObj.isLocked then
     if not acquireFn("Git Commit") then
@@ -337,9 +337,9 @@ end
 -- Core sync operation WITH LOCK (this is a core function that needs locking)
 function GitOperations.performSync(showSteps, isColdStart)
   local needToReleaseLock = false
-  local lockObj = _G and _G.gitLock or gitLock
-  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
-  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+  local lockObj = _Glock and _Glock.gitLock or gitLock
+  local acquireFn = _Glock and _Glock.acquireGitLock or acquireGitLock
+  local releaseFn = _Glock and _Glock.releaseGitLock or releaseGitLock
 
   if not lockObj.isLocked then
     if not acquireFn("Git Sync") then
@@ -642,8 +642,8 @@ end
 -- Core force push initial commit WITH LOCK
 function GitOperations.performForcePushInitial()
   -- 🔒 ACQUIRE LOCK
-  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
-  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+  local acquireFn = _Glock and _Glock.acquireGitLock or acquireGitLock
+  local releaseFn = _Glock and _Glock.releaseGitLock or releaseGitLock
 
   if not acquireFn("Git Force Push Initial") then
     return false, NotificationManager.messages.GIT_OPERATION_IN_PROGRESS
@@ -725,8 +725,8 @@ end
 -- Force push (without wiping local history)
 function GitOperations.performForcePushNoWipe()
   -- 🔒 ACQUIRE LOCK
-  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
-  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+  local acquireFn = _Glock and _Glock.acquireGitLock or acquireGitLock
+  local releaseFn = _Glock and _Glock.releaseGitLock or releaseGitLock
 
   if not acquireFn("Git Force Push (No Wipe)") then
     return false, NotificationManager.messages.GIT_OPERATION_IN_PROGRESS
@@ -799,8 +799,8 @@ end
 -- Core force pull WITH LOCK
 function GitOperations.performForcePull()
   -- 🔒 ACQUIRE LOCK
-  local acquireFn = _G and _G.acquireGitLock or acquireGitLock
-  local releaseFn = _G and _G.releaseGitLock or releaseGitLock
+  local acquireFn = _Glock and _Glock.acquireGitLock or acquireGitLock
+  local releaseFn = _Glock and _Glock.releaseGitLock or releaseGitLock
 
   if not acquireFn("Git Force Pull") then
     return false, NotificationManager.messages.GIT_OPERATION_IN_PROGRESS
