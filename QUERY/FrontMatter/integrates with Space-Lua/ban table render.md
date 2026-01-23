@@ -31,6 +31,3 @@ event.listen{
   end
 }
 ```
-
-
-
