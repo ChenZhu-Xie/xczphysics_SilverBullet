@@ -13,3 +13,5 @@ objectDecorators:
 2. https://community.silverbullet.md/t/page-decorations-inheritance/1329
 3. https://community.silverbullet.md/t/help-fixing-a-where-clause-in-table-of-content-page/770
    - related to [[SB Basics/Community Ideas#TOC related]]
+
+
