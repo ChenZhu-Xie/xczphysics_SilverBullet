@@ -1,3 +1,8 @@
+---
+dontRenderTable: true
+---
+
+
 
 # ban table render on specific page
 
@@ -25,5 +30,8 @@ event.listen{
 }
 ```
 
+| Header A | Header B |
+|----------|----------|
+| Cell A | Cell B |
 
 
