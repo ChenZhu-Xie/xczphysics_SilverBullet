@@ -2,9 +2,11 @@
 dontRenderTable: true
 ---
 
-
-
 # ban table render on specific page
+
+| Header A | Header B |
+|----------|----------|
+| Cell A | Cell B |
 
 1. https://community.silverbullet.md/chat/c/-/2/6745
 2. https://community.silverbullet.md/chat/c/-/2/6751
@@ -30,8 +32,5 @@ event.listen{
 }
 ```
 
-| Header A | Header B |
-|----------|----------|
-| Cell A | Cell B |
 
 
