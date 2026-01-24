@@ -267,7 +267,7 @@ actionButton.define {
 #sb-editor .sb-code {
     background: rgba(68, 68, 68, 0.3) !important;
     /* color: #8cbdf4; */
-    color: #2cfdd4;
+    color: #2c9dd4;
     text-decoration: none !important;
   }
 ```
