@@ -3,7 +3,7 @@ name: "Library/Mr-xRed/TaskManager"
 tags: meta/library
 pageDecoration.prefix: "✅ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/TaskManager.md"
-share.hash: 8d993225
+share.hash: c28a085d
 share.mode: pull
 ---
 
@@ -36,7 +36,7 @@ ${TaskManager(query[[from index.tag "task" order by name limit 5]], {
 })}
 ```
 
-${TaskManager(query[[from index.tag "task" order by name limit 5]], {
+${TaskManager(query[[from index.tag "task" order by name limit 10]], {
   {"Priority", "priority", "string"},
   {"Due Date", "due", "YY-MM-DD"},
   {"Completed", "completed", "dateTime"},

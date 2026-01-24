@@ -9,10 +9,10 @@ files:
 - hybrid-cursor.svg
 pageDecoration.prefix: "🗂️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DocumentExplorer.md"
-share.hash: "61771379"
+share.hash: 1f38aaa9
 share.mode: pull
 ---
-# 🗂️ Document Explorer (Ver. 1.0.10)
+# 🗂️ Document Explorer (Ver. 1.0.11)
 ![DocumentExplorer_Screenshot](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/DocumentExplorer_Screenshot.png)
 
 ## Features
@@ -862,7 +862,7 @@ window.addEventListener('keydown', function(e) {
         // Visual Update
         document.querySelectorAll(".is-focused").forEach(el => el.classList.remove("is-focused"));
         target.classList.add("is-focused");
-        target.scrollIntoView({ block: "nearest", behavior: "auto" }); // "auto" is faster than "smooth"
+//        target.scrollIntoView({ block: "nearest", behavior: "auto" }); // "auto" is faster than "smooth"
 
         // SPEEDY ENTER LOGIC
         if (e.key === "Enter") {
@@ -1201,7 +1201,7 @@ async function refreshActiveHighlight() {
         parent = parent.parentElement.closest('details');
       }
 
-      tile.scrollIntoView({ behavior: 'auto', block: 'center' });
+ //     tile.scrollIntoView({ behavior: 'auto', block: 'center' });
     }
   });
 }
