@@ -27,6 +27,7 @@
 
 BOOK
 1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
+2. [simple media gallery for books movie tv series games etc](https://community.silverbullet.md/t/simple-media-gallery-for-books-movie-tv-series-games-etc/3795?u=chenzhu-xie) #community #silverbullet
 
 # LCU manager
 
