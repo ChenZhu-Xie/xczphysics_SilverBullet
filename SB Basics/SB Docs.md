@@ -8,6 +8,9 @@
   - [LLMInstructions.md](https://github.com/malys/silverbullet-libraries/blob/main/src/LLMInstructions.md) #github
 - related to [deepwiki documentation and llm](https://community.silverbullet.md/t/deepwiki-documentation-and-llm/2268?u=chenzhu-xie) #community #silverbullet
 
+## Deepwiki Alternaltive
+
+1. [understanding codebases with ai gemini workflow](https://steipete.me/posts/2025/understanding-codebases-with-ai-gemini-workflow) #steipete
 
 # SB SystemCalls
 
