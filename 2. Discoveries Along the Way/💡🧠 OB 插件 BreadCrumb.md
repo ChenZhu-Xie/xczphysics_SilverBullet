@@ -117,7 +117,16 @@ c 节点[children:{[[a 节点]], [[b 节点]]}] 会自动填充 1 个
 
 ${embed.youtube "https://www.youtube.com/watch?v=DXXB7fHcArg&t=897s"}
 
-# Trillium 里有该插件的祖先？
+# 其他 相关
+
+## Trillium 里有该插件的祖先？
 
 1. [article](https://ld246.com/article/1739105383323) #ld246
+
+## Graph Data Modelling with Quartz
+
+1. [advanced panel controls e g resizing side panels lhs rhs bhs using your mouse](https://community.silverbullet.md/t/advanced-panel-controls-e-g-resizing-side-panels-lhs-rhs-bhs-using-your-mouse/3728/31?u=chenzhu-xie) #community #silverbullet
+   - https://schemaorg.healis.eu/
+
+
 
