@@ -1,5 +1,5 @@
 // Library/xczphysics/STYLE/Theme/LinkFloater.js
-// LinkFloater v5 - 修复 [[#header]] 解析问题
+// LinkFloater v5 - 修复 [[#header]] 解析问题及 .map 类型错误
 
 const STATE_KEY = "__LinkFloaterState_v5";
 
@@ -313,7 +313,8 @@ const View = {
     const container = this.createContainer(this.topContainerId, false);
     container.innerHTML = "";
 
-    if (!forwardLinks || forwardLinks.length === 0) {
+    // ★ 修复：增加 Array.isArray 检查，防止空对象传入导致 .map 崩溃
+    if (!Array.isArray(forwardLinks) || forwardLinks.length === 0) {
       container.style.display = "none";
       return;
     }
@@ -440,7 +441,8 @@ const View = {
     const container = this.createContainer(this.bottomContainerId, true);
     container.innerHTML = "";
 
-    if (!backlinks || backlinks.length === 0) {
+    // 同样加强类型检查
+    if (!Array.isArray(backlinks) || backlinks.length === 0) {
       container.style.display = "none";
       return;
     }
@@ -501,13 +503,15 @@ const View = {
 
 /** 供 Lua 调用：更新反向链接数据 */
 export function updateBacklinks(data) {
-  Model.backlinks = data || [];
+  // ★ 修复：确保 data 是数组，防止传入空对象
+  Model.backlinks = Array.isArray(data) ? data : [];
   View.renderBacklinks(Model.backlinks);
 }
 
 /** 供 Lua 调用：更新前向链接数据 */
 export function updateForwardlinks(data) {
-  Model.forwardLinks = data || [];
+  // ★ 修复：确保 data 是数组，防止传入空对象
+  Model.forwardLinks = Array.isArray(data) ? data : [];
   View.renderForward(Model.forwardLinks);
 }
 
