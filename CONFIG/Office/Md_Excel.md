@@ -2,6 +2,8 @@
 githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/MdTableSheet.md"
 ---
 
+1. [feature markdown table formula with formulajs](https://community.silverbullet.md/t/feature-markdown-table-formula-with-formulajs/3208?u=chenzhu-xie) #community #silverbullet
+
 # Md Table + Formulajs evaluator
 
 This feature allows you to embed dynamic formulas in your Markdown tables. You can use the \`F\` function to evaluate formulas and display their results in your tables.
@@ -31,7 +33,7 @@ Here's an example usage: \${F("SUM(A1:A5)","1")}\`
 | ${F("SUM(A1:B5)","1")} | ${F("SUM(B1:B5)","2")} | ${F("SUM(C1:C5)","2")} |
 
 
-```space-lua
+```space
 -- ---------------------------
 -- SilverBullet Markdown Table + Formulajs evaluator
 -- Use: F(formulajs,label)
