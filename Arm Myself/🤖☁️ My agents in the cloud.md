@@ -4,6 +4,7 @@
 ## Second brains 🧠 in the cloud ☁️
 
 1. [[PKM/Apps/LogSeq]] in [[PKM/Apps/SilverBullet]] way
+   - [local on server storage for self hosted logseq](https://discuss.logseq.com/t/local-on-server-storage-for-self-hosted-logseq/6613/18?u=xczphysics) #discuss #logseq
 
 ## Agents 🤖 in the cloud ☁️
 
