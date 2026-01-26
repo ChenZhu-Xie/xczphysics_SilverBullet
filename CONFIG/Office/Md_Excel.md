@@ -3,6 +3,7 @@ githubUrl: "https://github.com/malys/silverbullet-libraries/blob/main/src/MdTabl
 ---
 
 1. [feature markdown table formula with formulajs](https://community.silverbullet.md/t/feature-markdown-table-formula-with-formulajs/3208?u=chenzhu-xie) #community #silverbullet
+2. [md table renderers](https://community.silverbullet.md/t/md-table-renderers/3545?u=chenzhu-xie) #community #silverbullet
 
 # Md Table + Formulajs evaluator
 
