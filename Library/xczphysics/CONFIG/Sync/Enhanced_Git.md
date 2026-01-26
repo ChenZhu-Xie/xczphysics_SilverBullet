@@ -1,6 +1,6 @@
 ---
 author: Chenzhu-Xie
-name: Library/xczphysics/CONFIG/Sync/Enhanced_Glockit
+name: Library/xczphysics/CONFIG/Sync/Enhanced_Git
 tags: meta/library
 pageDecoration.prefix: "🎏 "
 githubUrl_Original: "https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Git.md"
