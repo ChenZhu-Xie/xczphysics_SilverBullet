@@ -4,4 +4,3 @@
 ![image](https://community.silverbullet.md/uploads/default/original/2X/e/eaa717c41ab530d85015c110b9e3738c39c708d8.png)
 3. [tasks for headers](https://community.silverbullet.md/t/tasks-for-headers/3799?u=chenzhu-xie) #community #silverbullet
 
-i
