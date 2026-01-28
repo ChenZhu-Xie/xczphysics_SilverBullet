@@ -12,4 +12,4 @@
 - related things:
   [optimal ai development workflow](https://steipete.me/posts/2025/optimal-ai-development-workflow) #steipete
   [understanding codebases with ai gemini workflow](https://steipete.me/posts/2025/understanding-codebases-with-ai-gemini-workflow) #steipete
-  - [[]]
+  - [[SB Basics/SB Docs#Deepwiki Alternaltive]]
