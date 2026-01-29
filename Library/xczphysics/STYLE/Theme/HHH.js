@@ -383,7 +383,7 @@ const View = {
 
     if (container) {
       const rect = container.getBoundingClientRect();
-      el.style.left = (rect.left + 45) + "px";
+      el.style.left = (rect.left + 15) + "px";
       el.style.top = (rect.top + 30) + "px";
     }
 
@@ -447,7 +447,7 @@ const View = {
 
     if (container) {
       const rect = container.getBoundingClientRect();
-      el.style.left = (rect.left + 45) + "px";
+      el.style.left = (rect.left + 15) + "px";
       el.style.bottom = "30px";
       el.style.top = "auto";
     }
