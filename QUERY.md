@@ -40,7 +40,7 @@
 
 1. https://silverbullet.md/Objects
 
-# JS 
+# JS-Lua Query easy Build
 
 1. [custom query](https://community.silverbullet.md/t/custom-query/3806?u=chenzhu-xie) #community #silverbullet
 
