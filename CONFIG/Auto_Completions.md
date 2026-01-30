@@ -1,5 +1,6 @@
 
 [In-line auto completions](https://community.silverbullet.md/t/in-line-auto-completions/748)
+[autocomplete page title like autocomplete or](https://community.silverbullet.md/t/autocomplete-page-title-like-autocomplete-or/3511?u=chenzhu-xie) #community #silverbullet
 
 ## AI related
 
