@@ -22,6 +22,7 @@
 
 1. https://github.com/justyns/silverbullet-ai
 2. https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Assistant.md
+3. https://community.silverbullet.md/t/silverbullet-model-context-protocol-server/2413/13?u=chenzhu-xie
 
 # Fields related
 
