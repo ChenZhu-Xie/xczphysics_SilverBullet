@@ -1,7 +1,7 @@
 
 # Hello 👋
 
-Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
+Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.4
 
 ${widget.html(dom.marquee{
   dom.span {
