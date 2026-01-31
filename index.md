@@ -3,6 +3,7 @@
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.
 
+
 ${widget.html(dom.marquee{
   dom.span {
     style="color:cyan;",
