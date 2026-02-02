@@ -17,17 +17,10 @@ Table percentage tags
 
 Use it Like this:
 
-| Header    | Header   #mint #t60p|
+| Header    | Header   #mint #t50p|
 |-----------|---------------------|
 |   Cell    |        Cell         |
 |   Cell    |        Cell         |
-
-
-| ID #sea #t80p #c5p| Name #c10p| Email #c20p | Phone #c10p| Country #c5p| Dep. #c5p| Role |
-|----|------|--------|--------|----------|-------------|--------|
-| 1  | Alice | alice@example.com | +1-555-1234 | USA | Sales | Manager |
-| 2  | Bob   | bob@example.com   | +44-555-5678 | UK  | IT    | Engineer |
-| 3  | Carol | carol@example.com | +49-555-9012 | DE  | HR    | Analyst  |
 
 ## Color Themes:
 
@@ -372,6 +365,12 @@ table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 ### Table column Width through Tag
 
 1. [custom colorful table styles for dark theme](https://community.silverbullet.md/t/custom-colorful-table-styles-for-dark-theme/1620/6?u=chenzhu-xie) #community #silverbullet
+
+| ID #sea #t100p #c5p| Name #c10p| Email #c20p | Phone #c10p| Country #c5p| Dep. #c5p| Role |
+|----|------|--------|--------|----------|-------------|--------|
+| 1  | Alice | alice@example.com | +1-555-1234 | USA | Sales | Manager |
+| 2  | Bob   | bob@example.com   | +44-555-5678 | UK  | IT    | Engineer |
+| 3  | Carol | carol@example.com | +49-555-9012 | DE  | HR    | Analyst  |
 
 ```space-style
 .sb-table-widget table {
