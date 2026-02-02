@@ -3,7 +3,7 @@ name: "Library/Mr-xRed/TableFilterAndSorting"
 tags: meta/library
 pageDecoration.prefix: "🛠️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/TableFilterAndSorting.md"
-share.hash: bf3f12e9
+share.hash: 70971e1b
 share.mode: pull
 ---
 
@@ -18,7 +18,7 @@ share.mode: pull
 >
 > `config.set("tableSort", { enabled = false })` - enable/disable for Sorting&Filter to autostart (default: true)
 
-![DocumentExplorer_Screenshot](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/TableSortAndFilters-Screenshot.png)
+![DocumentExplorer_Screenshot](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/screenshots/TableSortAndFilters-Screenshot.png)
 
 ## Config Example:
 

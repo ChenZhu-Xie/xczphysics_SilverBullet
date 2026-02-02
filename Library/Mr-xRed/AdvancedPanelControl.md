@@ -20,7 +20,7 @@ pageDecoration.prefix: "🛠️ "
 - Button-Size and Style configurable through Space-Style (Documentation -> Soon)
 - Added **YouTube**/**Peertube**/Vimeo** **Support for the [Floating Page Library](https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md)
 
-![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/UAPC-Screenshot.png)
+![UAPC-Screenshot|1000px](https://raw.githubusercontent.com/Mr-xRed/silverbullet-libraries/refs/heads/main/screenshots/UAPC-Screenshot.png)
 
 
 ## Known Issues
@@ -84,8 +84,8 @@ config.set("AdvancedPanelControl", {
 :root {
   
 /* --- Panel Control variables ---*/  
-  --control-btn-size: 28px;
-  --control-btn-size-hover: 28px;
+  --control-btn-size: 26px;
+  --control-btn-size-hover: 26px;
   --btn-border-radius: 15px;
   --drag-line-width: 16px;
   --lhs-control-postion: 50vh;
@@ -647,9 +647,11 @@ function initPanelControls()
   -- Register listeners that were previously wired in Lua (store saves and close)
   js.window.addEventListener("sb-save-lhs", function(e)
     clientStore.set("lhsPanelWidth", e.detail.value)
+--    editor.flashNotification(e.detail.value)
   end)
   js.window.addEventListener("sb-save-rhs", function(e)
     clientStore.set("rhsPanelWidth", e.detail.value)
+--    editor.flashNotification(e.detail.value)
   end)
   js.window.addEventListener("sb-save-bhs", function(e)
     clientStore.set("bottomPanelHeight", e.detail.value)

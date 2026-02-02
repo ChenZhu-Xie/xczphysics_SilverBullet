@@ -5,19 +5,17 @@ files:
 - UnifiedAdvancedPanelControl.js
 pageDecoration.prefix: "📃 "
 share.uri: "github:Mr-xRed/silverbullet-libraries/FloatingPage.md"
-share.hash: 34d99290
+share.hash: 91020fd6
 share.mode: pull
 ---
-# Open Floating Page
+# Open Page in a Floating Window or SidePanel 
 
-> **warning** PROOF OF CONCEPT - EXPERIMENTAL ONLY
- 
 > **success** Shortcut Keys & Mouse Trigger
 > `Ctrl-Alt-o`                   - Opens the Page Picker to chose the Page
 > Ctrl-Alt-Enter/Cmd-Alt-Enter - Opens the page under the cursor in a Floating Window
 > Ctrl-Alt-Click/Cmd-Alt-Click - Opens the clicked WikiLink under the mouse in a Floating Window
 
-## Try it out: 👉 ${widgets.commandButton("Floating: Open")}
+## Try it out: 👉 ${widgets.commandButton("⧉ Floating Window","Navigate: Open as Floating Window")} ${widgets.commandButton("⇤ Left Panel","Navigate: Open in Left Panel")} ${widgets.commandButton( "Right Panel ⇥", "Navigate: Open in Right Panel")}
 
 or 
 
@@ -30,22 +28,67 @@ or
 
 Lorem ipsum dolor sit amet, https://example.com consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation [Wikipedia](https://wikipedia.org) ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in velit esse cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat non proident,  [[CONFIG|Configuration]]  sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+## To Configure a ShortcutKey to the commands you can use the `command.update` function:
+```lua
+-- priority: -1
+command.update {
+  name = "Navigate: Open in Left Panel",
+  key = "Ctrl-Alt-a",
+}
+
+command.update {
+  name = "Navigate: Open in Right Panel",
+  key = "Ctrl-Alt-s",
+}
+```
+
+
+
 # Implementation
 
-## Page Picker in Floating Window
+## Page Picker in Floating Window or SidePanel
 
 ```space-lua
+
 command.define {
-  name = "Floating: Open",
+  name = "Navigate: Open as Floating Window",
   key = "Ctrl-Shift-o",
   run = function()
     local allPages = query[[
       from index.tag "page"
       order by _.lastModified desc]]
-    local page = editor.filterBox('🔍', allPages, "Select page")
+    local page = editor.filterBox('🔍', allPages, "Select page to open as Floating Window")
     if page != nil then
       clientStore.set("explorer.suppressOnce", "true")
       js.import("/.fs/Library/Mr-xRed/UnifiedAdvancedPanelControl.js").show(page.name)
+    end
+  end
+}
+
+command.define {
+  name = "Navigate: Open in Right Panel",
+  run = function()
+    local allPages = query[[
+      from index.tag "page"
+      order by _.lastModified desc]]
+    local page = editor.filterBox('🔍', allPages, "Select page to open in the Right Panel")
+    if page != nil then
+      clientStore.set("explorer.suppressOnce", "true")
+      js.import("/.fs/Library/Mr-xRed/UnifiedAdvancedPanelControl.js").showDocked(page.name,"rhs")
+    end
+  end
+}
+
+command.define {
+  name = "Navigate: Open in Left Panel",
+  run = function()
+    local allPages = query[[
+      from index.tag "page"
+      order by _.lastModified desc]]
+    local page = editor.filterBox('🔍', allPages, "Select page to open in the Left Panel")
+    if page != nil then
+      clientStore.set("explorer.suppressOnce", "true")
+      js.import("/.fs/Library/Mr-xRed/UnifiedAdvancedPanelControl.js").showDocked(page.name,"lhs")
     end
   end
 }
