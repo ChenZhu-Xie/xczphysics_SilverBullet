@@ -3,7 +3,7 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: a5d54ded
+share.hash: 2da5b22d
 share.mode: pull
 ---
 ## Tools
@@ -23,10 +23,15 @@ uri: github:Mr-xRed/silverbullet-libraries/TableFilterAndSorting.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TableFilterAndSorting.md
 description: "Adds filter & sorting to SilverBullet tables globally"
 ---
-name: "🛠️ Unified Advanced Panel Control and Window Management"
+name: "🛠️ Advanced Panel Control and Window Management"
 uri: github:Mr-xRed/silverbullet-libraries/AdvancedPanelControl.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/AdvancedPanelControl.md
 description: "Advanced Controls for your Side Panels (LHS, RHS, BHS)"
+---
+name: "⏲️ Pomodoro Clock"
+uri: github:Mr-xRed/silverbullet-libraries/PomodoroClock.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PomodoroClock.md
+description: "Floating Pomodoro: The productivity tool you didn’t ask for, but are getting anyway"
 ---
 name: "🖨️ PrintPreview"
 uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
@@ -37,10 +42,20 @@ name: "📃 Floating Page (Proof of Concept)"
 uri: github:Mr-xRed/silverbullet-libraries/FloatingPage.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingPage.md
 description: "Open any page in a Floating Window inside Silverbullet"
+---
+name: "🧰 MediaManager"
+uri: github:Mr-xRed/silverbullet-libraries/MediaManager.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/MediaManager.md
+description: "A unified media library for SilverBullet that lets you search, fetch, and store **books, movies, and TV series** as structured pages with rich metadata."
 ```
 
 ## Widgets
 ```#meta/library/remote
+name: "🖼️ MediaGallery"
+uri: github:Mr-xRed/silverbullet-libraries/MediaGallery.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/MediaGallery.md
+description: "A configurable, client-side media gallery widget that renders your media pages as a searchable, paginated grid with posters or covers."
+---
 name: "⏳ DayProgressBar"
 uri: github:Mr-xRed/silverbullet-libraries/DayProgressBar.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DayProgressBar.md
@@ -117,28 +132,4 @@ name: "🎨 SilverBullet_CSS_Structure_Map"
 uri: github:Mr-xRed/silverbullet-libraries/SilverBullet_CSS_Structure_Map.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/SilverBullet_CSS_Structure_Map.md
 description: "A CSS Structure Map of IDs and Classes to ease customization."
-```
-
-## Deprecated Libraries
-```#meta/library/remote
----
-name: "☠️ Treeview_Extension_DragAndResize"
-uri: github:Mr-xRed/silverbullet-libraries/Treeview_Extension_DragAndResize.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Treeview_Extension_DragAndResize.md
-description: "DEPRECATED: Enables Floating Drag‑and‑Resize extension for TreeView"
----
-name: "☠️ PDF_with_Pandoc_and_Weasyprint"
-uri: github:Mr-xRed/silverbullet-libraries/PDF_with_Pandoc_and_Weasyprint.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PDF_with_Pandoc_and_Weasyprint.md
-description: "DEPRECATED: Uses Pandoc and WeasyPrint to print your Markdown into PDF"
----
-name: "☠️ Virtual Page Document Explorer (Deprecated)"
-uri: github:Mr-xRed/silverbullet-libraries/VirtualPageDocumentExplorer.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/VirtualPageDocumentExplorer.md
-description: "DEPRECATED: VirtualPage Document Explorer"
----
-name: "☠️ TitleBar_ModernStyle"
-uri: github:Mr-xRed/silverbullet-libraries/TitleBar_ModernStyle.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TitleBar_ModernStyle.md
-description: "DEPRECATED: Modern, styled title bar with sleek visual design"
 ```
