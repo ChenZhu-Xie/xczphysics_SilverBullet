@@ -46,7 +46,7 @@ config.set(
   "plugs", {
     -- `config.set()`|`config.set{}` will cover each other ( for specific "key":table )
     -- {} is a Lua Table as a list, array, map... here's a list
-    "github:joekrill/silverbullet-treeview/treeview.plug.js",
+    -- "github:joekrill/silverbullet-treeview/treeview.plug.js",
     -- "ghr:deepkn/silverbullet-graphview",
     "ghr:MrMugame/silversearch",
     -- PLUGS: Update (to Download + Update these .plug.js) + SPACE: Reindex (to Reindex the whole space, SilverSearch hooks into the general indexing infrastructure of SilverBullet)
@@ -70,8 +70,8 @@ config.set {
   -- Think this should be default, current size of phones makes
   -- the hamburger menu too far away for right and left handed
   -- users
-  -- mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
-  mobileMenuStyle = 'hamburger',
+  mobileMenuStyle = 'bottom-bar', -- or 'hamburger'
+  -- mobileMenuStyle = 'hamburger',
   actionButtons = {
     -- {
     --   icon = "home",
@@ -251,7 +251,7 @@ actionButton.define {
   }
 
 /* hamburger menu smaller buttons on mobile */
-#sb-top .sb-actions.hamburger button:not(.sb-code-copy-button) {
+/* #sb-top .sb-actions.hamburger button:not(.sb-code-copy-button) {
           height: 1.4rem; /* !!!!! adjust height to suit your mobile !!!!!!! */
           margin: 4px 0;
           padding: 4px 0;
@@ -261,17 +261,15 @@ actionButton.define {
 /* hamburger menu  colors */
 #sb-root .sb-actions button {
   color: #d51952e1;
-}
+} */
 
 /* change backticked and plain triple back tick code block colors */
-/* #sb-editor .sb-code {
+#sb-editor .sb-code {
     background: rgba(68, 68, 68, 0.3) !important;
     /* color: #4c5da4; */
     color: #8cdda4;
     text-decoration: none !important;
-  } */
+  }
 ```
-
-`asdf`
 
 #SB_itself
