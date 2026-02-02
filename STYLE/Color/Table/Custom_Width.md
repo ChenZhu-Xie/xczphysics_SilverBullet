@@ -90,7 +90,7 @@ Use it Like this:
 ## Implementation
 
 ### Color Themes
-```
+```space-style
 /*   Adds a rounded corner to the tables   */
 /* table { border-radius: 15px; overflow: hidden;} */
 
@@ -343,7 +343,7 @@ html[data-theme="light"] {
 ```
 
 ### Table Width with Tag
-```
+```space-style
 table .sb-hashtag[data-tag-name="t30p"],
 table .sb-hashtag[data-tag-name="t40p"],
 table .sb-hashtag[data-tag-name="t50p"],
