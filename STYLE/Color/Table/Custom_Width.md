@@ -342,7 +342,7 @@ html[data-theme="light"] {
 }
 ```
 
-### Table Width with Tag
+### Table overall Width through Tag
 ```space-style
 table .sb-hashtag[data-tag-name="t30p"],
 table .sb-hashtag[data-tag-name="t40p"],
@@ -362,6 +362,44 @@ table:has(.sb-hashtag[data-tag-name="t80p"]) {width:80% !important;}
 table:has(.sb-hashtag[data-tag-name="t90p"]) {width:90% !important;}
 ```
 
+
+### Table column Width through Tag
+
+1. [custom colorful table styles for dark theme](https://community.silverbullet.md/t/custom-colorful-table-styles-for-dark-theme/1620/6?u=chenzhu-xie) #community #silverbullet
+
+```space-style
+.sb-table-widget table {
+  table-layout: fixed !important;
+  width: 100%; 
+}
+
+/* Hide the control hashtags so they don't clutter your headers */
+.sb-table-widget .sb-hashtag[data-tag-name^="t"],
+.sb-table-widget .sb-hashtag[data-tag-name^="c"] {
+  display: none !important;
+}
+
+/* Overall Table Width Controls (via the widget container) */
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t30p"]) { width: 30% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t40p"]) { width: 40% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t50p"]) { width: 50% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t60p"]) { width: 60% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t70p"]) { width: 70% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t80p"]) { width: 80% !important; }
+.sb-table-widget:has(.sb-hashtag[data-tag-name="t90p"]) { width: 90% !important; }
+
+/* Individual Column Width Controls */
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c5p"]) { width: 5% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c10p"]) { width: 10% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c20p"]) { width: 20% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c30p"]) { width: 30% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c40p"]) { width: 40% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c50p"]) { width: 50% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c60p"]) { width: 60% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c70p"]) { width: 70% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c80p"]) { width: 80% !important; }
+.sb-table-widget td:has(.sb-hashtag[data-tag-name="c90p"]) { width: 90% !important; }
+```
 
 ### Optional only  (adds color to the matching tags)
 
