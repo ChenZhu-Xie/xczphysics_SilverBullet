@@ -17,10 +17,10 @@ Table percentage tags
 
 Use it Like this:
 
-\| Header    | Header   #mint #t30p|
-\|-----------|---------------------|
-\|   Cell    |        Cell         |
-\|   Cell    |        Cell         |
+| Header    | Header   #mint #t40p|
+|-----------|---------------------|
+|   Cell    |        Cell         |
+|   Cell    |        Cell         |
 
 
 ## Color Themes:
