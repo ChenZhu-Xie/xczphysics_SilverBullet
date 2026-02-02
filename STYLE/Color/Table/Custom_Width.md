@@ -17,11 +17,17 @@ Table percentage tags
 
 Use it Like this:
 
-| Header    | Header   #mint #t40p|
+| Header    | Header   #mint #t60p|
 |-----------|---------------------|
 |   Cell    |        Cell         |
 |   Cell    |        Cell         |
 
+
+| ID #sea #t80p #c5p| Name #c10p| Email #c20p | Phone #c10p| Country #c5p| Dep. #c5p| Role |
+|----|------|--------|--------|----------|-------------|--------|
+| 1  | Alice | alice@example.com | +1-555-1234 | USA | Sales | Manager |
+| 2  | Bob   | bob@example.com   | +44-555-5678 | UK  | IT    | Engineer |
+| 3  | Carol | carol@example.com | +49-555-9012 | DE  | HR    | Analyst  |
 
 ## Color Themes:
 
@@ -343,7 +349,7 @@ html[data-theme="light"] {
 ```
 
 ### Table overall Width through Tag
-```space-style
+```
 table .sb-hashtag[data-tag-name="t30p"],
 table .sb-hashtag[data-tag-name="t40p"],
 table .sb-hashtag[data-tag-name="t50p"],
