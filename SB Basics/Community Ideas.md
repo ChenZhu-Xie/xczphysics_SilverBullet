@@ -9,6 +9,7 @@ https://community.silverbullet.md/t/proof-of-concept-floating-widgets-example-tr
 3. https://community.silverbullet.md/t/generate-link-cursor-position/3372/2?u=chenzhu-xie
 4. [[CONFIG/View/Tree/Float]]
 5. https://community.silverbullet.md/t/hook-lua-on-ast-nodes/3237?u=chenzhu-xie
+6. [table of contents or other widgets in sidepanels rhs lhs](https://community.silverbullet.md/t/table-of-contents-or-other-widgets-in-sidepanels-rhs-lhs/3825/4?u=chenzhu-xie) #community #silverbullet
 
 # On-the-fly Public Section shared by all Pages
 
