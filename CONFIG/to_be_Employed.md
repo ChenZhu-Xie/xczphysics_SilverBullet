@@ -31,6 +31,8 @@ BOOK
 1. [add book note via openlibrary metadata lbrary](https://community.silverbullet.md/t/add-book-note-via-openlibrary-metadata-lbrary/3770?u=chenzhu-xie) #community #silverbullet
 2. [simple media gallery for books movie tv series games etc](https://community.silverbullet.md/t/simple-media-gallery-for-books-movie-tv-series-games-etc/3795?u=chenzhu-xie) #community #silverbullet
 
+3. [bulk add people to crm](https://community.silverbullet.md/t/bulk-add-people-to-crm/3829/2?u=chenzhu-xie) #community #silverbullet
+
 # LCU manager
 
 1. [cache management](https://community.silverbullet.md/t/cache-management/3769?u=chenzhu-xie) #community #silverbullet
