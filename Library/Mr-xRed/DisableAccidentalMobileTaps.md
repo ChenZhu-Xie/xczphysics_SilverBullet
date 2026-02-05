@@ -3,7 +3,7 @@ name: "Library/Mr-xRed/DisableAccidentalMobileTaps"
 tags: meta/library
 pageDecoration.prefix: "🛠️ "
 share.uri: "github:Mr-xRed/silverbullet-libraries/DisableAccidentalMobileTaps.md"
-share.hash: b156f277
+share.hash: "80059080"
 share.mode: pull
 ---
 # Fixing the Mobile Keyboard Drama - Disable Accidental Taps
@@ -16,6 +16,7 @@ I’ve built a script (together with Gemini) that forces the editor to stay in �
 
 ## What it does:
 *   Blocks Single Taps: **Poking the text does nothing. No cursor, no keyboard, no jumping screen.**
+*   But if you Single Tap **WikiLinks** or **PageReferences** insid a query, it acts normal and follows the link
 *   Scroll Freely: **You can Swipe, Scroll and Navigate** without the UI losing its mind.
 *   The Unlock: **Double-tap or Long-press** the editor to summon the keyboard. Once you click away, it locks itself again.
 
@@ -28,12 +29,11 @@ It turns your notes back into a document, not a minefield.
 >   * Also included a disabled event listener on **editor.pageLoaded**, if you want to enable it you find it in the last part of the script
 
 ## Implementation
+
 ```space-lua
--- The Streamlined Handshake (v7) with Intelligent Toggle
--- Supports both Double-Tap OR Long-Press to unlock.
 
 function setupStreamlinedShield()
-  -- If the shield is already globally marked as Active, don't inject again
+
   if js.window.sbStreamlinedActive then return end
 
   local scriptContent = [[
@@ -58,7 +58,7 @@ function setupStreamlinedShield()
         if (window.sbShieldDisabledManually) return;
 
         const isEditor = e.target.closest('#sb-editor');
-        const isUI = e.target.closest('.sb-actions, .sb-top-bar, .sb-sidebar, button, .menu-item');
+        const isUI = e.target.closest('.sb-actions, .sb-top-bar, .sb-sidebar, button, .menu-item, a');
 
         if (!isEditor || isUI) return;
         if (isUnlocked && document.activeElement.closest('#sb-editor')) return;
@@ -96,6 +96,18 @@ function setupStreamlinedShield()
         }
       };
 
+      // NEW: Intercept programmatic focus attempts by the app
+      document.addEventListener('focus', (e) => {
+        if (window.sbShieldDisabledManually) return;
+        if (isUnlocked) return;
+
+        // If the editor tries to grab focus while locked, deny it.
+        if (e.target.closest('#sb-editor')) {
+          e.preventDefault();
+          e.target.blur();
+        }
+      }, true); // Capture phase is essential here
+
       document.addEventListener('focusout', (e) => {
         if (e.target.closest('#sb-editor')) lock();
       }, true);
@@ -117,7 +129,6 @@ end
 command.define {
   name = "Mobile: Toggle Accidental Tap Shield",
   run = function() 
-    -- Scenario 1: First time running after a page refresh
     if not js.window.sbStreamlinedActive then
       setupStreamlinedShield()
       js.window.sbShieldDisabledManually = false
@@ -125,13 +136,12 @@ command.define {
       return
     end
 
-    -- Scenario 2: Toggle logic once already loaded
     if js.window.sbShieldDisabledManually then
       js.window.sbShieldDisabledManually = false
       editor.flashNotification("Shield ENGAGED. Double-tap/Hold to edit.", "info")
     else
       js.window.sbShieldDisabledManually = true
-      editor.flashNotification("Shield DISARMED. Normal tapping restored.", "info")
+      editor.flashNotification("Shield  is DISARMED. Normal tapping restored.", "info")
     end
   end
 }
@@ -141,6 +151,8 @@ command.define {
 -- event.listen { name = "editor:pageLoaded", run = function() setupStreamlinedShield() end }
 
 ```
+
+
 
 ## Discussions about this library
 * [SilverBullet Community](https://community.silverbullet.md/t/fixing-the-silverbullet-mobile-keyboard-drama-disable-accidental-taps/3709?u=mr.red)

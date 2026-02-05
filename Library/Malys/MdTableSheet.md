@@ -4,7 +4,7 @@ description:  Integrate FormulaJS in markdown table (table = sheet).
 name: "Library/Malys/MdTableSheet"
 tags: meta/library
 share.uri: "https://github.com/malys/silverbullet-libraries/blob/main/src/MdTableSheet.md"
-share.hash: dfdeed60
+share.hash: 5f9186ee
 share.mode: pull
 ---
 # Md Table 
@@ -916,6 +916,7 @@ command.define {
 }  
 
 local function extractTagsAndTitle(str)
+    str = str or ""
     local tags = {}
     local words = {}
     local tab=string.split(str, " ")
