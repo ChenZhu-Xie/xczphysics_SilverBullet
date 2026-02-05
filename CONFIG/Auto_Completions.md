@@ -1,4 +1,6 @@
 
+# AutoCompletions
+
 [In-line auto completions](https://community.silverbullet.md/t/in-line-auto-completions/748)
 [autocomplete page title like autocomplete or](https://community.silverbullet.md/t/autocomplete-page-title-like-autocomplete-or/3511?u=chenzhu-xie) #community #silverbullet
 
@@ -15,3 +17,7 @@
 [Sequential Auto-Complete for nested link](https://community.silverbullet.md/t/sequential-auto-complete-for-nested-link/3190)
 
 闲逛时发现的高质量回答：[Podman](https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/690cbe9b-f360-8333-bc08-d61435c32d7d?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY) in [issues](https://github.com/silverbulletmd/silverbullet/issues/1665) #github
+
+# Cursor
+
+1. [7AImkA96mE8](https://youtu.be/7AImkA96mE8?si=sOx9oFw5SJjR3DxI) #youtube
