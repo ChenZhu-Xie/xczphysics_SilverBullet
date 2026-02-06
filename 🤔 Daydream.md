@@ -8,3 +8,6 @@ ${query[[
     order by _.lastModified desc
     limit 10
 ]]}
+
+1. [query dateformat](https://community.silverbullet.md/t/query-dateformat/3839/2?u=chenzhu-xie) #community #silverbullet
+   对 _.lastModified 日期格式 的 其他可能的 format
