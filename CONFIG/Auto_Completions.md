@@ -18,6 +18,6 @@
 
 闲逛时发现的高质量回答：[Podman](https://chatgpt.com/g/g-p-68bb175bf6f48191b504746c0931128f-silverbullet-xue-xi/shared/c/690cbe9b-f360-8333-bc08-d61435c32d7d?owner_user_id=user-h5bPGeyU1zwi7LcI6XCA3cuY) in [issues](https://github.com/silverbulletmd/silverbullet/issues/1665) #github
 
-# Cursor
+# Cursor alternaltive: VSCode plugin
 
 1. [7AImkA96mE8](https://youtu.be/7AImkA96mE8?si=sOx9oFw5SJjR3DxI) #youtube
