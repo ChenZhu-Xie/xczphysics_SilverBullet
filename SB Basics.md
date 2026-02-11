@@ -117,7 +117,7 @@ ${query[[from index.tag "header" where CustomAttribute]]}
 - Hello #like #tana [but:"custom"] [fields:do not belong to tags]
 >   the ${Red("/query")} below... better not be in/alongside this item itself...
     ${query[[from index.tag "tana"]]}
-* [x] Clean the floors [dueDate: 2025-10-16]
+* [x] Clean the floors [dueDate: 2025-10-16] [completed: 2026-02-11 13:35]
 * [ ] Do the dishes [dueDate: 2025-10-18]
 >   all ${Red("/queryed")} objs better not have `${Red("expression")}` in its name
     ${query[[from index.tag "task"]]}
