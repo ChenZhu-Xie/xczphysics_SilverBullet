@@ -32,6 +32,8 @@ BOOK
 2. [simple media gallery for books movie tv series games etc](https://community.silverbullet.md/t/simple-media-gallery-for-books-movie-tv-series-games-etc/3795?u=chenzhu-xie) #community #silverbullet
 CRM / PERSON
 3. [bulk add people to crm](https://community.silverbullet.md/t/bulk-add-people-to-crm/3829/2?u=chenzhu-xie) #community #silverbullet
+Front Matter
+4. [journaling utilities](https://community.silverbullet.md/t/journaling-utilities/3526/3) #community #silverbullet
 
 # LCU manager
 
