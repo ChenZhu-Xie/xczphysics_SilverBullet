@@ -19,4 +19,4 @@ SilverBullet 这种 online 版 自带 lua 运行环境的 “在线” 可编程
 - 必须可以被 做笔记、边注、旁注、脚注，并且对应的 代码-注解 应是双向链接的，类似 LaTeX 的 “跳转到源” 及其 “逆操作”
 - 代码 与 代码 之间，应像 文本 与 文本 之间，是双向链接的（大部分 IDE 已经做到这一点了，如 JetBrains 的检索 called functions）
 
-
+1. [manifesto documentation as a living control plane](https://community.silverbullet.md/t/manifesto-documentation-as-a-living-control-plane/3876/2?u=chenzhu-xie) #community #silverbullet
