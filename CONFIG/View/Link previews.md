@@ -1,6 +1,8 @@
 
 1. [link previews](https://community.silverbullet.md/t/link-previews/3906?u=chenzhu-xie) #community #silverbullet
 
+${fetchPreview("https://github.com/silverbulletmd")}
+
 ## Lua
 
 ```space-lua
