@@ -5,9 +5,25 @@ tags: meta/library
 pageDecoration.prefix: "📄🔗 "
 ---
 
-1. [files link picker](https://community.silverbullet.md/t/files-link-picker/3608/3?u=chenzhu-xie) #community #silverbullet
+# Specific file type transclude
+
+## Mp3/4
+1. [local videos](https://community.silverbullet.md/t/local-videos/3911/3?u=chenzhu-xie) #community #silverbullet
+
+## Pdf
+1. [embedded pdfs are displayed in a weird way fix](https://community.silverbullet.md/t/embedded-pdfs-are-displayed-in-a-weird-way-fix/3915/2?u=chenzhu-xie) #community #silverbullet
+
+```space-style
+#sb-main .cm-editor .sb-lua-wrapper:has(object[type="application/pdf"]) .button-bar { top: -40px; padding:0; opacity:0.2; transition: all 0.5s ease; border-radius:10px;} 
+#sb-main .cm-editor .sb-lua-wrapper:has(object[type="application/pdf"]) .button-bar:hover { opacity:1;}
+#sb-main .cm-editor .sb-inline-content:has(object[type="application/pdf"]) { overflow: visible !important;}
+
+.sb-lua-wrapper:has(object[type="application/pdf"]) div {width: fit-content;}
+```
 
 # File Link
+
+1. [files link picker](https://community.silverbullet.md/t/files-link-picker/3608/3?u=chenzhu-xie) #community #silverbullet
 
 ## Picker
 
