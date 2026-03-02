@@ -249,7 +249,7 @@ actionButton.define {
 
 1. [mobile toolbar via hamburger menu](https://community.silverbullet.md/t/mobile-toolbar-via-hamburger-menu/3776?u=chenzhu-xie) #community #silverbullet
 
-```space-style
+```
 /* ===== Mobile settings ===== */
 @media (max-width: 600px) {
   html {
@@ -277,5 +277,46 @@ actionButton.define {
     text-decoration: none !important;
   }
 ```
+
+2. [mobile friendly toolbar](https://community.silverbullet.md/t/mobile-friendly-toolbar/871/23?u=chenzhu-xie) #community #silverbullet
+   - [CONFIG.md](https://github.com/btittelbach/silverbullet_v2_customization/blob/main/CONFIG.md#make-mobile-toolbar-into-a-bottom-bar-on-mobile-and-make-it-scrollable-if-there-are-too-many-buttons-to-fit) #github
+
+```space-style
+@media only screen and (max-width: 768px) {
+  /* Style the menu as a bottom bar */
+  #sb-top .sb-actions.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+    background: var(--top-background-color);
+    width: 100vw;
+    box-shadow: 0px 4px 8px black;
+    justify-content: flex-start;
+    overflow-x:scroll;
+    cursor:grab;
+    scrollbar-width:none;
+    flex-wrap: nowrap;
+    height:1.4rem;
+    white-space: nowrap;
+    display: flex;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* smooth momentum scrolling on iOS */
+    scrollbar-width: none;            /* Firefox */
+    -ms-overflow-style: none;
+  }
+  #sb-top .sb-actions.bottom-bar button {
+    padding: 1.1ex;
+    margin: 0;
+    height: unset;
+    width: unset;
+  }
+  #sb-top .sb-actions.bottom-bar button svg {
+    margin-bottom: -0.2rem;
+    height: 1.3rem;
+  }
+}
+```
+
 
 #SB_itself
