@@ -44,4 +44,3 @@ Front Matter
 
 1. [ios shortcut for silverbullet api](https://community.silverbullet.md/t/ios-shortcut-for-silverbullet-api/1034/4?u=chenzhu-xie) #community #silverbullet
 
-
