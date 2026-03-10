@@ -148,6 +148,8 @@ uri: https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xc
 [Duplicate](https://enlarge-the-percentage.fly.dev/Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate#Copy%20nearest%20Format%20around%20Cursor) #enlarge-the-percentage #fly
 [Duplicate.md](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Library/xczphysics/CONFIG/Nearest_Pattern/Duplicate.md) #github
 
+
+
 ## 🪚 Delete
 
 ==Alt-d==
