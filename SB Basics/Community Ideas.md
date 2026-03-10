@@ -28,6 +28,23 @@ ${widgets.toc()}
 
 1. https://community.silverbullet.md/t/adding-a-shortcut-and-a-command-to-table-of-contents/38
 
+## combined with Page metadata
+
+1. [how do i remove the toc widget from pages without using frontmatter](https://community.silverbullet.md/t/how-do-i-remove-the-toc-widget-from-pages-without-using-frontmatter/2608/6?u=chenzhu-xie) #community #silverbullet
+2. [object text data and ui](https://community.silverbullet.md/t/object-text-data-and-ui/3938?u=chenzhu-xie) #community #silverbullet
+
+```space-lua
+local oldtoc = widgets.toc
+function widgets.toc(options)
+  local pageData = editor.getCurrentPageMeta()
+  if table.includes(pageData.tags, "notoc") then
+    return
+  else
+    return oldtoc()
+  end
+end
+```
+
 # multiple Boxes or Columns on page
 
 1. https://community.silverbullet.md/t/this-one-goes-to-our-css-specialists/1054?u=chenzhu-xie
