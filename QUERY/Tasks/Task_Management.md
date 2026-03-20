@@ -5,3 +5,5 @@
 3. [tasks for headers](https://community.silverbullet.md/t/tasks-for-headers/3799?u=chenzhu-xie) #community #silverbullet
 4. [recurring tasks](https://community.silverbullet.md/t/recurring-tasks/3847?u=chenzhu-xie) #community #silverbullet
    - follow up [another take on recurring tasks](https://community.silverbullet.md/t/another-take-on-recurring-tasks/3875?u=chenzhu-xie) #community #silverbullet
+5. task formating [empty query message when using template](https://community.silverbullet.md/t/empty-query-message-when-using-template/3974?u=chenzhu-xie) #community #silverbullet
+
