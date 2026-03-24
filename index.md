@@ -51,6 +51,8 @@ Well, let’s start with a logo first.
 
 ## Interested Topics
 
+- [[Language|]] / [[Language/Input Method|]] / [[Language/Input Method/声笔飞单|]]
+- [[Language|]] / [[Language/Input Method|]] / [[Language/Input Method/冰雪清韵|]]
 - [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/LogSeq]]
 - [[PKM]] / [[PKM/Apps]] / [[PKM/Apps/Tana]] / [[PKM/Apps/Tana/❓ Questions I asked]]
 
