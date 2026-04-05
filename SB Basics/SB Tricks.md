@@ -25,4 +25,6 @@
   - 这似乎与 [[Library/xczphysics/CONFIG/Picker/Tags|tag picker]] 功能重叠？
     - 至少在 #Tag 与 #Page 的交集方面（即有 tag 的 page）
 
+# register event listeners + commands
 
+1. [editor plug communication](https://community.silverbullet.md/t/editor-plug-communication/4005/3?u=chenzhu-xie) #community #silverbullet
