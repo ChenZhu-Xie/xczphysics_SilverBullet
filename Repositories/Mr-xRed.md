@@ -3,7 +3,7 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: 2da5b22d
+share.hash: ac7cc147
 share.mode: pull
 ---
 ## Tools
@@ -17,6 +17,11 @@ name: "✅ TaskManager"
 uri: github:Mr-xRed/silverbullet-libraries/TaskManager.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TaskManager.md
 description: "TaskManager"
+---
+name: "✅ Kanban Board"
+uri: github:Mr-xRed/silverbullet-libraries/KanbanBoard.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/KanbanBoard.md
+description: "This widget creates a customizable Kanban board to visualize and manage tasks from your notes."
 ---
 name: "🛠️ TableFilterAndSorting"
 uri: github:Mr-xRed/silverbullet-libraries/TableFilterAndSorting.md
@@ -32,6 +37,11 @@ name: "⏲️ Pomodoro Clock"
 uri: github:Mr-xRed/silverbullet-libraries/PomodoroClock.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/PomodoroClock.md
 description: "Floating Pomodoro: The productivity tool you didn’t ask for, but are getting anyway"
+---
+name: "📍 Floating Cursor Position"
+uri: github:Mr-xRed/silverbullet-libraries/FloatingCursorPosition.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingCursorPosition.md
+description: "Floating Cursor Positon: A minimal floating widget that shows the current cursor position in the editor"
 ---
 name: "🖨️ PrintPreview"
 uri: github:Mr-xRed/silverbullet-libraries/PrintPreview.md
@@ -72,8 +82,23 @@ website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/OpenWeather
 description: "OpenWeatherMap Widget and slash commands"
 ```
 
-## Productivity Shortcuts
+## Productivity Tools
 ```#meta/library/remote
+name: "📔 Journal Explorer"
+uri: github:Mr-xRed/silverbullet-libraries/JournalExplorer.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/JournalExplorer.md
+description: "A Journal Explorer for your SilverBullet journal entries."
+---
+name: "🗓️ Floating Journal Calendar"
+uri: github:Mr-xRed/silverbullet-libraries/FloatingJournalCalendar.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingJournalCalendar.md
+description: "The Journal Calendar is a lightweight, interactive navigation tool for SilverBullet. It provides a sleek, floating interface that allows users to quickly browse their journal entries."
+---
+name: "🛠 Table of Contents for your Sidepanel"
+uri: github:Mr-xRed/silverbullet-libraries/TOCInSidePanel.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TOCInSidePanel.md
+description: "A collapsible Table of Contents for your sidepanel. It folds and unfolds sections in the document as you navigate the tree."
+---
 name: "🛠 DisableAccidentalMobileTaps"
 uri: github:Mr-xRed/silverbullet-libraries/DisableAccidentalMobileTaps.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DisableAccidentalMobileTaps.md
@@ -93,11 +118,6 @@ name: "🗓️ DatePicker as SlashCommand"
 uri: github:Mr-xRed/silverbullet-libraries/DatePicker.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/DatePicker.md
 description: "Pick a date from a calendar and add it to your page as a WikiLink"
----
-name: "🗓️ Floating Journal Calendar"
-uri: github:Mr-xRed/silverbullet-libraries/FloatingJournalCalendar.md
-website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FloatingJournalCalendar.md
-description: "The Journal Calendar is a lightweight, interactive navigation tool for SilverBullet. It provides a sleek, floating interface that allows users to quickly browse their journal entries."
 ```
 
 ## Styles and Visuals
