@@ -2,6 +2,9 @@
 ## 索引大量 paragraph 有点慢
 1. [issues](https://github.com/silverbulletmd/silverbullet/issues/1754#issuecomment-3698897612) #github
 
+### 索引 在前端（而不是 服务器端）完成
+1. [reindex after server update takes ages](https://community.silverbullet.md/t/reindex-after-server-update-takes-ages/3089/20?u=chenzhu-xie) #community #silverbullet
+
 ## Lua but JS
 a feature looks like a bug, as a transition. 
 1. [crazy arithmetic](https://community.silverbullet.md/t/crazy-arithmetic/3892?u=chenzhu-xie) #community #silverbullet
