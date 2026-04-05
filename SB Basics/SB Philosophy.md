@@ -15,3 +15,8 @@
 
 - [LLM Use](https://silverbullet.md/LLM%20Use) #silverbullet
   - [code of conduct](https://ziglang.org/code-of-conduct/) #ziglang
+
+# Closer to the server side
+
+- [the runtime api](https://community.silverbullet.md/t/the-runtime-api/4009?u=chenzhu-xie) #community #silverbullet
+

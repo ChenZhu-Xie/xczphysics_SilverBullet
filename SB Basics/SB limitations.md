@@ -4,6 +4,7 @@
 
 ### 索引 在前端（而不是 服务器端）完成
 1. [reindex after server update takes ages](https://community.silverbullet.md/t/reindex-after-server-update-takes-ages/3089/20?u=chenzhu-xie) #community #silverbullet
+- but we are heading towards [[SB Basics/SB Philosophy#Closer to the server side|server side]]
 
 ## Lua but JS
 a feature looks like a bug, as a transition. 
