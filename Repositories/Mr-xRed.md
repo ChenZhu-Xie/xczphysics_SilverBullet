@@ -3,7 +3,7 @@ name: "Repository/Mr-xRed Repo"
 tags: meta/repository
 pageDecoration.prefix: "📚 "
 share.uri: "https://github.com/Mr-xRed/silverbullet-libraries/blob/main/Repository/Mr-xRed.md"
-share.hash: ac7cc147
+share.hash: d062c0c3
 share.mode: pull
 ---
 ## Tools
@@ -98,6 +98,11 @@ name: "🛠 Table of Contents for your Sidepanel"
 uri: github:Mr-xRed/silverbullet-libraries/TOCInSidePanel.md
 website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/TOCInSidePanel.md
 description: "A collapsible Table of Contents for your sidepanel. It folds and unfolds sections in the document as you navigate the tree."
+---
+name: "✏️ Formatting Toolbar"
+uri: github:Mr-xRed/silverbullet-libraries/FormattingToolbar.md
+website: https://github.com/Mr-xRed/silverbullet-libraries/blob/main/FormattingToolbar.md
+description: "This library introduces a context-sensitive formatting toolbar that materialises only when you select text, providing quick access to functions such as Bold, Italic, Strikethrough, Blockquotes, etc."
 ---
 name: "🛠 DisableAccidentalMobileTaps"
 uri: github:Mr-xRed/silverbullet-libraries/DisableAccidentalMobileTaps.md
