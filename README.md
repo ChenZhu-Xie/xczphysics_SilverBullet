@@ -1,3 +1,8 @@
+
+> My SB version is temporarily stuck at 2.4.1.
+> I am waiting for the higher version of silverbullet to be stable + I have free time,
+> before continuing to upgrade silverbullet and the following scripts.
+
 # How to Fetch [the Plugs in this Repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md)
 
 ## Repository (long story short)
@@ -5,8 +10,6 @@
 - `https://github.com/ChenZhu-Xie/xczphysics_SilverBullet/blob/main/Repositories/xczphysics.md`
 
 ## How to (long story)
-
-> silverbullet upgrade-edge
 
 0. inside your [Silverbullet](https://github.com/silverbulletmd/silverbullet)
 1. press `ctrl+/`
