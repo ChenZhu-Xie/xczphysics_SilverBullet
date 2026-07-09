@@ -1,4 +1,7 @@
 
+> **tip** Tip
+> the content and template of this website comes from [a github repo](https://github.com/ChenZhu-Xie/xczphysics_SilverBullet)
+
 # Hello 👋
 
 Welcome to the wondrous world of [SilverBullet](https://v2.silverbullet.md/). A world that once you discover and appreciate, you’ll never want to leave.~~
