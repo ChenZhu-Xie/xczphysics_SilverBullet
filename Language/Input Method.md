@@ -152,6 +152,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
+ - 飞天 z_dj4xxsHu,wm'd9exysYesrf.zl_y_zy4gj8
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
