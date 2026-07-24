@@ -153,6 +153,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
  - 飞天 zdj/euxxsHu,wmdJdvxysYesrf.zlyhzygJue
+ - 象码 z_dejaxxsHu,wmd.dnxysYesrf.ezuy_cryzgdjh
  - 龙码 n_hyevcrcgtrme,gphehcjwtfjztfvvkrjgkzjwlveh
 
 # 整句 2 对比
@@ -173,6 +174,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
 - 飞天 cmxWd_bzsdbhddMdghn'gar/lxqz
+- 象码 cmxWd_bns.ibgddMdgsngar_lqe
 - 龙码 spcgh_iatrif_hwhaphhllwyolgfydrah
 
 # 整句 4 对比
