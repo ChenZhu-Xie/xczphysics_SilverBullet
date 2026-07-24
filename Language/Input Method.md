@@ -153,6 +153,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
  - 飞天 zdj/euxxsHu,wmdJdvxysYesrf.zlyhzygJue
+ - 龙码 n_hyevcrcgtrme,gphehcjwtfjztfvvkrjgkzjwlveh
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
@@ -172,6 +173,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
 - 飞天 cmxWd_bzsdbhddMdghn'gar/lxqz
+- 龙码 spcgh_iatrif_hwhaphhllwyolgfydrah
 
 # 整句 4 对比
 > - 床头柜上放着一只旧玩具熊，是我五岁生日时妈妈送我的。玩具熊是棕色的，身上的毛有些脱落了，眼睛也掉了一只，我用纽扣给它补上了。小时候，我每天都抱着玩具熊睡觉，不管去哪里，都要带着它。有次玩具熊不小心弄丢了，我哭了好久，最后爸爸在小区的草丛里找到了它，我抱着玩具熊，开心得不得了。后来我长大了，不再像小时候那样依赖玩具熊，却还是把它放在床头柜上。每次看到玩具熊，都能想起小时候的事情，想起妈妈送我玩具熊时的笑容，想起爸爸帮我找玩具熊的身影。这只旧玩具熊，是我童年的伙伴，陪伴我度过了很多快乐的时光，也见证了我的成长。
