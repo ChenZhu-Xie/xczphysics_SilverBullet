@@ -29,6 +29,7 @@ ${widgets.commandButton("Git: Sync")}
 * Adds all files in your folder to git
 * Commits them with the default "Snapshot" commit message
 * `git pull`s changes from the remote server
+* Runs `git-swap auto` immediately before every normal or force push
 * `git push`es changes to the remote server
 
 ${widgets.commandButton("Git: Commit")}
@@ -252,7 +253,18 @@ function GitOperations.pullChanges()
   return executeGitCommand("git", {"pull", "origin", "main"}, "Git pull")
 end
 
+function GitOperations.autoSwapProfile()
+  return executeGitCommand("git-swap", {"auto"}, "GitHub account auto-switch")
+end
+
 function GitOperations.pushChanges()
+  -- Resolve the profile from the push remote immediately before pushing so
+  -- unattended/manual syncs cannot accidentally use another GitHub account.
+  local swapSuccess, swapMessage = GitOperations.autoSwapProfile()
+  if not swapSuccess then
+    return false, swapMessage .. "; push aborted to avoid using the wrong GitHub account"
+  end
+
   return executeGitCommand("git", {"push", "origin", "main"}, "Git push")
 end
 
@@ -298,6 +310,11 @@ function GitOperations.addRemoteOrigin(remoteUrl)
 end
 
 function GitOperations.forcePush()
+  local swapSuccess, swapMessage = GitOperations.autoSwapProfile()
+  if not swapSuccess then
+    return false, swapMessage .. "; force push aborted to avoid using the wrong GitHub account"
+  end
+
   return executeGitCommand("git", {"push", "--force", "origin", "main"}, "Git force push")
 end
 
@@ -1058,4 +1075,3 @@ event.listen {
   end
 }
 ```
-  
