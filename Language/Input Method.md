@@ -152,7 +152,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
- - 飞天 zdj/euxxsHu,wmdJdvxysYesrf.zlyhzygJue_
+ - 飞天 zDj4xxsHuwm'd9exysYesrfdzlyhzy4gj8
  - 象码 z_dejaxxsHu,wmd.dnxysYesrf.ezuy_cryzgdjh_
  - 龙码 n_hyevcrcgtrme,gphehcjwtfjztfvvkrjgkzjwlveh
 
@@ -174,7 +174,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 四拼 ymxs;bveaaebiddaemdd\_gneegreolqaa.
 - 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
-- 飞天 cmxWd_bzsdbhddMdghn'gar/lxqz
+- 飞天 cmxWdBzs.ibhddMdgn5gar/lq3 单字
+- 飞天 cmxwdBzsdbh_ddMdgn5garplq3 单字
 - 象码 cmxWd_bns.ibgddMdgsngar_lqe_
 - 龙码 spcgh_iatrif_hwhaphhllwyolgfydrah
  
