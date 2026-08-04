@@ -152,10 +152,10 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  - 万象 zddhjbxbxiuehv,womfdajxdzxuycuiysuurufaveyivsycgsju
  - 简单 z_dhjbxbxiuehv,womfdajxdxy_uiysurf.v_y_vsycgsju
  - 清韵 ;dj.xxsh,wmdjdxy_sy/srf_w_kezygj2
- - 飞天 zDj4xxsHuwm'd9exysYesrfdzlyhzy4gj8
+ - 飞天 zDj4xxsHuwm'd9exysYesrf.zl_yZy4gj8 单字
+ - 飞天 zDj4xxsHuwm'd9exysYesrfdzlyhzy4gj8 词组
  - 象码 z_dejaxxsHu,wmd.dnxysYesrf.ezuy_cryzgdjh_
  - 龙码 n_hyevcrcgtrme,gphehcjwtfjztfvvkrjgkzjwlveh
-
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
@@ -175,7 +175,7 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
 - 飞天 cmxWdBzs.ibhddMdgn5gar/lq3 单字
-- 飞天 cmxwdBzsdbh_ddMdgn5garplq3 单字
+- 飞天 cmxwdBzsdbh_ddMdgn5garplq3 词组
 - 象码 cmxWd_bns.ibgddMdgsngar_lqe_
 - 龙码 spcgh_iatrif_hwhaphhllwyolgfydrah
  
