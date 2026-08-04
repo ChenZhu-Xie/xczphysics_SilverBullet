@@ -158,8 +158,6 @@ https://www.zhihu.com/question/376022178/answer/3165035735
  -      zDijrxxshuwmdjdxyxsryusrfdzly_zvyxghjb.
  - 象码 z_dejaxxsHu,wmd.dnxysYesrf.ezuy_cryzgdjh_
  - 龙码 n_hyevcrcgtrme,gphehcjwtfjztfvvkrjgkzjwlveh
-在当今信息社会我们大家都需要使用输入法这一重要工具。
-在当今信息社会我们大家都需要使用输入法这一重要工具。
 
 # 整句 2 对比
 >- P C  上 的 希 腊   字 母  和 数 学 符 号  怎么 打
@@ -178,8 +176,8 @@ https://www.zhihu.com/question/376022178/answer/3165035735
 - 四拼 ymxs;bveaaebiddaemdd\_gneegreolqaa.
 - 清韵 cmxwebseA2beddamddGn/2gr.lqu_
 - 飞码 cmxwd_bzsdabh_d;emddtghnsgar_lxqz_
-- 飞天 cmxWdBzs.ibhddMdgn5gar/lq3 单字
--      cmxWdBzs._bhddMdghn'gar/lxqz.
+- 飞天 cmxWdBzs.bhddMdgn5gar/lq3 单字
+-      cmxWdBzs.bhddMdghn'gar/lxqz.
 - 飞天 cmxwdBzsdbh_ddMdgn5garplq3 词组
 -      cmxwdBzsdbh_ddmdeadt_ghnsgarplxqz.
 - 象码 cmxWd_bns.ibgddMdgsngar_lqe_
