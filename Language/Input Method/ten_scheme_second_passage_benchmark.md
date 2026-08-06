@@ -10,18 +10,17 @@
 
 ## 第二段逐键流
 
-```text
-TEXT   午后 会议 开始 之前 ，项目 成员 重新 核   验   测试 数据 ，
-FT-S0  wph/ huy. ks'  zq'  ，xm'  cey; cvx. hmy'      css,      ，
-FT-S1  wph/ hy9  ks'  zq'  ，xm'  cy8  cx4  hmy'      css,      ，
-FT-W0  wphk huyy ks'  zq'  ，xm'  ceyk cvxj hmym      cssj      ，
-FT-W1  wphk hy9  ks'  zq'  ，xm'  cy8  cx4  hmym      cssj      ，
-FM-E   w/uu hy9  ks'  zq'  ，xm'  cy8  cx4  hmym      cssj      ，
-XM-S0  wrh/ hyo  ks'  zq'  ，xm'  cgy; crx. hmy'      css,      ，
-XM-S1  wrh/ hyo  ks'  zq'  ，xm'  cgy; crx. hmy'      css,      ，
-XM-W0  wrh/ hyo  ks'  zq'  ，xm'  cgyo crxl hmy'      css,      ，
-XM-W1  wrh/ hyo  ks'  zq'  ，xm'  cgyo crxl hmy'      css,      ，
-XH     wuhz hvyi kdui viqm ，xlmu igyr i;   hem_ yjm_ ceui uuju ，
+TEXT   午后 会议 开始 之前 ，项目 成员 重新 核  验   测试 数据 ，
+FT-S0  wph/ huy. ks'  zq'  ，xm'  cey; cvx. hmy'     css,      ，
+FT-S1  wph/ hy9  ks'  zq'  ，xm'  cy8  cx4  hmy'     css,      ，
+FT-W0  wphk huyy ks'  zq'  ，xm'  ceyk cvxj hmym     cssj      ，
+FT-W1  wphk hy9  ks'  zq'  ，xm'  cy8  cx4  hmym     cssj      ，
+FM-E   w/uu hy9  ks'  zq'  ，xm'  cy8  cx4  hmym     cssj      ，
+XM-S0  wrh/ hyo  ks'  zq'  ，xm'  cgy; crx. hmy'     css,      ，
+XM-S1  wrh/ hyo  ks'  zq'  ，xm'  cgy; crx. hmy'     css,      ，
+XM-W0  wrh/ hyo  ks'  zq'  ，xm'  cgyo crxl hmy'     css,      ，
+XM-W1  wrh/ hyo  ks'  zq'  ，xm'  cgyo crxl hmy'     css,      ，
+XH     wuhz hvyi kdui viqm ，xlmu igyr i;   hem_yjm_ ceui uuju ，
 
 TEXT   并  把  关键 结果整理 成  统一表格  。
 FT-S0  bb  be  gbj/ jg' znl, ce  ty' bvg,  。
