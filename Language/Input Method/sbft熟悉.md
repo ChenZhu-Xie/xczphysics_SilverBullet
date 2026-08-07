@@ -8,31 +8,33 @@ u =  5 10      数选 笔画 补集
 
 # 单字：含 vs 无缩写
 
- `spb` ==无缩写==
+ `spb`  ==无缩写==
 - 单
 
 # 二字词
 
-## 3 stroke
+## 3 stroke minimum
 
 ### 二简词
 
  `sp sp`  ==可二简==
-- 需 要 s s’
+- 需 要 s s ’
 
-### 含缩写
+### 数选词
 
- `sp sp` ==含数选==
+ `sp sp`  ==含数选==
 - 模 式 s sn
-- 熟 悉 s su~1~
+- 熟 悉 s s u~1~
  `sb sp`
 - 那 么 s sn
 - 对 应 s su
-- 面 板 s su
+- 面 板
 
-### 不含缩写
+## 4 stroke minimum
 
- `sp sp` ==无缩写==
+### 正规词
+
+ `sp sp`  ==无缩写==
 - 缩 写
 - 字 词
  `sb sb`
@@ -40,18 +42,29 @@ u =  5 10      数选 笔画 补集
  `sp sb`
 - 含 有
 
-# 三字词：含 vs 无缩写
+## 5 stroke minimum
+
+ `sp sp`  ==可组词==
+- 组 词  sp spb
+- 主 词
+ `sb sp`
+- 二 简  sb spb
+
+ `sp sp` 
+- 主 词  sp sp b~1~
+
+# 三字词组：含 vs 无缩写
 
 ## 含缩写
 
- `s s|sp` ==含缩写==
-- 第一行  tab
-> 第一（二简词）：dy’
+ `s s sp`  ==含缩写==
+- 第一行  s s|sp tab
+> 第一（二简词）：d y ’
 >   行（多音字）：xc 而非 hc
 
 ## 不含缩写
 
- `s s sp` ==无缩写==
+ `s s sp`  ==无缩写==
 - 第三个
 - 没必要
 
