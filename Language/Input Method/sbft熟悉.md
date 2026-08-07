@@ -44,14 +44,16 @@ u =  5 10      数选 笔画 补集
 
 ## 5 stroke minimum
 
- `sp sp`  ==可组词==
-- 组 词  sp spb
+ `sp sp`  ==; 造词==
+- 组 词  sp spb ;
 - 主 词
  `sb sp`
-- 二 简  sb spb
+- 二 简  sb spb ;
 
  `sp sp` 
 - 主 词  sp sp b~1~
+ `sb sp`
+- 二 简  sb sp b~1~
 
 # 三字词组：含 vs 无缩写
 
