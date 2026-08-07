@@ -44,13 +44,13 @@ u =  5 10      数选 笔画 补集
 
 ## 5 stroke minimum
 
- `sp sp`  ==; 造词==
+ `sp sp`  ==; 造词== 但我感觉这只有 ==组合变换 上屏== 功能，无造词功能
 - 组 词  sp spb ;
 - 主 词
  `sb sp`
 - 二 简  sb spb ;
 
- `sp sp` 
+ `sp sp`  ==选择==  这个无造词的功能，但可以使得 目标 item 排序靠前
 - 主 词  sp sp b~1~
  `sb sp`
 - 二 简  sb sp b~1~
