@@ -34,6 +34,8 @@ u =  5 10      数选 笔画 补集
 - 那 么 s sn
 - 对 应 s su
 - 面 板
+ `sp sb`
+- 应 当 s s u
 
 ## 4 stroke minimum
 
